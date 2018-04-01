@@ -1,0 +1,6 @@
+framework module Pods_MotelNetwork {
+  umbrella header "Pods-MotelNetwork-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,484 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		22646D6A0FA189D05EEE187D /* Pods_MotelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */; };
+		E18F07242067467200281432 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E18F07232067467200281432 /* DLRadioButton.m */; };
+		E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F072B20674C2200281432 /* SignUpViewController.swift */; };
+		E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18F072C20674C2200281432 /* SignUpViewController.xib */; };
+		E198761220672E2D008434CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198761120672E2D008434CC /* AppDelegate.swift */; };
+		E198761420672E2D008434CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198761320672E2D008434CC /* ViewController.swift */; };
+		E198761720672E2D008434CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761520672E2D008434CC /* Main.storyboard */; };
+		E198761920672E2D008434CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E198761820672E2D008434CC /* Assets.xcassets */; };
+		E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761A20672E2D008434CC /* LaunchScreen.storyboard */; };
+		E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE6912067805D005715EC /* LoginViewController.swift */; };
+		E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE6922067805D005715EC /* LoginViewController.xib */; };
+		E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */; };
+		E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE6962067898C005715EC /* ForgotPasswordViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		30112E5F978D897CC2765B50 /* Pods-MotelNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotelNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork.release.xcconfig"; sourceTree = "<group>"; };
+		5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotelNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAD763934971E3E622BC4AFC /* Pods-MotelNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotelNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork.debug.xcconfig"; sourceTree = "<group>"; };
+		E18F07212067467100281432 /* MotelNetwork-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MotelNetwork-Bridging-Header.h"; sourceTree = "<group>"; };
+		E18F07222067467200281432 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		E18F07232067467200281432 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
+		E18F072B20674C2200281432 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E18F072C20674C2200281432 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		E198760E20672E2D008434CC /* MotelNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotelNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E198761120672E2D008434CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E198761320672E2D008434CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E198761620672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E198761820672E2D008434CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E198761B20672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E198761D20672E2D008434CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1CDE6912067805D005715EC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E1CDE6922067805D005715EC /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		E1CDE6962067898C005715EC /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E198760B20672E2D008434CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22646D6A0FA189D05EEE187D /* Pods_MotelNetwork.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01EF52EC13FB9120A8D37862 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E15331792068E18100238763 /* ForgotPasswordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */,
+				E1CDE6962067898C005715EC /* ForgotPasswordViewController.xib */,
+			);
+			path = ForgotPasswordViewController;
+			sourceTree = "<group>";
+		};
+		E153317A2068E19000238763 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1CDE6912067805D005715EC /* LoginViewController.swift */,
+				E1CDE6922067805D005715EC /* LoginViewController.xib */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		E153317B2068E19B00238763 /* SignUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E18F072B20674C2200281432 /* SignUpViewController.swift */,
+				E18F072C20674C2200281432 /* SignUpViewController.xib */,
+			);
+			path = SignUpViewController;
+			sourceTree = "<group>";
+		};
+		E153317C2068E1B000238763 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				E18F07222067467200281432 /* DLRadioButton.h */,
+				E18F07232067467200281432 /* DLRadioButton.m */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		E198760520672E2D008434CC = {
+			isa = PBXGroup;
+			children = (
+				E198761020672E2D008434CC /* MotelNetwork */,
+				E198760F20672E2D008434CC /* Products */,
+				E2CC27CED042D3E9451DE207 /* Pods */,
+				01EF52EC13FB9120A8D37862 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E198760F20672E2D008434CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E198760E20672E2D008434CC /* MotelNetwork.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E198761020672E2D008434CC /* MotelNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				E198761120672E2D008434CC /* AppDelegate.swift */,
+				E198761320672E2D008434CC /* ViewController.swift */,
+				E198761520672E2D008434CC /* Main.storyboard */,
+				E198761820672E2D008434CC /* Assets.xcassets */,
+				E198761A20672E2D008434CC /* LaunchScreen.storyboard */,
+				E198761D20672E2D008434CC /* Info.plist */,
+				E18F07212067467100281432 /* MotelNetwork-Bridging-Header.h */,
+				E153317C2068E1B000238763 /* Libraries */,
+				E153317B2068E19B00238763 /* SignUpViewController */,
+				E153317A2068E19000238763 /* LoginViewController */,
+				E15331792068E18100238763 /* ForgotPasswordViewController */,
+			);
+			path = MotelNetwork;
+			sourceTree = "<group>";
+		};
+		E2CC27CED042D3E9451DE207 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AAD763934971E3E622BC4AFC /* Pods-MotelNetwork.debug.xcconfig */,
+				30112E5F978D897CC2765B50 /* Pods-MotelNetwork.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E198760D20672E2D008434CC /* MotelNetwork */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E198762020672E2D008434CC /* Build configuration list for PBXNativeTarget "MotelNetwork" */;
+			buildPhases = (
+				7641C4081589DFF79D51A3B5 /* [CP] Check Pods Manifest.lock */,
+				E198760A20672E2D008434CC /* Sources */,
+				E198760B20672E2D008434CC /* Frameworks */,
+				E198760C20672E2D008434CC /* Resources */,
+				3B6B8EEDE3126B6B6C9D00BF /* [CP] Embed Pods Frameworks */,
+				561B04332EBE6B2DC49C018D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MotelNetwork;
+			productName = MotelNetwork;
+			productReference = E198760E20672E2D008434CC /* MotelNetwork.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E198760620672E2D008434CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Nguyên Duy";
+				TargetAttributes = {
+					E198760D20672E2D008434CC = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = E198760920672E2D008434CC /* Build configuration list for PBXProject "MotelNetwork" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E198760520672E2D008434CC;
+			productRefGroup = E198760F20672E2D008434CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E198760D20672E2D008434CC /* MotelNetwork */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E198760C20672E2D008434CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */,
+				E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */,
+				E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */,
+				E198761920672E2D008434CC /* Assets.xcassets in Resources */,
+				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
+				E198761720672E2D008434CC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B6B8EEDE3126B6B6C9D00BF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DLRadioButton/DLRadioButton.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DLRadioButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		561B04332EBE6B2DC49C018D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7641C4081589DFF79D51A3B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MotelNetwork-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E198760A20672E2D008434CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E18F07242067467200281432 /* DLRadioButton.m in Sources */,
+				E198761420672E2D008434CC /* ViewController.swift in Sources */,
+				E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */,
+				E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */,
+				E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */,
+				E198761220672E2D008434CC /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E198761520672E2D008434CC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E198761620672E2D008434CC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E198761A20672E2D008434CC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E198761B20672E2D008434CC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E198761E20672E2D008434CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E198761F20672E2D008434CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E198762120672E2D008434CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAD763934971E3E622BC4AFC /* Pods-MotelNetwork.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZCX458UUY2;
+				INFOPLIST_FILE = MotelNetwork/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.MotelNetwork;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MotelNetwork/MotelNetwork-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E198762220672E2D008434CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30112E5F978D897CC2765B50 /* Pods-MotelNetwork.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZCX458UUY2;
+				INFOPLIST_FILE = MotelNetwork/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.MotelNetwork;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MotelNetwork/MotelNetwork-Bridging-Header.h";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E198760920672E2D008434CC /* Build configuration list for PBXProject "MotelNetwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E198761E20672E2D008434CC /* Debug */,
+				E198761F20672E2D008434CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E198762020672E2D008434CC /* Build configuration list for PBXNativeTarget "MotelNetwork" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E198762120672E2D008434CC /* Debug */,
+				E198762220672E2D008434CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E198760620672E2D008434CC /* Project object */;
+}
