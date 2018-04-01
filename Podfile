@@ -6,7 +6,7 @@ target 'MotelNetwork' do
   use_frameworks!
 
   # Pods for MotelNetwork
-	pod 'DLRadioButton', '~> 1.4'
+	
 	pod 'Firebase/Core'
 	pod 'FirebaseUI/Facebook'
 	pod 'FirebaseUI/Google'

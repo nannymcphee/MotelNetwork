@@ -18,6 +18,8 @@
 		E198761720672E2D008434CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761520672E2D008434CC /* Main.storyboard */; };
 		E198761920672E2D008434CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E198761820672E2D008434CC /* Assets.xcassets */; };
 		E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761A20672E2D008434CC /* LaunchScreen.storyboard */; };
+		E1A621D22070D23100B83291 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A621D02070D23100B83291 /* TestViewController.swift */; };
+		E1A621D32070D23100B83291 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A621D12070D23100B83291 /* TestViewController.xib */; };
 		E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE6912067805D005715EC /* LoginViewController.swift */; };
 		E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE6922067805D005715EC /* LoginViewController.xib */; };
 		E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */; };
@@ -42,6 +44,8 @@
 		E198761820672E2D008434CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E198761B20672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E198761D20672E2D008434CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1A621D02070D23100B83291 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		E1A621D12070D23100B83291 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		E1CDE6912067805D005715EC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E1CDE6922067805D005715EC /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 		E198761020672E2D008434CC /* MotelNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				E1A621CF2070D1FF00B83291 /* TestViewController */,
 				E198761120672E2D008434CC /* AppDelegate.swift */,
 				E198761320672E2D008434CC /* ViewController.swift */,
 				E198761520672E2D008434CC /* Main.storyboard */,
@@ -148,6 +153,15 @@
 				E104667020708FFE00245789 /* TutorialViewController */,
 			);
 			path = MotelNetwork;
+			sourceTree = "<group>";
+		};
+		E1A621CF2070D1FF00B83291 /* TestViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1A621D02070D23100B83291 /* TestViewController.swift */,
+				E1A621D12070D23100B83291 /* TestViewController.xib */,
+			);
+			path = TestViewController;
 			sourceTree = "<group>";
 		};
 		E2CC27CED042D3E9451DE207 /* Pods */ = {
@@ -228,6 +242,7 @@
 				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
 				E198761920672E2D008434CC /* Assets.xcassets in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
+				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
 				E198761720672E2D008434CC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +314,7 @@
 			files = (
 				E18F07242067467200281432 /* DLRadioButton.m in Sources */,
 				E104666E20708FF400245789 /* TutorialViewController.swift in Sources */,
+				E1A621D22070D23100B83291 /* TestViewController.swift in Sources */,
 				E198761420672E2D008434CC /* ViewController.swift in Sources */,
 				E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */,
 				E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */,

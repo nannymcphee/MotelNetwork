@@ -13,6 +13,8 @@ class TutorialViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var btnGetStarted: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
+    
+    
     var imageArr: [String] = ["Color Burst 1", "Color Burst 2", "Color Burst 3"]
     var frame = CGRect(x:0, y:0, width:0, height:0)
     
