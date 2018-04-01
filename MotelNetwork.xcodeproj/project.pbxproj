@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		22646D6A0FA189D05EEE187D /* Pods_MotelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */; };
+		E104666E20708FF400245789 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104666C20708FF400245789 /* TutorialViewController.swift */; };
+		E104666F20708FF400245789 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E104666D20708FF400245789 /* TutorialViewController.xib */; };
 		E18F07242067467200281432 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E18F07232067467200281432 /* DLRadioButton.m */; };
 		E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F072B20674C2200281432 /* SignUpViewController.swift */; };
 		E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18F072C20674C2200281432 /* SignUpViewController.xib */; };
@@ -26,6 +28,8 @@
 		30112E5F978D897CC2765B50 /* Pods-MotelNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotelNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork.release.xcconfig"; sourceTree = "<group>"; };
 		5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotelNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD763934971E3E622BC4AFC /* Pods-MotelNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotelNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork.debug.xcconfig"; sourceTree = "<group>"; };
+		E104666C20708FF400245789 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		E104666D20708FF400245789 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
 		E18F07212067467100281432 /* MotelNetwork-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MotelNetwork-Bridging-Header.h"; sourceTree = "<group>"; };
 		E18F07222067467200281432 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
 		E18F07232067467200281432 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
@@ -62,6 +66,15 @@
 				5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E104667020708FFE00245789 /* TutorialViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E104666C20708FF400245789 /* TutorialViewController.swift */,
+				E104666D20708FF400245789 /* TutorialViewController.xib */,
+			);
+			path = TutorialViewController;
 			sourceTree = "<group>";
 		};
 		E15331792068E18100238763 /* ForgotPasswordViewController */ = {
@@ -132,6 +145,7 @@
 				E153317B2068E19B00238763 /* SignUpViewController */,
 				E153317A2068E19000238763 /* LoginViewController */,
 				E15331792068E18100238763 /* ForgotPasswordViewController */,
+				E104667020708FFE00245789 /* TutorialViewController */,
 			);
 			path = MotelNetwork;
 			sourceTree = "<group>";
@@ -211,6 +225,7 @@
 				E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */,
 				E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */,
 				E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */,
+				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
 				E198761920672E2D008434CC /* Assets.xcassets in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
 				E198761720672E2D008434CC /* Main.storyboard in Resources */,
@@ -283,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E18F07242067467200281432 /* DLRadioButton.m in Sources */,
+				E104666E20708FF400245789 /* TutorialViewController.swift in Sources */,
 				E198761420672E2D008434CC /* ViewController.swift in Sources */,
 				E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */,
 				E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */,
