@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,17 +17,12 @@
 		54F580BF4588159D6A61F21D15591805 /* pb_decode.c in Sources */ = {isa = PBXBuildFile; fileRef = BE1EE0723DC4D532620954D5CFBE0F99 /* pb_decode.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc -fno-objc-arc"; }; };
 		55D8D5D912CFD2F3584E4553C2EAD734 /* pb_encode.c in Sources */ = {isa = PBXBuildFile; fileRef = F5AE3BA7BE55B4A8B64FA18389715970 /* pb_encode.c */; settings = {COMPILER_FLAGS = "-fno-objc-arc -fno-objc-arc"; }; };
 		592931F903C0314C1F0AA7910DF88866 /* Pods-MotelNetwork-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B36FB029B38CA969EFD056C105A02735 /* Pods-MotelNetwork-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5E7E0B70C0D1CCD0AC694A99E8324ECD /* DLRadioButton-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C972815D3D938C73D6ED93A69F7AA78 /* DLRadioButton-dummy.m */; };
 		806BAA4E00218D70995697C4400BE7A0 /* pb_common.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B16FBA5F63CCA6809D08D531EDF44D8 /* pb_common.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		81E4B6988FF26F9249B79C6C8CC667B4 /* GoogleToolboxForMac-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D2D6BB6232EBD8EFD51A7193FC192ECC /* GoogleToolboxForMac-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		84116DD709725E60919846D7B1AF714B /* DLRadioButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 074D03F0D101834931259FA01DF916EE /* DLRadioButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8F2D8EC348F59816CFDEA65538E3E532 /* DLRadioButton.h in Headers */ = {isa = PBXBuildFile; fileRef = ABC8E02A43B8BB418D3C75DFF23101CE /* DLRadioButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93D51748565CFEB9490FBA7DA993C5C0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		B6988E28381FCC5D04082DD3969BD03F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		BBA710C1DF57DC53EDC1885AC2DE24AB /* Pods-MotelNetwork-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD002A0B72E52A9C873E101246BBE56 /* Pods-MotelNetwork-dummy.m */; };
 		DBFECCB0BBE3F11CC41A3C1A8C4879D3 /* GTMNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F943A5363DBA4A5D9984D3E5BFA47DF /* GTMNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E181395E73163EB702FCE9A21403D67B /* pb_encode.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BC27270C73001C915BE9A81118A6CFB /* pb_encode.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		EF2F59EEA3194DFCFB39352F4DA16D76 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B823E469E8C0A5B266B23DFBE946DDAB /* DLRadioButton.m */; };
 		F7D889906DECB078EAAECB9D4A320E9C /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D59A960229E484B3F0C038E7310DAE /* GTMNSData+zlib.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		F9D92BA503505CB48EF4ECF0DDF57686 /* nanopb-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4227959C23F495D894748116A60BDE47 /* nanopb-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAC3F3CAABA60EF76069431C5BB5032A /* GoogleToolboxForMac-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B2BEAC2F810BCDA0360A7421F3E290 /* GoogleToolboxForMac-dummy.m */; };
@@ -41,13 +36,6 @@
 			remoteGlobalIDString = 00103D6C821BE85971C563025527BA5D;
 			remoteInfo = GoogleToolboxForMac;
 		};
-		60F83FF454874492727772C52350DC32 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F6A77E2753C279F67F70C5C21D6FAE15;
-			remoteInfo = DLRadioButton;
-		};
 		CC876AE062F067B538D9219A90C22B3A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
@@ -58,22 +46,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		074D03F0D101834931259FA01DF916EE /* DLRadioButton-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DLRadioButton-umbrella.h"; sourceTree = "<group>"; };
 		0F943A5363DBA4A5D9984D3E5BFA47DF /* GTMNSData+zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSData+zlib.h"; path = "Foundation/GTMNSData+zlib.h"; sourceTree = "<group>"; };
 		17E3FA78AFF79B51E2BF0372E01E9FAA /* Pods-MotelNetwork-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-MotelNetwork-acknowledgements.plist"; sourceTree = "<group>"; };
-		196B2A140AC8FB6AE23C385DD9566BCF /* pb_common.c */ = {isa = PBXFileReference; includeInIndex = 1; path = pb_common.c; sourceTree = "<group>"; };
+		196B2A140AC8FB6AE23C385DD9566BCF /* pb_common.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = pb_common.c; sourceTree = "<group>"; };
 		1A75BFD7A155D199A08F5DE35FEA0957 /* nanopb-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "nanopb-dummy.m"; sourceTree = "<group>"; };
-		1CAF8D9C7AEF5696B277B7799A341DC6 /* DLRadioButton.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DLRadioButton.xcconfig; sourceTree = "<group>"; };
 		2856ED635494CCBFC87C573BA1C831B8 /* pb.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pb.h; sourceTree = "<group>"; };
 		28FA2BB2FC61A50320B0CD2277A27737 /* GoogleToolboxForMac.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = GoogleToolboxForMac.modulemap; sourceTree = "<group>"; };
 		31551E670972A174D3FB01BCCB1768DF /* nanopb.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = nanopb.modulemap; sourceTree = "<group>"; };
 		319C489F46C7F4A4907948564B6B4F76 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		367A23EC69D9E01853899C0B279D77D3 /* DLRadioButton-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DLRadioButton-prefix.pch"; sourceTree = "<group>"; };
-		3B01EA6390AE63988ABE610A8A951C22 /* Pods_MotelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_MotelNetwork.framework; path = "Pods-MotelNetwork.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3C53813CFF324DFAB57446BDF1F238D1 /* DLRadioButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DLRadioButton.framework; path = DLRadioButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3B01EA6390AE63988ABE610A8A951C22 /* Pods_MotelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotelNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		407822F6386583108A6023F82B054AFD /* Pods-MotelNetwork-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-MotelNetwork-acknowledgements.markdown"; sourceTree = "<group>"; };
 		4227959C23F495D894748116A60BDE47 /* nanopb-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "nanopb-umbrella.h"; sourceTree = "<group>"; };
-		42D46F325F990ECBB0CF415436B49174 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		48C68A5AF9F82F4BB0DC24D8B7729927 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Core/Sources/Firebase.h; sourceTree = "<group>"; };
 		5B16FBA5F63CCA6809D08D531EDF44D8 /* pb_common.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pb_common.h; sourceTree = "<group>"; };
 		5FD002A0B72E52A9C873E101246BBE56 /* Pods-MotelNetwork-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-MotelNetwork-dummy.m"; sourceTree = "<group>"; };
@@ -87,29 +70,25 @@
 		7E12528947FAE5E135727E633C86F9FC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CAF220E052FD2643EA13D696F8614C7 /* Pods-MotelNetwork-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MotelNetwork-frameworks.sh"; sourceTree = "<group>"; };
 		8F2F31329F7211F47E941680343FC7B1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9C972815D3D938C73D6ED93A69F7AA78 /* DLRadioButton-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DLRadioButton-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A27A202EB8CACBB7A37DE7630A13AFED /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
 		A4BC50B1E703B9AA702A7C6A19691460 /* pb_decode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = pb_decode.h; sourceTree = "<group>"; };
 		A57EFB4928BC478DBCE586D8221E482C /* FirebaseNanoPB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseNanoPB.framework; path = Frameworks/FirebaseNanoPB.framework; sourceTree = "<group>"; };
-		ABC8E02A43B8BB418D3C75DFF23101CE /* DLRadioButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DLRadioButton.h; path = DLRadioButton/DLRadioButton.h; sourceTree = "<group>"; };
 		AC83D67FB48AF3C47FC8C44B9FE9E4A4 /* nanopb-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "nanopb-prefix.pch"; sourceTree = "<group>"; };
-		B267EBDF93FC61A8BA447BE9B90D077E /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = nanopb.framework; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B2B9B5F7AD52A6F366A1C1B119829805 /* DLRadioButton.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DLRadioButton.modulemap; sourceTree = "<group>"; };
+		B267EBDF93FC61A8BA447BE9B90D077E /* nanopb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = nanopb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36FB029B38CA969EFD056C105A02735 /* Pods-MotelNetwork-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-MotelNetwork-umbrella.h"; sourceTree = "<group>"; };
 		B70AA916F14FE6C181CA4426D614840E /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
 		B81CD6B10C6BC755E37D34C64E519503 /* Pods-MotelNetwork.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-MotelNetwork.modulemap"; sourceTree = "<group>"; };
-		B823E469E8C0A5B266B23DFBE946DDAB /* DLRadioButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = DLRadioButton/DLRadioButton.m; sourceTree = "<group>"; };
 		B8B2BEAC2F810BCDA0360A7421F3E290 /* GoogleToolboxForMac-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GoogleToolboxForMac-dummy.m"; sourceTree = "<group>"; };
-		BE1EE0723DC4D532620954D5CFBE0F99 /* pb_decode.c */ = {isa = PBXFileReference; includeInIndex = 1; path = pb_decode.c; sourceTree = "<group>"; };
+		BE1EE0723DC4D532620954D5CFBE0F99 /* pb_decode.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = pb_decode.c; sourceTree = "<group>"; };
 		C4F3FE725433028C800B6F0611A0CEA0 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
 		C67E3A1BB33D13FF8EF47064067A82A7 /* Pods-MotelNetwork-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-MotelNetwork-resources.sh"; sourceTree = "<group>"; };
 		C904C936DD5EE82BA63F3F633DA71368 /* nanopb.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = nanopb.xcconfig; sourceTree = "<group>"; };
 		C9491F32EB445205CC8F7A0E126ECDCD /* FirebaseCoreDiagnostics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCoreDiagnostics.framework; path = Frameworks/FirebaseCoreDiagnostics.framework; sourceTree = "<group>"; };
 		CDB94F5FB0BC744BC43CCC7CDFF0F97D /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
 		D2D6BB6232EBD8EFD51A7193FC192ECC /* GoogleToolboxForMac-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-umbrella.h"; sourceTree = "<group>"; };
-		ED15645D393CC2FEFC91EE81E727E4BD /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GoogleToolboxForMac.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5AE3BA7BE55B4A8B64FA18389715970 /* pb_encode.c */ = {isa = PBXFileReference; includeInIndex = 1; path = pb_encode.c; sourceTree = "<group>"; };
+		ED15645D393CC2FEFC91EE81E727E4BD /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5AE3BA7BE55B4A8B64FA18389715970 /* pb_encode.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; path = pb_encode.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,14 +105,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				05B1F02560378D28FEBD4E8F6D293216 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A2A324E81F33CA8363E22E0C427CBC97 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B6988E28381FCC5D04082DD3969BD03F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,7 +132,6 @@
 			children = (
 				EA2291F9AF851B11F8955F99D9EDD846 /* Frameworks */,
 			);
-			name = FirebaseCore;
 			path = FirebaseCore;
 			sourceTree = "<group>";
 		};
@@ -172,7 +142,6 @@
 				6337D10C1999C495EEA175EC5E27D4A7 /* NSData+zlib */,
 				51432608BFCD7E4B1726B5E56B1311EA /* Support Files */,
 			);
-			name = GoogleToolboxForMac;
 			path = GoogleToolboxForMac;
 			sourceTree = "<group>";
 		};
@@ -208,7 +177,6 @@
 		4E6CC141E9B711C9FC7E697BF9FF7B6D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CC732D8FC2F15ACC09AD0792CC3F43EB /* DLRadioButton */,
 				5467EDF7270D7EF785B52C7E339A8680 /* Firebase */,
 				74FA5AF7FBE002C4B4937C803F1D926D /* FirebaseAnalytics */,
 				0E5D472A1965D138A4B724C4F0AFAB64 /* FirebaseCore */,
@@ -238,7 +206,6 @@
 			children = (
 				043E26C687D11F6F7820C31F76AD1F83 /* Core */,
 			);
-			name = Firebase;
 			path = Firebase;
 			sourceTree = "<group>";
 		};
@@ -271,7 +238,6 @@
 			children = (
 				A30E6E6AA328EC139F2543B9F725777F /* Frameworks */,
 			);
-			name = FirebaseAnalytics;
 			path = FirebaseAnalytics;
 			sourceTree = "<group>";
 		};
@@ -292,20 +258,6 @@
 				C89E0087D833D52695986D3746FCF078 /* Products */,
 				693D6F2F93C8921E38C4C5899C9311FB /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		94119C1180B3F1A0114A66645687C0B5 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B2B9B5F7AD52A6F366A1C1B119829805 /* DLRadioButton.modulemap */,
-				1CAF8D9C7AEF5696B277B7799A341DC6 /* DLRadioButton.xcconfig */,
-				9C972815D3D938C73D6ED93A69F7AA78 /* DLRadioButton-dummy.m */,
-				367A23EC69D9E01853899C0B279D77D3 /* DLRadioButton-prefix.pch */,
-				074D03F0D101834931259FA01DF916EE /* DLRadioButton-umbrella.h */,
-				42D46F325F990ECBB0CF415436B49174 /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/DLRadioButton";
 			sourceTree = "<group>";
 		};
 		A30E6E6AA328EC139F2543B9F725777F /* Frameworks */ = {
@@ -350,7 +302,6 @@
 				1CF3BA7D0B0B53C58B77649AE9E12F49 /* encode */,
 				4912378BEF5A7086E0C9EF2F47046FB8 /* Support Files */,
 			);
-			name = nanopb;
 			path = nanopb;
 			sourceTree = "<group>";
 		};
@@ -365,7 +316,6 @@
 		C89E0087D833D52695986D3746FCF078 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3C53813CFF324DFAB57446BDF1F238D1 /* DLRadioButton.framework */,
 				ED15645D393CC2FEFC91EE81E727E4BD /* GoogleToolboxForMac.framework */,
 				B267EBDF93FC61A8BA447BE9B90D077E /* nanopb.framework */,
 				3B01EA6390AE63988ABE610A8A951C22 /* Pods_MotelNetwork.framework */,
@@ -373,23 +323,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CC732D8FC2F15ACC09AD0792CC3F43EB /* DLRadioButton */ = {
-			isa = PBXGroup;
-			children = (
-				ABC8E02A43B8BB418D3C75DFF23101CE /* DLRadioButton.h */,
-				B823E469E8C0A5B266B23DFBE946DDAB /* DLRadioButton.m */,
-				94119C1180B3F1A0114A66645687C0B5 /* Support Files */,
-			);
-			name = DLRadioButton;
-			path = DLRadioButton;
-			sourceTree = "<group>";
-		};
 		D0B1A4880C8E4FDC0BC5A4253DA7937A /* FirebaseInstanceID */ = {
 			isa = PBXGroup;
 			children = (
 				45012ADF33C5DC674B7486E8C0CEB549 /* Frameworks */,
 			);
-			name = FirebaseInstanceID;
 			path = FirebaseInstanceID;
 			sourceTree = "<group>";
 		};
@@ -412,15 +350,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		220E61F93FBE49E9C3EBBEE5E9331C18 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				84116DD709725E60919846D7B1AF714B /* DLRadioButton-umbrella.h in Headers */,
-				8F2D8EC348F59816CFDEA65538E3E532 /* DLRadioButton.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4547B9AF8085A499AA35614798F8F9E4 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -482,7 +411,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				9B244F2F96F7072A9346E44EA716A6C7 /* PBXTargetDependency */,
 				362BBEBB2DA7E24D7BD8CBAE934AF29D /* PBXTargetDependency */,
 				E875BA186F1760C57353CBB0900D759A /* PBXTargetDependency */,
 			);
@@ -508,23 +436,6 @@
 			productReference = B267EBDF93FC61A8BA447BE9B90D077E /* nanopb.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		F6A77E2753C279F67F70C5C21D6FAE15 /* DLRadioButton */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 118FCC60066EF1D7DD17E50B82C12AA4 /* Build configuration list for PBXNativeTarget "DLRadioButton" */;
-			buildPhases = (
-				8F67A4B4F56469850BF8A099A6E12AE8 /* Sources */,
-				A2A324E81F33CA8363E22E0C427CBC97 /* Frameworks */,
-				220E61F93FBE49E9C3EBBEE5E9331C18 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = DLRadioButton;
-			productName = DLRadioButton;
-			productReference = 3C53813CFF324DFAB57446BDF1F238D1 /* DLRadioButton.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -546,7 +457,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F6A77E2753C279F67F70C5C21D6FAE15 /* DLRadioButton */,
 				00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */,
 				E4DD95323C54A78F879DAB0F1508B8E7 /* nanopb */,
 				436E323489A477921B58221231B72BCC /* Pods-MotelNetwork */,
@@ -575,15 +485,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8F67A4B4F56469850BF8A099A6E12AE8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5E7E0B70C0D1CCD0AC694A99E8324ECD /* DLRadioButton-dummy.m in Sources */,
-				EF2F59EEA3194DFCFB39352F4DA16D76 /* DLRadioButton.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E67CA1B8AF1ABDA67505F8E7785E69E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -601,12 +502,6 @@
 			target = 00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */;
 			targetProxy = 396B77B119EF6B778984325425548013 /* PBXContainerItemProxy */;
 		};
-		9B244F2F96F7072A9346E44EA716A6C7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DLRadioButton;
-			target = F6A77E2753C279F67F70C5C21D6FAE15 /* DLRadioButton */;
-			targetProxy = 60F83FF454874492727772C52350DC32 /* PBXContainerItemProxy */;
-		};
 		E875BA186F1760C57353CBB0900D759A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = nanopb;
@@ -616,36 +511,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		07E757414FAD7872FE62A9A40F6C0E9B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1CAF8D9C7AEF5696B277B7799A341DC6 /* DLRadioButton.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/DLRadioButton/DLRadioButton-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DLRadioButton/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DLRadioButton/DLRadioButton.modulemap";
-				PRODUCT_NAME = DLRadioButton;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		15C069F155AD7CFEFD1E42E043D24C9F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C904C936DD5EE82BA63F3F633DA71368 /* nanopb.xcconfig */;
@@ -835,37 +700,6 @@
 			};
 			name = Debug;
 		};
-		B67275E35C1513FAC7FEB5BA46CEEAD4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1CAF8D9C7AEF5696B277B7799A341DC6 /* DLRadioButton.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/DLRadioButton/DLRadioButton-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/DLRadioButton/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/DLRadioButton/DLRadioButton.modulemap";
-				PRODUCT_NAME = DLRadioButton;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		CA33F186435244FD0FD5B7325332656C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -990,15 +824,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		118FCC60066EF1D7DD17E50B82C12AA4 /* Build configuration list for PBXNativeTarget "DLRadioButton" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				07E757414FAD7872FE62A9A40F6C0E9B /* Debug */,
-				B67275E35C1513FAC7FEB5BA46CEEAD4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
