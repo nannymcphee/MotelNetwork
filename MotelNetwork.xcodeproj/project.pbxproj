@@ -28,6 +28,8 @@
 		E1E7D2002071C8BD00874EB2 /* SignedInHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7D1FE2071C8BD00874EB2 /* SignedInHomeViewController.swift */; };
 		E1E7D2012071C8BD00874EB2 /* SignedInHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E7D1FF2071C8BD00874EB2 /* SignedInHomeViewController.xib */; };
 		E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1E7D2022071E0C600874EB2 /* Assets.xcassets */; };
+		E1E7D206207224F000874EB2 /* ListNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7D204207224F000874EB2 /* ListNewsTableViewCell.swift */; };
+		E1E7D207207224F000874EB2 /* ListNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E7D205207224F000874EB2 /* ListNewsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,8 @@
 		E1E7D1FE2071C8BD00874EB2 /* SignedInHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInHomeViewController.swift; sourceTree = "<group>"; };
 		E1E7D1FF2071C8BD00874EB2 /* SignedInHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignedInHomeViewController.xib; sourceTree = "<group>"; };
 		E1E7D2022071E0C600874EB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E1E7D204207224F000874EB2 /* ListNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNewsTableViewCell.swift; sourceTree = "<group>"; };
+		E1E7D205207224F000874EB2 /* ListNewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListNewsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,8 @@
 			children = (
 				E1E7D1FA2071C8AC00874EB2 /* BeforeSignHomeViewController.swift */,
 				E1E7D1FB2071C8AC00874EB2 /* BeforeSignHomeViewController.xib */,
+				E1E7D204207224F000874EB2 /* ListNewsTableViewCell.swift */,
+				E1E7D205207224F000874EB2 /* ListNewsTableViewCell.xib */,
 			);
 			path = BeforeSignHomeViewController;
 			sourceTree = "<group>";
@@ -277,6 +283,7 @@
 				E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */,
 				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
 				E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */,
+				E1E7D207207224F000874EB2 /* ListNewsTableViewCell.xib in Resources */,
 				E1E7D1FD2071C8AC00874EB2 /* BeforeSignHomeViewController.xib in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
@@ -357,6 +364,7 @@
 				E1E7D2002071C8BD00874EB2 /* SignedInHomeViewController.swift in Sources */,
 				E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */,
 				E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */,
+				E1E7D206207224F000874EB2 /* ListNewsTableViewCell.swift in Sources */,
 				E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */,
 				E1E7D1FC2071C8AC00874EB2 /* BeforeSignHomeViewController.swift in Sources */,
 				E198761220672E2D008434CC /* AppDelegate.swift in Sources */,
