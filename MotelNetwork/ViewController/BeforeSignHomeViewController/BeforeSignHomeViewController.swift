@@ -23,6 +23,7 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
         tbListNews.delegate = self
         tbListNews.dataSource = self
         tbListNews.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
+        
 
         // Do any additional setup after loading the view.
     }
