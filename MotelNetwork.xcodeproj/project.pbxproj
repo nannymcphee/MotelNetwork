@@ -24,6 +24,10 @@
 		E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE6922067805D005715EC /* LoginViewController.xib */; };
 		E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */; };
 		E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE6962067898C005715EC /* ForgotPasswordViewController.xib */; };
+		E1E7D1FC2071C8AC00874EB2 /* BeforeSignHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7D1FA2071C8AC00874EB2 /* BeforeSignHomeViewController.swift */; };
+		E1E7D1FD2071C8AC00874EB2 /* BeforeSignHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E7D1FB2071C8AC00874EB2 /* BeforeSignHomeViewController.xib */; };
+		E1E7D2002071C8BD00874EB2 /* SignedInHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7D1FE2071C8BD00874EB2 /* SignedInHomeViewController.swift */; };
+		E1E7D2012071C8BD00874EB2 /* SignedInHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E7D1FF2071C8BD00874EB2 /* SignedInHomeViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,10 @@
 		E1CDE6922067805D005715EC /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		E1CDE6962067898C005715EC /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
+		E1E7D1FA2071C8AC00874EB2 /* BeforeSignHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeSignHomeViewController.swift; sourceTree = "<group>"; };
+		E1E7D1FB2071C8AC00874EB2 /* BeforeSignHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeforeSignHomeViewController.xib; sourceTree = "<group>"; };
+		E1E7D1FE2071C8BD00874EB2 /* SignedInHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInHomeViewController.swift; sourceTree = "<group>"; };
+		E1E7D1FF2071C8BD00874EB2 /* SignedInHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignedInHomeViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +146,7 @@
 		E198761020672E2D008434CC /* MotelNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				E1A621CF2070D1FF00B83291 /* TestViewController */,
+				E1E7D1F72071C7D300874EB2 /* ViewController */,
 				E198761120672E2D008434CC /* AppDelegate.swift */,
 				E198761320672E2D008434CC /* ViewController.swift */,
 				E198761520672E2D008434CC /* Main.storyboard */,
@@ -147,10 +155,6 @@
 				E198761D20672E2D008434CC /* Info.plist */,
 				E18F07212067467100281432 /* MotelNetwork-Bridging-Header.h */,
 				E153317C2068E1B000238763 /* Libraries */,
-				E153317B2068E19B00238763 /* SignUpViewController */,
-				E153317A2068E19000238763 /* LoginViewController */,
-				E15331792068E18100238763 /* ForgotPasswordViewController */,
-				E104667020708FFE00245789 /* TutorialViewController */,
 			);
 			path = MotelNetwork;
 			sourceTree = "<group>";
@@ -162,6 +166,38 @@
 				E1A621D12070D23100B83291 /* TestViewController.xib */,
 			);
 			path = TestViewController;
+			sourceTree = "<group>";
+		};
+		E1E7D1F72071C7D300874EB2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1E7D1F92071C87D00874EB2 /* SignedInHomeViewController */,
+				E1E7D1F82071C83700874EB2 /* BeforeSignHomeViewController */,
+				E1A621CF2070D1FF00B83291 /* TestViewController */,
+				E153317B2068E19B00238763 /* SignUpViewController */,
+				E153317A2068E19000238763 /* LoginViewController */,
+				E15331792068E18100238763 /* ForgotPasswordViewController */,
+				E104667020708FFE00245789 /* TutorialViewController */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E1E7D1F82071C83700874EB2 /* BeforeSignHomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1E7D1FA2071C8AC00874EB2 /* BeforeSignHomeViewController.swift */,
+				E1E7D1FB2071C8AC00874EB2 /* BeforeSignHomeViewController.xib */,
+			);
+			path = BeforeSignHomeViewController;
+			sourceTree = "<group>";
+		};
+		E1E7D1F92071C87D00874EB2 /* SignedInHomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1E7D1FE2071C8BD00874EB2 /* SignedInHomeViewController.swift */,
+				E1E7D1FF2071C8BD00874EB2 /* SignedInHomeViewController.xib */,
+			);
+			path = SignedInHomeViewController;
 			sourceTree = "<group>";
 		};
 		E2CC27CED042D3E9451DE207 /* Pods */ = {
@@ -203,7 +239,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Nguyên Duy";
 				TargetAttributes = {
 					E198760D20672E2D008434CC = {
@@ -241,8 +277,10 @@
 				E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */,
 				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
 				E198761920672E2D008434CC /* Assets.xcassets in Resources */,
+				E1E7D1FD2071C8AC00874EB2 /* BeforeSignHomeViewController.xib in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
+				E1E7D2012071C8BD00874EB2 /* SignedInHomeViewController.xib in Resources */,
 				E198761720672E2D008434CC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,9 +354,11 @@
 				E104666E20708FF400245789 /* TutorialViewController.swift in Sources */,
 				E1A621D22070D23100B83291 /* TestViewController.swift in Sources */,
 				E198761420672E2D008434CC /* ViewController.swift in Sources */,
+				E1E7D2002071C8BD00874EB2 /* SignedInHomeViewController.swift in Sources */,
 				E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */,
 				E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */,
 				E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */,
+				E1E7D1FC2071C8AC00874EB2 /* BeforeSignHomeViewController.swift in Sources */,
 				E198761220672E2D008434CC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +399,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -366,6 +407,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -416,6 +458,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -423,6 +466,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
