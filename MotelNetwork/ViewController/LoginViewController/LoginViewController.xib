@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,9 +31,6 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Gh-Tf-BpY">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J3c-RO-SYQ">
-                                    <rect key="frame" x="41" y="160" width="332" height="137"/>
-                                </imageView>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên đăng nhập" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gmA-xV-E3X">
                                     <rect key="frame" x="17" y="321" width="379" height="40"/>
                                     <constraints>
@@ -85,34 +82,40 @@
                                         <action selector="btnForgotPasswordPressed:" destination="-1" eventType="touchUpInside" id="uqv-QA-xkv"/>
                                     </connections>
                                 </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lgMotelNetworkBlue" translatesAutoresizingMaskIntoConstraints="NO" id="J3c-RO-SYQ">
+                                    <rect key="frame" x="54" y="260" width="305" height="53"/>
+                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="53" id="8oG-8s-CqM"/>
+                                    </constraints>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="611-rB-A19" firstAttribute="leading" secondItem="4Gh-Tf-BpY" secondAttribute="leading" constant="17" id="120-cn-ddA"/>
                                 <constraint firstItem="Nj2-0J-ksw" firstAttribute="top" secondItem="611-rB-A19" secondAttribute="bottom" constant="18" id="6eb-VY-WCL"/>
-                                <constraint firstItem="gmA-xV-E3X" firstAttribute="top" secondItem="J3c-RO-SYQ" secondAttribute="bottom" constant="24" id="9Kc-tz-2qZ"/>
                                 <constraint firstItem="bdE-KD-5zI" firstAttribute="leading" secondItem="4Gh-Tf-BpY" secondAttribute="leading" constant="17" id="9be-6N-xZo"/>
+                                <constraint firstItem="gmA-xV-E3X" firstAttribute="top" secondItem="J3c-RO-SYQ" secondAttribute="bottom" constant="8" id="Ahq-vu-jYp"/>
                                 <constraint firstItem="DhQ-dV-xPM" firstAttribute="leading" secondItem="4Gh-Tf-BpY" secondAttribute="leading" constant="17" id="BLe-Qs-WGx"/>
+                                <constraint firstItem="J3c-RO-SYQ" firstAttribute="leading" secondItem="4Gh-Tf-BpY" secondAttribute="leading" constant="54" id="Mol-wM-NFu"/>
                                 <constraint firstItem="gmA-xV-E3X" firstAttribute="leading" secondItem="4Gh-Tf-BpY" secondAttribute="leading" constant="17" id="NqM-Af-6hb"/>
-                                <constraint firstItem="J3c-RO-SYQ" firstAttribute="top" secondItem="4Gh-Tf-BpY" secondAttribute="top" constant="160" id="RV9-xz-jks"/>
+                                <constraint firstAttribute="trailing" secondItem="J3c-RO-SYQ" secondAttribute="trailing" constant="55" id="PBc-UM-qru"/>
                                 <constraint firstAttribute="trailing" secondItem="Nj2-0J-ksw" secondAttribute="trailing" constant="18" id="aGB-9M-xg1"/>
                                 <constraint firstAttribute="trailing" secondItem="bdE-KD-5zI" secondAttribute="trailing" constant="18" id="aLQ-3c-UuS"/>
                                 <constraint firstAttribute="trailing" secondItem="611-rB-A19" secondAttribute="trailing" constant="18" id="ajn-b7-N4w"/>
                                 <constraint firstItem="bdE-KD-5zI" firstAttribute="top" secondItem="DhQ-dV-xPM" secondAttribute="bottom" constant="19" id="azv-lx-AGL"/>
-                                <constraint firstItem="J3c-RO-SYQ" firstAttribute="centerX" secondItem="4Gh-Tf-BpY" secondAttribute="centerX" id="beO-B7-ux3"/>
                                 <constraint firstAttribute="bottom" secondItem="bdE-KD-5zI" secondAttribute="bottom" constant="57" id="hyP-ns-ul3"/>
                                 <constraint firstItem="Nj2-0J-ksw" firstAttribute="leading" secondItem="4Gh-Tf-BpY" secondAttribute="leading" constant="17" id="jwG-rF-eKl"/>
                                 <constraint firstItem="611-rB-A19" firstAttribute="top" secondItem="gmA-xV-E3X" secondAttribute="bottom" constant="8" id="qlJ-M7-JNq"/>
                                 <constraint firstAttribute="trailing" secondItem="DhQ-dV-xPM" secondAttribute="trailing" constant="18" id="qo3-Fx-uS6"/>
                                 <constraint firstItem="DhQ-dV-xPM" firstAttribute="top" secondItem="Nj2-0J-ksw" secondAttribute="bottom" constant="113" id="reK-th-JvK"/>
                                 <constraint firstAttribute="trailing" secondItem="gmA-xV-E3X" secondAttribute="trailing" constant="18" id="vY6-GH-oQC"/>
-                                <constraint firstAttribute="trailing" secondItem="J3c-RO-SYQ" secondAttribute="trailing" constant="41" id="xaG-Cx-x5i"/>
-                                <constraint firstItem="J3c-RO-SYQ" firstAttribute="leading" secondItem="4Gh-Tf-BpY" secondAttribute="leading" constant="41" id="zGM-VS-h0P"/>
                             </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="J3c-RO-SYQ" firstAttribute="centerX" secondItem="EIC-Qo-0bh" secondAttribute="centerX" id="0jb-9o-TXm"/>
                         <constraint firstAttribute="bottom" secondItem="4Gh-Tf-BpY" secondAttribute="bottom" id="VO3-hy-9Bl"/>
                         <constraint firstItem="4Gh-Tf-BpY" firstAttribute="leading" secondItem="EIC-Qo-0bh" secondAttribute="leading" id="co6-a9-aV9"/>
                         <constraint firstAttribute="trailing" secondItem="4Gh-Tf-BpY" secondAttribute="trailing" id="jz0-wM-JE4"/>
@@ -128,7 +131,10 @@
                 <constraint firstItem="EIC-Qo-0bh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="rJP-JX-lJs"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="24.5" y="52.5"/>
+            <point key="canvasLocation" x="24" y="52"/>
         </view>
     </objects>
+    <resources>
+        <image name="lgMotelNetworkBlue" width="500" height="118"/>
+    </resources>
 </document>

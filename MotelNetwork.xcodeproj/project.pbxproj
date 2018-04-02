@@ -16,7 +16,6 @@
 		E198761220672E2D008434CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198761120672E2D008434CC /* AppDelegate.swift */; };
 		E198761420672E2D008434CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198761320672E2D008434CC /* ViewController.swift */; };
 		E198761720672E2D008434CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761520672E2D008434CC /* Main.storyboard */; };
-		E198761920672E2D008434CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E198761820672E2D008434CC /* Assets.xcassets */; };
 		E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761A20672E2D008434CC /* LaunchScreen.storyboard */; };
 		E1A621D22070D23100B83291 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A621D02070D23100B83291 /* TestViewController.swift */; };
 		E1A621D32070D23100B83291 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A621D12070D23100B83291 /* TestViewController.xib */; };
@@ -28,6 +27,7 @@
 		E1E7D1FD2071C8AC00874EB2 /* BeforeSignHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E7D1FB2071C8AC00874EB2 /* BeforeSignHomeViewController.xib */; };
 		E1E7D2002071C8BD00874EB2 /* SignedInHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7D1FE2071C8BD00874EB2 /* SignedInHomeViewController.swift */; };
 		E1E7D2012071C8BD00874EB2 /* SignedInHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E7D1FF2071C8BD00874EB2 /* SignedInHomeViewController.xib */; };
+		E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1E7D2022071E0C600874EB2 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +45,6 @@
 		E198761120672E2D008434CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E198761320672E2D008434CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E198761620672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E198761820672E2D008434CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E198761B20672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E198761D20672E2D008434CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1A621D02070D23100B83291 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 		E1E7D1FB2071C8AC00874EB2 /* BeforeSignHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeforeSignHomeViewController.xib; sourceTree = "<group>"; };
 		E1E7D1FE2071C8BD00874EB2 /* SignedInHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInHomeViewController.swift; sourceTree = "<group>"; };
 		E1E7D1FF2071C8BD00874EB2 /* SignedInHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignedInHomeViewController.xib; sourceTree = "<group>"; };
+		E1E7D2022071E0C600874EB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,14 +146,14 @@
 		E198761020672E2D008434CC /* MotelNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				E1E7D1F72071C7D300874EB2 /* ViewController */,
+				E1E7D2022071E0C600874EB2 /* Assets.xcassets */,
 				E198761120672E2D008434CC /* AppDelegate.swift */,
 				E198761320672E2D008434CC /* ViewController.swift */,
 				E198761520672E2D008434CC /* Main.storyboard */,
-				E198761820672E2D008434CC /* Assets.xcassets */,
 				E198761A20672E2D008434CC /* LaunchScreen.storyboard */,
 				E198761D20672E2D008434CC /* Info.plist */,
 				E18F07212067467100281432 /* MotelNetwork-Bridging-Header.h */,
+				E1E7D1F72071C7D300874EB2 /* ViewController */,
 				E153317C2068E1B000238763 /* Libraries */,
 			);
 			path = MotelNetwork;
@@ -276,7 +276,7 @@
 				E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */,
 				E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */,
 				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
-				E198761920672E2D008434CC /* Assets.xcassets in Resources */,
+				E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */,
 				E1E7D1FD2071C8AC00874EB2 /* BeforeSignHomeViewController.xib in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
