@@ -69,7 +69,7 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 136
+        return 145
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
