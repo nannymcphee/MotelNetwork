@@ -255,7 +255,7 @@ static const CGFloat kPaddingBetweenLogoTitle = 8.0;
       UIAlertAction *logout = [UIAlertAction actionWithTitle:logOutTitle
                                                        style:UIAlertActionStyleDestructive
                                                      handler:^(UIAlertAction * _Nonnull action) {
-                                                       [_loginManager logOut];
+                                                         [self->_loginManager logOut];
                                                        [self.delegate loginButtonDidLogOut:self];
                                                      }];
       [alertController addAction:cancel];
