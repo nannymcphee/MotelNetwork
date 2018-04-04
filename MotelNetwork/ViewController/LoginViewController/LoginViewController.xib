@@ -15,8 +15,8 @@
                 <outlet property="btnForgotPassword" destination="bdE-KD-5zI" id="yk0-oQ-7bC"/>
                 <outlet property="btnLogin" destination="Nj2-0J-ksw" id="2Fs-xZ-68m"/>
                 <outlet property="btnRegister" destination="DhQ-dV-xPM" id="bHu-YH-xUi"/>
+                <outlet property="tfEmail" destination="gmA-xV-E3X" id="4tu-v9-xO4"/>
                 <outlet property="tfPassword" destination="611-rB-A19" id="oao-6w-KNi"/>
-                <outlet property="tfUsername" destination="gmA-xV-E3X" id="fwS-eU-CCG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -31,7 +31,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Gh-Tf-BpY">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên đăng nhập" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gmA-xV-E3X">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gmA-xV-E3X">
                                     <rect key="frame" x="17" y="321" width="379" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="YRQ-oj-RmG"/>
@@ -47,7 +47,7 @@
                                     </constraints>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nj2-0J-ksw">
                                     <rect key="frame" x="17" y="427" width="379" height="40"/>

@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnRegister: UIButton!
     @IBOutlet weak var btnForgotPassword: UIButton!
-    @IBOutlet weak var tfUsername: UITextField!
+    @IBOutlet weak var tfEmail: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
     
     
@@ -29,8 +30,22 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func btnLoginPressed(_ sender: Any) {
-    
+        
+        if let email = tfEmail.text, let pass = tfPassword.text {
+            Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
+                if let u = user {
+                    let vc = BeforeSignHomeViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                else {
+                    if let firebaseError = error {
+                        print(firebaseError.localizedDescription)
+                        return
+                }
+            }
+        }
     }
+}
     
     @IBAction func btnRegisterPressed(_ sender: Any) {
         //self.show(SignUpViewController(), sender: nil)
@@ -38,6 +53,7 @@ class LoginViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
         
     }
+
     
     @IBAction func btnForgotPasswordPressed(_ sender: UIButton) {
         //self.show(SignUpViewController(), sender: nil)

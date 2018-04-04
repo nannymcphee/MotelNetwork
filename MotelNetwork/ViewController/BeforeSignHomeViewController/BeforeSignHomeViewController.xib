@@ -72,7 +72,7 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                     <state key="normal" title="Đăng nhập"/>
                                     <connections>
-                                        <action selector="btnNavigateLoginPressed:" destination="-1" eventType="touchUpInside" id="Xs4-vm-9Ad"/>
+                                        <action selector="btnNavigateLoginPressed:" destination="-1" eventType="touchUpInside" id="4y9-Ps-osy"/>
                                     </connections>
                                 </button>
                             </subviews>

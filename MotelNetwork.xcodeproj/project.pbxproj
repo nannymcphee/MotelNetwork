@@ -14,7 +14,7 @@
 		E14C413F2074CF18003571E8 /* BeforeSignDetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C413D2074CF18003571E8 /* BeforeSignDetailNewsViewController.swift */; };
 		E14C41432074D107003571E8 /* SignedInDetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C41412074D107003571E8 /* SignedInDetailNewsViewController.swift */; };
 		E14C41442074D107003571E8 /* SignedInDetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14C41422074D107003571E8 /* SignedInDetailNewsViewController.xib */; };
-		E18F07242067467200281432 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E18F07232067467200281432 /* DLRadioButton.m */; };
+		E14C41462074EBF5003571E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E14C41452074EBF5003571E8 /* GoogleService-Info.plist */; };
 		E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F072B20674C2200281432 /* SignUpViewController.swift */; };
 		E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18F072C20674C2200281432 /* SignUpViewController.xib */; };
 		E198761220672E2D008434CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198761120672E2D008434CC /* AppDelegate.swift */; };
@@ -46,9 +46,7 @@
 		E14C413D2074CF18003571E8 /* BeforeSignDetailNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeSignDetailNewsViewController.swift; sourceTree = "<group>"; };
 		E14C41412074D107003571E8 /* SignedInDetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInDetailNewsViewController.swift; sourceTree = "<group>"; };
 		E14C41422074D107003571E8 /* SignedInDetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignedInDetailNewsViewController.xib; sourceTree = "<group>"; };
-		E18F07212067467100281432 /* MotelNetwork-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MotelNetwork-Bridging-Header.h"; sourceTree = "<group>"; };
-		E18F07222067467200281432 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
-		E18F07232067467200281432 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
+		E14C41452074EBF5003571E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E18F072B20674C2200281432 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E18F072C20674C2200281432 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		E198760E20672E2D008434CC /* MotelNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotelNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,8 +147,6 @@
 		E153317C2068E1B000238763 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				E18F07222067467200281432 /* DLRadioButton.h */,
-				E18F07232067467200281432 /* DLRadioButton.m */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -182,7 +178,7 @@
 				E198761520672E2D008434CC /* Main.storyboard */,
 				E198761A20672E2D008434CC /* LaunchScreen.storyboard */,
 				E198761D20672E2D008434CC /* Info.plist */,
-				E18F07212067467100281432 /* MotelNetwork-Bridging-Header.h */,
+				E14C41452074EBF5003571E8 /* GoogleService-Info.plist */,
 				E1E7D1F72071C7D300874EB2 /* ViewController */,
 				E153317C2068E1B000238763 /* Libraries */,
 			);
@@ -319,6 +315,7 @@
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
 				E1E7D2012071C8BD00874EB2 /* SignedInHomeViewController.xib in Resources */,
 				E198761720672E2D008434CC /* Main.storyboard in Resources */,
+				E14C41462074EBF5003571E8 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,22 +329,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,7 +395,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E18F07242067467200281432 /* DLRadioButton.m in Sources */,
 				E104666E20708FF400245789 /* TutorialViewController.swift in Sources */,
 				E1A621D22070D23100B83291 /* TestViewController.swift in Sources */,
 				E14C41432074D107003571E8 /* SignedInDetailNewsViewController.swift in Sources */,
@@ -565,7 +555,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.MotelNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MotelNetwork/MotelNetwork-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -584,7 +573,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.MotelNetwork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "MotelNetwork/MotelNetwork-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

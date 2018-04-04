@@ -8,8 +8,9 @@ target 'MotelNetwork' do
   # Pods for MotelNetwork
 	
 	pod 'Firebase/Core'
-	pod 'FirebaseUI/Facebook'
-	pod 'FirebaseUI/Google'
+	pod 'Firebase/Auth'
+	pod 'Firebase/Database'
+	pod 'Firebase/Storage'
 
 
 end
