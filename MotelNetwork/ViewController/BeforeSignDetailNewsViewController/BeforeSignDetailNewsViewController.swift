@@ -1,5 +1,5 @@
 //
-//  BeforeSignDetailRoomViewController.swift
+//  BeforeSignDetailNewsViewController.swift
 //  MotelNetwork
 //
 //  Created by Nguyên Duy on 4/4/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BeforeSignDetailRoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BeforeSignDetailNewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tbListNewsDetail: UITableView!
     @IBOutlet weak var btnNavigateLogin2: UIButton!
