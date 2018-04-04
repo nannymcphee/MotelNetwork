@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         
-        rootViewControler = BeforeSignDetailRoomViewController()
+        rootViewControler = BeforeSignDetailNewsViewController()
         navigationController = UINavigationController(rootViewController: rootViewControler!)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
