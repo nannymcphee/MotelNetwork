@@ -12,6 +12,8 @@
 		E104666F20708FF400245789 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E104666D20708FF400245789 /* TutorialViewController.xib */; };
 		E14C413E2074CF18003571E8 /* BeforeSignDetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14C413C2074CF18003571E8 /* BeforeSignDetailNewsViewController.xib */; };
 		E14C413F2074CF18003571E8 /* BeforeSignDetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C413D2074CF18003571E8 /* BeforeSignDetailNewsViewController.swift */; };
+		E14C41432074D107003571E8 /* SignedInDetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C41412074D107003571E8 /* SignedInDetailNewsViewController.swift */; };
+		E14C41442074D107003571E8 /* SignedInDetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14C41422074D107003571E8 /* SignedInDetailNewsViewController.xib */; };
 		E18F07242067467200281432 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E18F07232067467200281432 /* DLRadioButton.m */; };
 		E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F072B20674C2200281432 /* SignUpViewController.swift */; };
 		E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18F072C20674C2200281432 /* SignUpViewController.xib */; };
@@ -42,6 +44,8 @@
 		E104666D20708FF400245789 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
 		E14C413C2074CF18003571E8 /* BeforeSignDetailNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeforeSignDetailNewsViewController.xib; sourceTree = "<group>"; };
 		E14C413D2074CF18003571E8 /* BeforeSignDetailNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeSignDetailNewsViewController.swift; sourceTree = "<group>"; };
+		E14C41412074D107003571E8 /* SignedInDetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInDetailNewsViewController.swift; sourceTree = "<group>"; };
+		E14C41422074D107003571E8 /* SignedInDetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignedInDetailNewsViewController.xib; sourceTree = "<group>"; };
 		E18F07212067467100281432 /* MotelNetwork-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MotelNetwork-Bridging-Header.h"; sourceTree = "<group>"; };
 		E18F07222067467200281432 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
 		E18F07232067467200281432 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
@@ -97,20 +101,22 @@
 			path = TutorialViewController;
 			sourceTree = "<group>";
 		};
-		E14C413A2074CE62003571E8 /* SignedInDetailRoomViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SignedInDetailRoomViewController;
-			sourceTree = "<group>";
-		};
 		E14C413B2074CF18003571E8 /* BeforeSignDetailNewsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E14C413C2074CF18003571E8 /* BeforeSignDetailNewsViewController.xib */,
 				E14C413D2074CF18003571E8 /* BeforeSignDetailNewsViewController.swift */,
+				E14C413C2074CF18003571E8 /* BeforeSignDetailNewsViewController.xib */,
 			);
 			path = BeforeSignDetailNewsViewController;
+			sourceTree = "<group>";
+		};
+		E14C41402074D0EB003571E8 /* SignedInDetailNewsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E14C41412074D107003571E8 /* SignedInDetailNewsViewController.swift */,
+				E14C41422074D107003571E8 /* SignedInDetailNewsViewController.xib */,
+			);
+			path = SignedInDetailNewsViewController;
 			sourceTree = "<group>";
 		};
 		E15331792068E18100238763 /* ForgotPasswordViewController */ = {
@@ -195,7 +201,7 @@
 		E1E7D1F72071C7D300874EB2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E14C413A2074CE62003571E8 /* SignedInDetailRoomViewController */,
+				E14C41402074D0EB003571E8 /* SignedInDetailNewsViewController */,
 				E1E7D1F92071C87D00874EB2 /* SignedInHomeViewController */,
 				E1E7D1F82071C83700874EB2 /* BeforeSignHomeViewController */,
 				E14C413B2074CF18003571E8 /* BeforeSignDetailNewsViewController */,
@@ -308,6 +314,7 @@
 				E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */,
 				E1E7D207207224F000874EB2 /* ListNewsTableViewCell.xib in Resources */,
 				E1E7D1FD2071C8AC00874EB2 /* BeforeSignHomeViewController.xib in Resources */,
+				E14C41442074D107003571E8 /* SignedInDetailNewsViewController.xib in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
 				E1E7D2012071C8BD00874EB2 /* SignedInHomeViewController.xib in Resources */,
@@ -400,6 +407,7 @@
 				E18F07242067467200281432 /* DLRadioButton.m in Sources */,
 				E104666E20708FF400245789 /* TutorialViewController.swift in Sources */,
 				E1A621D22070D23100B83291 /* TestViewController.swift in Sources */,
+				E14C41432074D107003571E8 /* SignedInDetailNewsViewController.swift in Sources */,
 				E198761420672E2D008434CC /* ViewController.swift in Sources */,
 				E1E7D2002071C8BD00874EB2 /* SignedInHomeViewController.swift in Sources */,
 				E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */,
