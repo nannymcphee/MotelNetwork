@@ -31,24 +31,43 @@ class LoginViewController: UIViewController {
     
     @IBAction func btnLoginPressed(_: UIButton) {
         
-        if let email = tfEmail.text, let pass = tfPassword.text {
+        
+        if tfEmail.text == "" || tfPassword.text == "" {
             
-            Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
+            // Create UIAlertController
+            let alert = UIAlertController(title: "Thông báo", message: "Email và mật khẩu không được bỏ trống!", preferredStyle: .alert)
+            let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            })
+            alert.addAction(actionOK)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else {
+            if let email = tfEmail.text, let pass = tfPassword.text {
                 
-                // Check if user is nil
-                if let u = user {
-                    // User found, go to HomeViewController
-                    let vc = BeforeSignHomeViewController()
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-                else {
-                    if let firebaseError = error {
-                        print(firebaseError.localizedDescription)
-                        return
+                Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
+                    
+                    // Check if user is nil
+                    if let u = user {
+                        // User found, go to HomeViewController
+                        let vc = BeforeSignHomeViewController()
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                    else {
+                        // Create UIAlertController
+                        if let firebaseError = error {
+                            let alert = UIAlertController(title: "Thông báo", message: "Đăng nhập thất bại! Vui lòng kiểm tra lại email và mật khẩu.", preferredStyle: .alert)
+                            let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                            })
+                            alert.addAction(actionOK)
+                            self.present(alert, animated: true, completion: nil)
+                            
+//                            print(firebaseError.localizedDescription)
+                            return
+                        }
+                    }
                 }
             }
         }
-    }
 }
     
     @IBAction func btnRegisterNavigationPressed(_ sender: Any) {

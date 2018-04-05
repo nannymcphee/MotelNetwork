@@ -117,34 +117,44 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func btnRegisterPressed(_ sender: UIButton) {
         
-        // Sign up user with Email & Password
-        let email = tfEmail.text, pass = tfPassword.text
-        Auth.auth().createUser(withEmail: email!, password: pass!) { (user, error) in
-            if error != nil {
-                print(error)
-                return
-            }
-            
-            let userID: String = (user?.uid)!
-            let userEmail: String = self.tfEmail.text!
-            let userPassword: String = self.tfPassword.text!
-            let userFullName: String = self.tfName.text!
-            let userCMND: String = self.tfCMND.text!
-            let userBirthDay = self.tfBirthDay.text!
-            let userType = self.pvUserType.selectedRow(inComponent: 0)
-            
-            // Add user's information to database
-            self.ref.child("Users").child(userID).setValue(["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType])
-            
+        // Check if user has entered all informations
+        if tfName.text == "" || tfEmail.text == "" || tfPassword.text == "" || tfCMND.text == "" || tfBirthDay.text == "" {
             // Create UIAlertController
-            let acRegisterSuccess = UIAlertController(title: "Thông báo", message: "Đăng ký thành công", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập đầy đủ thông tin!", preferredStyle: .alert)
             let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                let vc = LoginViewController()
-                self.navigationController?.pushViewController(vc, animated: true)
             })
-            
-            acRegisterSuccess.addAction(actionOK)
-            self.present(acRegisterSuccess, animated: true, completion: nil)
+            alert.addAction(actionOK)
+            self.present(alert, animated: true, completion: nil)
+        }
+        else {
+            // Sign up user with Email & Password
+            let email = tfEmail.text, pass = tfPassword.text
+            Auth.auth().createUser(withEmail: email!, password: pass!) { (user, error) in
+                if error != nil {
+                    print(error)
+                    return
+                }
+                
+                let userID: String = (user?.uid)!
+                let userEmail: String = self.tfEmail.text!
+                let userPassword: String = self.tfPassword.text!
+                let userFullName: String = self.tfName.text!
+                let userCMND: String = self.tfCMND.text!
+                let userBirthDay = self.tfBirthDay.text!
+                let userType = self.pvUserType.selectedRow(inComponent: 0)
+                
+                // Add user's information to database
+                self.ref.child("Users").child(userID).setValue(["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType])
+                
+                // Create UIAlertController
+                let alert = UIAlertController(title: "Thông báo", message: "Đăng ký thành công", preferredStyle: .alert)
+                let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    let vc = LoginViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                })
+                alert.addAction(actionOK)
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
