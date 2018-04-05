@@ -32,8 +32,12 @@ class LoginViewController: UIViewController {
     @IBAction func btnLoginPressed(_: UIButton) {
         
         if let email = tfEmail.text, let pass = tfPassword.text {
+            
             Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
+                
+                // Check if user is nil
                 if let u = user {
+                    // User found, go to HomeViewController
                     let vc = BeforeSignHomeViewController()
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
