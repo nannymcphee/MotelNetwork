@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
 
 class UserType {
     var userType: Int
@@ -21,6 +24,7 @@ class UserType {
 class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     
+    
     @IBOutlet weak var btnRegister: UIButton!
     @IBOutlet weak var btnExit: UIButton!
     @IBOutlet weak var pvUserType: UIPickerView!
@@ -28,22 +32,55 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var tfEmail: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
     @IBOutlet weak var tfCMND: UITextField!
-    @IBOutlet weak var dpBirthday: UIDatePicker!
+    @IBOutlet weak var tfBirthDay: UITextField!
+    
     
     var userType = [UserType]()
+    var ref: DatabaseReference!
+    let dpBirthDay = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        createDatePicker()
+        
+        ref = Database.database().reference()
         
         pvUserType.delegate = self
         pvUserType.dataSource = self
         
-        userType.append(UserType(userType: 1, userTypeName: "Chủ nhà trọ"))
-        userType.append(UserType(userType: 2, userTypeName: "Khách thuê trọ"))
+        userType.append(UserType(userType: 0, userTypeName: "Chủ nhà trọ"))
+        userType.append(UserType(userType: 1, userTypeName: "Khách thuê trọ"))
         
         btnRegister.layer.cornerRadius = 15
 
         // Do any additional setup after loading the view.
+    }
+    
+    // Create Date Picker
+    func createDatePicker() {
+        dpBirthDay.locale = NSLocale.init(localeIdentifier: "vi_VN") as Locale
+        // Add toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // Add "Done" button
+        let btnDone = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(btnDonePressed))
+        toolbar.setItems([btnDone], animated: false)
+        
+        tfBirthDay.inputAccessoryView = toolbar
+        tfBirthDay.inputView = dpBirthDay
+        
+        // Format picker view for date
+        dpBirthDay.datePickerMode = .date
+    }
+    
+    // btnDonePressed event for Date Picker
+    @objc func btnDonePressed() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM yyyy"
+        dateFormatter.locale = NSLocale.init(localeIdentifier: "vi_VN") as Locale
+        tfBirthDay.text = dateFormatter.string(from: dpBirthDay.date)
+        self.view.endEditing(true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,9 +110,37 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @IBAction func btnExitPressed(_ sender: Any) {
-        //self.navigationController?.pushViewController(LoginViewController(), animated: true)
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
+        
+        let vc = LoginViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func btnRegisterPressed(_ sender: UIButton) {
+        
+        // Sign up user with Email & Password
+        let email = tfEmail.text, pass = tfPassword.text
+        Auth.auth().createUser(withEmail: email!, password: pass!) { (user, error) in
+            if error != nil {
+                print(error)
+                return
+            }
+            
+            let userID: String = (user?.uid)!
+            let userEmail: String = self.tfEmail.text!
+            let userPassword: String = self.tfPassword.text!
+            let userFullName: String = self.tfName.text!
+            let userCMND: String = self.tfCMND.text!
+            let userBirthDay = self.tfBirthDay.text!
+            let userType = self.pvUserType.selectedRow(inComponent: 0)
+            
+            // Add user's information to database
+            self.ref.child("Users").child(userID).setValue(["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType])
+            
+            print("Register success!")
+        }
+    }
+    
+    
     
     /*
     // MARK: - Navigation
