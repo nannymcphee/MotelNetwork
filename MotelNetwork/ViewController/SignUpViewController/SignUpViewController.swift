@@ -38,8 +38,6 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     
     var userType = [UserType]()
-//    var databaseRef: DatabaseReference!
-//    var storageRef: StorageReference!
     let dpBirthDay = UIDatePicker()
     
     override func viewDidLoad() {
@@ -55,11 +53,11 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.btnRegister.layer.cornerRadius = self.btnRegister.frame.height / 2.0
         self.btnRegister.clipsToBounds = true
 
-        // Do any additional setup after loading the view.
     }
     
     // Create Date Picker
     func createDatePicker() {
+        
         dpBirthDay.locale = NSLocale.init(localeIdentifier: "vi_VN") as Locale
         // Add toolbar
         let toolbar = UIToolbar()
@@ -78,6 +76,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     // btnDonePressed event for Date Picker
     @objc func btnDonePressed() {
+        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd MMMM yyyy"
         dateFormatter.locale = NSLocale.init(localeIdentifier: "vi_VN") as Locale
@@ -105,6 +104,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
         pickerView.reloadComponent(0)
         
         let selectedUserType = pvUserType.selectedRow(inComponent: 0)
@@ -124,6 +124,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         // Check if user has entered all informations
         if tfName.text == "" || tfEmail.text == "" || tfPassword.text == "" || tfCMND.text == "" || tfBirthDay.text == "" {
+            
             // Create UIAlertController
             let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập đầy đủ thông tin!", preferredStyle: .alert)
             let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (action) in
@@ -132,16 +133,19 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             self.present(alert, animated: true, completion: nil)
         }
         else {
+            
             // Sign up user with Email & Password
             let email = tfEmail.text, pass = tfPassword.text
             Auth.auth().createUser(withEmail: email!, password: pass!) { (user, error) in
                 
                 if let error = error {
+                    
                     print(error)
                     return
                 }
                 
                 guard let uid = user?.uid else {
+                    
                     return
                 }
                 
@@ -149,7 +153,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 let imageName = UUID().uuidString
                 let storageRef = Storage.storage().reference().child("ProfileImages").child("\(imageName).png")
                 
-                if let profileImage = self.btnProfilePicture.image(for: .normal), let uploadData = UIImagePNGRepresentation(self.btnProfilePicture.image(for: .normal)!) {
+                if let profileImage = self.btnProfilePicture.image(for: .normal), let uploadData = UIImagePNGRepresentation(profileImage) {
                     
                     storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                         
@@ -160,7 +164,6 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                         
                         if let profileImageUrl = metadata?.downloadURL()?.absoluteString {
                             
-                            let userID: String = uid
                             let userEmail: String = self.tfEmail.text!
                             let userPassword: String = self.tfPassword.text!
                             let userFullName: String = self.tfName.text!
@@ -178,6 +181,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 // Create UIAlertController
                 let alert = UIAlertController(title: "Thông báo", message: "Đăng ký thành công", preferredStyle: .alert)
                 let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                    
                     let vc = LoginViewController()
                     self.navigationController?.pushViewController(vc, animated: true)
                 })
@@ -188,6 +192,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     private func storeUserInformationToDatabase(_ uid: String, values: [String: AnyObject]) {
+        
         // Add user's information to database
         let databaseRef = Database.database().reference()
         let usersRef = databaseRef.child("Users").child(uid)
@@ -195,6 +200,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         usersRef.updateChildValues(values) { (error, ref) in
             
             if error != nil {
+                
                 print(error!)
                 return
             }
@@ -211,6 +217,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     /* Area logic for btnProfilePicture */
     
     func handleSelectProfilePicturePressed() {
+        
         let imgPicker = UIImagePickerController()
         imgPicker.delegate = self
         present(imgPicker, animated: true, completion: nil)
@@ -221,13 +228,16 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         var  selectedImageFromPicker: UIImage?
         
         if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+            
             selectedImageFromPicker = editedImage
         }
         else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            
             selectedImageFromPicker = originalImage
         }
         
         if let selectedImage = selectedImageFromPicker {
+            
             btnProfilePicture.setImage(selectedImage, for: .normal)
             btnProfilePicture.layer.cornerRadius = btnProfilePicture.frame.size.width / 2
             btnProfilePicture.clipsToBounds = true
@@ -238,6 +248,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        
         dismiss(animated: true, completion: nil)
         print("Canceled")
     }
