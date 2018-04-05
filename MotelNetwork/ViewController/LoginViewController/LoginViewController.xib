@@ -14,7 +14,7 @@
             <connections>
                 <outlet property="btnForgotPassword" destination="bdE-KD-5zI" id="yk0-oQ-7bC"/>
                 <outlet property="btnLogin" destination="Nj2-0J-ksw" id="2Fs-xZ-68m"/>
-                <outlet property="btnRegister" destination="DhQ-dV-xPM" id="bHu-YH-xUi"/>
+                <outlet property="btnRegisterNavigation" destination="DhQ-dV-xPM" id="vM6-6z-Ybx"/>
                 <outlet property="tfEmail" destination="gmA-xV-E3X" id="4tu-v9-xO4"/>
                 <outlet property="tfPassword" destination="611-rB-A19" id="oao-6w-KNi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -69,7 +69,7 @@
                                     </constraints>
                                     <state key="normal" title="Đăng ký"/>
                                     <connections>
-                                        <action selector="btnRegisterPressed:" destination="-1" eventType="touchUpInside" id="Dlq-60-slU"/>
+                                        <action selector="btnRegisterNavigationPressed:" destination="-1" eventType="touchUpInside" id="LuK-Ml-Jcf"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdE-KD-5zI">

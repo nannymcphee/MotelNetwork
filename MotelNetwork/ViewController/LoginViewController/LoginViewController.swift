@@ -12,7 +12,7 @@ import FirebaseAuth
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var btnLogin: UIButton!
-    @IBOutlet weak var btnRegister: UIButton!
+    @IBOutlet weak var btnRegisterNavigation: UIButton!
     @IBOutlet weak var btnForgotPassword: UIButton!
     @IBOutlet weak var tfEmail: UITextField!
     @IBOutlet weak var tfPassword: UITextField!
@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func btnLoginPressed(_ sender: Any) {
+    @IBAction func btnLoginPressed(_: UIButton) {
         
         if let email = tfEmail.text, let pass = tfPassword.text {
             Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
@@ -47,7 +47,7 @@ class LoginViewController: UIViewController {
     }
 }
     
-    @IBAction func btnRegisterPressed(_ sender: Any) {
+    @IBAction func btnRegisterNavigationPressed(_ sender: Any) {
         //self.show(SignUpViewController(), sender: nil)
         let vc = SignUpViewController()
         self.navigationController?.pushViewController(vc, animated: true)
