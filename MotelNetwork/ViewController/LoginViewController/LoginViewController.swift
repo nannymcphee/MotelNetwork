@@ -42,14 +42,15 @@ class LoginViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         else {
+            
             if let email = tfEmail.text, let pass = tfPassword.text {
-                
+                self.showLoading()
                 Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
-                    
+                    self.stopLoading()
                     // Check if user is nil
                     if let u = user {
                         // User found, go to HomeViewController
-                        let vc = SignedInDetailNewsViewController()
+                        let vc = MainViewController()
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                     else {

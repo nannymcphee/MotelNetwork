@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "478F224C5B6F761549B4F6CF81AAF170"
+               BlueprintIdentifier = "B6CC917E187B4EC020A08887EF756588"
                BuildableName = "Pods_MotelNetwork.framework"
                BlueprintName = "Pods-MotelNetwork"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -37,7 +36,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -47,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "478F224C5B6F761549B4F6CF81AAF170"
+            BlueprintIdentifier = "B6CC917E187B4EC020A08887EF756588"
             BuildableName = "Pods_MotelNetwork.framework"
             BlueprintName = "Pods-MotelNetwork"
             ReferencedContainer = "container:Pods.xcodeproj">

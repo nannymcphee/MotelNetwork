@@ -114,8 +114,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     // btnExitPressed handler
     @IBAction func btnExitPressed(_ sender: Any) {
         
-        let vc = LoginViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+      self.navigationController?.popViewController(animated: true)
     }
     
     

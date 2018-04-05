@@ -65,7 +65,8 @@ class BeforeSignDetailNewsViewController: UIViewController, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let vc = SignedInDetailNewsViewController()
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,8 +80,8 @@ class BeforeSignDetailNewsViewController: UIViewController, UITableViewDelegate,
     }
     
     @IBAction func btnBackPressed(_ sender: Any) {
-        let vc = BeforeSignHomeViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
     
 

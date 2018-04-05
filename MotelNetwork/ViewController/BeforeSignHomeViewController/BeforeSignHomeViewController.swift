@@ -73,12 +73,13 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let vc = BeforeSignDetailNewsViewController()
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func btnNavigateLoginPressed(_ sender: Any) {
         let vc = LoginViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+       (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     
     /*

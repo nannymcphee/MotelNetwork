@@ -58,7 +58,7 @@ class SignedInDetailNewsViewController: UIViewController {
     
     
     @IBAction func btnBack2Pressed(_ sender: Any) {
-        
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
     
 
