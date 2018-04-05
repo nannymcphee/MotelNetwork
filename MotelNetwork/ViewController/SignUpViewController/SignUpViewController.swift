@@ -136,12 +136,15 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             // Add user's information to database
             self.ref.child("Users").child(userID).setValue(["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType])
             
-            // Create UIAlertView
-            let avRegisterSuccess: UIAlertView = UIAlertView(title: "Thông báo", message: "Đăng ký thành công!", delegate: self, cancelButtonTitle: "OK")
-            avRegisterSuccess.show()
+            // Create UIAlertController
+            let acRegisterSuccess = UIAlertController(title: "Thông báo", message: "Đăng ký thành công", preferredStyle: .alert)
+            let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                let vc = LoginViewController()
+                self.navigationController?.pushViewController(vc, animated: true)
+            })
             
-            let vc = LoginViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
+            acRegisterSuccess.addAction(actionOK)
+            self.present(acRegisterSuccess, animated: true, completion: nil)
         }
     }
     
