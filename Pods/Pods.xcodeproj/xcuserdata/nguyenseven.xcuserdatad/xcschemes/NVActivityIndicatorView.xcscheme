@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BC5000D645EEAF961C85907CDC796FE1"
-               BlueprintName = "FBSDKLoginKit"
+               BlueprintIdentifier = "123F89F7E8DB3444EAD2F61E835952E2"
+               BlueprintName = "NVActivityIndicatorView"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "FBSDKLoginKit.framework">
+               BuildableName = "NVActivityIndicatorView.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
