@@ -279,11 +279,8 @@
 		E1E7D1F72071C7D300874EB2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< .merge_file_jlYLzc
 				E1BD102B20766C1100287982 /* CreateRoomViewController */,
-=======
 				CE5FF78820766EB1005BEA3B /* MainVC */,
->>>>>>> .merge_file_FvxsrC
 				145C11FB2075F34800AB11F3 /* RoomManagementViewController */,
 				E14C41402074D0EB003571E8 /* SignedInDetailNewsViewController */,
 				E1E7D1F92071C87D00874EB2 /* SignedInHomeViewController */,
