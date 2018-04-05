@@ -7,20 +7,48 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+
 
 class SignedInDetailNewsViewController: UIViewController {
 
     
     @IBOutlet weak var btnBack2: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!
+    @IBOutlet weak var lblUserName: UILabel!
+    
+    var dbReference: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.ivAvatar.layer.cornerRadius = self.ivAvatar.frame.size.width / 2
-        ivAvatar.clipsToBounds = true
+        setUpView()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func setUpView() {
+        
+        guard let uid = Auth.auth().currentUser?.uid else {
+            
+            return
+        }
+        
+        dbReference = Database.database().reference()
+        dbReference.child("Users").child(uid).observe(.value) { (snapshot) in
+            
+            // Get user value
+            let value = snapshot.value as! NSDictionary
+            let userName = value["FullName"] as? String ?? ""
+            let profileImageUrl = value["ProfileImageUrl"] as? String ?? ""
+            
+            self.lblUserName.text = userName
+            self.ivAvatar.loadImageUsingCacheWithUrlString(profileImageUrl)
+        }
+        
+        self.ivAvatar.layer.cornerRadius = self.ivAvatar.frame.size.width / 2
+        ivAvatar.clipsToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

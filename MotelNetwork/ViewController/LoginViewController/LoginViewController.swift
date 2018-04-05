@@ -49,7 +49,7 @@ class LoginViewController: UIViewController {
                     // Check if user is nil
                     if let u = user {
                         // User found, go to HomeViewController
-                        let vc = BeforeSignHomeViewController()
+                        let vc = SignedInDetailNewsViewController()
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                     else {

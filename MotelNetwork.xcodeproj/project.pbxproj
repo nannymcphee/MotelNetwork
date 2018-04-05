@@ -27,6 +27,9 @@
 		E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761A20672E2D008434CC /* LaunchScreen.storyboard */; };
 		E1A621D22070D23100B83291 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A621D02070D23100B83291 /* TestViewController.swift */; };
 		E1A621D32070D23100B83291 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A621D12070D23100B83291 /* TestViewController.xib */; };
+		E1BD102620765FAD00287982 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD102520765FAD00287982 /* Room.swift */; };
+		E1BD102820765FB900287982 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD102720765FB900287982 /* User.swift */; };
+		E1BD102A207663E800287982 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD1029207663E800287982 /* Extensions.swift */; };
 		E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE6912067805D005715EC /* LoginViewController.swift */; };
 		E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE6922067805D005715EC /* LoginViewController.xib */; };
 		E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */; };
@@ -65,6 +68,9 @@
 		E198761D20672E2D008434CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E1A621D02070D23100B83291 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E1A621D12070D23100B83291 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		E1BD102520765FAD00287982 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
+		E1BD102720765FB900287982 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E1BD1029207663E800287982 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E1CDE6912067805D005715EC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E1CDE6922067805D005715EC /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 		E153317C2068E1B000238763 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				E1BD1029207663E800287982 /* Extensions.swift */,
 			);
 			path = Libraries;
 			sourceTree = "<group>";
@@ -199,6 +206,7 @@
 				E198761A20672E2D008434CC /* LaunchScreen.storyboard */,
 				E198761D20672E2D008434CC /* Info.plist */,
 				E14C41452074EBF5003571E8 /* GoogleService-Info.plist */,
+				E1BD102220765F7400287982 /* Model */,
 				E1E7D1F72071C7D300874EB2 /* ViewController */,
 				E153317C2068E1B000238763 /* Libraries */,
 			);
@@ -212,6 +220,15 @@
 				E1A621D12070D23100B83291 /* TestViewController.xib */,
 			);
 			path = TestViewController;
+			sourceTree = "<group>";
+		};
+		E1BD102220765F7400287982 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1BD102720765FB900287982 /* User.swift */,
+				E1BD102520765FAD00287982 /* Room.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E1E7D1F72071C7D300874EB2 /* ViewController */ = {
@@ -420,7 +437,9 @@
 			files = (
 				E104666E20708FF400245789 /* TutorialViewController.swift in Sources */,
 				E1A621D22070D23100B83291 /* TestViewController.swift in Sources */,
+				E1BD102620765FAD00287982 /* Room.swift in Sources */,
 				145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */,
+				E1BD102820765FB900287982 /* User.swift in Sources */,
 				E14C41432074D107003571E8 /* SignedInDetailNewsViewController.swift in Sources */,
 				E198761420672E2D008434CC /* ViewController.swift in Sources */,
 				145C11FE2075F37E00AB11F3 /* RoomManagementViewController.swift in Sources */,
@@ -430,6 +449,7 @@
 				E1E7D206207224F000874EB2 /* ListNewsTableViewCell.swift in Sources */,
 				E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */,
 				E1E7D1FC2071C8AC00874EB2 /* BeforeSignHomeViewController.swift in Sources */,
+				E1BD102A207663E800287982 /* Extensions.swift in Sources */,
 				E14C413F2074CF18003571E8 /* BeforeSignDetailNewsViewController.swift in Sources */,
 				E198761220672E2D008434CC /* AppDelegate.swift in Sources */,
 			);
