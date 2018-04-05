@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		145C11FE2075F37E00AB11F3 /* RoomManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C11FC2075F37E00AB11F3 /* RoomManagementViewController.swift */; };
+		145C11FF2075F37E00AB11F3 /* RoomManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145C11FD2075F37E00AB11F3 /* RoomManagementViewController.xib */; };
 		22646D6A0FA189D05EEE187D /* Pods_MotelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */; };
 		E104666E20708FF400245789 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104666C20708FF400245789 /* TutorialViewController.swift */; };
 		E104666F20708FF400245789 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E104666D20708FF400245789 /* TutorialViewController.xib */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		145C11FC2075F37E00AB11F3 /* RoomManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomManagementViewController.swift; sourceTree = "<group>"; };
+		145C11FD2075F37E00AB11F3 /* RoomManagementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomManagementViewController.xib; sourceTree = "<group>"; };
 		30112E5F978D897CC2765B50 /* Pods-MotelNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotelNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork.release.xcconfig"; sourceTree = "<group>"; };
 		5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotelNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAD763934971E3E622BC4AFC /* Pods-MotelNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotelNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +92,16 @@
 				5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		145C11FB2075F34800AB11F3 /* RoomManagementViewController */ = {
+			isa = PBXGroup;
+			children = (
+				145C11FC2075F37E00AB11F3 /* RoomManagementViewController.swift */,
+				145C11FD2075F37E00AB11F3 /* RoomManagementViewController.xib */,
+			);
+			name = RoomManagementViewController;
+			path = "Rô";
 			sourceTree = "<group>";
 		};
 		E104667020708FFE00245789 /* TutorialViewController */ = {
@@ -197,6 +211,7 @@
 		E1E7D1F72071C7D300874EB2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				145C11FB2075F34800AB11F3 /* RoomManagementViewController */,
 				E14C41402074D0EB003571E8 /* SignedInDetailNewsViewController */,
 				E1E7D1F92071C87D00874EB2 /* SignedInHomeViewController */,
 				E1E7D1F82071C83700874EB2 /* BeforeSignHomeViewController */,
@@ -312,6 +327,7 @@
 				E1E7D1FD2071C8AC00874EB2 /* BeforeSignHomeViewController.xib in Resources */,
 				E14C41442074D107003571E8 /* SignedInDetailNewsViewController.xib in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
+				145C11FF2075F37E00AB11F3 /* RoomManagementViewController.xib in Resources */,
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
 				E1E7D2012071C8BD00874EB2 /* SignedInHomeViewController.xib in Resources */,
 				E198761720672E2D008434CC /* Main.storyboard in Resources */,
@@ -399,6 +415,7 @@
 				E1A621D22070D23100B83291 /* TestViewController.swift in Sources */,
 				E14C41432074D107003571E8 /* SignedInDetailNewsViewController.swift in Sources */,
 				E198761420672E2D008434CC /* ViewController.swift in Sources */,
+				145C11FE2075F37E00AB11F3 /* RoomManagementViewController.swift in Sources */,
 				E1E7D2002071C8BD00874EB2 /* SignedInHomeViewController.swift in Sources */,
 				E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */,
 				E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */,
