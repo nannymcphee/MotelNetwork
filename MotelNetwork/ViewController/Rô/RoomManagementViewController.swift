@@ -16,6 +16,10 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.ivAvatar.layer.cornerRadius = self.ivAvatar.frame.size.width / 2
+        ivAvatar.clipsToBounds = true
+        
         tbRoomManagement.delegate = self
         tbRoomManagement.dataSource = self
        tbRoomManagement.register(UINib(nibName: "ListRoomsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListRoomsTableViewCell")
