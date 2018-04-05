@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class UserType {
     var userType: Int
@@ -21,10 +22,11 @@ class UserType {
     }
 }
 
-class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
     
+    @IBOutlet weak var btnProfilePicture: UIButton!
     @IBOutlet weak var btnRegister: UIButton!
     @IBOutlet weak var btnExit: UIButton!
     @IBOutlet weak var pvUserType: UIPickerView!
@@ -36,14 +38,13 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     
     var userType = [UserType]()
-    var ref: DatabaseReference!
+//    var databaseRef: DatabaseReference!
+//    var storageRef: StorageReference!
     let dpBirthDay = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         createDatePicker()
-        
-        ref = Database.database().reference()
         
         pvUserType.delegate = self
         pvUserType.dataSource = self
@@ -51,7 +52,8 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         userType.append(UserType(userType: 0, userTypeName: "Chủ nhà trọ"))
         userType.append(UserType(userType: 1, userTypeName: "Khách thuê trọ"))
         
-        btnRegister.layer.cornerRadius = 15
+        self.btnRegister.layer.cornerRadius = self.btnRegister.frame.height / 2.0
+        self.btnRegister.clipsToBounds = true
 
         // Do any additional setup after loading the view.
     }
@@ -109,12 +111,15 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 //        let userType2 = userType[selectedUserType].userType
     }
     
+    // btnExitPressed handler
     @IBAction func btnExitPressed(_ sender: Any) {
         
         let vc = LoginViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    // btnRegisterPressed handler
     @IBAction func btnRegisterPressed(_ sender: UIButton) {
         
         // Check if user has entered all informations
@@ -130,22 +135,46 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             // Sign up user with Email & Password
             let email = tfEmail.text, pass = tfPassword.text
             Auth.auth().createUser(withEmail: email!, password: pass!) { (user, error) in
-                if error != nil {
+                
+                if let error = error {
                     print(error)
                     return
                 }
                 
-                let userID: String = (user?.uid)!
-                let userEmail: String = self.tfEmail.text!
-                let userPassword: String = self.tfPassword.text!
-                let userFullName: String = self.tfName.text!
-                let userCMND: String = self.tfCMND.text!
-                let userBirthDay = self.tfBirthDay.text!
-                let userType = self.pvUserType.selectedRow(inComponent: 0)
+                guard let uid = user?.uid else {
+                    return
+                }
                 
-                // Add user's information to database
-                self.ref.child("Users").child(userID).setValue(["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType])
+                // Succesfully signed up user
+                let imageName = UUID().uuidString
+                let storageRef = Storage.storage().reference().child("ProfileImages").child("\(imageName).png")
                 
+                if let profileImage = self.btnProfilePicture.image(for: .normal), let uploadData = UIImagePNGRepresentation(self.btnProfilePicture.image(for: .normal)!) {
+                    
+                    storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                        
+                        if error != nil {
+                            print(error!)
+                            return
+                        }
+                        
+                        if let profileImageUrl = metadata?.downloadURL()?.absoluteString {
+                            
+                            let userID: String = uid
+                            let userEmail: String = self.tfEmail.text!
+                            let userPassword: String = self.tfPassword.text!
+                            let userFullName: String = self.tfName.text!
+                            let userCMND: String = self.tfCMND.text!
+                            let userBirthDay = self.tfBirthDay.text!
+                            let userType = self.pvUserType.selectedRow(inComponent: 0)
+                            
+                            let values = ["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": profileImageUrl] as [String : Any]
+                            
+                            self.storeUserInformationToDatabase(uid, values: values as [String : AnyObject])
+                        }
+                    })
+                }
+
                 // Create UIAlertController
                 let alert = UIAlertController(title: "Thông báo", message: "Đăng ký thành công", preferredStyle: .alert)
                 let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (action) in
@@ -158,16 +187,62 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    
-    
-    /*
-    // MARK: - Navigation
+    private func storeUserInformationToDatabase(_ uid: String, values: [String: AnyObject]) {
+        // Add user's information to database
+        let databaseRef = Database.database().reference()
+        let usersRef = databaseRef.child("Users").child(uid)
+        
+        usersRef.updateChildValues(values) { (error, ref) in
+            
+            if error != nil {
+                print(error!)
+                return
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    @IBAction func btnProfilePicturePressed(_ sender: Any) {
+        handleSelectProfilePicturePressed()
+    }
+    
+    /* Area logic for btnProfilePicture */
+    
+    func handleSelectProfilePicturePressed() {
+        let imgPicker = UIImagePickerController()
+        imgPicker.delegate = self
+        present(imgPicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        var  selectedImageFromPicker: UIImage?
+        
+        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+            selectedImageFromPicker = editedImage
+        }
+        else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            selectedImageFromPicker = originalImage
+        }
+        
+        if let selectedImage = selectedImageFromPicker {
+            btnProfilePicture.setImage(selectedImage, for: .normal)
+            btnProfilePicture.layer.cornerRadius = btnProfilePicture.frame.size.width / 2
+            btnProfilePicture.clipsToBounds = true
+            
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+        print("Canceled")
+    }
+    
+    /* End Area logic for btnProfilePicture */
+    
 
 }
