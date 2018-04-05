@@ -13,6 +13,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoomManagementViewController" customModule="MotelNetwork" customModuleProvider="target">
             <connections>
+                <outlet property="ivAvatar" destination="R7f-Bm-PQX" id="UC2-gz-FYS"/>
+                <outlet property="lblUserFullName" destination="IcF-mk-JaP" id="fbR-sp-rnB"/>
+                <outlet property="tbRoomManagement" destination="j09-YX-mcr" id="qb7-PJ-sga"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
