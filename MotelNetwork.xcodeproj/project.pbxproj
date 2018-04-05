@@ -30,6 +30,8 @@
 		E1BD102620765FAD00287982 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD102520765FAD00287982 /* Room.swift */; };
 		E1BD102820765FB900287982 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD102720765FB900287982 /* User.swift */; };
 		E1BD102A207663E800287982 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD1029207663E800287982 /* Extensions.swift */; };
+		E1BD102E20766C3500287982 /* CreateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD102C20766C3500287982 /* CreateRoomViewController.swift */; };
+		E1BD102F20766C3500287982 /* CreateRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1BD102D20766C3500287982 /* CreateRoomViewController.xib */; };
 		E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE6912067805D005715EC /* LoginViewController.swift */; };
 		E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE6922067805D005715EC /* LoginViewController.xib */; };
 		E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */; };
@@ -71,6 +73,8 @@
 		E1BD102520765FAD00287982 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		E1BD102720765FB900287982 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E1BD1029207663E800287982 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E1BD102C20766C3500287982 /* CreateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewController.swift; sourceTree = "<group>"; };
+		E1BD102D20766C3500287982 /* CreateRoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateRoomViewController.xib; sourceTree = "<group>"; };
 		E1CDE6912067805D005715EC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E1CDE6922067805D005715EC /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -231,9 +235,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E1BD102B20766C1100287982 /* CreateRoomViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1BD102C20766C3500287982 /* CreateRoomViewController.swift */,
+				E1BD102D20766C3500287982 /* CreateRoomViewController.xib */,
+			);
+			path = CreateRoomViewController;
+			sourceTree = "<group>";
+		};
 		E1E7D1F72071C7D300874EB2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E1BD102B20766C1100287982 /* CreateRoomViewController */,
 				145C11FB2075F34800AB11F3 /* RoomManagementViewController */,
 				E14C41402074D0EB003571E8 /* SignedInDetailNewsViewController */,
 				E1E7D1F92071C87D00874EB2 /* SignedInHomeViewController */,
@@ -348,6 +362,7 @@
 				E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */,
 				E1E7D207207224F000874EB2 /* ListNewsTableViewCell.xib in Resources */,
 				E1E7D1FD2071C8AC00874EB2 /* BeforeSignHomeViewController.xib in Resources */,
+				E1BD102F20766C3500287982 /* CreateRoomViewController.xib in Resources */,
 				E14C41442074D107003571E8 /* SignedInDetailNewsViewController.xib in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
 				145C12072075FF5300AB11F3 /* ListRoomsTableViewCell.xib in Resources */,
@@ -448,6 +463,7 @@
 				E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */,
 				E1E7D206207224F000874EB2 /* ListNewsTableViewCell.swift in Sources */,
 				E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */,
+				E1BD102E20766C3500287982 /* CreateRoomViewController.swift in Sources */,
 				E1E7D1FC2071C8AC00874EB2 /* BeforeSignHomeViewController.swift in Sources */,
 				E1BD102A207663E800287982 /* Extensions.swift in Sources */,
 				E14C413F2074CF18003571E8 /* BeforeSignDetailNewsViewController.swift in Sources */,

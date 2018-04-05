@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoomManagementViewController" customModule="MotelNetwork" customModuleProvider="target">
             <connections>
+                <outlet property="btnBack" destination="OtO-yG-rn7" id="39g-Bh-8d1"/>
+                <outlet property="btnCreateRoom" destination="pdD-ze-dRp" id="aPs-8R-Klo"/>
                 <outlet property="ivAvatar" destination="R7f-Bm-PQX" id="UC2-gz-FYS"/>
                 <outlet property="lblUserFullName" destination="IcF-mk-JaP" id="fbR-sp-rnB"/>
                 <outlet property="tbRoomManagement" destination="j09-YX-mcr" id="qb7-PJ-sga"/>
@@ -46,6 +48,9 @@
                                                 <constraint firstAttribute="height" constant="24" id="ukx-lH-2Vi"/>
                                             </constraints>
                                             <state key="normal" title="Button" image="icLeft"/>
+                                            <connections>
+                                                <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="3Q9-7H-EFf"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phòng của tôi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b22-l6-bRq">
                                             <rect key="frame" x="135" y="31" width="105" height="21"/>
@@ -53,6 +58,17 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdD-ze-dRp">
+                                            <rect key="frame" x="339" y="32" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="Eiw-tw-3kO"/>
+                                                <constraint firstAttribute="height" constant="24" id="Iro-kv-UmV"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="icPlusBlue"/>
+                                            <connections>
+                                                <action selector="btnCreateRoomPressed:" destination="-1" eventType="touchUpInside" id="nYg-19-76K"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -63,7 +79,9 @@
                                         <constraint firstItem="OtO-yG-rn7" firstAttribute="leading" secondItem="GfZ-Ta-dIc" secondAttribute="leading" constant="12" id="Uu9-JF-kP2"/>
                                         <constraint firstItem="b22-l6-bRq" firstAttribute="centerX" secondItem="GfZ-Ta-dIc" secondAttribute="centerX" id="b5V-b0-eu0"/>
                                         <constraint firstAttribute="bottom" secondItem="kZI-XD-dLE" secondAttribute="bottom" constant="1" id="c86-f0-0Nw"/>
+                                        <constraint firstItem="pdD-ze-dRp" firstAttribute="top" secondItem="GfZ-Ta-dIc" secondAttribute="top" constant="32" id="eaZ-Jo-F9T"/>
                                         <constraint firstItem="kZI-XD-dLE" firstAttribute="top" secondItem="OtO-yG-rn7" secondAttribute="bottom" constant="6" id="g1l-sN-AH5"/>
+                                        <constraint firstAttribute="trailing" secondItem="pdD-ze-dRp" secondAttribute="trailing" constant="12" id="xUM-cB-hne"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-D8-dXf">
@@ -135,7 +153,6 @@
                         <constraint firstAttribute="trailing" secondItem="axx-fz-lQr" secondAttribute="trailing" id="bsf-l8-Zcl"/>
                         <constraint firstAttribute="bottom" secondItem="axx-fz-lQr" secondAttribute="bottom" id="kXR-K3-aGp"/>
                         <constraint firstItem="axx-fz-lQr" firstAttribute="top" secondItem="APX-Az-4Oq" secondAttribute="top" id="oB3-oX-4qq"/>
-                        <constraint firstItem="axx-fz-lQr" firstAttribute="centerY" secondItem="APX-Az-4Oq" secondAttribute="centerY" id="r3C-mT-Cve"/>
                     </constraints>
                 </scrollView>
             </subviews>
@@ -154,5 +171,6 @@
     <resources>
         <image name="ava" width="496" height="496"/>
         <image name="icLeft" width="24" height="24"/>
+        <image name="icPlusBlue" width="24" height="24"/>
     </resources>
 </document>

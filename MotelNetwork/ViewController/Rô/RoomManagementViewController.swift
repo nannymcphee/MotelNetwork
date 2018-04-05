@@ -10,6 +10,8 @@ import UIKit
 
 class RoomManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var btnCreateRoom: UIButton!
     @IBOutlet weak var tbRoomManagement: UITableView!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblUserFullName: UILabel!
@@ -69,6 +71,15 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
+    
+    @IBAction func btnCreateRoomPressed(_ sender: Any) {
+        let vc = CreateRoomViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func btnBackPressed(_ sender: Any) {
+    
+    }
     /*
     // MARK: - Navigation
 
