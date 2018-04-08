@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
-        rootViewControler = CreateRoomViewController()
+        rootViewControler = TutorialViewController()
         navigationController = UINavigationController(rootViewController: rootViewControler!)
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
