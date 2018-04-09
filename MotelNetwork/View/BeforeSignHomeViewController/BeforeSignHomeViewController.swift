@@ -59,25 +59,25 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     
     func loadData() {
         //list new
-        var room1 = Room(id: "1", name: "Phong 1", area: "20", price: 300000)
-        var room2 = Room(id: "1", name: "Phong 2", area: "20", price: 300000)
-        var room3 = Room(id: "1", name: "Phong 3", area: "20", price: 300000)
-        var room4 = Room(id: "1", name: "Phong 4", area: "20", price: 300000)
+        let room1 = Room(id: "1", name: "Phong 1", area: "20", price: 300000)
+        let room2 = Room(id: "1", name: "Phong 2", area: "20", price: 300000)
+        let room3 = Room(id: "1", name: "Phong 3", area: "20", price: 300000)
+        let room4 = Room(id: "1", name: "Phong 4", area: "20", price: 300000)
         listNews.append(room1)
         listNews.append(room2)
         listNews.append(room3)
         listNews.append(room4)
         
         //list Mostview
-        var room5 = Room(id: "1", name: "Phong 5", area: "20", price: 300000)
-        var room6 = Room(id: "1", name: "Phong 6", area: "20", price: 300000)
+        let room5 = Room(id: "1", name: "Phong 5", area: "20", price: 300000)
+        let room6 = Room(id: "1", name: "Phong 6", area: "20", price: 300000)
         
         listMostView.append(room5)
         listMostView.append(room6)
         
         //list Near me
-        var room7 = Room(id: "1", name: "Phong 7", area: "20", price: 300000)
-        var room8 = Room(id: "1", name: "Phong 8", area: "20", price: 300000)
+        let room7 = Room(id: "1", name: "Phong 7", area: "20", price: 300000)
+        let room8 = Room(id: "1", name: "Phong 8", area: "20", price: 300000)
         
         listNearMe.append(room7)
         listNearMe.append(room8)
@@ -85,39 +85,49 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
+    //MARK: Handle button pressed
+    
     @IBAction func btnNewClick(_ sender: Any) {
+        
         isNew = true
         isMostView = false
         isNearMe = false
-        setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
         
-        vMostViewProgress.isHidden = true
-        vNearMeProgress.isHidden = true
-        vNewsProgress.isHidden = false
+        setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
+        setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
         tbListNews.reloadData()
     }
     
     @IBAction func btnMostViewClick(_ sender: Any) {
+        
         isNew = false
         isMostView = true
         isNearMe = false
-        setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
         
-        vNewsProgress.isHidden = true
-        vNearMeProgress.isHidden = true
-        vMostViewProgress.isHidden = false
+        setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
+        setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
         tbListNews.reloadData()
         
     }
+    
     @IBAction func btnNearMeClick(_ sender: Any) {
+        
         isNew = false
         isMostView = false
         isNearMe = true
+        
         setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
-        vMostViewProgress.isHidden = true
-        vNewsProgress.isHidden = true
-        vNearMeProgress.isHidden = false
+        setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
         tbListNews.reloadData()
+    }
+    
+    //MARK: Exstension func
+    
+    func setViewState(enabledView: UIView, disabledView2: UIView, disabledView3: UIView) {
+        
+        enabledView.isHidden = false
+        disabledView2.isHidden = true
+        disabledView3.isHidden = true
     }
     
     func setColorAndFontButton(buttonEnable: UIButton, buttonDisable1: UIButton, buttonDisable2: UIButton) {
@@ -132,7 +142,10 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
         buttonDisable1.setTitleColor(colorDisable, for: .normal)
         buttonDisable2.setTitleColor(colorDisable, for: .normal)
     }
+    
 
+
+    //MARK: Logic for table view
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isNew {
@@ -167,8 +180,6 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
         
         return cell
     }
-    
-
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 145

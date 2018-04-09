@@ -100,23 +100,12 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
+    //MARK: Handle button pressed
     
     @IBAction func btnCreateRoomPressed(_ sender: Any) {
         let vc = CreateRoomViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func btnBackPressed(_ sender: Any) {
-    
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+ 
 }

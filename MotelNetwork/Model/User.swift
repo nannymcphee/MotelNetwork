@@ -8,7 +8,7 @@
 
 import UIKit
 
-class User: NSObject {
+class User {
     var id: String?
     var name: String?
     var email: String?
@@ -17,6 +17,21 @@ class User: NSObject {
     var profileImageUrl: String?
     var cmnd: String?
     var userType: Int?
+    
+    init() {
+    }
+    
+    init(id: String, name: String, email: String, pass: String, birthDay: String, profileImageUrl: String, cmnd: String, userType: Int) {
+        
+        self.id = id
+        self.name = name
+        self.email = email
+        self.pass = pass
+        self.birthDay = birthDay
+        self.profileImageUrl = profileImageUrl
+        self.cmnd = cmnd
+        self.userType = userType
+    }
     
     init(dictionary:[String: AnyObject]) {
         self.id = dictionary["id"] as? String

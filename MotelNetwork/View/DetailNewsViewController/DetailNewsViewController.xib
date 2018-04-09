@@ -33,7 +33,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ha2-k3-GOG">
-                                    <rect key="frame" x="19" y="33" width="24" height="24"/>
+                                    <rect key="frame" x="19" y="21" width="24" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="24" id="H62-RC-sFA"/>
                                         <constraint firstAttribute="width" constant="24" id="bjl-c0-rIC"/>
@@ -44,8 +44,8 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chi tiết" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jd-im-OEq">
-                                    <rect key="frame" x="162" y="35" width="51" height="19"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                    <rect key="frame" x="161.5" y="23" width="52.5" height="19"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -59,12 +59,12 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstItem="8jd-im-OEq" firstAttribute="centerY" secondItem="vEv-UM-bh3" secondAttribute="centerY" id="Z30-nh-wp6"/>
                                 <constraint firstAttribute="bottom" secondItem="Noo-v9-duL" secondAttribute="bottom" id="Z5z-nC-lQU"/>
                                 <constraint firstItem="8jd-im-OEq" firstAttribute="centerX" secondItem="vEv-UM-bh3" secondAttribute="centerX" id="cvq-p1-kun"/>
                                 <constraint firstAttribute="trailing" secondItem="Noo-v9-duL" secondAttribute="trailing" id="duX-aU-KzY"/>
                                 <constraint firstItem="Ha2-k3-GOG" firstAttribute="leading" secondItem="vEv-UM-bh3" secondAttribute="leading" constant="19" id="kxR-w8-7v5"/>
                                 <constraint firstItem="Noo-v9-duL" firstAttribute="leading" secondItem="vEv-UM-bh3" secondAttribute="leading" id="lQm-MG-59g"/>
-                                <constraint firstAttribute="bottom" secondItem="8jd-im-OEq" secondAttribute="bottom" constant="10" id="wOq-3b-Rmt"/>
                                 <constraint firstItem="Ha2-k3-GOG" firstAttribute="centerY" secondItem="8jd-im-OEq" secondAttribute="centerY" id="x9H-WH-w7W"/>
                             </constraints>
                         </view>

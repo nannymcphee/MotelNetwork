@@ -13,6 +13,7 @@ import FirebaseDatabase
 class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
+    @IBOutlet weak var btnNewPost: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblFullName: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
@@ -23,7 +24,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
         tbAccountOptionList.delegate = self
         tbAccountOptionList.dataSource = self
         tbAccountOptionList.register(UINib(nibName: "AccountOptionTableViewCell", bundle: nil), forCellReuseIdentifier: "AccountOptionTableViewCell")
@@ -107,8 +108,11 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func btnLogOutPressed(_ sender: Any) {
         
-        
+        doLogOut()
     }
     
-    
+    @IBAction func btnNewPostPressed(_ sender: Any) {
+        
+        
+    }
 }

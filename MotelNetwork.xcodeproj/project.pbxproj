@@ -30,6 +30,8 @@
 		E16F5B2A207B7D8E00B284A5 /* ChangeEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B28207B7D8E00B284A5 /* ChangeEmailViewController.xib */; };
 		E16F5B2D207B84D900B284A5 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B2B207B84D900B284A5 /* ChangePasswordViewController.swift */; };
 		E16F5B2E207B84D900B284A5 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B2C207B84D900B284A5 /* ChangePasswordViewController.xib */; };
+		E16F5B31207BD35A00B284A5 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B30207BD35A00B284A5 /* Controller.swift */; };
+		E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B32207BDD0700B284A5 /* Strings.swift */; };
 		E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F072B20674C2200281432 /* SignUpViewController.swift */; };
 		E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18F072C20674C2200281432 /* SignUpViewController.xib */; };
 		E198761220672E2D008434CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198761120672E2D008434CC /* AppDelegate.swift */; };
@@ -81,6 +83,8 @@
 		E16F5B28207B7D8E00B284A5 /* ChangeEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeEmailViewController.xib; sourceTree = "<group>"; };
 		E16F5B2B207B84D900B284A5 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		E16F5B2C207B84D900B284A5 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
+		E16F5B30207BD35A00B284A5 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		E16F5B32207BDD0700B284A5 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		E18F072B20674C2200281432 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E18F072C20674C2200281432 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		E198760E20672E2D008434CC /* MotelNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotelNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -255,6 +259,15 @@
 			path = ChangePasswordViewController;
 			sourceTree = "<group>";
 		};
+		E16F5B2F207BD34F00B284A5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E16F5B30207BD35A00B284A5 /* Controller.swift */,
+				E16F5B32207BDD0700B284A5 /* Strings.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		E198760520672E2D008434CC = {
 			isa = PBXGroup;
 			children = (
@@ -285,7 +298,8 @@
 				E198761D20672E2D008434CC /* Info.plist */,
 				E14C41452074EBF5003571E8 /* GoogleService-Info.plist */,
 				E1BD102220765F7400287982 /* Model */,
-				E1E7D1F72071C7D300874EB2 /* ViewController */,
+				E1E7D1F72071C7D300874EB2 /* View */,
+				E16F5B2F207BD34F00B284A5 /* Controller */,
 				E153317C2068E1B000238763 /* Libraries */,
 			);
 			path = MotelNetwork;
@@ -318,7 +332,7 @@
 			path = CreateRoomViewController;
 			sourceTree = "<group>";
 		};
-		E1E7D1F72071C7D300874EB2 /* ViewController */ = {
+		E1E7D1F72071C7D300874EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				E16F5B22207B7D6900B284A5 /* ChangePasswordViewController */,
@@ -337,7 +351,7 @@
 				E15331792068E18100238763 /* ForgotPasswordViewController */,
 				E104667020708FFE00245789 /* TutorialViewController */,
 			);
-			path = ViewController;
+			path = View;
 			sourceTree = "<group>";
 		};
 		E1E7D1F82071C83700874EB2 /* BeforeSignHomeViewController */ = {
@@ -398,6 +412,9 @@
 		E198760620672E2D008434CC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					0,
+				);
 				LastSwiftUpdateCheck = 0920;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Nguyên Duy";
@@ -548,6 +565,7 @@
 				145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
 				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
+				E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */,
 				E14C41432074D107003571E8 /* SignedInDetailNewsViewController.swift in Sources */,
 				145C11FE2075F37E00AB11F3 /* RoomManagementViewController.swift in Sources */,
 				E1E7D2002071C8BD00874EB2 /* SignedInHomeViewController.swift in Sources */,
@@ -556,6 +574,7 @@
 				E1E7D206207224F000874EB2 /* ListNewsTableViewCell.swift in Sources */,
 				E16F5B1F207B69AE00B284A5 /* AccountOptionTableViewCell.swift in Sources */,
 				E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */,
+				E16F5B31207BD35A00B284A5 /* Controller.swift in Sources */,
 				E1BD102E20766C3500287982 /* CreateRoomViewController.swift in Sources */,
 				E1E7D1FC2071C8AC00874EB2 /* BeforeSignHomeViewController.swift in Sources */,
 				E1BD102A207663E800287982 /* Extensions.swift in Sources */,

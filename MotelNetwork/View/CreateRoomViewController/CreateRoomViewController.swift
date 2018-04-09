@@ -50,6 +50,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     //MARK: Set up view
     func setUpView() {
+        
         makeButtonRounded(button: btnSave)
         checkAuthStatus()
         fetchUser()
@@ -235,12 +236,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             }
         }
         
-        // Create UIAlertController
-        let alert = UIAlertController(title: "Thông báo", message: "Tạo phòng thành công!", preferredStyle: .alert)
-        let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-        })
-        alert.addAction(actionOK)
-        self.present(alert, animated: true, completion: nil)
+        showAlert(alertMessage: "Tạo phòng thành công!")
     }
     
     //Mark: Convert selected assets to image

@@ -42,20 +42,20 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createDatePicker()
         
         pvUserType.delegate = self
         pvUserType.dataSource = self
         
-        userType.append(UserType(userType: 0, userTypeName: "Chủ nhà trọ"))
-        userType.append(UserType(userType: 1, userTypeName: "Khách thuê trọ"))
-        
-        self.btnRegister.layer.cornerRadius = self.btnRegister.frame.height / 2.0
-        self.btnRegister.clipsToBounds = true
-
+        setUpView()
     }
     
-    // Create Date Picker
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: Create & handle date picker
+    
     func createDatePicker() {
         
         dpBirthDay.locale = NSLocale.init(localeIdentifier: "vi_VN") as Locale
@@ -84,10 +84,17 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.view.endEditing(true)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    
+    //MARK: Set up view
+    func setUpView() {
+        createDatePicker()
+        makeButtonRounded(button: btnRegister)
+        userType.append(UserType(userType: 0, userTypeName: "Chủ nhà trọ"))
+        userType.append(UserType(userType: 1, userTypeName: "Khách thuê trọ"))
     }
+    
+    //MARK: Logic for pvUser
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -108,29 +115,28 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         pickerView.reloadComponent(0)
         
         let selectedUserType = pvUserType.selectedRow(inComponent: 0)
+        print(selectedUserType)
 //        let userType2 = userType[selectedUserType].userType
     }
     
-    // btnExitPressed handler
+    //MARK: Handle button pressed
+    
     @IBAction func btnExitPressed(_ sender: Any) {
         
         let vc = LoginViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func btnProfilePicturePressed(_ sender: Any) {
+        handleSelectProfilePicturePressed()
+    }
     
-    // btnRegisterPressed handler
     @IBAction func btnRegisterPressed(_ sender: UIButton) {
         
         // Check if user has entered all informations
         if tfName.text == "" || tfEmail.text == "" || tfPassword.text == "" || tfCMND.text == "" || tfBirthDay.text == "" {
             
-            // Create UIAlertController
-            let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập đầy đủ thông tin!", preferredStyle: .alert)
-            let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            })
-            alert.addAction(actionOK)
-            self.present(alert, animated: true, completion: nil)
+            showAlert(alertMessage: messageNilTextFields)
         }
         else {
             
@@ -178,18 +184,12 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     })
                 }
 
-                // Create UIAlertController
-                let alert = UIAlertController(title: "Thông báo", message: "Đăng ký thành công", preferredStyle: .alert)
-                let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                    
-                    let vc = LoginViewController()
-                    self.navigationController?.pushViewController(vc, animated: true)
-                })
-                alert.addAction(actionOK)
-                self.present(alert, animated: true, completion: nil)
+                self.showAlert(alertMessage: messageSignUpSuccess)
             }
         }
     }
+    
+    //MARK: Database interaction
     
     private func storeUserInformationToDatabase(_ uid: String, values: [String: AnyObject]) {
         
@@ -210,11 +210,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     }
     
-    @IBAction func btnProfilePicturePressed(_ sender: Any) {
-        handleSelectProfilePicturePressed()
-    }
-    
-    /* Area logic for btnProfilePicture */
+    //MARK: Logic for btnProfilePicture
     
     func handleSelectProfilePicturePressed() {
         
@@ -252,8 +248,5 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         dismiss(animated: true, completion: nil)
         print("Canceled")
     }
-    
-    /* End Area logic for btnProfilePicture */
-    
 
 }
