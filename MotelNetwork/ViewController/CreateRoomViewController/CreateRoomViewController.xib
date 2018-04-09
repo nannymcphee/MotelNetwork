@@ -12,15 +12,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateRoomViewController" customModule="MotelNetwork" customModuleProvider="target">
             <connections>
-                <outlet property="btnAddImage" destination="gB3-Hs-q3G" id="ldZ-9j-G61"/>
-                <outlet property="btnBack" destination="81s-sy-xF6" id="sSe-4w-DY8"/>
-                <outlet property="btnSave" destination="1of-kg-cqH" id="k1a-aP-BNM"/>
-                <outlet property="ivRoomImage" destination="UhA-QD-DQS" id="5Wd-lJ-MhH"/>
-                <outlet property="ivRoomImage1" destination="KQI-1X-8ca" id="7NL-ea-Wap"/>
-                <outlet property="ivRoomImage2" destination="rzf-ha-r8S" id="ywF-rp-aOi"/>
-                <outlet property="tfArea" destination="Gh3-Q5-jAI" id="sjM-S4-ZG6"/>
-                <outlet property="tfPrice" destination="cdG-xL-RmB" id="qTn-TU-MRT"/>
-                <outlet property="tfRoomName" destination="5tS-sp-DXN" id="kAl-SA-agc"/>
+                <outlet property="btnAddImage" destination="gB3-Hs-q3G" id="jsf-QP-6f2"/>
+                <outlet property="btnBack" destination="81s-sy-xF6" id="ZHg-yj-DlD"/>
+                <outlet property="btnSave" destination="1of-kg-cqH" id="tQy-nO-JIz"/>
+                <outlet property="ivRoomImage0" destination="UhA-QD-DQS" id="H1M-05-7ZU"/>
+                <outlet property="ivRoomImage1" destination="KQI-1X-8ca" id="XkB-qv-Z7z"/>
+                <outlet property="ivRoomImage2" destination="rzf-ha-r8S" id="2UR-2H-Pf7"/>
+                <outlet property="tfArea" destination="Gh3-Q5-jAI" id="LKO-CH-yo9"/>
+                <outlet property="tfPrice" destination="cdG-xL-RmB" id="j3h-sl-5NE"/>
+                <outlet property="tfRoomName" destination="5tS-sp-DXN" id="5O7-IG-y0a"/>
+                <outlet property="tfUser" destination="OVJ-bd-2Re" id="KZA-Gr-RSI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -46,7 +47,7 @@
                                             </constraints>
                                             <state key="normal" title="Button" image="icLeft"/>
                                             <connections>
-                                                <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="6hn-x7-PYY"/>
+                                                <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="iyw-94-bjC"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thêm phòng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7t6-o4-3Gx">
@@ -77,6 +78,9 @@
                                                         <constraint firstAttribute="height" constant="34" id="kIW-00-gxT"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="icAddCircle"/>
+                                                    <connections>
+                                                        <action selector="btnAddImagePressed:" destination="-1" eventType="touchUpInside" id="qBq-uE-zQA"/>
+                                                    </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UhA-QD-DQS">
                                                     <rect key="frame" x="76" y="12" width="72" height="72"/>
@@ -160,25 +164,43 @@
                                                     <rect key="frame" x="18" y="139" width="340" height="40"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cdG-xL-RmB">
                                                     <rect key="frame" x="18" y="211" width="340" height="40"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1of-kg-cqH">
-                                                    <rect key="frame" x="17" y="326" width="340" height="40"/>
+                                                    <rect key="frame" x="17" y="377" width="340" height="40"/>
                                                     <color key="backgroundColor" red="0.30980392159999998" green="0.59999999999999998" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="YjD-4w-ISh"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                                     <state key="normal" title="Lưu">
                                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="btnSavePressed:" destination="-1" eventType="touchUpInside" id="eK7-Sx-yIG"/>
+                                                        <action selector="btnSavePressed:" destination="-1" eventType="touchUpInside" id="GUk-3J-vPm"/>
                                                     </connections>
                                                 </button>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Để trống nếu chưa có người thuê" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVJ-bd-2Re">
+                                                    <rect key="frame" x="17" y="283" width="340" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="yzz-n4-khJ"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Người thuê" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7K-t0-UU3">
+                                                    <rect key="frame" x="17" y="263" width="62" height="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -187,25 +209,29 @@
                                                 <constraint firstItem="id3-tx-e9E" firstAttribute="top" secondItem="5tS-sp-DXN" secondAttribute="bottom" constant="12" id="5DS-yn-IFb"/>
                                                 <constraint firstItem="Gh3-Q5-jAI" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="18" id="5dD-d1-0s4"/>
                                                 <constraint firstItem="id3-tx-e9E" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="12" id="695-7z-nO5"/>
+                                                <constraint firstAttribute="bottom" secondItem="1of-kg-cqH" secondAttribute="bottom" constant="115" id="7Ey-yv-rZz"/>
+                                                <constraint firstItem="1of-kg-cqH" firstAttribute="top" secondItem="OVJ-bd-2Re" secondAttribute="bottom" constant="54" id="Aw6-WZ-hTk"/>
                                                 <constraint firstItem="5tS-sp-DXN" firstAttribute="top" secondItem="gAP-Ng-isQ" secondAttribute="bottom" constant="6" id="B3E-Nd-ByH"/>
+                                                <constraint firstAttribute="trailing" secondItem="1of-kg-cqH" secondAttribute="trailing" constant="18" id="B45-3R-QUW"/>
                                                 <constraint firstItem="dx2-C0-uVb" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="DAs-Rz-weV"/>
-                                                <constraint firstItem="1of-kg-cqH" firstAttribute="top" secondItem="cdG-xL-RmB" secondAttribute="bottom" constant="75" id="FRO-5g-USG"/>
                                                 <constraint firstAttribute="trailing" secondItem="cdG-xL-RmB" secondAttribute="trailing" constant="17" id="FVL-4M-dF1"/>
                                                 <constraint firstItem="cdG-xL-RmB" firstAttribute="top" secondItem="Xfw-B4-hXZ" secondAttribute="bottom" constant="6" id="GXg-GC-Hxh"/>
                                                 <constraint firstItem="Gh3-Q5-jAI" firstAttribute="height" secondItem="5tS-sp-DXN" secondAttribute="height" id="HO1-95-7b9"/>
+                                                <constraint firstItem="OVJ-bd-2Re" firstAttribute="top" secondItem="H7K-t0-UU3" secondAttribute="bottom" constant="6" id="I7U-mT-z7J"/>
                                                 <constraint firstItem="dx2-C0-uVb" firstAttribute="top" secondItem="waF-pc-Pc7" secondAttribute="top" constant="15" id="PZC-Pr-Rcc"/>
-                                                <constraint firstAttribute="bottom" secondItem="1of-kg-cqH" secondAttribute="bottom" constant="166" id="RMI-8W-K4c"/>
+                                                <constraint firstItem="H7K-t0-UU3" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="Qqi-3F-LIR"/>
+                                                <constraint firstAttribute="trailing" secondItem="OVJ-bd-2Re" secondAttribute="trailing" constant="18" id="TB0-re-6rQ"/>
                                                 <constraint firstItem="cdG-xL-RmB" firstAttribute="height" secondItem="5tS-sp-DXN" secondAttribute="height" id="VVr-dT-vBH"/>
                                                 <constraint firstItem="Xfw-B4-hXZ" firstAttribute="top" secondItem="Gh3-Q5-jAI" secondAttribute="bottom" constant="12" id="ZN9-YO-FbX"/>
                                                 <constraint firstItem="cdG-xL-RmB" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="18" id="asc-OQ-ebb"/>
                                                 <constraint firstItem="Xfw-B4-hXZ" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="12" id="bRm-0c-Yfj"/>
+                                                <constraint firstItem="OVJ-bd-2Re" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="czF-2f-Jfb"/>
                                                 <constraint firstAttribute="trailing" secondItem="5tS-sp-DXN" secondAttribute="trailing" constant="17" id="j01-GS-5aD"/>
-                                                <constraint firstItem="1of-kg-cqH" firstAttribute="height" secondItem="Gh3-Q5-jAI" secondAttribute="height" id="jVp-gc-j3C"/>
                                                 <constraint firstItem="gAP-Ng-isQ" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="12" id="lay-aF-8NW"/>
                                                 <constraint firstItem="Gh3-Q5-jAI" firstAttribute="top" secondItem="id3-tx-e9E" secondAttribute="bottom" constant="6" id="lgI-la-ly9"/>
                                                 <constraint firstItem="gAP-Ng-isQ" firstAttribute="top" secondItem="dx2-C0-uVb" secondAttribute="bottom" constant="12" id="qBG-qI-MPa"/>
-                                                <constraint firstItem="1of-kg-cqH" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="rdb-kt-weM"/>
-                                                <constraint firstAttribute="trailing" secondItem="1of-kg-cqH" secondAttribute="trailing" constant="18" id="u2t-vg-Dux"/>
+                                                <constraint firstItem="1of-kg-cqH" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="qfL-2Q-HFZ"/>
+                                                <constraint firstItem="H7K-t0-UU3" firstAttribute="top" secondItem="cdG-xL-RmB" secondAttribute="bottom" constant="12" id="wPl-R4-jwl"/>
                                             </constraints>
                                         </view>
                                     </subviews>

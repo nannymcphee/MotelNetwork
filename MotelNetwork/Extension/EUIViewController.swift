@@ -19,4 +19,14 @@ extension UIViewController {
     func stopLoading() {
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
     }
+    
+    func makeButtonRounded(button: UIButton) {
+        button.layer.cornerRadius = button.frame.height / 2.0
+        button.clipsToBounds = true
+    }
+    
+    func makeImageViewRounded(imageView: UIImageView) {
+        imageView.layer.cornerRadius = imageView.frame.width / 2.0
+        imageView.clipsToBounds = true
+    }
 }

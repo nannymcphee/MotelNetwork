@@ -12,5 +12,6 @@ target 'MotelNetwork' do
 	pod 'Firebase/Database'
 	pod 'Firebase/Storage'
     pod 'NVActivityIndicatorView'
+    pod 'BSImagePicker', '~> 2.4'
 
 end
