@@ -12,7 +12,7 @@ import FirebaseDatabase
 
 
 class SignedInDetailNewsViewController: UIViewController {
-
+    
     
     @IBOutlet weak var btnBack2: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!
@@ -24,7 +24,7 @@ class SignedInDetailNewsViewController: UIViewController {
         super.viewDidLoad()
         
         setUpView()
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -47,10 +47,9 @@ class SignedInDetailNewsViewController: UIViewController {
             self.ivAvatar.loadImageUsingCacheWithUrlString(profileImageUrl)
         }
         
-        self.ivAvatar.layer.cornerRadius = self.ivAvatar.frame.size.width / 2
-        ivAvatar.clipsToBounds = true
+        makeImageViewRounded(imageView: ivAvatar)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -58,18 +57,10 @@ class SignedInDetailNewsViewController: UIViewController {
     
     
     @IBAction func btnBack2Pressed(_ sender: Any) {
-        
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
+    
 }

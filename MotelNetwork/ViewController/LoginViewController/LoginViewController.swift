@@ -49,8 +49,8 @@ class LoginViewController: UIViewController {
                     // Check if user is nil
                     if let u = user {
                         // User found, go to HomeViewController
-                        let vc = SignedInDetailNewsViewController()
-                        self.navigationController?.pushViewController(vc, animated: true)
+                        let vc = MainViewController()
+                        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
                     }
                     else {
                         // Create UIAlertController
@@ -71,7 +71,6 @@ class LoginViewController: UIViewController {
 }
     
     @IBAction func btnRegisterNavigationPressed(_ sender: Any) {
-        //self.show(SignUpViewController(), sender: nil)
         let vc = SignUpViewController()
         self.navigationController?.pushViewController(vc, animated: true)
         
@@ -79,7 +78,6 @@ class LoginViewController: UIViewController {
 
     
     @IBAction func btnForgotPasswordPressed(_ sender: UIButton) {
-        //self.show(SignUpViewController(), sender: nil)
         let vc = ForgotPasswordViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }

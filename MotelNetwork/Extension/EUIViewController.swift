@@ -11,6 +11,7 @@ import UIKit
 import NVActivityIndicatorView
 
 extension UIViewController {
+    
     func showLoading() {
         let activityData = ActivityData()
             NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
@@ -28,5 +29,16 @@ extension UIViewController {
     func makeImageViewRounded(imageView: UIImageView) {
         imageView.layer.cornerRadius = imageView.frame.width / 2.0
         imageView.clipsToBounds = true
+    }
+}
+
+extension UISearchBar {
+    
+    func changeTextFont(textFont: UIFont?) {
+        for view: UIView in (self.subviews[0]).subviews {
+            if let textField = view as? UITextField {
+                textField.font = textFont
+            }
+        }
     }
 }

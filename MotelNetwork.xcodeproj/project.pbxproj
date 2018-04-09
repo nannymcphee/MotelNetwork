@@ -17,15 +17,22 @@
 		CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF78F20767698005BEA3B /* EUIViewController.swift */; };
 		E104666E20708FF400245789 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104666C20708FF400245789 /* TutorialViewController.swift */; };
 		E104666F20708FF400245789 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E104666D20708FF400245789 /* TutorialViewController.xib */; };
-		E14C413E2074CF18003571E8 /* BeforeSignDetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14C413C2074CF18003571E8 /* BeforeSignDetailNewsViewController.xib */; };
-		E14C413F2074CF18003571E8 /* BeforeSignDetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C413D2074CF18003571E8 /* BeforeSignDetailNewsViewController.swift */; };
 		E14C41432074D107003571E8 /* SignedInDetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C41412074D107003571E8 /* SignedInDetailNewsViewController.swift */; };
 		E14C41442074D107003571E8 /* SignedInDetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14C41422074D107003571E8 /* SignedInDetailNewsViewController.xib */; };
 		E14C41462074EBF5003571E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E14C41452074EBF5003571E8 /* GoogleService-Info.plist */; };
+		E16F5B16207B5FB800B284A5 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B14207B5FB800B284A5 /* DetailNewsViewController.swift */; };
+		E16F5B17207B5FB800B284A5 /* DetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B15207B5FB800B284A5 /* DetailNewsViewController.xib */; };
+		E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B19207B698E00B284A5 /* AccountViewController.swift */; };
+		E16F5B1C207B698E00B284A5 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B1A207B698E00B284A5 /* AccountViewController.xib */; };
+		E16F5B1F207B69AE00B284A5 /* AccountOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B1D207B69AE00B284A5 /* AccountOptionTableViewCell.swift */; };
+		E16F5B20207B69AE00B284A5 /* AccountOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B1E207B69AE00B284A5 /* AccountOptionTableViewCell.xib */; };
+		E16F5B29207B7D8E00B284A5 /* ChangeEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B27207B7D8E00B284A5 /* ChangeEmailViewController.swift */; };
+		E16F5B2A207B7D8E00B284A5 /* ChangeEmailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B28207B7D8E00B284A5 /* ChangeEmailViewController.xib */; };
+		E16F5B2D207B84D900B284A5 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B2B207B84D900B284A5 /* ChangePasswordViewController.swift */; };
+		E16F5B2E207B84D900B284A5 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B2C207B84D900B284A5 /* ChangePasswordViewController.xib */; };
 		E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F072B20674C2200281432 /* SignUpViewController.swift */; };
 		E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18F072C20674C2200281432 /* SignUpViewController.xib */; };
 		E198761220672E2D008434CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198761120672E2D008434CC /* AppDelegate.swift */; };
-		E198761420672E2D008434CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198761320672E2D008434CC /* ViewController.swift */; };
 		E198761720672E2D008434CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761520672E2D008434CC /* Main.storyboard */; };
 		E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761A20672E2D008434CC /* LaunchScreen.storyboard */; };
 		E1A621D22070D23100B83291 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A621D02070D23100B83291 /* TestViewController.swift */; };
@@ -61,16 +68,23 @@
 		CE5FF78F20767698005BEA3B /* EUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUIViewController.swift; sourceTree = "<group>"; };
 		E104666C20708FF400245789 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		E104666D20708FF400245789 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
-		E14C413C2074CF18003571E8 /* BeforeSignDetailNewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeforeSignDetailNewsViewController.xib; sourceTree = "<group>"; };
-		E14C413D2074CF18003571E8 /* BeforeSignDetailNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeSignDetailNewsViewController.swift; sourceTree = "<group>"; };
 		E14C41412074D107003571E8 /* SignedInDetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInDetailNewsViewController.swift; sourceTree = "<group>"; };
 		E14C41422074D107003571E8 /* SignedInDetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignedInDetailNewsViewController.xib; sourceTree = "<group>"; };
 		E14C41452074EBF5003571E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E16F5B14207B5FB800B284A5 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
+		E16F5B15207B5FB800B284A5 /* DetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailNewsViewController.xib; sourceTree = "<group>"; };
+		E16F5B19207B698E00B284A5 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		E16F5B1A207B698E00B284A5 /* AccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
+		E16F5B1D207B69AE00B284A5 /* AccountOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOptionTableViewCell.swift; sourceTree = "<group>"; };
+		E16F5B1E207B69AE00B284A5 /* AccountOptionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountOptionTableViewCell.xib; sourceTree = "<group>"; };
+		E16F5B27207B7D8E00B284A5 /* ChangeEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeEmailViewController.swift; sourceTree = "<group>"; };
+		E16F5B28207B7D8E00B284A5 /* ChangeEmailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeEmailViewController.xib; sourceTree = "<group>"; };
+		E16F5B2B207B84D900B284A5 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		E16F5B2C207B84D900B284A5 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
 		E18F072B20674C2200281432 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E18F072C20674C2200281432 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		E198760E20672E2D008434CC /* MotelNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotelNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E198761120672E2D008434CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E198761320672E2D008434CC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E198761620672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E198761B20672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E198761D20672E2D008434CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,13 +173,13 @@
 			path = TutorialViewController;
 			sourceTree = "<group>";
 		};
-		E14C413B2074CF18003571E8 /* BeforeSignDetailNewsViewController */ = {
+		E14C413B2074CF18003571E8 /* DetailNewsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E14C413D2074CF18003571E8 /* BeforeSignDetailNewsViewController.swift */,
-				E14C413C2074CF18003571E8 /* BeforeSignDetailNewsViewController.xib */,
+				E16F5B14207B5FB800B284A5 /* DetailNewsViewController.swift */,
+				E16F5B15207B5FB800B284A5 /* DetailNewsViewController.xib */,
 			);
-			path = BeforeSignDetailNewsViewController;
+			path = DetailNewsViewController;
 			sourceTree = "<group>";
 		};
 		E14C41402074D0EB003571E8 /* SignedInDetailNewsViewController */ = {
@@ -212,6 +226,35 @@
 			path = Libraries;
 			sourceTree = "<group>";
 		};
+		E16F5B18207B696500B284A5 /* AccountViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E16F5B19207B698E00B284A5 /* AccountViewController.swift */,
+				E16F5B1A207B698E00B284A5 /* AccountViewController.xib */,
+				E16F5B1D207B69AE00B284A5 /* AccountOptionTableViewCell.swift */,
+				E16F5B1E207B69AE00B284A5 /* AccountOptionTableViewCell.xib */,
+			);
+			path = AccountViewController;
+			sourceTree = "<group>";
+		};
+		E16F5B21207B7D5E00B284A5 /* ChangeEmailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E16F5B27207B7D8E00B284A5 /* ChangeEmailViewController.swift */,
+				E16F5B28207B7D8E00B284A5 /* ChangeEmailViewController.xib */,
+			);
+			path = ChangeEmailViewController;
+			sourceTree = "<group>";
+		};
+		E16F5B22207B7D6900B284A5 /* ChangePasswordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E16F5B2B207B84D900B284A5 /* ChangePasswordViewController.swift */,
+				E16F5B2C207B84D900B284A5 /* ChangePasswordViewController.xib */,
+			);
+			path = ChangePasswordViewController;
+			sourceTree = "<group>";
+		};
 		E198760520672E2D008434CC = {
 			isa = PBXGroup;
 			children = (
@@ -237,7 +280,6 @@
 				CE5FF78D20767680005BEA3B /* Helpers */,
 				E1E7D2022071E0C600874EB2 /* Assets.xcassets */,
 				E198761120672E2D008434CC /* AppDelegate.swift */,
-				E198761320672E2D008434CC /* ViewController.swift */,
 				E198761520672E2D008434CC /* Main.storyboard */,
 				E198761A20672E2D008434CC /* LaunchScreen.storyboard */,
 				E198761D20672E2D008434CC /* Info.plist */,
@@ -279,13 +321,16 @@
 		E1E7D1F72071C7D300874EB2 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E16F5B22207B7D6900B284A5 /* ChangePasswordViewController */,
+				E16F5B21207B7D5E00B284A5 /* ChangeEmailViewController */,
+				E16F5B18207B696500B284A5 /* AccountViewController */,
 				E1BD102B20766C1100287982 /* CreateRoomViewController */,
 				CE5FF78820766EB1005BEA3B /* MainVC */,
 				145C11FB2075F34800AB11F3 /* RoomManagementViewController */,
 				E14C41402074D0EB003571E8 /* SignedInDetailNewsViewController */,
 				E1E7D1F92071C87D00874EB2 /* SignedInHomeViewController */,
 				E1E7D1F82071C83700874EB2 /* BeforeSignHomeViewController */,
-				E14C413B2074CF18003571E8 /* BeforeSignDetailNewsViewController */,
+				E14C413B2074CF18003571E8 /* DetailNewsViewController */,
 				E1A621CF2070D1FF00B83291 /* TestViewController */,
 				E153317B2068E19B00238763 /* SignUpViewController */,
 				E153317A2068E19000238763 /* LoginViewController */,
@@ -387,9 +432,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E16F5B20207B69AE00B284A5 /* AccountOptionTableViewCell.xib in Resources */,
 				E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */,
 				E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */,
-				E14C413E2074CF18003571E8 /* BeforeSignDetailNewsViewController.xib in Resources */,
 				E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */,
 				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
 				E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */,
@@ -399,10 +444,14 @@
 				E14C41442074D107003571E8 /* SignedInDetailNewsViewController.xib in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
 				145C12072075FF5300AB11F3 /* ListRoomsTableViewCell.xib in Resources */,
+				E16F5B2A207B7D8E00B284A5 /* ChangeEmailViewController.xib in Resources */,
 				145C11FF2075F37E00AB11F3 /* RoomManagementViewController.xib in Resources */,
+				E16F5B2E207B84D900B284A5 /* ChangePasswordViewController.xib in Resources */,
+				E16F5B17207B5FB800B284A5 /* DetailNewsViewController.xib in Resources */,
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
 				E1E7D2012071C8BD00874EB2 /* SignedInHomeViewController.xib in Resources */,
 				E198761720672E2D008434CC /* Main.storyboard in Resources */,
+				E16F5B1C207B698E00B284A5 /* AccountViewController.xib in Resources */,
 				CE5FF78C20766ED0005BEA3B /* MainViewController.xib in Resources */,
 				E14C41462074EBF5003571E8 /* GoogleService-Info.plist in Resources */,
 			);
@@ -493,25 +542,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				E104666E20708FF400245789 /* TutorialViewController.swift in Sources */,
+				E16F5B16207B5FB800B284A5 /* DetailNewsViewController.swift in Sources */,
 				E1A621D22070D23100B83291 /* TestViewController.swift in Sources */,
 				E1BD102620765FAD00287982 /* Room.swift in Sources */,
 				145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
+				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
 				E14C41432074D107003571E8 /* SignedInDetailNewsViewController.swift in Sources */,
-				E198761420672E2D008434CC /* ViewController.swift in Sources */,
 				145C11FE2075F37E00AB11F3 /* RoomManagementViewController.swift in Sources */,
 				E1E7D2002071C8BD00874EB2 /* SignedInHomeViewController.swift in Sources */,
 				E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */,
 				E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */,
 				E1E7D206207224F000874EB2 /* ListNewsTableViewCell.swift in Sources */,
+				E16F5B1F207B69AE00B284A5 /* AccountOptionTableViewCell.swift in Sources */,
 				E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */,
 				E1BD102E20766C3500287982 /* CreateRoomViewController.swift in Sources */,
 				E1E7D1FC2071C8AC00874EB2 /* BeforeSignHomeViewController.swift in Sources */,
 				E1BD102A207663E800287982 /* Extensions.swift in Sources */,
+				E16F5B29207B7D8E00B284A5 /* ChangeEmailViewController.swift in Sources */,
 				CE5FF78B20766ED0005BEA3B /* MainViewController.swift in Sources */,
 				CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */,
-				E14C413F2074CF18003571E8 /* BeforeSignDetailNewsViewController.swift in Sources */,
 				E198761220672E2D008434CC /* AppDelegate.swift in Sources */,
+				E16F5B2D207B84D900B284A5 /* ChangePasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

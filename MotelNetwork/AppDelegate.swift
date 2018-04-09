@@ -22,13 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
-        
-        rootViewControler = CreateRoomViewController()
-        navigationController = UINavigationController(rootViewController: rootViewControler!)
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = navigationController
-        navigationController?.isNavigationBarHidden = true
-        window?.makeKeyAndVisible()
+        checkAuthStatus()
         
         return true
     }
@@ -54,7 +48,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
+    
+    func checkAuthStatus() {
+        
+        if Auth.auth().currentUser?.uid == nil {
+            
+            performSelector(onMainThread: #selector(handleLogout), with: nil, waitUntilDone: true)
+        }
+        else {
+            
+//            let uid = Auth.auth().currentUser?.uid
+            rootViewControler = MainViewController()
+            (UIApplication.shared.delegate as! AppDelegate).navigationController = UINavigationController(rootViewController: rootViewControler!)
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = navigationController
+            navigationController?.isNavigationBarHidden = true
+            window?.makeKeyAndVisible()
+        }
+    }
+    
+    @objc func handleLogout() {
+        
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            print(error)
+        }
+        
+        let vc = LoginViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 
 }
 

@@ -8,11 +8,21 @@
 
 import UIKit
 
-class Room: NSObject {
+class Room {
     var id: String?
     var name: String?
     var area: String?
     var price: Double?
+    
+    init() {
+    }
+    
+    init(id: String, name: String, area: String, price: Double) {
+        self.id = id
+        self.name = name
+        self.area = area
+        self.price = price
+    }
     
     init(dictionary: [String: AnyObject]) {
         self.id = dictionary["id"] as? String

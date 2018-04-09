@@ -19,7 +19,7 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
     
     var vcRoomanager = RoomManagementViewController()
    
-    var vcMoreSetting = TestViewController()
+    var vcAccountSetting = AccountViewController()
     
     var isAppearWhenFirstCreateMerchant = false
     
@@ -39,18 +39,18 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
         
         let homeScreenVC = homeScreenVC
         let viewHomeScreen = homeScreenVC.view
-        homeScreenVC.tabBarItem = UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "icHome1"), tag: 0)
-        homeScreenVC.tabBarItem.selectedImage =  #imageLiteral(resourceName: "icHomeSelected").withRenderingMode(.alwaysOriginal)
+        homeScreenVC.tabBarItem = UITabBarItem(title: "Tin tức", image: #imageLiteral(resourceName: "icNewsFeed"), tag: 0)
+        homeScreenVC.tabBarItem.selectedImage =  #imageLiteral(resourceName: "icNewsFeed").withRenderingMode(.alwaysOriginal)
         
         let newListingVC = newListingVC
         let viewNewListing = newListingVC.view
-        newListingVC.tabBarItem = UITabBarItem(title: "Phòng trọ của tôi ", image: #imageLiteral(resourceName: "icHome1"), tag: 1)
-        newListingVC.tabBarItem.selectedImage = #imageLiteral(resourceName: "icHomeSelected").withRenderingMode(.alwaysOriginal)
+        newListingVC.tabBarItem = UITabBarItem(title: "Phòng trọ của tôi", image: #imageLiteral(resourceName: "icRoom"), tag: 1)
+        newListingVC.tabBarItem.selectedImage = #imageLiteral(resourceName: "icRoom").withRenderingMode(.alwaysOriginal)
         
         let myListingVC = myListingVC
         let viewMyListing = myListingVC.view
-        myListingVC.tabBarItem = UITabBarItem(title: "More", image: #imageLiteral(resourceName: "icHome1"), tag: 2)
-        myListingVC.tabBarItem.selectedImage = #imageLiteral(resourceName: "icHomeSelected").withRenderingMode(.alwaysOriginal)
+        myListingVC.tabBarItem = UITabBarItem(title: "Tài khoản", image: #imageLiteral(resourceName: "icUser"), tag: 2)
+        myListingVC.tabBarItem.selectedImage = #imageLiteral(resourceName: "icUser").withRenderingMode(.alwaysOriginal)
         //myListingVC.tabBarItem.selectedImage?.renderingMode = .alwaysOriginal
         
        
@@ -114,7 +114,7 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
 //            isAppearWhenFirstCreateMerchant = false
 //        }
         
-        setupTabbar(homeScreenVC: vcHomeScreen, newListingVC: vcRoomanager, myListingVC: vcMoreSetting)
+        setupTabbar(homeScreenVC: vcHomeScreen, newListingVC: vcRoomanager, myListingVC: vcAccountSetting)
         
         tabbarController.tabBar.reloadInputViews()
         //tabbarController.selectedIndex = 3

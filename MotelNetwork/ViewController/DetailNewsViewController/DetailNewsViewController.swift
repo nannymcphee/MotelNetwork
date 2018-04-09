@@ -8,11 +8,15 @@
 
 import UIKit
 
-class BeforeSignDetailNewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet weak var tbListNewsDetail: UITableView!
-    @IBOutlet weak var btnNavigateLogin2: UIButton!
+class DetailNewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
     @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var lblNewsTitle: UILabel!
+    @IBOutlet weak var tvDescription: UITextView!
+    @IBOutlet weak var lblScreenTitle: UILabel!
+    @IBOutlet weak var ivNewsImage: UIImageView!
+    @IBOutlet weak var tbListNewsDetail: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +25,7 @@ class BeforeSignDetailNewsViewController: UIViewController, UITableViewDelegate,
         tbListNewsDetail.dataSource = self
         tbListNewsDetail.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
         
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -67,31 +71,26 @@ class BeforeSignDetailNewsViewController: UIViewController, UITableViewDelegate,
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func btnNavigateLogin2Pressed(_ sender: Any) {
-        let vc = LoginViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
     
     @IBAction func btnBackPressed(_ sender: Any) {
-        let vc = BeforeSignHomeViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

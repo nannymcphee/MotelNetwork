@@ -170,8 +170,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     @IBAction func btnBackPressed(_ sender: Any) {
         
-        let vc = RoomManagementViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
     
     @IBAction func btnAddImagePressed(_ sender: Any) {
@@ -280,7 +279,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         else {
             
-            let uid = Auth.auth().currentUser?.uid
+//            let uid = Auth.auth().currentUser?.uid
 //            Database.database().reference().child("Users").child(uid!).child("FullName").observeSingleEvent(of: .value, with: { (snapshot) in
 //
 //                print(snapshot)

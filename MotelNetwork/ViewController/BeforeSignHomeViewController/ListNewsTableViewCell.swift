@@ -27,4 +27,10 @@ class ListNewsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func populateData(room: Room) {
+        lblTitle.text = room.name
+        lblPrice.text = String("\(room.price ?? 0.0)")
+        lblArea.text = room.area
+        lblLocation.text = room.id
+    }
 }
