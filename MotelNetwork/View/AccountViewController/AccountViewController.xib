@@ -51,7 +51,7 @@
                                                 <constraint firstAttribute="width" constant="24" id="59R-aN-xtE"/>
                                                 <constraint firstAttribute="height" constant="24" id="T4d-Hy-tPa"/>
                                             </constraints>
-                                            <state key="normal" image="icNewPost"/>
+                                            <state key="normal" image="icNewPostBlue"/>
                                             <connections>
                                                 <action selector="btnNewPostPressed:" destination="-1" eventType="touchUpInside" id="ZJ0-bu-MnN"/>
                                             </connections>
@@ -59,7 +59,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đăng tin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wz-N1-xRM">
                                             <rect key="frame" x="8" y="46" width="45" height="14"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -212,6 +212,6 @@
     </objects>
     <resources>
         <image name="defaultAvatar" width="80" height="80"/>
-        <image name="icNewPost" width="24" height="24"/>
+        <image name="icNewPostBlue" width="24" height="24"/>
     </resources>
 </document>

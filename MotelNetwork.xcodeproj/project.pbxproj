@@ -87,7 +87,7 @@
 		E16F5B32207BDD0700B284A5 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		E18F072B20674C2200281432 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E18F072C20674C2200281432 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
-		E198760E20672E2D008434CC /* MotelNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotelNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E198760E20672E2D008434CC /* Motel Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Motel Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E198761120672E2D008434CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E198761620672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E198761B20672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -281,7 +281,7 @@
 		E198760F20672E2D008434CC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E198760E20672E2D008434CC /* MotelNetwork.app */,
+				E198760E20672E2D008434CC /* Motel Network.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -386,9 +386,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E198760D20672E2D008434CC /* MotelNetwork */ = {
+		E198760D20672E2D008434CC /* Motel Network */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E198762020672E2D008434CC /* Build configuration list for PBXNativeTarget "MotelNetwork" */;
+			buildConfigurationList = E198762020672E2D008434CC /* Build configuration list for PBXNativeTarget "Motel Network" */;
 			buildPhases = (
 				7641C4081589DFF79D51A3B5 /* [CP] Check Pods Manifest.lock */,
 				E198760A20672E2D008434CC /* Sources */,
@@ -401,9 +401,9 @@
 			);
 			dependencies = (
 			);
-			name = MotelNetwork;
+			name = "Motel Network";
 			productName = MotelNetwork;
-			productReference = E198760E20672E2D008434CC /* MotelNetwork.app */;
+			productReference = E198760E20672E2D008434CC /* Motel Network.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -439,7 +439,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E198760D20672E2D008434CC /* MotelNetwork */,
+				E198760D20672E2D008434CC /* Motel Network */,
 			);
 		};
 /* End PBXProject section */
@@ -766,7 +766,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E198762020672E2D008434CC /* Build configuration list for PBXNativeTarget "MotelNetwork" */ = {
+		E198762020672E2D008434CC /* Build configuration list for PBXNativeTarget "Motel Network" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E198762120672E2D008434CC /* Debug */,
