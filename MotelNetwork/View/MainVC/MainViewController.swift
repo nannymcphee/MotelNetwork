@@ -39,18 +39,18 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
         
         let homeScreenVC = homeScreenVC
         let viewHomeScreen = homeScreenVC.view
-        homeScreenVC.tabBarItem = UITabBarItem(title: "Tin tức", image: #imageLiteral(resourceName: "icNewsFeed"), tag: 0)
-        homeScreenVC.tabBarItem.selectedImage =  #imageLiteral(resourceName: "icNewsFeed").withRenderingMode(.alwaysOriginal)
+        homeScreenVC.tabBarItem = UITabBarItem(title: "Tin tức", image: #imageLiteral(resourceName: "icNewsFeedNormal"), tag: 0)
+        homeScreenVC.tabBarItem.selectedImage =  #imageLiteral(resourceName: "icNewsFeedPressed").withRenderingMode(.alwaysOriginal)
         
         let newListingVC = newListingVC
         let viewNewListing = newListingVC.view
-        newListingVC.tabBarItem = UITabBarItem(title: "Phòng trọ của tôi", image: #imageLiteral(resourceName: "icRoom"), tag: 1)
-        newListingVC.tabBarItem.selectedImage = #imageLiteral(resourceName: "icRoom").withRenderingMode(.alwaysOriginal)
+        newListingVC.tabBarItem = UITabBarItem(title: "Phòng trọ của tôi", image: #imageLiteral(resourceName: "icRoomNormal"), tag: 1)
+        newListingVC.tabBarItem.selectedImage = #imageLiteral(resourceName: "icRoomPressed").withRenderingMode(.alwaysOriginal)
         
         let myListingVC = myListingVC
         let viewMyListing = myListingVC.view
-        myListingVC.tabBarItem = UITabBarItem(title: "Tài khoản", image: #imageLiteral(resourceName: "icUser"), tag: 2)
-        myListingVC.tabBarItem.selectedImage = #imageLiteral(resourceName: "icUser").withRenderingMode(.alwaysOriginal)
+        myListingVC.tabBarItem = UITabBarItem(title: "Tài khoản", image: #imageLiteral(resourceName: "icUserNormal"), tag: 2)
+        myListingVC.tabBarItem.selectedImage = #imageLiteral(resourceName: "icUserPressed").withRenderingMode(.alwaysOriginal)
         //myListingVC.tabBarItem.selectedImage?.renderingMode = .alwaysOriginal
         
        

@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignedInDetailNewsViewController" customModule="MotelNetwork" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignedInDetailNewsViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
                 <outlet property="btnBack2" destination="dNf-Jn-Xyg" id="CPy-0s-S3E"/>
                 <outlet property="ivAvatar" destination="7WR-xM-Q1N" id="J6r-yl-3aR"/>
@@ -72,13 +72,13 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kUV-du-1MP">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name Here" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppO-wH-T6U">
-                                                    <rect key="frame" x="56" y="14" width="89" height="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Họ tên" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppO-wH-T6U">
+                                                    <rect key="frame" x="56" y="14" width="36" height="14"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icUsers" translatesAutoresizingMaskIntoConstraints="NO" id="7WR-xM-Q1N">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="7WR-xM-Q1N">
                                                     <rect key="frame" x="16" y="8" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="2Jg-Bm-d27"/>
@@ -275,7 +275,7 @@
                         <constraint firstAttribute="trailing" secondItem="AUm-or-bbX" secondAttribute="trailing" id="JQ1-Sb-hz9"/>
                         <constraint firstItem="AUm-or-bbX" firstAttribute="centerX" secondItem="Lpr-dO-ohV" secondAttribute="centerX" id="U5P-hu-xyr"/>
                         <constraint firstAttribute="bottom" secondItem="AUm-or-bbX" secondAttribute="bottom" id="WYl-09-Sz1"/>
-                        <constraint firstItem="AUm-or-bbX" firstAttribute="centerY" secondItem="Lpr-dO-ohV" secondAttribute="centerY" id="gWe-Bd-WTI"/>
+                        <constraint firstItem="AUm-or-bbX" firstAttribute="height" secondItem="Lpr-dO-ohV" secondAttribute="height" id="gZF-xb-UPq"/>
                         <constraint firstItem="AUm-or-bbX" firstAttribute="top" secondItem="Lpr-dO-ohV" secondAttribute="top" id="oWQ-Je-TcX"/>
                         <constraint firstItem="AUm-or-bbX" firstAttribute="leading" secondItem="Lpr-dO-ohV" secondAttribute="leading" id="u00-Y9-q9J"/>
                     </constraints>
@@ -294,11 +294,11 @@
         </view>
     </objects>
     <resources>
+        <image name="defaultAvatar" width="32" height="32"/>
         <image name="icArea" width="16" height="16"/>
         <image name="icLeft" width="24" height="24"/>
         <image name="icLocation" width="16" height="16"/>
         <image name="icPrice" width="16" height="16"/>
-        <image name="icUsers" width="25" height="25"/>
         <image name="rectangle1" width="1020" height="585"/>
     </resources>
 </document>

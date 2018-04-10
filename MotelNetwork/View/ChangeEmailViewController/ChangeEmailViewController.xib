@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangeEmailViewController" customModule="MotelNetwork" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangeEmailViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
                 <outlet property="btnBackToAccountDetail" destination="SWv-F0-IwP" id="acD-Kj-ucg"/>
                 <outlet property="btnSaveEmail" destination="3yx-al-ode" id="Jx2-e2-lJ8"/>
@@ -46,7 +46,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWv-F0-IwP">
-                                            <rect key="frame" x="12" y="20" width="24" height="24"/>
+                                            <rect key="frame" x="19" y="20" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="I9O-FR-ZXm"/>
                                                 <constraint firstAttribute="width" constant="24" id="bcX-Or-rNv"/>
@@ -61,7 +61,7 @@
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="DDm-9j-mkK" secondAttribute="bottom" id="2cG-sI-yOn"/>
                                         <constraint firstItem="SMn-f9-bEh" firstAttribute="centerX" secondItem="stI-Vz-Lwx" secondAttribute="centerX" id="3HJ-Bb-GHa"/>
-                                        <constraint firstItem="SWv-F0-IwP" firstAttribute="leading" secondItem="stI-Vz-Lwx" secondAttribute="leading" constant="12" id="9tI-rY-egR"/>
+                                        <constraint firstItem="SWv-F0-IwP" firstAttribute="leading" secondItem="stI-Vz-Lwx" secondAttribute="leading" constant="19" id="9tI-rY-egR"/>
                                         <constraint firstItem="DDm-9j-mkK" firstAttribute="leading" secondItem="stI-Vz-Lwx" secondAttribute="leading" id="H2b-ZY-uaw"/>
                                         <constraint firstItem="SWv-F0-IwP" firstAttribute="centerY" secondItem="SMn-f9-bEh" secondAttribute="centerY" id="Mmz-4b-bLu"/>
                                         <constraint firstItem="DDm-9j-mkK" firstAttribute="top" secondItem="stI-Vz-Lwx" secondAttribute="top" constant="63" id="SZt-iv-yU1"/>
@@ -88,7 +88,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3IK-vP-cbd">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatarLarge" translatesAutoresizingMaskIntoConstraints="NO" id="3IK-vP-cbd">
                                                     <rect key="frame" x="147" y="8" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="C7m-NV-HZo"/>
@@ -211,6 +211,7 @@
         </view>
     </objects>
     <resources>
+        <image name="defaultAvatarLarge" width="80" height="80"/>
         <image name="icLeft" width="24" height="24"/>
     </resources>
 </document>

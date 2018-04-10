@@ -49,12 +49,26 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     //MARK: Set up view
+    
     func setUpView() {
         
         makeButtonRounded(button: btnSave)
         checkAuthStatus()
         fetchUser()
         createUsersListPicker()
+    }
+    
+    //MARK: Reset view
+    
+    func resetView() {
+        
+        self.ivRoomImage0.image = nil
+        self.ivRoomImage1.image = nil
+        self.ivRoomImage2.image = nil
+        self.tfArea.text = ""
+        self.tfUser.text = ""
+        self.tfPrice.text = ""
+        self.tfRoomName.text = ""
     }
     
     //MARK: Database interaction
@@ -163,8 +177,6 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         pickerView.reloadComponent(0)
         tfUser.text = userList[row].name
-        //        let selectedUserType = pvUser.selectedRow(inComponent: 0)
-        //        let userType2 = userType[selectedUserType].userType
     }
     
     //MARK: Handle button pressed
@@ -237,6 +249,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         
         showAlert(alertMessage: "Tạo phòng thành công!")
+        resetView()
     }
     
     //Mark: Convert selected assets to image

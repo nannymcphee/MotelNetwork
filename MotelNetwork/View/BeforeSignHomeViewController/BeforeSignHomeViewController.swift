@@ -40,7 +40,6 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
         vMostViewProgress.isHidden = true
         vNearMeProgress.isHidden = true
         
-        
         loadData()
         
         tbListNews.delegate = self
@@ -59,26 +58,26 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     
     func loadData() {
         //list new
-        let room1 = Room(id: "1", name: "Phong 1", area: "20", price: 300000)
-        let room2 = Room(id: "1", name: "Phong 2", area: "20", price: 300000)
-        let room3 = Room(id: "1", name: "Phong 3", area: "20", price: 300000)
-        let room4 = Room(id: "1", name: "Phong 4", area: "20", price: 300000)
+        let room1 = Room(id: "1", name: "Phòng 1", area: "25", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
+        let room2 = Room(id: "1", name: "Phòng 2", area: "25", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
+        let room3 = Room(id: "1", name: "Phòng 3", area: "25", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
+        let room4 = Room(id: "1", name: "Phòng 4", area: "25", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
         listNews.append(room1)
         listNews.append(room2)
         listNews.append(room3)
         listNews.append(room4)
         
         //list Mostview
-        let room5 = Room(id: "1", name: "Phong 5", area: "20", price: 300000)
-        let room6 = Room(id: "1", name: "Phong 6", area: "20", price: 300000)
-        
+        let room5 = Room(id: "1", name: "Phòng 5", area: "25", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
+        let room6 = Room(id: "1", name: "Phòng 6", area: "25", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
+
         listMostView.append(room5)
         listMostView.append(room6)
         
         //list Near me
-        let room7 = Room(id: "1", name: "Phong 7", area: "20", price: 300000)
-        let room8 = Room(id: "1", name: "Phong 8", area: "20", price: 300000)
-        
+        let room7 = Room(id: "1", name: "Phòng 7", area: "25", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
+        let room8 = Room(id: "1", name: "Phòng 8", area: "25", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
+
         listNearMe.append(room7)
         listNearMe.append(room8)
         

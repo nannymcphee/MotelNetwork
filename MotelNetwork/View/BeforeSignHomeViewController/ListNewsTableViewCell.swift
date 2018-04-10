@@ -14,6 +14,7 @@ class ListNewsTableViewCell: UITableViewCell {
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblArea: UILabel!
     @IBOutlet weak var lblLocation: UILabel!
+    @IBOutlet weak var ivRoomImage: UIImageView!
     
     
     override func awakeFromNib() {
@@ -34,3 +35,4 @@ class ListNewsTableViewCell: UITableViewCell {
         lblLocation.text = room.id
     }
 }
+

@@ -19,9 +19,12 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var lblUserFullName: UILabel!
     
     var dbReference: DatabaseReference!
+    var listRooms = [Room]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadData()
         
         tbRoomManagement.delegate = self
         tbRoomManagement.dataSource = self
@@ -60,34 +63,44 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         makeImageViewRounded(imageView: ivAvatar)
     }
     
+    //MARK: Database interaction
+    
+    func loadData() {
+
+        let uid = Auth.auth().currentUser?.uid
+        
+        Database.database().reference().child("Rooms").child(uid!).child("MyRooms").observe(.childAdded, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let room = Room(dictionary: dictionary)
+                room.id = snapshot.key
+                self.listRooms.append(room)
+                
+                DispatchQueue.main.async(execute: {
+                    self.reloadInputViews()
+                })
+                
+                room.name = dictionary["RoomName"] as? String
+                let priceStr = dictionary["Price"] as? String
+                room.price = Double(priceStr ?? "0.0")
+                room.area = dictionary["Area"] as? String
+                room.user = dictionary["User"] as? String
+                room.roomImageUrl0 = dictionary["roomImageUrl0"] as? String
+                
+            }
+        }, withCancel: nil)
+    }
+
     
     //MARK: Logic for UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return listRooms.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbRoomManagement.dequeueReusableCell(withIdentifier: "ListRoomsTableViewCell") as! ListRoomsTableViewCell
         
-        switch indexPath.row {
-        case 0:
-            cell.lblRoom.text = "Phòng 101"
-            cell.lblRoomPrice.text = "4.000.000"
-            cell.lblUserFullName.text = "Nguyễn Cao Cường"
-        case 1:
-            cell.lblRoom.text = "Phòng 102"
-            cell.lblRoomPrice.text = "3.000.000"
-            cell.lblUserFullName.text = "Nguyễn Lùn Cường"
-        case 2:
-            cell.lblRoom.text = "Phòng 103"
-            cell.lblRoomPrice.text = "7.000.000"
-            cell.lblUserFullName.text = "Nguyễn Thấp Cường"
-        case 3:
-            cell.lblRoom.text = "Phòng 104"
-            cell.lblRoomPrice.text = "1.000.000"
-            cell.lblUserFullName.text = "Nguyễn Siêu Cường"
-        default:
-            break
-        }
+        let room = listRooms[indexPath.row]
+        cell.populateData(room: room)
         
         return cell
     }
@@ -104,7 +117,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     @IBAction func btnCreateRoomPressed(_ sender: Any) {
         let vc = CreateRoomViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     
  

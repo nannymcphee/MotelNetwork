@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoomManagementViewController" customModule="MotelNetwork" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoomManagementViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
                 <outlet property="btnCreateRoom" destination="pdD-ze-dRp" id="aPs-8R-Klo"/>
                 <outlet property="ivAvatar" destination="R7f-Bm-PQX" id="UC2-gz-FYS"/>
@@ -47,7 +47,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdD-ze-dRp">
-                                            <rect key="frame" x="339" y="20" width="24" height="24"/>
+                                            <rect key="frame" x="332" y="20" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="aRY-im-L3G"/>
                                                 <constraint firstAttribute="width" constant="24" id="oFu-a6-lXF"/>
@@ -62,7 +62,7 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="kZI-XD-dLE" secondAttribute="trailing" id="BmD-rJ-J2B"/>
                                         <constraint firstItem="kZI-XD-dLE" firstAttribute="leading" secondItem="GfZ-Ta-dIc" secondAttribute="leading" id="Jqj-Jf-Cep"/>
-                                        <constraint firstAttribute="trailing" secondItem="pdD-ze-dRp" secondAttribute="trailing" constant="12" id="KSg-Tf-Sf5"/>
+                                        <constraint firstAttribute="trailing" secondItem="pdD-ze-dRp" secondAttribute="trailing" constant="19" id="KSg-Tf-Sf5"/>
                                         <constraint firstItem="b22-l6-bRq" firstAttribute="centerX" secondItem="GfZ-Ta-dIc" secondAttribute="centerX" id="Zgi-Fw-TOj"/>
                                         <constraint firstItem="pdD-ze-dRp" firstAttribute="centerY" secondItem="b22-l6-bRq" secondAttribute="centerY" id="be8-pm-WBw"/>
                                         <constraint firstAttribute="bottom" secondItem="kZI-XD-dLE" secondAttribute="bottom" id="c86-f0-0Nw"/>
@@ -75,7 +75,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7NU-vi-XhP">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icUser" translatesAutoresizingMaskIntoConstraints="NO" id="R7f-Bm-PQX">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="R7f-Bm-PQX">
                                                     <rect key="frame" x="16" y="8" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="0e3-dQ-1EM"/>
@@ -163,7 +163,7 @@
         </view>
     </objects>
     <resources>
+        <image name="defaultAvatar" width="32" height="32"/>
         <image name="icPlusBlue" width="24" height="24"/>
-        <image name="icUser" width="25" height="25"/>
     </resources>
 </document>

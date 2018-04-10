@@ -10,10 +10,12 @@ import UIKit
 
 class ListRoomsTableViewCell: UITableViewCell{
 
-    @IBOutlet weak var lblRoom: UILabel!
-    @IBOutlet weak var lblRoomPrice: UILabel!
     
+    @IBOutlet weak var lblRoomName: UILabel!
+    @IBOutlet weak var lblRoomPrice: UILabel!
     @IBOutlet weak var lblUserFullName: UILabel!
+    @IBOutlet weak var lblArea: UILabel!
+    @IBOutlet weak var ivRoomImage: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,4 +28,11 @@ class ListRoomsTableViewCell: UITableViewCell{
         // Configure the view for the selected state
     }
     
+    func populateData(room: Room) {
+        self.lblRoomName.text = room.name
+        self.lblRoomPrice.text = String("\(room.price ?? 0.0)")
+        self.lblArea.text = room.area
+        self.lblUserFullName.text = room.user ?? "Không"
+        
+    }
 }

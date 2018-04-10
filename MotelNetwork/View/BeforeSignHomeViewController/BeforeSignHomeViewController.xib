@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeforeSignHomeViewController" customModule="MotelNetwork" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeforeSignHomeViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
                 <outlet property="btnMostView" destination="s3A-qo-ixo" id="1sL-Q5-vkh"/>
                 <outlet property="btnNearMe" destination="aPu-Zr-ILL" id="Ak7-mV-Aua"/>
@@ -76,9 +76,9 @@
                                                     </constraints>
                                                 </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0hx-nS-Ic2">
-                                                    <rect key="frame" x="40" y="11" width="45" height="29"/>
+                                                    <rect key="frame" x="38.5" y="11" width="48" height="29"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                    <state key="normal" title="Tin tức">
+                                                    <state key="normal" title="Tin mới">
                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>

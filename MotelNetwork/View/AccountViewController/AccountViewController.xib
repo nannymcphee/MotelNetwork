@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountViewController" customModule="MotelNetwork" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
                 <outlet property="btnLogOut" destination="piq-Sd-bsc" id="Qzp-sy-5qr"/>
                 <outlet property="btnNewPost" destination="Bmy-Q2-go2" id="MYL-zw-8dY"/>
@@ -46,10 +46,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bmy-Q2-go2">
-                                            <rect key="frame" x="16" y="18" width="24" height="24"/>
+                                            <rect key="frame" x="19" y="18" width="24" height="24"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="24" id="59R-aN-xtE"/>
-                                                <constraint firstAttribute="height" constant="24" id="T4d-Hy-tPa"/>
+                                                <constraint firstAttribute="height" constant="24" id="VUq-qn-OKp"/>
+                                                <constraint firstAttribute="width" constant="24" id="exy-9s-mna"/>
                                             </constraints>
                                             <state key="normal" image="icNewPostBlue"/>
                                             <connections>
@@ -57,24 +57,24 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đăng tin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wz-N1-xRM">
-                                            <rect key="frame" x="8" y="46" width="45" height="14"/>
+                                            <rect key="frame" x="9" y="46" width="45" height="14"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="ASQ-LA-EpH" firstAttribute="centerY" secondItem="Z11-Cz-K4E" secondAttribute="centerY" id="2sF-S9-H6G"/>
-                                        <constraint firstItem="4Wz-N1-xRM" firstAttribute="leading" secondItem="Z11-Cz-K4E" secondAttribute="leading" constant="8" id="39w-pW-D9c"/>
+                                        <constraint firstItem="4Wz-N1-xRM" firstAttribute="centerX" secondItem="Bmy-Q2-go2" secondAttribute="centerX" id="2td-kg-kZu"/>
                                         <constraint firstItem="jw6-YO-wd6" firstAttribute="top" secondItem="Z11-Cz-K4E" secondAttribute="top" constant="63" id="BGd-AW-YDG"/>
                                         <constraint firstAttribute="trailing" secondItem="jw6-YO-wd6" secondAttribute="trailing" id="CWL-Zt-KPi"/>
-                                        <constraint firstItem="Bmy-Q2-go2" firstAttribute="top" secondItem="Z11-Cz-K4E" secondAttribute="top" constant="18" id="GVP-tV-uY4"/>
+                                        <constraint firstItem="Bmy-Q2-go2" firstAttribute="top" secondItem="Z11-Cz-K4E" secondAttribute="top" constant="18" id="Dk2-jG-XZi"/>
                                         <constraint firstItem="ASQ-LA-EpH" firstAttribute="centerX" secondItem="Z11-Cz-K4E" secondAttribute="centerX" id="afO-dI-paV"/>
+                                        <constraint firstItem="4Wz-N1-xRM" firstAttribute="top" secondItem="Bmy-Q2-go2" secondAttribute="bottom" constant="4" id="cB1-Eu-2Au"/>
+                                        <constraint firstItem="Bmy-Q2-go2" firstAttribute="leading" secondItem="Z11-Cz-K4E" secondAttribute="leading" constant="19" id="fJp-Ok-DWh"/>
                                         <constraint firstAttribute="bottom" secondItem="jw6-YO-wd6" secondAttribute="bottom" id="kN8-YW-Kg7"/>
                                         <constraint firstItem="jw6-YO-wd6" firstAttribute="leading" secondItem="Z11-Cz-K4E" secondAttribute="leading" id="puI-Le-Lmd"/>
-                                        <constraint firstItem="Bmy-Q2-go2" firstAttribute="leading" secondItem="Z11-Cz-K4E" secondAttribute="leading" constant="16" id="soV-TA-2ty"/>
-                                        <constraint firstItem="4Wz-N1-xRM" firstAttribute="top" secondItem="Bmy-Q2-go2" secondAttribute="bottom" constant="4" id="y0i-6f-ufh"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nx6-qi-1vi">
@@ -90,7 +90,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="SA1-hS-rcz"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="gKL-lU-qKU">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatarLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gKL-lU-qKU">
                                                     <rect key="frame" x="147" y="8" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="XoK-Kq-IAn"/>
@@ -211,7 +211,7 @@
         </view>
     </objects>
     <resources>
-        <image name="defaultAvatar" width="80" height="80"/>
+        <image name="defaultAvatarLarge" width="80" height="80"/>
         <image name="icNewPostBlue" width="24" height="24"/>
     </resources>
 </document>
