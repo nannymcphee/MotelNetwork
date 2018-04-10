@@ -33,16 +33,19 @@ class LoginViewController: UIViewController {
     
     @IBAction func btnLoginPressed(_: UIButton) {
         
+        let email = tfEmail.text
+        let pass = tfPassword.text
         
         if tfEmail.text == "" || tfPassword.text == "" {
             
             showAlert(alertMessage: messageNilTextFields)
         }
+        else if !isValidEmail(email: email!) {
+            
+            showAlert(alertMessage: messageInvalidEmail)
+        }
         else {
-            if let email = tfEmail.text, let pass = tfPassword.text {
-                
-                doLogin(email: email, pass: pass)
-            }
+            doLogin(email: email!, pass: pass!)
         }
     }
     

@@ -60,15 +60,57 @@ class ChangeEmailViewController: UIViewController {
     }
     
     
+    //MARK: Handle button pressed
+    
     @IBAction func btnBackToAccountDetail(_ sender: Any) {
         
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func btnSavePasswordPressed(_ sender: Any) {
+    @IBAction func btnSaveEmailPressed(_ sender: Any) {
         
+        let newEmail = tfNewEmail.text
         
+        if newEmail == "" {
+            
+            showAlert(alertMessage: messageNilTextFields)
+        }
+        else if !isValidEmail(email: newEmail!) {
+            
+            showAlert(alertMessage: messageInvalidEmail)
+        }
+        else {
+            
+            _ = Auth.auth().addStateDidChangeListener { (auth, user) in
+
+                if user != nil {
+
+                    //User is signed in
+                    self.showAlert(alertMessage: messageRequestReLogin)
+                }
+                else {
+                    if let user = Auth.auth().currentUser {
+
+                        user.updateEmail(to: newEmail!) { (error) in
+
+                            if let error = error {
+
+                                print(error.localizedDescription)
+                                self.showAlert(alertMessage: messageChangeEmailFailed)
+                            }
+                            else {
+
+                                // Update database
+                                let uid = Auth.auth().currentUser?.uid
+                                let values = ["Email": newEmail]
+
+                                self.storeUserInformationToDatabase(uid!, values: values as [String : AnyObject])
+                                self.showAlert(alertMessage: messageChangeEmailSuccess)
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
-
-
 }

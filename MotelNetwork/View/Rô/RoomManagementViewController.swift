@@ -24,7 +24,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadData()
+        
         
         tbRoomManagement.delegate = self
         tbRoomManagement.dataSource = self
@@ -34,6 +34,10 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tbRoomManagement.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,6 +46,8 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     //MARK: Set up view
     func setUpView() {
+        
+        loadData()
         
         guard let uid = Auth.auth().currentUser?.uid else {
             
@@ -62,6 +68,8 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         
         makeImageViewRounded(imageView: ivAvatar)
     }
+    
+    
     
     //MARK: Database interaction
     
@@ -118,6 +126,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     @IBAction func btnCreateRoomPressed(_ sender: Any) {
         let vc = CreateRoomViewController()
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+
     }
     
  

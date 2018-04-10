@@ -73,7 +73,46 @@ class ChangePasswordViewController: UIViewController {
     
     @IBAction func btnSavePasswordPressed(_ sender: Any) {
         
+        let newPass = tfNewPassword.text
         
+        if newPass == "" {
+            
+            showAlert(alertMessage: messageNilTextFields)
+        }
+        else {
+            
+
+            
+            _ = Auth.auth().addStateDidChangeListener { (auth, user) in
+
+                if user != nil {
+
+                    self.showAlert(alertMessage: messageRequestReLogin)
+                }
+                else {
+
+                    if let user = Auth.auth().currentUser {
+
+                        user.updatePassword(to: newPass!, completion: { (error) in
+
+                            if let error = error {
+
+                                print(error)
+                                self.showAlert(alertMessage: messageChangePasswordFailed)
+                            }
+                            else {
+
+                                let uid = Auth.auth().currentUser?.uid
+                                let values = ["Password": newPass]
+
+                                self.storeUserInformationToDatabase(uid!, values: values as [String: AnyObject])
+                                self.showAlert(alertMessage: messageChangePasswordSuccess)
+                            }
+                        })
+                    }
+                }
+            }
+        }
     }
     
 }

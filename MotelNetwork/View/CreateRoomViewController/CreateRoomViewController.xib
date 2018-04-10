@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateRoomViewController" customModule="MotelNetwork" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateRoomViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
                 <outlet property="btnAddImage" destination="gB3-Hs-q3G" id="jsf-QP-6f2"/>
                 <outlet property="btnBack" destination="81s-sy-xF6" id="ZHg-yj-DlD"/>
@@ -154,19 +154,19 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên phòng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAP-Ng-isQ">
-                                                    <rect key="frame" x="12" y="47" width="58" height="14"/>
+                                                    <rect key="frame" x="17" y="47" width="58" height="14"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diện tích" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="id3-tx-e9E">
-                                                    <rect key="frame" x="12" y="119" width="47.5" height="14"/>
+                                                    <rect key="frame" x="17" y="119" width="47.5" height="14"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giá phòng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfw-B4-hXZ">
-                                                    <rect key="frame" x="12" y="191" width="56" height="14"/>
+                                                    <rect key="frame" x="17" y="191" width="56" height="14"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -228,7 +228,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="Gh3-Q5-jAI" secondAttribute="trailing" constant="17" id="3eY-hN-cJJ"/>
                                                 <constraint firstItem="id3-tx-e9E" firstAttribute="top" secondItem="5tS-sp-DXN" secondAttribute="bottom" constant="12" id="5DS-yn-IFb"/>
                                                 <constraint firstItem="Gh3-Q5-jAI" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="18" id="5dD-d1-0s4"/>
-                                                <constraint firstItem="id3-tx-e9E" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="12" id="695-7z-nO5"/>
+                                                <constraint firstItem="id3-tx-e9E" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="695-7z-nO5"/>
                                                 <constraint firstAttribute="bottom" secondItem="1of-kg-cqH" secondAttribute="bottom" constant="115" id="7Ey-yv-rZz"/>
                                                 <constraint firstItem="1of-kg-cqH" firstAttribute="top" secondItem="OVJ-bd-2Re" secondAttribute="bottom" constant="54" id="Aw6-WZ-hTk"/>
                                                 <constraint firstItem="5tS-sp-DXN" firstAttribute="top" secondItem="gAP-Ng-isQ" secondAttribute="bottom" constant="6" id="B3E-Nd-ByH"/>
@@ -244,10 +244,10 @@
                                                 <constraint firstItem="cdG-xL-RmB" firstAttribute="height" secondItem="5tS-sp-DXN" secondAttribute="height" id="VVr-dT-vBH"/>
                                                 <constraint firstItem="Xfw-B4-hXZ" firstAttribute="top" secondItem="Gh3-Q5-jAI" secondAttribute="bottom" constant="12" id="ZN9-YO-FbX"/>
                                                 <constraint firstItem="cdG-xL-RmB" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="18" id="asc-OQ-ebb"/>
-                                                <constraint firstItem="Xfw-B4-hXZ" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="12" id="bRm-0c-Yfj"/>
+                                                <constraint firstItem="Xfw-B4-hXZ" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="bRm-0c-Yfj"/>
                                                 <constraint firstItem="OVJ-bd-2Re" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="czF-2f-Jfb"/>
                                                 <constraint firstAttribute="trailing" secondItem="5tS-sp-DXN" secondAttribute="trailing" constant="17" id="j01-GS-5aD"/>
-                                                <constraint firstItem="gAP-Ng-isQ" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="12" id="lay-aF-8NW"/>
+                                                <constraint firstItem="gAP-Ng-isQ" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="lay-aF-8NW"/>
                                                 <constraint firstItem="Gh3-Q5-jAI" firstAttribute="top" secondItem="id3-tx-e9E" secondAttribute="bottom" constant="6" id="lgI-la-ly9"/>
                                                 <constraint firstItem="gAP-Ng-isQ" firstAttribute="top" secondItem="dx2-C0-uVb" secondAttribute="bottom" constant="12" id="qBG-qI-MPa"/>
                                                 <constraint firstItem="1of-kg-cqH" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="qfL-2Q-HFZ"/>

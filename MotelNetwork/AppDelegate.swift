@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         checkAuthStatus()
-        
+
         return true
     }
 
@@ -50,14 +50,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func checkAuthStatus() {
-        
+
         if Auth.auth().currentUser?.uid == nil {
-            
+
             performSelector(onMainThread: #selector(handleLogout), with: nil, waitUntilDone: true)
-        }
+            }
         else {
-            
-//            let uid = Auth.auth().currentUser?.uid
+
             rootViewControler = MainViewController()
             (UIApplication.shared.delegate as! AppDelegate).navigationController = UINavigationController(rootViewController: rootViewControler!)
             window = UIWindow(frame: UIScreen.main.bounds)
@@ -66,15 +65,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.makeKeyAndVisible()
         }
     }
-    
+
     @objc func handleLogout() {
-        
+
         do {
             try Auth.auth().signOut()
         } catch let error {
             print(error)
         }
-        
+
         let vc = LoginViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }

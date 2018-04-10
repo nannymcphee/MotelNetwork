@@ -91,20 +91,20 @@
                                                     </constraints>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatarLarge" translatesAutoresizingMaskIntoConstraints="NO" id="gKL-lU-qKU">
-                                                    <rect key="frame" x="147" y="8" width="80" height="80"/>
+                                                    <rect key="frame" x="147" y="12" width="80" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="80" id="XoK-Kq-IAn"/>
                                                         <constraint firstAttribute="height" constant="80" id="f03-2Q-fLw"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Họ tên" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFg-0a-apZ">
-                                                    <rect key="frame" x="166" y="96" width="42" height="17"/>
+                                                    <rect key="frame" x="166" y="100" width="42" height="17"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S10-Uf-xyP">
-                                                    <rect key="frame" x="172" y="117" width="30" height="14"/>
+                                                    <rect key="frame" x="172" y="121" width="30" height="14"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -121,7 +121,7 @@
                                                 <constraint firstItem="S10-Uf-xyP" firstAttribute="top" secondItem="xFg-0a-apZ" secondAttribute="bottom" constant="4" id="TsC-ZS-4Dj"/>
                                                 <constraint firstAttribute="trailing" secondItem="2BW-XF-emd" secondAttribute="trailing" id="a8S-LK-kLH"/>
                                                 <constraint firstAttribute="bottom" secondItem="2BW-XF-emd" secondAttribute="bottom" id="wup-jS-YX5"/>
-                                                <constraint firstItem="gKL-lU-qKU" firstAttribute="top" secondItem="R3s-ee-cZ3" secondAttribute="top" constant="8" id="zhx-xY-RWR"/>
+                                                <constraint firstItem="gKL-lU-qKU" firstAttribute="top" secondItem="R3s-ee-cZ3" secondAttribute="top" constant="12" id="zhx-xY-RWR"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7f-93-ep7">

@@ -123,8 +123,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func btnExitPressed(_ sender: Any) {
         
-        let vc = LoginViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func btnProfilePicturePressed(_ sender: Any) {
@@ -189,26 +188,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
-    //MARK: Database interaction
-    
-    private func storeUserInformationToDatabase(_ uid: String, values: [String: AnyObject]) {
-        
-        // Add user's information to database
-        let databaseRef = Database.database().reference()
-        let usersRef = databaseRef.child("Users").child(uid)
-        
-        usersRef.updateChildValues(values) { (error, ref) in
-            
-            if error != nil {
-                
-                print(error!)
-                return
-            }
-            
-            self.dismiss(animated: true, completion: nil)
-        }
 
-    }
     
     //MARK: Logic for btnProfilePicture
     

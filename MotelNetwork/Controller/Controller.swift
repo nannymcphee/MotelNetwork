@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 extension UIViewController {
     
+    // Handle login
     func doLogin(email: String, pass: String) {
         Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
             
@@ -32,6 +34,7 @@ extension UIViewController {
         }
     }
     
+    // Handle log out
     func doLogOut() {
         
         do {
@@ -62,8 +65,31 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-
+    func isValidEmail(email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        
+        return emailTest.evaluate(with:email)
+    }
     
+    // Update user's information to database
+    func storeUserInformationToDatabase(_ uid: String, values: [String: AnyObject]) {
+        
+        // Add user's information to database
+        let databaseRef = Database.database().reference()
+        let usersRef = databaseRef.child("Users").child(uid)
+        
+        usersRef.updateChildValues(values) { (error, ref) in
+            
+            if error != nil {
+                
+                print(error!)
+                return
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
 }
 
 extension UISearchBar {
