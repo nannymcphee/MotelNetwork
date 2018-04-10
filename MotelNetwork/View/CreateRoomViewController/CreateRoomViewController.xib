@@ -284,10 +284,10 @@
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="S5T-Vq-TA4" firstAttribute="centerY" secondItem="8Hj-fw-uzZ" secondAttribute="centerY" id="6vk-HB-nJu"/>
                         <constraint firstAttribute="trailing" secondItem="S5T-Vq-TA4" secondAttribute="trailing" id="Fy2-63-WZZ"/>
                         <constraint firstItem="S5T-Vq-TA4" firstAttribute="centerX" secondItem="8Hj-fw-uzZ" secondAttribute="centerX" id="aPv-bF-tTw"/>
                         <constraint firstItem="S5T-Vq-TA4" firstAttribute="top" secondItem="8Hj-fw-uzZ" secondAttribute="top" id="cux-rM-Lkq"/>
+                        <constraint firstItem="S5T-Vq-TA4" firstAttribute="height" secondItem="8Hj-fw-uzZ" secondAttribute="height" id="eDa-Bw-zsD"/>
                         <constraint firstAttribute="bottom" secondItem="S5T-Vq-TA4" secondAttribute="bottom" id="g5C-yi-m3f"/>
                         <constraint firstItem="S5T-Vq-TA4" firstAttribute="leading" secondItem="8Hj-fw-uzZ" secondAttribute="leading" id="pWH-4R-UvG"/>
                     </constraints>

@@ -37,8 +37,7 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        vMostViewProgress.isHidden = true
-        vNearMeProgress.isHidden = true
+        setUpView()
         
         loadData()
         
@@ -54,6 +53,11 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setUpView() {
+        setViewState(enabledView: vNewsProgress, disabledView2: vNearMeProgress, disabledView3: vMostViewProgress)
+        setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnNearMe, buttonDisable2: btnMostView)
     }
     
     func loadData() {
@@ -135,9 +139,9 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
         let colorDisable = UIColor.lightGray
         
         buttonEnable.setTitleColor(colorEnable, for: .normal)
-        buttonEnable.titleLabel?.font = UIFont(name: "Helvetica Neue Bold", size: 12)
-        buttonDisable1.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12)
-        buttonDisable2.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12)
+        buttonEnable.titleLabel?.font = UIFont(name: "Helvetica Neue-Bold", size: 12.0)
+        buttonDisable1.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12.0)
+        buttonDisable2.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12.0)
         buttonDisable1.setTitleColor(colorDisable, for: .normal)
         buttonDisable2.setTitleColor(colorDisable, for: .normal)
     }

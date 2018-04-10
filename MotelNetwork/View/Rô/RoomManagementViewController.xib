@@ -143,6 +143,7 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="axx-fz-lQr" firstAttribute="centerX" secondItem="APX-Az-4Oq" secondAttribute="centerX" id="8od-D4-LkT"/>
+                        <constraint firstItem="axx-fz-lQr" firstAttribute="height" secondItem="APX-Az-4Oq" secondAttribute="height" id="I2u-LE-pBI"/>
                         <constraint firstItem="axx-fz-lQr" firstAttribute="leading" secondItem="APX-Az-4Oq" secondAttribute="leading" id="VC2-M9-QAz"/>
                         <constraint firstAttribute="trailing" secondItem="axx-fz-lQr" secondAttribute="trailing" id="bsf-l8-Zcl"/>
                         <constraint firstAttribute="bottom" secondItem="axx-fz-lQr" secondAttribute="bottom" id="kXR-K3-aGp"/>

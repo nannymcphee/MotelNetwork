@@ -234,6 +234,7 @@ EELhuqFuIGzDoA
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="5FF-7i-y78" secondAttribute="bottom" id="3qd-Vg-TPk"/>
+                        <constraint firstItem="5FF-7i-y78" firstAttribute="height" secondItem="a2s-3R-Dd7" secondAttribute="height" id="5vg-RS-JaL"/>
                         <constraint firstAttribute="trailing" secondItem="5FF-7i-y78" secondAttribute="trailing" id="CuV-e9-tpS"/>
                         <constraint firstItem="5FF-7i-y78" firstAttribute="top" secondItem="a2s-3R-Dd7" secondAttribute="top" id="QCu-dg-QBR"/>
                         <constraint firstItem="5FF-7i-y78" firstAttribute="centerX" secondItem="a2s-3R-Dd7" secondAttribute="centerX" id="bEX-qA-4H9"/>
