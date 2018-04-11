@@ -38,9 +38,15 @@ class LoginViewController: UIViewController {
         
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        stopLoading()
+    }
+    
     //MARK: Handle button pressed
     
     @IBAction func btnLoginPressed(_: UIButton) {
+        
+        showLoading()
         
         let email = tfEmail.text
         let pass = tfPassword.text

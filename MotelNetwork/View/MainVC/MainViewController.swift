@@ -29,7 +29,10 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-     
+        showLoading()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+            self.stopLoading()
+        }
     }
     
     
@@ -122,7 +125,6 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
         tabbarController.tabBar.reloadInputViews()
         //tabbarController.selectedIndex = 3'
         self.navigationController?.swipeBackEnabled = false
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -131,7 +133,6 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         
     }
     

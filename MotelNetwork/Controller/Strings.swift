@@ -8,6 +8,7 @@
 
 import Foundation
 
+let messageConfirmLogOut: String = "Bạn chắc chắn muốn đăng xuất không?"
 let messageCreateRoomSuccess: String = "Tạo phòng thành công."
 let messageCreateRoomFailed: String = "Tạo phòng thất bại."
 let messageEditRoomSuccess: String = "Sửa thông tin phòng thành công."

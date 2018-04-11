@@ -175,13 +175,6 @@
 			path = MainVC;
 			sourceTree = "<group>";
 		};
-		CE5FF78D20767680005BEA3B /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		CE5FF78E20767689005BEA3B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +244,13 @@
 				E1507BB0207DDA8B00387527 /* CalculateRoomPriceViewController.xib */,
 			);
 			path = CalculateRoomPriceViewController;
+			sourceTree = "<group>";
+		};
+		E1507BB9207E751200387527 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E15331792068E18100238763 /* ForgotPasswordViewController */ = {
@@ -347,8 +347,8 @@
 		E198761020672E2D008434CC /* MotelNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				E1507BB9207E751200387527 /* Helpers */,
 				CE5FF78E20767689005BEA3B /* Extension */,
-				CE5FF78D20767680005BEA3B /* Helpers */,
 				E1E7D2022071E0C600874EB2 /* Assets.xcassets */,
 				E198761120672E2D008434CC /* AppDelegate.swift */,
 				E198761520672E2D008434CC /* Main.storyboard */,
@@ -404,13 +404,13 @@
 				CE5FF78820766EB1005BEA3B /* MainVC */,
 				145C11FB2075F34800AB11F3 /* RoomManagementViewController */,
 				E14C41402074D0EB003571E8 /* SignedInDetailNewsViewController */,
-				E1E7D1F92071C87D00874EB2 /* SignedInHomeViewController */,
 				E1E7D1F82071C83700874EB2 /* BeforeSignHomeViewController */,
 				E14C413B2074CF18003571E8 /* DetailNewsViewController */,
 				E1A621CF2070D1FF00B83291 /* TestViewController */,
 				E153317B2068E19B00238763 /* SignUpViewController */,
 				E153317A2068E19000238763 /* LoginViewController */,
 				E15331792068E18100238763 /* ForgotPasswordViewController */,
+				E1E7D1F92071C87D00874EB2 /* SignedInHomeViewController */,
 				E104667020708FFE00245789 /* TutorialViewController */,
 			);
 			path = View;

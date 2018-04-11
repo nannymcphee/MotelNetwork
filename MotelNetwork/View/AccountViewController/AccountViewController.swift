@@ -32,8 +32,17 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         setUpView()
 
-        // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        showLoading()
+        tbAccountOptionList.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+//        stopLoading()
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -43,8 +52,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: Set up view
     func setUpView() {
-        
-        showLoading()
         
         let uid = Auth.auth().currentUser?.uid
         
@@ -64,8 +71,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         makeImageViewRounded(imageView: ivAvatar)
         makeButtonRounded(button: btnLogOut)
-        
-        stopLoading()
     }
     
     
@@ -110,7 +115,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func btnLogOutPressed(_ sender: Any) {
         
-        doLogOut()
+//        doLogOut()
+        showAlertConfirmLogOut()
     }
     
     @IBAction func btnNewPostPressed(_ sender: Any) {

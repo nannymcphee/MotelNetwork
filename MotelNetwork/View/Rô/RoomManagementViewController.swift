@@ -24,11 +24,13 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         tbRoomManagement.delegate = self
         tbRoomManagement.dataSource = self
         tbRoomManagement.register(UINib(nibName: "ListRoomsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListRoomsTableViewCell")
-        
+        tbRoomManagement.reloadData()
+
         setUpView()
 
         // Do any additional setup after loading the view.
@@ -36,6 +38,10 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         tbRoomManagement.reloadData()
+        tbRoomManagement.scrollTableViewToTop(animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         
     }
 
@@ -48,7 +54,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     func setUpView() {
         
         loadData()
-        
+
         guard let uid = Auth.auth().currentUser?.uid else {
             
             return
@@ -56,7 +62,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         
         dbReference = Database.database().reference()
         dbReference.child("Users").child(uid).observe(.value) { (snapshot) in
-            
+
             // Get user value
             let value = snapshot.value as! NSDictionary
             let userName = value["FullName"] as? String ?? ""
@@ -74,7 +80,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     //MARK: Database interaction
     
     func loadData() {
-
+        
         let uid = Auth.auth().currentUser?.uid
         
         Database.database().reference().child("Rooms").child(uid!).child("MyRooms").observe(.childAdded, with: { (snapshot) in
@@ -94,7 +100,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
                 room.area = dictionary["Area"] as? String
                 room.user = dictionary["User"] as? String
                 room.roomImageUrl0 = dictionary["roomImageUrl0"] as? String
-                
             }
         }, withCancel: nil)
     }

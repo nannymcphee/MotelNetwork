@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import NVActivityIndicatorView
+
+var activityIndicatorView : NVActivityIndicatorView!
+var blurEffectView : UIVisualEffectView!
 
 extension UIViewController {
     
@@ -63,9 +67,29 @@ extension UIViewController {
     func showAlert(alertMessage: String) {
         let alert = UIAlertController(title: "Thông báo", message: alertMessage, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { (action) in
+            alert.dismiss(animated: true, completion: nil)
         }
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showAlertConfirmLogOut() {
+        
+        let alert = UIAlertController(title: nil, message: messageConfirmLogOut, preferredStyle: .actionSheet)
+        let actionDestroy = UIAlertAction(title: "Đăng xuất", style: .destructive) { (action) in
+            self.doLogOut()
+        }
+        
+        let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addAction(actionDestroy)
+        alert.addAction(actionCancel)
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        
     }
     
     //MARK: Check if email is valid
@@ -142,6 +166,10 @@ extension UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+
+    
+    
     //MARK: Swipe to pop back view
     
 //    func swipeToPop_Root() {
@@ -173,6 +201,31 @@ extension UISearchBar {
             if let textField = view as? UITextField {
                 textField.font = textFont
             }
+        }
+    }
+}
+
+extension UITableView {
+    
+    func scrollTableViewToBottom(animated: Bool) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
+            
+            let numberOfSections = self.numberOfSections
+            let numberOfRows = self.numberOfRows(inSection: numberOfSections-1)
+            if numberOfRows > 0 {
+                let indexPath = IndexPath(row: numberOfRows-1, section: (numberOfSections-1))
+                self.scrollToRow(at: indexPath, at: UITableViewScrollPosition.bottom, animated: animated)
+            }
+        }
+    }
+    
+    func scrollTableViewToTop(animated: Bool) {
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
+            
+            let indexPath = IndexPath(row: 0, section: 0)
+            self.scrollToRow(at: indexPath, at: UITableViewScrollPosition.bottom, animated: animated)
         }
     }
 }

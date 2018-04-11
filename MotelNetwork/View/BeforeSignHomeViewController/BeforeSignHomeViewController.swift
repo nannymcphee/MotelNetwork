@@ -9,8 +9,9 @@
 import UIKit
 import FirebaseAuth
 import SwipeBack
+import NVActivityIndicatorView
 
-class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
+class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NVActivityIndicatorViewable {
     
     
     @IBOutlet weak var tbListNews: UITableView!
@@ -70,6 +71,8 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func loadData() {
+        
+        
         //list new
         let room1 = Room(id: "1", name: "Phòng 1", area: "25", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
         let room2 = Room(id: "1", name: "Phòng 2", area: "25", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
@@ -108,6 +111,7 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
         setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
         setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
         tbListNews.reloadData()
+        tbListNews.scrollTableViewToTop(animated: true)
     }
     
     @IBAction func btnMostViewClick(_ sender: Any) {
@@ -119,7 +123,7 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
         setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
         setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
         tbListNews.reloadData()
-        
+        tbListNews.scrollTableViewToTop(animated: true)
     }
     
     @IBAction func btnNearMeClick(_ sender: Any) {
@@ -131,6 +135,7 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
         setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
         setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
         tbListNews.reloadData()
+        tbListNews.scrollTableViewToTop(animated: true)
     }
     
     //MARK: Exstension func
@@ -201,5 +206,6 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
         let vc = SignedInDetailNewsViewController()
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
+    
     
 }
