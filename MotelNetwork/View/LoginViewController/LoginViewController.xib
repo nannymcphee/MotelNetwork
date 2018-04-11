@@ -68,7 +68,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="xYu-Fd-gst"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                     <state key="normal" title="Đăng ký"/>
                                     <connections>
                                         <action selector="btnRegisterNavigationPressed:" destination="-1" eventType="touchUpInside" id="LuK-Ml-Jcf"/>
@@ -79,7 +79,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="61J-B4-6fD"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                     <state key="normal" title="Quên mật khẩu"/>
                                     <connections>
                                         <action selector="btnForgotPasswordPressed:" destination="-1" eventType="touchUpInside" id="uqv-QA-xkv"/>

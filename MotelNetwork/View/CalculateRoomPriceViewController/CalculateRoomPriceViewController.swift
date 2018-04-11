@@ -1,25 +1,25 @@
 //
-//  EditRoomViewController.swift
+//  CalculateRoomPriceViewController.swift
 //  Motel Network
 //
-//  Created by Nguyên Duy on 4/10/18.
+//  Created by Nguyên Duy on 4/11/18.
 //  Copyright © 2018 Nguyên Duy. All rights reserved.
 //
 
 import UIKit
 
-class EditRoomViewController: UIViewController {
-
+class CalculateRoomPriceViewController: UIViewController {
+    
+    @IBOutlet weak var btnCalculate: UIButton!
     @IBOutlet weak var btnBack: UIButton!
-    @IBOutlet weak var btnAddImage: UIButton!
-    @IBOutlet weak var btnSave: UIButton!
-    @IBOutlet weak var ivRoomImage0: UIImageView!
-    @IBOutlet weak var ivRoomImage1: UIImageView!
-    @IBOutlet weak var ivRoomImage2: UIImageView!
-    @IBOutlet weak var tfRoomName: UITextField!
-    @IBOutlet weak var tfArea: UITextField!
-    @IBOutlet weak var tfPrice: UITextField!
-    @IBOutlet weak var tfUser: UITextField!
+    @IBOutlet weak var lblRoomName: UILabel!
+    @IBOutlet weak var tfRoomPrice: UITextField!
+    @IBOutlet weak var tfElectricPrice: UITextField!
+    @IBOutlet weak var tfWaterPrice: UITextField!
+    @IBOutlet weak var tfInternetPrice: UITextField!
+    @IBOutlet weak var tfOtherPrice: UITextField!
+    
+    
     
     
     override func viewDidLoad() {
@@ -34,23 +34,22 @@ class EditRoomViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
+    
+    
+    
+    
     //MARK: Handle button pressed
-   
+    
     @IBAction func btnBackPressed(_ sender: Any) {
         
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func btnAddImagePressed(_ sender: Any) {
-        
-        
-    }
     
-    @IBAction func btnSavePressed(_ sender: Any) {
+    @IBAction func btnCalculatePressed(_ sender: Any) {
         
-        
+        //Do calculate
     }
-    
     
 }

@@ -56,6 +56,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         checkAuthStatus()
         fetchUser()
         createUsersListPicker()
+        self.tapToDismissKeyboard()
     }
     
     //MARK: Reset view
@@ -73,7 +74,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     //MARK: Database interaction
     
-    // Fetch user from database
+    // Fetch user from database and add to user list
     func fetchUser() {
         Database.database().reference().child("Users").observe(.childAdded, with: { (snapshot) in
             
@@ -278,33 +279,5 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
     }
     
-    //MARK: Check auth status and handle log out
-    
-    func checkAuthStatus() {
-        
-        if Auth.auth().currentUser?.uid == nil {
-            
-            performSelector(onMainThread: #selector(handleLogout), with: nil, waitUntilDone: true)
-        }
-        else {
-            
-//            let uid = Auth.auth().currentUser?.uid
-//            Database.database().reference().child("Users").child(uid!).child("FullName").observeSingleEvent(of: .value, with: { (snapshot) in
-//
-//                print(snapshot)
-//            }, withCancel: nil)
-        }
-    }
-    
-    @objc func handleLogout() {
-        
-        do {
-            try Auth.auth().signOut()
-        } catch let error {
-            print(error)
-        }
-        
-        let vc = LoginViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
+
 }

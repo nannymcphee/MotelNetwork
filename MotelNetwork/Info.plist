@@ -44,6 +44,6 @@
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Motel Network cần truy cập vào thư viện ảnh của bạn</string>
     <key>NSPhotoLibraryUsageDescription</key>
-    <string>Giúp cho việc đăng ảnh</string>
+    <string></string>
 </dict>
 </plist>

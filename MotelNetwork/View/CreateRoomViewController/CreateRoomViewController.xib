@@ -40,7 +40,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81s-sy-xF6">
-                                            <rect key="frame" x="17" y="20" width="24" height="24"/>
+                                            <rect key="frame" x="19" y="20" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="24" id="9D9-Ex-zNH"/>
                                                 <constraint firstAttribute="width" constant="24" id="LD9-4F-Sp8"/>
@@ -68,7 +68,7 @@
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="INl-TW-xvS" secondAttribute="bottom" id="8OI-st-PtY"/>
                                         <constraint firstItem="7t6-o4-3Gx" firstAttribute="centerX" secondItem="QOJ-DM-Mzu" secondAttribute="centerX" id="C6d-wF-bHN"/>
-                                        <constraint firstItem="81s-sy-xF6" firstAttribute="leading" secondItem="QOJ-DM-Mzu" secondAttribute="leading" constant="17" id="V8I-uK-4i9"/>
+                                        <constraint firstItem="81s-sy-xF6" firstAttribute="leading" secondItem="QOJ-DM-Mzu" secondAttribute="leading" constant="19" id="V8I-uK-4i9"/>
                                         <constraint firstItem="81s-sy-xF6" firstAttribute="centerY" secondItem="7t6-o4-3Gx" secondAttribute="centerY" id="g8z-WE-qQb"/>
                                         <constraint firstItem="INl-TW-xvS" firstAttribute="leading" secondItem="QOJ-DM-Mzu" secondAttribute="leading" id="otM-vL-M1k"/>
                                         <constraint firstAttribute="trailing" secondItem="INl-TW-xvS" secondAttribute="trailing" id="qlm-Zy-5cd"/>
@@ -212,7 +212,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="yzz-n4-khJ"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Người thuê" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7K-t0-UU3">
@@ -230,7 +230,6 @@
                                                 <constraint firstItem="Gh3-Q5-jAI" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="18" id="5dD-d1-0s4"/>
                                                 <constraint firstItem="id3-tx-e9E" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="695-7z-nO5"/>
                                                 <constraint firstAttribute="bottom" secondItem="1of-kg-cqH" secondAttribute="bottom" constant="115" id="7Ey-yv-rZz"/>
-                                                <constraint firstItem="1of-kg-cqH" firstAttribute="top" secondItem="OVJ-bd-2Re" secondAttribute="bottom" constant="54" id="Aw6-WZ-hTk"/>
                                                 <constraint firstItem="5tS-sp-DXN" firstAttribute="top" secondItem="gAP-Ng-isQ" secondAttribute="bottom" constant="6" id="B3E-Nd-ByH"/>
                                                 <constraint firstAttribute="trailing" secondItem="1of-kg-cqH" secondAttribute="trailing" constant="18" id="B45-3R-QUW"/>
                                                 <constraint firstItem="dx2-C0-uVb" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="DAs-Rz-weV"/>

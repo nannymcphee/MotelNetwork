@@ -35,6 +35,7 @@ class ChangeEmailViewController: UIViewController {
     
     func setUpView() {
         
+        self.tapToDismissKeyboard()
         showLoading()
         
         let uid = Auth.auth().currentUser?.uid

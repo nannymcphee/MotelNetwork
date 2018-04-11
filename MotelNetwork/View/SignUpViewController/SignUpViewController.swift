@@ -92,6 +92,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         makeButtonRounded(button: btnRegister)
         userType.append(UserType(userType: 0, userTypeName: "Chủ nhà trọ"))
         userType.append(UserType(userType: 1, userTypeName: "Khách thuê trọ"))
+        self.tapToDismissKeyboard()
     }
     
     //MARK: Logic for pvUser

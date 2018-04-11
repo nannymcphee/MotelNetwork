@@ -34,7 +34,7 @@ extension UIViewController {
         }
     }
     
-    // Handle log out
+    //MARK: Handle log out
     func doLogOut() {
         
         do {
@@ -47,6 +47,8 @@ extension UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    //MARK: Make button and ImageView rounded
+    
     func makeButtonRounded(button: UIButton) {
         button.layer.cornerRadius = button.frame.height / 2.0
         button.clipsToBounds = true
@@ -57,6 +59,8 @@ extension UIViewController {
         imageView.clipsToBounds = true
     }
     
+    //MARK: Show alert with custom message
+    
     func showAlert(alertMessage: String) {
         let alert = UIAlertController(title: "Thông báo", message: alertMessage, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { (action) in
@@ -65,12 +69,16 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    //MARK: Check if email is valid
+    
     func isValidEmail(email: String) -> Bool {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         
         return emailTest.evaluate(with:email)
     }
+    
+    //MARK: Database interactions
     
     // Update user's information to database
     func storeUserInformationToDatabase(_ uid: String, values: [String: AnyObject]) {
@@ -91,18 +99,48 @@ extension UIViewController {
         }
     }
     
-    func tapToDismissKeyboard(view: UIView) {
-        
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: view, action: #selector(dismissKeyboard))
-        
-//        Uncomment the line below if you want the tap not not interfere and cancel other interactions.
-//        tap.cancelsTouchesInView = false
-        
+    
+    //MARK: Tap anywhere to dismiss keyboard
+    
+    func tapToDismissKeyboard() {
+
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
-    
+
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    //MARK: Check auth status and handle log out
+    
+    func checkAuthStatus() {
+        
+        if Auth.auth().currentUser?.uid == nil {
+            
+            performSelector(onMainThread: #selector(handleLogout), with: nil, waitUntilDone: true)
+        }
+        else {
+            
+            let uid = Auth.auth().currentUser?.uid
+            Database.database().reference().child("Users").child(uid!).child("FullName").observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                print("User logged in as \(snapshot)")
+            }, withCancel: nil)
+        }
+    }
+    
+    @objc func handleLogout() {
+        
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            print(error)
+        }
+        
+        let vc = LoginViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

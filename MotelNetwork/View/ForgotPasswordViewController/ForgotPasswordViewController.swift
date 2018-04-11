@@ -16,6 +16,7 @@ class ForgotPasswordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tapToDismissKeyboard()
 
         // Do any additional setup after loading the view.
     }
