@@ -37,7 +37,7 @@
                                         <constraint firstAttribute="height" constant="40" id="YRQ-oj-RmG"/>
                                     </constraints>
                                     <nil key="textColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mật khẩu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="611-rB-A19">
@@ -46,7 +46,7 @@
                                         <constraint firstAttribute="height" constant="40" id="6ns-EZ-wjV"/>
                                     </constraints>
                                     <nil key="textColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nj2-0J-ksw">
@@ -55,6 +55,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="Tap-aZ-80r"/>
                                     </constraints>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                     <state key="normal" title="Đăng nhập">
                                         <color key="titleColor" red="0.99607843139999996" green="0.99607843139999996" blue="0.99607843139999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -67,6 +68,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="xYu-Fd-gst"/>
                                     </constraints>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                     <state key="normal" title="Đăng ký"/>
                                     <connections>
                                         <action selector="btnRegisterNavigationPressed:" destination="-1" eventType="touchUpInside" id="LuK-Ml-Jcf"/>
@@ -77,6 +79,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="61J-B4-6fD"/>
                                     </constraints>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                     <state key="normal" title="Quên mật khẩu"/>
                                     <connections>
                                         <action selector="btnForgotPasswordPressed:" destination="-1" eventType="touchUpInside" id="uqv-QA-xkv"/>

@@ -12,6 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailNewsViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
+                <outlet property="btnBack" destination="Q3G-y4-81W" id="J2h-c8-w03"/>
+                <outlet property="ivNewsImage" destination="qUr-Af-T7t" id="R25-Zz-Fil"/>
+                <outlet property="lblNewsTitle" destination="ZHb-Dt-m6U" id="5ci-Sh-6Y5"/>
+                <outlet property="lblScreenTitle" destination="2m7-af-7AN" id="red-ax-MXz"/>
+                <outlet property="tbListNewsDetail" destination="dPr-Hl-gf9" id="rsy-XS-hjy"/>
+                <outlet property="tvDescription" destination="ela-sb-emF" id="UfC-Pa-ZKi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

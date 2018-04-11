@@ -90,6 +90,21 @@ extension UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    func tapToDismissKeyboard(view: UIView) {
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: view, action: #selector(dismissKeyboard))
+        
+//        Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+//        tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
 }
 
 extension UISearchBar {

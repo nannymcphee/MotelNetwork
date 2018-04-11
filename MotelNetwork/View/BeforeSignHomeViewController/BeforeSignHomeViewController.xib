@@ -42,7 +42,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="113"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lgMotelNetworkBlack" translatesAutoresizingMaskIntoConstraints="NO" id="2oh-vR-t2O">
-                                                    <rect key="frame" x="133" y="16" width="108" height="45"/>
+                                                    <rect key="frame" x="133" y="16" width="108" height="30"/>
                                                 </imageView>
                                                 <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Tìm kiếm" translatesAutoresizingMaskIntoConstraints="NO" id="Acf-Z2-9Oy">
                                                     <rect key="frame" x="17" y="73" width="340" height="40"/>
@@ -246,6 +246,6 @@
         </view>
     </objects>
     <resources>
-        <image name="lgMotelNetworkBlack" width="108" height="45"/>
+        <image name="lgMotelNetworkBlack" width="108" height="30"/>
     </resources>
 </document>

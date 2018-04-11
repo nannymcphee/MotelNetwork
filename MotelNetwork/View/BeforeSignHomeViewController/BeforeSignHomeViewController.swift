@@ -36,6 +36,13 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+//            Uncomment the line below if you want the tap not not interfere and cancel other interactions.
+        tap.cancelsTouchesInView = false
+        
+        view.addGestureRecognizer(tap)
+        
         
         setUpView()
         
@@ -189,11 +196,13 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DetailNewsViewController()
+        let vc = SignedInDetailNewsViewController()
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     
-    
+    @objc override func dismissKeyboard() {
+        view.endEditing(true)
+    }
     
     
     

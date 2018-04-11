@@ -139,6 +139,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Jur-H1-HUF"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                                     <state key="normal" title="Lưu">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>

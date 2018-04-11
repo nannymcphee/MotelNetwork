@@ -20,6 +20,12 @@
 		E14C41432074D107003571E8 /* SignedInDetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C41412074D107003571E8 /* SignedInDetailNewsViewController.swift */; };
 		E14C41442074D107003571E8 /* SignedInDetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14C41422074D107003571E8 /* SignedInDetailNewsViewController.xib */; };
 		E14C41462074EBF5003571E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E14C41452074EBF5003571E8 /* GoogleService-Info.plist */; };
+		E1507BA2207D192F00387527 /* DetailRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BA0207D192F00387527 /* DetailRoomViewController.swift */; };
+		E1507BA3207D192F00387527 /* DetailRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BA1207D192F00387527 /* DetailRoomViewController.xib */; };
+		E1507BA7207D195C00387527 /* EditRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BA5207D195C00387527 /* EditRoomViewController.swift */; };
+		E1507BA8207D195C00387527 /* EditRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BA6207D195C00387527 /* EditRoomViewController.xib */; };
+		E1507BAC207D19A200387527 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BAA207D19A200387527 /* NewPostViewController.swift */; };
+		E1507BAD207D19A200387527 /* NewPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BAB207D19A200387527 /* NewPostViewController.xib */; };
 		E16F5B16207B5FB800B284A5 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B14207B5FB800B284A5 /* DetailNewsViewController.swift */; };
 		E16F5B17207B5FB800B284A5 /* DetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B15207B5FB800B284A5 /* DetailNewsViewController.xib */; };
 		E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B19207B698E00B284A5 /* AccountViewController.swift */; };
@@ -73,6 +79,12 @@
 		E14C41412074D107003571E8 /* SignedInDetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInDetailNewsViewController.swift; sourceTree = "<group>"; };
 		E14C41422074D107003571E8 /* SignedInDetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignedInDetailNewsViewController.xib; sourceTree = "<group>"; };
 		E14C41452074EBF5003571E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E1507BA0207D192F00387527 /* DetailRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRoomViewController.swift; sourceTree = "<group>"; };
+		E1507BA1207D192F00387527 /* DetailRoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRoomViewController.xib; sourceTree = "<group>"; };
+		E1507BA5207D195C00387527 /* EditRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRoomViewController.swift; sourceTree = "<group>"; };
+		E1507BA6207D195C00387527 /* EditRoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditRoomViewController.xib; sourceTree = "<group>"; };
+		E1507BAA207D19A200387527 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		E1507BAB207D19A200387527 /* NewPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPostViewController.xib; sourceTree = "<group>"; };
 		E16F5B14207B5FB800B284A5 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		E16F5B15207B5FB800B284A5 /* DetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailNewsViewController.xib; sourceTree = "<group>"; };
 		E16F5B19207B698E00B284A5 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +205,33 @@
 				E14C41422074D107003571E8 /* SignedInDetailNewsViewController.xib */,
 			);
 			path = SignedInDetailNewsViewController;
+			sourceTree = "<group>";
+		};
+		E1507B9F207D18FB00387527 /* DetailRoomViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1507BA0207D192F00387527 /* DetailRoomViewController.swift */,
+				E1507BA1207D192F00387527 /* DetailRoomViewController.xib */,
+			);
+			path = DetailRoomViewController;
+			sourceTree = "<group>";
+		};
+		E1507BA4207D194900387527 /* EditRoomViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1507BA5207D195C00387527 /* EditRoomViewController.swift */,
+				E1507BA6207D195C00387527 /* EditRoomViewController.xib */,
+			);
+			path = EditRoomViewController;
+			sourceTree = "<group>";
+		};
+		E1507BA9207D198C00387527 /* NewPostViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1507BAA207D19A200387527 /* NewPostViewController.swift */,
+				E1507BAB207D19A200387527 /* NewPostViewController.xib */,
+			);
+			path = NewPostViewController;
 			sourceTree = "<group>";
 		};
 		E15331792068E18100238763 /* ForgotPasswordViewController */ = {
@@ -335,6 +374,9 @@
 		E1E7D1F72071C7D300874EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E1507BA9207D198C00387527 /* NewPostViewController */,
+				E1507BA4207D194900387527 /* EditRoomViewController */,
+				E1507B9F207D18FB00387527 /* DetailRoomViewController */,
 				E16F5B22207B7D6900B284A5 /* ChangePasswordViewController */,
 				E16F5B21207B7D5E00B284A5 /* ChangeEmailViewController */,
 				E16F5B18207B696500B284A5 /* AccountViewController */,
@@ -451,8 +493,10 @@
 			files = (
 				E16F5B20207B69AE00B284A5 /* AccountOptionTableViewCell.xib in Resources */,
 				E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */,
+				E1507BA3207D192F00387527 /* DetailRoomViewController.xib in Resources */,
 				E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */,
 				E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */,
+				E1507BA8207D195C00387527 /* EditRoomViewController.xib in Resources */,
 				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
 				E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */,
 				E1E7D207207224F000874EB2 /* ListNewsTableViewCell.xib in Resources */,
@@ -471,6 +515,7 @@
 				E16F5B1C207B698E00B284A5 /* AccountViewController.xib in Resources */,
 				CE5FF78C20766ED0005BEA3B /* MainViewController.xib in Resources */,
 				E14C41462074EBF5003571E8 /* GoogleService-Info.plist in Resources */,
+				E1507BAD207D19A200387527 /* NewPostViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,6 +603,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1507BA2207D192F00387527 /* DetailRoomViewController.swift in Sources */,
 				E104666E20708FF400245789 /* TutorialViewController.swift in Sources */,
 				E16F5B16207B5FB800B284A5 /* DetailNewsViewController.swift in Sources */,
 				E1A621D22070D23100B83291 /* TestViewController.swift in Sources */,
@@ -574,8 +620,10 @@
 				E1E7D206207224F000874EB2 /* ListNewsTableViewCell.swift in Sources */,
 				E16F5B1F207B69AE00B284A5 /* AccountOptionTableViewCell.swift in Sources */,
 				E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */,
+				E1507BAC207D19A200387527 /* NewPostViewController.swift in Sources */,
 				E16F5B31207BD35A00B284A5 /* Controller.swift in Sources */,
 				E1BD102E20766C3500287982 /* CreateRoomViewController.swift in Sources */,
+				E1507BA7207D195C00387527 /* EditRoomViewController.swift in Sources */,
 				E1E7D1FC2071C8AC00874EB2 /* BeforeSignHomeViewController.swift in Sources */,
 				E1BD102A207663E800287982 /* Extensions.swift in Sources */,
 				E16F5B29207B7D8E00B284A5 /* ChangeEmailViewController.swift in Sources */,

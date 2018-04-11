@@ -22,4 +22,11 @@ let messageChangePasswordSuccess: String = "Thay đổi mật khẩu thành côn
 let messageChangePasswordFailed: String = "Thay đổi mật khẩu thất bại."
 let messageInvalidEmail: String = "Vui lòng nhập đúng định dạng email."
 let messageRequestReLogin: String = "Vui lòng đăng nhập lại trước khi cập nhật email hoặc mật khẩu."
+let messageNewPostSuccess: String = "Đăng tin thành công."
+let messageNewPostFailed: String = "Đăng tin thất bại."
+let messageEditPostSuccess: String = "Sửa tin thành công."
+let messageEditPostFailed: String = "Sửa tin thất bại."
+let messageLimit40Characters: String = "Vui lòng nhập tiêu đề không quá 40 ký tự."
+let messageLimit150Characters: String = "Vui lòng nhập mô tả không quá 150 ký tự."
+
 

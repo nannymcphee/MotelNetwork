@@ -53,7 +53,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if Auth.auth().currentUser?.uid == nil {
 
-            performSelector(onMainThread: #selector(handleLogout), with: nil, waitUntilDone: true)
+            rootViewControler = LoginViewController()
+            (UIApplication.shared.delegate as! AppDelegate).navigationController = UINavigationController(rootViewController: rootViewControler!)
+            window = UIWindow(frame: UIScreen.main.bounds)
+            window?.rootViewController = navigationController
+            navigationController?.isNavigationBarHidden = true
+            window?.makeKeyAndVisible()
             }
         else {
 
@@ -64,18 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navigationController?.isNavigationBarHidden = true
             window?.makeKeyAndVisible()
         }
-    }
-
-    @objc func handleLogout() {
-
-        do {
-            try Auth.auth().signOut()
-        } catch let error {
-            print(error)
-        }
-
-        let vc = LoginViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }
