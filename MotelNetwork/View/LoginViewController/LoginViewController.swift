@@ -30,6 +30,14 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+       self.navigationController?.swipeBackEnabled = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+    }
+    
     //MARK: Handle button pressed
     
     @IBAction func btnLoginPressed(_: UIButton) {
@@ -46,6 +54,7 @@ class LoginViewController: UIViewController {
             showAlert(alertMessage: messageInvalidEmail)
         }
         else {
+            
             doLogin(email: email!, pass: pass!)
         }
     }

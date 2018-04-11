@@ -24,9 +24,16 @@ class SignedInDetailNewsViewController: UIViewController {
         super.viewDidLoad()
         
         setUpView()
+//        swipeToPop_Destination()
         
         // Do any additional setup after loading the view.
     }
+    
+
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        swipeToPop_Destination()
+//    }
     
     func setUpView() {
         

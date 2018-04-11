@@ -11,6 +11,9 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import BSImagePicker
+import Photos
+import SwipeBack
 
 class UserType {
     var userType: Int
@@ -35,9 +38,12 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var tfPassword: UITextField!
     @IBOutlet weak var tfCMND: UITextField!
     @IBOutlet weak var tfBirthDay: UITextField!
+    @IBOutlet weak var ivProfilePicture: UIImageView!
     
     
     var userType = [UserType]()
+    var imageArray = [UIImage]()
+    var selectedAssets = [PHAsset]()
     let dpBirthDay = UIDatePicker()
     
     override func viewDidLoad() {
@@ -95,6 +101,15 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.tapToDismissKeyboard()
     }
     
+    func resetView() {
+        ivProfilePicture.image = nil
+        tfCMND.text = ""
+        tfName.text = ""
+        tfEmail.text = ""
+        tfBirthDay.text = ""
+        tfPassword.text = ""
+    }
+    
     //MARK: Logic for pvUser
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -117,7 +132,32 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         let selectedUserType = pvUserType.selectedRow(inComponent: 0)
         print(selectedUserType)
-//        let userType2 = userType[selectedUserType].userType
+    }
+    
+    //MARK: Database interaction
+    
+    // Upload image from UIImageView to storage and return download url
+    func uploadImageFromImageView(imageView : UIImageView, completion: @escaping ((String) -> (Void))) {
+        
+        var strURL = ""
+        let imageName = NSUUID().uuidString
+        let storageRef = Storage.storage().reference().child("ProfileImages").child("\(imageName).png")
+        let storeImage = storageRef
+        
+        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 0.2) {
+            
+            storeImage.putData(uploadImageData, metadata: nil, completion: { (metaData, error) in
+                storeImage.downloadURL(completion: { (url, error) in
+                    if let urlText = url?.absoluteString {
+                        
+                        strURL = urlText
+                        print("///////////tttttttt//////// \(strURL)   ////////")
+                        
+                        completion(strURL)
+                    }
+                })
+            })
+        }
     }
     
     //MARK: Handle button pressed
@@ -128,7 +168,24 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @IBAction func btnProfilePicturePressed(_ sender: Any) {
-        handleSelectProfilePicturePressed()
+//        handleSelectProfilePicturePressed()
+        
+        let vc = BSImagePickerViewController()
+        vc.maxNumberOfSelections = 3
+        self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
+            
+        }, deselect: { (asset: PHAsset) in
+            
+        }, cancel: { (asset: [PHAsset]) in
+            
+        }, finish: { (asset: [PHAsset]) in
+            
+            for i in 0..<asset.count {
+                self.selectedAssets.append(asset[i])
+            }
+            
+            self.convertAssetToImages()
+        }, completion: nil)
     }
     
     @IBAction func btnRegisterPressed(_ sender: UIButton) {
@@ -155,79 +212,52 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     return
                 }
                 
-                // Succesfully signed up user
-                let imageName = UUID().uuidString
-                let storageRef = Storage.storage().reference().child("ProfileImages").child("\(imageName).png")
+                // Store user's info to database
                 
-                if let profileImage = self.btnProfilePicture.image(for: .normal), let uploadData = UIImagePNGRepresentation(profileImage) {
-                    
-                    storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
-                        
-                        if error != nil {
-                            print(error!)
-                            return
-                        }
-                        
-                        if let profileImageUrl = metadata?.downloadURL()?.absoluteString {
-                            
-                            let userEmail: String = self.tfEmail.text!
-                            let userPassword: String = self.tfPassword.text!
-                            let userFullName: String = self.tfName.text!
-                            let userCMND: String = self.tfCMND.text!
-                            let userBirthDay = self.tfBirthDay.text!
-                            let userType = self.pvUserType.selectedRow(inComponent: 0)
-                            
-                            let values = ["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": profileImageUrl] as [String : Any]
-                            
-                            self.storeUserInformationToDatabase(uid, values: values as [String : AnyObject])
-                        }
-                    })
+                let userEmail: String = self.tfEmail.text!
+                let userPassword: String = self.tfPassword.text!
+                let userFullName: String = self.tfName.text!
+                let userCMND: String = self.tfCMND.text!
+                let userBirthDay = self.tfBirthDay.text!
+                let userType = self.pvUserType.selectedRow(inComponent: 0)
+                
+                let values = ["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": ""] as [String : AnyObject]
+                
+                self.storeUserInformationToDatabase(uid, values: values as [String : AnyObject])
+                
+                // Upload image to Firebase storage and update download url into database
+                
+                _ = self.uploadImageFromImageView(imageView: self.ivProfilePicture) { (url) in
+                    self.storeUserInformationToDatabase(uid, values: ["ProfileImageUrl": url as AnyObject])
                 }
 
                 self.showAlert(alertMessage: messageSignUpSuccess)
+                self.resetView()
             }
         }
     }
     
-
+    //Mark: Convert selected assets to image
     
-    //MARK: Logic for btnProfilePicture
-    
-    func handleSelectProfilePicturePressed() {
+    func convertAssetToImages() -> Void {
         
-        let imgPicker = UIImagePickerController()
-        imgPicker.delegate = self
-        present(imgPicker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        var  selectedImageFromPicker: UIImage?
-        
-        if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
+        if selectedAssets.count != 0 {
             
-            selectedImageFromPicker = editedImage
+            for i in 0..<selectedAssets.count {
+                let manager = PHImageManager.default()
+                let option = PHImageRequestOptions()
+                var thumbnail = UIImage()
+                option.isSynchronous = true
+                manager.requestImage(for: selectedAssets[i], targetSize: CGSize(width: 200, height: 200), contentMode: .aspectFill, options: option) { (result, info) in
+                    thumbnail = result!
+                }
+                
+                let data = UIImageJPEGRepresentation(thumbnail, 0.2)
+                let newImage = UIImage(data: data!)
+                self.imageArray.append(newImage as! UIImage)
+            }
+            
+            self.ivProfilePicture.image = imageArray[0]
         }
-        else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
-            
-            selectedImageFromPicker = originalImage
-        }
-        
-        if let selectedImage = selectedImageFromPicker {
-            
-            btnProfilePicture.setImage(selectedImage, for: .normal)
-            btnProfilePicture.layer.cornerRadius = btnProfilePicture.frame.size.width / 2
-            btnProfilePicture.clipsToBounds = true
-            
-        }
-        
-        dismiss(animated: true, completion: nil)
     }
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        
-        dismiss(animated: true, completion: nil)
-        print("Canceled")
-    }
-
 }

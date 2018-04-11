@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_MotelNetworkVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_MotelNetworkVersionString[];
+FOUNDATION_EXPORT double Pods_Motel_NetworkVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Motel_NetworkVersionString[];
 

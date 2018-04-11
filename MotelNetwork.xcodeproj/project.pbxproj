@@ -12,6 +12,7 @@
 		145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C12042075FF5300AB11F3 /* ListRoomsTableViewCell.swift */; };
 		145C12072075FF5300AB11F3 /* ListRoomsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145C12052075FF5300AB11F3 /* ListRoomsTableViewCell.xib */; };
 		22646D6A0FA189D05EEE187D /* Pods_MotelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */; };
+		A13AF67BCDD4B266E4313F82 /* Pods_Motel_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8799EF3B7AE268C76D44DCCB /* Pods_Motel_Network.framework */; };
 		CE5FF78B20766ED0005BEA3B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF78920766ED0005BEA3B /* MainViewController.swift */; };
 		CE5FF78C20766ED0005BEA3B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5FF78A20766ED0005BEA3B /* MainViewController.xib */; };
 		CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF78F20767698005BEA3B /* EUIViewController.swift */; };
@@ -66,12 +67,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		049534EE73905EDE23E9980B /* Pods-Motel Network.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Motel Network.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Motel Network/Pods-Motel Network.debug.xcconfig"; sourceTree = "<group>"; };
 		145C11FC2075F37E00AB11F3 /* RoomManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomManagementViewController.swift; sourceTree = "<group>"; };
 		145C11FD2075F37E00AB11F3 /* RoomManagementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomManagementViewController.xib; sourceTree = "<group>"; };
 		145C12042075FF5300AB11F3 /* ListRoomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRoomsTableViewCell.swift; sourceTree = "<group>"; };
 		145C12052075FF5300AB11F3 /* ListRoomsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListRoomsTableViewCell.xib; sourceTree = "<group>"; };
 		30112E5F978D897CC2765B50 /* Pods-MotelNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotelNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork.release.xcconfig"; sourceTree = "<group>"; };
 		5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotelNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8799EF3B7AE268C76D44DCCB /* Pods_Motel_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Motel_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93ECD0FAD91556A57282580A /* Pods-Motel Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Motel Network.release.xcconfig"; path = "Pods/Target Support Files/Pods-Motel Network/Pods-Motel Network.release.xcconfig"; sourceTree = "<group>"; };
 		AAD763934971E3E622BC4AFC /* Pods-MotelNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotelNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		CE5FF78920766ED0005BEA3B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CE5FF78A20766ED0005BEA3B /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22646D6A0FA189D05EEE187D /* Pods_MotelNetwork.framework in Frameworks */,
+				A13AF67BCDD4B266E4313F82 /* Pods_Motel_Network.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */,
+				8799EF3B7AE268C76D44DCCB /* Pods_Motel_Network.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -435,6 +441,8 @@
 			children = (
 				AAD763934971E3E622BC4AFC /* Pods-MotelNetwork.debug.xcconfig */,
 				30112E5F978D897CC2765B50 /* Pods-MotelNetwork.release.xcconfig */,
+				049534EE73905EDE23E9980B /* Pods-Motel Network.debug.xcconfig */,
+				93ECD0FAD91556A57282580A /* Pods-Motel Network.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -543,12 +551,13 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Motel Network/Pods-Motel Network-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BSGridCollectionViewLayout/BSGridCollectionViewLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeBack/SwipeBack.framework",
 				"${BUILT_PRODUCTS_DIR}/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
@@ -560,13 +569,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeBack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageViewModeScaleAspect.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Motel Network/Pods-Motel Network-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		561B04332EBE6B2DC49C018D /* [CP] Copy Pods Resources */ = {
@@ -590,7 +600,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Motel Network/Pods-Motel Network-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7641C4081589DFF79D51A3B5 /* [CP] Check Pods Manifest.lock */ = {
@@ -604,7 +614,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MotelNetwork-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Motel Network-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -785,7 +795,7 @@
 		};
 		E198762120672E2D008434CC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AAD763934971E3E622BC4AFC /* Pods-MotelNetwork.debug.xcconfig */;
+			baseConfigurationReference = 049534EE73905EDE23E9980B /* Pods-Motel Network.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -803,7 +813,7 @@
 		};
 		E198762220672E2D008434CC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30112E5F978D897CC2765B50 /* Pods-MotelNetwork.release.xcconfig */;
+			baseConfigurationReference = 93ECD0FAD91556A57282580A /* Pods-Motel Network.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

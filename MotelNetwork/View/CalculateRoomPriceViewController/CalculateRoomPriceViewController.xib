@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,10 +16,13 @@
                 <outlet property="btnBack" destination="w4W-A1-UvI" id="QUX-6p-O19"/>
                 <outlet property="btnCalculate" destination="EQW-OA-b5Z" id="ifA-pR-8WU"/>
                 <outlet property="lblRoomName" destination="BIp-xJ-S3P" id="ccO-Kr-12T"/>
-                <outlet property="tfElectricPrice" destination="gik-lf-Uay" id="PaY-65-9uL"/>
+                <outlet property="tfElectricPrice" destination="gik-lf-Uay" id="2PF-c8-lSN"/>
                 <outlet property="tfInternetPrice" destination="Iba-kF-mBD" id="UDv-ND-Dvt"/>
+                <outlet property="tfNewElectricNumber" destination="DJg-Ut-Ac7" id="coH-UL-kWK"/>
+                <outlet property="tfOldElectricNumber" destination="7oF-CE-hgj" id="xD0-V7-rgt"/>
                 <outlet property="tfOtherPrice" destination="QIt-Gu-C9j" id="mzK-bC-ZZH"/>
                 <outlet property="tfRoomPrice" destination="fRW-KF-YCl" id="euc-6q-RZm"/>
+                <outlet property="tfUserCount" destination="5NL-U3-2pd" id="2cY-ld-EzX"/>
                 <outlet property="tfWaterPrice" destination="22z-cx-4UM" id="lWm-G6-hhf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -78,25 +82,25 @@
                                                 <constraint firstAttribute="height" constant="40" id="Co7-dv-m57"/>
                                             </constraints>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gik-lf-Uay">
-                                            <rect key="frame" x="17" y="112" width="340" height="40"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Đơn giá" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gik-lf-Uay">
+                                            <rect key="frame" x="17" y="112" width="100" height="40"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="22z-cx-4UM">
-                                            <rect key="frame" x="17" y="184" width="340" height="40"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Đơn giá" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="22z-cx-4UM">
+                                            <rect key="frame" x="17" y="184" width="233" height="40"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iba-kF-mBD">
                                             <rect key="frame" x="17" y="256" width="340" height="40"/>
                                             <nil key="textColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giá phòng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huB-w1-os9">
@@ -127,7 +131,7 @@
                                             <rect key="frame" x="17" y="418" width="340" height="40"/>
                                             <color key="backgroundColor" red="0.20000000000000001" green="0.53725490200000003" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="i8Z-7w-4Li"/>
+                                                <constraint firstAttribute="height" constant="40" id="Y1E-8b-ehw"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                             <state key="normal" title="Tính tiền">
@@ -149,41 +153,71 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Số người" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5NL-U3-2pd">
+                                            <rect key="frame" x="258" y="184" width="99" height="40"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Công suất mới" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DJg-Ut-Ac7">
+                                            <rect key="frame" x="256" y="112" width="100" height="40"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Công suất cũ" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7oF-CE-hgj">
+                                            <rect key="frame" x="137" y="112" width="100" height="40"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        </textField>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="22z-cx-4UM" firstAttribute="top" secondItem="le8-64-8Hc" secondAttribute="bottom" constant="6" id="12Z-Uj-1pL"/>
-                                        <constraint firstItem="QIt-Gu-C9j" firstAttribute="height" secondItem="fRW-KF-YCl" secondAttribute="height" id="37a-Wn-ihz"/>
                                         <constraint firstItem="UEq-su-xzc" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="3kM-NQ-bnC"/>
-                                        <constraint firstItem="QIt-Gu-C9j" firstAttribute="top" secondItem="UEq-su-xzc" secondAttribute="bottom" constant="6" id="47k-Nw-ci2"/>
                                         <constraint firstItem="fRW-KF-YCl" firstAttribute="top" secondItem="huB-w1-os9" secondAttribute="bottom" constant="6" id="4XO-LT-eA7"/>
-                                        <constraint firstItem="gik-lf-Uay" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="7a5-Wq-vNP"/>
-                                        <constraint firstItem="le8-64-8Hc" firstAttribute="top" secondItem="gik-lf-Uay" secondAttribute="bottom" constant="12" id="CDo-SU-nRn"/>
+                                        <constraint firstItem="5NL-U3-2pd" firstAttribute="centerY" secondItem="22z-cx-4UM" secondAttribute="centerY" id="4g8-hC-PEk"/>
+                                        <constraint firstAttribute="trailing" secondItem="DJg-Ut-Ac7" secondAttribute="trailing" constant="19" id="6IV-fy-oeT"/>
+                                        <constraint firstItem="QIt-Gu-C9j" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="9tq-LJ-tYn"/>
+                                        <constraint firstItem="7oF-CE-hgj" firstAttribute="centerY" secondItem="gik-lf-Uay" secondAttribute="centerY" id="DX3-UX-uRs"/>
+                                        <constraint firstItem="QIt-Gu-C9j" firstAttribute="height" secondItem="fRW-KF-YCl" secondAttribute="height" id="EuP-XX-OjI"/>
+                                        <constraint firstItem="5NL-U3-2pd" firstAttribute="leading" secondItem="22z-cx-4UM" secondAttribute="trailing" constant="8" id="FZv-dh-MsX"/>
+                                        <constraint firstItem="5NL-U3-2pd" firstAttribute="height" secondItem="fRW-KF-YCl" secondAttribute="height" id="I5e-Mk-DzX"/>
                                         <constraint firstItem="huB-w1-os9" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="JHA-v0-dfH"/>
-                                        <constraint firstItem="Iba-kF-mBD" firstAttribute="height" secondItem="fRW-KF-YCl" secondAttribute="height" id="LFa-2C-gMC"/>
-                                        <constraint firstItem="gik-lf-Uay" firstAttribute="top" secondItem="BUG-id-tMI" secondAttribute="bottom" constant="6" id="Mkg-O0-XRN"/>
-                                        <constraint firstItem="int-vJ-j17" firstAttribute="top" secondItem="22z-cx-4UM" secondAttribute="bottom" constant="12" id="NIp-4a-Ljv"/>
-                                        <constraint firstItem="UEq-su-xzc" firstAttribute="top" secondItem="Iba-kF-mBD" secondAttribute="bottom" constant="12" id="WbD-kO-k7N"/>
+                                        <constraint firstItem="gik-lf-Uay" firstAttribute="width" secondItem="fRW-KF-YCl" secondAttribute="width" multiplier="100/340" id="NoU-hT-Fkd"/>
+                                        <constraint firstItem="DJg-Ut-Ac7" firstAttribute="centerY" secondItem="7oF-CE-hgj" secondAttribute="centerY" id="PBI-C8-OQm"/>
+                                        <constraint firstItem="UEq-su-xzc" firstAttribute="top" secondItem="Iba-kF-mBD" secondAttribute="bottom" constant="12" id="QPG-fv-upX"/>
+                                        <constraint firstItem="gik-lf-Uay" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="QSV-fq-bQA"/>
+                                        <constraint firstItem="7oF-CE-hgj" firstAttribute="height" secondItem="gik-lf-Uay" secondAttribute="height" id="S9N-Ec-99h"/>
+                                        <constraint firstItem="EQW-OA-b5Z" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="VjB-Wn-yvy"/>
+                                        <constraint firstAttribute="bottom" secondItem="EQW-OA-b5Z" secondAttribute="bottom" constant="95" id="WRd-RO-M3C"/>
+                                        <constraint firstItem="22z-cx-4UM" firstAttribute="top" secondItem="le8-64-8Hc" secondAttribute="bottom" constant="6" id="WaO-vK-Ce6"/>
                                         <constraint firstItem="int-vJ-j17" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="Wyc-h4-Cs4"/>
-                                        <constraint firstItem="Iba-kF-mBD" firstAttribute="top" secondItem="int-vJ-j17" secondAttribute="bottom" constant="6" id="Y3m-73-J4b"/>
-                                        <constraint firstAttribute="trailing" secondItem="gik-lf-Uay" secondAttribute="trailing" constant="18" id="YTa-Gu-JGx"/>
+                                        <constraint firstAttribute="trailing" secondItem="QIt-Gu-C9j" secondAttribute="trailing" constant="18" id="XFN-rO-7BZ"/>
                                         <constraint firstItem="fRW-KF-YCl" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="Yg7-to-6Yl"/>
-                                        <constraint firstAttribute="trailing" secondItem="EQW-OA-b5Z" secondAttribute="trailing" constant="18" id="ZKB-7E-86y"/>
+                                        <constraint firstAttribute="trailing" secondItem="Iba-kF-mBD" secondAttribute="trailing" constant="18" id="YwI-NJ-g3I"/>
                                         <constraint firstAttribute="trailing" secondItem="fRW-KF-YCl" secondAttribute="trailing" constant="18" id="ZTg-pI-plq"/>
-                                        <constraint firstItem="22z-cx-4UM" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="bzU-Rr-D6Q"/>
-                                        <constraint firstItem="EQW-OA-b5Z" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="fPn-A4-zMX"/>
+                                        <constraint firstItem="7oF-CE-hgj" firstAttribute="width" secondItem="gik-lf-Uay" secondAttribute="width" id="aIc-yS-d4A"/>
+                                        <constraint firstItem="Iba-kF-mBD" firstAttribute="top" secondItem="int-vJ-j17" secondAttribute="bottom" constant="6" id="dby-h5-9IG"/>
+                                        <constraint firstItem="Iba-kF-mBD" firstAttribute="height" secondItem="fRW-KF-YCl" secondAttribute="height" id="fE5-zf-mk8"/>
                                         <constraint firstItem="huB-w1-os9" firstAttribute="top" secondItem="N5o-fs-qT8" secondAttribute="top" constant="20" id="fdH-V5-19x"/>
-                                        <constraint firstAttribute="trailing" secondItem="QIt-Gu-C9j" secondAttribute="trailing" constant="18" id="gGb-3F-yta"/>
+                                        <constraint firstItem="22z-cx-4UM" firstAttribute="width" secondItem="fRW-KF-YCl" secondAttribute="width" multiplier="233/340" id="gP9-jf-4dF"/>
                                         <constraint firstItem="BUG-id-tMI" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="gka-qi-es7"/>
+                                        <constraint firstItem="gik-lf-Uay" firstAttribute="height" secondItem="fRW-KF-YCl" secondAttribute="height" id="gqx-Jp-FIb"/>
                                         <constraint firstItem="le8-64-8Hc" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="iWc-d5-5PV"/>
-                                        <constraint firstItem="EQW-OA-b5Z" firstAttribute="top" secondItem="QIt-Gu-C9j" secondAttribute="bottom" constant="50" id="izN-P0-HUi"/>
-                                        <constraint firstItem="gik-lf-Uay" firstAttribute="height" secondItem="fRW-KF-YCl" secondAttribute="height" id="koF-1v-iZn"/>
-                                        <constraint firstItem="Iba-kF-mBD" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="l8y-Ge-biy"/>
+                                        <constraint firstItem="gik-lf-Uay" firstAttribute="top" secondItem="BUG-id-tMI" secondAttribute="bottom" constant="6" id="ifB-rP-uV0"/>
+                                        <constraint firstItem="int-vJ-j17" firstAttribute="top" secondItem="22z-cx-4UM" secondAttribute="bottom" constant="12" id="jDV-2f-KdB"/>
                                         <constraint firstItem="BUG-id-tMI" firstAttribute="top" secondItem="fRW-KF-YCl" secondAttribute="bottom" constant="12" id="mw2-GY-kuX"/>
-                                        <constraint firstAttribute="trailing" secondItem="22z-cx-4UM" secondAttribute="trailing" constant="18" id="qJF-hU-dJO"/>
-                                        <constraint firstAttribute="trailing" secondItem="Iba-kF-mBD" secondAttribute="trailing" constant="18" id="sgV-6f-ieL"/>
-                                        <constraint firstItem="QIt-Gu-C9j" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="uHO-pZ-rIU"/>
-                                        <constraint firstItem="22z-cx-4UM" firstAttribute="height" secondItem="fRW-KF-YCl" secondAttribute="height" id="v5E-xE-Y5g"/>
+                                        <constraint firstItem="le8-64-8Hc" firstAttribute="top" secondItem="gik-lf-Uay" secondAttribute="bottom" constant="12" id="n2N-lY-2lL"/>
+                                        <constraint firstItem="DJg-Ut-Ac7" firstAttribute="width" secondItem="gik-lf-Uay" secondAttribute="width" id="nMw-CP-KXg"/>
+                                        <constraint firstItem="Iba-kF-mBD" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="nWd-jw-2g8"/>
+                                        <constraint firstAttribute="trailing" secondItem="EQW-OA-b5Z" secondAttribute="trailing" constant="18" id="pp7-Pc-GyE"/>
+                                        <constraint firstItem="7oF-CE-hgj" firstAttribute="leading" secondItem="gik-lf-Uay" secondAttribute="trailing" constant="20" id="tkY-oi-qhA"/>
+                                        <constraint firstItem="22z-cx-4UM" firstAttribute="leading" secondItem="N5o-fs-qT8" secondAttribute="leading" constant="17" id="vba-5E-HEZ"/>
+                                        <constraint firstItem="DJg-Ut-Ac7" firstAttribute="height" secondItem="gik-lf-Uay" secondAttribute="height" id="xZS-Z5-1CL"/>
+                                        <constraint firstItem="22z-cx-4UM" firstAttribute="height" secondItem="fRW-KF-YCl" secondAttribute="height" id="yj0-Pd-LMb"/>
+                                        <constraint firstItem="QIt-Gu-C9j" firstAttribute="top" secondItem="UEq-su-xzc" secondAttribute="bottom" constant="6" id="zYn-B7-Bec"/>
+                                        <constraint firstAttribute="trailing" secondItem="5NL-U3-2pd" secondAttribute="trailing" constant="18" id="zcR-Mk-TcO"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -220,7 +254,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="24.5" y="36"/>
+            <point key="canvasLocation" x="24.5" y="35.5"/>
         </view>
     </objects>
     <resources>

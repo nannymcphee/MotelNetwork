@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import SwipeBack
 
 class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -39,9 +40,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        tbAccountOptionList.reloadData()
-    }
     
     //MARK: Set up view
     func setUpView() {

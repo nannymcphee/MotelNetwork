@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import SwipeBack
 
 class RoomManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -35,6 +36,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         tbRoomManagement.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {

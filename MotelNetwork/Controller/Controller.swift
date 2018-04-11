@@ -16,7 +16,6 @@ extension UIViewController {
     // Handle login
     func doLogin(email: String, pass: String) {
         Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
-            
             if let u = user {
                 
                 print(u)
@@ -142,6 +141,28 @@ extension UIViewController {
         let vc = LoginViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    //MARK: Swipe to pop back view
+    
+//    func swipeToPop_Root() {
+//
+//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+//        self.navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
+//    }
+//
+//    @objc func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+//
+//        if gestureRecognizer == self.navigationController?.interactivePopGestureRecognizer {
+//            return false
+//        }
+//        return true
+//    }
+//
+//    func swipeToPop_Destination() {
+//
+//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+//        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+//    }
     
 }
 

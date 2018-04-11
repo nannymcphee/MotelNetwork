@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwipeBack
 
 
 class MainViewController: UIViewController, UITabBarControllerDelegate {
@@ -30,6 +31,7 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
         
      
     }
+    
     
     func setupTabbar(homeScreenVC: UIViewController, newListingVC: UIViewController, myListingVC: UIViewController) {
        
@@ -84,6 +86,7 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
 //        let currentUser = ApplicationAssembler.sharedInstance.resolver.resolve(PAuthenticationService.self)?.getCurrentUser()
         //let merchant = ApplicationAssembler.sharedInstance.resolver.resolve(PMerchantService.self)?.getCurrentMerchant()
 //        if currentUser != nil {
@@ -117,12 +120,18 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
         setupTabbar(homeScreenVC: vcHomeScreen, newListingVC: vcRoomanager, myListingVC: vcAccountSetting)
         
         tabbarController.tabBar.reloadInputViews()
-        //tabbarController.selectedIndex = 3
+        //tabbarController.selectedIndex = 3'
+        self.navigationController?.swipeBackEnabled = false
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.swipeBackEnabled = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         
     }
     

@@ -8,8 +8,9 @@
 
 import UIKit
 import FirebaseAuth
+import SwipeBack
 
-class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
     
     @IBOutlet weak var tbListNews: UITableView!
@@ -40,11 +41,11 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
         setUpView()
         loadData()
         
+        
         tbListNews.delegate = self
         tbListNews.dataSource = self
         tbListNews.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
-        
-        
+    
         
         // Do any additional setup after loading the view.
     }
@@ -55,8 +56,12 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+//        swipeToPop_Root()
         tbListNews.reloadData()
     }
+
     
     func setUpView() {
         setViewState(enabledView: vNewsProgress, disabledView2: vNearMeProgress, disabledView3: vMostViewProgress)
