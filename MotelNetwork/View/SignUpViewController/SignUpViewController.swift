@@ -234,6 +234,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 self.showAlert(alertMessage: messageSignUpSuccess)
                 self.resetView()
             }
+            return
         }
     }
     

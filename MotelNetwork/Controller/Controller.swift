@@ -31,6 +31,7 @@ extension UIViewController {
                 if let firebaseError = error {
                     
                     print(firebaseError)
+                    self.showAlert(alertMessage: messageLoginFailed)
                     return
                 }
             }

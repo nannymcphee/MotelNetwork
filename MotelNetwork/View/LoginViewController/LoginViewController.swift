@@ -34,35 +34,27 @@ class LoginViewController: UIViewController {
        self.navigationController?.swipeBackEnabled = false
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-//        stopLoading()
-    }
-    
     //MARK: Handle button pressed
     
     @IBAction func btnLoginPressed(_: UIButton) {
         
-//        showLoading()
-        
         let email = tfEmail.text
         let pass = tfPassword.text
-        
+
         if tfEmail.text == "" || tfPassword.text == "" {
-            
+
             showAlert(alertMessage: messageNilTextFields)
         }
         else if !isValidEmail(email: email!) {
-            
+
             showAlert(alertMessage: messageInvalidEmail)
         }
         else {
-            
+
             doLogin(email: email!, pass: pass!)
+            return
         }
+        
     }
     
     @IBAction func btnRegisterNavigationPressed(_ sender: Any) {

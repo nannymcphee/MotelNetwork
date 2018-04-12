@@ -68,6 +68,7 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
         setViewState(enabledView: vNewsProgress, disabledView2: vNearMeProgress, disabledView3: vMostViewProgress)
         setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnNearMe, buttonDisable2: btnMostView)
         self.tapToDismissKeyboard()
+        
     }
     
     func loadData() {

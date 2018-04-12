@@ -88,5 +88,7 @@ class ChangeEmailViewController: UIViewController {
                 }
             })
         }
+        
+        return
     }
 }

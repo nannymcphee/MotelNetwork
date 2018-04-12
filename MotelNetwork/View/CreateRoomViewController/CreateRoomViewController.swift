@@ -242,12 +242,14 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             _ = uploadImageFromImageView(imageView: ivRoomImage2) { (url) in
                 self.storeRoomInformationToDatabase(uid, values: ["roomImageUrl2": url as AnyObject])
             }
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                self.showAlert(alertMessage: messageCreateRoomSuccess)
+            })
+            resetView()
         }
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
-            self.showAlert(alertMessage: messageCreateRoomSuccess)
-        })
-        resetView()
+        return
     }
     
     //Mark: Convert selected assets to image

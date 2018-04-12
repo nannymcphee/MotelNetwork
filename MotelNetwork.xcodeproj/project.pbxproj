@@ -29,6 +29,8 @@
 		E1507BAD207D19A200387527 /* NewPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BAB207D19A200387527 /* NewPostViewController.xib */; };
 		E1507BB1207DDA8B00387527 /* CalculateRoomPriceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BAF207DDA8B00387527 /* CalculateRoomPriceViewController.swift */; };
 		E1507BB2207DDA8B00387527 /* CalculateRoomPriceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BB0207DDA8B00387527 /* CalculateRoomPriceViewController.xib */; };
+		E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BBB207F59F300387527 /* SettingViewController.swift */; };
+		E1507BBE207F59F300387527 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BBC207F59F300387527 /* SettingViewController.xib */; };
 		E16F5B16207B5FB800B284A5 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B14207B5FB800B284A5 /* DetailNewsViewController.swift */; };
 		E16F5B17207B5FB800B284A5 /* DetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B15207B5FB800B284A5 /* DetailNewsViewController.xib */; };
 		E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B19207B698E00B284A5 /* AccountViewController.swift */; };
@@ -93,6 +95,8 @@
 		E1507BAB207D19A200387527 /* NewPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPostViewController.xib; sourceTree = "<group>"; };
 		E1507BAF207DDA8B00387527 /* CalculateRoomPriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateRoomPriceViewController.swift; sourceTree = "<group>"; };
 		E1507BB0207DDA8B00387527 /* CalculateRoomPriceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalculateRoomPriceViewController.xib; sourceTree = "<group>"; };
+		E1507BBB207F59F300387527 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		E1507BBC207F59F300387527 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		E16F5B14207B5FB800B284A5 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		E16F5B15207B5FB800B284A5 /* DetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailNewsViewController.xib; sourceTree = "<group>"; };
 		E16F5B19207B698E00B284A5 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +257,17 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		E1507BBA207F59E000387527 /* SettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1507BBB207F59F300387527 /* SettingViewController.swift */,
+				E1507BBC207F59F300387527 /* SettingViewController.xib */,
+				E16F5B1D207B69AE00B284A5 /* AccountOptionTableViewCell.swift */,
+				E16F5B1E207B69AE00B284A5 /* AccountOptionTableViewCell.xib */,
+			);
+			path = SettingViewController;
+			sourceTree = "<group>";
+		};
 		E15331792068E18100238763 /* ForgotPasswordViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,8 +308,6 @@
 			children = (
 				E16F5B19207B698E00B284A5 /* AccountViewController.swift */,
 				E16F5B1A207B698E00B284A5 /* AccountViewController.xib */,
-				E16F5B1D207B69AE00B284A5 /* AccountOptionTableViewCell.swift */,
-				E16F5B1E207B69AE00B284A5 /* AccountOptionTableViewCell.xib */,
 			);
 			path = AccountViewController;
 			sourceTree = "<group>";
@@ -393,6 +406,7 @@
 		E1E7D1F72071C7D300874EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E1507BBA207F59E000387527 /* SettingViewController */,
 				E1507BAE207DDA7300387527 /* CalculateRoomPriceViewController */,
 				E1507BA9207D198C00387527 /* NewPostViewController */,
 				E1507BA4207D194900387527 /* EditRoomViewController */,
@@ -532,6 +546,7 @@
 				145C11FF2075F37E00AB11F3 /* RoomManagementViewController.xib in Resources */,
 				E16F5B2E207B84D900B284A5 /* ChangePasswordViewController.xib in Resources */,
 				E16F5B17207B5FB800B284A5 /* DetailNewsViewController.xib in Resources */,
+				E1507BBE207F59F300387527 /* SettingViewController.xib in Resources */,
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
 				E1E7D2012071C8BD00874EB2 /* SignedInHomeViewController.xib in Resources */,
 				E198761720672E2D008434CC /* Main.storyboard in Resources */,
@@ -633,6 +648,7 @@
 				E16F5B16207B5FB800B284A5 /* DetailNewsViewController.swift in Sources */,
 				E1A621D22070D23100B83291 /* TestViewController.swift in Sources */,
 				E1BD102620765FAD00287982 /* Room.swift in Sources */,
+				E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */,
 				145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
 				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
