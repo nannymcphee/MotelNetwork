@@ -83,14 +83,14 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         switch indexPath.row {
         case 0:
-            cell.lblArea.text = "25"
-            cell.lblPrice.text = "2500000"
+            cell.lblArea.text = "25m2"
+            cell.lblPrice.text = "2500000đ"
             cell.lblLocation.text = "Phú nhuận"
             cell.lblTitle.text = "Cho thuê nhà hẻm ô tô quận Phú Nhuận"
             cell.lblTitle.text = "Phòng 1"
         case 1:
-            cell.lblArea.text = "45"
-            cell.lblPrice.text = "3500000"
+            cell.lblArea.text = "45m2"
+            cell.lblPrice.text = "3500000đ"
             cell.lblLocation.text = "Tân Phú"
             cell.lblTitle.text = "Cho thuê căn hộ chung cư cao cấp quận Tân Phú"
         default:
@@ -106,7 +106,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let vc = DetailNewsViewController()
+        let vc = SignedInDetailNewsViewController()
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     

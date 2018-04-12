@@ -17,6 +17,18 @@ class SignedInDetailNewsViewController: UIViewController {
     @IBOutlet weak var btnBack2: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblUserName: UILabel!
+    @IBOutlet weak var ivNewsImage: UIImageView!
+    @IBOutlet weak var lblNewsTitle: UILabel!
+    @IBOutlet weak var lblPrice: UILabel!
+    @IBOutlet weak var lblArea: UILabel!
+    @IBOutlet weak var lblDistrict: UILabel!
+    @IBOutlet weak var lblWaterPrice: UILabel!
+    @IBOutlet weak var lblElectricPrice: UILabel!
+    @IBOutlet weak var lblPostDate: UILabel!
+    @IBOutlet weak var lblTime: UILabel!
+    @IBOutlet weak var lblPhoneNumber: UILabel!
+    @IBOutlet weak var lblAddress: UILabel!
+    @IBOutlet weak var tvDescription: UITextView!
     
     var dbReference: DatabaseReference!
     
@@ -24,16 +36,15 @@ class SignedInDetailNewsViewController: UIViewController {
         super.viewDidLoad()
         
         setUpView()
-//        swipeToPop_Destination()
-        
-        // Do any additional setup after loading the view.
+
     }
     
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        swipeToPop_Destination()
-//    }
+    //MARK: Set up view
     
     func setUpView() {
         
@@ -57,11 +68,8 @@ class SignedInDetailNewsViewController: UIViewController {
         makeImageViewRounded(imageView: ivAvatar)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
+    //MARK: Handling button pressed
     
     @IBAction func btnBack2Pressed(_ sender: Any) {
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)

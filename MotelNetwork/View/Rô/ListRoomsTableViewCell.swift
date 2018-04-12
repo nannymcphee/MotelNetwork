@@ -30,8 +30,8 @@ class ListRoomsTableViewCell: UITableViewCell{
     
     func populateData(room: Room) {
         self.lblRoomName.text = room.name
-        self.lblRoomPrice.text = String("\(room.price ?? 0.0)")
-        self.lblArea.text = room.area
+        self.lblRoomPrice.text = String("\(room.price ?? 0.0)đ")
+        self.lblArea.text = String("\(room.area ?? "")m2")
         self.lblUserFullName.text = room.user ?? "Không"
         
     }

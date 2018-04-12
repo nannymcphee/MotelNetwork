@@ -30,7 +30,8 @@ class ListNewsTableViewCell: UITableViewCell {
     
     func populateData(room: Room) {
         lblTitle.text = room.name
-        lblPrice.text = String("\(room.price ?? 0.0)")
+        lblPrice.text = String("\(room.price ?? 0.0)đ")
+//        lblArea.text = String("\(room.area ?? "")m2")
         lblArea.text = room.area
         lblLocation.text = room.id
     }
