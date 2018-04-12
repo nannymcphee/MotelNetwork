@@ -29,5 +29,8 @@ let messageEditPostSuccess: String = "Sửa tin thành công."
 let messageEditPostFailed: String = "Sửa tin thất bại."
 let messageLimit40Characters: String = "Vui lòng nhập tiêu đề không quá 40 ký tự."
 let messageLimit150Characters: String = "Vui lòng nhập mô tả không quá 150 ký tự."
+let messagePasswordLessThan6Chars: String = "Mật khẩu phải từ 6 kí tự trở lên."
+let messageConfirmChangePassword: String = "Bạn có chắc chắn muốn đổi mật khẩu không?"
+let messageConfirmChangeEmail: String = "Bạn có chắc chắn muốn đổi email không?"
 
 

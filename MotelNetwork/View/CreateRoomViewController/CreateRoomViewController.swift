@@ -52,7 +52,6 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     func setUpView() {
         
-        makeButtonRounded(button: btnSave)
         checkAuthStatus()
         fetchUser()
         createUsersListPicker()
@@ -214,14 +213,10 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         
         // Check if user has entered all informations
-        if tfUser.text == nil || tfArea.text == nil || tfPrice.text == nil || tfRoomName.text == nil {
+        if  tfUser.text == nil || tfArea.text == nil || tfPrice.text == nil || tfRoomName.text == nil || ivRoomImage0.image == nil || ivRoomImage1.image == nil || ivRoomImage2.image == nil {
             
             // Create UIAlertController
-            let alert = UIAlertController(title: "Thông báo", message: "Vui lòng nhập đầy đủ thông tin!", preferredStyle: .alert)
-            let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            })
-            alert.addAction(actionOK)
-            self.present(alert, animated: true, completion: nil)
+            self.showAlert(alertMessage: messageNilTextFields)
         }
         else {
             
@@ -249,7 +244,9 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             }
         }
         
-        showAlert(alertMessage: "Tạo phòng thành công!")
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+            self.showAlert(alertMessage: messageCreateRoomSuccess)
+        })
         resetView()
     }
     

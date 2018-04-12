@@ -36,7 +36,6 @@ class ChangeEmailViewController: UIViewController {
     func setUpView() {
         
         self.tapToDismissKeyboard()
-        showLoading()
         
         let uid = Auth.auth().currentUser?.uid
         
@@ -54,10 +53,7 @@ class ChangeEmailViewController: UIViewController {
             self.ivAvatar.loadImageUsingCacheWithUrlString(profileImageUrl)
         }
         
-        makeImageViewRounded(imageView: ivAvatar)
-        makeButtonRounded(button: btnSaveEmail)
-        
-        stopLoading()
+        makeImageViewRounded(imageView: ivAvatar)        
     }
     
     
@@ -82,36 +78,15 @@ class ChangeEmailViewController: UIViewController {
         }
         else {
             
-            _ = Auth.auth().addStateDidChangeListener { (auth, user) in
-
+            _ = Auth.auth().addStateDidChangeListener({ (auth, user) in
+                
                 if user != nil {
-
-                    //User is signed in
-                    self.showAlert(alertMessage: messageRequestReLogin)
+                    self.showAlertConfirmChangeEmail(newEmail: newEmail!)
+                    self.tfNewEmail.text = ""
                 }
                 else {
-                    if let user = Auth.auth().currentUser {
-
-                        user.updateEmail(to: newEmail!) { (error) in
-
-                            if let error = error {
-
-                                print(error.localizedDescription)
-                                self.showAlert(alertMessage: messageChangeEmailFailed)
-                            }
-                            else {
-
-                                // Update database
-                                let uid = Auth.auth().currentUser?.uid
-                                let values = ["Email": newEmail]
-
-                                self.storeUserInformationToDatabase(uid!, values: values as [String : AnyObject])
-                                self.showAlert(alertMessage: messageChangeEmailSuccess)
-                            }
-                        }
-                    }
                 }
-            }
+            })
         }
     }
 }

@@ -63,12 +63,22 @@
                                                 <constraint firstAttribute="height" constant="1" id="xtd-0d-cFF"/>
                                             </constraints>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQn-X6-gJU">
+                                            <rect key="frame" x="317" y="16.5" width="39" height="32"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                            <state key="normal" title="Xong"/>
+                                            <connections>
+                                                <action selector="btnSavePressed:" destination="-1" eventType="touchUpInside" id="89a-DI-Mel"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="aqM-F6-OHO" firstAttribute="leading" secondItem="DfF-eJ-GvE" secondAttribute="leading" constant="19" id="1wW-jT-K6M"/>
                                         <constraint firstAttribute="trailing" secondItem="hGU-Wf-Laa" secondAttribute="trailing" id="70V-2S-Qzc"/>
+                                        <constraint firstItem="rQn-X6-gJU" firstAttribute="centerY" secondItem="kEg-qU-paI" secondAttribute="centerY" id="Eq9-Jr-sWs"/>
                                         <constraint firstItem="hGU-Wf-Laa" firstAttribute="leading" secondItem="DfF-eJ-GvE" secondAttribute="leading" id="ErE-4o-FBV"/>
+                                        <constraint firstAttribute="trailing" secondItem="rQn-X6-gJU" secondAttribute="trailing" constant="19" id="Gmd-WL-GDC"/>
                                         <constraint firstItem="kEg-qU-paI" firstAttribute="centerX" secondItem="DfF-eJ-GvE" secondAttribute="centerX" id="Zl3-gW-lG2"/>
                                         <constraint firstAttribute="bottom" secondItem="hGU-Wf-Laa" secondAttribute="bottom" id="cxg-ta-QVV"/>
                                         <constraint firstItem="kEg-qU-paI" firstAttribute="centerY" secondItem="DfF-eJ-GvE" secondAttribute="centerY" id="gLE-PB-Dv1"/>
@@ -192,20 +202,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQn-X6-gJU">
-                                                    <rect key="frame" x="17" y="373" width="340" height="40"/>
-                                                    <color key="backgroundColor" red="0.30980392159999998" green="0.59999999999999998" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="TPr-xh-BCT"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                    <state key="normal" title="Lưu">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="btnSavePressed:" destination="-1" eventType="touchUpInside" id="89a-DI-Mel"/>
-                                                    </connections>
-                                                </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Để trống nếu chưa có người thuê" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AsM-BJ-Nzg">
                                                     <rect key="frame" x="17" y="283" width="340" height="40"/>
                                                     <nil key="textColor"/>
@@ -227,11 +223,9 @@
                                                 <constraint firstItem="AsM-BJ-Nzg" firstAttribute="leading" secondItem="WSa-TA-Pg7" secondAttribute="leading" constant="17" id="AX2-SZ-1nT"/>
                                                 <constraint firstItem="mTS-Vq-B4J" firstAttribute="top" secondItem="WSa-TA-Pg7" secondAttribute="top" constant="15" id="BXv-hK-5Lr"/>
                                                 <constraint firstItem="kAG-Oq-KPg" firstAttribute="leading" secondItem="WSa-TA-Pg7" secondAttribute="leading" constant="17" id="Dxk-zc-xNK"/>
-                                                <constraint firstAttribute="trailing" secondItem="rQn-X6-gJU" secondAttribute="trailing" constant="18" id="E0Z-3C-pM0"/>
                                                 <constraint firstItem="Kzn-5q-Ipa" firstAttribute="top" secondItem="Kyj-FV-fDR" secondAttribute="bottom" constant="6" id="E4t-F9-RQc"/>
                                                 <constraint firstItem="j4Q-YW-zWG" firstAttribute="leading" secondItem="WSa-TA-Pg7" secondAttribute="leading" constant="17" id="IuX-K5-s44"/>
                                                 <constraint firstItem="j4Q-YW-zWG" firstAttribute="top" secondItem="MUH-bP-qrd" secondAttribute="bottom" constant="12" id="OE5-Nl-bIq"/>
-                                                <constraint firstItem="rQn-X6-gJU" firstAttribute="leading" secondItem="WSa-TA-Pg7" secondAttribute="leading" constant="17" id="Rfv-ku-eFo"/>
                                                 <constraint firstAttribute="trailing" secondItem="AsM-BJ-Nzg" secondAttribute="trailing" constant="18" id="Ri4-tQ-LrU"/>
                                                 <constraint firstItem="Kzn-5q-Ipa" firstAttribute="leading" secondItem="WSa-TA-Pg7" secondAttribute="leading" constant="18" id="SsC-N3-1Z3"/>
                                                 <constraint firstItem="B5C-7X-4s5" firstAttribute="top" secondItem="Kzn-5q-Ipa" secondAttribute="bottom" constant="12" id="WUs-Px-5uz"/>
@@ -248,7 +242,6 @@
                                                 <constraint firstItem="MUH-bP-qrd" firstAttribute="top" secondItem="kAG-Oq-KPg" secondAttribute="bottom" constant="6" id="nwu-LE-mQM"/>
                                                 <constraint firstItem="AsM-BJ-Nzg" firstAttribute="height" secondItem="MUH-bP-qrd" secondAttribute="height" id="pMt-JC-wCp"/>
                                                 <constraint firstItem="Kyj-FV-fDR" firstAttribute="top" secondItem="9t2-Fs-VHq" secondAttribute="bottom" constant="12" id="ueC-xR-THc"/>
-                                                <constraint firstItem="rQn-X6-gJU" firstAttribute="top" secondItem="AsM-BJ-Nzg" secondAttribute="bottom" constant="50" id="y8e-2a-Eso"/>
                                             </constraints>
                                         </view>
                                     </subviews>

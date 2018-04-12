@@ -56,6 +56,14 @@
                                                 <action selector="btnBackToAccountDetail:" destination="-1" eventType="touchUpInside" id="jbj-rw-XXu"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yx-al-ode">
+                                            <rect key="frame" x="317" y="16" width="39" height="32"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                            <state key="normal" title="Xong"/>
+                                            <connections>
+                                                <action selector="btnSaveEmailPressed:" destination="-1" eventType="touchUpInside" id="vp1-8b-Ctk"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -63,10 +71,12 @@
                                         <constraint firstItem="SMn-f9-bEh" firstAttribute="centerX" secondItem="stI-Vz-Lwx" secondAttribute="centerX" id="3HJ-Bb-GHa"/>
                                         <constraint firstItem="SWv-F0-IwP" firstAttribute="leading" secondItem="stI-Vz-Lwx" secondAttribute="leading" constant="19" id="9tI-rY-egR"/>
                                         <constraint firstItem="DDm-9j-mkK" firstAttribute="leading" secondItem="stI-Vz-Lwx" secondAttribute="leading" id="H2b-ZY-uaw"/>
+                                        <constraint firstItem="3yx-al-ode" firstAttribute="centerY" secondItem="SMn-f9-bEh" secondAttribute="centerY" id="MNu-B4-CK8"/>
                                         <constraint firstItem="SWv-F0-IwP" firstAttribute="centerY" secondItem="SMn-f9-bEh" secondAttribute="centerY" id="Mmz-4b-bLu"/>
                                         <constraint firstItem="DDm-9j-mkK" firstAttribute="top" secondItem="stI-Vz-Lwx" secondAttribute="top" constant="63" id="SZt-iv-yU1"/>
                                         <constraint firstItem="SMn-f9-bEh" firstAttribute="centerY" secondItem="stI-Vz-Lwx" secondAttribute="centerY" id="V0B-bl-Spp"/>
                                         <constraint firstItem="DDm-9j-mkK" firstAttribute="centerX" secondItem="SMn-f9-bEh" secondAttribute="centerX" id="Zdp-0H-nhu"/>
+                                        <constraint firstAttribute="trailing" secondItem="3yx-al-ode" secondAttribute="trailing" constant="19" id="hur-Ez-SWY"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cSD-bT-fvL">
@@ -131,29 +141,12 @@
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3yx-al-ode">
-                                                    <rect key="frame" x="17" y="377" width="340" height="40"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="Jur-H1-HUF"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                    <state key="normal" title="Lưu">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="btnSaveEmailPressed:" destination="-1" eventType="touchUpInside" id="vp1-8b-Ctk"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="3yx-al-ode" firstAttribute="leading" secondItem="bJ5-gN-3Ip" secondAttribute="leading" constant="17" id="Bqq-bp-jWj"/>
                                                 <constraint firstItem="ULu-k2-erQ" firstAttribute="top" secondItem="bJ5-gN-3Ip" secondAttribute="top" constant="16" id="CCR-vk-YXM"/>
-                                                <constraint firstAttribute="trailing" secondItem="3yx-al-ode" secondAttribute="trailing" constant="18" id="HDZ-w6-mNy"/>
-                                                <constraint firstAttribute="bottom" secondItem="3yx-al-ode" secondAttribute="bottom" constant="90" id="NcY-bj-Idf"/>
                                                 <constraint firstItem="onC-Tu-hgf" firstAttribute="top" secondItem="ULu-k2-erQ" secondAttribute="bottom" constant="6" id="TOx-go-lwN"/>
                                                 <constraint firstAttribute="trailing" secondItem="onC-Tu-hgf" secondAttribute="trailing" constant="18" id="i7Q-um-46L"/>
                                                 <constraint firstItem="ULu-k2-erQ" firstAttribute="leading" secondItem="bJ5-gN-3Ip" secondAttribute="leading" constant="17" id="ubR-aG-Ca0"/>

@@ -115,7 +115,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func btnLogOutPressed(_ sender: Any) {
         
-//        doLogOut()
         showAlertConfirmLogOut()
     }
     

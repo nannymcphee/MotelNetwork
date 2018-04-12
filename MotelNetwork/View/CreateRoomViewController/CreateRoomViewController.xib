@@ -63,13 +63,23 @@
                                                 <constraint firstAttribute="height" constant="1" id="s1x-2s-gXY"/>
                                             </constraints>
                                         </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1of-kg-cqH">
+                                            <rect key="frame" x="317" y="16" width="39" height="32"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                            <state key="normal" title="Xong"/>
+                                            <connections>
+                                                <action selector="btnSavePressed:" destination="-1" eventType="touchUpInside" id="GUk-3J-vPm"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="INl-TW-xvS" secondAttribute="bottom" id="8OI-st-PtY"/>
                                         <constraint firstItem="7t6-o4-3Gx" firstAttribute="centerX" secondItem="QOJ-DM-Mzu" secondAttribute="centerX" id="C6d-wF-bHN"/>
+                                        <constraint firstItem="1of-kg-cqH" firstAttribute="centerY" secondItem="7t6-o4-3Gx" secondAttribute="centerY" id="PEd-br-ofp"/>
                                         <constraint firstItem="81s-sy-xF6" firstAttribute="leading" secondItem="QOJ-DM-Mzu" secondAttribute="leading" constant="19" id="V8I-uK-4i9"/>
                                         <constraint firstItem="81s-sy-xF6" firstAttribute="centerY" secondItem="7t6-o4-3Gx" secondAttribute="centerY" id="g8z-WE-qQb"/>
+                                        <constraint firstAttribute="trailing" secondItem="1of-kg-cqH" secondAttribute="trailing" constant="19" id="m1m-uc-g23"/>
                                         <constraint firstItem="INl-TW-xvS" firstAttribute="leading" secondItem="QOJ-DM-Mzu" secondAttribute="leading" id="otM-vL-M1k"/>
                                         <constraint firstAttribute="trailing" secondItem="INl-TW-xvS" secondAttribute="trailing" id="qlm-Zy-5cd"/>
                                         <constraint firstItem="7t6-o4-3Gx" firstAttribute="centerY" secondItem="QOJ-DM-Mzu" secondAttribute="centerY" id="wdE-W7-E5B"/>
@@ -192,20 +202,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1of-kg-cqH">
-                                                    <rect key="frame" x="17" y="377" width="340" height="40"/>
-                                                    <color key="backgroundColor" red="0.30980392159999998" green="0.59999999999999998" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="YjD-4w-ISh"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                    <state key="normal" title="Lưu">
-                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="btnSavePressed:" destination="-1" eventType="touchUpInside" id="GUk-3J-vPm"/>
-                                                    </connections>
-                                                </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Để trống nếu chưa có người thuê" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVJ-bd-2Re">
                                                     <rect key="frame" x="17" y="283" width="340" height="40"/>
                                                     <constraints>
@@ -229,9 +225,7 @@
                                                 <constraint firstItem="id3-tx-e9E" firstAttribute="top" secondItem="5tS-sp-DXN" secondAttribute="bottom" constant="12" id="5DS-yn-IFb"/>
                                                 <constraint firstItem="Gh3-Q5-jAI" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="18" id="5dD-d1-0s4"/>
                                                 <constraint firstItem="id3-tx-e9E" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="695-7z-nO5"/>
-                                                <constraint firstAttribute="bottom" secondItem="1of-kg-cqH" secondAttribute="bottom" constant="115" id="7Ey-yv-rZz"/>
                                                 <constraint firstItem="5tS-sp-DXN" firstAttribute="top" secondItem="gAP-Ng-isQ" secondAttribute="bottom" constant="6" id="B3E-Nd-ByH"/>
-                                                <constraint firstAttribute="trailing" secondItem="1of-kg-cqH" secondAttribute="trailing" constant="18" id="B45-3R-QUW"/>
                                                 <constraint firstItem="dx2-C0-uVb" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="DAs-Rz-weV"/>
                                                 <constraint firstAttribute="trailing" secondItem="cdG-xL-RmB" secondAttribute="trailing" constant="17" id="FVL-4M-dF1"/>
                                                 <constraint firstItem="cdG-xL-RmB" firstAttribute="top" secondItem="Xfw-B4-hXZ" secondAttribute="bottom" constant="6" id="GXg-GC-Hxh"/>
@@ -249,7 +243,6 @@
                                                 <constraint firstItem="gAP-Ng-isQ" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="lay-aF-8NW"/>
                                                 <constraint firstItem="Gh3-Q5-jAI" firstAttribute="top" secondItem="id3-tx-e9E" secondAttribute="bottom" constant="6" id="lgI-la-ly9"/>
                                                 <constraint firstItem="gAP-Ng-isQ" firstAttribute="top" secondItem="dx2-C0-uVb" secondAttribute="bottom" constant="12" id="qBG-qI-MPa"/>
-                                                <constraint firstItem="1of-kg-cqH" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="qfL-2Q-HFZ"/>
                                                 <constraint firstItem="H7K-t0-UU3" firstAttribute="top" secondItem="cdG-xL-RmB" secondAttribute="bottom" constant="12" id="wPl-R4-jwl"/>
                                             </constraints>
                                         </view>

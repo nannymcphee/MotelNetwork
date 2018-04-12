@@ -38,7 +38,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         tbRoomManagement.reloadData()
-        tbRoomManagement.scrollTableViewToTop(animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {

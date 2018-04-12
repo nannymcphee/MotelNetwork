@@ -42,7 +42,6 @@ class ChangePasswordViewController: UIViewController {
     func setUpView() {
         
         self.tapToDismissKeyboard()
-        showLoading()
         
         let uid = Auth.auth().currentUser?.uid
         
@@ -60,10 +59,7 @@ class ChangePasswordViewController: UIViewController {
             self.ivAvatar.loadImageUsingCacheWithUrlString(profileImageUrl)
         }
         
-        makeImageViewRounded(imageView: ivAvatar)
-        makeButtonRounded(button: btnSavePassword)
-        
-        stopLoading()
+        makeImageViewRounded(imageView: ivAvatar)        
     }
     
     
@@ -80,40 +76,21 @@ class ChangePasswordViewController: UIViewController {
             
             showAlert(alertMessage: messageNilTextFields)
         }
+        else if (newPass?.count)! < 6 {
+            
+            showAlert(alertMessage: messagePasswordLessThan6Chars)
+        }
         else {
-            
-
-            
-            _ = Auth.auth().addStateDidChangeListener { (auth, user) in
-
+            _ = Auth.auth().addStateDidChangeListener({ (auth, user) in
+                
                 if user != nil {
-
-                    self.showAlert(alertMessage: messageRequestReLogin)
+                    
+                    self.showAlertConfirmChangePassword(newPass: newPass!)
+                    self.tfNewPassword.text = ""
                 }
                 else {
-
-                    if let user = Auth.auth().currentUser {
-
-                        user.updatePassword(to: newPass!, completion: { (error) in
-
-                            if let error = error {
-
-                                print(error)
-                                self.showAlert(alertMessage: messageChangePasswordFailed)
-                            }
-                            else {
-
-                                let uid = Auth.auth().currentUser?.uid
-                                let values = ["Password": newPass]
-
-                                self.storeUserInformationToDatabase(uid!, values: values as [String: AnyObject])
-                                self.showAlert(alertMessage: messageChangePasswordSuccess)
-                            }
-                        })
-                    }
                 }
-            }
+            })
         }
     }
-    
 }

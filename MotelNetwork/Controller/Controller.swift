@@ -62,7 +62,7 @@ extension UIViewController {
         imageView.clipsToBounds = true
     }
     
-    //MARK: Show alert with custom message
+    //MARK: Show alerts
     
     func showAlert(alertMessage: String) {
         let alert = UIAlertController(title: "Thông báo", message: alertMessage, preferredStyle: .alert)
@@ -88,8 +88,88 @@ extension UIViewController {
         alert.addAction(actionCancel)
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showAlertConfirmChangePassword(newPass: String) {
+
+        let alert = UIAlertController(title: "Thông báo", message: messageConfirmChangePassword, preferredStyle: .alert)
+        let actionDestroy = UIAlertAction(title: "Có", style: .destructive) { (action) in
+            self.doChangePassword(newPass: newPass)
+        }
+        let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+
+        alert.addAction(actionDestroy)
+        alert.addAction(actionCancel)
+
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showAlertConfirmChangeEmail(newEmail: String) {
         
+        let alert = UIAlertController(title: "Thông báo", message: messageConfirmChangeEmail, preferredStyle: .alert)
+        let actionDestroy = UIAlertAction(title: "Có", style: .destructive) { (action) in
+            self.doChangeEmail(newEmail: newEmail)
+        }
+        let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
         
+        alert.addAction(actionDestroy)
+        alert.addAction(actionCancel)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    //MARK: Change password & email
+    
+    func doChangePassword(newPass: String) {
+        
+        if let user = Auth.auth().currentUser {
+            
+            user.updatePassword(to: newPass, completion: { (error) in
+                
+                if let error = error {
+                    
+                    print(error)
+                    self.showAlert(alertMessage: messageChangePasswordFailed)
+                }
+                else {
+                    
+                    let uid = Auth.auth().currentUser?.uid
+                    let values = ["Password": newPass]
+                    self.storeUserInformationToDatabase(uid!, values: values as [String: AnyObject])
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                        self.showAlert(alertMessage: messageChangePasswordSuccess)
+                    })
+                }
+            })
+        }
+    }
+    
+    func doChangeEmail(newEmail: String) {
+        
+        if let user = Auth.auth().currentUser {
+            
+            user.updateEmail(to: newEmail) { (error) in
+                
+                if let error = error {
+                    
+                    print(error)
+                    self.showAlert(alertMessage: messageChangeEmailFailed)
+                }
+                else {
+                    
+                    let uid = Auth.auth().currentUser?.uid
+                    let values = ["Email": newEmail]
+                    self.storeUserInformationToDatabase(uid!, values: values as [String: AnyObject])
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                        self.showAlert(alertMessage: messageChangeEmailSuccess)
+                    })
+                }
+            }
+        }
     }
     
     //MARK: Check if email is valid
