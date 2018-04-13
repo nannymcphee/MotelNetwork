@@ -76,7 +76,7 @@ extension UIViewController {
     
     func showAlertConfirmLogOut() {
         
-        let alert = UIAlertController(title: nil, message: messageConfirmLogOut, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: messageConfirmLogOut, message: nil, preferredStyle: .actionSheet)
         let actionDestroy = UIAlertAction(title: "Đăng xuất", style: .destructive) { (action) in
             self.doLogOut()
         }

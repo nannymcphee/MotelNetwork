@@ -10,6 +10,10 @@ import UIKit
 
 class TestViewController: UIViewController, UIScrollViewDelegate {
 
+    @IBOutlet weak var view1: UIView!
+    @IBOutlet weak var view2: UIView!
+    @IBOutlet weak var view3: UIView!
+    @IBOutlet weak var view4: UIView!
     @IBOutlet weak var sclContent: UIScrollView!
     @IBOutlet weak var pcTutorial: UIPageControl!
     

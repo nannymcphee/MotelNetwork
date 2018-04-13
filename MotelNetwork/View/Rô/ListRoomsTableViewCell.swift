@@ -33,6 +33,6 @@ class ListRoomsTableViewCell: UITableViewCell{
         self.lblRoomPrice.text = String("\(room.price ?? 0.0)đ")
         self.lblArea.text = String("\(room.area ?? "")m2")
         self.lblUserFullName.text = room.user ?? "Không"
-        
+        self.ivRoomImage.loadImageUsingCacheWithUrlString(room.roomImageUrl0!)
     }
 }

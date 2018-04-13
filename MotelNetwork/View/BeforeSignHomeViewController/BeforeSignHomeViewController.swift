@@ -13,7 +13,7 @@ import NVActivityIndicatorView
 
 class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NVActivityIndicatorViewable {
     
-    
+
     @IBOutlet weak var tbListNews: UITableView!
     @IBOutlet weak var sbSearch: UISearchBar! {
         didSet {

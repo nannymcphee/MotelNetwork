@@ -15,6 +15,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblFullName: UILabel!
+    @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var btnLogOut: UIButton!
     @IBOutlet weak var tbAccountOptionList: UITableView!
     
@@ -59,8 +60,10 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             let value = snapshot.value as! NSDictionary
             let userName = value["FullName"] as? String ?? ""
             let profileImageUrl = value["ProfileImageUrl"] as? String ?? ""
+            let email = value["Email"] as? String ?? ""
             
             self.lblFullName.text = userName
+            self.lblEmail.text = email
             self.ivAvatar.loadImageUsingCacheWithUrlString(profileImageUrl)
         }
         

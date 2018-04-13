@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="btnLogOut" destination="3Ca-oz-XGt" id="2dw-Mn-q93"/>
                 <outlet property="ivAvatar" destination="aI0-gS-dVA" id="NTb-AK-pSX"/>
+                <outlet property="lblEmail" destination="ogi-dw-JYs" id="dO7-yl-iNh"/>
                 <outlet property="lblFullName" destination="daX-P4-HQg" id="pPM-2h-bmf"/>
                 <outlet property="tbAccountOptionList" destination="Iyj-YZ-dtf" id="GkY-BP-XnQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -34,7 +35,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cài đặt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hy-ap-jmV">
-                                            <rect key="frame" x="161" y="22" width="53" height="20"/>
+                                            <rect key="frame" x="161" y="22.5" width="53" height="19.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -69,12 +70,6 @@
                                                         <constraint firstAttribute="height" constant="32" id="ypd-8u-Cj7"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Họ tên" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daX-P4-HQg">
-                                                    <rect key="frame" x="59" y="15.5" width="41.5" height="16.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aK6-YJ-XzU">
                                                     <rect key="frame" x="0.0" y="47" width="375" height="1"/>
                                                     <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -82,16 +77,33 @@
                                                         <constraint firstAttribute="height" constant="1" id="1Hc-IN-jpV"/>
                                                     </constraints>
                                                 </view>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="eqM-kT-qkB">
+                                                    <rect key="frame" x="59" y="6" width="41.5" height="34.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Họ tên" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daX-P4-HQg">
+                                                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="16.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogi-dw-JYs">
+                                                            <rect key="frame" x="0.0" y="20.5" width="41.5" height="14"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="aI0-gS-dVA" firstAttribute="centerY" secondItem="0mW-sf-yIL" secondAttribute="centerY" id="7F6-IU-vml"/>
-                                                <constraint firstItem="daX-P4-HQg" firstAttribute="leading" secondItem="aI0-gS-dVA" secondAttribute="trailing" constant="8" id="JpA-II-meb"/>
+                                                <constraint firstItem="eqM-kT-qkB" firstAttribute="centerY" secondItem="aI0-gS-dVA" secondAttribute="centerY" id="DKQ-Mp-MtZ"/>
+                                                <constraint firstItem="eqM-kT-qkB" firstAttribute="leading" secondItem="aI0-gS-dVA" secondAttribute="trailing" constant="8" id="Wxh-qt-2sZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="aK6-YJ-XzU" secondAttribute="trailing" id="Yqh-zz-SQT"/>
                                                 <constraint firstItem="aI0-gS-dVA" firstAttribute="leading" secondItem="0mW-sf-yIL" secondAttribute="leading" constant="19" id="Z4H-Uv-0pi"/>
                                                 <constraint firstAttribute="bottom" secondItem="aK6-YJ-XzU" secondAttribute="bottom" id="e1T-JT-M35"/>
                                                 <constraint firstItem="aK6-YJ-XzU" firstAttribute="leading" secondItem="0mW-sf-yIL" secondAttribute="leading" id="ijg-H1-tzs"/>
-                                                <constraint firstItem="daX-P4-HQg" firstAttribute="centerY" secondItem="aI0-gS-dVA" secondAttribute="centerY" id="k4g-nQ-sM4"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyy-L4-DFF">

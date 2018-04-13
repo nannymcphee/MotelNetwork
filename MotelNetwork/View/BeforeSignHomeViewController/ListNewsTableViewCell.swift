@@ -32,6 +32,7 @@ class ListNewsTableViewCell: UITableViewCell {
         lblTitle.text = room.name
         lblPrice.text = String("\(room.price ?? 0.0)đ")
 //        lblArea.text = String("\(room.area ?? "")m2")
+//        ivRoomImage.loadImageUsingCacheWithUrlString(room.roomImageUrl0!)
         lblArea.text = room.area
         lblLocation.text = room.id
     }

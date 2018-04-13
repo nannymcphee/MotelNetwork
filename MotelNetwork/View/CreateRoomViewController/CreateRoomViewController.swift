@@ -146,7 +146,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         toolbar.sizeToFit()
         
         // Add "Done" button
-        let btnDone = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(btnDonePressed))
+        let btnDone = UIBarButtonItem(title: "Xong", style: .done, target: nil, action: #selector(btnDonePressed))
         toolbar.setItems([btnDone], animated: false)
         
         self.tfUser.inputView = self.pvUser
@@ -157,7 +157,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         self.view.endEditing(false)
     }
     
-    //MARK: Logic for UITableView
+    //MARK: Logic for UIPickerView
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

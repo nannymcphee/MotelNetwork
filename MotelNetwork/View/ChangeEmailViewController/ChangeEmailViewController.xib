@@ -40,7 +40,7 @@
                                             <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đổi email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMn-f9-bEh">
-                                            <rect key="frame" x="153" y="22" width="69" height="20"/>
+                                            <rect key="frame" x="153" y="22.5" width="69" height="19.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -83,59 +83,62 @@
                                     <rect key="frame" x="0.0" y="64" width="375" height="655"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XwC-W8-uz2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="148"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHn-KD-ovs">
-                                                    <rect key="frame" x="0.0" y="147" width="375" height="1"/>
+                                                    <rect key="frame" x="0.0" y="47" width="375" height="1"/>
                                                     <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="cYi-q9-i9Z"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Họ tên" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Dc-ze-0kI">
-                                                    <rect key="frame" x="167" y="100" width="41.5" height="17"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatarLarge" translatesAutoresizingMaskIntoConstraints="NO" id="3IK-vP-cbd">
-                                                    <rect key="frame" x="147" y="12" width="80" height="80"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="3IK-vP-cbd">
+                                                    <rect key="frame" x="19" y="8" width="32" height="32"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="C7m-NV-HZo"/>
-                                                        <constraint firstAttribute="width" constant="80" id="sQR-ph-IgA"/>
+                                                        <constraint firstAttribute="height" constant="32" id="YHf-wY-n1q"/>
+                                                        <constraint firstAttribute="width" constant="32" id="sNl-UI-kqd"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUu-Wu-kXk">
-                                                    <rect key="frame" x="172" y="121" width="30" height="14"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="mL5-ZU-D8l">
+                                                    <rect key="frame" x="59" y="7" width="41.5" height="34.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Họ tên" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Dc-ze-0kI">
+                                                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="16.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUu-Wu-kXk">
+                                                            <rect key="frame" x="0.0" y="20.5" width="41.5" height="14"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="WHn-KD-ovs" secondAttribute="trailing" id="2Dn-Ja-pjx"/>
-                                                <constraint firstItem="3IK-vP-cbd" firstAttribute="top" secondItem="XwC-W8-uz2" secondAttribute="top" constant="12" id="3mm-kE-1n5"/>
-                                                <constraint firstItem="6Dc-ze-0kI" firstAttribute="top" secondItem="3IK-vP-cbd" secondAttribute="bottom" constant="8" id="D2F-fE-Bzl"/>
+                                                <constraint firstItem="mL5-ZU-D8l" firstAttribute="leading" secondItem="3IK-vP-cbd" secondAttribute="trailing" constant="8" id="2Wc-EX-Slv"/>
                                                 <constraint firstAttribute="bottom" secondItem="WHn-KD-ovs" secondAttribute="bottom" id="DTo-j6-XBY"/>
-                                                <constraint firstItem="hUu-Wu-kXk" firstAttribute="centerX" secondItem="3IK-vP-cbd" secondAttribute="centerX" id="NYg-LR-Xrq"/>
+                                                <constraint firstItem="3IK-vP-cbd" firstAttribute="leading" secondItem="XwC-W8-uz2" secondAttribute="leading" constant="19" id="Qe4-8f-nY1"/>
                                                 <constraint firstItem="WHn-KD-ovs" firstAttribute="leading" secondItem="XwC-W8-uz2" secondAttribute="leading" id="SIe-QY-XVI"/>
-                                                <constraint firstItem="3IK-vP-cbd" firstAttribute="centerX" secondItem="XwC-W8-uz2" secondAttribute="centerX" id="idE-UP-3bn"/>
-                                                <constraint firstItem="6Dc-ze-0kI" firstAttribute="centerX" secondItem="3IK-vP-cbd" secondAttribute="centerX" id="knH-na-QcE"/>
-                                                <constraint firstItem="hUu-Wu-kXk" firstAttribute="top" secondItem="6Dc-ze-0kI" secondAttribute="bottom" constant="4" id="plv-YF-dur"/>
+                                                <constraint firstItem="3IK-vP-cbd" firstAttribute="centerY" secondItem="XwC-W8-uz2" secondAttribute="centerY" id="k9E-GF-hqN"/>
+                                                <constraint firstItem="mL5-ZU-D8l" firstAttribute="centerY" secondItem="3IK-vP-cbd" secondAttribute="centerY" id="psJ-I5-dPs"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJ5-gN-3Ip">
-                                            <rect key="frame" x="0.0" y="148" width="375" height="507"/>
+                                            <rect key="frame" x="0.0" y="48" width="375" height="607"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vui lòng nhập địa chỉ email mới" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULu-k2-erQ">
-                                                    <rect key="frame" x="17" y="16" width="197" height="17"/>
+                                                    <rect key="frame" x="17" y="16" width="197" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="onC-Tu-hgf">
-                                                    <rect key="frame" x="17" y="39" width="340" height="40"/>
+                                                    <rect key="frame" x="17" y="38.5" width="340" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Xn9-FF-uXr"/>
                                                     </constraints>
@@ -157,7 +160,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="bJ5-gN-3Ip" secondAttribute="bottom" id="9SS-GG-TFp"/>
-                                        <constraint firstItem="bJ5-gN-3Ip" firstAttribute="top" secondItem="cSD-bT-fvL" secondAttribute="top" constant="148" id="CXq-se-Dws"/>
+                                        <constraint firstItem="bJ5-gN-3Ip" firstAttribute="top" secondItem="cSD-bT-fvL" secondAttribute="top" constant="48" id="CXq-se-Dws"/>
                                         <constraint firstAttribute="trailing" secondItem="XwC-W8-uz2" secondAttribute="trailing" id="Kfs-9X-Ag2"/>
                                         <constraint firstItem="bJ5-gN-3Ip" firstAttribute="top" secondItem="XwC-W8-uz2" secondAttribute="bottom" id="Qk8-0H-lmQ"/>
                                         <constraint firstItem="bJ5-gN-3Ip" firstAttribute="top" secondItem="XwC-W8-uz2" secondAttribute="bottom" id="aof-Gk-dRI"/>
@@ -205,7 +208,7 @@
         </view>
     </objects>
     <resources>
-        <image name="defaultAvatarLarge" width="80" height="80"/>
+        <image name="defaultAvatar" width="32" height="32"/>
         <image name="icLeft" width="24" height="24"/>
     </resources>
 </document>

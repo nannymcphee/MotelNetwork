@@ -70,7 +70,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         toolbar.sizeToFit()
         
         // Add "Done" button
-        let btnDone = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(btnDonePressed))
+        let btnDone = UIBarButtonItem(title: "Xong", style: .done, target: nil, action: #selector(btnDonePressed))
         toolbar.setItems([btnDone], animated: false)
         
         tfBirthDay.inputAccessoryView = toolbar
@@ -95,7 +95,6 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     //MARK: Set up view
     func setUpView() {
         createDatePicker()
-        makeButtonRounded(button: btnRegister)
         userType.append(UserType(userType: 0, userTypeName: "Chủ nhà trọ"))
         userType.append(UserType(userType: 1, userTypeName: "Khách thuê trọ"))
         self.tapToDismissKeyboard()
@@ -195,6 +194,10 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
             showAlert(alertMessage: messageNilTextFields)
         }
+        else if (tfPassword.text?.count)! < 6 {
+            
+            showAlert(alertMessage: messagePasswordLessThan6Chars)
+        }
         else {
             
             // Sign up user with Email & Password
@@ -230,10 +233,12 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 _ = self.uploadImageFromImageView(imageView: self.ivProfilePicture) { (url) in
                     self.storeUserInformationToDatabase(uid, values: ["ProfileImageUrl": url as AnyObject])
                 }
-
-                self.showAlert(alertMessage: messageSignUpSuccess)
-                self.resetView()
             }
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
+                self.showAlert(alertMessage: messageSignUpSuccess)
+            })
+            self.resetView()
             return
         }
     }

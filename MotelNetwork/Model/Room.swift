@@ -40,4 +40,5 @@ class Room {
         self.user = dictionary["user"] as? String
         self.roomImageUrl0 = dictionary["roomImageUrl0"] as? String
     }
+    
 }

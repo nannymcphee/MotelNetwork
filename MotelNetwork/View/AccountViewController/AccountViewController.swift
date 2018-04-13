@@ -114,6 +114,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func btnNewPostPressed(_ sender: Any) {
     
-        
+        let vc = NewPostViewController()
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
 }
