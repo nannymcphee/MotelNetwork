@@ -14,6 +14,7 @@ import NVActivityIndicatorView
 
 var activityIndicatorView : NVActivityIndicatorView!
 var blurEffectView : UIVisualEffectView!
+let numberFormatter = NumberFormatter()
 
 extension UIViewController {
     

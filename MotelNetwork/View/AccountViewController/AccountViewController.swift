@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import SwipeBack
+import Kingfisher
 
 class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -17,11 +18,11 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var btnNewPost: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblFullName: UILabel!
-    @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var tbNews: UITableView!
-    @IBOutlet weak var lblRoomsCount: UILabel!
     @IBOutlet weak var lblNewsCount: UILabel!
+    
     var dbReference: DatabaseReference!
+    var listNews = [News]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,18 +30,18 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         tbNews.delegate = self
         tbNews.dataSource = self
         tbNews.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
-        
+
+        loadData()
         setUpView()
 
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        showLoading()
         tbNews.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        stopLoading()
+        
     }
     
 
@@ -52,50 +53,67 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: Set up view
     func setUpView() {
-        
-        let uid = Auth.auth().currentUser?.uid
+                
+        guard let uid = Auth.auth().currentUser?.uid else {
+            
+            return
+        }
         
         dbReference = Database.database().reference()
-        dbReference.child("Users").child(uid!).observe(.value) { (snapshot) in
+        dbReference.child("Users").child(uid).observe(.value) { (snapshot) in
             
             // Get user value
             let value = snapshot.value as! NSDictionary
             let userName = value["FullName"] as? String ?? ""
             let profileImageUrl = value["ProfileImageUrl"] as? String ?? ""
-            let email = value["Email"] as? String ?? ""
             
             self.lblFullName.text = userName
-            self.lblEmail.text = email
-            self.ivAvatar.loadImageUsingCacheWithUrlString(profileImageUrl)
+            let resource = ImageResource(downloadURL: URL(string: profileImageUrl)!)
+            self.ivAvatar.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
         }
         
         makeImageViewRounded(imageView: ivAvatar)
+    }
+    
+    //MARK: Database interaction
+    
+    func loadData() {
+        
+        let uid = Auth.auth().currentUser?.uid
+        
+        Database.database().reference().child("Posts").child(uid!).child("MyPosts").observe(.childAdded, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let news = News(dictionary: dictionary)
+                news.id = snapshot.key
+                self.listNews.append(news)
+                
+                DispatchQueue.main.async(execute: {
+                    self.reloadInputViews()
+                })
+                
+                let priceStr = dictionary["price"] as? String
+                news.price = Double(priceStr ?? "0.0")
+                news.area = dictionary["area"] as? String
+                news.district = dictionary["district"] as? String
+                news.title = dictionary["title"] as? String
+                news.postImageUrl0 = dictionary["postImageUrl0"] as? String
+            }
+        }, withCancel: nil)
     }
     
     
     
     //MARK: Logic for UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return listNews.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbNews.dequeueReusableCell(withIdentifier: "ListNewsTableViewCell") as! ListNewsTableViewCell
         
-        switch indexPath.row {
-        case 0:
-            cell.lblArea.text = "25m2"
-            cell.lblPrice.text = "2500000đ"
-            cell.lblLocation.text = "Phú nhuận"
-            cell.lblTitle.text = "Cho thuê nhà hẻm ô tô quận Phú Nhuận"
-            cell.lblTitle.text = "Phòng 1"
-        case 1:
-            cell.lblArea.text = "45m2"
-            cell.lblPrice.text = "3500000đ"
-            cell.lblLocation.text = "Tân Phú"
-            cell.lblTitle.text = "Cho thuê căn hộ chung cư cao cấp quận Tân Phú"
-        default:
-            break
-        }
+        let news = listNews[indexPath.row]
+        cell.populateData(news: news)
+        
         
         return cell
     }

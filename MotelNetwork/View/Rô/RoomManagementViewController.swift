@@ -11,6 +11,8 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 import SwipeBack
+import Kingfisher
+
 
 class RoomManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -19,21 +21,24 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var tbRoomManagement: UITableView!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblUserFullName: UILabel!
+    @IBOutlet weak var lblRoomCount: UILabel!
+    
     
     var dbReference: DatabaseReference!
     var listRooms = [Room]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         tbRoomManagement.delegate = self
         tbRoomManagement.dataSource = self
         tbRoomManagement.register(UINib(nibName: "ListRoomsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListRoomsTableViewCell")
         tbRoomManagement.reloadData()
 
-        setUpView()
 
+        loadData()
+        setUpView()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -42,9 +47,8 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -53,8 +57,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     //MARK: Set up view
     func setUpView() {
         
-        loadData()
-
         guard let uid = Auth.auth().currentUser?.uid else {
             
             return
@@ -67,9 +69,10 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
             let value = snapshot.value as! NSDictionary
             let userName = value["FullName"] as? String ?? ""
             let profileImageUrl = value["ProfileImageUrl"] as? String ?? ""
+            let resource = ImageResource(downloadURL: URL(string: profileImageUrl)!)
             
             self.lblUserFullName.text = userName
-            self.ivAvatar.loadImageUsingCacheWithUrlString(profileImageUrl)
+            self.ivAvatar.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
         }
         
         makeImageViewRounded(imageView: ivAvatar)
@@ -103,7 +106,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
             }
         }, withCancel: nil)
     }
-
     
     //MARK: Logic for UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -126,6 +128,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         let vc = DetailRoomViewController()
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
+    
     
     //MARK: Handle button pressed
     

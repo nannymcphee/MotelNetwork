@@ -220,6 +220,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         else {
             
+
             // Store room's info to database
             let roomName = self.tfRoomName.text!
             let area = self.tfArea.text!

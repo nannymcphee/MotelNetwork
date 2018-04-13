@@ -35,16 +35,20 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var tfArea: UITextField!
     
 
-    let pvDistric = UIPickerView()
     var selectedAssets = [PHAsset]()
     var imageArray = [UIImage]()
+    var userName: String = ""
+    var userProfileImageUrl: String = ""
+    var currentDate: String = ""
+    var dbReference: DatabaseReference!
+    let pvDistrict = UIPickerView()
     let postID = UUID().uuidString
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        pvDistric.delegate = self
-        pvDistric.dataSource = self
+        pvDistrict.delegate = self
+        pvDistrict.dataSource = self
         
         setUpView()
     }
@@ -59,9 +63,18 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func setUpView() {
         
         checkAuthStatus()
+        getCurrentUser()
+        getCurrentDate()
         createDistrictListPicker()
         self.tapToDismissKeyboard()
         makeButtonRounded(button: btnClearTextView)
+    }
+    
+    func getCurrentDate() {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd/MM/yyyy"
+        let str = formatter.string(from: Date())
+        currentDate = str
     }
     
     //MARK: Reset view
@@ -80,7 +93,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.tfElectricPrice.text = ""
         self.tfWaterPrice.text = ""
         self.tfPhoneNumber.text = ""
-        self.tvDescription.text = "Mô tả không quá 250 kí tự"
+        self.tvDescription.text = ""
     }
     
     //Mark: Convert selected assets to image
@@ -102,7 +115,6 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 let newImage = UIImage(data: data!)
                 self.imageArray.append(newImage as! UIImage)
             }
-            
             self.ivPostImage0.image = imageArray[0]
             self.ivPostImage1.image = imageArray[1]
             self.ivPostImage2.image = imageArray[2]
@@ -110,6 +122,24 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     //MARK: Database interaction
+    
+    // Fetch user from database
+    func getCurrentUser() {
+        
+        let uid = Auth.auth().currentUser?.uid
+        
+        dbReference = Database.database().reference()
+        dbReference.child("Users").child(uid!).observe(.value) { (snapshot) in
+            
+            // Get user value
+            let value = snapshot.value as! NSDictionary
+            let name = value["FullName"] as? String ?? ""
+            let profileImageUrl = value["ProfileImageUrl"] as? String ?? ""
+            
+            self.userName = name
+            self.userProfileImageUrl = profileImageUrl
+        }
+    }
     
     // Store room's info to database
     private func storePostInformationToDatabase(_ uid: String, values: [String: AnyObject]) {
@@ -168,7 +198,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let btnDone = UIBarButtonItem(title: "Xong", style: .done, target: nil, action: #selector(btnDonePressed))
         toolbar.setItems([btnDone], animated: false)
         
-        self.tfDistrict.inputView = self.pvDistric
+        self.tfDistrict.inputView = self.pvDistrict
         self.tfDistrict.inputAccessoryView = toolbar
     }
     
@@ -243,7 +273,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
             showAlert(alertMessage: messageNilTextFields)
         }
-        else if (tfTitle.text?.count)! > 45 || (tvDescription.text?.count)! > 250 || (tfAddress.text?.count)! > 50 {
+        else if (tfTitle.text?.count)! > 50 || (tfAddress.text?.count)! > 50 {
             
             showAlert(alertMessage: messageLimitCharacters)
         }
@@ -252,7 +282,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             // Store post's info to database
             let title = self.tfTitle.text!
             let area = self.tfArea.text!
-            let distric = self.tfDistrict.text!
+            let district = self.tfDistrict.text!
             let address = self.tfAddress.text!
             let waterPrice = self.tfWaterPrice.text!
             let phoneNumber = self.tfPhoneNumber.text!
@@ -260,7 +290,9 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let price = self.tfPrice.text!
             let description = self.tvDescription.text!
             let internetPrice = self.tfInternetPrice.text!
-            let values = ["title": title, "description": description, "address": address, "distric": distric, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": ""]
+            let postDate = currentDate
+           
+            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "user": userName, "userProfileImageUrl": userProfileImageUrl, "postDate": postDate]
             
             self.storePostInformationToDatabase(uid, values: values as [String: AnyObject])
             
@@ -278,7 +310,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 self.storePostInformationToDatabase(uid, values: ["postImageUrl2": url as AnyObject])
             }
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
                 self.showAlert(alertMessage: messageNewPostSuccess)
             })
             

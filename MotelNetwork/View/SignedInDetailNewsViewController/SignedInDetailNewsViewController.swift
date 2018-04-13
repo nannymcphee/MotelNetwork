@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import Kingfisher
 
 
 class SignedInDetailNewsViewController: UIViewController {
@@ -62,7 +63,8 @@ class SignedInDetailNewsViewController: UIViewController {
             let profileImageUrl = value["ProfileImageUrl"] as? String ?? ""
             
             self.lblUserName.text = userName
-            self.ivAvatar.loadImageUsingCacheWithUrlString(profileImageUrl)
+            let resource = ImageResource(downloadURL: URL(string: profileImageUrl)!)
+            self.ivAvatar.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
         }
         
         makeImageViewRounded(imageView: ivAvatar)

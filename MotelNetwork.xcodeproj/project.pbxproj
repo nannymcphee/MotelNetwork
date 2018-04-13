@@ -31,6 +31,7 @@
 		E1507BB2207DDA8B00387527 /* CalculateRoomPriceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BB0207DDA8B00387527 /* CalculateRoomPriceViewController.xib */; };
 		E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BBB207F59F300387527 /* SettingViewController.swift */; };
 		E1507BBE207F59F300387527 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BBC207F59F300387527 /* SettingViewController.xib */; };
+		E1507BC02080972500387527 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BBF2080972500387527 /* News.swift */; };
 		E16F5B16207B5FB800B284A5 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B14207B5FB800B284A5 /* DetailNewsViewController.swift */; };
 		E16F5B17207B5FB800B284A5 /* DetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B15207B5FB800B284A5 /* DetailNewsViewController.xib */; };
 		E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B19207B698E00B284A5 /* AccountViewController.swift */; };
@@ -97,6 +98,7 @@
 		E1507BB0207DDA8B00387527 /* CalculateRoomPriceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CalculateRoomPriceViewController.xib; sourceTree = "<group>"; };
 		E1507BBB207F59F300387527 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E1507BBC207F59F300387527 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		E1507BBF2080972500387527 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		E16F5B14207B5FB800B284A5 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		E16F5B15207B5FB800B284A5 /* DetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailNewsViewController.xib; sourceTree = "<group>"; };
 		E16F5B19207B698E00B284A5 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 			children = (
 				E1BD102720765FB900287982 /* User.swift */,
 				E1BD102520765FAD00287982 /* Room.swift */,
+				E1507BBF2080972500387527 /* News.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -571,7 +574,9 @@
 				"${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeBack/SwipeBack.framework",
 				"${BUILT_PRODUCTS_DIR}/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -583,7 +588,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeBack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageViewModeScaleAspect.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -653,6 +660,7 @@
 				E1BD102820765FB900287982 /* User.swift in Sources */,
 				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
 				E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */,
+				E1507BC02080972500387527 /* News.swift in Sources */,
 				E14C41432074D107003571E8 /* SignedInDetailNewsViewController.swift in Sources */,
 				145C11FE2075F37E00AB11F3 /* RoomManagementViewController.swift in Sources */,
 				E1E7D2002071C8BD00874EB2 /* SignedInHomeViewController.swift in Sources */,

@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import Kingfisher
 
 class ChangeEmailViewController: UIViewController {
 
@@ -50,7 +51,8 @@ class ChangeEmailViewController: UIViewController {
             
             self.lblFullName.text = userName
             self.lblEmail.text = email
-            self.ivAvatar.loadImageUsingCacheWithUrlString(profileImageUrl)
+            let resource = ImageResource(downloadURL: URL(string: profileImageUrl)!)
+            self.ivAvatar.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
         }
         
         makeImageViewRounded(imageView: ivAvatar)        

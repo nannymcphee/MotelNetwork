@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="btnCreateRoom" destination="pdD-ze-dRp" id="aPs-8R-Klo"/>
                 <outlet property="ivAvatar" destination="R7f-Bm-PQX" id="UC2-gz-FYS"/>
+                <outlet property="lblRoomCount" destination="DRL-ux-WvZ" id="QQI-cZ-qS3"/>
                 <outlet property="lblUserFullName" destination="IcF-mk-JaP" id="fbR-sp-rnB"/>
                 <outlet property="tbRoomManagement" destination="j09-YX-mcr" id="qb7-PJ-sga"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -41,7 +42,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phòng trọ của tôi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b22-l6-bRq">
-                                            <rect key="frame" x="124" y="22.5" width="127.5" height="19"/>
+                                            <rect key="frame" x="124" y="22.5" width="127.5" height="19.5"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -76,18 +77,40 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="R7f-Bm-PQX">
-                                                    <rect key="frame" x="16" y="8" width="32" height="32"/>
+                                                    <rect key="frame" x="19" y="8" width="32" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="0e3-dQ-1EM"/>
                                                         <constraint firstAttribute="width" constant="32" id="YJW-Au-R3z"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Họ tên" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcF-mk-JaP">
-                                                    <rect key="frame" x="56" y="14" width="41.5" height="16.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="c2a-ud-j94">
+                                                    <rect key="frame" x="59" y="7" width="66.5" height="34.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Họ tên" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IcF-mk-JaP">
+                                                            <rect key="frame" x="0.0" y="0.0" width="41.5" height="16.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Sew-CB-P98">
+                                                            <rect key="frame" x="0.0" y="20.5" width="66.5" height="14"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số phòng:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2D-t8-JPs">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="55.5" height="14"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRL-ux-WvZ">
+                                                                    <rect key="frame" x="59.5" y="0.0" width="7" height="14"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="USF-kK-y5b">
                                                     <rect key="frame" x="0.0" y="47" width="375" height="1"/>
                                                     <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -98,12 +121,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="USF-kK-y5b" secondAttribute="bottom" id="NDb-nV-JcG"/>
-                                                <constraint firstItem="R7f-Bm-PQX" firstAttribute="leading" secondItem="7NU-vi-XhP" secondAttribute="leading" constant="16" id="V7W-bo-Cc4"/>
+                                                <constraint firstItem="R7f-Bm-PQX" firstAttribute="leading" secondItem="7NU-vi-XhP" secondAttribute="leading" constant="19" id="V7W-bo-Cc4"/>
                                                 <constraint firstItem="R7f-Bm-PQX" firstAttribute="top" secondItem="7NU-vi-XhP" secondAttribute="top" constant="8" id="a3L-jE-cso"/>
                                                 <constraint firstAttribute="height" constant="48" id="igh-i3-exE"/>
+                                                <constraint firstItem="c2a-ud-j94" firstAttribute="leading" secondItem="R7f-Bm-PQX" secondAttribute="trailing" constant="8" id="joe-44-3Uc"/>
                                                 <constraint firstItem="USF-kK-y5b" firstAttribute="leading" secondItem="7NU-vi-XhP" secondAttribute="leading" id="lbK-0N-gv8"/>
-                                                <constraint firstItem="IcF-mk-JaP" firstAttribute="leading" secondItem="R7f-Bm-PQX" secondAttribute="trailing" constant="8" id="mYF-cD-TLq"/>
-                                                <constraint firstItem="IcF-mk-JaP" firstAttribute="top" secondItem="7NU-vi-XhP" secondAttribute="top" constant="14" id="uyW-fc-1o4"/>
+                                                <constraint firstItem="c2a-ud-j94" firstAttribute="centerY" secondItem="R7f-Bm-PQX" secondAttribute="centerY" id="sj2-uz-beJ"/>
                                                 <constraint firstAttribute="trailing" secondItem="USF-kK-y5b" secondAttribute="trailing" id="zvz-FF-87D"/>
                                             </constraints>
                                         </view>

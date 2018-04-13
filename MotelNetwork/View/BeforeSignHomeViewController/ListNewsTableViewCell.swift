@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Kingfisher
+
 
 class ListNewsTableViewCell: UITableViewCell {
 
@@ -14,7 +16,7 @@ class ListNewsTableViewCell: UITableViewCell {
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblArea: UILabel!
     @IBOutlet weak var lblLocation: UILabel!
-    @IBOutlet weak var ivRoomImage: UIImageView!
+    @IBOutlet weak var ivPostImage: UIImageView!
     
     
     override func awakeFromNib() {
@@ -35,6 +37,24 @@ class ListNewsTableViewCell: UITableViewCell {
 //        ivRoomImage.loadImageUsingCacheWithUrlString(room.roomImageUrl0!)
         lblArea.text = room.area
         lblLocation.text = room.id
+    }
+    
+    func populateData(news: News) {
+        numberFormatter.numberStyle = .decimal
+        self.lblTitle.text = news.title
+        self.lblPrice.text = numberFormatter.string(from: news.price! as NSNumber)
+        self.lblArea.text = String("\(news.area ?? "")m2")
+        self.lblLocation.text = news.district
+        
+        // Use Kingfisher to download & show image
+        if URL(string: news.postImageUrl0!) != nil {
+            let resource = ImageResource(downloadURL: URL(string: news.postImageUrl0!)!)
+            
+            ivPostImage.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage") , options: nil, progressBlock: nil, completionHandler: nil)
+        }
+        else{
+            ivPostImage.image = #imageLiteral(resourceName: "defaultImage")
+        }
     }
 }
 

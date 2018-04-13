@@ -27,43 +27,41 @@
                             <constraint firstAttribute="height" constant="130" id="ZYA-lt-LAx"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGZ-Fq-Zoe">
-                        <rect key="frame" x="145" y="19" width="199" height="38.5"/>
-                        <string key="text">Label
-dòng 2</string>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tiêu đề" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HGZ-Fq-Zoe">
+                        <rect key="frame" x="145" y="19" width="199" height="19.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLocation" translatesAutoresizingMaskIntoConstraints="NO" id="K9t-Us-DfW">
-                        <rect key="frame" x="145" y="101.5" width="16" height="16"/>
+                        <rect key="frame" x="145" y="82.5" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="16" id="0V1-ne-gJr"/>
                             <constraint firstAttribute="height" constant="16" id="KQa-o7-cce"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phú Nhuận" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMo-qs-6EG">
-                        <rect key="frame" x="173" y="101" width="70" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quận" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMo-qs-6EG">
+                        <rect key="frame" x="173" y="82" width="34" height="17"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icPrice" translatesAutoresizingMaskIntoConstraints="NO" id="5Hi-fN-9Kr">
-                        <rect key="frame" x="145" y="77.5" width="16" height="16"/>
+                        <rect key="frame" x="145" y="58.5" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="16" id="7Bh-F6-ozM"/>
                             <constraint firstAttribute="height" constant="16" id="TtR-Bd-zfB"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icArea" translatesAutoresizingMaskIntoConstraints="NO" id="ifI-zN-JdL">
-                        <rect key="frame" x="145" y="125" width="16" height="16"/>
+                        <rect key="frame" x="145" y="106" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="DIK-xk-S3H"/>
                             <constraint firstAttribute="width" constant="16" id="eKI-kW-JIj"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.000.000đ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqt-lk-lSj">
-                        <rect key="frame" x="173" y="77.5" width="71" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giá phòng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqt-lk-lSj">
+                        <rect key="frame" x="173" y="58.5" width="65.5" height="17"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -75,16 +73,24 @@ dòng 2</string>
                             <constraint firstAttribute="height" constant="1" id="zhU-le-2Pa"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25m2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAe-gg-d5n">
-                        <rect key="frame" x="173" y="125" width="35.5" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diện tích" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAe-gg-d5n">
+                        <rect key="frame" x="173" y="106" width="55.5" height="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBh-4A-KDB">
+                        <rect key="frame" x="238.5" y="59" width="9" height="17"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="eBh-4A-KDB" firstAttribute="leading" secondItem="gqt-lk-lSj" secondAttribute="trailing" id="0rt-K4-MyF"/>
                     <constraint firstAttribute="bottom" secondItem="PCY-CJ-sdX" secondAttribute="bottom" id="1U4-Ki-DZ2"/>
                     <constraint firstItem="K9t-Us-DfW" firstAttribute="leading" secondItem="zLw-tW-IGn" secondAttribute="trailing" constant="10" id="4zn-yt-hay"/>
+                    <constraint firstItem="eBh-4A-KDB" firstAttribute="centerY" secondItem="gqt-lk-lSj" secondAttribute="centerY" id="5cb-ii-Te7"/>
                     <constraint firstItem="5Hi-fN-9Kr" firstAttribute="top" secondItem="HGZ-Fq-Zoe" secondAttribute="bottom" constant="20" id="9UP-p8-L0i"/>
                     <constraint firstItem="K9t-Us-DfW" firstAttribute="top" secondItem="5Hi-fN-9Kr" secondAttribute="bottom" constant="8" id="E3Q-ky-lqV"/>
                     <constraint firstItem="zLw-tW-IGn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Ed0-1v-EM9"/>
@@ -107,7 +113,7 @@ dòng 2</string>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="ivRoomImage" destination="zLw-tW-IGn" id="5vv-P1-ZN1"/>
+                <outlet property="ivPostImage" destination="zLw-tW-IGn" id="Rzx-ke-irr"/>
                 <outlet property="lblArea" destination="FAe-gg-d5n" id="2e7-5r-ulP"/>
                 <outlet property="lblLocation" destination="rMo-qs-6EG" id="sRD-6z-jNI"/>
                 <outlet property="lblPrice" destination="gqt-lk-lSj" id="zDK-gE-CjV"/>

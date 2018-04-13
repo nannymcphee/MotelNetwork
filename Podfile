@@ -14,5 +14,7 @@ target 'Motel Network' do
     pod 'NVActivityIndicatorView'
     pod 'BSImagePicker', '~> 2.4'
 	pod 'SwipeBack' , '~> 1.1'
+	pod 'SDWebImage' ,'~> 4.0'
+    pod 'Kingfisher', '~> 4.0'
 
 end
