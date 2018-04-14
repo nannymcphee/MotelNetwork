@@ -14,6 +14,7 @@
             <connections>
                 <outlet property="btnAddImage" destination="mPX-P4-qnX" id="Nzz-jR-VRB"/>
                 <outlet property="btnBack" destination="1nU-64-ql1" id="Amy-aJ-qJz"/>
+                <outlet property="btnSave" destination="FRJ-Xu-0OE" id="VAX-x9-ZNu"/>
                 <outlet property="ivRoomImage0" destination="DPV-w4-dBF" id="0eV-Y2-vhw"/>
                 <outlet property="ivRoomImage1" destination="vgl-QN-hm7" id="Lqx-GU-jmz"/>
                 <outlet property="ivRoomImage2" destination="1DX-ON-xo9" id="SDG-hS-B5F"/>

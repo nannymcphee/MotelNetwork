@@ -120,6 +120,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listRooms.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbRoomManagement.dequeueReusableCell(withIdentifier: "ListRoomsTableViewCell") as! ListRoomsTableViewCell
         
@@ -140,6 +141,63 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         
         vc.currentRoom = room
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let edit = editAction(at: indexPath)
+        let delete = deleteAction(at: indexPath)
+        let calculate = calculateAction(at: indexPath)
+        let config = UISwipeActionsConfiguration(actions: [delete, edit, calculate])
+        
+        config.performsFirstActionWithFullSwipe = false
+        
+        return config
+    }
+    
+    func editAction(at indexPath: IndexPath) -> UIContextualAction {
+        
+        let room = listRooms[indexPath.row]
+        let action = UIContextualAction(style: .normal, title: "") { (action, view, nil) in
+            
+            let vc = EditRoomViewController()
+            vc.currentRoom = room
+            (UIApplication.shared.delegate as? AppDelegate)?.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        action.image = #imageLiteral(resourceName: "icEdit")
+//        action.backgroundColor = UIColor(red: 90/255, green: 94/255, blue: 208/255, alpha: 1.0)
+        action.backgroundColor = UIColor(red: 34/255, green: 119/255, blue: 233/255, alpha: 1.0)
+        return action
+    }
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+    
+        let action = UIContextualAction(style: .destructive, title: "") { (action, view, nil) in
+            
+            // Query delete from database
+            print("Delete pressed!")
+            
+//            self.tbRoomManagement.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        action.image = #imageLiteral(resourceName: "icDelete")
+        return action
+    }
+    
+    func calculateAction(at indexPath: IndexPath) -> UIContextualAction {
+        
+        let room = listRooms[indexPath.row]
+        let action = UIContextualAction(style: .normal, title: "") { (action, view, nil) in
+            
+            let vc = CalculateRoomPriceViewController()
+            vc.currentRoom = room
+            (UIApplication.shared.delegate as? AppDelegate)?.navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        action.image = #imageLiteral(resourceName: "icCalculator")
+        action.backgroundColor = UIColor(red: 75/255, green: 151/255, blue: 253/255, alpha: 1.0)
+        return action
     }
     
     

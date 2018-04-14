@@ -105,7 +105,7 @@ class CalculateRoomPriceViewController: UIViewController {
         internetPrice = (tfInternetPrice.text?.toDouble)!
         otherPrice = (tfOtherPrice.text?.toDouble)!
         
-        if tfElectricPrice.text == nil || tfNewElectricNumber.text == nil || tfOldElectricNumber.text == nil || tfWaterPrice.text == nil || tfUserCount.text == nil || tfInternetPrice.text == nil {
+        if electricPrice == 0 || newElectricNumber == 0 || oldElectricNumber == 0 || waterPrice == 0 || internetPrice == 0 {
             
             showAlert(alertMessage: messageNilTextFields)
         }

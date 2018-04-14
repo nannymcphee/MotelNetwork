@@ -48,7 +48,7 @@ class DetailRoomViewController: UIViewController {
         let roomImageUrl0 = currentRoom.roomImageUrl0
         let roomImageUrl1 = currentRoom.roomImageUrl1
         let roomImageUrl2 = currentRoom.roomImageUrl2
-        let resource = ImageResource(downloadURL: URL(string: roomImageUrl0!)!)
+        
         
         imageUrlsArray.append(roomImageUrl0!)
         imageUrlsArray.append(roomImageUrl1!)
@@ -59,7 +59,16 @@ class DetailRoomViewController: UIViewController {
         lblRoomName.text = currentRoom.name
         lblArea.text = String("\(currentRoom.area ?? "")m2")
         lblUser.text = currentRoom.user
-        ivRoomImage.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage"), options: nil, progressBlock: nil, completionHandler: nil)
+        
+        // Use Kingfisher to download & show image
+        if URL(string: roomImageUrl0!) != nil {
+            let resource = ImageResource(downloadURL: URL(string: roomImageUrl0!)!)
+            
+            ivRoomImage.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage") , options: nil, progressBlock: nil, completionHandler: nil)
+        }
+        else{
+            ivRoomImage.image = #imageLiteral(resourceName: "defaultImage")
+        }
         
         makeButtonRounded(button: btnCalculate)
         makeImageViewRounded(imageView: ivAvatar)

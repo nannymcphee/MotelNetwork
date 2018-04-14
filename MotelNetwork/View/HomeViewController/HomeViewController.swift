@@ -56,7 +56,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tbListNews.reloadData()
     }
-
+    
+    
     
     func setUpView() {
         setViewState(enabledView: vNewsProgress, disabledView2: vNearMeProgress, disabledView3: vMostViewProgress)

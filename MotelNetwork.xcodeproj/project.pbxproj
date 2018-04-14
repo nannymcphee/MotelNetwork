@@ -51,8 +51,6 @@
 		E198DC202081829000E59BD2 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E198DC1B2081829000E59BD2 /* HomeViewController.xib */; };
 		E198DC212081829000E59BD2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198DC1C2081829000E59BD2 /* HomeViewController.swift */; };
 		E198DC222081829000E59BD2 /* ListNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E198DC1D2081829000E59BD2 /* ListNewsTableViewCell.xib */; };
-		E198DC2520819C2E00E59BD2 /* RoomImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198DC2320819C2E00E59BD2 /* RoomImageCollectionViewCell.swift */; };
-		E198DC2620819C2E00E59BD2 /* RoomImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E198DC2420819C2E00E59BD2 /* RoomImageCollectionViewCell.xib */; };
 		E1A621D22070D23100B83291 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A621D02070D23100B83291 /* TestViewController.swift */; };
 		E1A621D32070D23100B83291 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A621D12070D23100B83291 /* TestViewController.xib */; };
 		E1BD102620765FAD00287982 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD102520765FAD00287982 /* Room.swift */; };
@@ -118,8 +116,6 @@
 		E198DC1B2081829000E59BD2 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		E198DC1C2081829000E59BD2 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E198DC1D2081829000E59BD2 /* ListNewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListNewsTableViewCell.xib; sourceTree = "<group>"; };
-		E198DC2320819C2E00E59BD2 /* RoomImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		E198DC2420819C2E00E59BD2 /* RoomImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		E1A621D02070D23100B83291 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E1A621D12070D23100B83291 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		E1BD102520765FAD00287982 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
@@ -208,8 +204,6 @@
 			children = (
 				E1507BA0207D192F00387527 /* DetailRoomViewController.swift */,
 				E1507BA1207D192F00387527 /* DetailRoomViewController.xib */,
-				E198DC2320819C2E00E59BD2 /* RoomImageCollectionViewCell.swift */,
-				E198DC2420819C2E00E59BD2 /* RoomImageCollectionViewCell.xib */,
 			);
 			path = DetailRoomViewController;
 			sourceTree = "<group>";
@@ -519,7 +513,6 @@
 				E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */,
 				E1507BB2207DDA8B00387527 /* CalculateRoomPriceViewController.xib in Resources */,
 				E1BD102F20766C3500287982 /* CreateRoomViewController.xib in Resources */,
-				E198DC2620819C2E00E59BD2 /* RoomImageCollectionViewCell.xib in Resources */,
 				E14C41442074D107003571E8 /* DetailNewsViewController.xib in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
 				145C12072075FF5300AB11F3 /* ListRoomsTableViewCell.xib in Resources */,
@@ -634,7 +627,6 @@
 				E1BD102620765FAD00287982 /* Room.swift in Sources */,
 				E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */,
 				145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */,
-				E198DC2520819C2E00E59BD2 /* RoomImageCollectionViewCell.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
 				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
 				E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */,

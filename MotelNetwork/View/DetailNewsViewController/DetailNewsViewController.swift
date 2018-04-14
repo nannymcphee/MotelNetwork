@@ -53,7 +53,6 @@ class DetailNewsViewController: UIViewController {
         let userProfileImageUrl = currentNews.userProfileImageUrl
         let postImageUrl0 = currentNews.postImageUrl0
         let profileImgResource = ImageResource(downloadURL: URL(string: userProfileImageUrl!)!)
-        let postImgResource = ImageResource(downloadURL: URL(string: postImageUrl0!)!)
         
         numberFormatter.numberStyle = .decimal
         lblPrice.text = numberFormatter.string(from: currentNews.price! as NSNumber)
@@ -70,7 +69,17 @@ class DetailNewsViewController: UIViewController {
         lblUserName.text = currentNews.user
         
         ivAvatar.kf.setImage(with: profileImgResource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
-        ivNewsImage.kf.setImage(with: postImgResource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
+        
+        // Use Kingfisher to download & show image
+        if URL(string: postImageUrl0!) != nil {
+            let resource = ImageResource(downloadURL: URL(string: postImageUrl0!)!)
+            
+            ivNewsImage.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage") , options: nil, progressBlock: nil, completionHandler: nil)
+        }
+        else{
+            ivNewsImage.image = #imageLiteral(resourceName: "defaultImage")
+        }
+        
         makeImageViewRounded(imageView: ivAvatar)
     }
     

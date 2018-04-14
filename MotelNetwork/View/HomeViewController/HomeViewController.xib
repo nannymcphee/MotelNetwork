@@ -186,10 +186,10 @@
                     <rect key="frame" x="0.0" y="88" width="375" height="712"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDy-pU-kHd">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="712"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" keyboardDismissMode="onDrag" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hkA-k7-hoU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="712"/>
                                     <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableView>
                             </subviews>
@@ -198,13 +198,14 @@
                                 <constraint firstItem="hkA-k7-hoU" firstAttribute="top" secondItem="DDy-pU-kHd" secondAttribute="top" id="6hZ-a5-z8I"/>
                                 <constraint firstAttribute="trailing" secondItem="hkA-k7-hoU" secondAttribute="trailing" id="PH8-N2-aO2"/>
                                 <constraint firstItem="hkA-k7-hoU" firstAttribute="leading" secondItem="DDy-pU-kHd" secondAttribute="leading" id="PcD-u3-cWh"/>
-                                <constraint firstAttribute="bottom" secondItem="hkA-k7-hoU" secondAttribute="bottom" id="RbH-UK-LJo"/>
+                                <constraint firstItem="hkA-k7-hoU" firstAttribute="height" secondItem="DDy-pU-kHd" secondAttribute="height" id="cUI-QR-Mtb"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
                         <constraint firstItem="DDy-pU-kHd" firstAttribute="top" secondItem="iWT-pU-1bx" secondAttribute="top" id="56z-sK-Rab"/>
                         <constraint firstItem="DDy-pU-kHd" firstAttribute="leading" secondItem="iWT-pU-1bx" secondAttribute="leading" id="R8Y-51-EnM"/>
+                        <constraint firstItem="DDy-pU-kHd" firstAttribute="height" secondItem="iWT-pU-1bx" secondAttribute="height" id="Rnx-zv-T2H"/>
                         <constraint firstItem="DDy-pU-kHd" firstAttribute="centerX" secondItem="iWT-pU-1bx" secondAttribute="centerX" id="VGl-4b-ABt"/>
                         <constraint firstAttribute="trailing" secondItem="DDy-pU-kHd" secondAttribute="trailing" id="aew-nk-dcY"/>
                         <constraint firstAttribute="bottom" secondItem="DDy-pU-kHd" secondAttribute="bottom" id="wO8-LA-HD6"/>
@@ -220,7 +221,6 @@
                 <constraint firstItem="iWT-pU-1bx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="88" id="L64-di-Nkk"/>
                 <constraint firstItem="iWT-pU-1bx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RYe-ym-1De"/>
                 <constraint firstItem="iWT-pU-1bx" firstAttribute="leading" secondItem="v4C-2M-DcL" secondAttribute="leading" id="WDI-Im-IL3"/>
-                <constraint firstItem="DDy-pU-kHd" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1.5" id="Y6O-J5-1lU"/>
                 <constraint firstItem="v4C-2M-DcL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="f6L-XO-c0H"/>
                 <constraint firstAttribute="trailing" secondItem="iWT-pU-1bx" secondAttribute="trailing" id="x6n-Qb-G6S"/>
             </constraints>

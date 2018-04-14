@@ -21,10 +21,12 @@ class EditRoomViewController: UIViewController {
     @IBOutlet weak var tfPrice: UITextField!
     @IBOutlet weak var tfUser: UITextField!
     
+    var currentRoom = Room()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tapToDismissKeyboard()
+        setUpView()
 
         // Do any additional setup after loading the view.
     }
@@ -32,6 +34,13 @@ class EditRoomViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setUpView() {
+        tfArea.text = currentRoom.area
+        tfUser.text = currentRoom.user
+        tfPrice.text = "\(currentRoom.price ?? 0.0)"
+        tfRoomName.text = currentRoom.name
     }
     
 
