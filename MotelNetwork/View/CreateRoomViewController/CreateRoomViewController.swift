@@ -268,7 +268,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     thumbnail = result!
                 }
                 
-                let data = UIImageJPEGRepresentation(thumbnail, 0.2)
+                let data = UIImageJPEGRepresentation(thumbnail, 0.7)
                 let newImage = UIImage(data: data!)
                 self.imageArray.append(newImage as! UIImage)
             }

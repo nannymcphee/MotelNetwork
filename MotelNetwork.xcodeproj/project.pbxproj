@@ -18,8 +18,8 @@
 		CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF78F20767698005BEA3B /* EUIViewController.swift */; };
 		E104666E20708FF400245789 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104666C20708FF400245789 /* TutorialViewController.swift */; };
 		E104666F20708FF400245789 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E104666D20708FF400245789 /* TutorialViewController.xib */; };
-		E14C41432074D107003571E8 /* SignedInDetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C41412074D107003571E8 /* SignedInDetailNewsViewController.swift */; };
-		E14C41442074D107003571E8 /* SignedInDetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14C41422074D107003571E8 /* SignedInDetailNewsViewController.xib */; };
+		E14C41432074D107003571E8 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C41412074D107003571E8 /* DetailNewsViewController.swift */; };
+		E14C41442074D107003571E8 /* DetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14C41422074D107003571E8 /* DetailNewsViewController.xib */; };
 		E14C41462074EBF5003571E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E14C41452074EBF5003571E8 /* GoogleService-Info.plist */; };
 		E1507BA2207D192F00387527 /* DetailRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BA0207D192F00387527 /* DetailRoomViewController.swift */; };
 		E1507BA3207D192F00387527 /* DetailRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BA1207D192F00387527 /* DetailRoomViewController.xib */; };
@@ -32,8 +32,6 @@
 		E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BBB207F59F300387527 /* SettingViewController.swift */; };
 		E1507BBE207F59F300387527 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BBC207F59F300387527 /* SettingViewController.xib */; };
 		E1507BC02080972500387527 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BBF2080972500387527 /* News.swift */; };
-		E16F5B16207B5FB800B284A5 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B14207B5FB800B284A5 /* DetailNewsViewController.swift */; };
-		E16F5B17207B5FB800B284A5 /* DetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B15207B5FB800B284A5 /* DetailNewsViewController.xib */; };
 		E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B19207B698E00B284A5 /* AccountViewController.swift */; };
 		E16F5B1C207B698E00B284A5 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B1A207B698E00B284A5 /* AccountViewController.xib */; };
 		E16F5B1F207B69AE00B284A5 /* AccountOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B1D207B69AE00B284A5 /* AccountOptionTableViewCell.swift */; };
@@ -49,6 +47,12 @@
 		E198761220672E2D008434CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198761120672E2D008434CC /* AppDelegate.swift */; };
 		E198761720672E2D008434CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761520672E2D008434CC /* Main.storyboard */; };
 		E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761A20672E2D008434CC /* LaunchScreen.storyboard */; };
+		E198DC1E2081829000E59BD2 /* ListNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198DC192081829000E59BD2 /* ListNewsTableViewCell.swift */; };
+		E198DC202081829000E59BD2 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E198DC1B2081829000E59BD2 /* HomeViewController.xib */; };
+		E198DC212081829000E59BD2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198DC1C2081829000E59BD2 /* HomeViewController.swift */; };
+		E198DC222081829000E59BD2 /* ListNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E198DC1D2081829000E59BD2 /* ListNewsTableViewCell.xib */; };
+		E198DC2520819C2E00E59BD2 /* RoomImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198DC2320819C2E00E59BD2 /* RoomImageCollectionViewCell.swift */; };
+		E198DC2620819C2E00E59BD2 /* RoomImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E198DC2420819C2E00E59BD2 /* RoomImageCollectionViewCell.xib */; };
 		E1A621D22070D23100B83291 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A621D02070D23100B83291 /* TestViewController.swift */; };
 		E1A621D32070D23100B83291 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A621D12070D23100B83291 /* TestViewController.xib */; };
 		E1BD102620765FAD00287982 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD102520765FAD00287982 /* Room.swift */; };
@@ -60,13 +64,7 @@
 		E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE6922067805D005715EC /* LoginViewController.xib */; };
 		E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */; };
 		E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE6962067898C005715EC /* ForgotPasswordViewController.xib */; };
-		E1E7D1FC2071C8AC00874EB2 /* BeforeSignHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7D1FA2071C8AC00874EB2 /* BeforeSignHomeViewController.swift */; };
-		E1E7D1FD2071C8AC00874EB2 /* BeforeSignHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E7D1FB2071C8AC00874EB2 /* BeforeSignHomeViewController.xib */; };
-		E1E7D2002071C8BD00874EB2 /* SignedInHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7D1FE2071C8BD00874EB2 /* SignedInHomeViewController.swift */; };
-		E1E7D2012071C8BD00874EB2 /* SignedInHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E7D1FF2071C8BD00874EB2 /* SignedInHomeViewController.xib */; };
 		E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1E7D2022071E0C600874EB2 /* Assets.xcassets */; };
-		E1E7D206207224F000874EB2 /* ListNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E7D204207224F000874EB2 /* ListNewsTableViewCell.swift */; };
-		E1E7D207207224F000874EB2 /* ListNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E7D205207224F000874EB2 /* ListNewsTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,8 +83,8 @@
 		CE5FF78F20767698005BEA3B /* EUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUIViewController.swift; sourceTree = "<group>"; };
 		E104666C20708FF400245789 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		E104666D20708FF400245789 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
-		E14C41412074D107003571E8 /* SignedInDetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInDetailNewsViewController.swift; sourceTree = "<group>"; };
-		E14C41422074D107003571E8 /* SignedInDetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignedInDetailNewsViewController.xib; sourceTree = "<group>"; };
+		E14C41412074D107003571E8 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
+		E14C41422074D107003571E8 /* DetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailNewsViewController.xib; sourceTree = "<group>"; };
 		E14C41452074EBF5003571E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1507BA0207D192F00387527 /* DetailRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRoomViewController.swift; sourceTree = "<group>"; };
 		E1507BA1207D192F00387527 /* DetailRoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRoomViewController.xib; sourceTree = "<group>"; };
@@ -99,8 +97,6 @@
 		E1507BBB207F59F300387527 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E1507BBC207F59F300387527 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		E1507BBF2080972500387527 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
-		E16F5B14207B5FB800B284A5 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
-		E16F5B15207B5FB800B284A5 /* DetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailNewsViewController.xib; sourceTree = "<group>"; };
 		E16F5B19207B698E00B284A5 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		E16F5B1A207B698E00B284A5 /* AccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
 		E16F5B1D207B69AE00B284A5 /* AccountOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -118,6 +114,12 @@
 		E198761620672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E198761B20672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E198761D20672E2D008434CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E198DC192081829000E59BD2 /* ListNewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNewsTableViewCell.swift; sourceTree = "<group>"; };
+		E198DC1B2081829000E59BD2 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		E198DC1C2081829000E59BD2 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E198DC1D2081829000E59BD2 /* ListNewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListNewsTableViewCell.xib; sourceTree = "<group>"; };
+		E198DC2320819C2E00E59BD2 /* RoomImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		E198DC2420819C2E00E59BD2 /* RoomImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomImageCollectionViewCell.xib; sourceTree = "<group>"; };
 		E1A621D02070D23100B83291 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E1A621D12070D23100B83291 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		E1BD102520765FAD00287982 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
@@ -129,13 +131,7 @@
 		E1CDE6922067805D005715EC /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		E1CDE6962067898C005715EC /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
-		E1E7D1FA2071C8AC00874EB2 /* BeforeSignHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeSignHomeViewController.swift; sourceTree = "<group>"; };
-		E1E7D1FB2071C8AC00874EB2 /* BeforeSignHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BeforeSignHomeViewController.xib; sourceTree = "<group>"; };
-		E1E7D1FE2071C8BD00874EB2 /* SignedInHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInHomeViewController.swift; sourceTree = "<group>"; };
-		E1E7D1FF2071C8BD00874EB2 /* SignedInHomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignedInHomeViewController.xib; sourceTree = "<group>"; };
 		E1E7D2022071E0C600874EB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E1E7D204207224F000874EB2 /* ListNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNewsTableViewCell.swift; sourceTree = "<group>"; };
-		E1E7D205207224F000874EB2 /* ListNewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListNewsTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,22 +194,13 @@
 			path = TutorialViewController;
 			sourceTree = "<group>";
 		};
-		E14C413B2074CF18003571E8 /* DetailNewsViewController */ = {
+		E14C41402074D0EB003571E8 /* DetailNewsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E16F5B14207B5FB800B284A5 /* DetailNewsViewController.swift */,
-				E16F5B15207B5FB800B284A5 /* DetailNewsViewController.xib */,
+				E14C41412074D107003571E8 /* DetailNewsViewController.swift */,
+				E14C41422074D107003571E8 /* DetailNewsViewController.xib */,
 			);
 			path = DetailNewsViewController;
-			sourceTree = "<group>";
-		};
-		E14C41402074D0EB003571E8 /* SignedInDetailNewsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E14C41412074D107003571E8 /* SignedInDetailNewsViewController.swift */,
-				E14C41422074D107003571E8 /* SignedInDetailNewsViewController.xib */,
-			);
-			path = SignedInDetailNewsViewController;
 			sourceTree = "<group>";
 		};
 		E1507B9F207D18FB00387527 /* DetailRoomViewController */ = {
@@ -221,6 +208,8 @@
 			children = (
 				E1507BA0207D192F00387527 /* DetailRoomViewController.swift */,
 				E1507BA1207D192F00387527 /* DetailRoomViewController.xib */,
+				E198DC2320819C2E00E59BD2 /* RoomImageCollectionViewCell.swift */,
+				E198DC2420819C2E00E59BD2 /* RoomImageCollectionViewCell.xib */,
 			);
 			path = DetailRoomViewController;
 			sourceTree = "<group>";
@@ -378,6 +367,17 @@
 			path = MotelNetwork;
 			sourceTree = "<group>";
 		};
+		E198DC182081829000E59BD2 /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E198DC1C2081829000E59BD2 /* HomeViewController.swift */,
+				E198DC1B2081829000E59BD2 /* HomeViewController.xib */,
+				E198DC192081829000E59BD2 /* ListNewsTableViewCell.swift */,
+				E198DC1D2081829000E59BD2 /* ListNewsTableViewCell.xib */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
 		E1A621CF2070D1FF00B83291 /* TestViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +409,7 @@
 		E1E7D1F72071C7D300874EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E198DC182081829000E59BD2 /* HomeViewController */,
 				E1507BBA207F59E000387527 /* SettingViewController */,
 				E1507BAE207DDA7300387527 /* CalculateRoomPriceViewController */,
 				E1507BA9207D198C00387527 /* NewPostViewController */,
@@ -420,37 +421,14 @@
 				E1BD102B20766C1100287982 /* CreateRoomViewController */,
 				CE5FF78820766EB1005BEA3B /* MainVC */,
 				145C11FB2075F34800AB11F3 /* RoomManagementViewController */,
-				E14C41402074D0EB003571E8 /* SignedInDetailNewsViewController */,
-				E1E7D1F82071C83700874EB2 /* BeforeSignHomeViewController */,
-				E14C413B2074CF18003571E8 /* DetailNewsViewController */,
+				E14C41402074D0EB003571E8 /* DetailNewsViewController */,
 				E1A621CF2070D1FF00B83291 /* TestViewController */,
 				E153317B2068E19B00238763 /* SignUpViewController */,
 				E153317A2068E19000238763 /* LoginViewController */,
 				E15331792068E18100238763 /* ForgotPasswordViewController */,
-				E1E7D1F92071C87D00874EB2 /* SignedInHomeViewController */,
 				E104667020708FFE00245789 /* TutorialViewController */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		E1E7D1F82071C83700874EB2 /* BeforeSignHomeViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E1E7D1FA2071C8AC00874EB2 /* BeforeSignHomeViewController.swift */,
-				E1E7D1FB2071C8AC00874EB2 /* BeforeSignHomeViewController.xib */,
-				E1E7D204207224F000874EB2 /* ListNewsTableViewCell.swift */,
-				E1E7D205207224F000874EB2 /* ListNewsTableViewCell.xib */,
-			);
-			path = BeforeSignHomeViewController;
-			sourceTree = "<group>";
-		};
-		E1E7D1F92071C87D00874EB2 /* SignedInHomeViewController */ = {
-			isa = PBXGroup;
-			children = (
-				E1E7D1FE2071C8BD00874EB2 /* SignedInHomeViewController.swift */,
-				E1E7D1FF2071C8BD00874EB2 /* SignedInHomeViewController.xib */,
-			);
-			path = SignedInHomeViewController;
 			sourceTree = "<group>";
 		};
 		E2CC27CED042D3E9451DE207 /* Pods */ = {
@@ -532,6 +510,7 @@
 			files = (
 				E16F5B20207B69AE00B284A5 /* AccountOptionTableViewCell.xib in Resources */,
 				E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */,
+				E198DC222081829000E59BD2 /* ListNewsTableViewCell.xib in Resources */,
 				E1507BA3207D192F00387527 /* DetailRoomViewController.xib in Resources */,
 				E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */,
 				E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */,
@@ -539,19 +518,17 @@
 				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
 				E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */,
 				E1507BB2207DDA8B00387527 /* CalculateRoomPriceViewController.xib in Resources */,
-				E1E7D207207224F000874EB2 /* ListNewsTableViewCell.xib in Resources */,
-				E1E7D1FD2071C8AC00874EB2 /* BeforeSignHomeViewController.xib in Resources */,
 				E1BD102F20766C3500287982 /* CreateRoomViewController.xib in Resources */,
-				E14C41442074D107003571E8 /* SignedInDetailNewsViewController.xib in Resources */,
+				E198DC2620819C2E00E59BD2 /* RoomImageCollectionViewCell.xib in Resources */,
+				E14C41442074D107003571E8 /* DetailNewsViewController.xib in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
 				145C12072075FF5300AB11F3 /* ListRoomsTableViewCell.xib in Resources */,
 				E16F5B2A207B7D8E00B284A5 /* ChangeEmailViewController.xib in Resources */,
 				145C11FF2075F37E00AB11F3 /* RoomManagementViewController.xib in Resources */,
+				E198DC202081829000E59BD2 /* HomeViewController.xib in Resources */,
 				E16F5B2E207B84D900B284A5 /* ChangePasswordViewController.xib in Resources */,
-				E16F5B17207B5FB800B284A5 /* DetailNewsViewController.xib in Resources */,
 				E1507BBE207F59F300387527 /* SettingViewController.xib in Resources */,
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
-				E1E7D2012071C8BD00874EB2 /* SignedInHomeViewController.xib in Resources */,
 				E198761720672E2D008434CC /* Main.storyboard in Resources */,
 				E16F5B1C207B698E00B284A5 /* AccountViewController.xib in Resources */,
 				CE5FF78C20766ED0005BEA3B /* MainViewController.xib in Resources */,
@@ -652,21 +629,21 @@
 			files = (
 				E1507BA2207D192F00387527 /* DetailRoomViewController.swift in Sources */,
 				E104666E20708FF400245789 /* TutorialViewController.swift in Sources */,
-				E16F5B16207B5FB800B284A5 /* DetailNewsViewController.swift in Sources */,
+				E198DC212081829000E59BD2 /* HomeViewController.swift in Sources */,
 				E1A621D22070D23100B83291 /* TestViewController.swift in Sources */,
 				E1BD102620765FAD00287982 /* Room.swift in Sources */,
 				E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */,
 				145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */,
+				E198DC2520819C2E00E59BD2 /* RoomImageCollectionViewCell.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
 				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
 				E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */,
 				E1507BC02080972500387527 /* News.swift in Sources */,
-				E14C41432074D107003571E8 /* SignedInDetailNewsViewController.swift in Sources */,
+				E198DC1E2081829000E59BD2 /* ListNewsTableViewCell.swift in Sources */,
+				E14C41432074D107003571E8 /* DetailNewsViewController.swift in Sources */,
 				145C11FE2075F37E00AB11F3 /* RoomManagementViewController.swift in Sources */,
-				E1E7D2002071C8BD00874EB2 /* SignedInHomeViewController.swift in Sources */,
 				E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */,
 				E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */,
-				E1E7D206207224F000874EB2 /* ListNewsTableViewCell.swift in Sources */,
 				E16F5B1F207B69AE00B284A5 /* AccountOptionTableViewCell.swift in Sources */,
 				E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */,
 				E1507BB1207DDA8B00387527 /* CalculateRoomPriceViewController.swift in Sources */,
@@ -674,7 +651,6 @@
 				E16F5B31207BD35A00B284A5 /* Controller.swift in Sources */,
 				E1BD102E20766C3500287982 /* CreateRoomViewController.swift in Sources */,
 				E1507BA7207D195C00387527 /* EditRoomViewController.swift in Sources */,
-				E1E7D1FC2071C8AC00874EB2 /* BeforeSignHomeViewController.swift in Sources */,
 				E1BD102A207663E800287982 /* Extensions.swift in Sources */,
 				E16F5B29207B7D8E00B284A5 /* ChangeEmailViewController.swift in Sources */,
 				CE5FF78B20766ED0005BEA3B /* MainViewController.swift in Sources */,

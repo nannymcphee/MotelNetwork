@@ -23,6 +23,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var dbReference: DatabaseReference!
     var listNews = [News]()
+    var newsCount : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,31 +78,48 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: Database interaction
     
+    // Load newest posts
     func loadData() {
         
         let uid = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference()
+        let recentPostQuery = ref.child("Posts").child(uid!).child("MyPosts").queryLimited(toFirst: 100)
         
-        Database.database().reference().child("Posts").child(uid!).child("MyPosts").observe(.childAdded, with: { (snapshot) in
+        recentPostQuery.observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let news = News(dictionary: dictionary)
                 news.id = snapshot.key
                 self.listNews.append(news)
+                self.newsCount = self.listNews.count
+                self.lblNewsCount.text = "\(self.newsCount)"
                 
-                DispatchQueue.main.async(execute: {
+                DispatchQueue.main.async {
                     self.reloadInputViews()
-                })
+                }
                 
                 let priceStr = dictionary["price"] as? String
+                let waterPriceStr = dictionary["waterPrice"] as? String
+                let electricPriceStr = dictionary["electricPrice"] as? String
+                let internetPriceStr = dictionary["internetPrice"] as? String
+                
                 news.price = Double(priceStr ?? "0.0")
+                news.waterPrice = Double(waterPriceStr ?? "0.0")
+                news.electricPrice = Double(electricPriceStr ?? "0.0")
+                news.internetPrice = Double(internetPriceStr ?? "0.0")
                 news.area = dictionary["area"] as? String
                 news.district = dictionary["district"] as? String
                 news.title = dictionary["title"] as? String
+                news.address = dictionary["address"] as? String
+                news.description = dictionary["description"] as? String
+                news.phoneNumber = dictionary["phoneNumber"] as? String
+                news.user = dictionary["user"] as? String
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
+                news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
+                news.postDate = dictionary["postDate"] as? String
             }
         }, withCancel: nil)
     }
-    
     
     
     //MARK: Logic for UITableView
@@ -124,7 +142,10 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let vc = SignedInDetailNewsViewController()
+        let news = listNews[indexPath.row]
+        let vc = DetailNewsViewController()
+        
+        vc.currentNews = news
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     

@@ -22,7 +22,7 @@ class News {
     var phoneNumber: String?
     var postDate: String?
     var user: String?
-    var userImageUrl: String?
+    var userProfileImageUrl: String?
     var price: Double?
     var electricPrice: Double?
     var waterPrice: Double?
@@ -31,7 +31,7 @@ class News {
     init() {
     }
     
-    init(id: String, title: String, area: String, address: String, postImageUrl0: String, postImageUrl1: String, postImageUrl2: String, user: String, district: String, description: String, phoneNumber: String, postDate: String, userImageUrl: String, price: Double, electricPrice: Double, waterPrice: Double, internetPrice: Double) {
+    init(id: String, title: String, area: String, address: String, postImageUrl0: String, postImageUrl1: String, postImageUrl2: String, user: String, district: String, description: String, phoneNumber: String, postDate: String, userProfileImageUrl: String, price: Double, electricPrice: Double, waterPrice: Double, internetPrice: Double) {
         
         self.id = id
         self.title = title
@@ -49,7 +49,7 @@ class News {
         self.electricPrice = electricPrice
         self.phoneNumber = phoneNumber
         self.postDate = postDate
-        self.userImageUrl = userImageUrl
+        self.userProfileImageUrl = userProfileImageUrl
     }
     
     init(dictionary: [String: AnyObject]) {
@@ -61,10 +61,11 @@ class News {
         self.waterPrice = dictionary["waterPrice"] as? Double
         self.internetPrice = dictionary["internetPrice"] as? Double
         self.user = dictionary["user"] as? String
+        self.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
         self.postImageUrl0 = dictionary["postImageUrl0"] as? String
         self.postImageUrl1 = dictionary["postImageUrl0"] as? String
         self.postImageUrl2 = dictionary["postImageUrl0"] as? String
-        self.userImageUrl = dictionary["userImageUrl"] as? String
+        self.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
         self.description = dictionary["description"] as? String
         self.district = dictionary["district"] as? String
         self.address = dictionary["address"] as? String

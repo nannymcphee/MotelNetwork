@@ -8,18 +8,14 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 import SwipeBack
 import NVActivityIndicatorView
 
-class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NVActivityIndicatorViewable {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NVActivityIndicatorViewable {
     
 
     @IBOutlet weak var tbListNews: UITableView!
-    @IBOutlet weak var sbSearch: UISearchBar! {
-        didSet {
-            sbSearch.changeTextFont(textFont: UIFont(name: "Helvetica Neue", size: 14))
-        }
-    }
     @IBOutlet weak var btnNews: UIButton!
     @IBOutlet weak var btnMostView: UIButton!
     @IBOutlet weak var btnNearMe: UIButton!
@@ -28,7 +24,7 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var vNearMeProgress: UIView!
     
     
-    var listNews = [Room]()
+    var listNews = [News]()
     var listMostView = [Room]()
     var listNearMe = [Room]()
     
@@ -39,9 +35,8 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpView()
         loadData()
-        
+        setUpView()
         
         tbListNews.delegate = self
         tbListNews.dataSource = self
@@ -59,7 +54,6 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-//        swipeToPop_Root()
         tbListNews.reloadData()
     }
 
@@ -71,34 +65,46 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
+    //MARK: Database interaction
+    
     func loadData() {
         
+        let uid = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference()
+        let recentPostQuery = ref.child("Posts").child(uid!).child("MyPosts").queryLimited(toFirst: 100)
         
-        //list new
-        let room1 = Room(id: "1", name: "Phòng 1", area: "25m2", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
-        let room2 = Room(id: "1", name: "Phòng 2", area: "25m2", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
-        let room3 = Room(id: "1", name: "Phòng 3", area: "25m2", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
-        let room4 = Room(id: "1", name: "Phòng 4", area: "25m2", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
-        listNews.append(room1)
-        listNews.append(room2)
-        listNews.append(room3)
-        listNews.append(room4)
-        
-        //list Mostview
-        let room5 = Room(id: "1", name: "Phòng 5", area: "25m2", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
-        let room6 = Room(id: "1", name: "Phòng 6", area: "25m2", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
-
-        listMostView.append(room5)
-        listMostView.append(room6)
-        
-        //list Near me
-        let room7 = Room(id: "1", name: "Phòng 7", area: "25m2", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
-        let room8 = Room(id: "1", name: "Phòng 8", area: "25m2", roomImageUrl0: "", roomImageUrl1: "", roomImageUrl2: "", user: "Nguyễn Văn A", price: 3000000)
-
-        listNearMe.append(room7)
-        listNearMe.append(room8)
-        
-        
+        recentPostQuery.observe(.childAdded, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let news = News(dictionary: dictionary)
+                news.id = snapshot.key
+                self.listNews.append(news)
+                
+                DispatchQueue.main.async {
+                    self.reloadInputViews()
+                }
+                
+                let priceStr = dictionary["price"] as? String
+                let waterPriceStr = dictionary["waterPrice"] as? String
+                let electricPriceStr = dictionary["electricPrice"] as? String
+                let internetPriceStr = dictionary["internetPrice"] as? String
+                
+                news.price = Double(priceStr ?? "0.0")
+                news.waterPrice = Double(waterPriceStr ?? "0.0")
+                news.electricPrice = Double(electricPriceStr ?? "0.0")
+                news.internetPrice = Double(internetPriceStr ?? "0.0")
+                news.area = dictionary["area"] as? String
+                news.district = dictionary["district"] as? String
+                news.title = dictionary["title"] as? String
+                news.address = dictionary["address"] as? String
+                news.description = dictionary["description"] as? String
+                news.phoneNumber = dictionary["phoneNumber"] as? String
+                news.user = dictionary["user"] as? String
+                news.postImageUrl0 = dictionary["postImageUrl0"] as? String
+                news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
+                news.postDate = dictionary["postDate"] as? String
+            }
+        }, withCancel: nil)
     }
     
     //MARK: Handle button pressed
@@ -150,7 +156,7 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     
     func setColorAndFontButton(buttonEnable: UIButton, buttonDisable1: UIButton, buttonDisable2: UIButton) {
         
-        let colorEnable = UIColor.black
+        let colorEnable = UIColor.init(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
         let colorDisable = UIColor.lightGray
         
         buttonEnable.setTitleColor(colorEnable, for: .normal)
@@ -182,8 +188,8 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbListNews.dequeueReusableCell(withIdentifier: "ListNewsTableViewCell") as! ListNewsTableViewCell
         if isNew {
-            let room = listNews[indexPath.row]
-            cell.populateData(room: room)
+            let news = listNews[indexPath.row]
+            cell.populateData(news: news)
             
         }
         if isMostView {
@@ -204,7 +210,10 @@ class BeforeSignHomeViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = SignedInDetailNewsViewController()
+        let vc = DetailNewsViewController()
+        let news = listNews[indexPath.row]
+        
+        vc.currentNews = news
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     

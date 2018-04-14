@@ -26,6 +26,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     var dbReference: DatabaseReference!
     var listRooms = [Room]()
+    var roomsCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,13 +86,17 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     func loadData() {
         
         let uid = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference()
+        let queryOrderByRoomName = ref.child("Rooms").child(uid!).child("MyRooms").queryOrdered(byChild: "RoomName")
         
-        Database.database().reference().child("Rooms").child(uid!).child("MyRooms").observe(.childAdded, with: { (snapshot) in
+        queryOrderByRoomName.observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let room = Room(dictionary: dictionary)
                 room.id = snapshot.key
                 self.listRooms.append(room)
+                self.roomsCount = self.listRooms.count
+                self.lblRoomCount.text = "\(self.roomsCount)"
                 
                 DispatchQueue.main.async(execute: {
                     self.reloadInputViews()
@@ -103,6 +108,10 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
                 room.area = dictionary["Area"] as? String
                 room.user = dictionary["User"] as? String
                 room.roomImageUrl0 = dictionary["roomImageUrl0"] as? String
+                room.roomImageUrl1 = dictionary["roomImageUrl1"] as? String
+                room.roomImageUrl2 = dictionary["roomImageUrl2"] as? String
+                
+               
             }
         }, withCancel: nil)
     }
@@ -125,7 +134,11 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let room = listRooms[indexPath.row]
         let vc = DetailRoomViewController()
+        
+        vc.currentRoom = room
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     

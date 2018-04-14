@@ -169,7 +169,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let storageRef = Storage.storage().reference().child("PostImages").child(uid!).child("\(imageName).jpg")
         let storeImage = storageRef
         
-        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 0.2) {
+        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 0.7) {
             
             storeImage.putData(uploadImageData, metadata: nil, completion: { (metaData, error) in
                 storeImage.downloadURL(completion: { (url, error) in
@@ -310,7 +310,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 self.storePostInformationToDatabase(uid, values: ["postImageUrl2": url as AnyObject])
             }
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
                 self.showAlert(alertMessage: messageNewPostSuccess)
             })
             

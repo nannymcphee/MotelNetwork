@@ -15,8 +15,7 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
     var listViewController = [UIViewController]()
     var tabbarController: UITabBarController = UITabBarController()
     
-    var vcHomeScreen = BeforeSignHomeViewController()
-    var vcPurchase = SignedInHomeViewController()
+    var vcHomeScreen = HomeViewController()
     var vcRoomManager = RoomManagementViewController()
     var vcAccount = AccountViewController()
     var vcSetting = SettingViewController()

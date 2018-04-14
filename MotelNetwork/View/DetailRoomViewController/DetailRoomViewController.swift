@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
+import Kingfisher
 
 class DetailRoomViewController: UIViewController {
 
@@ -21,16 +24,67 @@ class DetailRoomViewController: UIViewController {
     @IBOutlet weak var lblUser: UILabel!
     @IBOutlet weak var btnCalculate: UIButton!
     
+    var currentRoom = Room()
+    var dbReference: DatabaseReference!
+    var imageUrlsArray = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setUpView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //MARK: Set up view
+    
+    func setUpView() {
+        
+        fetchUser()
+        
+        let roomImageUrl0 = currentRoom.roomImageUrl0
+        let roomImageUrl1 = currentRoom.roomImageUrl1
+        let roomImageUrl2 = currentRoom.roomImageUrl2
+        let resource = ImageResource(downloadURL: URL(string: roomImageUrl0!)!)
+        
+        imageUrlsArray.append(roomImageUrl0!)
+        imageUrlsArray.append(roomImageUrl1!)
+        imageUrlsArray.append(roomImageUrl2!)
+        
+        numberFormatter.numberStyle = .decimal
+        lblPrice.text = numberFormatter.string(from: currentRoom.price! as NSNumber)
+        lblRoomName.text = currentRoom.name
+        lblArea.text = String("\(currentRoom.area ?? "")m2")
+        lblUser.text = currentRoom.user
+        ivRoomImage.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage"), options: nil, progressBlock: nil, completionHandler: nil)
+        
+        makeButtonRounded(button: btnCalculate)
+        makeImageViewRounded(imageView: ivAvatar)
+    }
+    
+    //MARK: Database interaction
+    
+    func fetchUser() {
+        
+        let uid = Auth.auth().currentUser?.uid
+        
+        dbReference = Database.database().reference()
+        dbReference.child("Users").child(uid!).observe(.value) { (snapshot) in
+            
+            // Get user value
+            let value = snapshot.value as! NSDictionary
+            let userName = value["FullName"] as? String ?? ""
+            let profileImageUrl = value["ProfileImageUrl"] as? String ?? ""
+            
+            self.lblFullName.text = userName
+            let resource = ImageResource(downloadURL: URL(string: profileImageUrl)!)
+            self.ivAvatar.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
+        }
+    }
+    
     
 
     //MARK: Handle button pressed
@@ -48,7 +102,10 @@ class DetailRoomViewController: UIViewController {
     
     @IBAction func btnCalculatePressed(_ sender: Any) {
         
+        let room = currentRoom
         let vc = CalculateRoomPriceViewController()
+        
+        vc.currentRoom = room
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     
