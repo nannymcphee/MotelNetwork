@@ -116,6 +116,9 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         }, withCancel: nil)
     }
     
+
+    
+    
     //MARK: Logic for UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listRooms.count
@@ -166,8 +169,8 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         action.image = #imageLiteral(resourceName: "icEdit")
-//        action.backgroundColor = UIColor(red: 90/255, green: 94/255, blue: 208/255, alpha: 1.0)
         action.backgroundColor = UIColor(red: 34/255, green: 119/255, blue: 233/255, alpha: 1.0)
+        
         return action
     }
     
@@ -176,12 +179,21 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         let action = UIContextualAction(style: .destructive, title: "") { (action, view, nil) in
             
             // Query delete from database
-            print("Delete pressed!")
+            let room = self.listRooms[indexPath.row]
+            let roomID = room.id
+            let uid = Auth.auth().currentUser?.uid
+            let ref = Database.database().reference().child("Rooms").child(uid!).child("MyRooms").child(roomID!)
             
-//            self.tbRoomManagement.deleteRows(at: [indexPath], with: .automatic)
+            self.deleteData(reference: ref)
+            self.listRooms.remove(at: indexPath.row)
+            self.tbRoomManagement.deleteRows(at: [indexPath], with: .automatic)
+            self.tbRoomManagement.reloadData()
+            self.roomsCount = self.listRooms.count
+            self.lblRoomCount.text = "\(self.roomsCount)"
         }
         
         action.image = #imageLiteral(resourceName: "icDelete")
+        
         return action
     }
     
@@ -204,9 +216,9 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     //MARK: Handle button pressed
     
     @IBAction func btnCreateRoomPressed(_ sender: Any) {
+        
         let vc = CreateRoomViewController()
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
-
     }
     
  

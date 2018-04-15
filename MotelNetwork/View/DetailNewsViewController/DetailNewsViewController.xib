@@ -128,7 +128,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="VCu-ab-rF1">
-                                                    <rect key="frame" x="16" y="484.5" width="68.5" height="81.5"/>
+                                                    <rect key="frame" x="8" y="649" width="68.5" height="81.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liên hệ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="380-xa-DCU">
                                                             <rect key="frame" x="0.0" y="0.0" width="46" height="16.5"/>
@@ -150,16 +150,6 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvD-H7-8L8">
-                                                    <rect key="frame" x="16" y="348.5" width="343" height="120"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="120" id="6Xc-Yp-lJk"/>
-                                                    </constraints>
-                                                    <string key="text">Chính chủ cần cho thuê phòng trọ đầu hẻm 100 Thích Quảng Đức, hẻm an ninh có camera, giá từ 4-6tr tùy phòng. Phòng đẹp, đầy đủ nội thất, giờ giấc thoải mái cho các bạn sinh viên đi học và làm việc. Chi tiết liên hệ 0979084007 (Duy)</string>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Vk9-d8-Zc3">
                                                     <rect key="frame" x="42" y="252" width="16" height="80"/>
                                                     <subviews>
@@ -204,6 +194,32 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="BcX-9T-heK">
+                                                    <rect key="frame" x="217.5" y="252" width="16" height="80"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icElectricity" translatesAutoresizingMaskIntoConstraints="NO" id="iTX-73-l1e">
+                                                            <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="16" id="1XN-nD-i2i"/>
+                                                                <constraint firstAttribute="height" constant="16" id="NMN-R7-0p9"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icWater" translatesAutoresizingMaskIntoConstraints="NO" id="z9m-li-Pwy">
+                                                            <rect key="frame" x="0.0" y="32" width="16" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="16" id="2Nv-1p-8ZR"/>
+                                                                <constraint firstAttribute="height" constant="16" id="Ti4-s7-9Wu"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icWifi" translatesAutoresizingMaskIntoConstraints="NO" id="MiJ-4z-1f3">
+                                                            <rect key="frame" x="0.0" y="64" width="16" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="16" id="wEk-vr-iMA"/>
+                                                                <constraint firstAttribute="height" constant="16" id="yRF-js-qS9"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCg-bP-Mha">
                                                     <rect key="frame" x="253.5" y="252" width="8" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -223,7 +239,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XRv-1X-jyX">
-                                                    <rect key="frame" x="98" y="484.5" width="277" height="98"/>
+                                                    <rect key="frame" x="84.5" y="649" width="290.5" height="98"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0979084007" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpI-3s-HtO">
                                                             <rect key="frame" x="0.0" y="0.0" width="78" height="16.5"/>
@@ -244,6 +260,9 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="290.5" id="efq-Sb-dWY"/>
+                                                    </constraints>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="đ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCW-IM-DEP">
                                                     <rect key="frame" x="149" y="315.5" width="8.5" height="16.5"/>
@@ -275,32 +294,22 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="BcX-9T-heK">
-                                                    <rect key="frame" x="217.5" y="252" width="16" height="80"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icElectricity" translatesAutoresizingMaskIntoConstraints="NO" id="iTX-73-l1e">
-                                                            <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="16" id="1XN-nD-i2i"/>
-                                                                <constraint firstAttribute="height" constant="16" id="NMN-R7-0p9"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icWater" translatesAutoresizingMaskIntoConstraints="NO" id="z9m-li-Pwy">
-                                                            <rect key="frame" x="0.0" y="32" width="16" height="16"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="16" id="2Nv-1p-8ZR"/>
-                                                                <constraint firstAttribute="height" constant="16" id="Ti4-s7-9Wu"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icWifi" translatesAutoresizingMaskIntoConstraints="NO" id="MiJ-4z-1f3">
-                                                            <rect key="frame" x="0.0" y="64" width="16" height="16"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="16" id="wEk-vr-iMA"/>
-                                                                <constraint firstAttribute="height" constant="16" id="yRF-js-qS9"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                    </subviews>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mô tả" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPp-zh-EYv">
+                                                    <rect key="frame" x="16" y="348" width="42" height="19"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvD-H7-8L8">
+                                                    <rect key="frame" x="16" y="383" width="343" height="250"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="250" id="8e3-Rk-CCU"/>
+                                                    </constraints>
+                                                    <string key="text">Chính chủ cần cho thuê phòng trọ đầu hẻm 100 Thích Quảng Đức, hẻm an ninh có camera, giá từ 4-6tr tùy phòng. Phòng đẹp, đầy đủ nội thất, giờ giấc thoải mái cho các bạn sinh viên đi học và làm việc. Chi tiết liên hệ 0979084007 (Duy)</string>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -308,35 +317,37 @@
                                                 <constraint firstItem="7zF-vx-ujd" firstAttribute="centerY" secondItem="kEU-b8-vCk" secondAttribute="centerY" id="4CM-7h-3IW"/>
                                                 <constraint firstItem="wO4-zQ-i4w" firstAttribute="top" secondItem="eC8-ot-QvG" secondAttribute="bottom" constant="16" id="4gd-Kj-svi"/>
                                                 <constraint firstItem="wO4-zQ-i4w" firstAttribute="leading" secondItem="qIP-Nr-r9d" secondAttribute="leading" constant="16" id="4lk-L0-MXp"/>
+                                                <constraint firstItem="jvD-H7-8L8" firstAttribute="leading" secondItem="qIP-Nr-r9d" secondAttribute="leading" constant="16" id="5A6-Oc-Jxt"/>
                                                 <constraint firstItem="bCg-bP-Mha" firstAttribute="centerY" secondItem="iTX-73-l1e" secondAttribute="centerY" id="5p5-ha-4Yq"/>
-                                                <constraint firstAttribute="trailing" secondItem="jvD-H7-8L8" secondAttribute="trailing" constant="16" id="8hi-BT-a3l"/>
                                                 <constraint firstItem="jii-cz-tYv" firstAttribute="centerY" secondItem="ZV2-J8-P9U" secondAttribute="centerY" id="97b-4N-xFW"/>
                                                 <constraint firstAttribute="trailing" secondItem="eC8-ot-QvG" secondAttribute="trailing" id="9jd-2x-sQs"/>
                                                 <constraint firstItem="xdX-1b-4Np" firstAttribute="leading" secondItem="Vk9-d8-Zc3" secondAttribute="trailing" constant="20" id="Ba2-11-gNf"/>
                                                 <constraint firstItem="eC8-ot-QvG" firstAttribute="leading" secondItem="qIP-Nr-r9d" secondAttribute="leading" id="Bhx-vL-fT9"/>
-                                                <constraint firstItem="jvD-H7-8L8" firstAttribute="top" secondItem="kEU-b8-vCk" secondAttribute="bottom" constant="16" id="HWU-jw-rpV"/>
+                                                <constraint firstItem="WPp-zh-EYv" firstAttribute="leading" secondItem="qIP-Nr-r9d" secondAttribute="leading" constant="16" id="HBl-pS-OMJ"/>
                                                 <constraint firstItem="B04-gh-fau" firstAttribute="leading" secondItem="xdX-1b-4Np" secondAttribute="trailing" id="I29-4Z-s8e"/>
                                                 <constraint firstItem="BcX-9T-heK" firstAttribute="leading" secondItem="aCW-IM-DEP" secondAttribute="trailing" constant="60" id="J0C-6i-BWk"/>
-                                                <constraint firstItem="XRv-1X-jyX" firstAttribute="top" secondItem="jvD-H7-8L8" secondAttribute="bottom" constant="16" id="K4K-z8-wXS"/>
                                                 <constraint firstItem="7zF-vx-ujd" firstAttribute="leading" secondItem="kEU-b8-vCk" secondAttribute="trailing" id="PPL-Mi-TO1"/>
                                                 <constraint firstItem="Vk9-d8-Zc3" firstAttribute="leading" secondItem="qIP-Nr-r9d" secondAttribute="leading" constant="42" id="ShF-Hi-drC"/>
+                                                <constraint firstItem="XRv-1X-jyX" firstAttribute="leading" secondItem="VCu-ab-rF1" secondAttribute="trailing" constant="8" id="TuG-9w-HRD"/>
                                                 <constraint firstItem="B04-gh-fau" firstAttribute="centerY" secondItem="xdX-1b-4Np" secondAttribute="centerY" id="VQ0-Si-btW"/>
                                                 <constraint firstItem="BcX-9T-heK" firstAttribute="top" secondItem="wO4-zQ-i4w" secondAttribute="bottom" constant="16" id="WFb-gJ-dpU"/>
-                                                <constraint firstItem="jvD-H7-8L8" firstAttribute="leading" secondItem="qIP-Nr-r9d" secondAttribute="leading" constant="16" id="WRe-TP-IFZ"/>
                                                 <constraint firstItem="te7-kh-fft" firstAttribute="centerY" secondItem="z9m-li-Pwy" secondAttribute="centerY" id="WY4-RL-a15"/>
                                                 <constraint firstItem="kEU-b8-vCk" firstAttribute="leading" secondItem="BcX-9T-heK" secondAttribute="trailing" constant="20" id="XZ8-fz-hBq"/>
                                                 <constraint firstItem="kEU-b8-vCk" firstAttribute="centerY" secondItem="MiJ-4z-1f3" secondAttribute="centerY" id="Xfx-c1-Mzr"/>
                                                 <constraint firstItem="8i1-UX-uxn" firstAttribute="centerY" secondItem="bCg-bP-Mha" secondAttribute="centerY" id="YXb-Zr-vmg"/>
-                                                <constraint firstItem="VCu-ab-rF1" firstAttribute="leading" secondItem="qIP-Nr-r9d" secondAttribute="leading" constant="16" id="YnE-YG-brb"/>
-                                                <constraint firstItem="VCu-ab-rF1" firstAttribute="top" secondItem="jvD-H7-8L8" secondAttribute="bottom" constant="16" id="aJV-Hz-tpu"/>
+                                                <constraint firstAttribute="trailing" secondItem="jvD-H7-8L8" secondAttribute="trailing" constant="16" id="aPi-DD-xBd"/>
                                                 <constraint firstItem="yQc-pW-mwh" firstAttribute="centerY" secondItem="te7-kh-fft" secondAttribute="centerY" id="bAx-hf-mfn"/>
+                                                <constraint firstItem="VCu-ab-rF1" firstAttribute="leading" secondItem="qIP-Nr-r9d" secondAttribute="leading" constant="8" id="dYO-l9-VqQ"/>
+                                                <constraint firstItem="XRv-1X-jyX" firstAttribute="top" secondItem="jvD-H7-8L8" secondAttribute="bottom" constant="16" id="gui-os-j3R"/>
+                                                <constraint firstItem="WPp-zh-EYv" firstAttribute="top" secondItem="Vk9-d8-Zc3" secondAttribute="bottom" constant="16" id="hE3-7M-blE"/>
                                                 <constraint firstItem="bCg-bP-Mha" firstAttribute="leading" secondItem="BcX-9T-heK" secondAttribute="trailing" constant="20" id="hig-xO-Cg8"/>
-                                                <constraint firstItem="XRv-1X-jyX" firstAttribute="leading" secondItem="VCu-ab-rF1" secondAttribute="trailing" constant="14" id="iZf-5g-M2A"/>
+                                                <constraint firstAttribute="trailing" secondItem="XRv-1X-jyX" secondAttribute="trailing" id="jR3-hz-sZl"/>
                                                 <constraint firstItem="8i1-UX-uxn" firstAttribute="leading" secondItem="bCg-bP-Mha" secondAttribute="trailing" id="lgR-R9-DnN"/>
-                                                <constraint firstAttribute="trailing" secondItem="XRv-1X-jyX" secondAttribute="trailing" id="nfE-zM-KCl"/>
+                                                <constraint firstItem="jvD-H7-8L8" firstAttribute="top" secondItem="WPp-zh-EYv" secondAttribute="bottom" constant="16" id="nc4-fO-6v8"/>
                                                 <constraint firstItem="xdX-1b-4Np" firstAttribute="centerY" secondItem="XVG-Hx-IXj" secondAttribute="centerY" id="pA7-xu-7fB"/>
                                                 <constraint firstItem="te7-kh-fft" firstAttribute="leading" secondItem="BcX-9T-heK" secondAttribute="trailing" constant="20" id="pZ2-F3-GRq"/>
                                                 <constraint firstItem="aCW-IM-DEP" firstAttribute="centerY" secondItem="jii-cz-tYv" secondAttribute="centerY" id="pwT-C7-6gm"/>
+                                                <constraint firstItem="VCu-ab-rF1" firstAttribute="top" secondItem="jvD-H7-8L8" secondAttribute="bottom" constant="16" id="t5j-lO-gHJ"/>
                                                 <constraint firstItem="jii-cz-tYv" firstAttribute="leading" secondItem="Vk9-d8-Zc3" secondAttribute="trailing" constant="20" id="uk7-mM-wA8"/>
                                                 <constraint firstItem="itQ-90-hGd" firstAttribute="leading" secondItem="Vk9-d8-Zc3" secondAttribute="trailing" constant="20" id="vc4-sn-5kH"/>
                                                 <constraint firstItem="aCW-IM-DEP" firstAttribute="leading" secondItem="jii-cz-tYv" secondAttribute="trailing" id="wt6-MS-NhG"/>

@@ -22,6 +22,7 @@ class CalculateRoomPriceViewController: UIViewController {
     @IBOutlet weak var tfElectricPrice: UITextField!
     @IBOutlet weak var tfUserCount: UITextField!
     @IBOutlet weak var tfUser: UITextField!
+    @IBOutlet weak var tfReason: UITextField!
     
     var currentRoom = Room()
     var roomPrice: Double = 0.0
@@ -127,6 +128,7 @@ class CalculateRoomPriceViewController: UIViewController {
             var totalElectricPriceStr = String(totalElectricPrice)
             var internetPriceStr = String(internetPrice)
             var otherPriceStr = String(otherPrice)
+            let reason = tfReason.text!
             priceStr = numberFormatter.string(from: totalPrice as NSNumber)!
             roomPriceStr = numberFormatter.string(from: roomPrice as NSNumber)!
             totalWaterPriceStr = numberFormatter.string(from: totalWaterPrice as NSNumber)!
@@ -134,7 +136,7 @@ class CalculateRoomPriceViewController: UIViewController {
             internetPriceStr = numberFormatter.string(from: internetPrice as NSNumber)!
             otherPriceStr = numberFormatter.string(from: otherPrice as NSNumber)!
             
-            showAlert(alertMessage: "Tiền phòng là: \(priceStr)đ. Chi tiết:\nTiền phòng: \(roomPriceStr)đ\nTiền điện: \(totalElectricPriceStr)đ\nTiền nước: \(totalWaterPriceStr)đ\nTiền internet: \(internetPriceStr)đ\nPhụ thu: \(otherPriceStr)đ")
+            showAlert(alertMessage: "Tiền phòng là: \(priceStr)đ. Chi tiết:\nTiền phòng: \(roomPriceStr)đ\nTiền điện: \(totalElectricPriceStr)đ\nTiền nước: \(totalWaterPriceStr)đ\nTiền internet: \(internetPriceStr)đ\nPhụ thu: \(otherPriceStr)đ\nLí do phụ thu: \(reason)")
             
             resetView()
         }

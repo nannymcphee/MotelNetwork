@@ -51,6 +51,8 @@
 		E198DC202081829000E59BD2 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E198DC1B2081829000E59BD2 /* HomeViewController.xib */; };
 		E198DC212081829000E59BD2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198DC1C2081829000E59BD2 /* HomeViewController.swift */; };
 		E198DC222081829000E59BD2 /* ListNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E198DC1D2081829000E59BD2 /* ListNewsTableViewCell.xib */; };
+		E198DC2A2082F6BB00E59BD2 /* EditPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198DC282082F6BB00E59BD2 /* EditPostViewController.swift */; };
+		E198DC2B2082F6BB00E59BD2 /* EditPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E198DC292082F6BB00E59BD2 /* EditPostViewController.xib */; };
 		E1A621D22070D23100B83291 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A621D02070D23100B83291 /* TestViewController.swift */; };
 		E1A621D32070D23100B83291 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A621D12070D23100B83291 /* TestViewController.xib */; };
 		E1BD102620765FAD00287982 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD102520765FAD00287982 /* Room.swift */; };
@@ -116,6 +118,8 @@
 		E198DC1B2081829000E59BD2 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		E198DC1C2081829000E59BD2 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E198DC1D2081829000E59BD2 /* ListNewsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListNewsTableViewCell.xib; sourceTree = "<group>"; };
+		E198DC282082F6BB00E59BD2 /* EditPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPostViewController.swift; sourceTree = "<group>"; };
+		E198DC292082F6BB00E59BD2 /* EditPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditPostViewController.xib; sourceTree = "<group>"; };
 		E1A621D02070D23100B83291 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E1A621D12070D23100B83291 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		E1BD102520765FAD00287982 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
@@ -372,6 +376,15 @@
 			path = HomeViewController;
 			sourceTree = "<group>";
 		};
+		E198DC272082F69200E59BD2 /* EditPostViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E198DC282082F6BB00E59BD2 /* EditPostViewController.swift */,
+				E198DC292082F6BB00E59BD2 /* EditPostViewController.xib */,
+			);
+			path = EditPostViewController;
+			sourceTree = "<group>";
+		};
 		E1A621CF2070D1FF00B83291 /* TestViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +416,7 @@
 		E1E7D1F72071C7D300874EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E198DC272082F69200E59BD2 /* EditPostViewController */,
 				E198DC182081829000E59BD2 /* HomeViewController */,
 				E1507BBA207F59E000387527 /* SettingViewController */,
 				E1507BAE207DDA7300387527 /* CalculateRoomPriceViewController */,
@@ -508,6 +522,7 @@
 				E1507BA3207D192F00387527 /* DetailRoomViewController.xib in Resources */,
 				E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */,
 				E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */,
+				E198DC2B2082F6BB00E59BD2 /* EditPostViewController.xib in Resources */,
 				E1507BA8207D195C00387527 /* EditRoomViewController.xib in Resources */,
 				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
 				E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */,
@@ -648,6 +663,7 @@
 				CE5FF78B20766ED0005BEA3B /* MainViewController.swift in Sources */,
 				CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */,
 				E198761220672E2D008434CC /* AppDelegate.swift in Sources */,
+				E198DC2A2082F6BB00E59BD2 /* EditPostViewController.swift in Sources */,
 				E16F5B2D207B84D900B284A5 /* ChangePasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

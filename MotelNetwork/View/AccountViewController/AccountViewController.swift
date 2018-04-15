@@ -149,6 +149,56 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let edit = editAction(at: indexPath)
+        let delete = deleteAction(at: indexPath)
+        let config = UISwipeActionsConfiguration(actions: [delete, edit])
+        
+        config.performsFirstActionWithFullSwipe = false
+        
+        return config
+    }
+    
+    func editAction(at indexPath: IndexPath) -> UIContextualAction {
+
+        let news = listNews[indexPath.row]
+        let action = UIContextualAction(style: .normal, title: "") { (action, view, nil) in
+
+            let vc = EditPostViewController()
+            vc.currentNews = news
+            (UIApplication.shared.delegate as? AppDelegate)?.navigationController?.pushViewController(vc, animated: true)
+        }
+
+        action.image = #imageLiteral(resourceName: "icEdit")
+        action.backgroundColor = UIColor(red: 34/255, green: 119/255, blue: 233/255, alpha: 1.0)
+
+        return action
+    }
+    
+    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
+        
+        let action = UIContextualAction(style: .destructive, title: "") { (action, view, nil) in
+            
+            // Query delete from database
+            let news = self.listNews[indexPath.row]
+            let newsID = news.id
+            let uid = Auth.auth().currentUser?.uid
+            let ref = Database.database().reference().child("Posts").child(uid!).child("MyPosts").child(newsID!)
+            
+            self.deleteData(reference: ref)
+            self.listNews.remove(at: indexPath.row)
+            self.tbNews.deleteRows(at: [indexPath], with: .automatic)
+            self.tbNews.reloadData()
+            self.newsCount = self.listNews.count
+            self.lblNewsCount.text = "\(self.newsCount)"
+        }
+        
+        action.image = #imageLiteral(resourceName: "icDelete")
+        
+        return action
+    }
+    
     //MARK: Handle button pressed
     
     @IBAction func btnNewPostPressed(_ sender: Any) {

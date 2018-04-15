@@ -204,6 +204,16 @@ extension UIViewController {
         }
     }
     
+    // Delete data from database
+    func deleteData(reference: DatabaseReference) {
+        
+        reference.removeValue { (error, ref) in
+            if let error = error {
+                print(error)
+            }
+        }
+    }
+    
     
     //MARK: Tap anywhere to dismiss keyboard
     

@@ -106,6 +106,9 @@ class DetailRoomViewController: UIViewController {
     @IBAction func btnEditPressed(_ sender: Any) {
         
         let vc = EditRoomViewController()
+        let room = currentRoom
+        
+        vc.currentRoom = room
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     
