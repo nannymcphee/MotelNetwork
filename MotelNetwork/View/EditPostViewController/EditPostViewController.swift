@@ -75,7 +75,33 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate 
         currentDate = str
     }
     
-    //Mark: Convert selected assets to image
+    //Mark: Logic for BSImageViewPicker
+    
+    func showImageViewPicker() {
+        
+        let vc = BSImagePickerViewController()
+        vc.maxNumberOfSelections = 3
+        self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
+        }, deselect: { (asset: PHAsset) in
+            
+        }, cancel: { (asset: [PHAsset]) in
+            
+        }, finish: { (asset: [PHAsset]) in
+            
+            if asset.count < 3 {
+                self.showAlert(alertMessage: "Vui lòng chọn 3 hình.")
+            }
+            else {
+                for i in 0..<asset.count {
+                    self.selectedAssets.append(asset[i])
+                }
+                
+                self.convertAssetToImages()
+                
+                return
+            }
+        }, completion: nil)
+    }
     
     func convertAssetToImages() -> Void {
         
@@ -136,22 +162,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate 
     
     @IBAction func btnAddImagePressed(_ sender: Any) {
         
-        let vc = BSImagePickerViewController()
-        vc.maxNumberOfSelections = 3
-        self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
-            
-        }, deselect: { (asset: PHAsset) in
-            
-        }, cancel: { (asset: [PHAsset]) in
-            
-        }, finish: { (asset: [PHAsset]) in
-            
-            for i in 0..<asset.count {
-                self.selectedAssets.append(asset[i])
-            }
-            
-            self.convertAssetToImages()
-        }, completion: nil)
+        showImageViewPicker()
     }
     
     @IBAction func btnBackPressed(_ sender: Any) {

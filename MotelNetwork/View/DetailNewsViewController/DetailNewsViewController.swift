@@ -15,6 +15,7 @@ import Kingfisher
 class DetailNewsViewController: UIViewController {
     
     
+    @IBOutlet weak var btnEdit: UIButton!
     @IBOutlet weak var btnBack2: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblUserName: UILabel!
@@ -90,6 +91,15 @@ class DetailNewsViewController: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
     
+    
+    @IBAction func btnEditPressed(_ sender: Any) {
+        
+        let news = currentNews
+        let vc = EditPostViewController()
+        
+        vc.currentNews = news
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     

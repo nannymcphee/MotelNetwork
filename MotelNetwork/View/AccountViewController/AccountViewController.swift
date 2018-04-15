@@ -104,9 +104,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
-//        let recentPostQuery = ref.child("Posts").child(uid!).child("MyPosts").queryLimited(toFirst: 100)
+        let recentPostQuery = ref.child("Posts").child(uid!).child("MyPosts").queryLimited(toFirst: 100)
         
-        ref.child("Posts").child(uid!).child("MyPosts").observe(.childAdded, with: { (snapshot) in
+        recentPostQuery.observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let news = News(dictionary: dictionary)

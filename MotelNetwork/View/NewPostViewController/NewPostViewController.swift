@@ -247,6 +247,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 3
+        vc.doneButton.title = "Xong"
         self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
             
         }, deselect: { (asset: PHAsset) in
@@ -255,11 +256,18 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
         }, finish: { (asset: [PHAsset]) in
             
-            for i in 0..<asset.count {
-                self.selectedAssets.append(asset[i])
+            if asset.count < 3 {
+                self.showAlert(alertMessage: "Vui lòng chọn 3 hình.")
             }
-            
-            self.convertAssetToImages()
+            else {
+                for i in 0..<asset.count {
+                    self.selectedAssets.append(asset[i])
+                }
+                
+                self.convertAssetToImages()
+                
+                return
+            }
         }, completion: nil)
     }
     

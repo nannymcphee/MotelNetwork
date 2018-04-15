@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailNewsViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
                 <outlet property="btnBack2" destination="vWf-HN-PKo" id="8MW-co-jR2"/>
+                <outlet property="btnEdit" destination="OSM-Kd-ViF" id="SKZ-gm-cYV"/>
                 <outlet property="ivAvatar" destination="ffP-VE-faj" id="kIB-5i-m9i"/>
                 <outlet property="ivNewsImage" destination="eC8-ot-QvG" id="IQ5-70-yMD"/>
                 <outlet property="lblAddress" destination="v3L-dz-KBI" id="K4W-PU-5t2"/>
@@ -62,6 +63,16 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OSM-Kd-ViF">
+                            <rect key="frame" x="325" y="26.5" width="31" height="32"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                            <state key="normal" title="Sửa">
+                                <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="btnEditPressed:" destination="-1" eventType="touchUpInside" id="NLy-QT-fqM"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -70,7 +81,9 @@
                         <constraint firstItem="vWf-HN-PKo" firstAttribute="leading" secondItem="EDS-KK-Qtc" secondAttribute="leading" constant="19" id="GNz-4h-4nf"/>
                         <constraint firstItem="vWf-HN-PKo" firstAttribute="centerY" secondItem="PMJ-5s-fFZ" secondAttribute="centerY" id="K93-4g-i4P"/>
                         <constraint firstItem="PMJ-5s-fFZ" firstAttribute="centerX" secondItem="EDS-KK-Qtc" secondAttribute="centerX" id="LIA-Eu-svl"/>
+                        <constraint firstItem="EDS-KK-Qtc" firstAttribute="trailing" secondItem="OSM-Kd-ViF" secondAttribute="trailing" constant="19" id="QnR-wR-pua"/>
                         <constraint firstAttribute="trailing" secondItem="5Xd-SP-Y3P" secondAttribute="trailing" id="aqK-qX-opX"/>
+                        <constraint firstItem="OSM-Kd-ViF" firstAttribute="centerY" secondItem="PMJ-5s-fFZ" secondAttribute="centerY" id="iAM-IO-Eb0"/>
                         <constraint firstItem="PMJ-5s-fFZ" firstAttribute="centerY" secondItem="EDS-KK-Qtc" secondAttribute="centerY" id="onz-ee-d6q"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="EDS-KK-Qtc"/>
