@@ -48,8 +48,8 @@
                                 <constraint firstAttribute="height" constant="1" id="6E9-nF-s4Z"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đăng tin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIh-DV-7Mw">
-                            <rect key="frame" x="156.5" y="33" width="62" height="19.5"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sửa tin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIh-DV-7Mw">
+                            <rect key="frame" x="161" y="33" width="53" height="19.5"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -132,6 +132,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDI-25-qGJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="54" height="34"/>
                                                     <state key="normal" image="icAddCircle"/>
+                                                    <connections>
+                                                        <action selector="btnAddImagePressed:" destination="-1" eventType="touchUpInside" id="51n-uL-PCs"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thêm ảnh" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7g5-ka-Ats">
                                                     <rect key="frame" x="0.0" y="38" width="54" height="14"/>
@@ -323,6 +326,9 @@
                                                 <constraint firstAttribute="height" constant="16" id="x7J-Ch-2lN"/>
                                             </constraints>
                                             <state key="normal" image="icClear"/>
+                                            <connections>
+                                                <action selector="btnClearTextViewPressed:" destination="-1" eventType="touchUpInside" id="izs-PK-fgB"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>

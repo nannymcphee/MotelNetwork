@@ -214,18 +214,18 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
-        return districList.count
+        return districtList.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        return districList[row]
+        return districtList[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         pickerView.reloadComponent(0)
-        tfDistrict.text = districList[row]
+        tfDistrict.text = districtList[row]
     }
     
     

@@ -23,10 +23,13 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var lblUserFullName: UILabel!
     @IBOutlet weak var lblRoomCount: UILabel!
     
+    @IBOutlet weak var vInfoView: UIView!
+    @IBOutlet weak var svScrollView: UIScrollView!
     
     var dbReference: DatabaseReference!
     var listRooms = [Room]()
     var roomsCount: Int = 0
+    var refreshControl: UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,20 +37,23 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         tbRoomManagement.delegate = self
         tbRoomManagement.dataSource = self
         tbRoomManagement.register(UINib(nibName: "ListRoomsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListRoomsTableViewCell")
-        tbRoomManagement.reloadData()
-
 
         loadData()
         setUpView()
+        
         
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tbRoomManagement.reloadData()
+        super.viewWillAppear(true)
+        self.tbRoomManagement.reloadData()
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,8 +61,30 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         // Dispose of any resources that can be recreated.
     }
     
+    @objc func refreshData() {
+        
+        listRooms.removeAll()
+        loadData()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.2) {
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
+    
     //MARK: Set up view
     func setUpView() {
+        
+        // Add refresh control
+        refreshControl.addTarget(self, action: #selector(RoomManagementViewController.refreshData), for: UIControlEvents.valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tbRoomManagement.refreshControl = refreshControl
+        }
+        else {
+            tbRoomManagement.addSubview(refreshControl)
+        }
+        
+        // Fetch user from database
         
         guard let uid = Auth.auth().currentUser?.uid else {
             
@@ -78,8 +106,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         
         makeImageViewRounded(imageView: ivAvatar)
     }
-    
-    
     
     //MARK: Database interaction
     
@@ -166,6 +192,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
             let vc = EditRoomViewController()
             vc.currentRoom = room
             (UIApplication.shared.delegate as? AppDelegate)?.navigationController?.pushViewController(vc, animated: true)
+            
         }
         
         action.image = #imageLiteral(resourceName: "icEdit")
@@ -184,12 +211,25 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
             let uid = Auth.auth().currentUser?.uid
             let ref = Database.database().reference().child("Rooms").child(uid!).child("MyRooms").child(roomID!)
             
-            self.deleteData(reference: ref)
-            self.listRooms.remove(at: indexPath.row)
-            self.tbRoomManagement.deleteRows(at: [indexPath], with: .automatic)
-            self.tbRoomManagement.reloadData()
-            self.roomsCount = self.listRooms.count
-            self.lblRoomCount.text = "\(self.roomsCount)"
+            // Show confirmation alert
+            let alert = UIAlertController(title: messageConfirmDeleteRoom, message: nil, preferredStyle: .actionSheet)
+            let actionDestroy = UIAlertAction(title: "Xóa", style: .destructive) { (action) in
+                self.deleteData(reference: ref)
+                self.listRooms.remove(at: indexPath.row)
+                self.tbRoomManagement.deleteRows(at: [indexPath], with: .automatic)
+                self.tbRoomManagement.reloadData()
+                self.roomsCount = self.listRooms.count
+                self.lblRoomCount.text = "\(self.roomsCount)"
+            }
+            
+            let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            
+            alert.addAction(actionDestroy)
+            alert.addAction(actionCancel)
+            
+            self.present(alert, animated: true, completion: nil)
         }
         
         action.image = #imageLiteral(resourceName: "icDelete")
@@ -220,6 +260,5 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         let vc = CreateRoomViewController()
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
-    
- 
+
 }

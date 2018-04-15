@@ -137,7 +137,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
     }
     
     
-    //MARK: Logic for tfUser
+    //MARK: Logic for tfUser as UIPickerView
     
     func createUsersListPicker() {
         
@@ -156,8 +156,6 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @objc func btnDonePressed() {
         self.view.endEditing(false)
     }
-    
-    //MARK: Logic for UIPickerView
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

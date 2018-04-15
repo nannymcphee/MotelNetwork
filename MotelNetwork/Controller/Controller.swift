@@ -91,6 +91,7 @@ extension UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
+
     
     func showAlertConfirmChangePassword(newPass: String) {
 
@@ -211,6 +212,21 @@ extension UIViewController {
             if let error = error {
                 print(error)
             }
+        }
+    }
+    
+    // Edit data
+    func editData(reference: DatabaseReference, newValues: [String: AnyObject]) {
+        
+        reference.updateChildValues(newValues) { (error, ref) in
+            
+            if let error = error {
+                
+                print(error)
+                return
+            }
+            
+            self.dismiss(animated: true, completion: nil)
         }
     }
     

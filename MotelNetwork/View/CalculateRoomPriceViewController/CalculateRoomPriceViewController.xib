@@ -25,6 +25,7 @@
                 <outlet property="tfUser" destination="06G-uu-1VB" id="hQa-Xt-w3P"/>
                 <outlet property="tfUserCount" destination="pwb-hy-EVb" id="XJX-ca-ZeI"/>
                 <outlet property="tfWaterPrice" destination="AyV-Jd-eq4" id="Tn8-FG-LHE"/>
+                <outlet property="vNavigation" destination="hgQ-u7-x4C" id="dfS-dB-Aut"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

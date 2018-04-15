@@ -8,7 +8,10 @@
 
 import Foundation
 
-let districList: [String] = ["Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11", "Quận 12", "Thủ Đức", "Bình Thạnh", "Gò Vấp", "Phú Nhuận", "Tân Phú", "Tân Bình", "Bình Tân", "Huyện Nhà Bè", "Huyện Bình Chánh", "Huyện Hóc Môn", "Huyện Củ Chi" , "Huyện Cần Giờ"]
+var room = Room()
+var news = News()
+
+let districtList: [String] = ["Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11", "Quận 12", "Thủ Đức", "Bình Thạnh", "Gò Vấp", "Phú Nhuận", "Tân Phú", "Tân Bình", "Bình Tân", "Huyện Nhà Bè", "Huyện Bình Chánh", "Huyện Hóc Môn", "Huyện Củ Chi" , "Huyện Cần Giờ"]
 
 let messageConfirmLogOut: String = "Bạn chắc chắn muốn đăng xuất không?"
 let messageCreateRoomSuccess: String = "Tạo phòng thành công."
@@ -24,7 +27,6 @@ let messageChangeEmailFailed: String = "Thay đổi email thất bại."
 let messageChangePasswordSuccess: String = "Thay đổi mật khẩu thành công."
 let messageChangePasswordFailed: String = "Thay đổi mật khẩu thất bại."
 let messageInvalidEmail: String = "Vui lòng nhập đúng định dạng email."
-let messageRequestReLogin: String = "Vui lòng đăng nhập lại trước khi cập nhật email hoặc mật khẩu."
 let messageNewPostSuccess: String = "Đăng tin thành công."
 let messageNewPostFailed: String = "Đăng tin thất bại."
 let messageEditPostSuccess: String = "Sửa tin thành công."
@@ -33,5 +35,7 @@ let messageLimitCharacters: String = "Vui lòng không nhập quá số kí tự
 let messagePasswordLessThan6Chars: String = "Mật khẩu phải từ 6 kí tự trở lên."
 let messageConfirmChangePassword: String = "Bạn có chắc chắn muốn đổi mật khẩu không?"
 let messageConfirmChangeEmail: String = "Bạn có chắc chắn muốn đổi email không?"
-
+let messageConfirmDeleteRoom: String = "Bạn có muốn xóa phòng này không?"
+let messageConfirmDeletePost: String = "Bạn có muốn xóa tin này không?"
+let messageConfirmEditData: String = "Bạn có muốn sửa thông tin không?"
 

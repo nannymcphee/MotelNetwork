@@ -24,6 +24,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     var dbReference: DatabaseReference!
     var listNews = [News]()
     var newsCount : Int = 0
+    var refreshControl: UIRefreshControl = UIRefreshControl()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +40,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         tbNews.reloadData()
     }
     
@@ -51,9 +54,27 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
+    @objc func refreshData() {
+        
+        listNews.removeAll()
+        loadData()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.2) {
+            self.refreshControl.endRefreshing()
+        }
+    }
     
     //MARK: Set up view
     func setUpView() {
+        
+        // Add refresh control
+        refreshControl.addTarget(self, action: #selector(RoomManagementViewController.refreshData), for: UIControlEvents.valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tbNews.refreshControl = refreshControl
+        }
+        else {
+            tbNews.addSubview(refreshControl)
+        }
                 
         guard let uid = Auth.auth().currentUser?.uid else {
             
@@ -83,9 +104,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
-        let recentPostQuery = ref.child("Posts").child(uid!).child("MyPosts").queryLimited(toFirst: 100)
+//        let recentPostQuery = ref.child("Posts").child(uid!).child("MyPosts").queryLimited(toFirst: 100)
         
-        recentPostQuery.observe(.childAdded, with: { (snapshot) in
+        ref.child("Posts").child(uid!).child("MyPosts").observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let news = News(dictionary: dictionary)
@@ -186,12 +207,25 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             let uid = Auth.auth().currentUser?.uid
             let ref = Database.database().reference().child("Posts").child(uid!).child("MyPosts").child(newsID!)
             
-            self.deleteData(reference: ref)
-            self.listNews.remove(at: indexPath.row)
-            self.tbNews.deleteRows(at: [indexPath], with: .automatic)
-            self.tbNews.reloadData()
-            self.newsCount = self.listNews.count
-            self.lblNewsCount.text = "\(self.newsCount)"
+            // Show confirmation alert
+            let alert = UIAlertController(title: messageConfirmDeletePost, message: nil, preferredStyle: .actionSheet)
+            let actionDestroy = UIAlertAction(title: "Xóa", style: .destructive) { (action) in
+                self.deleteData(reference: ref)
+                self.listNews.remove(at: indexPath.row)
+                self.tbNews.deleteRows(at: [indexPath], with: .automatic)
+                self.tbNews.reloadData()
+                self.newsCount = self.listNews.count
+                self.lblNewsCount.text = "\(self.newsCount)"
+            }
+            
+            let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            
+            alert.addAction(actionDestroy)
+            alert.addAction(actionCancel)
+            
+            self.present(alert, animated: true, completion: nil)
         }
         
         action.image = #imageLiteral(resourceName: "icDelete")
