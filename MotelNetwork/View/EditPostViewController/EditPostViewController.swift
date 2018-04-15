@@ -13,6 +13,7 @@ class EditPostViewController: UIViewController {
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnSave: UIButton!
     @IBOutlet weak var btnAddImage: UIButton!
+    @IBOutlet weak var btnClearTextView: UIButton!
     @IBOutlet weak var ivPostImage0: UIImageView!
     @IBOutlet weak var ivPostImage1: UIImageView!
     @IBOutlet weak var ivPostImage2: UIImageView!
