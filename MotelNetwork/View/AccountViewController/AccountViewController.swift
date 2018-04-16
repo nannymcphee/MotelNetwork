@@ -67,7 +67,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     func setUpView() {
         
         // Add refresh control
-        refreshControl.addTarget(self, action: #selector(RoomManagementViewController.refreshData), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(self.refreshData), for: UIControlEvents.valueChanged)
         
         if #available(iOS 10.0, *) {
             tbNews.refreshControl = refreshControl
@@ -111,9 +111,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let news = News(dictionary: dictionary)
                 news.id = snapshot.key
-                self.listNews.append(news)
-                self.newsCount = self.listNews.count
-                self.lblNewsCount.text = "\(self.newsCount)"
+  
                 
                 DispatchQueue.main.async {
                     self.reloadInputViews()
@@ -138,6 +136,11 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
                 news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
                 news.postDate = dictionary["postDate"] as? String
+                
+                self.listNews.append(news)
+                self.newsCount = self.listNews.count
+                self.lblNewsCount.text = "\(self.newsCount)"
+                self.tbNews.reloadData()
             }
         }, withCancel: nil)
     }

@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
         let email = tfEmail.text
         let pass = tfPassword.text
 
-        if tfEmail.text == "" || tfPassword.text == "" {
+        if (tfEmail.text?.isEmpty)! || (tfPassword.text?.isEmpty)! {
 
             showAlert(alertMessage: messageNilTextFields)
         }

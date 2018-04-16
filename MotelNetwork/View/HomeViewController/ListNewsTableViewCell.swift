@@ -30,15 +30,6 @@ class ListNewsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func populateData(room: Room) {
-        lblTitle.text = room.name
-        lblPrice.text = String("\(room.price ?? 0.0)đ")
-//        lblArea.text = String("\(room.area ?? "")m2")
-//        ivRoomImage.loadImageUsingCacheWithUrlString(room.roomImageUrl0!)
-        lblArea.text = room.area
-        lblLocation.text = room.id
-    }
-    
     func populateData(news: News) {
         
         numberFormatter.numberStyle = .decimal
@@ -53,7 +44,8 @@ class ListNewsTableViewCell: UITableViewCell {
             
             ivPostImage.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage") , options: nil, progressBlock: nil, completionHandler: nil)
         }
-        else{
+        else {
+            
             ivPostImage.image = #imageLiteral(resourceName: "defaultImage")
         }
     }

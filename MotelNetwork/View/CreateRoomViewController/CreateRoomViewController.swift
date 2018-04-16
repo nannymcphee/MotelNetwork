@@ -219,7 +219,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         
         // Check if user has entered all informations
-        if  tfUser.text == nil || tfArea.text == nil || tfPrice.text == nil || tfRoomName.text == nil || ivRoomImage0.image == nil || ivRoomImage1.image == nil || ivRoomImage2.image == nil {
+        if  (tfUser.text?.isEmpty)! || (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! || ivRoomImage0.image == nil || ivRoomImage1.image == nil || ivRoomImage2.image == nil {
             
             // Create UIAlertController
             self.showAlert(alertMessage: messageNilTextFields)
@@ -250,7 +250,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 self.storeRoomInformationToDatabase(uid, values: ["roomImageUrl2": url as AnyObject])
             }
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
                 self.showAlert(alertMessage: messageCreateRoomSuccess)
             })
             resetView()

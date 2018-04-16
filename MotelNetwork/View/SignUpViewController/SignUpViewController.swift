@@ -190,7 +190,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func btnRegisterPressed(_ sender: UIButton) {
         
         // Check if user has entered all informations
-        if tfName.text == "" || tfEmail.text == "" || tfPassword.text == "" || tfCMND.text == "" || tfBirthDay.text == "" {
+        if (tfName.text?.isEmpty)! || (tfEmail.text?.isEmpty)! || (tfPassword.text?.isEmpty)! || (tfCMND.text?.isEmpty)! || (tfBirthDay.text?.isEmpty)! {
             
             showAlert(alertMessage: messageNilTextFields)
         }

@@ -73,7 +73,7 @@ class ChangePasswordViewController: UIViewController {
         
         let newPass = tfNewPassword.text
         
-        if newPass == "" {
+        if (tfNewPassword.text?.isEmpty)! {
             
             showAlert(alertMessage: messageNilTextFields)
         }

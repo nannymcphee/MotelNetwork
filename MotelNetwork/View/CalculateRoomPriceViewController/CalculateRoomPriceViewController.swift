@@ -24,6 +24,9 @@ class CalculateRoomPriceViewController: UIViewController {
     @IBOutlet weak var tfUser: UITextField!
     @IBOutlet weak var tfReason: UITextField!
     
+    
+    
+    
     var currentRoom = Room()
     var roomPrice: Double = 0.0
     var oldElectricNumber: Double = 0.0

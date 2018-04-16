@@ -164,8 +164,7 @@
 				145C12042075FF5300AB11F3 /* ListRoomsTableViewCell.swift */,
 				145C12052075FF5300AB11F3 /* ListRoomsTableViewCell.xib */,
 			);
-			name = RoomManagementViewController;
-			path = "Rô";
+			path = RoomManagementViewController;
 			sourceTree = "<group>";
 		};
 		CE5FF78820766EB1005BEA3B /* MainVC */ = {

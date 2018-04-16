@@ -54,6 +54,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         checkAuthStatus()
         fetchUser()
+        createUsersListPicker()
         tfArea.text = currentRoom.area
         tfUser.text = currentRoom.user
         tfPrice.text = "\(currentRoom.price ?? 0.0)"
@@ -96,7 +97,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let user = User(dictionary: dictionary)
                 user.id = snapshot.key
-                self.userList.append(user)
+                
                 
                 DispatchQueue.main.async(execute: {
                     self.reloadInputViews()
@@ -104,6 +105,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 
                 // Fetch user's full name
                 user.name = dictionary["FullName"] as? String
+                self.userList.append(user)
             }
         }, withCancel: nil)
     }
@@ -210,61 +212,70 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func btnSavePressed(_ sender: Any) {
         
-        let roomName = self.tfRoomName.text!
-        let area = self.tfArea.text!
-        let price = self.tfPrice.text!
-        let user = self.tfUser.text!
-        let values = ["RoomName": roomName, "Area": area, "Price": price, "User": user]
-        let roomID = currentRoom.id!
-        let ref = Database.database().reference().child("Rooms").child(self.uid!).child("MyRooms").child(roomID)
+        if (tfUser.text?.isEmpty)! || (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! {
         
-        // Create confirm alert
-        let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)
-        let actionDestroy = UIAlertAction(title: "Có", style: .destructive) { (action) in
-
-            if self.ivRoomImage0.image == nil || self.ivRoomImage1.image == nil || self.ivRoomImage2 == nil {
-
-                self.editData(reference: ref, newValues: values as [String: AnyObject])
+            let roomName = self.tfRoomName.text!
+            let area = self.tfArea.text!
+            let price = self.tfPrice.text!
+            let user = self.tfUser.text!
+            let values = ["RoomName": roomName, "Area": area, "Price": price, "User": user]
+            let roomID = currentRoom.id!
+            let ref = Database.database().reference().child("Rooms").child(self.uid!).child("MyRooms").child(roomID)
+            
+            
+            // Create confirm alert
+            let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)
+            let actionDestroy = UIAlertAction(title: "Có", style: .destructive) { (action) in
                 
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
-                    self.showAlert(alertMessage: messageEditRoomSuccess)
-                })
-            }
-            else {
-
-                self.editData(reference: ref, newValues: values as [String: AnyObject])
-                
-                // Upload image to Firebase storage and update download urls into database
-                
-                _ = self.uploadImageFromImageView(imageView: self.ivRoomImage0) { (url) in
-                    self.editData(reference: ref, newValues: ["roomImageUrl0": url as AnyObject])
+                if self.tfRoomName.text == nil || self.tfArea.text == nil || self.tfPrice.text == nil {
+                    
+                    self.showAlert(alertMessage: messageNilTextFields)
+                }
+                else if self.ivRoomImage0.image == nil || self.ivRoomImage1.image == nil || self.ivRoomImage2 == nil {
+                    
+                    self.editData(reference: ref, newValues: values as [String: AnyObject])
+                    
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
+                        self.showAlert(alertMessage: messageEditRoomSuccess)
+                    })
+                }
+                else {
+                    
+                    self.editData(reference: ref, newValues: values as [String: AnyObject])
+                    
+                    // Upload image to Firebase storage and update download urls into database
+                    
+                    _ = self.uploadImageFromImageView(imageView: self.ivRoomImage0) { (url) in
+                        self.editData(reference: ref, newValues: ["roomImageUrl0": url as AnyObject])
+                    }
+                    
+                    _ = self.uploadImageFromImageView(imageView: self.ivRoomImage1) { (url) in
+                        self.editData(reference: ref, newValues: ["roomImageUrl1": url as AnyObject])
+                    }
+                    
+                    _ = self.uploadImageFromImageView(imageView: self.ivRoomImage2) { (url) in
+                        self.editData(reference: ref, newValues: ["roomImageUrl2": url as AnyObject])
+                    }
+                    
+                    
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
+                        self.showAlert(alertMessage: messageEditRoomSuccess)
+                    })
                 }
                 
-                _ = self.uploadImageFromImageView(imageView: self.ivRoomImage1) { (url) in
-                    self.editData(reference: ref, newValues: ["roomImageUrl1": url as AnyObject])
-                }
-                
-                _ = self.uploadImageFromImageView(imageView: self.ivRoomImage2) { (url) in
-                    self.editData(reference: ref, newValues: ["roomImageUrl2": url as AnyObject])
-                }
-                
-                
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
-                    self.showAlert(alertMessage: messageEditRoomSuccess)
-                })
+                return
             }
             
-            return
+            let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            
+            alert.addAction(actionDestroy)
+            alert.addAction(actionCancel)
+            
+            self.present(alert, animated: true, completion: nil)
+            
         }
-        
-        let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in
-            alert.dismiss(animated: true, completion: nil)
-        }
-
-        alert.addAction(actionDestroy)
-        alert.addAction(actionCancel)
-
-        self.present(alert, animated: true, completion: nil)
-
+            
     }
 }

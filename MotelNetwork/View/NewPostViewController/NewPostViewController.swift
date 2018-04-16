@@ -64,7 +64,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         checkAuthStatus()
         getCurrentUser()
-        getCurrentDate()
+
         createDistrictListPicker()
         self.tapToDismissKeyboard()
         makeButtonRounded(button: btnClearTextView)
@@ -273,11 +273,13 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBAction func btnSavePressed(_ sender: Any) {
         
+        
+        
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
         
-        if tfDistrict.text == nil || tfTitle.text == nil || tfArea.text == nil || tfPrice.text == nil || tfAddress.text == nil || tfWaterPrice.text == nil || tfPhoneNumber.text == nil || tfElectricPrice.text == nil || tfInternetPrice.text == nil || tvDescription.text == nil || ivPostImage0.image == nil || ivPostImage1.image == nil || ivPostImage2.image == nil {
+        if (tfDistrict.text?.isEmpty)! || (tfTitle.text?.isEmpty)! || (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfAddress.text?.isEmpty)! || (tfWaterPrice.text?.isEmpty)! || (tfPhoneNumber.text?.isEmpty)! || (tfElectricPrice.text?.isEmpty)! || (tfInternetPrice.text?.isEmpty)! || (tvDescription.text?.isEmpty)! || ivPostImage0.image == nil || ivPostImage1.image == nil || ivPostImage2.image == nil {
             
             showAlert(alertMessage: messageNilTextFields)
         }
@@ -286,7 +288,8 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             showAlert(alertMessage: messageLimitCharacters)
         }
         else {
-        
+            
+            getCurrentDate()
             // Store post's info to database
             let title = self.tfTitle.text!
             let area = self.tfArea.text!
@@ -318,7 +321,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 self.storePostInformationToDatabase(uid, values: ["postImageUrl2": url as AnyObject])
             }
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
                 self.showAlert(alertMessage: messageNewPostSuccess)
             })
             

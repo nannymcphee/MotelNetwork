@@ -55,6 +55,8 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate 
     //MARK: Set up view
     func setUpView() {
         
+        getCurrentDate()
+        
         tfTitle.text = currentNews.title
         tvDescription.text = currentNews.description
         tfAddress.text = currentNews.address
@@ -171,70 +173,78 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate 
     }
 
     @IBAction func btnSavePressed(_ sender: Any) {
+
         
-        let title = self.tfTitle.text!
-        let area = self.tfArea.text!
-        let district = self.tfDistrict.text!
-        let address = self.tfAddress.text!
-        let waterPrice = self.tfWaterPrice.text!
-        let phoneNumber = self.tfPhoneNumber.text!
-        let electricPrice = self.tfElectricPrice.text!
-        let price = self.tfRoomPrice.text!
-        let description = self.tvDescription.text!
-        let internetPrice = self.tfInternetPrice.text!
-        let postDate = currentDate
-        let postID = currentNews.id
-        let ref = Database.database().reference().child("Posts").child(self.uid!).child("MyPosts").child(postID!)
-        let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postDate": postDate]
-        
-        // Create confirm alert
-        let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)
-        let actionDestroy = UIAlertAction(title: "Có", style: .destructive) { (action) in
+        if (self.tfArea.text?.isEmpty)! || (self.tfTitle.text?.isEmpty)! || (self.tfAddress.text?.isEmpty)! || (self.tvDescription.text?.isEmpty)! || (self.tfDistrict.text?.isEmpty)! || (self.tfRoomPrice.text?.isEmpty)! || (self.tfWaterPrice.text?.isEmpty)! || (self.tfElectricPrice.text?.isEmpty)! || (self.tfInternetPrice.text?.isEmpty)! || (self.tfPhoneNumber.text?.isEmpty)! {
             
-            if self.ivPostImage0.image == nil || self.ivPostImage1.image == nil || self.ivPostImage2 == nil {
+            self.showAlert(alertMessage: messageNilTextFields)
+        }
+        else {
+            
+            let title = self.tfTitle.text!
+            let area = self.tfArea.text!
+            let district = self.tfDistrict.text!
+            let address = self.tfAddress.text!
+            let waterPrice = self.tfWaterPrice.text!
+            let phoneNumber = self.tfPhoneNumber.text!
+            let electricPrice = self.tfElectricPrice.text!
+            let price = self.tfRoomPrice.text!
+            let description = self.tvDescription.text!
+            let internetPrice = self.tfInternetPrice.text!
+            let postDate = currentDate
+            let postID = currentNews.id
+            let ref = Database.database().reference().child("Posts").child(self.uid!).child("MyPosts").child(postID!)
+            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postDate": postDate]
+            
+            // Create confirm alert
+            let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)
+            let actionDestroy = UIAlertAction(title: "Có", style: .destructive) { (action) in
                 
-                self.editData(reference: ref, newValues: values as [String: AnyObject])
                 
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
-                    self.showAlert(alertMessage: messageEditPostSuccess)
-                })
-            }
-            else {
-                
-                self.editData(reference: ref, newValues: values as [String: AnyObject])
-                
-                // Upload image to Firebase storage and update download urls into database
-                
-                _ = self.uploadImageFromImageView(imageView: self.ivPostImage0) { (url) in
-                    self.editData(reference: ref, newValues: ["postImageUrl0": url as AnyObject])
+                if self.ivPostImage0.image == nil || self.ivPostImage1.image == nil || self.ivPostImage2 == nil {
+                    
+                    self.editData(reference: ref, newValues: values as [String: AnyObject])
+                    
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
+                        self.showAlert(alertMessage: messageEditPostSuccess)
+                    })
+                }
+                else {
+                    
+                    self.editData(reference: ref, newValues: values as [String: AnyObject])
+                    
+                    // Upload image to Firebase storage and update download urls into database
+                    
+                    _ = self.uploadImageFromImageView(imageView: self.ivPostImage0) { (url) in
+                        self.editData(reference: ref, newValues: ["postImageUrl0": url as AnyObject])
+                    }
+                    
+                    _ = self.uploadImageFromImageView(imageView: self.ivPostImage1) { (url) in
+                        self.editData(reference: ref, newValues: ["postImageUrl1": url as AnyObject])
+                    }
+                    
+                    _ = self.uploadImageFromImageView(imageView: self.ivPostImage2) { (url) in
+                        self.editData(reference: ref, newValues: ["postImageUrl2": url as AnyObject])
+                    }
+                    
+                    
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
+                        self.showAlert(alertMessage: messageEditPostSuccess)
+                    })
                 }
                 
-                _ = self.uploadImageFromImageView(imageView: self.ivPostImage1) { (url) in
-                    self.editData(reference: ref, newValues: ["postImageUrl1": url as AnyObject])
-                }
-                
-                _ = self.uploadImageFromImageView(imageView: self.ivPostImage2) { (url) in
-                    self.editData(reference: ref, newValues: ["postImageUrl2": url as AnyObject])
-                }
-                
-                
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
-                    self.showAlert(alertMessage: messageEditPostSuccess)
-                })
+                return
             }
             
-            return
+            let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }
+            
+            alert.addAction(actionDestroy)
+            alert.addAction(actionCancel)
+            
+            self.present(alert, animated: true, completion: nil)
         }
-        
-        let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in
-            alert.dismiss(animated: true, completion: nil)
-        }
-        
-        alert.addAction(actionDestroy)
-        alert.addAction(actionCancel)
-        
-        self.present(alert, animated: true, completion: nil)
     }
-    
 
 }

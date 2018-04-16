@@ -70,7 +70,7 @@ class ChangeEmailViewController: UIViewController {
         
         let newEmail = tfNewEmail.text
         
-        if newEmail == "" {
+        if (tfNewEmail.text?.isEmpty)! {
             
             showAlert(alertMessage: messageNilTextFields)
         }

@@ -14,7 +14,8 @@ import NVActivityIndicatorView
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NVActivityIndicatorViewable {
     
-
+    @IBOutlet weak var tbMostView: UITableView!
+    @IBOutlet weak var tbNearMe: UITableView!
     @IBOutlet weak var tbListNews: UITableView!
     @IBOutlet weak var btnNews: UIButton!
     @IBOutlet weak var btnMostView: UIButton!
@@ -22,28 +23,46 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var vNewsProgress: UIView!
     @IBOutlet weak var vMostViewProgress: UIView!
     @IBOutlet weak var vNearMeProgress: UIView!
+    @IBOutlet weak var sclContent: UIScrollView!
+    @IBOutlet weak var vNews: UIView!
+    @IBOutlet weak var vMostView: UIView!
+    @IBOutlet weak var vNearMe: UIView!
+
     
-    
+    var screenWidth = UIScreen.main.bounds.width
     var listNews = [News]()
-    var listMostView = [Room]()
-    var listNearMe = [Room]()
-    
+    var listMostView = [News]()
+    var listNearMe = [News]()
     var isNew = true
     var isMostView = false
     var isNearMe = false
+    var refreshControl0: UIRefreshControl = UIRefreshControl()
+    var refreshControl1: UIRefreshControl = UIRefreshControl()
+    var refreshControl2: UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        sclContent.delegate = self
         
-        loadData()
-        setUpView()
-        
+        // tbListNew
         tbListNews.delegate = self
         tbListNews.dataSource = self
         tbListNews.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
-    
         
-        // Do any additional setup after loading the view.
+        // tbMostView
+        tbMostView.delegate = self
+        tbMostView.dataSource = self
+        tbMostView.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
+        
+        // tbNearMe
+        tbNearMe.delegate = self
+        tbNearMe.dataSource = self
+        tbNearMe.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
+        
+        loadDataNews()
+        loadDataMostView()
+        loadDataNearMe()
+        setUpView()
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,9 +74,136 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewWillAppear(true)
         
         tbListNews.reloadData()
+        tbNearMe.reloadData()
+        tbMostView.reloadData()
     }
     
+    @objc func refreshDataNews() {
+        
+        listNews.removeAll()
+        loadDataNews()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.2) {
+            self.refreshControl0.endRefreshing()
+        }
+    }
     
+    @objc func refreshDataMostView() {
+        
+        listMostView.removeAll()
+        loadDataMostView()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.2) {
+            self.refreshControl1.endRefreshing()
+        }
+    }
+    
+    @objc func refreshDataNearMe() {
+        
+        listNearMe.removeAll()
+        loadDataNearMe()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.2) {
+            self.refreshControl2.endRefreshing()
+        }
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+//        let contentOffsetX = scrollView.contentOffset.x
+//        var currentPage = contentOffsetX / screenWidth
+        if sclContent.contentOffset.x >= 0 &&  sclContent.contentOffset.x < screenWidth {
+            
+            // News
+            setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
+            setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
+        }
+        else if sclContent.contentOffset.x >= screenWidth && sclContent.contentOffset.x < 2 * screenWidth  {
+            
+            // Most View
+            setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
+            setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
+        }
+        else {
+           // Near Me
+            setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
+            setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
+        }
+    }
+    
+    func setUpViewNews() {
+        
+        isNew = true
+        isMostView = false
+        isNearMe = false
+        
+        setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
+        setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
+        tbListNews.reloadData()
+        tbListNews.scrollTableViewToTop(animated: true)
+        
+        self.sclContent.setContentOffset(CGPoint(x: Double(0), y: 0), animated: true)
+        
+        // Add refresh control
+        refreshControl0.addTarget(self, action: #selector(self.refreshDataNews), for: UIControlEvents.valueChanged)
+        
+        if #available(iOS 10.0, *) {
+                
+            tbListNews.refreshControl = refreshControl0
+        }
+        else {
+            tbListNews.addSubview(refreshControl0)
+        }
+    }
+    
+    func setUpViewMostView() {
+        
+        isNew = false
+        isMostView = true
+        isNearMe = false
+        
+        setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
+        setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
+        tbMostView.reloadData()
+        tbMostView.scrollTableViewToTop(animated: true)
+        
+        self.sclContent.setContentOffset(CGPoint(x: Double(screenWidth), y: 0), animated: true)
+        
+         refreshControl1.addTarget(self, action: #selector(self.refreshDataMostView), for: UIControlEvents.valueChanged)
+
+        if #available(iOS 10.0, *) {
+    
+            tbMostView.refreshControl = refreshControl1
+        }
+        else {
+        
+            tbMostView.addSubview(refreshControl1)
+        }
+    }
+    
+    func setUpViewNearMe() {
+        
+        isNew = false
+        isMostView = false
+        isNearMe = true
+        
+        setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
+        setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
+        tbNearMe.reloadData()
+        tbNearMe.scrollTableViewToTop(animated: true)
+        
+        self.sclContent.setContentOffset(CGPoint(x: Double(screenWidth * 2), y: 0), animated: true)
+        
+        refreshControl2.addTarget(self, action: #selector(self.refreshDataNearMe), for: UIControlEvents.valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            
+            tbNearMe.refreshControl = refreshControl2
+        }
+        else {
+            
+            tbNearMe.addSubview(refreshControl2)
+        }
+    }
+    
+    // MARK: Set up view
     
     func setUpView() {
         setViewState(enabledView: vNewsProgress, disabledView2: vNearMeProgress, disabledView3: vMostViewProgress)
@@ -68,18 +214,58 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     //MARK: Database interaction
     
-    func loadData() {
+    func loadDataNews() {
         
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
         let recentPostQuery = ref.child("Posts").child(uid!).child("MyPosts").queryLimited(toFirst: 100)
-        
+//        let recentPostQuery = ref.child("Posts").queryLimited(toFirst: 100)
         recentPostQuery.observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let news = News(dictionary: dictionary)
                 news.id = snapshot.key
+
+                DispatchQueue.main.async {
+                    self.reloadInputViews()
+                }
+                
+                let priceStr = dictionary["price"] as? String
+                let waterPriceStr = dictionary["waterPrice"] as? String
+                let electricPriceStr = dictionary["electricPrice"] as? String
+                let internetPriceStr = dictionary["internetPrice"] as? String
+                
+                news.price = Double(priceStr ?? "0.0")
+                news.waterPrice = Double(waterPriceStr ?? "0.0")
+                news.electricPrice = Double(electricPriceStr ?? "0.0")
+                news.internetPrice = Double(internetPriceStr ?? "0.0")
+                news.area = dictionary["area"] as? String
+                news.district = dictionary["district"] as? String
+                news.title = dictionary["title"] as? String
+                news.address = dictionary["address"] as? String
+                news.description = dictionary["description"] as? String
+                news.phoneNumber = dictionary["phoneNumber"] as? String
+                news.user = dictionary["user"] as? String
+                news.postImageUrl0 = dictionary["postImageUrl0"] as? String
+                news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
+                news.postDate = dictionary["postDate"] as? String
+                
                 self.listNews.append(news)
+                self.tbListNews.reloadData()
+            }
+        }, withCancel: nil)
+    }
+    
+    func loadDataMostView() {
+        
+        let uid = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference()
+        let mostViewQuery = ref.child("Posts").child(uid!).child("MyPosts").queryOrdered(byChild: "postDate")
+        mostViewQuery.observe(.childAdded, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let news = News(dictionary: dictionary)
+                news.id = snapshot.key
                 
                 DispatchQueue.main.async {
                     self.reloadInputViews()
@@ -104,6 +290,51 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
                 news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
                 news.postDate = dictionary["postDate"] as? String
+                
+                self.listMostView.append(news)
+                self.tbMostView.reloadData()
+            }
+        }, withCancel: nil)
+    }
+    
+    func loadDataNearMe() {
+        
+        let uid = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference()
+        let nearMeQuery = ref.child("Posts").child(uid!).child("MyPosts").queryOrdered(byChild: "district")
+        nearMeQuery.observe(.childAdded, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let news = News(dictionary: dictionary)
+                news.id = snapshot.key
+                
+                
+                DispatchQueue.main.async {
+                    self.reloadInputViews()
+                }
+                
+                let priceStr = dictionary["price"] as? String
+                let waterPriceStr = dictionary["waterPrice"] as? String
+                let electricPriceStr = dictionary["electricPrice"] as? String
+                let internetPriceStr = dictionary["internetPrice"] as? String
+                
+                news.price = Double(priceStr ?? "0.0")
+                news.waterPrice = Double(waterPriceStr ?? "0.0")
+                news.electricPrice = Double(electricPriceStr ?? "0.0")
+                news.internetPrice = Double(internetPriceStr ?? "0.0")
+                news.area = dictionary["area"] as? String
+                news.district = dictionary["district"] as? String
+                news.title = dictionary["title"] as? String
+                news.address = dictionary["address"] as? String
+                news.description = dictionary["description"] as? String
+                news.phoneNumber = dictionary["phoneNumber"] as? String
+                news.user = dictionary["user"] as? String
+                news.postImageUrl0 = dictionary["postImageUrl0"] as? String
+                news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
+                news.postDate = dictionary["postDate"] as? String
+                
+                self.listNearMe.append(news)
+                self.tbNearMe.reloadData()
             }
         }, withCancel: nil)
     }
@@ -112,38 +343,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBAction func btnNewClick(_ sender: Any) {
         
-        isNew = true
-        isMostView = false
-        isNearMe = false
-        
-        setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
-        setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
-        tbListNews.reloadData()
-        tbListNews.scrollTableViewToTop(animated: true)
+        setUpViewNews()
     }
     
     @IBAction func btnMostViewClick(_ sender: Any) {
         
-        isNew = false
-        isMostView = true
-        isNearMe = false
-        
-        setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
-        setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
-        tbListNews.reloadData()
-        tbListNews.scrollTableViewToTop(animated: true)
+        setUpViewMostView()
     }
     
     @IBAction func btnNearMeClick(_ sender: Any) {
         
-        isNew = false
-        isMostView = false
-        isNearMe = true
-        
-        setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
-        setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
-        tbListNews.reloadData()
-        tbListNews.scrollTableViewToTop(animated: true)
+        setUpViewNearMe()
     }
     
     //MARK: Exstension func
@@ -194,13 +404,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
         }
         if isMostView {
-            let room = listMostView[indexPath.row]
-            cell.populateData(room: room)
+            let mostView = listMostView[indexPath.row]
+            cell.populateData(news: mostView)
         }
         
         if isNearMe {
-            let room = listNearMe[indexPath.row]
-            cell.populateData(room: room)
+            let nearMe = listNearMe[indexPath.row]
+            cell.populateData(news: nearMe)
         }
         
         return cell
@@ -212,10 +422,27 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailNewsViewController()
-        let news = listNews[indexPath.row]
         
-        vc.currentNews = news
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+        if isNew {
+            
+            let news = listNews[indexPath.row]
+            vc.currentNews = news
+            (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        if isMostView {
+            
+            let news = listMostView[indexPath.row]
+            vc.currentNews = news
+            (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        if isNearMe {
+            
+            let news = listNearMe[indexPath.row]
+            vc.currentNews = news
+            (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     

@@ -76,7 +76,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     func setUpView() {
         
         // Add refresh control
-        refreshControl.addTarget(self, action: #selector(RoomManagementViewController.refreshData), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(self.refreshData), for: UIControlEvents.valueChanged)
         
         if #available(iOS 10.0, *) {
             tbRoomManagement.refreshControl = refreshControl
@@ -121,9 +121,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let room = Room(dictionary: dictionary)
                 room.id = snapshot.key
-                self.listRooms.append(room)
-                self.roomsCount = self.listRooms.count
-                self.lblRoomCount.text = "\(self.roomsCount)"
+
                 
                 DispatchQueue.main.async(execute: {
                     self.reloadInputViews()
@@ -138,7 +136,10 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
                 room.roomImageUrl1 = dictionary["roomImageUrl1"] as? String
                 room.roomImageUrl2 = dictionary["roomImageUrl2"] as? String
                 
-               
+                self.listRooms.append(room)
+                self.roomsCount = self.listRooms.count
+                self.lblRoomCount.text = "\(self.roomsCount)"
+                self.tbRoomManagement.reloadData()
             }
         }, withCancel: nil)
     }
