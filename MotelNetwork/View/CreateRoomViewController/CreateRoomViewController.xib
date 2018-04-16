@@ -75,6 +75,7 @@
                         <constraint firstAttribute="trailing" secondItem="tMU-UG-76S" secondAttribute="trailing" id="WwY-fU-b79"/>
                         <constraint firstItem="Aor-oV-GPC" firstAttribute="centerY" secondItem="FA7-Oh-VrY" secondAttribute="centerY" id="h1x-8G-VmR"/>
                         <constraint firstItem="UvD-ub-vW4" firstAttribute="leading" secondItem="FA7-Oh-VrY" secondAttribute="leading" constant="19" id="nDA-vW-8fH"/>
+                        <constraint firstAttribute="height" constant="64" id="wg5-Vh-fwe"/>
                         <constraint firstItem="UvD-ub-vW4" firstAttribute="centerY" secondItem="Aor-oV-GPC" secondAttribute="centerY" id="why-7j-gCX"/>
                         <constraint firstItem="FA7-Oh-VrY" firstAttribute="trailing" secondItem="Lbt-4C-wV1" secondAttribute="trailing" constant="19" id="yEH-Sk-dZL"/>
                     </constraints>
@@ -287,9 +288,9 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="8Hj-fw-uzZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="6h7-yQ-u4S"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="exM-7r-7lU" secondAttribute="top" constant="20" id="7LE-SG-olz"/>
                 <constraint firstItem="8Hj-fw-uzZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GUV-bz-hHo"/>
-                <constraint firstItem="8Hj-fw-uzZ" firstAttribute="top" secondItem="exM-7r-7lU" secondAttribute="bottom" id="GzT-dd-duI"/>
+                <constraint firstItem="8Hj-fw-uzZ" firstAttribute="top" secondItem="exM-7r-7lU" secondAttribute="bottom" id="GXN-3Y-sTG"/>
                 <constraint firstItem="8Hj-fw-uzZ" firstAttribute="trailing" secondItem="exM-7r-7lU" secondAttribute="trailing" id="LqV-DD-0Go"/>
                 <constraint firstAttribute="trailing" secondItem="8Hj-fw-uzZ" secondAttribute="trailing" id="Ncl-xw-HcC"/>
                 <constraint firstItem="8Hj-fw-uzZ" firstAttribute="leading" secondItem="exM-7r-7lU" secondAttribute="leading" id="bcN-wd-hq4"/>

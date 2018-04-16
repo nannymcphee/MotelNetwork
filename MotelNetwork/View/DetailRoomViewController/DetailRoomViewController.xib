@@ -70,6 +70,7 @@
                         <constraint firstItem="3eX-bK-bJP" firstAttribute="centerX" secondItem="STn-gM-gKD" secondAttribute="centerX" id="KbU-HT-SRx"/>
                         <constraint firstAttribute="trailing" secondItem="ngN-Cv-jjQ" secondAttribute="trailing" id="LD1-Ot-AjW"/>
                         <constraint firstItem="ELF-Ao-ULu" firstAttribute="centerY" secondItem="3eX-bK-bJP" secondAttribute="centerY" id="N0O-hF-yZ1"/>
+                        <constraint firstAttribute="height" constant="64" id="rqR-b7-6DI"/>
                         <constraint firstItem="ELF-Ao-ULu" firstAttribute="leading" secondItem="STn-gM-gKD" secondAttribute="leading" constant="19" id="s6C-d9-fPa"/>
                         <constraint firstItem="ngN-Cv-jjQ" firstAttribute="leading" secondItem="jB8-M1-koc" secondAttribute="leading" id="tto-7f-bpG"/>
                         <constraint firstItem="STn-gM-gKD" firstAttribute="trailing" secondItem="Z97-Bp-bMO" secondAttribute="trailing" constant="19" id="vwW-qS-LYB"/>
@@ -249,14 +250,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="JTH-cu-eRb" firstAttribute="top" secondItem="jB8-M1-koc" secondAttribute="bottom" id="3AZ-V3-2uW"/>
                 <constraint firstItem="JTH-cu-eRb" firstAttribute="trailing" secondItem="jB8-M1-koc" secondAttribute="trailing" id="DV2-Rd-S2v"/>
                 <constraint firstItem="JTH-cu-eRb" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="F51-2D-g5x"/>
-                <constraint firstItem="JTH-cu-eRb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="IiS-1h-mbE"/>
                 <constraint firstItem="JTH-cu-eRb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="J7A-Ix-U5v"/>
                 <constraint firstAttribute="trailing" secondItem="JTH-cu-eRb" secondAttribute="trailing" id="NHZ-T7-prq"/>
+                <constraint firstItem="JTH-cu-eRb" firstAttribute="centerX" secondItem="jB8-M1-koc" secondAttribute="centerX" id="U4n-ld-7Qg"/>
                 <constraint firstItem="3c8-nE-6A6" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="d42-2i-YOI"/>
-                <constraint firstItem="jB8-M1-koc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="f9i-q1-nH3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="jB8-M1-koc" secondAttribute="top" constant="20" id="jvQ-YA-3h7"/>
+                <constraint firstItem="JTH-cu-eRb" firstAttribute="top" secondItem="jB8-M1-koc" secondAttribute="bottom" id="m8w-qM-42Q"/>
                 <constraint firstItem="JTH-cu-eRb" firstAttribute="leading" secondItem="jB8-M1-koc" secondAttribute="leading" id="sHx-YA-vZX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

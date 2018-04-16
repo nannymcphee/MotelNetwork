@@ -62,6 +62,7 @@
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="2w3-4U-8K1" firstAttribute="leading" secondItem="Skl-gc-u9T" secondAttribute="leading" constant="19" id="FB2-zi-t0I"/>
+                        <constraint firstAttribute="height" constant="64" id="WnN-t9-CNg"/>
                         <constraint firstItem="N7x-6u-3zQ" firstAttribute="centerY" secondItem="Skl-gc-u9T" secondAttribute="centerY" id="WwJ-ab-v0g"/>
                         <constraint firstItem="Spl-ph-XCv" firstAttribute="centerY" secondItem="N7x-6u-3zQ" secondAttribute="centerY" id="cyc-gF-V2N"/>
                         <constraint firstItem="2w3-4U-8K1" firstAttribute="centerY" secondItem="N7x-6u-3zQ" secondAttribute="centerY" id="q9z-S4-6pf"/>
@@ -258,12 +259,11 @@ EELhuqFuIGzDoA
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="a2s-3R-Dd7" firstAttribute="leading" secondItem="GKl-2P-fA3" secondAttribute="leading" id="3NM-EG-FzA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="GKl-2P-fA3" secondAttribute="top" constant="20" id="4ph-tv-Qrs"/>
                 <constraint firstAttribute="trailing" secondItem="a2s-3R-Dd7" secondAttribute="trailing" id="7nU-f4-QIo"/>
-                <constraint firstItem="a2s-3R-Dd7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Q2N-m3-A2v"/>
-                <constraint firstItem="a2s-3R-Dd7" firstAttribute="top" secondItem="GKl-2P-fA3" secondAttribute="bottom" id="QIq-lS-kSn"/>
+                <constraint firstItem="a2s-3R-Dd7" firstAttribute="top" secondItem="GKl-2P-fA3" secondAttribute="bottom" id="XOk-ig-Jya"/>
                 <constraint firstItem="a2s-3R-Dd7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eDb-ix-x5G"/>
                 <constraint firstItem="a2s-3R-Dd7" firstAttribute="trailing" secondItem="GKl-2P-fA3" secondAttribute="trailing" id="wWb-8n-wHv"/>
-                <constraint firstItem="GKl-2P-fA3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zYR-qd-GEU"/>
                 <constraint firstItem="a2s-3R-Dd7" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="zYg-V2-TaP"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -73,6 +73,7 @@
                     <constraints>
                         <constraint firstItem="4s2-gj-B6Z" firstAttribute="centerY" secondItem="c4V-Vn-teB" secondAttribute="centerY" id="9fI-aE-GS8"/>
                         <constraint firstItem="c4V-Vn-teB" firstAttribute="trailing" secondItem="6PR-5A-klX" secondAttribute="trailing" constant="19" id="BqV-Ji-7oQ"/>
+                        <constraint firstAttribute="height" constant="64" id="Eku-TU-JA8"/>
                         <constraint firstItem="EqC-X7-oTt" firstAttribute="leading" secondItem="hgQ-u7-x4C" secondAttribute="leading" id="ddv-am-Bmx"/>
                         <constraint firstItem="nwb-EH-iAN" firstAttribute="centerY" secondItem="4s2-gj-B6Z" secondAttribute="centerY" id="ghr-vU-H8U"/>
                         <constraint firstItem="4s2-gj-B6Z" firstAttribute="centerX" secondItem="c4V-Vn-teB" secondAttribute="centerX" id="hnp-Sr-ADJ"/>
@@ -279,13 +280,12 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="DWG-tt-5dh" firstAttribute="top" secondItem="hgQ-u7-x4C" secondAttribute="bottom" id="42C-0u-mnl"/>
-                <constraint firstItem="hgQ-u7-x4C" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HCL-QB-Goc"/>
-                <constraint firstItem="DWG-tt-5dh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Kvu-mh-j27"/>
+                <constraint firstItem="DWG-tt-5dh" firstAttribute="top" secondItem="hgQ-u7-x4C" secondAttribute="bottom" id="Mef-t7-6VL"/>
                 <constraint firstItem="DWG-tt-5dh" firstAttribute="trailing" secondItem="hgQ-u7-x4C" secondAttribute="trailing" id="RaK-aU-LGn"/>
                 <constraint firstItem="DWG-tt-5dh" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="TVG-el-gXk"/>
                 <constraint firstItem="DWG-tt-5dh" firstAttribute="leading" secondItem="hgQ-u7-x4C" secondAttribute="leading" id="UwX-Hv-5ay"/>
                 <constraint firstItem="cdx-Mf-vgq" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="Z2B-E5-Yud"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="hgQ-u7-x4C" secondAttribute="top" constant="20" id="ciQ-cj-1wN"/>
                 <constraint firstItem="DWG-tt-5dh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rTW-Dj-x5B"/>
                 <constraint firstAttribute="trailing" secondItem="DWG-tt-5dh" secondAttribute="trailing" id="xhD-eq-9zM"/>
             </constraints>

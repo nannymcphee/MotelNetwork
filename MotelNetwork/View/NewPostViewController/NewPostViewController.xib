@@ -412,8 +412,8 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Uec-RF-Jj0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0WA-Ti-Fhl"/>
                 <constraint firstItem="cy3-AN-SuS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2h5-Eo-FJN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="Uec-RF-Jj0" secondAttribute="top" constant="20" id="BU8-C2-C4Y"/>
                 <constraint firstItem="cy3-AN-SuS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="dTn-YF-bGf"/>
                 <constraint firstItem="cy3-AN-SuS" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="dol-eR-T2R"/>
                 <constraint firstItem="cy3-AN-SuS" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="tq7-SU-OGj"/>

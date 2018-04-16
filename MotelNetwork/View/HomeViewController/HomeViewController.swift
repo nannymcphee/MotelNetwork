@@ -78,6 +78,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tbMostView.reloadData()
     }
     
+    //MARK: Refresh data
+    
     @objc func refreshDataNews() {
         
         listNews.removeAll()
@@ -105,28 +107,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-//        let contentOffsetX = scrollView.contentOffset.x
-//        var currentPage = contentOffsetX / screenWidth
-        if sclContent.contentOffset.x >= 0 &&  sclContent.contentOffset.x < screenWidth {
-            
-            // News
-            setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
-            setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
-        }
-        else if sclContent.contentOffset.x >= screenWidth && sclContent.contentOffset.x < 2 * screenWidth  {
-            
-            // Most View
-            setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
-            setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
-        }
-        else {
-           // Near Me
-            setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
-            setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
-        }
-    }
+    //MARK: Set up views
     
     func setUpViewNews() {
         
@@ -260,7 +241,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
-        let mostViewQuery = ref.child("Posts").child(uid!).child("MyPosts").queryOrdered(byChild: "postDate")
+        let mostViewQuery = ref.child("Posts").child(uid!).child("MyPosts").queryOrdered(byChild: "price")
         mostViewQuery.observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
@@ -307,8 +288,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let news = News(dictionary: dictionary)
                 news.id = snapshot.key
-                
-                
+        
                 DispatchQueue.main.async {
                     self.reloadInputViews()
                 }
@@ -445,5 +425,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    //MARK: Scroll view did scroll
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        //        let contentOffsetX = scrollView.contentOffset.x
+        //        var currentPage = contentOffsetX / screenWidth
+        if sclContent.contentOffset.x >= 0 &&  sclContent.contentOffset.x < screenWidth {
+            
+            // News
+            setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
+            setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
+        }
+        else if sclContent.contentOffset.x >= screenWidth && sclContent.contentOffset.x < 2 * screenWidth  {
+            
+            // Most View
+            setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
+            setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
+        }
+        else {
+            // Near Me
+            setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
+            setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
+        }
+    }
 }

@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,7 +36,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="1214"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="1130"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mv9-sz-8te">
@@ -82,6 +83,7 @@
                         <constraint firstItem="FIh-DV-7Mw" firstAttribute="centerX" secondItem="PGu-1U-VLa" secondAttribute="centerX" id="amM-q9-lO6"/>
                         <constraint firstItem="FIh-DV-7Mw" firstAttribute="centerY" secondItem="PGu-1U-VLa" secondAttribute="centerY" id="cXC-yW-IUA"/>
                         <constraint firstAttribute="trailing" secondItem="hXG-s3-brZ" secondAttribute="trailing" id="dwS-ul-Ij1"/>
+                        <constraint firstAttribute="height" constant="64" id="edI-70-1Cs"/>
                         <constraint firstItem="Wv9-CS-QvD" firstAttribute="leading" secondItem="PGu-1U-VLa" secondAttribute="leading" constant="19" id="eur-Qh-lvT"/>
                         <constraint firstItem="hXG-s3-brZ" firstAttribute="bottom" secondItem="PGu-1U-VLa" secondAttribute="bottom" id="hZ7-J1-i2r"/>
                         <constraint firstItem="FIh-DV-7Mw" firstAttribute="baseline" secondItem="2mE-qo-wg7" secondAttribute="firstBaseline" id="n8r-70-nrt"/>
@@ -90,10 +92,10 @@
                     <viewLayoutGuide key="safeArea" id="PGu-1U-VLa"/>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tyy-Wu-SdD">
-                    <rect key="frame" x="0.0" y="64" width="375" height="1150"/>
+                    <rect key="frame" x="0.0" y="64" width="375" height="1066"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JOY-6Q-Avh">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="1150"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1582"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tnl-fe-AVC">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
@@ -161,7 +163,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cCX-Zd-xbj">
-                                    <rect key="frame" x="0.0" y="96" width="375" height="1054"/>
+                                    <rect key="frame" x="0.0" y="96" width="375" height="1486"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chi tiết" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZz-Ud-XsG">
                                             <rect key="frame" x="17" y="15" width="56" height="20.5"/>
@@ -400,7 +402,6 @@
                                 <constraint firstItem="cCX-Zd-xbj" firstAttribute="top" secondItem="Tnl-fe-AVC" secondAttribute="bottom" id="Xt1-6b-Wgc"/>
                                 <constraint firstItem="Tnl-fe-AVC" firstAttribute="trailing" secondItem="vM7-V9-V2B" secondAttribute="trailing" id="ihw-Cc-2bD"/>
                                 <constraint firstItem="cCX-Zd-xbj" firstAttribute="leading" secondItem="vM7-V9-V2B" secondAttribute="leading" id="leM-lk-rXO"/>
-                                <constraint firstAttribute="height" constant="1150" id="rY5-dg-nIm"/>
                                 <constraint firstItem="cCX-Zd-xbj" firstAttribute="top" secondItem="Tnl-fe-AVC" secondAttribute="bottom" id="v9R-bT-5O9"/>
                             </constraints>
                             <viewLayoutGuide key="safeArea" id="vM7-V9-V2B"/>
@@ -417,14 +418,14 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="tyy-Wu-SdD" firstAttribute="top" secondItem="mv9-sz-8te" secondAttribute="bottom" id="0Ue-Ac-Wf8"/>
                 <constraint firstItem="mv9-sz-8te" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="2cC-CT-fFl"/>
                 <constraint firstItem="tyy-Wu-SdD" firstAttribute="top" secondItem="mv9-sz-8te" secondAttribute="bottom" id="I9H-j7-OjJ"/>
                 <constraint firstItem="tyy-Wu-SdD" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="LZR-A5-t1v"/>
                 <constraint firstItem="mv9-sz-8te" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Re1-b6-jvg"/>
-                <constraint firstItem="mv9-sz-8te" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Unl-we-C5s"/>
+                <constraint firstItem="tyy-Wu-SdD" firstAttribute="centerX" secondItem="mv9-sz-8te" secondAttribute="centerX" id="Wv8-rG-COV"/>
                 <constraint firstItem="tyy-Wu-SdD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="agi-YZ-HgJ"/>
-                <constraint firstItem="tyy-Wu-SdD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="dW9-Yc-zmJ"/>
+                <constraint firstItem="JOY-6Q-Avh" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1.4" id="keh-j8-3Cl"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="mv9-sz-8te" secondAttribute="top" constant="20" id="lGS-OL-oMW"/>
                 <constraint firstItem="tyy-Wu-SdD" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="nea-o1-nWM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
