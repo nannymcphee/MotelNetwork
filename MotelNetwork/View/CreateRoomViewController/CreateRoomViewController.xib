@@ -85,10 +85,10 @@
                     <rect key="frame" x="0.0" y="64" width="375" height="686"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S5T-Vq-TA4">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="686"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5f-em-JMK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="750"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="686"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UfL-By-QAJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
@@ -158,7 +158,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="waF-pc-Pc7">
-                                            <rect key="frame" x="0.0" y="96" width="375" height="654"/>
+                                            <rect key="frame" x="0.0" y="96" width="375" height="590"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chi tiết" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dx2-C0-uVb">
                                                     <rect key="frame" x="17" y="15" width="53" height="20"/>
@@ -271,6 +271,7 @@
                             <constraints>
                                 <constraint firstItem="h5f-em-JMK" firstAttribute="top" secondItem="S5T-Vq-TA4" secondAttribute="top" id="Db1-4b-U1t"/>
                                 <constraint firstItem="h5f-em-JMK" firstAttribute="leading" secondItem="S5T-Vq-TA4" secondAttribute="leading" id="ceG-QI-IcR"/>
+                                <constraint firstAttribute="height" constant="686" id="mGc-9d-HSC"/>
                                 <constraint firstAttribute="bottom" secondItem="h5f-em-JMK" secondAttribute="bottom" id="rcg-Y4-Z6D"/>
                                 <constraint firstAttribute="trailing" secondItem="h5f-em-JMK" secondAttribute="trailing" id="scB-8N-kUr"/>
                             </constraints>
@@ -290,9 +291,9 @@
                 <constraint firstItem="exM-7r-7lU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-20" id="9wN-9V-wdj"/>
                 <constraint firstItem="exM-7r-7lU" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="DL0-Uc-yFc"/>
                 <constraint firstItem="8Hj-fw-uzZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GUV-bz-hHo"/>
+                <constraint firstItem="S5T-Vq-TA4" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" priority="750" id="KZF-xF-skp"/>
                 <constraint firstAttribute="trailing" secondItem="8Hj-fw-uzZ" secondAttribute="trailing" id="Ncl-xw-HcC"/>
                 <constraint firstItem="8Hj-fw-uzZ" firstAttribute="top" secondItem="exM-7r-7lU" secondAttribute="bottom" id="dT3-iL-nrr"/>
-                <constraint firstItem="S5T-Vq-TA4" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="hNR-yk-P4r"/>
                 <constraint firstItem="exM-7r-7lU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hWD-oH-a4o"/>
                 <constraint firstItem="8Hj-fw-uzZ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="llD-Ii-hgf"/>
             </constraints>

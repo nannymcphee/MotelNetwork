@@ -85,10 +85,10 @@
                     <rect key="frame" x="0.0" y="64" width="375" height="692"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7Q-3S-igY">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="756"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="692"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kKp-2X-Ziq">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="756"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="692"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAW-gH-Et4">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
@@ -157,7 +157,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WSa-TA-Pg7">
-                                            <rect key="frame" x="0.0" y="96" width="375" height="660"/>
+                                            <rect key="frame" x="0.0" y="96" width="375" height="596"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chi tiết" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTS-Vq-B4J">
                                                     <rect key="frame" x="17" y="15" width="53" height="20"/>
@@ -269,6 +269,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
+                                <constraint firstAttribute="height" constant="692" id="Jy4-11-dAi"/>
                                 <constraint firstAttribute="trailing" secondItem="kKp-2X-Ziq" secondAttribute="trailing" id="S5z-j6-8MF"/>
                                 <constraint firstItem="kKp-2X-Ziq" firstAttribute="leading" secondItem="b7Q-3S-igY" secondAttribute="leading" id="af0-tW-Kuk"/>
                                 <constraint firstAttribute="bottom" secondItem="kKp-2X-Ziq" secondAttribute="bottom" id="b2P-L4-uVS"/>
@@ -287,6 +288,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="b7Q-3S-igY" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" priority="750" id="74M-UV-QaN"/>
                 <constraint firstAttribute="trailing" secondItem="idq-ej-1kt" secondAttribute="trailing" id="QC6-9W-KFM"/>
                 <constraint firstItem="idq-ej-1kt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cBp-RW-7En"/>
                 <constraint firstItem="idq-ej-1kt" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="cE9-ds-6uS"/>
@@ -294,7 +296,6 @@
                 <constraint firstItem="idq-ej-1kt" firstAttribute="leading" secondItem="LNV-p3-bPb" secondAttribute="leading" id="eWE-Wz-wx1"/>
                 <constraint firstItem="idq-ej-1kt" firstAttribute="trailing" secondItem="LNV-p3-bPb" secondAttribute="trailing" id="ez4-Bx-dI7"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="LNV-p3-bPb" secondAttribute="top" constant="20" id="huo-uw-XIE"/>
-                <constraint firstItem="b7Q-3S-igY" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" priority="750" id="lOJ-NT-XtW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
