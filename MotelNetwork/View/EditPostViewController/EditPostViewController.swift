@@ -12,6 +12,8 @@ import FirebaseDatabase
 import FirebaseStorage
 import Photos
 import BSImagePicker
+import IHKeyboardAvoiding
+
 
 class EditPostViewController: UIViewController, UIImagePickerControllerDelegate {
 
@@ -68,6 +70,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate 
         tfPhoneNumber.text = currentNews.phoneNumber
         tfArea.text = currentNews.area
         
+        KeyboardAvoiding.avoidingView = self.view
     }
     
     func getCurrentDate() {

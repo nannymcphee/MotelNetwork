@@ -18,8 +18,10 @@ class DetailNewsViewController: UIViewController {
     @IBOutlet weak var btnBack2: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblUserName: UILabel!
-    @IBOutlet weak var ivNewsImage: UIImageView!
-    @IBOutlet weak var lblNewsTitle: UILabel!
+    @IBOutlet weak var ivNewsImage0: UIImageView!
+    @IBOutlet weak var ivNewsImage1: UIImageView!
+    @IBOutlet weak var ivNewsImage2: UIImageView!
+    @IBOutlet weak var tvNewsTitle: UITextView!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblArea: UILabel!
     @IBOutlet weak var lblDistrict: UILabel!
@@ -28,7 +30,7 @@ class DetailNewsViewController: UIViewController {
     @IBOutlet weak var lblPostDate: UILabel!
     @IBOutlet weak var lblInternetPrice: UILabel!
     @IBOutlet weak var lblPhoneNumber: UILabel!
-    @IBOutlet weak var lblAddress: UILabel!
+    @IBOutlet weak var tvAddress: UITextView!
     @IBOutlet weak var tvDescription: UITextView!
     
     var dbReference: DatabaseReference!
@@ -52,33 +54,31 @@ class DetailNewsViewController: UIViewController {
         
         let userProfileImageUrl = currentNews.userProfileImageUrl
         let postImageUrl0 = currentNews.postImageUrl0
+        let postImageUrl1 = currentNews.postImageUrl1
+        let postImageUrl2 = currentNews.postImageUrl2
         let profileImgResource = ImageResource(downloadURL: URL(string: userProfileImageUrl!)!)
-        
-        numberFormatter.numberStyle = .decimal
-        lblPrice.text = numberFormatter.string(from: currentNews.price! as NSNumber)
-        lblElectricPrice.text = numberFormatter.string(from: currentNews.electricPrice! as NSNumber)
-        lblWaterPrice.text = numberFormatter.string(from: currentNews.waterPrice! as NSNumber)
-        lblInternetPrice.text = numberFormatter.string(from: currentNews.internetPrice! as NSNumber)
+        let formattedPrice = numberFormatter.string(from: currentNews.price! as NSNumber)
+        let formattedElectricPrice = numberFormatter.string(from: currentNews.electricPrice! as NSNumber)
+        let formattedWaterPrice = numberFormatter.string(from: currentNews.waterPrice! as NSNumber)
+        let formattedInternetPrice = numberFormatter.string(from: currentNews.internetPrice! as NSNumber)
+
+        lblPrice.text = "\(formattedPrice ?? "")đ"
+        lblElectricPrice.text = "\(formattedElectricPrice ?? "")đ"
+        lblWaterPrice.text = "\(formattedWaterPrice ?? "")đ"
+        lblInternetPrice.text = "\(formattedInternetPrice ?? "")đ"
         lblArea.text = String("\(currentNews.area ?? "")m2")
         lblDistrict.text = currentNews.district
         tvDescription.text = currentNews.description
         lblPhoneNumber.text = currentNews.phoneNumber
         lblPostDate.text = currentNews.postDate
-        lblAddress.text = currentNews.address
-        lblNewsTitle.text = currentNews.title
+        tvAddress.text = currentNews.address
+        tvNewsTitle.text = currentNews.title
         lblUserName.text = currentNews.user
         
         ivAvatar.kf.setImage(with: profileImgResource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
-        
-        // Use Kingfisher to download & show image
-        if URL(string: postImageUrl0!) != nil {
-            let resource = ImageResource(downloadURL: URL(string: postImageUrl0!)!)
-            
-            ivNewsImage.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage") , options: nil, progressBlock: nil, completionHandler: nil)
-        }
-        else{
-            ivNewsImage.image = #imageLiteral(resourceName: "defaultImage")
-        }
+        loadImageToImageView(imageUrl: postImageUrl0!, imageView: ivNewsImage0)
+        loadImageToImageView(imageUrl: postImageUrl1!, imageView: ivNewsImage1)
+        loadImageToImageView(imageUrl: postImageUrl2!, imageView: ivNewsImage2)
         
         makeImageViewRounded(imageView: ivAvatar)
     }

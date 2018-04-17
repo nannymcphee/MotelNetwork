@@ -11,6 +11,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import NVActivityIndicatorView
+import Kingfisher
 
 var activityIndicatorView : NVActivityIndicatorView!
 var blurEffectView : UIVisualEffectView!
@@ -272,6 +273,20 @@ extension UIViewController {
         
         let vc = LoginViewController()
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    //MARK: Load image to image view using Kingfisher
+    
+    func loadImageToImageView(imageUrl: String, imageView: UIImageView) {
+        
+        if URL(string: imageUrl) != nil {
+            let resource = ImageResource(downloadURL: URL(string: imageUrl)!)
+            
+            imageView.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage") , options: nil, progressBlock: nil, completionHandler: nil)
+        }
+        else{
+            imageView.image = #imageLiteral(resourceName: "defaultImage")
+        }
     }
     
     

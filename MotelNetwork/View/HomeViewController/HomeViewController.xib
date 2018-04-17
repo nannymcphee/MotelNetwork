@@ -26,6 +26,7 @@
                 <outlet property="vNearMeProgress" destination="JAB-8e-MST" id="cW6-FC-0tU"/>
                 <outlet property="vNews" destination="fcQ-9x-ZUe" id="ZNm-AC-cFB"/>
                 <outlet property="vNewsProgress" destination="kVz-hO-kLg" id="uOK-RL-b5o"/>
+                <outlet property="vTest" destination="Dx4-TR-TSa" id="KdV-S3-hlZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -59,7 +60,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kVz-hO-kLg">
                                             <rect key="frame" x="0.0" y="38" width="125" height="2"/>
-                                            <color key="backgroundColor" red="0.31291005020000001" green="0.50491499900000003" blue="0.74573397640000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="sJB-sg-7p6"/>
                                             </constraints>
@@ -87,7 +88,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cyk-NP-EFV">
                                             <rect key="frame" x="0.0" y="38" width="125" height="2"/>
-                                            <color key="backgroundColor" red="0.31291005020000001" green="0.50491499900000003" blue="0.74573397640000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="hol-af-VqI"/>
                                             </constraints>
@@ -115,7 +116,7 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAB-8e-MST">
                                             <rect key="frame" x="0.0" y="38" width="125" height="2"/>
-                                            <color key="backgroundColor" red="0.31291005020000001" green="0.50491499900000003" blue="0.74573397640000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="2" id="IPW-o2-qK1"/>
                                             </constraints>

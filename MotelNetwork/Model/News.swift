@@ -63,8 +63,8 @@ class News {
         self.user = dictionary["user"] as? String
         self.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
         self.postImageUrl0 = dictionary["postImageUrl0"] as? String
-        self.postImageUrl1 = dictionary["postImageUrl0"] as? String
-        self.postImageUrl2 = dictionary["postImageUrl0"] as? String
+        self.postImageUrl1 = dictionary["postImageUrl1"] as? String
+        self.postImageUrl2 = dictionary["postImageUrl2"] as? String
         self.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
         self.description = dictionary["description"] as? String
         self.district = dictionary["district"] as? String

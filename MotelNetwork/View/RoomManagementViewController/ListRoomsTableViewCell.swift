@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import SDWebImage
 import Kingfisher
 
 class ListRoomsTableViewCell: UITableViewCell {
@@ -46,11 +45,6 @@ class ListRoomsTableViewCell: UITableViewCell {
         else{
             ivRoomImage.image = #imageLiteral(resourceName: "defaultImage")
         }
-        
-        
-        // Use SDWebImage to download & show image
-//        self.ivRoomImage.sd_setImage(with: URL(string: room.roomImageUrl0!), placeholderImage: #imageLiteral(resourceName: "defaultImage"), options: .allowInvalidSSLCertificates, completed: nil)
-//        self.ivRoomImage.sd_setShowActivityIndicatorView(true)
-//        self.ivRoomImage.sd_setIndicatorStyle(.gray)
+
     }
 }

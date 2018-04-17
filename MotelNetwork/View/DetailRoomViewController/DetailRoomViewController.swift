@@ -18,11 +18,16 @@ class DetailRoomViewController: UIViewController {
     @IBOutlet weak var lblRoomName: UILabel!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblFullName: UILabel!
-    @IBOutlet weak var ivRoomImage: UIImageView!
+    @IBOutlet weak var ivRoomImage0: UIImageView!
+    @IBOutlet weak var ivRoomImage1: UIImageView!
+    @IBOutlet weak var ivRoomImage2: UIImageView!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblArea: UILabel!
     @IBOutlet weak var lblUser: UILabel!
     @IBOutlet weak var btnCalculate: UIButton!
+    @IBOutlet weak var vView1: UIView!
+    @IBOutlet weak var vView2: UIView!
+    @IBOutlet weak var vView3: UIView!
     
     var currentRoom = Room()
     var dbReference: DatabaseReference!
@@ -49,7 +54,6 @@ class DetailRoomViewController: UIViewController {
         let roomImageUrl1 = currentRoom.roomImageUrl1
         let roomImageUrl2 = currentRoom.roomImageUrl2
         
-        
         imageUrlsArray.append(roomImageUrl0!)
         imageUrlsArray.append(roomImageUrl1!)
         imageUrlsArray.append(roomImageUrl2!)
@@ -60,15 +64,9 @@ class DetailRoomViewController: UIViewController {
         lblArea.text = String("\(currentRoom.area ?? "")m2")
         lblUser.text = currentRoom.user
         
-        // Use Kingfisher to download & show image
-        if URL(string: roomImageUrl0!) != nil {
-            let resource = ImageResource(downloadURL: URL(string: roomImageUrl0!)!)
-            
-            ivRoomImage.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage") , options: nil, progressBlock: nil, completionHandler: nil)
-        }
-        else{
-            ivRoomImage.image = #imageLiteral(resourceName: "defaultImage")
-        }
+        loadImageToImageView(imageUrl: roomImageUrl0!, imageView: ivRoomImage0)
+        loadImageToImageView(imageUrl: roomImageUrl1!, imageView: ivRoomImage1)
+        loadImageToImageView(imageUrl: roomImageUrl2!, imageView: ivRoomImage2)
         
         makeButtonRounded(button: btnCalculate)
         makeImageViewRounded(imageView: ivAvatar)

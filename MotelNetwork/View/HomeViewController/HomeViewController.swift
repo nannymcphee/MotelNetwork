@@ -11,9 +11,11 @@ import FirebaseAuth
 import FirebaseDatabase
 import SwipeBack
 import NVActivityIndicatorView
+//import TwicketSegmentedControl
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NVActivityIndicatorViewable {
     
+    @IBOutlet weak var vTest: UIView!
     @IBOutlet weak var tbMostView: UITableView!
     @IBOutlet weak var tbNearMe: UITableView!
     @IBOutlet weak var tbListNews: UITableView!
@@ -58,6 +60,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tbNearMe.delegate = self
         tbNearMe.dataSource = self
         tbNearMe.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
+        
+//        let titles = ["Tin mới", "Xem nhiều", "Gần tôi"]
+//        let frame = CGRect(x: 0, y: 40, width: UIScreen.main.bounds.width, height: 40)
+//        
+//        let segmentedControl = TwicketSegmentedControl(frame: frame)
+//        segmentedControl.topAnchor.constraint(equalTo: view.topAnchor)
+//        segmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor)
+//        segmentedControl.leadingAnchor.constraint(equalTo: view.trailingAnchor)
+//        segmentedControl.setSegmentItems(titles)
+//        segmentedControl.delegate = self
+//        
+//        view.addSubview(segmentedControl)
         
         loadDataNews()
         loadDataMostView()
@@ -190,7 +204,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         setViewState(enabledView: vNewsProgress, disabledView2: vNearMeProgress, disabledView3: vMostViewProgress)
         setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnNearMe, buttonDisable2: btnMostView)
         self.tapToDismissKeyboard()
-        
     }
     
     //MARK: Database interaction
@@ -444,9 +457,27 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
         }
         else {
+            
             // Near Me
             setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
             setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
         }
     }
+
+    
+//    func didSelect(_ segmentIndex: Int) {
+//        print("Selected index: \(segmentIndex)")
+//        switch segmentIndex {
+//        case 0:
+//            setUpViewNews()
+//        case 1:
+//            setUpViewMostView()
+//        case 2:
+//            setUpViewNearMe()
+//        default:
+//            setUpViewNews()
+//        }
+//
+//    }
 }
+

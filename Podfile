@@ -16,6 +16,8 @@ target 'Motel Network' do
 	pod 'SwipeBack' , '~> 1.1'
 	pod 'SDWebImage' ,'~> 4.0'
     pod 'Kingfisher', '~> 4.0'
-	pod 'TLYShyNavBar'
+	pod 'IHKeyboardAvoiding'
+	pod 'TwicketSegmentedControl'
+
 
 end

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "689120B8CB5042437FE547CA784BFD06"
-               BlueprintName = "TLYShyNavBar"
+               BlueprintIdentifier = "064128637C06B459015C3BA4B891B2E4"
+               BlueprintName = "TwicketSegmentedControl"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "TLYShyNavBar.framework">
+               BuildableName = "TwicketSegmentedControl.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

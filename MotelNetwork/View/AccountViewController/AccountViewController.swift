@@ -134,6 +134,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 news.phoneNumber = dictionary["phoneNumber"] as? String
                 news.user = dictionary["user"] as? String
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
+                news.postImageUrl1 = dictionary["postImageUrl1"] as? String
+                news.postImageUrl2 = dictionary["postImageUrl2"] as? String
                 news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
                 news.postDate = dictionary["postDate"] as? String
                 
