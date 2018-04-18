@@ -211,7 +211,11 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func btnSavePressed(_ sender: Any) {
         
-        if (tfUser.text?.isEmpty)! || (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! {
+        if (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! {
+            
+            self.showAlert(alertMessage: messageNilTextFields)
+        }
+        else {
         
             let roomName = self.tfRoomName.text!
             let area = self.tfArea.text!
@@ -221,12 +225,11 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             let roomID = currentRoom.id!
             let ref = Database.database().reference().child("Rooms").child(self.uid!).child("MyRooms").child(roomID)
             
-            
             // Create confirm alert
             let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)
             let actionDestroy = UIAlertAction(title: "Có", style: .destructive) { (action) in
                 
-                if self.tfRoomName.text == nil || self.tfArea.text == nil || self.tfPrice.text == nil {
+                if (self.tfRoomName.text?.isEmpty)! || (self.tfArea.text?.isEmpty)! || (self.tfPrice.text?.isEmpty)! {
                     
                     self.showAlert(alertMessage: messageNilTextFields)
                 }
@@ -278,3 +281,4 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
     }
 }
+

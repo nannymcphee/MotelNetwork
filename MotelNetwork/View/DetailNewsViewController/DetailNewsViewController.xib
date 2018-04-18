@@ -83,7 +83,7 @@
                     <rect key="frame" x="0.0" y="64" width="375" height="856"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWU-Lt-02X">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="1012"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="1196"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wIV-uu-XLf">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
@@ -121,7 +121,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygQ-M9-199">
-                                    <rect key="frame" x="0.0" y="48" width="375" height="964"/>
+                                    <rect key="frame" x="0.0" y="48" width="375" height="1148"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AO7-0w-TpT">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -218,7 +218,7 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oiy-hZ-FUE">
-                                            <rect key="frame" x="0.0" y="200" width="375" height="764"/>
+                                            <rect key="frame" x="0.0" y="200" width="375" height="948"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="bqM-eL-b12">
                                                     <rect key="frame" x="94" y="90" width="192" height="80"/>
@@ -394,11 +394,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" keyboardDismissMode="onDrag" editable="NO" text="Địa chỉ" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fhZ-YC-42r">
-                                                    <rect key="frame" x="112" y="256" width="170" height="55"/>
+                                                    <rect key="frame" x="112" y="256" width="220" height="55"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="55" id="8x4-JN-S2O"/>
-                                                        <constraint firstAttribute="width" constant="170" id="IYw-VK-01L"/>
+                                                        <constraint firstAttribute="width" constant="220" id="IYw-VK-01L"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -477,6 +477,7 @@
                         <constraint firstAttribute="bottom" secondItem="rWU-Lt-02X" secondAttribute="bottom" id="0ak-nb-p6s"/>
                         <constraint firstItem="rWU-Lt-02X" firstAttribute="top" secondItem="sZO-0d-DbO" secondAttribute="top" id="E8i-Jm-56I"/>
                         <constraint firstItem="rWU-Lt-02X" firstAttribute="centerX" secondItem="sZO-0d-DbO" secondAttribute="centerX" id="PgT-Ws-lJS"/>
+                        <constraint firstItem="rWU-Lt-02X" firstAttribute="height" secondItem="sZO-0d-DbO" secondAttribute="height" priority="750" id="apS-gY-Euh"/>
                         <constraint firstItem="rWU-Lt-02X" firstAttribute="leading" secondItem="sZO-0d-DbO" secondAttribute="leading" id="vwl-AU-Bpg"/>
                         <constraint firstAttribute="trailing" secondItem="rWU-Lt-02X" secondAttribute="trailing" id="zJ1-Cl-zgw"/>
                     </constraints>
@@ -487,7 +488,7 @@
                 <constraint firstItem="sZO-0d-DbO" firstAttribute="centerX" secondItem="Vny-eW-G18" secondAttribute="centerX" id="Gog-fD-7xQ"/>
                 <constraint firstItem="sZO-0d-DbO" firstAttribute="leading" secondItem="Vny-eW-G18" secondAttribute="leading" id="JnD-0H-CMR"/>
                 <constraint firstItem="Vny-eW-G18" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="XLo-1Z-ju3"/>
-                <constraint firstItem="rWU-Lt-02X" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1.1" id="c99-yS-ABZ"/>
+                <constraint firstItem="rWU-Lt-02X" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1.3" id="c99-yS-ABZ"/>
                 <constraint firstItem="Vny-eW-G18" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="h0B-jb-9pY"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="Vny-eW-G18" secondAttribute="top" constant="20" id="kXV-9M-7HZ"/>
                 <constraint firstItem="sZO-0d-DbO" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="mGZ-Lr-dad"/>

@@ -186,7 +186,7 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="e4k-dw-9Ma" firstAttribute="width" secondItem="TtJ-Cv-doF" secondAttribute="width" priority="750" id="181-UK-CqV"/>
+                                                                        <constraint firstItem="e4k-dw-9Ma" firstAttribute="width" secondItem="TtJ-Cv-doF" secondAttribute="width" id="181-UK-CqV"/>
                                                                         <constraint firstItem="ZXN-TE-idJ" firstAttribute="leading" secondItem="e4k-dw-9Ma" secondAttribute="trailing" id="1xV-9G-x2C"/>
                                                                         <constraint firstAttribute="bottom" secondItem="ZXN-TE-idJ" secondAttribute="bottom" id="6TE-KW-XdJ"/>
                                                                         <constraint firstItem="e4k-dw-9Ma" firstAttribute="leading" secondItem="TtJ-Cv-doF" secondAttribute="trailing" id="8FC-VS-n3p"/>
@@ -279,7 +279,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="pnK-ii-M9a">
                                                                     <rect key="frame" x="24" y="0.0" width="62" height="80"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Giá phòng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBI-3q-U9V">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Giá phòng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBI-3q-U9V">
                                                                             <rect key="frame" x="0.0" y="0.0" width="56" height="14"/>
                                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                             <nil key="textColor"/>

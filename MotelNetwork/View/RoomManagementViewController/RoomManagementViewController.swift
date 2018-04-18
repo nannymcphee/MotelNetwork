@@ -41,9 +41,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
 
         loadData()
         setUpView()
-        
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,7 +51,8 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-
+        listRooms.removeAll()
+        loadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -143,9 +141,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
             }
         }, withCancel: nil)
     }
-    
-
-    
     
     //MARK: Logic for UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

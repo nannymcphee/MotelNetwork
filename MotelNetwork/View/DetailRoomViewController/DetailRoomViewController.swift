@@ -62,7 +62,11 @@ class DetailRoomViewController: UIViewController {
         lblPrice.text = numberFormatter.string(from: currentRoom.price! as NSNumber)
         lblRoomName.text = currentRoom.name
         lblArea.text = String("\(currentRoom.area ?? "")m2")
-        lblUser.text = currentRoom.user
+        if !(currentRoom.user?.isEmpty)! {
+            self.lblUser.text = currentRoom.user
+        } else {
+            self.lblUser.text = "Chưa có người thuê"
+        }
         
         loadImageToImageView(imageUrl: roomImageUrl0!, imageView: ivRoomImage0)
         loadImageToImageView(imageUrl: roomImageUrl1!, imageView: ivRoomImage1)

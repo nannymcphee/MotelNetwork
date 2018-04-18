@@ -34,7 +34,11 @@ class ListRoomsTableViewCell: UITableViewCell {
         self.lblRoomName.text = room.name
         self.lblRoomPrice.text = numberFormatter.string(from: room.price! as NSNumber)
         self.lblArea.text = String("\(room.area ?? "")m2")
-        self.lblUserFullName.text = room.user ?? "Không"
+        if !(room.user?.isEmpty)! {
+            self.lblUserFullName.text = room.user
+        } else {
+            self.lblUserFullName.text = "Chưa có người thuê"
+        }
         
         // Use Kingfisher to download & show image
         if URL(string: room.roomImageUrl0!) != nil {

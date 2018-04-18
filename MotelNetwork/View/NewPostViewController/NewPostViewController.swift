@@ -144,25 +144,6 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
     
-    // Store room's info to database
-    private func storePostInformationToDatabase(_ uid: String, values: [String: AnyObject]) {
-        
-        // Create database references
-        let dbRef = Database.database().reference()
-        let postRef = dbRef.child("Posts").child(uid).child("MyPosts").child("\(postID)")
-        
-        postRef.updateChildValues(values) { (error, ref) in
-            
-            if error != nil {
-                
-                print(error!)
-                return
-            }
-            
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-    
     // Upload image from UIImageView to storage and return download url
     func uploadImageFromImageView(imageView : UIImageView, completion: @escaping ((String) -> (Void))) {
         
@@ -305,23 +286,23 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let description = self.tvDescription.text!
             let internetPrice = self.tfInternetPrice.text!
             let postDate = currentDate
-           
+            let reference = Database.database().reference().child("Posts").child(uid).child("MyPosts").child("\(postID)")
             let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "user": userName, "userProfileImageUrl": userProfileImageUrl, "postDate": postDate]
             
-            self.storePostInformationToDatabase(uid, values: values as [String: AnyObject])
+            self.storeInformationToDatabase(reference: reference, values: values as [String: AnyObject])
             
             // Upload image to Firebase storage and update download urls into database
             
             _ = uploadImageFromImageView(imageView: ivPostImage0) { (url) in
-                self.storePostInformationToDatabase(uid, values: ["postImageUrl0": url as AnyObject])
+                self.storeInformationToDatabase(reference: reference, values: ["postImageUrl0": url as AnyObject])
             }
             
             _ = uploadImageFromImageView(imageView: ivPostImage1) { (url) in
-                self.storePostInformationToDatabase(uid, values: ["postImageUrl1": url as AnyObject])
+                self.storeInformationToDatabase(reference: reference, values: ["postImageUrl1": url as AnyObject])
             }
             
             _ = uploadImageFromImageView(imageView: ivPostImage2) { (url) in
-                self.storePostInformationToDatabase(uid, values: ["postImageUrl2": url as AnyObject])
+                self.storeInformationToDatabase(reference: reference, values: ["postImageUrl2": url as AnyObject])
             }
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {

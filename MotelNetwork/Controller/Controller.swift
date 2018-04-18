@@ -92,7 +92,6 @@ extension UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
-
     
     func showAlertConfirmChangePassword(newPass: String) {
 
@@ -137,14 +136,15 @@ extension UIViewController {
                 if let error = error {
                     
                     print(error)
-                    self.showAlert(alertMessage: messageChangePasswordFailed)
+                    self.showAlert(alertMessage: messageRequestLogOut)
                 }
                 else {
                     
                     let uid = Auth.auth().currentUser?.uid
                     let values = ["Password": newPass]
-                    self.storeUserInformationToDatabase(uid!, values: values as [String: AnyObject])
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                    let ref = Database.database().reference().child("Users").child(uid!)
+                    self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                         self.showAlert(alertMessage: messageChangePasswordSuccess)
                     })
                 }
@@ -161,14 +161,15 @@ extension UIViewController {
                 if let error = error {
                     
                     print(error)
-                    self.showAlert(alertMessage: messageChangeEmailFailed)
+                    self.showAlert(alertMessage: messageRequestLogOut)
                 }
                 else {
                     
                     let uid = Auth.auth().currentUser?.uid
                     let values = ["Email": newEmail]
-                    self.storeUserInformationToDatabase(uid!, values: values as [String: AnyObject])
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: {
+                    let ref = Database.database().reference().child("Users").child(uid!)
+                    self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
                         self.showAlert(alertMessage: messageChangeEmailSuccess)
                     })
                 }
@@ -206,6 +207,21 @@ extension UIViewController {
         }
     }
     
+    // Store to database
+    func storeInformationToDatabase(reference: DatabaseReference, values: [String: AnyObject]) {
+    
+        reference.updateChildValues(values) { (error, ref) in
+            
+            if error != nil {
+                
+                print(error!)
+                return
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
     // Delete data from database
     func deleteData(reference: DatabaseReference) {
         
@@ -230,8 +246,7 @@ extension UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
-    
-    
+
     //MARK: Tap anywhere to dismiss keyboard
     
     func tapToDismissKeyboard() {
@@ -288,34 +303,7 @@ extension UIViewController {
             imageView.image = #imageLiteral(resourceName: "defaultImage")
         }
     }
-    
-    
-    
-    
 
-    
-    
-    //MARK: Swipe to pop back view
-    
-//    func swipeToPop_Root() {
-//
-//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-//        self.navigationController?.interactivePopGestureRecognizer?.delegate = self as? UIGestureRecognizerDelegate
-//    }
-//
-//    @objc func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-//
-//        if gestureRecognizer == self.navigationController?.interactivePopGestureRecognizer {
-//            return false
-//        }
-//        return true
-//    }
-//
-//    func swipeToPop_Destination() {
-//
-//        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-//        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
-//    }
     
 }
 

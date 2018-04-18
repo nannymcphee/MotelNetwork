@@ -45,7 +45,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        listNews.removeAll()
+        loadData()
     }
     
 

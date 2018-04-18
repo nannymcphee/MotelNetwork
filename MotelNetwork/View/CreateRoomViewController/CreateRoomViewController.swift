@@ -92,25 +92,6 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }, withCancel: nil)
     }
     
-    // Store room's info to database
-    private func storeRoomInformationToDatabase(_ uid: String, values: [String: AnyObject]) {
-        
-        // Create database references
-        let dbRef = Database.database().reference()
-        let roomRef = dbRef.child("Rooms").child(uid).child("MyRooms").child("\(roomID)")
-        
-        roomRef.updateChildValues(values) { (error, ref) in
-            
-            if error != nil {
-                
-                print(error!)
-                return
-            }
-            
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-    
     // Upload image from UIImageView to storage and return download url
     func uploadImageFromImageView(imageView : UIImageView, completion: @escaping ((String) -> (Void))) {
         
@@ -118,12 +99,11 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let uid = Auth.auth().currentUser?.uid
         let imageName = NSUUID().uuidString
         let storageRef = Storage.storage().reference().child("RoomImages").child(uid!).child("\(imageName).jpg")
-        let storeImage = storageRef
         
         if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 0.2) {
             
-            storeImage.putData(uploadImageData, metadata: nil, completion: { (metaData, error) in
-                storeImage.downloadURL(completion: { (url, error) in
+            storageRef.putData(uploadImageData, metadata: nil, completion: { (metaData, error) in
+                storageRef.downloadURL(completion: { (url, error) in
                     if let urlText = url?.absoluteString {
                         
                         strURL = urlText
@@ -219,7 +199,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         
         // Check if user has entered all informations
-        if  (tfUser.text?.isEmpty)! || (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! || ivRoomImage0.image == nil || ivRoomImage1.image == nil || ivRoomImage2.image == nil {
+        if  (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! || ivRoomImage0.image == nil || ivRoomImage1.image == nil || ivRoomImage2.image == nil {
             
             // Create UIAlertController
             self.showAlert(alertMessage: messageNilTextFields)
@@ -232,22 +212,22 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             let area = self.tfArea.text!
             let price = self.tfPrice.text!
             let user = self.tfUser.text!
+            let reference = Database.database().reference().child("Rooms").child(uid).child("MyRooms").child("\(roomID)")
             let values = ["RoomName": roomName, "Area": area, "Price": price, "User": user, "roomImageUrl0": "", "roomImageUrl1": "", "roomImageUrl2": ""]
             
-            self.storeRoomInformationToDatabase(uid, values: values as [String: AnyObject])
-            
+            self.storeInformationToDatabase(reference: reference, values: values as [String: AnyObject])
             // Upload image to Firebase storage and update download urls into database
             
             _ = uploadImageFromImageView(imageView: ivRoomImage0) { (url) in
-                self.storeRoomInformationToDatabase(uid, values: ["roomImageUrl0": url as AnyObject])
+                self.storeInformationToDatabase(reference: reference, values: ["roomImageUrl0": url as AnyObject])
             }
             
             _ = uploadImageFromImageView(imageView: ivRoomImage1) { (url) in
-                self.storeRoomInformationToDatabase(uid, values: ["roomImageUrl1": url as AnyObject])
+                self.storeInformationToDatabase(reference: reference, values: ["roomImageUrl1": url as AnyObject])
             }
             
             _ = uploadImageFromImageView(imageView: ivRoomImage2) { (url) in
-                self.storeRoomInformationToDatabase(uid, values: ["roomImageUrl2": url as AnyObject])
+                self.storeInformationToDatabase(reference: reference, values: ["roomImageUrl2": url as AnyObject])
             }
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {

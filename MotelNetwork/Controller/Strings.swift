@@ -14,6 +14,7 @@ var news = News()
 let districtList: [String] = ["Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11", "Quận 12", "Thủ Đức", "Bình Thạnh", "Gò Vấp", "Phú Nhuận", "Tân Phú", "Tân Bình", "Bình Tân", "Huyện Nhà Bè", "Huyện Bình Chánh", "Huyện Hóc Môn", "Huyện Củ Chi" , "Huyện Cần Giờ"]
 
 let messageConfirmLogOut: String = "Bạn chắc chắn muốn đăng xuất không?"
+let messageRequestLogOut: String = "Bạn cần phải đăng nhập lại trước khi thay đổi email hoặc mật khẩu."
 let messageCreateRoomSuccess: String = "Tạo phòng thành công."
 let messageCreateRoomFailed: String = "Tạo phòng thất bại."
 let messageEditRoomSuccess: String = "Sửa thông tin phòng thành công."

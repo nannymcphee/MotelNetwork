@@ -57,7 +57,6 @@
 		E1A621D32070D23100B83291 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A621D12070D23100B83291 /* TestViewController.xib */; };
 		E1BD102620765FAD00287982 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD102520765FAD00287982 /* Room.swift */; };
 		E1BD102820765FB900287982 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD102720765FB900287982 /* User.swift */; };
-		E1BD102A207663E800287982 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD1029207663E800287982 /* Extensions.swift */; };
 		E1BD102E20766C3500287982 /* CreateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD102C20766C3500287982 /* CreateRoomViewController.swift */; };
 		E1BD102F20766C3500287982 /* CreateRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1BD102D20766C3500287982 /* CreateRoomViewController.xib */; };
 		E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE6912067805D005715EC /* LoginViewController.swift */; };
@@ -124,7 +123,6 @@
 		E1A621D12070D23100B83291 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		E1BD102520765FAD00287982 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		E1BD102720765FB900287982 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		E1BD1029207663E800287982 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E1BD102C20766C3500287982 /* CreateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewController.swift; sourceTree = "<group>"; };
 		E1BD102D20766C3500287982 /* CreateRoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateRoomViewController.xib; sourceTree = "<group>"; };
 		E1CDE6912067805D005715EC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -283,14 +281,6 @@
 			path = SignUpViewController;
 			sourceTree = "<group>";
 		};
-		E153317C2068E1B000238763 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				E1BD1029207663E800287982 /* Extensions.swift */,
-			);
-			path = Libraries;
-			sourceTree = "<group>";
-		};
 		E16F5B18207B696500B284A5 /* AccountViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,7 +349,6 @@
 				E1BD102220765F7400287982 /* Model */,
 				E1E7D1F72071C7D300874EB2 /* View */,
 				E16F5B2F207BD34F00B284A5 /* Controller */,
-				E153317C2068E1B000238763 /* Libraries */,
 			);
 			path = MotelNetwork;
 			sourceTree = "<group>";
@@ -661,7 +650,6 @@
 				E16F5B31207BD35A00B284A5 /* Controller.swift in Sources */,
 				E1BD102E20766C3500287982 /* CreateRoomViewController.swift in Sources */,
 				E1507BA7207D195C00387527 /* EditRoomViewController.swift in Sources */,
-				E1BD102A207663E800287982 /* Extensions.swift in Sources */,
 				E16F5B29207B7D8E00B284A5 /* ChangeEmailViewController.swift in Sources */,
 				CE5FF78B20766ED0005BEA3B /* MainViewController.swift in Sources */,
 				CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */,

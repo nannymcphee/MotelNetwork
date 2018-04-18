@@ -215,6 +215,8 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     return
                 }
                 
+                let reference = Database.database().reference().child("Users").child(uid)
+                
                 // Store user's info to database
                 
                 let userEmail: String = self.tfEmail.text!
@@ -226,7 +228,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 
                 let values = ["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": ""] as [String : AnyObject]
                 
-                self.storeUserInformationToDatabase(uid, values: values as [String : AnyObject])
+                self.storeInformationToDatabase(reference: reference, values: values as [String : AnyObject])
                 
                 // Upload image to Firebase storage and update download url into database
                 
@@ -239,6 +241,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 self.showAlert(alertMessage: messageSignUpSuccess)
             })
             self.resetView()
+            
             return
         }
     }

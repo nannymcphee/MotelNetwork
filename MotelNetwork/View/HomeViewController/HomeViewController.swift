@@ -58,21 +58,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tbNearMe.dataSource = self
         tbNearMe.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
         
-//        let titles = ["Tin mới", "Xem nhiều", "Gần tôi"]
-//        let frame = CGRect(x: 0, y: 40, width: UIScreen.main.bounds.width, height: 40)
-//        
-//        let segmentedControl = TwicketSegmentedControl(frame: frame)
-//        segmentedControl.topAnchor.constraint(equalTo: view.topAnchor)
-//        segmentedControl.leadingAnchor.constraint(equalTo: view.leadingAnchor)
-//        segmentedControl.leadingAnchor.constraint(equalTo: view.trailingAnchor)
-//        segmentedControl.setSegmentItems(titles)
-//        segmentedControl.delegate = self
-//        
-//        view.addSubview(segmentedControl)
-        
-        loadDataNews()
-        loadDataMostView()
-        loadDataNearMe()
         setUpView()
     }
     
@@ -128,17 +113,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tbListNews.scrollTableViewToTop(animated: true)
         
         self.sclContent.setContentOffset(CGPoint(x: Double(0), y: 0), animated: true)
-        
-        // Add refresh control
-        refreshControl0.addTarget(self, action: #selector(self.refreshDataNews), for: UIControlEvents.valueChanged)
-        
-        if #available(iOS 10.0, *) {
-                
-            tbListNews.refreshControl = refreshControl0
-        }
-        else {
-            tbListNews.addSubview(refreshControl0)
-        }
     }
     
     func setUpViewMostView() {
@@ -149,17 +123,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tbMostView.scrollTableViewToTop(animated: true)
         
         self.sclContent.setContentOffset(CGPoint(x: Double(screenWidth), y: 0), animated: true)
-        
-         refreshControl1.addTarget(self, action: #selector(self.refreshDataMostView), for: UIControlEvents.valueChanged)
-
-        if #available(iOS 10.0, *) {
-    
-            tbMostView.refreshControl = refreshControl1
-        }
-        else {
-        
-            tbMostView.addSubview(refreshControl1)
-        }
     }
     
     func setUpViewNearMe() {
@@ -171,7 +134,44 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tbNearMe.scrollTableViewToTop(animated: true)
         
         self.sclContent.setContentOffset(CGPoint(x: Double(screenWidth * 2), y: 0), animated: true)
+    }
+    
+    // MARK: Set up view
+    
+    func setUpView() {
+        setViewState(enabledView: vNewsProgress, disabledView2: vNearMeProgress, disabledView3: vMostViewProgress)
+        setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnNearMe, buttonDisable2: btnMostView)
+        self.tapToDismissKeyboard()
+        loadDataNews()
+        loadDataMostView()
+        loadDataNearMe()
         
+        // Add refresh controls
+        
+        // tbListNews
+        refreshControl0.addTarget(self, action: #selector(self.refreshDataNews), for: UIControlEvents.valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            
+            tbListNews.refreshControl = refreshControl0
+        }
+        else {
+            tbListNews.addSubview(refreshControl0)
+        }
+        
+        // tbMostView
+        refreshControl1.addTarget(self, action: #selector(self.refreshDataMostView), for: UIControlEvents.valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            
+            tbMostView.refreshControl = refreshControl1
+        }
+        else {
+            
+            tbMostView.addSubview(refreshControl1)
+        }
+        
+        // tbNearMe
         refreshControl2.addTarget(self, action: #selector(self.refreshDataNearMe), for: UIControlEvents.valueChanged)
         
         if #available(iOS 10.0, *) {
@@ -182,14 +182,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             tbNearMe.addSubview(refreshControl2)
         }
-    }
-    
-    // MARK: Set up view
-    
-    func setUpView() {
-        setViewState(enabledView: vNewsProgress, disabledView2: vNearMeProgress, disabledView3: vMostViewProgress)
-        setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnNearMe, buttonDisable2: btnMostView)
-        self.tapToDismissKeyboard()
+
     }
     
     //MARK: Database interaction
@@ -449,20 +442,5 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
 
-    
-//    func didSelect(_ segmentIndex: Int) {
-//        print("Selected index: \(segmentIndex)")
-//        switch segmentIndex {
-//        case 0:
-//            setUpViewNews()
-//        case 1:
-//            setUpViewMostView()
-//        case 2:
-//            setUpViewNearMe()
-//        default:
-//            setUpViewNews()
-//        }
-//
-//    }
 }
 
