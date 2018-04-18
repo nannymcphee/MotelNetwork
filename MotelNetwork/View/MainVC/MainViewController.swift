@@ -28,7 +28,7 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
         super.viewDidLoad()
         
         showLoading()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
             self.stopLoading()
         }
     }

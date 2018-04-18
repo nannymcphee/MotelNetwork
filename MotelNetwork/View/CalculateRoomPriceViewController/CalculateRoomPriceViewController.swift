@@ -44,7 +44,7 @@ class CalculateRoomPriceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tapToDismissKeyboard()
+        
         setUpView()
 
         // Do any additional setup after loading the view.
@@ -65,6 +65,7 @@ class CalculateRoomPriceViewController: UIViewController {
         tfUser.text = currentRoom.user
         tfUser.isEnabled = false
         tfRoomPrice.isEnabled = false
+        self.tapToDismissKeyboard()
     }
     
     func resetView() {

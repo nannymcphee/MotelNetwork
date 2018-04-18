@@ -301,11 +301,21 @@
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cyd-zi-Ysa">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                                            <color key="backgroundColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="v4H-rU-LEd"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Cyd-zi-Ysa" secondAttribute="trailing" id="Fwf-M6-olN"/>
                                                         <constraint firstItem="P2D-LG-Ao5" firstAttribute="top" secondItem="WTL-kx-zQf" secondAttribute="top" constant="50" id="HOn-pW-3JM"/>
                                                         <constraint firstItem="In0-U9-pNO" firstAttribute="top" secondItem="P2D-LG-Ao5" secondAttribute="bottom" constant="50" id="MdQ-Dp-16r"/>
+                                                        <constraint firstItem="Cyd-zi-Ysa" firstAttribute="leading" secondItem="WTL-kx-zQf" secondAttribute="leading" id="Q7w-7T-M6H"/>
+                                                        <constraint firstItem="Cyd-zi-Ysa" firstAttribute="top" secondItem="WTL-kx-zQf" secondAttribute="top" id="WoJ-h9-dgV"/>
                                                         <constraint firstAttribute="trailing" secondItem="In0-U9-pNO" secondAttribute="trailing" constant="18" id="ZUH-Rs-86Y"/>
                                                         <constraint firstItem="In0-U9-pNO" firstAttribute="leading" secondItem="WTL-kx-zQf" secondAttribute="leading" constant="17" id="ewS-f4-Zts"/>
                                                         <constraint firstItem="P2D-LG-Ao5" firstAttribute="centerX" secondItem="WTL-kx-zQf" secondAttribute="centerX" id="tSs-ce-tfd"/>

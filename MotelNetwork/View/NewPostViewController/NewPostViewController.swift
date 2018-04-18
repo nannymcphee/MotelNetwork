@@ -12,10 +12,11 @@ import FirebaseDatabase
 import FirebaseStorage
 import Photos
 import BSImagePicker
-import IHKeyboardAvoiding
 
-class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate {
-
+class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UITextFieldDelegate {
+    
+    @IBOutlet weak var sclContent: UIScrollView!
+    @IBOutlet weak var vContent: UIView!
     
     @IBOutlet weak var btnClearTextView: UIButton!
     @IBOutlet weak var btnBack: UIButton!
@@ -69,7 +70,6 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         createDistrictListPicker()
         self.tapToDismissKeyboard()
         makeButtonRounded(button: btnClearTextView)
-        KeyboardAvoiding.avoidingView = self.view
     }
     
     func getCurrentDate() {
@@ -78,6 +78,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let str = formatter.string(from: Date())
         currentDate = str
     }
+    
     
     //MARK: Reset view
     

@@ -37,8 +37,6 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tapToDismissKeyboard()
-        
         pvUser.delegate = self
         pvUser.dataSource = self
         
@@ -59,6 +57,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         tfUser.text = currentRoom.user
         tfPrice.text = "\(currentRoom.price ?? 0.0)"
         tfRoomName.text = currentRoom.name
+        self.tapToDismissKeyboard()
     }
     
     
