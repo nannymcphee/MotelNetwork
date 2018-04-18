@@ -16,13 +16,13 @@ class CalculateRoomPriceViewController: UIViewController {
     @IBOutlet weak var tfRoomPrice: UITextField!
     @IBOutlet weak var tfWaterPrice: UITextField!
     @IBOutlet weak var tfInternetPrice: UITextField!
-    @IBOutlet weak var tfOtherPrice: UITextField!
+    @IBOutlet weak var tfSurcharge: UITextField!
     @IBOutlet weak var tfNewElectricNumber: UITextField!
     @IBOutlet weak var tfOldElectricNumber: UITextField!
     @IBOutlet weak var tfElectricPrice: UITextField!
     @IBOutlet weak var tfUserCount: UITextField!
     @IBOutlet weak var tfUser: UITextField!
-    @IBOutlet weak var tfReason: UITextField!
+    @IBOutlet weak var tfSurchargeReason: UITextField!
     
     
     
@@ -35,7 +35,7 @@ class CalculateRoomPriceViewController: UIViewController {
     var waterPrice: Double = 0.0
     var userCount: Double = 0.0
     var internetPrice: Double = 0.0
-    var otherPrice: Double = 0.0
+    var surcharge: Double = 0.0
     var totalWaterPrice: Double = 0.0 // = waterPrice * userCount
     var totalElectricPrice: Double = 0.0 // = electricPrice * (newElectricNumber - oldElectricNumber)
     var totalPrice: Double = 0.0 // = roomPrice + totalWaterPrice + totalElectricPrice + internetPrice + otherPrice
@@ -69,7 +69,7 @@ class CalculateRoomPriceViewController: UIViewController {
     }
     
     func resetView() {
-        tfOtherPrice.text = nil
+        tfSurcharge.text = nil
         tfOldElectricNumber.text = nil
         tfNewElectricNumber.text = nil
         tfElectricPrice.text = nil
@@ -84,7 +84,7 @@ class CalculateRoomPriceViewController: UIViewController {
         
         totalWaterPrice = waterPrice * userCount
         totalElectricPrice = electricPrice * (newElectricNumber - oldElectricNumber)
-        totalPrice = roomPrice + totalWaterPrice + totalElectricPrice + internetPrice + otherPrice
+        totalPrice = roomPrice + totalWaterPrice + totalElectricPrice + internetPrice + surcharge
         
         return totalPrice
     }
@@ -108,7 +108,7 @@ class CalculateRoomPriceViewController: UIViewController {
         waterPrice = (tfWaterPrice.text?.toDouble)!
         userCount = (tfUserCount.text?.toDouble)!
         internetPrice = (tfInternetPrice.text?.toDouble)!
-        otherPrice = (tfOtherPrice.text?.toDouble)!
+        surcharge = (tfSurcharge.text?.toDouble)!
         
         if electricPrice == 0 || newElectricNumber == 0 || oldElectricNumber == 0 || waterPrice == 0 || internetPrice == 0 {
             
@@ -131,16 +131,16 @@ class CalculateRoomPriceViewController: UIViewController {
             var totalWaterPriceStr = String(totalWaterPrice)
             var totalElectricPriceStr = String(totalElectricPrice)
             var internetPriceStr = String(internetPrice)
-            var otherPriceStr = String(otherPrice)
-            let reason = tfReason.text!
+            var surchargeStr = String(surcharge)
+            let surchargeReason = tfSurcharge.text!
             priceStr = numberFormatter.string(from: totalPrice as NSNumber)!
             roomPriceStr = numberFormatter.string(from: roomPrice as NSNumber)!
             totalWaterPriceStr = numberFormatter.string(from: totalWaterPrice as NSNumber)!
             totalElectricPriceStr = numberFormatter.string(from: totalElectricPrice as NSNumber)!
             internetPriceStr = numberFormatter.string(from: internetPrice as NSNumber)!
-            otherPriceStr = numberFormatter.string(from: otherPrice as NSNumber)!
+            surchargeStr = numberFormatter.string(from: surcharge as NSNumber)!
             
-            showAlert(alertMessage: "Tiền phòng là: \(priceStr)đ. Chi tiết:\nTiền phòng: \(roomPriceStr)đ\nTiền điện: \(totalElectricPriceStr)đ\nTiền nước: \(totalWaterPriceStr)đ\nTiền internet: \(internetPriceStr)đ\nPhụ thu: \(otherPriceStr)đ\nLí do phụ thu: \(reason)")
+            showAlert(alertMessage: "Tiền phòng là: \(priceStr)đ. Chi tiết:\nTiền phòng: \(roomPriceStr)đ\nTiền điện: \(totalElectricPriceStr)đ\nTiền nước: \(totalWaterPriceStr)đ\nTiền internet: \(internetPriceStr)đ\nPhụ thu: \(surchargeStr)đ\nLí do phụ thu: \(surchargeReason)")
             
             resetView()
         }

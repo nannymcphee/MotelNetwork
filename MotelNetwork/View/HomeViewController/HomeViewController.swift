@@ -35,9 +35,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var listNews = [News]()
     var listMostView = [News]()
     var listNearMe = [News]()
-    var isNew = true
-    var isMostView = false
-    var isNearMe = false
     var refreshControl0: UIRefreshControl = UIRefreshControl()
     var refreshControl1: UIRefreshControl = UIRefreshControl()
     var refreshControl2: UIRefreshControl = UIRefreshControl()
@@ -125,10 +122,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func setUpViewNews() {
         
-        isNew = true
-        isMostView = false
-        isNearMe = false
-        
         setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
         setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
         tbListNews.reloadData()
@@ -149,11 +142,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func setUpViewMostView() {
-        
-        isNew = false
-        isMostView = true
-        isNearMe = false
-        
+
         setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
         setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
         tbMostView.reloadData()
@@ -174,10 +163,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func setUpViewNearMe() {
-        
-        isNew = false
-        isMostView = false
-        isNearMe = true
+
         
         setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
         setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
@@ -376,32 +362,30 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: Logic for table view
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isNew {
+        
+        if tableView == tbListNews {
             return listNews.count
-        }
-        if isMostView {
+        } else if tableView == tbMostView {
             return listMostView.count
-        }
-        if isNearMe {
+        } else if tableView == tbNearMe {
             return listNearMe.count
         }
-        
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbListNews.dequeueReusableCell(withIdentifier: "ListNewsTableViewCell") as! ListNewsTableViewCell
-        if isNew {
+        if tableView == tbListNews {
             let news = listNews[indexPath.row]
             cell.populateData(news: news)
             
         }
-        if isMostView {
+        if tableView == tbMostView {
             let mostView = listMostView[indexPath.row]
             cell.populateData(news: mostView)
         }
         
-        if isNearMe {
+        if tableView == tbNearMe {
             let nearMe = listNearMe[indexPath.row]
             cell.populateData(news: nearMe)
         }
@@ -416,21 +400,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailNewsViewController()
         
-        if isNew {
+        
+        if tableView == tbListNews {
             
             let news = listNews[indexPath.row]
             vc.currentNews = news
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         }
         
-        if isMostView {
+        if tableView == tbMostView {
             
             let news = listMostView[indexPath.row]
             vc.currentNews = news
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         }
         
-        if isNearMe {
+        if tableView == tbNearMe {
             
             let news = listNearMe[indexPath.row]
             vc.currentNews = news

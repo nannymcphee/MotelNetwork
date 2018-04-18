@@ -19,9 +19,9 @@
                 <outlet property="tfInternetPrice" destination="qd4-O4-bp3" id="6AI-Ti-57h"/>
                 <outlet property="tfNewElectricNumber" destination="eTG-rX-I4r" id="v1k-4U-uoa"/>
                 <outlet property="tfOldElectricNumber" destination="e6o-UB-9Yo" id="R6X-Dv-jBK"/>
-                <outlet property="tfOtherPrice" destination="D1b-mH-mTV" id="WdW-Wb-Tmp"/>
-                <outlet property="tfReason" destination="yCR-k3-GwO" id="B8w-9A-AgI"/>
                 <outlet property="tfRoomPrice" destination="aPr-VB-jgr" id="igE-rV-G46"/>
+                <outlet property="tfSurcharge" destination="D1b-mH-mTV" id="Tep-v5-7Ur"/>
+                <outlet property="tfSurchargeReason" destination="yCR-k3-GwO" id="56t-ll-8vw"/>
                 <outlet property="tfUser" destination="06G-uu-1VB" id="hQa-Xt-w3P"/>
                 <outlet property="tfUserCount" destination="pwb-hy-EVb" id="XJX-ca-ZeI"/>
                 <outlet property="tfWaterPrice" destination="AyV-Jd-eq4" id="Tn8-FG-LHE"/>
