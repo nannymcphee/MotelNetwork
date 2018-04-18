@@ -13,8 +13,8 @@ import Kingfisher
 
 class DetailRoomViewController: UIViewController {
 
+    @IBOutlet weak var btnNotification: UIButton!
     @IBOutlet weak var btnBack: UIButton!
-    @IBOutlet weak var btnEdit: UIButton!
     @IBOutlet weak var lblRoomName: UILabel!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblFullName: UILabel!
@@ -105,15 +105,6 @@ class DetailRoomViewController: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func btnEditPressed(_ sender: Any) {
-        
-        let vc = EditRoomViewController()
-        let room = currentRoom
-        
-        vc.currentRoom = room
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
-    }
-    
     @IBAction func btnCalculatePressed(_ sender: Any) {
         
         let room = currentRoom
@@ -121,6 +112,11 @@ class DetailRoomViewController: UIViewController {
         
         vc.currentRoom = room
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func btnNotificationPressed(_ sender: Any) {
+        
+        
     }
     
 }

@@ -11,7 +11,6 @@ import FirebaseAuth
 import FirebaseDatabase
 import SwipeBack
 import NVActivityIndicatorView
-//import TwicketSegmentedControl
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NVActivityIndicatorViewable {
     
@@ -103,42 +102,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    //MARK: Set up views
-    
-    func setUpViewNews() {
-        
-        setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
-        setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
-        tbListNews.reloadData()
-        tbListNews.scrollTableViewToTop(animated: true)
-        
-        self.sclContent.setContentOffset(CGPoint(x: Double(0), y: 0), animated: true)
-    }
-    
-    func setUpViewMostView() {
-
-        setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
-        setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
-        tbMostView.reloadData()
-        tbMostView.scrollTableViewToTop(animated: true)
-        
-        self.sclContent.setContentOffset(CGPoint(x: Double(screenWidth), y: 0), animated: true)
-    }
-    
-    func setUpViewNearMe() {
-
-        
-        setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
-        setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
-        tbNearMe.reloadData()
-        tbNearMe.scrollTableViewToTop(animated: true)
-        
-        self.sclContent.setContentOffset(CGPoint(x: Double(screenWidth * 2), y: 0), animated: true)
-    }
-    
-    // MARK: Set up view
+    // MARK: Set up views
     
     func setUpView() {
+        
         setViewState(enabledView: vNewsProgress, disabledView2: vNearMeProgress, disabledView3: vMostViewProgress)
         setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnNearMe, buttonDisable2: btnMostView)
         self.tapToDismissKeyboard()
@@ -182,7 +149,38 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             
             tbNearMe.addSubview(refreshControl2)
         }
+        
+    }
+    
+    func setUpViewNews() {
+        
+        setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
+        setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
+        tbListNews.reloadData()
+        tbListNews.scrollTableViewToTop(animated: true)
+        
+        self.sclContent.setContentOffset(CGPoint(x: Double(0), y: 0), animated: true)
+    }
+    
+    func setUpViewMostView() {
 
+        setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
+        setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
+        tbMostView.reloadData()
+        tbMostView.scrollTableViewToTop(animated: true)
+        
+        self.sclContent.setContentOffset(CGPoint(x: Double(screenWidth), y: 0), animated: true)
+    }
+    
+    func setUpViewNearMe() {
+
+        
+        setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
+        setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
+        tbNearMe.reloadData()
+        tbNearMe.scrollTableViewToTop(animated: true)
+        
+        self.sclContent.setContentOffset(CGPoint(x: Double(screenWidth * 2), y: 0), animated: true)
     }
     
     //MARK: Database interaction
@@ -357,22 +355,30 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if tableView == tbListNews {
+            
             return listNews.count
-        } else if tableView == tbMostView {
+        }
+        else if tableView == tbMostView {
+            
             return listMostView.count
-        } else if tableView == tbNearMe {
+        }
+        else if tableView == tbNearMe {
+            
             return listNearMe.count
         }
+        
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tbListNews.dequeueReusableCell(withIdentifier: "ListNewsTableViewCell") as! ListNewsTableViewCell
+        
         if tableView == tbListNews {
             let news = listNews[indexPath.row]
             cell.populateData(news: news)
-            
         }
+        
         if tableView == tbMostView {
             let mostView = listMostView[indexPath.row]
             cell.populateData(news: mostView)

@@ -14,8 +14,7 @@ import SwipeBack
 import Kingfisher
 
 
-class RoomManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+class RoomManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {    
     
     @IBOutlet weak var btnCreateRoom: UIButton!
     @IBOutlet weak var tbRoomManagement: UITableView!
@@ -33,7 +32,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         tbRoomManagement.delegate = self
         tbRoomManagement.dataSource = self
         tbRoomManagement.register(UINib(nibName: "ListRoomsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListRoomsTableViewCell")

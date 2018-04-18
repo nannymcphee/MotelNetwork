@@ -15,6 +15,7 @@ import Kingfisher
 class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
+    @IBOutlet weak var btnBills: UIButton!
     @IBOutlet weak var btnNewPost: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblFullName: UILabel!
@@ -246,4 +247,10 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         let vc = NewPostViewController()
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @IBAction func btnBillsPressed(_ sender: Any) {
+        
+        
+    }
+    
 }

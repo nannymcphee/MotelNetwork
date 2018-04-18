@@ -17,7 +17,6 @@ target 'Motel Network' do
 	pod 'SDWebImage' ,'~> 4.0'
     pod 'Kingfisher', '~> 4.0'
 	pod 'IHKeyboardAvoiding'
-	pod 'TwicketSegmentedControl'
 
-
+    
 end

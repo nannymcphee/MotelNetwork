@@ -15,7 +15,7 @@
             <connections>
                 <outlet property="btnBack" destination="ELF-Ao-ULu" id="26Q-R7-ffc"/>
                 <outlet property="btnCalculate" destination="In0-U9-pNO" id="vB2-nP-JrP"/>
-                <outlet property="btnEdit" destination="Z97-Bp-bMO" id="W4d-p6-yCd"/>
+                <outlet property="btnNotification" destination="Z97-Bp-bMO" id="fpP-bL-40V"/>
                 <outlet property="ivAvatar" destination="Hik-nO-6OA" id="Xmy-AY-uHU"/>
                 <outlet property="ivRoomImage0" destination="LJh-Dm-ZFx" id="OvY-3N-go1"/>
                 <outlet property="ivRoomImage1" destination="oNj-U7-6mm" id="qeg-Jt-NcB"/>
@@ -59,12 +59,15 @@
                                 <constraint firstAttribute="height" constant="1" id="ZsG-ka-q3f"/>
                             </constraints>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z97-Bp-bMO">
-                            <rect key="frame" x="325" y="26.5" width="31" height="31"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                            <state key="normal" title="Sửa"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z97-Bp-bMO">
+                            <rect key="frame" x="332" y="30.5" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="WdJ-oc-Vrl"/>
+                                <constraint firstAttribute="width" constant="24" id="kUm-VT-dAL"/>
+                            </constraints>
+                            <state key="normal" title="Sửa" image="icNotification"/>
                             <connections>
-                                <action selector="btnEditPressed:" destination="-1" eventType="touchUpInside" id="TPE-ca-Z7t"/>
+                                <action selector="btnNotificationPressed:" destination="-1" eventType="touchUpInside" id="Sib-ln-gMi"/>
                             </connections>
                         </button>
                     </subviews>
@@ -387,6 +390,7 @@
         <image name="defaultImage" width="140" height="136"/>
         <image name="icArea" width="16" height="16"/>
         <image name="icLeft" width="24" height="24"/>
+        <image name="icNotification" width="24" height="24"/>
         <image name="icPrice" width="16" height="16"/>
         <image name="icUsers" width="25" height="25"/>
     </resources>
