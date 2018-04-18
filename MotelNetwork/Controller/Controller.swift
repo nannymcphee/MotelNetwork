@@ -19,7 +19,8 @@ let numberFormatter = NumberFormatter()
 
 extension UIViewController {
     
-    // Handle login
+    // MARK: Handle login
+    
     func doLogin(email: String, pass: String) {
         Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
             if let u = user {
@@ -41,6 +42,7 @@ extension UIViewController {
     }
     
     //MARK: Handle log out
+    
     func doLogOut() {
         
         do {
@@ -144,9 +146,9 @@ extension UIViewController {
                     let values = ["Password": newPass]
                     let ref = Database.database().reference().child("Users").child(uid!)
                     self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                    DispatchQueue.main.async {
                         self.showAlert(alertMessage: messageChangePasswordSuccess)
-                    })
+                    }
                 }
             })
         }
@@ -169,9 +171,9 @@ extension UIViewController {
                     let values = ["Email": newEmail]
                     let ref = Database.database().reference().child("Users").child(uid!)
                     self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                    DispatchQueue.main.async {
                         self.showAlert(alertMessage: messageChangeEmailSuccess)
-                    })
+                    }
                 }
             }
         }

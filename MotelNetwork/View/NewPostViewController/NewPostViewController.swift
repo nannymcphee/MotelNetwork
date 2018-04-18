@@ -305,10 +305,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 self.storeInformationToDatabase(reference: reference, values: ["postImageUrl2": url as AnyObject])
             }
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
-                self.showAlert(alertMessage: messageNewPostSuccess)
-            })
-            
+            showAlert(alertMessage: messageNewPostSuccess)
             resetView()
         }
         

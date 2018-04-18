@@ -186,7 +186,7 @@
                                                     <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </tableView>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="aSv-4C-Gux" firstAttribute="leading" secondItem="fcQ-9x-ZUe" secondAttribute="leading" id="TLQ-S9-u7q"/>
                                                 <constraint firstAttribute="trailing" secondItem="aSv-4C-Gux" secondAttribute="trailing" id="Yk3-Vb-nZ7"/>
@@ -202,7 +202,7 @@
                                                     <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </tableView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.31291005020000001" green="0.50491499900000003" blue="0.74573397640000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="gJb-CK-ePL" secondAttribute="bottom" id="7cd-GT-0ya"/>
                                                 <constraint firstItem="gJb-CK-ePL" firstAttribute="top" secondItem="WfM-Bh-gw2" secondAttribute="top" id="dRp-SX-hXP"/>
@@ -218,7 +218,7 @@
                                                     <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </tableView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="ID6-a2-VQf" secondAttribute="bottom" id="FZ5-xw-B4t"/>
                                                 <constraint firstItem="ID6-a2-VQf" firstAttribute="top" secondItem="y1P-Hn-rRK" secondAttribute="top" id="Siv-lw-cB2"/>

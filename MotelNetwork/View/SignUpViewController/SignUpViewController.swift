@@ -167,30 +167,35 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @IBAction func btnProfilePicturePressed(_ sender: Any) {
-//        handleSelectProfilePicturePressed()
         
         let vc = BSImagePickerViewController()
-        vc.maxNumberOfSelections = 3
+        vc.maxNumberOfSelections = 1
         self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
-            
         }, deselect: { (asset: PHAsset) in
             
         }, cancel: { (asset: [PHAsset]) in
             
         }, finish: { (asset: [PHAsset]) in
             
-            for i in 0..<asset.count {
-                self.selectedAssets.append(asset[i])
+            if asset.count < 1 {
+                self.showAlert(alertMessage: "Vui lòng chọn 1 hình.")
             }
-            
-            self.convertAssetToImages()
+            else {
+                for i in 0..<asset.count {
+                    self.selectedAssets.append(asset[i])
+                }
+                
+                self.convertAssetToImages()
+                
+                return
+            }
         }, completion: nil)
     }
     
     @IBAction func btnRegisterPressed(_ sender: UIButton) {
         
         // Check if user has entered all informations
-        if (tfName.text?.isEmpty)! || (tfEmail.text?.isEmpty)! || (tfPassword.text?.isEmpty)! || (tfCMND.text?.isEmpty)! || (tfBirthDay.text?.isEmpty)! {
+        if (tfName.text?.isEmpty)! || (tfEmail.text?.isEmpty)! || (tfPassword.text?.isEmpty)! || (tfCMND.text?.isEmpty)! || (tfBirthDay.text?.isEmpty)! || ivProfilePicture.image == nil {
             
             showAlert(alertMessage: messageNilTextFields)
         }
@@ -198,50 +203,55 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
             showAlert(alertMessage: messagePasswordLessThan6Chars)
         }
+        else if !isValidEmail(email: tfEmail.text!) {
+            
+            showAlert(alertMessage: messageInvalidEmail)
+        }
         else {
             
             // Sign up user with Email & Password
             let email = tfEmail.text, pass = tfPassword.text
+            
             Auth.auth().createUser(withEmail: email!, password: pass!) { (user, error) in
                 
                 if let error = error {
                     
                     print(error)
+                    self.showAlert(alertMessage: messageEmailAlreadyUsed)
                     return
                 }
-                
-                guard let uid = user?.uid else {
+                else {
                     
-                    return
-                }
-                
-                let reference = Database.database().reference().child("Users").child(uid)
-                
-                // Store user's info to database
-                
-                let userEmail: String = self.tfEmail.text!
-                let userPassword: String = self.tfPassword.text!
-                let userFullName: String = self.tfName.text!
-                let userCMND: String = self.tfCMND.text!
-                let userBirthDay = self.tfBirthDay.text!
-                let userType = self.pvUserType.selectedRow(inComponent: 0)
-                
-                let values = ["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": ""] as [String : AnyObject]
-                
-                self.storeInformationToDatabase(reference: reference, values: values as [String : AnyObject])
-                
-                // Upload image to Firebase storage and update download url into database
-                
-                _ = self.uploadImageFromImageView(imageView: self.ivProfilePicture) { (url) in
-                    self.storeUserInformationToDatabase(uid, values: ["ProfileImageUrl": url as AnyObject])
+                    guard let uid = user?.uid else {
+                        
+                        return
+                    }
+                    
+                    let reference = Database.database().reference().child("Users").child(uid)
+                    
+                    // Store user's info to database
+                    
+                    let userEmail: String = self.tfEmail.text!
+                    let userPassword: String = self.tfPassword.text!
+                    let userFullName: String = self.tfName.text!
+                    let userCMND: String = self.tfCMND.text!
+                    let userBirthDay = self.tfBirthDay.text!
+                    let userType = self.pvUserType.selectedRow(inComponent: 0)
+                    
+                    let values = ["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": ""] as [String : AnyObject]
+                    
+                    self.storeInformationToDatabase(reference: reference, values: values as [String : AnyObject])
+                    
+                    // Upload image to Firebase storage and update download url into database
+                    
+                    _ = self.uploadImageFromImageView(imageView: self.ivProfilePicture) { (url) in
+                        self.storeInformationToDatabase(reference: reference, values: ["ProfileImageUrl": url as AnyObject])
+                    }
+
+                    self.showAlert(alertMessage: messageSignUpSuccess)
+                    self.resetView()
                 }
             }
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
-                self.showAlert(alertMessage: messageSignUpSuccess)
-            })
-            self.resetView()
-            
             return
         }
     }
@@ -269,4 +279,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             self.ivProfilePicture.image = imageArray[0]
         }
     }
+
 }
+
+

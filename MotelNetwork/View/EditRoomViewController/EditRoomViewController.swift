@@ -259,10 +259,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                         self.editData(reference: ref, newValues: ["roomImageUrl2": url as AnyObject])
                     }
                     
-                    
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
-                        self.showAlert(alertMessage: messageEditRoomSuccess)
-                    })
+                    self.showAlert(alertMessage: messageEditRoomSuccess)
                 }
                 
                 return

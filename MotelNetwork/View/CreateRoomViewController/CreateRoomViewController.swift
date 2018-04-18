@@ -230,9 +230,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 self.storeInformationToDatabase(reference: reference, values: ["roomImageUrl2": url as AnyObject])
             }
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
-                self.showAlert(alertMessage: messageCreateRoomSuccess)
-            })
+            self.showAlert(alertMessage: messageCreateRoomSuccess)
             resetView()
         }
         

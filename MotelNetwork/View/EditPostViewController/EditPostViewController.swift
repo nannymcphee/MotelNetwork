@@ -205,9 +205,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate 
                     
                     self.editData(reference: ref, newValues: values as [String: AnyObject])
                     
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
-                        self.showAlert(alertMessage: messageEditPostSuccess)
-                    })
+                    self.showAlert(alertMessage: messageEditPostSuccess)
                 }
                 else {
                     
@@ -227,10 +225,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate 
                         self.editData(reference: ref, newValues: ["postImageUrl2": url as AnyObject])
                     }
                     
-                    
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
-                        self.showAlert(alertMessage: messageEditPostSuccess)
-                    })
+                    self.showAlert(alertMessage: messageEditPostSuccess)
                 }
                 
                 return

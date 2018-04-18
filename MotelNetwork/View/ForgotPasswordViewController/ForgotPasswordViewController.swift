@@ -33,39 +33,28 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @IBAction func btnRecoverPasswordPressed(_ sender: Any) {
-        if tfRecoveryEmail.text == "" {
-            // Create UIAlertController
-            let alert = UIAlertController(title: "Thông báo", message: "Email không được bỏ trống!", preferredStyle: .alert)
-            let actionOK = UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            })
-            alert.addAction(actionOK)
-            self.present(alert, animated: true, completion: nil)
+        
+        if (tfRecoveryEmail.text?.isEmpty)! {
+            
+            self.showAlert(alertMessage: "Vui lòng nhập email.")
         }
         else {
+            
             let email = tfRecoveryEmail.text
+            
             Auth.auth().sendPasswordReset(withEmail: email!) { (error) in
                 if error != nil {
-                    let alert = UIAlertController(title: "Thông báo", message: "Error: \(String(describing: error?.localizedDescription))", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    
+                    self.showAlert(alertMessage: "\(error ?? "" as! Error)")
                 }
                 else {
-                    let alert = UIAlertController(title: "Thông báo", message: "Vui lòng kiểm tra email của bạn", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    
+                    self.showAlert(alertMessage: "Vui lòng kiểm tra email của bạn.")
                 }
             }
         }
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

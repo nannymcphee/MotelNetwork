@@ -15,6 +15,7 @@ let districtList: [String] = ["Quận 1", "Quận 2", "Quận 3", "Quận 4", "Q
 
 let messageConfirmLogOut: String = "Bạn chắc chắn muốn đăng xuất không?"
 let messageRequestLogOut: String = "Bạn cần phải đăng nhập lại trước khi thay đổi email hoặc mật khẩu."
+let messageEmailAlreadyUsed: String = "Email này đã được sử dụng. Vui lòng nhập email khác."
 let messageCreateRoomSuccess: String = "Tạo phòng thành công."
 let messageCreateRoomFailed: String = "Tạo phòng thất bại."
 let messageEditRoomSuccess: String = "Sửa thông tin phòng thành công."
