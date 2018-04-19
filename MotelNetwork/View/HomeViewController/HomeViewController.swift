@@ -67,7 +67,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+
         tbListNews.reloadData()
         tbNearMe.reloadData()
         tbMostView.reloadData()

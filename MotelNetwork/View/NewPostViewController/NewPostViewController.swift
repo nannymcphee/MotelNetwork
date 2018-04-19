@@ -286,8 +286,6 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let description = self.tvDescription.text!
             let internetPrice = self.tfInternetPrice.text!
             let postDate = currentDate
-//            let reference = Database.database().reference().child("Posts").child(uid).child("MyPosts").child("\(postID)")
-            
             let reference = Database.database().reference().child("Posts").childByAutoId()
             let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "user": userName, "userProfileImageUrl": userProfileImageUrl, "postDate": postDate, "ownerID": uid]
             
@@ -307,8 +305,14 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 self.storeInformationToDatabase(reference: reference, values: ["postImageUrl2": url as AnyObject])
             }
             
-            showAlert(alertMessage: messageNewPostSuccess)
-            resetView()
+            self.showLoading()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4) {
+                self.stopLoading()
+                self.showAlert(alertMessage: messageNewPostSuccess)
+                self.selectedAssets.removeAll()
+                self.imageArray.removeAll()
+                self.resetView()
+            }
         }
         
         return

@@ -245,12 +245,19 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 self.storeInformationToDatabase(reference: ref, values: ["roomImageUrl2": url as AnyObject])
             }
             
-            self.showAlert(alertMessage: messageCreateRoomSuccess)
+
+            self.showLoading()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4) {
+                self.stopLoading()
+                self.showAlert(alertMessage: messageCreateRoomSuccess)
+                self.selectedAssets.removeAll()
+                self.imageArray.removeAll()
+                self.resetView()
+//                (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
+            }
 
         }
-        selectedAssets.removeAll()
-        imageArray.removeAll()
-        resetView()
+
         return
     }
     

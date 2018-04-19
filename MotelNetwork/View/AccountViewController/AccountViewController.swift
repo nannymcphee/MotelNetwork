@@ -43,15 +43,11 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        tbNews.reloadData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         listNews.removeAll()
         loadData()
     }
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
