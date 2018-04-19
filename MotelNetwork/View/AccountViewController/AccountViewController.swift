@@ -33,7 +33,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
       
         tbNews.delegate = self
         tbNews.dataSource = self
-        tbNews.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
+        tbNews.register(UINib(nibName: "MyNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "MyNewsTableViewCell")
 
         loadData()
         setUpView()
@@ -106,9 +106,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
-        let recentPostQuery = ref.child("Posts").child(uid!).child("MyPosts").queryLimited(toFirst: 100)
+        let myRecentPostQuery = ref.child("Posts").queryOrdered(byChild: "ownerID").queryEqual(toValue: uid).queryLimited(toFirst: 100)
         
-        recentPostQuery.observe(.childAdded, with: { (snapshot) in
+        myRecentPostQuery.observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let news = News(dictionary: dictionary)
@@ -155,7 +155,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         return listNews.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tbNews.dequeueReusableCell(withIdentifier: "ListNewsTableViewCell") as! ListNewsTableViewCell
+        let cell = tbNews.dequeueReusableCell(withIdentifier: "MyNewsTableViewCell") as! MyNewsTableViewCell
         
         let news = listNews[indexPath.row]
         cell.populateData(news: news)
@@ -250,7 +250,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func btnBillsPressed(_ sender: Any) {
         
-        
+        let vc = BillManagementViewController()
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     
 }

@@ -75,6 +75,9 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     // Fetch user from database and add to user list
     func fetchUser() {
+        
+//        let ref = Database.database().reference().child("Users")
+//        let query = ref.queryOrdered(byChild: "CMND").queryEqual(toValue: "241447624")
         Database.database().reference().child("Users").observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
@@ -231,13 +234,15 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             }
             
             self.showAlert(alertMessage: messageCreateRoomSuccess)
-            resetView()
+
         }
-        
+        selectedAssets.removeAll()
+        imageArray.removeAll()
+        resetView()
         return
     }
     
-    //Mark: Convert selected assets to image
+    //Mark: Convert selected assets to image    
     
     func convertAssetToImages() -> Void {
         

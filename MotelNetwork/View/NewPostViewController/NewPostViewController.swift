@@ -286,8 +286,10 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let description = self.tvDescription.text!
             let internetPrice = self.tfInternetPrice.text!
             let postDate = currentDate
-            let reference = Database.database().reference().child("Posts").child(uid).child("MyPosts").child("\(postID)")
-            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "user": userName, "userProfileImageUrl": userProfileImageUrl, "postDate": postDate]
+//            let reference = Database.database().reference().child("Posts").child(uid).child("MyPosts").child("\(postID)")
+            
+            let reference = Database.database().reference().child("Posts").childByAutoId()
+            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "user": userName, "userProfileImageUrl": userProfileImageUrl, "postDate": postDate, "ownerID": uid]
             
             self.storeInformationToDatabase(reference: reference, values: values as [String: AnyObject])
             

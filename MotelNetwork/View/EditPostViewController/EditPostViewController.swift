@@ -14,7 +14,7 @@ import Photos
 import BSImagePicker
 
 
-class EditPostViewController: UIViewController, UIImagePickerControllerDelegate {
+class EditPostViewController: UIViewController, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnSave: UIButton!
@@ -38,11 +38,15 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate 
     var selectedAssets = [PHAsset]()
     var imageArray = [UIImage]()
     var currentDate: String = ""
+    let pvDistrict = UIPickerView()
     var dbReference: DatabaseReference!
     let uid = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        pvDistrict.delegate = self
+        pvDistrict.dataSource = self
         
         self.tapToDismissKeyboard()
         setUpView()
@@ -57,6 +61,8 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate 
     func setUpView() {
         
         getCurrentDate()
+        createDistrictListPicker()
+        
         
         tfTitle.text = currentNews.title
         tvDescription.text = currentNews.description
@@ -68,6 +74,48 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate 
         tfInternetPrice.text = "\(currentNews.internetPrice ?? 0.0)"
         tfPhoneNumber.text = currentNews.phoneNumber
         tfArea.text = currentNews.area
+    }
+    
+    //MARK: Logic for tfDistrict
+    
+    func createDistrictListPicker() {
+        
+        // Add toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // Add "Done" button
+        let btnDone = UIBarButtonItem(title: "Xong", style: .done, target: nil, action: #selector(btnDonePressed))
+        toolbar.setItems([btnDone], animated: false)
+        
+        self.tfDistrict.inputView = self.pvDistrict
+        self.tfDistrict.inputAccessoryView = toolbar
+    }
+    
+    @objc func btnDonePressed() {
+        self.view.endEditing(false)
+    }
+    
+    //MARK: Logic for UIPickerView
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        return districtList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        return districtList[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        pickerView.reloadComponent(0)
+        tfDistrict.text = districtList[row]
     }
     
     func getCurrentDate() {
@@ -193,7 +241,10 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate 
             let internetPrice = self.tfInternetPrice.text!
             let postDate = currentDate
             let postID = currentNews.id
-            let ref = Database.database().reference().child("Posts").child(self.uid!).child("MyPosts").child(postID!)
+//            let ref = Database.database().reference().child("Posts").child(self.uid!).child("MyPosts").child(postID!)
+            
+            let ref = Database.database().reference().child("Posts").child(postID!)
+            
             let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postDate": postDate]
             
             // Create confirm alert

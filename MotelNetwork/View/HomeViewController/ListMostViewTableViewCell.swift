@@ -1,16 +1,15 @@
 //
-//  ListNewsTableViewCell.swift
-//  MotelNetwork
+//  ListMostViewTableViewCell.swift
+//  Motel Network
 //
-//  Created by Nguyên Duy on 4/2/18.
+//  Created by Nguyên Duy on 4/19/18.
 //  Copyright © 2018 Nguyên Duy. All rights reserved.
 //
 
 import UIKit
 import Kingfisher
 
-
-class ListNewsTableViewCell: UITableViewCell {
+class ListMostViewTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
@@ -23,10 +22,10 @@ class ListNewsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -39,7 +38,7 @@ class ListNewsTableViewCell: UITableViewCell {
         self.lblArea.text = String("\(news.area ?? "")m2")
         self.lblLocation.text = news.district
         
-//         Use Kingfisher to download & show image
+        //         Use Kingfisher to download & show image
 //        if URL(string: postImageUrl0!) != nil {
 //            let resource = ImageResource(downloadURL: URL(string: postImageUrl0!)!)
 //            
@@ -47,5 +46,5 @@ class ListNewsTableViewCell: UITableViewCell {
 //        }
         
     }
+    
 }
-
