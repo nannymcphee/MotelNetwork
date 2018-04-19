@@ -73,6 +73,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tbMostView.reloadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+    }
+    
     //MARK: Refresh data
     
     @objc func refreshDataNews() {

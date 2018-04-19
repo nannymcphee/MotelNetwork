@@ -28,6 +28,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     var dbReference: DatabaseReference!
     var listRooms = [Room]()
     var roomsCount: Int = 0
+    var listRoomsSortedByRoomName = [Room]()
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
@@ -44,15 +45,22 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.tbRoomManagement.reloadData()
+//        self.tbRoomManagement.reloadData()
+        DispatchQueue.main.async {
+            self.listRooms.removeAll()
+            self.loadData()
+            self.tbRoomManagement.reloadData()
+        }
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        listRooms.removeAll()
-        loadData()
+//        listRooms.removeAll()
+//        loadData()
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -111,7 +119,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
-//        let queryOrderByRoomName = ref.child("Rooms").child(uid!).child("MyRooms").queryOrdered(byChild: "RoomName")
+
         let queryMyRoomsOrderByRoomName = ref.child("Rooms").queryOrdered(byChild: "ownerID").queryEqual(toValue: uid)
         
         queryMyRoomsOrderByRoomName.observe(.childAdded, with: { (snapshot) in
@@ -135,6 +143,10 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
                 room.roomImageUrl2 = dictionary["roomImageUrl2"] as? String
                 
                 self.listRooms.append(room)
+                self.listRoomsSortedByRoomName = self.listRooms.sorted(by: { (room0, room1) -> Bool in
+                    return room0.name?.localizedStandardCompare(room1.name!) == ComparisonResult.orderedAscending
+                })
+
                 self.roomsCount = self.listRooms.count
                 self.lblRoomCount.text = "\(self.roomsCount)"
                 self.tbRoomManagement.reloadData()
@@ -144,13 +156,13 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     //MARK: Logic for UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listRooms.count
+        return listRoomsSortedByRoomName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbRoomManagement.dequeueReusableCell(withIdentifier: "ListRoomsTableViewCell") as! ListRoomsTableViewCell
         
-        let room = listRooms[indexPath.row]
+        let room = listRoomsSortedByRoomName[indexPath.row]
         cell.populateData(room: room)
         
         return cell
@@ -162,7 +174,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let room = listRooms[indexPath.row]
+        let room = listRoomsSortedByRoomName[indexPath.row]
         let vc = DetailRoomViewController()
         
         vc.currentRoom = room
@@ -183,7 +195,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     func editAction(at indexPath: IndexPath) -> UIContextualAction {
         
-        let room = listRooms[indexPath.row]
+        let room = listRoomsSortedByRoomName[indexPath.row]
         let action = UIContextualAction(style: .normal, title: "") { (action, view, nil) in
             
             let vc = EditRoomViewController()
@@ -203,7 +215,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         let action = UIContextualAction(style: .destructive, title: "") { (action, view, nil) in
             
             // Query delete from database
-            let room = self.listRooms[indexPath.row]
+            let room = self.listRoomsSortedByRoomName[indexPath.row]
             let roomID = room.id
 
             let ref = Database.database().reference().child("Rooms").child(roomID!)
@@ -212,7 +224,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
             let alert = UIAlertController(title: messageConfirmDeleteRoom, message: nil, preferredStyle: .actionSheet)
             let actionDestroy = UIAlertAction(title: "Xóa", style: .destructive) { (action) in
                 self.deleteData(reference: ref)
-                self.listRooms.remove(at: indexPath.row)
+                self.listRoomsSortedByRoomName.remove(at: indexPath.row)
                 self.tbRoomManagement.deleteRows(at: [indexPath], with: .automatic)
                 self.tbRoomManagement.reloadData()
                 self.roomsCount = self.listRooms.count
@@ -236,7 +248,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     func calculateAction(at indexPath: IndexPath) -> UIContextualAction {
         
-        let room = listRooms[indexPath.row]
+        let room = listRoomsSortedByRoomName[indexPath.row]
         let action = UIContextualAction(style: .normal, title: "") { (action, view, nil) in
             
             let vc = CalculateRoomPriceViewController()
