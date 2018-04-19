@@ -62,8 +62,8 @@ class DetailRoomViewController: UIViewController {
         lblPrice.text = numberFormatter.string(from: currentRoom.price! as NSNumber)
         lblRoomName.text = currentRoom.name
         lblArea.text = String("\(currentRoom.area ?? "")m2")
-        if !(currentRoom.user?.isEmpty)! {
-            self.lblUser.text = currentRoom.user
+        if !(currentRoom.renterName?.isEmpty)! {
+            self.lblUser.text = currentRoom.renterName
         } else {
             self.lblUser.text = "Chưa có người thuê"
         }

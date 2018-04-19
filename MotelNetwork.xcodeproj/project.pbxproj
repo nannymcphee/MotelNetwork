@@ -18,12 +18,6 @@
 		CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF78F20767698005BEA3B /* EUIViewController.swift */; };
 		E104666E20708FF400245789 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104666C20708FF400245789 /* TutorialViewController.swift */; };
 		E104666F20708FF400245789 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E104666D20708FF400245789 /* TutorialViewController.xib */; };
-		E14804E82088D18200C67D43 /* MyNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14804E62088D18200C67D43 /* MyNewsTableViewCell.swift */; };
-		E14804E92088D18200C67D43 /* MyNewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14804E72088D18200C67D43 /* MyNewsTableViewCell.xib */; };
-		E14804EC2088D5D900C67D43 /* ListMostViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14804EA2088D5D900C67D43 /* ListMostViewTableViewCell.swift */; };
-		E14804ED2088D5D900C67D43 /* ListMostViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14804EB2088D5D900C67D43 /* ListMostViewTableViewCell.xib */; };
-		E14804F22088D7D400C67D43 /* ListNearMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14804F02088D7D400C67D43 /* ListNearMeTableViewCell.swift */; };
-		E14804F32088D7D400C67D43 /* ListNearMeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14804F12088D7D400C67D43 /* ListNearMeTableViewCell.xib */; };
 		E14C41432074D107003571E8 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C41412074D107003571E8 /* DetailNewsViewController.swift */; };
 		E14C41442074D107003571E8 /* DetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14C41422074D107003571E8 /* DetailNewsViewController.xib */; };
 		E14C41462074EBF5003571E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E14C41452074EBF5003571E8 /* GoogleService-Info.plist */; };
@@ -90,12 +84,6 @@
 		CE5FF78F20767698005BEA3B /* EUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUIViewController.swift; sourceTree = "<group>"; };
 		E104666C20708FF400245789 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		E104666D20708FF400245789 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
-		E14804E62088D18200C67D43 /* MyNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNewsTableViewCell.swift; sourceTree = "<group>"; };
-		E14804E72088D18200C67D43 /* MyNewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyNewsTableViewCell.xib; sourceTree = "<group>"; };
-		E14804EA2088D5D900C67D43 /* ListMostViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMostViewTableViewCell.swift; sourceTree = "<group>"; };
-		E14804EB2088D5D900C67D43 /* ListMostViewTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListMostViewTableViewCell.xib; sourceTree = "<group>"; };
-		E14804F02088D7D400C67D43 /* ListNearMeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNearMeTableViewCell.swift; sourceTree = "<group>"; };
-		E14804F12088D7D400C67D43 /* ListNearMeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListNearMeTableViewCell.xib; sourceTree = "<group>"; };
 		E14C41412074D107003571E8 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		E14C41422074D107003571E8 /* DetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailNewsViewController.xib; sourceTree = "<group>"; };
 		E14C41452074EBF5003571E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -302,8 +290,6 @@
 			children = (
 				E16F5B19207B698E00B284A5 /* AccountViewController.swift */,
 				E16F5B1A207B698E00B284A5 /* AccountViewController.xib */,
-				E14804E62088D18200C67D43 /* MyNewsTableViewCell.swift */,
-				E14804E72088D18200C67D43 /* MyNewsTableViewCell.xib */,
 			);
 			path = AccountViewController;
 			sourceTree = "<group>";
@@ -378,10 +364,6 @@
 				E198DC1B2081829000E59BD2 /* HomeViewController.xib */,
 				E198DC192081829000E59BD2 /* ListNewsTableViewCell.swift */,
 				E198DC1D2081829000E59BD2 /* ListNewsTableViewCell.xib */,
-				E14804EA2088D5D900C67D43 /* ListMostViewTableViewCell.swift */,
-				E14804EB2088D5D900C67D43 /* ListMostViewTableViewCell.xib */,
-				E14804F02088D7D400C67D43 /* ListNearMeTableViewCell.swift */,
-				E14804F12088D7D400C67D43 /* ListNearMeTableViewCell.xib */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -550,7 +532,6 @@
 				E19CBCA92088818600A310D3 /* BillManagementViewController.xib in Resources */,
 				E1BD102F20766C3500287982 /* CreateRoomViewController.xib in Resources */,
 				E14C41442074D107003571E8 /* DetailNewsViewController.xib in Resources */,
-				E14804E92088D18200C67D43 /* MyNewsTableViewCell.xib in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
 				145C12072075FF5300AB11F3 /* ListRoomsTableViewCell.xib in Resources */,
 				E16F5B2A207B7D8E00B284A5 /* ChangeEmailViewController.xib in Resources */,
@@ -559,9 +540,7 @@
 				E16F5B2E207B84D900B284A5 /* ChangePasswordViewController.xib in Resources */,
 				E1507BBE207F59F300387527 /* SettingViewController.xib in Resources */,
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
-				E14804F32088D7D400C67D43 /* ListNearMeTableViewCell.xib in Resources */,
 				E198761720672E2D008434CC /* Main.storyboard in Resources */,
-				E14804ED2088D5D900C67D43 /* ListMostViewTableViewCell.xib in Resources */,
 				E16F5B1C207B698E00B284A5 /* AccountViewController.xib in Resources */,
 				CE5FF78C20766ED0005BEA3B /* MainViewController.xib in Resources */,
 				E14C41462074EBF5003571E8 /* GoogleService-Info.plist in Resources */,
@@ -668,14 +647,12 @@
 				E1BD102620765FAD00287982 /* Room.swift in Sources */,
 				E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */,
 				E19CBCA82088818600A310D3 /* BillManagementViewController.swift in Sources */,
-				E14804E82088D18200C67D43 /* MyNewsTableViewCell.swift in Sources */,
 				145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
 				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
 				E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */,
 				E1507BC02080972500387527 /* News.swift in Sources */,
 				E198DC1E2081829000E59BD2 /* ListNewsTableViewCell.swift in Sources */,
-				E14804F22088D7D400C67D43 /* ListNearMeTableViewCell.swift in Sources */,
 				E14C41432074D107003571E8 /* DetailNewsViewController.swift in Sources */,
 				145C11FE2075F37E00AB11F3 /* RoomManagementViewController.swift in Sources */,
 				E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */,
@@ -685,7 +662,6 @@
 				E1507BB1207DDA8B00387527 /* CalculateRoomPriceViewController.swift in Sources */,
 				E1507BAC207D19A200387527 /* NewPostViewController.swift in Sources */,
 				E16F5B31207BD35A00B284A5 /* Controller.swift in Sources */,
-				E14804EC2088D5D900C67D43 /* ListMostViewTableViewCell.swift in Sources */,
 				E1BD102E20766C3500287982 /* CreateRoomViewController.swift in Sources */,
 				E1507BA7207D195C00387527 /* EditRoomViewController.swift in Sources */,
 				E16F5B29207B7D8E00B284A5 /* ChangeEmailViewController.swift in Sources */,

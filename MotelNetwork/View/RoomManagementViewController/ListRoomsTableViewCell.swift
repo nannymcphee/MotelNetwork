@@ -34,19 +34,19 @@ class ListRoomsTableViewCell: UITableViewCell {
         self.lblRoomName.text = room.name
         self.lblRoomPrice.text = numberFormatter.string(from: room.price! as NSNumber)
         self.lblArea.text = String("\(room.area ?? "")m2")
-        if !(room.user?.isEmpty)! {
-            self.lblUserFullName.text = room.user
+        if !(room.renterName?.isEmpty)! {
+            self.lblUserFullName.text = room.renterName
         } else {
             self.lblUserFullName.text = "Chưa có người thuê"
         }
         
-        // Use Kingfisher to download & show image
         if URL(string: room.roomImageUrl0!) != nil {
             let resource = ImageResource(downloadURL: URL(string: room.roomImageUrl0!)!)
             
             ivRoomImage.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage") , options: nil, progressBlock: nil, completionHandler: nil)
         }
-        else{
+        else {
+            
             ivRoomImage.image = #imageLiteral(resourceName: "defaultImage")
         }
 

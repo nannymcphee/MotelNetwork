@@ -50,12 +50,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // tbMostView
         tbMostView.delegate = self
         tbMostView.dataSource = self
-        tbMostView.register(UINib(nibName: "ListMostViewTableViewCell", bundle: nil), forCellReuseIdentifier: "ListMostViewTableViewCell")
+        tbMostView.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
         
         // tbNearMe
         tbNearMe.delegate = self
         tbNearMe.dataSource = self
-        tbNearMe.register(UINib(nibName: "ListNearMeTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNearMeTableViewCell")
+        tbNearMe.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
         
         setUpView()
     }
@@ -216,6 +216,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 news.phoneNumber = dictionary["phoneNumber"] as? String
                 news.user = dictionary["user"] as? String
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
+                news.postImageUrl1 = dictionary["postImageUrl1"] as? String
+                news.postImageUrl2 = dictionary["postImageUrl2"] as? String
                 news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
                 news.postDate = dictionary["postDate"] as? String
 
@@ -256,6 +258,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 news.phoneNumber = dictionary["phoneNumber"] as? String
                 news.user = dictionary["user"] as? String
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
+                news.postImageUrl1 = dictionary["postImageUrl1"] as? String
+                news.postImageUrl2 = dictionary["postImageUrl2"] as? String
                 news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
                 news.postDate = dictionary["postDate"] as? String
                 
@@ -296,6 +300,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 news.phoneNumber = dictionary["phoneNumber"] as? String
                 news.user = dictionary["user"] as? String
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
+                news.postImageUrl1 = dictionary["postImageUrl1"] as? String
+                news.postImageUrl2 = dictionary["postImageUrl2"] as? String
                 news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
                 news.postDate = dictionary["postDate"] as? String
                 
@@ -304,132 +310,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }, withCancel: nil)
     }
-
-
-    
-//    func loadDataNews() {
-//
-//        let uid = Auth.auth().currentUser?.uid
-//        let ref = Database.database().reference()
-//        let recentPostQuery = ref.child("Posts").child(uid!).child("MyPosts").queryLimited(toFirst: 100)
-////        let recentPostQuery = ref.child("Posts")
-//        recentPostQuery.observe(.childAdded, with: { (snapshot) in
-//
-//            if let dictionary = snapshot.value as? [String: AnyObject] {
-//                let news = News(dictionary: dictionary)
-//                news.id = snapshot.key
-//
-//                DispatchQueue.main.async {
-//                    self.reloadInputViews()
-//                }
-//
-//                let priceStr = dictionary["price"] as? String
-//                let waterPriceStr = dictionary["waterPrice"] as? String
-//                let electricPriceStr = dictionary["electricPrice"] as? String
-//                let internetPriceStr = dictionary["internetPrice"] as? String
-//
-//                news.price = Double(priceStr ?? "0.0")
-//                news.waterPrice = Double(waterPriceStr ?? "0.0")
-//                news.electricPrice = Double(electricPriceStr ?? "0.0")
-//                news.internetPrice = Double(internetPriceStr ?? "0.0")
-//                news.area = dictionary["area"] as? String
-//                news.district = dictionary["district"] as? String
-//                news.title = dictionary["title"] as? String
-//                news.address = dictionary["address"] as? String
-//                news.description = dictionary["description"] as? String
-//                news.phoneNumber = dictionary["phoneNumber"] as? String
-//                news.user = dictionary["user"] as? String
-//                news.postImageUrl0 = dictionary["postImageUrl0"] as? String
-//                news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
-//                news.postDate = dictionary["postDate"] as? String
-//
-//                self.listNews.append(news)
-//                self.tbListNews.reloadData()
-//            }
-//        }, withCancel: nil)
-//    }
-//
-//    func loadDataMostView() {
-//
-//        let uid = Auth.auth().currentUser?.uid
-//        let ref = Database.database().reference()
-//        let mostViewQuery = ref.child("Posts").child(uid!).child("MyPosts").queryOrdered(byChild: "price")
-//        mostViewQuery.observe(.childAdded, with: { (snapshot) in
-//
-//            if let dictionary = snapshot.value as? [String: AnyObject] {
-//                let news = News(dictionary: dictionary)
-//                news.id = snapshot.key
-//
-//                DispatchQueue.main.async {
-//                    self.reloadInputViews()
-//                }
-//
-//                let priceStr = dictionary["price"] as? String
-//                let waterPriceStr = dictionary["waterPrice"] as? String
-//                let electricPriceStr = dictionary["electricPrice"] as? String
-//                let internetPriceStr = dictionary["internetPrice"] as? String
-//
-//                news.price = Double(priceStr ?? "0.0")
-//                news.waterPrice = Double(waterPriceStr ?? "0.0")
-//                news.electricPrice = Double(electricPriceStr ?? "0.0")
-//                news.internetPrice = Double(internetPriceStr ?? "0.0")
-//                news.area = dictionary["area"] as? String
-//                news.district = dictionary["district"] as? String
-//                news.title = dictionary["title"] as? String
-//                news.address = dictionary["address"] as? String
-//                news.description = dictionary["description"] as? String
-//                news.phoneNumber = dictionary["phoneNumber"] as? String
-//                news.user = dictionary["user"] as? String
-//                news.postImageUrl0 = dictionary["postImageUrl0"] as? String
-//                news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
-//                news.postDate = dictionary["postDate"] as? String
-//
-//                self.listMostView.append(news)
-//                self.tbMostView.reloadData()
-//            }
-//        }, withCancel: nil)
-//    }
-//
-//    func loadDataNearMe() {
-//
-//        let uid = Auth.auth().currentUser?.uid
-//        let ref = Database.database().reference()
-//        let nearMeQuery = ref.child("Posts").child(uid!).child("MyPosts").queryOrdered(byChild: "district")
-//        nearMeQuery.observe(.childAdded, with: { (snapshot) in
-//
-//            if let dictionary = snapshot.value as? [String: AnyObject] {
-//                let news = News(dictionary: dictionary)
-//                news.id = snapshot.key
-//
-//                DispatchQueue.main.async {
-//                    self.reloadInputViews()
-//                }
-//
-//                let priceStr = dictionary["price"] as? String
-//                let waterPriceStr = dictionary["waterPrice"] as? String
-//                let electricPriceStr = dictionary["electricPrice"] as? String
-//                let internetPriceStr = dictionary["internetPrice"] as? String
-//
-//                news.price = Double(priceStr ?? "0.0")
-//                news.waterPrice = Double(waterPriceStr ?? "0.0")
-//                news.electricPrice = Double(electricPriceStr ?? "0.0")
-//                news.internetPrice = Double(internetPriceStr ?? "0.0")
-//                news.area = dictionary["area"] as? String
-//                news.district = dictionary["district"] as? String
-//                news.title = dictionary["title"] as? String
-//                news.address = dictionary["address"] as? String
-//                news.description = dictionary["description"] as? String
-//                news.phoneNumber = dictionary["phoneNumber"] as? String
-//                news.user = dictionary["user"] as? String
-//                news.postImageUrl0 = dictionary["postImageUrl0"] as? String
-//                news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
-//                news.postDate = dictionary["postDate"] as? String
-//
-//                self.listNearMe.append(news)
-//                self.tbNearMe.reloadData()
-//            }
-//        }, withCancel: nil)
-//    }
     
     //MARK: Handle button pressed
     
@@ -469,8 +349,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         buttonDisable1.setTitleColor(colorDisable, for: .normal)
         buttonDisable2.setTitleColor(colorDisable, for: .normal)
     }
-    
-
 
     //MARK: Logic for table view
     
@@ -492,66 +370,27 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 1
     }
     
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cellNews = tbListNews.dequeueReusableCell(withIdentifier: "ListNewsTableViewCell") as! ListNewsTableViewCell
-//        if tableView == tbListNews {
-//            news = listNews[indexPath.row]
-//            cellNews.populateData(news: news)
-//        }
-//        return cellNews
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cellMostView = tbListNews.dequeueReusableCell(withIdentifier: "ListMostViewTableViewCell") as! ListMostViewTableViewCell
-//        if tableView == tbMostView {
-//            news = listMostView[indexPath.row]
-//            cellNews.populateData(news: news)
-//        }
-//        return cellMostView
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cellNearMe = tbListNews.dequeueReusableCell(withIdentifier: "ListNearMeTableViewCell") as! ListNearMeTableViewCell
-//        if tableView == tbNearMe {
-//            news = listNearMe[indexPath.row]
-//            cellNearMe.populateData(news: news)
-//        }
-//        return cellNearMe
-//    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        var cell: UITableViewCell?
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ListNewsTableViewCell", for: indexPath) as! ListNewsTableViewCell
         
         if tableView == tbListNews {
-            
-            let cell = tbListNews.dequeueReusableCell(withIdentifier: "ListNewsTableViewCell", for: indexPath) as! ListNewsTableViewCell
 
             let news = listNews[indexPath.row]
             cell.populateData(news: news)
-            
-            return cell
         }
-
         else if tableView == tbMostView {
             
-            let cell = tbMostView.dequeueReusableCell(withIdentifier: "ListMostViewTableViewCell") as! ListMostViewTableViewCell
             let mostView = listMostView[indexPath.row]
             cell.populateData(news: mostView)
-            
-            return cell
         }
-
         else if tableView == tbNearMe {
             
-            let cell = tbNearMe.dequeueReusableCell(withIdentifier: "ListNearMeTableViewCell") as! ListNearMeTableViewCell
             let nearMe = listNearMe[indexPath.row]
             cell.populateData(news: nearMe)
-            
-            return cell
         }
 
-        return cell!
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

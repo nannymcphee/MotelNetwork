@@ -25,7 +25,6 @@ class BillManagementViewController: UIViewController {
         super.viewDidLoad()
 
         
-        fetchUser()
         
     }
 
@@ -35,46 +34,10 @@ class BillManagementViewController: UIViewController {
     }
     
 
-    //MARK: Database interaction
-    
-    // Fetch user from database and add to user list
-    func fetchUser() {
-        
-//        let ref = Database.database().reference()
-//        let query = ref.child("Users").queryEqual(toValue: "241447624")
-//
-//        query.observe(.childAdded, with: { (snapshot) in
-//
-//            if let dictionary = snapshot.value as? [String: AnyObject] {
-//                let user = User(dictionary: dictionary)
-//                user.id = snapshot.key
-//                self.userList.append(user)
-//
-//                DispatchQueue.main.async(execute: {
-//                    self.reloadInputViews()
-//                })
-//            }
-//
-//        }, withCancel: nil)
-        
-        Database.database().reference().child("Users").observe(.childAdded, with: { (snapshot) in
 
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-                let user = User(dictionary: dictionary)
-                user.id = snapshot.key
-                self.userList.append(user)
-
-                DispatchQueue.main.async(execute: {
-                    self.reloadInputViews()
-                })
-
-                // Fetch user's full name
-                user.name = dictionary["FullName"] as? String
-            }
-        }, withCancel: nil)
         
         
-    }
+
     
     
     

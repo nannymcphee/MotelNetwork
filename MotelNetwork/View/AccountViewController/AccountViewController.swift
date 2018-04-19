@@ -33,7 +33,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
       
         tbNews.delegate = self
         tbNews.dataSource = self
-        tbNews.register(UINib(nibName: "MyNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "MyNewsTableViewCell")
+        tbNews.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
 
         loadData()
         setUpView()
@@ -155,7 +155,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         return listNews.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tbNews.dequeueReusableCell(withIdentifier: "MyNewsTableViewCell") as! MyNewsTableViewCell
+        let cell = tbNews.dequeueReusableCell(withIdentifier: "ListNewsTableViewCell") as! ListNewsTableViewCell
         
         let news = listNews[indexPath.row]
         cell.populateData(news: news)
@@ -211,8 +211,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             // Query delete from database
             let news = self.listNews[indexPath.row]
             let newsID = news.id
-            let uid = Auth.auth().currentUser?.uid
-            let ref = Database.database().reference().child("Posts").child(uid!).child("MyPosts").child(newsID!)
+//            let uid = Auth.auth().currentUser?.uid
+            let ref = Database.database().reference().child("Posts").child(newsID!)
             
             // Show confirmation alert
             let alert = UIAlertController(title: messageConfirmDeletePost, message: nil, preferredStyle: .actionSheet)

@@ -62,7 +62,7 @@ class CalculateRoomPriceViewController: UIViewController {
         roomPrice = currentRoom.price!
         lblRoomName.text = currentRoom.name
         tfRoomPrice.text = "\(currentRoom.price ?? 0.0)"
-        tfUser.text = currentRoom.user
+        tfUser.text = currentRoom.renterName
         tfUser.isEnabled = false
         tfRoomPrice.isEnabled = false
         self.tapToDismissKeyboard()

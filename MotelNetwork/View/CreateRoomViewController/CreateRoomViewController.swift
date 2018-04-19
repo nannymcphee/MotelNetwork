@@ -75,9 +75,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     // Fetch user from database and add to user list
     func fetchUser() {
-        
-//        let ref = Database.database().reference().child("Users")
-//        let query = ref.queryOrdered(byChild: "CMND").queryEqual(toValue: "241447624")
+
         Database.database().reference().child("Users").observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
@@ -208,29 +206,43 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             self.showAlert(alertMessage: messageNilTextFields)
         }
         else {
-            
-
+        
             // Store room's info to database
             let roomName = self.tfRoomName.text!
             let area = self.tfArea.text!
             let price = self.tfPrice.text!
-            let user = self.tfUser.text!
-            let reference = Database.database().reference().child("Rooms").child(uid).child("MyRooms").child("\(roomID)")
-            let values = ["RoomName": roomName, "Area": area, "Price": price, "User": user, "roomImageUrl0": "", "roomImageUrl1": "", "roomImageUrl2": ""]
+            let renterName = self.tfUser.text!
+            let ownerID = uid
+            var renterID: String = ""
+            let ref = Database.database().reference().child("Rooms").child("\(roomID)")
+
+            // Get renter's id by renter's name and save to room in database
+            let renterRef = Database.database().reference().child("Users")
+            let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
+            query.observeSingleEvent(of: .childAdded) { (snapshot) in
+                
+                let value = snapshot.value as! NSDictionary
+                let id = value["uid"] as? String ?? ""
+                
+                renterID = id
+                self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
+            }
             
-            self.storeInformationToDatabase(reference: reference, values: values as [String: AnyObject])
+            let values = ["roomName": roomName, "area": area, "price": price, "renterName": renterName, "ownerID": ownerID, "renterID": renterID, "roomID": roomID, "roomImageUrl0": "", "roomImageUrl1": "", "roomImageUrl2": ""]
+            
+            self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
             // Upload image to Firebase storage and update download urls into database
             
             _ = uploadImageFromImageView(imageView: ivRoomImage0) { (url) in
-                self.storeInformationToDatabase(reference: reference, values: ["roomImageUrl0": url as AnyObject])
+                self.storeInformationToDatabase(reference: ref, values: ["roomImageUrl0": url as AnyObject])
             }
             
             _ = uploadImageFromImageView(imageView: ivRoomImage1) { (url) in
-                self.storeInformationToDatabase(reference: reference, values: ["roomImageUrl1": url as AnyObject])
+                self.storeInformationToDatabase(reference: ref, values: ["roomImageUrl1": url as AnyObject])
             }
             
             _ = uploadImageFromImageView(imageView: ivRoomImage2) { (url) in
-                self.storeInformationToDatabase(reference: reference, values: ["roomImageUrl2": url as AnyObject])
+                self.storeInformationToDatabase(reference: ref, values: ["roomImageUrl2": url as AnyObject])
             }
             
             self.showAlert(alertMessage: messageCreateRoomSuccess)

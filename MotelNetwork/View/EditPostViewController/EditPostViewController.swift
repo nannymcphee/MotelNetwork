@@ -241,10 +241,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
             let internetPrice = self.tfInternetPrice.text!
             let postDate = currentDate
             let postID = currentNews.id
-//            let ref = Database.database().reference().child("Posts").child(self.uid!).child("MyPosts").child(postID!)
-            
             let ref = Database.database().reference().child("Posts").child(postID!)
-            
             let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postDate": postDate]
             
             // Create confirm alert

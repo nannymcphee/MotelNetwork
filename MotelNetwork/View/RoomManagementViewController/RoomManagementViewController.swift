@@ -111,9 +111,10 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
-        let queryOrderByRoomName = ref.child("Rooms").child(uid!).child("MyRooms").queryOrdered(byChild: "RoomName")
+//        let queryOrderByRoomName = ref.child("Rooms").child(uid!).child("MyRooms").queryOrdered(byChild: "RoomName")
+        let queryMyRoomsOrderByRoomName = ref.child("Rooms").queryOrdered(byChild: "ownerID").queryEqual(toValue: uid)
         
-        queryOrderByRoomName.observe(.childAdded, with: { (snapshot) in
+        queryMyRoomsOrderByRoomName.observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let room = Room(dictionary: dictionary)
@@ -124,11 +125,11 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
                     self.reloadInputViews()
                 })
                 
-                room.name = dictionary["RoomName"] as? String
-                let priceStr = dictionary["Price"] as? String
+                room.name = dictionary["roomName"] as? String
+                let priceStr = dictionary["price"] as? String
                 room.price = Double(priceStr ?? "0.0")
-                room.area = dictionary["Area"] as? String
-                room.user = dictionary["User"] as? String
+                room.area = dictionary["area"] as? String
+                room.renterName = dictionary["renterName"] as? String
                 room.roomImageUrl0 = dictionary["roomImageUrl0"] as? String
                 room.roomImageUrl1 = dictionary["roomImageUrl1"] as? String
                 room.roomImageUrl2 = dictionary["roomImageUrl2"] as? String
@@ -204,8 +205,8 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
             // Query delete from database
             let room = self.listRooms[indexPath.row]
             let roomID = room.id
-            let uid = Auth.auth().currentUser?.uid
-            let ref = Database.database().reference().child("Rooms").child(uid!).child("MyRooms").child(roomID!)
+
+            let ref = Database.database().reference().child("Rooms").child(roomID!)
             
             // Show confirmation alert
             let alert = UIAlertController(title: messageConfirmDeleteRoom, message: nil, preferredStyle: .actionSheet)
