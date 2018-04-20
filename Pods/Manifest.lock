@@ -62,6 +62,7 @@ PODS:
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
   - SwipeBack (1.1.1)
+  - TwicketSegmentedControl (0.1.2)
   - UIImageViewModeScaleAspect (1.5)
 
 DEPENDENCIES:
@@ -75,6 +76,7 @@ DEPENDENCIES:
   - NVActivityIndicatorView
   - SDWebImage (~> 4.0)
   - SwipeBack (~> 1.1)
+  - TwicketSegmentedControl
 
 SPEC CHECKSUMS:
   BSGridCollectionViewLayout: 8f12c8e1e08c47057f5a39a6828f4395f043d78f
@@ -95,8 +97,9 @@ SPEC CHECKSUMS:
   NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SwipeBack: d6759601b40da1f4161033feb30ab475d7d04322
+  TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
   UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
 
-PODFILE CHECKSUM: fca399f039ed7af02d19db9ede561f6e34ae7548
+PODFILE CHECKSUM: 407531a13b5b02528ca7fff1e1df2b2c33e9881b
 
 COCOAPODS: 1.4.0

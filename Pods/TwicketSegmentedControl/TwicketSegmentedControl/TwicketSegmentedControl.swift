@@ -88,23 +88,29 @@ open class TwicketSegmentedControl: UIControl {
         }
     }
 
+//    open var font: UIFont = UIFont.systemFont(ofSize: 15, weight: .medium) {
+//        didSet {
+//            updateLabelsFont(with: font)
+//        }
+//    }
+
     open var font: UIFont = UIFont(name: "Helvetica Neue", size: 12.0)! {
         didSet {
             updateLabelsFont(with: font)
         }
     }
-
+    
     open var isSliderShadowHidden: Bool = false {
         didSet {
             updateShadow(with: sliderBackgroundColor, hidden: isSliderShadowHidden)
         }
     }
 
-    open var selectedSegmentIndex: Int = 0
+    private(set) open var selectedSegmentIndex: Int = 0
 
     private var segments: [String] = []
 
-    var numberOfSegments: Int {
+    private var numberOfSegments: Int {
         return segments.count
     }
 
@@ -230,12 +236,12 @@ open class TwicketSegmentedControl: UIControl {
 
     // MARK: Tap gestures
 
-    func addTapGesture() {
+    private func addTapGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(didTap))
         addGestureRecognizer(tap)
     }
 
-    func addDragGesture() {
+    private func addDragGesture() {
         let drag = UIPanGestureRecognizer(target: self, action: #selector(didPan))
         sliderView.addGestureRecognizer(drag)
     }
@@ -259,7 +265,7 @@ open class TwicketSegmentedControl: UIControl {
 
     // MARK: Slider position
 
-    func moveToNearestPoint(basedOn gesture: UIGestureRecognizer, velocity: CGPoint? = nil) {
+    private func moveToNearestPoint(basedOn gesture: UIGestureRecognizer, velocity: CGPoint? = nil) {
         var location = gesture.location(in: self)
         if let velocity = velocity {
             let offset = velocity.x / 12
@@ -277,19 +283,19 @@ open class TwicketSegmentedControl: UIControl {
         selectedSegmentIndex = index
     }
 
-    func segmentIndex(for point: CGPoint) -> Int {
+    private func segmentIndex(for point: CGPoint) -> Int {
         var index = Int(point.x / sliderView.frame.width)
         if index < 0 { index = 0 }
         if index > numberOfSegments - 1 { index = numberOfSegments - 1 }
         return index
     }
 
-    func center(at index: Int) -> CGFloat {
+    private func center(at index: Int) -> CGFloat {
         let xOffset = CGFloat(index) * sliderView.frame.width + sliderView.frame.width / 2
         return xOffset
     }
 
-    func animate(to position: CGFloat) {
+    private func animate(to position: CGFloat) {
         UIView.animate(withDuration: 0.2) {
             self.sliderView.center.x = position
         }

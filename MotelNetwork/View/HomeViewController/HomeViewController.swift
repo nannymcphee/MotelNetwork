@@ -11,10 +11,12 @@ import FirebaseAuth
 import FirebaseDatabase
 import SwipeBack
 import NVActivityIndicatorView
+import TwicketSegmentedControl
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NVActivityIndicatorViewable {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedControlDelegate {
     
-    @IBOutlet weak var vTest: UIView!
+    
+    @IBOutlet weak var vSegment: UIView!
     @IBOutlet weak var tbMostView: UITableView!
     @IBOutlet weak var tbNearMe: UITableView!
     @IBOutlet weak var tbListNews: UITableView!
@@ -37,10 +39,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var refreshControl0: UIRefreshControl = UIRefreshControl()
     var refreshControl1: UIRefreshControl = UIRefreshControl()
     var refreshControl2: UIRefreshControl = UIRefreshControl()
+    var segmentedControl: TwicketSegmentedControl = TwicketSegmentedControl()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         sclContent.delegate = self
+       
         
         // tbListNew
         tbListNews.delegate = self
@@ -73,9 +78,37 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tbMostView.reloadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    //MARK: Set up TwicketSegmentedControl
+    
+    func setUpSegmentControl() {
+        // Set up segment control
+        let titles = ["Tin mới", "Xem nhiều", "Gần tôi"]
+        let frame = CGRect(x: 20, y: 48, width: self.view.frame.width - 10, height: 40)
+        segmentedControl = TwicketSegmentedControl(frame: frame)
+        self.view.addSubview(segmentedControl)
+        segmentedControl.setSegmentItems(titles)
+        segmentedControl.delegate = self
+        segmentedControl.isSliderShadowHidden = true
         
+        // Auto layout
+        segmentedControl.translatesAutoresizingMaskIntoConstraints = false
+        segmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        segmentedControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 48).isActive = true
+        segmentedControl.widthAnchor.constraint(equalToConstant: screenWidth).isActive = true
+        segmentedControl.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    }
+    
+    func didSelect(_ segmentIndex: Int) {
+        switch segmentIndex {
+        case 0:
+            setUpViewNews()
+        case 1:
+            setUpViewMostView()
+        case 2:
+            setUpViewNearMe()
+        default:
+            break
+        }
     }
     
     //MARK: Refresh data
@@ -111,6 +144,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func setUpView() {
         
+        setUpSegmentControl()
         setViewState(enabledView: vNewsProgress, disabledView2: vNearMeProgress, disabledView3: vMostViewProgress)
         setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnNearMe, buttonDisable2: btnMostView)
         self.tapToDismissKeyboard()
@@ -159,33 +193,32 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func setUpViewNews() {
         
-        setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
-        setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
+//        setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
+//        setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
         tbListNews.reloadData()
         tbListNews.scrollTableViewToTop(animated: true)
         
-        self.sclContent.setContentOffset(CGPoint(x: Double(0), y: 0), animated: true)
+        self.sclContent.setContentOffset(CGPoint(x: Double(0), y: 0), animated: false)
     }
     
     func setUpViewMostView() {
 
-        setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
-        setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
+//        setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
+//        setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
         tbMostView.reloadData()
         tbMostView.scrollTableViewToTop(animated: true)
         
-        self.sclContent.setContentOffset(CGPoint(x: Double(screenWidth), y: 0), animated: true)
+        self.sclContent.setContentOffset(CGPoint(x: Double(screenWidth), y: 0), animated: false)
     }
     
     func setUpViewNearMe() {
-
         
-        setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
-        setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
+//        setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
+//        setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
         tbNearMe.reloadData()
         tbNearMe.scrollTableViewToTop(animated: true)
         
-        self.sclContent.setContentOffset(CGPoint(x: Double(screenWidth * 2), y: 0), animated: true)
+        self.sclContent.setContentOffset(CGPoint(x: Double(screenWidth * 2), y: 0), animated: false)
     }
     
     //MARK: Database interaction
@@ -437,20 +470,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if sclContent.contentOffset.x >= 0 &&  sclContent.contentOffset.x < screenWidth {
             
             // News
-            setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
-            setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
+//            setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
+//            setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
+            segmentedControl.move(to: 0)
+           
         }
         else if sclContent.contentOffset.x >= screenWidth && sclContent.contentOffset.x < 2 * screenWidth  {
             
             // Most View
-            setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
-            setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
+//            setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
+//            setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
+            segmentedControl.move(to: 1)
+
         }
         else {
             
             // Near Me
-            setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
-            setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
+//            setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
+//            setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
+            segmentedControl.move(to: 2)
+
         }
     }
 
