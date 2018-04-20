@@ -43,8 +43,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        listNews.removeAll()
-        loadData()
+        tbNews.reloadData()
     }
     
     

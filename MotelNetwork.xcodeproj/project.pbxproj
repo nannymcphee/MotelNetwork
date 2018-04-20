@@ -11,13 +11,18 @@
 		145C11FF2075F37E00AB11F3 /* RoomManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145C11FD2075F37E00AB11F3 /* RoomManagementViewController.xib */; };
 		145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145C12042075FF5300AB11F3 /* ListRoomsTableViewCell.swift */; };
 		145C12072075FF5300AB11F3 /* ListRoomsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145C12052075FF5300AB11F3 /* ListRoomsTableViewCell.xib */; };
-		22646D6A0FA189D05EEE187D /* Pods_MotelNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */; };
-		A13AF67BCDD4B266E4313F82 /* Pods_Motel_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8799EF3B7AE268C76D44DCCB /* Pods_Motel_Network.framework */; };
+		808042C5E64CAEA32495D439 /* Pods_Motel_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA2E9B82728A3236B847A136 /* Pods_Motel_Network.framework */; };
 		CE5FF78B20766ED0005BEA3B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF78920766ED0005BEA3B /* MainViewController.swift */; };
 		CE5FF78C20766ED0005BEA3B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5FF78A20766ED0005BEA3B /* MainViewController.xib */; };
 		CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF78F20767698005BEA3B /* EUIViewController.swift */; };
 		E104666E20708FF400245789 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104666C20708FF400245789 /* TutorialViewController.swift */; };
 		E104666F20708FF400245789 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E104666D20708FF400245789 /* TutorialViewController.xib */; };
+		E14804F72089F8DA00C67D43 /* CreateNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14804F52089F8DA00C67D43 /* CreateNotificationViewController.swift */; };
+		E14804F82089F8DA00C67D43 /* CreateNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14804F62089F8DA00C67D43 /* CreateNotificationViewController.xib */; };
+		E14804FD2089F90800C67D43 /* DetailNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14804FB2089F90800C67D43 /* DetailNotificationViewController.swift */; };
+		E14804FE2089F90800C67D43 /* DetailNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14804FC2089F90800C67D43 /* DetailNotificationViewController.xib */; };
+		E14805012089F92D00C67D43 /* NotificationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14804FF2089F92D00C67D43 /* NotificationListViewController.swift */; };
+		E14805022089F92D00C67D43 /* NotificationListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14805002089F92D00C67D43 /* NotificationListViewController.xib */; };
 		E14C41432074D107003571E8 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C41412074D107003571E8 /* DetailNewsViewController.swift */; };
 		E14C41442074D107003571E8 /* DetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14C41422074D107003571E8 /* DetailNewsViewController.xib */; };
 		E14C41462074EBF5003571E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E14C41452074EBF5003571E8 /* GoogleService-Info.plist */; };
@@ -42,8 +47,12 @@
 		E16F5B2E207B84D900B284A5 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B2C207B84D900B284A5 /* ChangePasswordViewController.xib */; };
 		E16F5B31207BD35A00B284A5 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B30207BD35A00B284A5 /* Controller.swift */; };
 		E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B32207BDD0700B284A5 /* Strings.swift */; };
+		E180A137208A074F00EBCE52 /* NotificationListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180A135208A074F00EBCE52 /* NotificationListTableViewCell.swift */; };
+		E180A138208A074F00EBCE52 /* NotificationListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E180A136208A074F00EBCE52 /* NotificationListTableViewCell.xib */; };
 		E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F072B20674C2200281432 /* SignUpViewController.swift */; };
 		E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18F072C20674C2200281432 /* SignUpViewController.xib */; };
+		E1954476208A0EA3004F0D17 /* DetailBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1954474208A0EA3004F0D17 /* DetailBillViewController.swift */; };
+		E1954477208A0EA3004F0D17 /* DetailBillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1954475208A0EA3004F0D17 /* DetailBillViewController.xib */; };
 		E198761220672E2D008434CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198761120672E2D008434CC /* AppDelegate.swift */; };
 		E198761720672E2D008434CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761520672E2D008434CC /* Main.storyboard */; };
 		E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761A20672E2D008434CC /* LaunchScreen.storyboard */; };
@@ -74,16 +83,18 @@
 		145C11FD2075F37E00AB11F3 /* RoomManagementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomManagementViewController.xib; sourceTree = "<group>"; };
 		145C12042075FF5300AB11F3 /* ListRoomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRoomsTableViewCell.swift; sourceTree = "<group>"; };
 		145C12052075FF5300AB11F3 /* ListRoomsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListRoomsTableViewCell.xib; sourceTree = "<group>"; };
-		30112E5F978D897CC2765B50 /* Pods-MotelNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotelNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork.release.xcconfig"; sourceTree = "<group>"; };
-		5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MotelNetwork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8799EF3B7AE268C76D44DCCB /* Pods_Motel_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Motel_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93ECD0FAD91556A57282580A /* Pods-Motel Network.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Motel Network.release.xcconfig"; path = "Pods/Target Support Files/Pods-Motel Network/Pods-Motel Network.release.xcconfig"; sourceTree = "<group>"; };
-		AAD763934971E3E622BC4AFC /* Pods-MotelNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MotelNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		CE5FF78920766ED0005BEA3B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CE5FF78A20766ED0005BEA3B /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		CE5FF78F20767698005BEA3B /* EUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUIViewController.swift; sourceTree = "<group>"; };
 		E104666C20708FF400245789 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		E104666D20708FF400245789 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
+		E14804F52089F8DA00C67D43 /* CreateNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotificationViewController.swift; sourceTree = "<group>"; };
+		E14804F62089F8DA00C67D43 /* CreateNotificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateNotificationViewController.xib; sourceTree = "<group>"; };
+		E14804FB2089F90800C67D43 /* DetailNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNotificationViewController.swift; sourceTree = "<group>"; };
+		E14804FC2089F90800C67D43 /* DetailNotificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailNotificationViewController.xib; sourceTree = "<group>"; };
+		E14804FF2089F92D00C67D43 /* NotificationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListViewController.swift; sourceTree = "<group>"; };
+		E14805002089F92D00C67D43 /* NotificationListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationListViewController.xib; sourceTree = "<group>"; };
 		E14C41412074D107003571E8 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		E14C41422074D107003571E8 /* DetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailNewsViewController.xib; sourceTree = "<group>"; };
 		E14C41452074EBF5003571E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -108,8 +119,12 @@
 		E16F5B2C207B84D900B284A5 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
 		E16F5B30207BD35A00B284A5 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		E16F5B32207BDD0700B284A5 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		E180A135208A074F00EBCE52 /* NotificationListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListTableViewCell.swift; sourceTree = "<group>"; };
+		E180A136208A074F00EBCE52 /* NotificationListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationListTableViewCell.xib; sourceTree = "<group>"; };
 		E18F072B20674C2200281432 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E18F072C20674C2200281432 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		E1954474208A0EA3004F0D17 /* DetailBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBillViewController.swift; sourceTree = "<group>"; };
+		E1954475208A0EA3004F0D17 /* DetailBillViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailBillViewController.xib; sourceTree = "<group>"; };
 		E198760E20672E2D008434CC /* Motel Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Motel Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E198761120672E2D008434CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E198761620672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -134,6 +149,7 @@
 		E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		E1CDE6962067898C005715EC /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		E1E7D2022071E0C600874EB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA2E9B82728A3236B847A136 /* Pods_Motel_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Motel_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,8 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22646D6A0FA189D05EEE187D /* Pods_MotelNetwork.framework in Frameworks */,
-				A13AF67BCDD4B266E4313F82 /* Pods_Motel_Network.framework in Frameworks */,
+				808042C5E64CAEA32495D439 /* Pods_Motel_Network.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,8 +167,7 @@
 		01EF52EC13FB9120A8D37862 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5AA43913422DB6CF5DBA9C1B /* Pods_MotelNetwork.framework */,
-				8799EF3B7AE268C76D44DCCB /* Pods_Motel_Network.framework */,
+				FA2E9B82728A3236B847A136 /* Pods_Motel_Network.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -193,6 +207,35 @@
 				E104666D20708FF400245789 /* TutorialViewController.xib */,
 			);
 			path = TutorialViewController;
+			sourceTree = "<group>";
+		};
+		E14804F42089F8CE00C67D43 /* CreateNotificationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E14804F52089F8DA00C67D43 /* CreateNotificationViewController.swift */,
+				E14804F62089F8DA00C67D43 /* CreateNotificationViewController.xib */,
+			);
+			path = CreateNotificationViewController;
+			sourceTree = "<group>";
+		};
+		E14804F92089F8E700C67D43 /* DetailNotificationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E14804FB2089F90800C67D43 /* DetailNotificationViewController.swift */,
+				E14804FC2089F90800C67D43 /* DetailNotificationViewController.xib */,
+			);
+			path = DetailNotificationViewController;
+			sourceTree = "<group>";
+		};
+		E14804FA2089F8EA00C67D43 /* NotificationListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E14804FF2089F92D00C67D43 /* NotificationListViewController.swift */,
+				E14805002089F92D00C67D43 /* NotificationListViewController.xib */,
+				E180A135208A074F00EBCE52 /* NotificationListTableViewCell.swift */,
+				E180A136208A074F00EBCE52 /* NotificationListTableViewCell.xib */,
+			);
+			path = NotificationListViewController;
 			sourceTree = "<group>";
 		};
 		E14C41402074D0EB003571E8 /* DetailNewsViewController */ = {
@@ -321,6 +364,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		E1954473208A0E84004F0D17 /* DetailBillViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1954474208A0EA3004F0D17 /* DetailBillViewController.swift */,
+				E1954475208A0EA3004F0D17 /* DetailBillViewController.xib */,
+			);
+			path = DetailBillViewController;
+			sourceTree = "<group>";
+		};
 		E198760520672E2D008434CC = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +469,10 @@
 		E1E7D1F72071C7D300874EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E1954473208A0E84004F0D17 /* DetailBillViewController */,
+				E14804FA2089F8EA00C67D43 /* NotificationListViewController */,
+				E14804F92089F8E700C67D43 /* DetailNotificationViewController */,
+				E14804F42089F8CE00C67D43 /* CreateNotificationViewController */,
 				E19CBCA52088813D00A310D3 /* BillManagementViewController */,
 				E198DC272082F69200E59BD2 /* EditPostViewController */,
 				E198DC182081829000E59BD2 /* HomeViewController */,
@@ -444,8 +500,6 @@
 		E2CC27CED042D3E9451DE207 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AAD763934971E3E622BC4AFC /* Pods-MotelNetwork.debug.xcconfig */,
-				30112E5F978D897CC2765B50 /* Pods-MotelNetwork.release.xcconfig */,
 				049534EE73905EDE23E9980B /* Pods-Motel Network.debug.xcconfig */,
 				93ECD0FAD91556A57282580A /* Pods-Motel Network.release.xcconfig */,
 			);
@@ -520,15 +574,19 @@
 			files = (
 				E16F5B20207B69AE00B284A5 /* AccountOptionTableViewCell.xib in Resources */,
 				E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */,
+				E1954477208A0EA3004F0D17 /* DetailBillViewController.xib in Resources */,
 				E198DC222081829000E59BD2 /* ListNewsTableViewCell.xib in Resources */,
+				E14804F82089F8DA00C67D43 /* CreateNotificationViewController.xib in Resources */,
 				E1507BA3207D192F00387527 /* DetailRoomViewController.xib in Resources */,
 				E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */,
 				E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */,
 				E198DC2B2082F6BB00E59BD2 /* EditPostViewController.xib in Resources */,
 				E1507BA8207D195C00387527 /* EditRoomViewController.xib in Resources */,
+				E180A138208A074F00EBCE52 /* NotificationListTableViewCell.xib in Resources */,
 				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
 				E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */,
 				E1507BB2207DDA8B00387527 /* CalculateRoomPriceViewController.xib in Resources */,
+				E14804FE2089F90800C67D43 /* DetailNotificationViewController.xib in Resources */,
 				E19CBCA92088818600A310D3 /* BillManagementViewController.xib in Resources */,
 				E1BD102F20766C3500287982 /* CreateRoomViewController.xib in Resources */,
 				E14C41442074D107003571E8 /* DetailNewsViewController.xib in Resources */,
@@ -537,6 +595,7 @@
 				E16F5B2A207B7D8E00B284A5 /* ChangeEmailViewController.xib in Resources */,
 				145C11FF2075F37E00AB11F3 /* RoomManagementViewController.xib in Resources */,
 				E198DC202081829000E59BD2 /* HomeViewController.xib in Resources */,
+				E14805022089F92D00C67D43 /* NotificationListViewController.xib in Resources */,
 				E16F5B2E207B84D900B284A5 /* ChangePasswordViewController.xib in Resources */,
 				E1507BBE207F59F300387527 /* SettingViewController.xib in Resources */,
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
@@ -640,6 +699,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E14805012089F92D00C67D43 /* NotificationListViewController.swift in Sources */,
 				E1507BA2207D192F00387527 /* DetailRoomViewController.swift in Sources */,
 				E104666E20708FF400245789 /* TutorialViewController.swift in Sources */,
 				E198DC212081829000E59BD2 /* HomeViewController.swift in Sources */,
@@ -648,16 +708,19 @@
 				E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */,
 				E19CBCA82088818600A310D3 /* BillManagementViewController.swift in Sources */,
 				145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */,
+				E1954476208A0EA3004F0D17 /* DetailBillViewController.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
 				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
 				E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */,
 				E1507BC02080972500387527 /* News.swift in Sources */,
 				E198DC1E2081829000E59BD2 /* ListNewsTableViewCell.swift in Sources */,
+				E180A137208A074F00EBCE52 /* NotificationListTableViewCell.swift in Sources */,
 				E14C41432074D107003571E8 /* DetailNewsViewController.swift in Sources */,
 				145C11FE2075F37E00AB11F3 /* RoomManagementViewController.swift in Sources */,
 				E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */,
 				E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */,
 				E16F5B1F207B69AE00B284A5 /* AccountOptionTableViewCell.swift in Sources */,
+				E14804F72089F8DA00C67D43 /* CreateNotificationViewController.swift in Sources */,
 				E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */,
 				E1507BB1207DDA8B00387527 /* CalculateRoomPriceViewController.swift in Sources */,
 				E1507BAC207D19A200387527 /* NewPostViewController.swift in Sources */,
@@ -665,6 +728,7 @@
 				E1BD102E20766C3500287982 /* CreateRoomViewController.swift in Sources */,
 				E1507BA7207D195C00387527 /* EditRoomViewController.swift in Sources */,
 				E16F5B29207B7D8E00B284A5 /* ChangeEmailViewController.swift in Sources */,
+				E14804FD2089F90800C67D43 /* DetailNotificationViewController.swift in Sources */,
 				CE5FF78B20766ED0005BEA3B /* MainViewController.swift in Sources */,
 				CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */,
 				E198761220672E2D008434CC /* AppDelegate.swift in Sources */,

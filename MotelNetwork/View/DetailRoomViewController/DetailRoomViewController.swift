@@ -116,7 +116,9 @@ class DetailRoomViewController: UIViewController {
     
     @IBAction func btnNotificationPressed(_ sender: Any) {
         
+        let vc = CreateNotificationViewController()
         
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     
 }

@@ -37,7 +37,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         tbRoomManagement.delegate = self
         tbRoomManagement.dataSource = self
         tbRoomManagement.register(UINib(nibName: "ListRoomsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListRoomsTableViewCell")
-        tbRoomManagement.reloadData()
 
         loadData()
         setUpView()
@@ -45,20 +44,10 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-//        self.tbRoomManagement.reloadData()
-        DispatchQueue.main.async {
-            self.listRooms.removeAll()
-            self.loadData()
-            self.tbRoomManagement.reloadData()
-        }
+        self.tbRoomManagement.reloadData()
     }
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-//        listRooms.removeAll()
-//        loadData()
-    }
+
     
     
     

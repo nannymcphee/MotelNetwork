@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tapToDismissKeyboard()
+        btnLogin.layer.cornerRadius = 5
 
         // Do any additional setup after loading the view.
     }

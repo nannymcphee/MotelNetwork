@@ -71,7 +71,7 @@
                                                 <constraint firstAttribute="height" constant="24" id="KDx-T8-qib"/>
                                                 <constraint firstAttribute="width" constant="24" id="YM9-In-HP6"/>
                                             </constraints>
-                                            <state key="normal" image="icBills"/>
+                                            <state key="normal" image="icBill"/>
                                             <connections>
                                                 <action selector="btnBillsPressed:" destination="-1" eventType="touchUpInside" id="WIU-56-MwA"/>
                                             </connections>
@@ -230,7 +230,7 @@
     </objects>
     <resources>
         <image name="defaultAvatar" width="32" height="32"/>
-        <image name="icBills" width="24" height="24"/>
+        <image name="icBill" width="24" height="24"/>
         <image name="icNewPostBlue" width="24" height="24"/>
     </resources>
 </document>

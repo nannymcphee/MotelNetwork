@@ -11,10 +11,10 @@ import Firebase
 import FirebaseDatabase
 import Kingfisher
 
-
 class DetailNewsViewController: UIViewController {
     
     
+    @IBOutlet weak var tvPhoneNumber: UITextView!
     @IBOutlet weak var btnBack2: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblUserName: UILabel!
@@ -69,11 +69,13 @@ class DetailNewsViewController: UIViewController {
         lblArea.text = String("\(currentNews.area ?? "")m2")
         lblDistrict.text = currentNews.district
         tvDescription.text = currentNews.description
-        lblPhoneNumber.text = currentNews.phoneNumber
+        tvPhoneNumber.text = currentNews.phoneNumber
         lblPostDate.text = currentNews.postDate
         tvAddress.text = currentNews.address
         tvNewsTitle.text = currentNews.title
         lblUserName.text = currentNews.user
+
+        
         
         ivAvatar.kf.setImage(with: profileImgResource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
         loadImageToImageView(imageUrl: postImageUrl0!, imageView: ivNewsImage0)
@@ -91,3 +93,11 @@ class DetailNewsViewController: UIViewController {
     }
     
 }
+//
+//extension DetailNewsViewController: UITextViewDelegate {
+//    
+//    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+//        guard let number = URL(string: tvPhoneNumber.text)
+//        UIApplication.shared.open(), options: [:], completionHandler: nil)
+//    }
+//}
