@@ -17,6 +17,10 @@
 		CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF78F20767698005BEA3B /* EUIViewController.swift */; };
 		E104666E20708FF400245789 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104666C20708FF400245789 /* TutorialViewController.swift */; };
 		E104666F20708FF400245789 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E104666D20708FF400245789 /* TutorialViewController.xib */; };
+		E1397D86208AC7CC0050C86D /* ListBillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1397D84208AC7CC0050C86D /* ListBillTableViewCell.swift */; };
+		E1397D87208AC7CC0050C86D /* ListBillTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1397D85208AC7CC0050C86D /* ListBillTableViewCell.xib */; };
+		E1397D8B208AEF960050C86D /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1397D8A208AEF960050C86D /* Bill.swift */; };
+		E1397D8D208AF1230050C86D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1397D8C208AF1230050C86D /* Notification.swift */; };
 		E14804F72089F8DA00C67D43 /* CreateNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14804F52089F8DA00C67D43 /* CreateNotificationViewController.swift */; };
 		E14804F82089F8DA00C67D43 /* CreateNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14804F62089F8DA00C67D43 /* CreateNotificationViewController.xib */; };
 		E14804FD2089F90800C67D43 /* DetailNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14804FB2089F90800C67D43 /* DetailNotificationViewController.swift */; };
@@ -89,6 +93,10 @@
 		CE5FF78F20767698005BEA3B /* EUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUIViewController.swift; sourceTree = "<group>"; };
 		E104666C20708FF400245789 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		E104666D20708FF400245789 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
+		E1397D84208AC7CC0050C86D /* ListBillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBillTableViewCell.swift; sourceTree = "<group>"; };
+		E1397D85208AC7CC0050C86D /* ListBillTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListBillTableViewCell.xib; sourceTree = "<group>"; };
+		E1397D8A208AEF960050C86D /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		E1397D8C208AF1230050C86D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		E14804F52089F8DA00C67D43 /* CreateNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotificationViewController.swift; sourceTree = "<group>"; };
 		E14804F62089F8DA00C67D43 /* CreateNotificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateNotificationViewController.xib; sourceTree = "<group>"; };
 		E14804FB2089F90800C67D43 /* DetailNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNotificationViewController.swift; sourceTree = "<group>"; };
@@ -434,6 +442,8 @@
 			children = (
 				E19CBCA62088818600A310D3 /* BillManagementViewController.swift */,
 				E19CBCA72088818600A310D3 /* BillManagementViewController.xib */,
+				E1397D84208AC7CC0050C86D /* ListBillTableViewCell.swift */,
+				E1397D85208AC7CC0050C86D /* ListBillTableViewCell.xib */,
 			);
 			path = BillManagementViewController;
 			sourceTree = "<group>";
@@ -453,6 +463,8 @@
 				E1BD102720765FB900287982 /* User.swift */,
 				E1BD102520765FAD00287982 /* Room.swift */,
 				E1507BBF2080972500387527 /* News.swift */,
+				E1397D8A208AEF960050C86D /* Bill.swift */,
+				E1397D8C208AF1230050C86D /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -593,6 +605,7 @@
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
 				145C12072075FF5300AB11F3 /* ListRoomsTableViewCell.xib in Resources */,
 				E16F5B2A207B7D8E00B284A5 /* ChangeEmailViewController.xib in Resources */,
+				E1397D87208AC7CC0050C86D /* ListBillTableViewCell.xib in Resources */,
 				145C11FF2075F37E00AB11F3 /* RoomManagementViewController.xib in Resources */,
 				E198DC202081829000E59BD2 /* HomeViewController.xib in Resources */,
 				E14805022089F92D00C67D43 /* NotificationListViewController.xib in Resources */,
@@ -713,7 +726,9 @@
 				E1954476208A0EA3004F0D17 /* DetailBillViewController.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
 				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
+				E1397D8D208AF1230050C86D /* Notification.swift in Sources */,
 				E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */,
+				E1397D8B208AEF960050C86D /* Bill.swift in Sources */,
 				E1507BC02080972500387527 /* News.swift in Sources */,
 				E198DC1E2081829000E59BD2 /* ListNewsTableViewCell.swift in Sources */,
 				E180A137208A074F00EBCE52 /* NotificationListTableViewCell.swift in Sources */,
@@ -725,6 +740,7 @@
 				E14804F72089F8DA00C67D43 /* CreateNotificationViewController.swift in Sources */,
 				E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */,
 				E1507BB1207DDA8B00387527 /* CalculateRoomPriceViewController.swift in Sources */,
+				E1397D86208AC7CC0050C86D /* ListBillTableViewCell.swift in Sources */,
 				E1507BAC207D19A200387527 /* NewPostViewController.swift in Sources */,
 				E16F5B31207BD35A00B284A5 /* Controller.swift in Sources */,
 				E1BD102E20766C3500287982 /* CreateRoomViewController.swift in Sources */,

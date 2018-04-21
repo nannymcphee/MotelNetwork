@@ -52,15 +52,34 @@ class DetailNewsViewController: UIViewController {
     
     func setUpView() {
         
-        let userProfileImageUrl = currentNews.userProfileImageUrl
         let postImageUrl0 = currentNews.postImageUrl0
         let postImageUrl1 = currentNews.postImageUrl1
         let postImageUrl2 = currentNews.postImageUrl2
-        let profileImgResource = ImageResource(downloadURL: URL(string: userProfileImageUrl!)!)
         let formattedPrice = numberFormatter.string(from: currentNews.price! as NSNumber)
         let formattedElectricPrice = numberFormatter.string(from: currentNews.electricPrice! as NSNumber)
         let formattedWaterPrice = numberFormatter.string(from: currentNews.waterPrice! as NSNumber)
         let formattedInternetPrice = numberFormatter.string(from: currentNews.internetPrice! as NSNumber)
+        
+        if let ownerID = currentNews.ownerID {
+            
+            let ref = Database.database().reference().child("Users").child(ownerID)
+            
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    
+                    if let userProfileImageUrl = dictionary["ProfileImageUrl"] as? String {
+                        
+                        let profileImgResource = ImageResource(downloadURL: URL(string: userProfileImageUrl)!)
+                        
+                        self.ivAvatar.kf.setImage(with: profileImgResource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
+                    }
+                    
+                    if let userName = dictionary["FullName"] as? String {
+                        self.lblUserName.text = userName
+                    }
+                }
+            }, withCancel: nil)
+        }
 
         lblPrice.text = "\(formattedPrice ?? "")đ"
         lblElectricPrice.text = "\(formattedElectricPrice ?? "")đ"
@@ -73,11 +92,7 @@ class DetailNewsViewController: UIViewController {
         lblPostDate.text = currentNews.postDate
         tvAddress.text = currentNews.address
         tvNewsTitle.text = currentNews.title
-        lblUserName.text = currentNews.user
-
         
-        
-        ivAvatar.kf.setImage(with: profileImgResource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
         loadImageToImageView(imageUrl: postImageUrl0!, imageView: ivNewsImage0)
         loadImageToImageView(imageUrl: postImageUrl1!, imageView: ivNewsImage1)
         loadImageToImageView(imageUrl: postImageUrl2!, imageView: ivNewsImage2)
@@ -93,11 +108,4 @@ class DetailNewsViewController: UIViewController {
     }
     
 }
-//
-//extension DetailNewsViewController: UITextViewDelegate {
-//    
-//    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
-//        guard let number = URL(string: tvPhoneNumber.text)
-//        UIApplication.shared.open(), options: [:], completionHandler: nil)
-//    }
-//}
+

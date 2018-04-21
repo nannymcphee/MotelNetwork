@@ -39,5 +39,6 @@ let messageConfirmChangePassword: String = "Bạn có chắc chắn muốn đổ
 let messageConfirmChangeEmail: String = "Bạn có chắc chắn muốn đổi email không?"
 let messageConfirmDeleteRoom: String = "Bạn có muốn xóa phòng này không?"
 let messageConfirmDeletePost: String = "Bạn có muốn xóa tin này không?"
+let messageConfirmDeleteBill: String = "Bạn có muốn xóa hóa đơn này không?"
 let messageConfirmEditData: String = "Bạn có muốn sửa thông tin không?"
 

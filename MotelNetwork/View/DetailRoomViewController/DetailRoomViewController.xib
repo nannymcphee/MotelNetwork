@@ -37,17 +37,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jB8-M1-koc">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="64"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELF-Ao-ULu">
-                            <rect key="frame" x="19" y="30" width="24" height="24"/>
+                            <rect key="frame" x="19" y="20" width="24" height="24"/>
                             <state key="normal" image="icLeft"/>
                             <connections>
                                 <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="9vN-6A-Jy3"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên phòng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eX-bK-bJP">
-                            <rect key="frame" x="149.5" y="32.5" width="77.5" height="19.5"/>
+                            <rect key="frame" x="149.5" y="22.5" width="77.5" height="19.5"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                             </constraints>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z97-Bp-bMO">
-                            <rect key="frame" x="332" y="30.5" width="24" height="24"/>
+                            <rect key="frame" x="332" y="20.5" width="24" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="24" id="WdJ-oc-Vrl"/>
                                 <constraint firstAttribute="width" constant="24" id="kUm-VT-dAL"/>
@@ -87,7 +87,7 @@
                     <viewLayoutGuide key="safeArea" id="STn-gM-gKD"/>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JTH-cu-eRb">
-                    <rect key="frame" x="0.0" y="64" width="375" height="668"/>
+                    <rect key="frame" x="0.0" y="84" width="375" height="648"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3c8-nE-6A6">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="732"/>
@@ -376,7 +376,7 @@
                 <constraint firstAttribute="trailing" secondItem="JTH-cu-eRb" secondAttribute="trailing" id="NHZ-T7-prq"/>
                 <constraint firstItem="JTH-cu-eRb" firstAttribute="centerX" secondItem="jB8-M1-koc" secondAttribute="centerX" id="U4n-ld-7Qg"/>
                 <constraint firstItem="3c8-nE-6A6" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="d42-2i-YOI"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="jB8-M1-koc" secondAttribute="top" constant="20" id="jvQ-YA-3h7"/>
+                <constraint firstAttribute="top" secondItem="jB8-M1-koc" secondAttribute="top" constant="-20" id="jvQ-YA-3h7"/>
                 <constraint firstItem="JTH-cu-eRb" firstAttribute="top" secondItem="jB8-M1-koc" secondAttribute="bottom" id="m8w-qM-42Q"/>
                 <constraint firstItem="JTH-cu-eRb" firstAttribute="leading" secondItem="jB8-M1-koc" secondAttribute="leading" id="sHx-YA-vZX"/>
             </constraints>

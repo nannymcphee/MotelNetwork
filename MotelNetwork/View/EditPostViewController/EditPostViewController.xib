@@ -39,7 +39,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mv9-sz-8te">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXG-s3-brZ">
                             <rect key="frame" x="0.0" y="63" width="375" height="1"/>
@@ -91,7 +91,7 @@
                     <viewLayoutGuide key="safeArea" id="PGu-1U-VLa"/>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="tyy-Wu-SdD">
-                    <rect key="frame" x="0.0" y="64" width="375" height="986"/>
+                    <rect key="frame" x="0.0" y="84" width="375" height="966"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JOY-6Q-Avh">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="986"/>
@@ -424,7 +424,7 @@
                 <constraint firstItem="mv9-sz-8te" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Re1-b6-jvg"/>
                 <constraint firstItem="tyy-Wu-SdD" firstAttribute="centerX" secondItem="mv9-sz-8te" secondAttribute="centerX" id="Wv8-rG-COV"/>
                 <constraint firstItem="tyy-Wu-SdD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="agi-YZ-HgJ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="mv9-sz-8te" secondAttribute="top" constant="20" id="lGS-OL-oMW"/>
+                <constraint firstAttribute="top" secondItem="mv9-sz-8te" secondAttribute="top" constant="-20" id="lGS-OL-oMW"/>
                 <constraint firstItem="JOY-6Q-Avh" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" priority="750" id="lcp-C3-F8a"/>
                 <constraint firstItem="tyy-Wu-SdD" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="nea-o1-nWM"/>
             </constraints>

@@ -78,6 +78,24 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func showAlertNavigateToDetailBill() {
+        let alert = UIAlertController(title: "Lưu thông tin thành công.", message: "Bạn có muốn xem chi tiết hóa đơn không?", preferredStyle: .alert)
+        let actionDestroy = UIAlertAction(title: "Có", style: .destructive) { (action) in
+            let vc = DetailBillViewController()
+            
+            (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+        }
+        
+        let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
+        alert.addAction(actionDestroy)
+        alert.addAction(actionCancel)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func showAlertConfirmLogOut() {
         
         let alert = UIAlertController(title: messageConfirmLogOut, message: nil, preferredStyle: .actionSheet)

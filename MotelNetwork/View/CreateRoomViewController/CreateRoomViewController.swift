@@ -247,7 +247,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             
 
             self.showLoading()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
                 self.stopLoading()
                 self.showAlert(alertMessage: messageCreateRoomSuccess)
                 self.selectedAssets.removeAll()

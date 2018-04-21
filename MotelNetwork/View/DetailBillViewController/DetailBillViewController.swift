@@ -7,10 +7,16 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class DetailBillViewController: UIViewController {
 
+    @IBOutlet weak var btnBack: UIButton!
     
+    
+    var currentBill = Bill()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +29,13 @@ class DetailBillViewController: UIViewController {
     }
     
 
-
+    
+    //MARK: Handle button pressed
+    
+    @IBAction func btnBackPressed(_ sender: Any) {
+        
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
+    }
+    
 
 }

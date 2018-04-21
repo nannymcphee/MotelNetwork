@@ -17,6 +17,7 @@ import Kingfisher
 class RoomManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {    
     
     @IBOutlet weak var btnCreateRoom: UIButton!
+    @IBOutlet weak var btnBills: UIButton!
     @IBOutlet weak var tbRoomManagement: UITableView!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblUserFullName: UILabel!
@@ -256,6 +257,12 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     @IBAction func btnCreateRoomPressed(_ sender: Any) {
         
         let vc = CreateRoomViewController()
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func btnBillsPressed(_ sender: Any) {
+        
+        let vc = BillManagementViewController()
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
 

@@ -20,12 +20,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tbMostView: UITableView!
     @IBOutlet weak var tbNearMe: UITableView!
     @IBOutlet weak var tbListNews: UITableView!
-    @IBOutlet weak var btnNews: UIButton!
-    @IBOutlet weak var btnMostView: UIButton!
-    @IBOutlet weak var btnNearMe: UIButton!
-    @IBOutlet weak var vNewsProgress: UIView!
-    @IBOutlet weak var vMostViewProgress: UIView!
-    @IBOutlet weak var vNearMeProgress: UIView!
     @IBOutlet weak var sclContent: UIScrollView!
     @IBOutlet weak var vNews: UIView!
     @IBOutlet weak var vMostView: UIView!
@@ -83,7 +77,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func setUpSegmentControl() {
         // Set up segment control
         let titles = ["Tin mới", "Xem nhiều", "Gần tôi"]
-        let frame = CGRect(x: 20, y: 48, width: self.view.frame.width - 10, height: 40)
+        let frame = CGRect(x: 20, y: 48, width: self.view.frame.width, height: 40)
         segmentedControl = TwicketSegmentedControl(frame: frame)
         self.view.addSubview(segmentedControl)
         segmentedControl.setSegmentItems(titles)
@@ -145,8 +139,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func setUpView() {
         
         setUpSegmentControl()
-        setViewState(enabledView: vNewsProgress, disabledView2: vNearMeProgress, disabledView3: vMostViewProgress)
-        setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnNearMe, buttonDisable2: btnMostView)
         self.tapToDismissKeyboard()
         loadDataNews()
         loadDataMostView()
@@ -193,9 +185,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func setUpViewNews() {
         
-//        setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
-//        setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
-        tbListNews.reloadData()
         tbListNews.scrollTableViewToTop(animated: true)
         
         self.sclContent.setContentOffset(CGPoint(x: Double(0), y: 0), animated: false)
@@ -203,8 +192,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func setUpViewMostView() {
 
-//        setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
-//        setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
         tbMostView.reloadData()
         tbMostView.scrollTableViewToTop(animated: true)
         
@@ -213,8 +200,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func setUpViewNearMe() {
         
-//        setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
-//        setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
         tbNearMe.reloadData()
         tbNearMe.scrollTableViewToTop(animated: true)
         
@@ -225,7 +210,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func loadDataNews() {
 
-//        let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference().child("Posts").queryLimited(toFirst: 100)
 
         ref.observe(.childAdded, with: { (snapshot) in
@@ -252,11 +236,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 news.address = dictionary["address"] as? String
                 news.description = dictionary["description"] as? String
                 news.phoneNumber = dictionary["phoneNumber"] as? String
-                news.user = dictionary["user"] as? String
+                news.ownerID = dictionary["ownerID"] as? String
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
-                news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
                 news.postDate = dictionary["postDate"] as? String
 
                 self.listNews.append(news)
@@ -267,7 +250,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func loadDataMostView() {
         
-//        let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference().child("Posts").queryOrdered(byChild: "price")
         
         ref.observe(.childAdded, with: { (snapshot) in
@@ -294,11 +276,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 news.address = dictionary["address"] as? String
                 news.description = dictionary["description"] as? String
                 news.phoneNumber = dictionary["phoneNumber"] as? String
-                news.user = dictionary["user"] as? String
+                news.ownerID = dictionary["ownerID"] as? String
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
-                news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
                 news.postDate = dictionary["postDate"] as? String
                 
                 self.listMostView.append(news)
@@ -309,7 +290,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func loadDataNearMe() {
         
-//        let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference().child("Posts").queryOrdered(byChild: "district")
         
         ref.observe(.childAdded, with: { (snapshot) in
@@ -336,56 +316,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 news.address = dictionary["address"] as? String
                 news.description = dictionary["description"] as? String
                 news.phoneNumber = dictionary["phoneNumber"] as? String
-                news.user = dictionary["user"] as? String
+                news.ownerID = dictionary["ownerID"] as? String
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
-                news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
                 news.postDate = dictionary["postDate"] as? String
                 
                 self.listNearMe.append(news)
                 self.tbNearMe.reloadData()
             }
         }, withCancel: nil)
-    }
-    
-    //MARK: Handle button pressed
-    
-    @IBAction func btnNewClick(_ sender: Any) {
-        
-        setUpViewNews()
-    }
-    
-    @IBAction func btnMostViewClick(_ sender: Any) {
-        
-        setUpViewMostView()
-    }
-    
-    @IBAction func btnNearMeClick(_ sender: Any) {
-        
-        setUpViewNearMe()
-    }
-    
-    //MARK: Exstension func
-    
-    func setViewState(enabledView: UIView, disabledView2: UIView, disabledView3: UIView) {
-        
-        enabledView.isHidden = false
-        disabledView2.isHidden = true
-        disabledView3.isHidden = true
-    }
-    
-    func setColorAndFontButton(buttonEnable: UIButton, buttonDisable1: UIButton, buttonDisable2: UIButton) {
-        
-        let colorEnable = UIColor.init(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
-        let colorDisable = UIColor.lightGray
-        
-        buttonEnable.setTitleColor(colorEnable, for: .normal)
-        buttonEnable.titleLabel?.font = UIFont(name: "Helvetica Neue-Bold", size: 12.0)
-        buttonDisable1.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12.0)
-        buttonDisable2.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 12.0)
-        buttonDisable1.setTitleColor(colorDisable, for: .normal)
-        buttonDisable2.setTitleColor(colorDisable, for: .normal)
     }
 
     //MARK: Logic for table view
@@ -470,26 +410,17 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         if sclContent.contentOffset.x >= 0 &&  sclContent.contentOffset.x < screenWidth {
             
             // News
-//            setColorAndFontButton(buttonEnable: btnNews, buttonDisable1: btnMostView, buttonDisable2: btnNearMe)
-//            setViewState(enabledView: vNewsProgress, disabledView2: vMostViewProgress, disabledView3: vNearMeProgress)
             segmentedControl.move(to: 0)
-           
         }
         else if sclContent.contentOffset.x >= screenWidth && sclContent.contentOffset.x < 2 * screenWidth  {
             
             // Most View
-//            setColorAndFontButton(buttonEnable: btnMostView, buttonDisable1: btnNearMe, buttonDisable2: btnNews)
-//            setViewState(enabledView: vMostViewProgress, disabledView2: vNewsProgress, disabledView3: vNearMeProgress)
             segmentedControl.move(to: 1)
-
         }
         else {
             
             // Near Me
-//            setColorAndFontButton(buttonEnable: btnNearMe, buttonDisable1: btnMostView, buttonDisable2: btnNews)
-//            setViewState(enabledView: vNearMeProgress, disabledView2: vMostViewProgress, disabledView3: vNewsProgress)
             segmentedControl.move(to: 2)
-
         }
     }
 

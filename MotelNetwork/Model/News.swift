@@ -11,6 +11,7 @@ import Foundation
 class News {
     
     var id: String?
+    var ownerID: String?
     var title: String?
     var area: String?
     var address: String?
@@ -21,8 +22,6 @@ class News {
     var description: String?
     var phoneNumber: String?
     var postDate: String?
-    var user: String?
-    var userProfileImageUrl: String?
     var price: Double?
     var electricPrice: Double?
     var waterPrice: Double?
@@ -31,7 +30,7 @@ class News {
     init() {
     }
     
-    init(id: String, title: String, area: String, address: String, postImageUrl0: String, postImageUrl1: String, postImageUrl2: String, user: String, district: String, description: String, phoneNumber: String, postDate: String, userProfileImageUrl: String, price: Double, electricPrice: Double, waterPrice: Double, internetPrice: Double) {
+    init(id: String, title: String, area: String, address: String, postImageUrl0: String, postImageUrl1: String, postImageUrl2: String, ownerID: String, district: String, description: String, phoneNumber: String, postDate: String, price: Double, electricPrice: Double, waterPrice: Double, internetPrice: Double) {
         
         self.id = id
         self.title = title
@@ -41,7 +40,7 @@ class News {
         self.postImageUrl0 = postImageUrl0
         self.postImageUrl1 = postImageUrl1
         self.postImageUrl2 = postImageUrl2
-        self.user = user
+        self.ownerID = ownerID
         self.description = description
         self.district = district
         self.electricPrice = electricPrice
@@ -49,7 +48,6 @@ class News {
         self.electricPrice = electricPrice
         self.phoneNumber = phoneNumber
         self.postDate = postDate
-        self.userProfileImageUrl = userProfileImageUrl
     }
     
     init(dictionary: [String: AnyObject]) {
@@ -60,12 +58,10 @@ class News {
         self.electricPrice = dictionary["electricPrice"] as? Double
         self.waterPrice = dictionary["waterPrice"] as? Double
         self.internetPrice = dictionary["internetPrice"] as? Double
-        self.user = dictionary["user"] as? String
-        self.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
+        self.ownerID = dictionary["ownerID"] as? String
         self.postImageUrl0 = dictionary["postImageUrl0"] as? String
         self.postImageUrl1 = dictionary["postImageUrl1"] as? String
         self.postImageUrl2 = dictionary["postImageUrl2"] as? String
-        self.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
         self.description = dictionary["description"] as? String
         self.district = dictionary["district"] as? String
         self.address = dictionary["address"] as? String

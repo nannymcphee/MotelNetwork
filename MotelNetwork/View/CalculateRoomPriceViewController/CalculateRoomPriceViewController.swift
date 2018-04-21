@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class CalculateRoomPriceViewController: UIViewController {
     
@@ -39,6 +41,7 @@ class CalculateRoomPriceViewController: UIViewController {
     var totalWaterPrice: Double = 0.0 // = waterPrice * userCount
     var totalElectricPrice: Double = 0.0 // = electricPrice * (newElectricNumber - oldElectricNumber)
     var totalPrice: Double = 0.0 // = roomPrice + totalWaterPrice + totalElectricPrice + internetPrice + otherPrice
+    let billID = UUID().uuidString
     
     
     
@@ -47,7 +50,6 @@ class CalculateRoomPriceViewController: UIViewController {
         
         setUpView()
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,6 +78,7 @@ class CalculateRoomPriceViewController: UIViewController {
         tfWaterPrice.text = nil
         tfUserCount.text = nil
         tfInternetPrice.text = nil
+        tfSurchargeReason.text = nil
     }
     
     //MARK: Do calculation
@@ -92,6 +95,8 @@ class CalculateRoomPriceViewController: UIViewController {
     
     
     
+    
+    
     //MARK: Handle button pressed
     
     @IBAction func btnBackPressed(_ sender: Any) {
@@ -101,7 +106,7 @@ class CalculateRoomPriceViewController: UIViewController {
     
     
     @IBAction func btnCalculatePressed(_ sender: Any) {
-        
+
         electricPrice = (tfElectricPrice.text?.toDouble)!
         newElectricNumber = (tfNewElectricNumber.text?.toDouble)!
         oldElectricNumber = (tfOldElectricNumber.text?.toDouble)!
@@ -109,6 +114,12 @@ class CalculateRoomPriceViewController: UIViewController {
         userCount = (tfUserCount.text?.toDouble)!
         internetPrice = (tfInternetPrice.text?.toDouble)!
         surcharge = (tfSurcharge.text?.toDouble)!
+        
+        showLoading()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+            self.stopLoading()
+            self.showAlertNavigateToDetailBill()
+        }
         
         if electricPrice == 0 || newElectricNumber == 0 || oldElectricNumber == 0 || waterPrice == 0 || internetPrice == 0 {
             
@@ -124,28 +135,25 @@ class CalculateRoomPriceViewController: UIViewController {
         else {
             
             totalPrice = calculateRoomPrice()
-            
-            numberFormatter.numberStyle = .decimal
-            var priceStr = String(totalPrice)
-            var roomPriceStr = String(roomPrice)
-            var totalWaterPriceStr = String(totalWaterPrice)
-            var totalElectricPriceStr = String(totalElectricPrice)
-            var internetPriceStr = String(internetPrice)
-            var surchargeStr = String(surcharge)
+
             let surchargeReason = tfSurcharge.text!
-            priceStr = numberFormatter.string(from: totalPrice as NSNumber)!
-            roomPriceStr = numberFormatter.string(from: roomPrice as NSNumber)!
-            totalWaterPriceStr = numberFormatter.string(from: totalWaterPrice as NSNumber)!
-            totalElectricPriceStr = numberFormatter.string(from: totalElectricPrice as NSNumber)!
-            internetPriceStr = numberFormatter.string(from: internetPrice as NSNumber)!
-            surchargeStr = numberFormatter.string(from: surcharge as NSNumber)!
+            let ownerID = currentRoom.ownerID
+            let renterID = currentRoom.renterID
+            let roomID = currentRoom.id
+            let timestamp = Int(NSDate().timeIntervalSince1970)
+            let roomPrice = currentRoom.price
             
-            showAlert(alertMessage: "Tiền phòng là: \(priceStr)đ. Chi tiết:\nTiền phòng: \(roomPriceStr)đ\nTiền điện: \(totalElectricPriceStr)đ\nTiền nước: \(totalWaterPriceStr)đ\nTiền internet: \(internetPriceStr)đ\nPhụ thu: \(surchargeStr)đ\nLí do phụ thu: \(surchargeReason)")
+            let ref = Database.database().reference().child("Bills").childByAutoId()
+            let values = ["roomID": roomID ?? "", "ownerID": ownerID ?? "", "renterID": renterID ?? "", "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "oldElectricNumber": oldElectricNumber, "newElectricNumber": newElectricNumber, "userCount": userCount, "surcharge": surcharge, "timestamp": timestamp, "surchargeReason": surchargeReason, "totalRoomPrice": totalPrice, "totalWaterPrice": totalWaterPrice, "totalElectricPrice": totalElectricPrice, "roomPrice": roomPrice ?? ""] as [String: AnyObject]
+
+            self.storeInformationToDatabase(reference: ref, values: values)
             
             resetView()
+            return
         }
-        return
+        
     }
+
 }
 
 

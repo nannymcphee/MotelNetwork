@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoomManagementViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
+                <outlet property="btnBills" destination="gus-3O-X24" id="fE7-R3-2c3"/>
                 <outlet property="btnCreateRoom" destination="pdD-ze-dRp" id="aPs-8R-Klo"/>
                 <outlet property="ivAvatar" destination="R7f-Bm-PQX" id="UC2-gz-FYS"/>
                 <outlet property="lblRoomCount" destination="DRL-ux-WvZ" id="Ipg-WC-pbp"/>
@@ -61,13 +62,34 @@
                                                 <action selector="btnCreateRoomPressed:" destination="-1" eventType="touchUpInside" id="nYg-19-76K"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gus-3O-X24">
+                                            <rect key="frame" x="19" y="18" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="280-ii-EwW"/>
+                                                <constraint firstAttribute="height" constant="24" id="gyp-oH-gdf"/>
+                                            </constraints>
+                                            <state key="normal" image="icBill"/>
+                                            <connections>
+                                                <action selector="btnBillsPressed:" destination="-1" eventType="touchUpInside" id="0Ki-M4-Cy0"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoá đơn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUa-rU-qOm">
+                                            <rect key="frame" x="7" y="42" width="47.5" height="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="kZI-XD-dLE" firstAttribute="leading" secondItem="GfZ-Ta-dIc" secondAttribute="leading" id="B7y-qn-AjM"/>
                                         <constraint firstItem="b22-l6-bRq" firstAttribute="centerX" secondItem="GfZ-Ta-dIc" secondAttribute="centerX" id="TGl-a8-4Xg"/>
+                                        <constraint firstItem="gus-3O-X24" firstAttribute="leading" secondItem="GfZ-Ta-dIc" secondAttribute="leading" constant="19" id="VDI-rq-bQy"/>
                                         <constraint firstAttribute="bottom" secondItem="kZI-XD-dLE" secondAttribute="bottom" id="Xc2-7X-hrg"/>
+                                        <constraint firstItem="gus-3O-X24" firstAttribute="top" secondItem="GfZ-Ta-dIc" secondAttribute="top" constant="18" id="j9T-H1-EOY"/>
+                                        <constraint firstItem="FUa-rU-qOm" firstAttribute="centerX" secondItem="gus-3O-X24" secondAttribute="centerX" id="jeR-SZ-2zd"/>
                                         <constraint firstItem="b22-l6-bRq" firstAttribute="centerY" secondItem="GfZ-Ta-dIc" secondAttribute="centerY" id="osc-q3-whE"/>
+                                        <constraint firstItem="FUa-rU-qOm" firstAttribute="top" secondItem="gus-3O-X24" secondAttribute="bottom" id="pic-8Z-j1u"/>
                                         <constraint firstAttribute="trailing" secondItem="pdD-ze-dRp" secondAttribute="trailing" constant="19" id="reh-sr-zHG"/>
                                         <constraint firstItem="pdD-ze-dRp" firstAttribute="centerY" secondItem="b22-l6-bRq" secondAttribute="centerY" id="tIo-82-xsX"/>
                                         <constraint firstAttribute="trailing" secondItem="kZI-XD-dLE" secondAttribute="trailing" id="tux-CW-A9p"/>
@@ -191,6 +213,7 @@
     </objects>
     <resources>
         <image name="defaultAvatar" width="32" height="32"/>
+        <image name="icBill" width="24" height="24"/>
         <image name="icPlusBlue" width="24" height="24"/>
     </resources>
 </document>

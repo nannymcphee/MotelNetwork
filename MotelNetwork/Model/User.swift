@@ -6,7 +6,7 @@
 //  Copyright © 2018 Nguyên Duy. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class User {
     var id: String?

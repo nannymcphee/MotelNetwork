@@ -15,7 +15,6 @@ import Kingfisher
 class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
-    @IBOutlet weak var btnBills: UIButton!
     @IBOutlet weak var btnNewPost: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblFullName: UILabel!
@@ -130,11 +129,10 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 news.address = dictionary["address"] as? String
                 news.description = dictionary["description"] as? String
                 news.phoneNumber = dictionary["phoneNumber"] as? String
-                news.user = dictionary["user"] as? String
+                news.ownerID = dictionary["ownerID"] as? String
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
-                news.userProfileImageUrl = dictionary["userProfileImageUrl"] as? String
                 news.postDate = dictionary["postDate"] as? String
                 
                 self.listNews.append(news)
@@ -247,10 +245,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     
-    @IBAction func btnBillsPressed(_ sender: Any) {
-        
-        let vc = BillManagementViewController()
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
-    }
+
     
 }

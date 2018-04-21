@@ -39,10 +39,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vny-eW-G18">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="64"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWf-HN-PKo">
-                            <rect key="frame" x="19" y="30" width="24" height="24"/>
+                            <rect key="frame" x="19" y="20" width="24" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="24" id="OJ9-c2-slW"/>
                                 <constraint firstAttribute="height" constant="24" id="XhY-5I-Dok"/>
@@ -60,7 +60,7 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chi tiết" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PMJ-5s-fFZ">
-                            <rect key="frame" x="161.5" y="32.5" width="52.5" height="19.5"/>
+                            <rect key="frame" x="161.5" y="22.5" width="52.5" height="19.5"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -80,7 +80,7 @@
                     <viewLayoutGuide key="safeArea" id="EDS-KK-Qtc"/>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZO-0d-DbO">
-                    <rect key="frame" x="0.0" y="64" width="375" height="856"/>
+                    <rect key="frame" x="0.0" y="84" width="375" height="836"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rWU-Lt-02X">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="1196"/>
@@ -411,7 +411,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="c5g-Rg-q79"/>
                                                     </constraints>
                                                 </view>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="0979084007" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MEX-7m-kVS">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="0979084007" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MEX-7m-kVS">
                                                     <rect key="frame" x="112" y="192" width="120" height="22"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -494,7 +494,7 @@
                 <constraint firstItem="Vny-eW-G18" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="XLo-1Z-ju3"/>
                 <constraint firstItem="rWU-Lt-02X" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1.3" id="c99-yS-ABZ"/>
                 <constraint firstItem="Vny-eW-G18" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="h0B-jb-9pY"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="Vny-eW-G18" secondAttribute="top" constant="20" id="kXV-9M-7HZ"/>
+                <constraint firstAttribute="top" secondItem="Vny-eW-G18" secondAttribute="top" constant="-20" id="kXV-9M-7HZ"/>
                 <constraint firstItem="sZO-0d-DbO" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="mGZ-Lr-dad"/>
                 <constraint firstItem="sZO-0d-DbO" firstAttribute="top" secondItem="Vny-eW-G18" secondAttribute="bottom" id="mmI-A9-TOY"/>
                 <constraint firstItem="sZO-0d-DbO" firstAttribute="trailing" secondItem="Vny-eW-G18" secondAttribute="trailing" id="zkF-za-uaH"/>

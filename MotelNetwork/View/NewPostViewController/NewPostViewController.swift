@@ -39,8 +39,6 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
     var selectedAssets = [PHAsset]()
     var imageArray = [UIImage]()
-    var userName: String = ""
-    var userProfileImageUrl: String = ""
     var currentDate: String = ""
     var dbReference: DatabaseReference!
     let pvDistrict = UIPickerView()
@@ -65,8 +63,6 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     func setUpView() {
         
         checkAuthStatus()
-        getCurrentUser()
-
         createDistrictListPicker()
         self.tapToDismissKeyboard()
         makeButtonRounded(button: btnClearTextView)
@@ -125,24 +121,6 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     //MARK: Database interaction
-    
-    // Fetch user from database
-    func getCurrentUser() {
-        
-        let uid = Auth.auth().currentUser?.uid
-        
-        dbReference = Database.database().reference()
-        dbReference.child("Users").child(uid!).observe(.value) { (snapshot) in
-            
-            // Get user value
-            let value = snapshot.value as! NSDictionary
-            let name = value["FullName"] as? String ?? ""
-            let profileImageUrl = value["ProfileImageUrl"] as? String ?? ""
-            
-            self.userName = name
-            self.userProfileImageUrl = profileImageUrl
-        }
-    }
     
     // Upload image from UIImageView to storage and return download url
     func uploadImageFromImageView(imageView : UIImageView, completion: @escaping ((String) -> (Void))) {
@@ -257,8 +235,6 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBAction func btnSavePressed(_ sender: Any) {
         
-        
-        
         guard let uid = Auth.auth().currentUser?.uid else {
             return
         }
@@ -287,7 +263,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let internetPrice = self.tfInternetPrice.text!
             let postDate = currentDate
             let reference = Database.database().reference().child("Posts").childByAutoId()
-            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "user": userName, "userProfileImageUrl": userProfileImageUrl, "postDate": postDate, "ownerID": uid]
+            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "postDate": postDate, "ownerID": uid]
             
             self.storeInformationToDatabase(reference: reference, values: values as [String: AnyObject])
             
@@ -306,7 +282,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             }
             
             self.showLoading()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 4) {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
                 self.stopLoading()
                 self.showAlert(alertMessage: messageNewPostSuccess)
                 self.selectedAssets.removeAll()

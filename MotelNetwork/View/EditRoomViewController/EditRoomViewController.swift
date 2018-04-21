@@ -283,12 +283,12 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                         self.editData(reference: ref, newValues: ["roomImageUrl2": url as AnyObject])
                     }
                     
-                    self.showAlert(alertMessage: messageEditRoomSuccess)
                 }
                 
                 return
             }
             
+            self.showAlert(alertMessage: messageEditRoomSuccess)
             let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5, execute: {
                     alert.dismiss(animated: true, completion: nil)

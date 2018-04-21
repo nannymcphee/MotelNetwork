@@ -272,10 +272,11 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                     _ = self.uploadImageFromImageView(imageView: self.ivPostImage2) { (url) in
                         self.editData(reference: ref, newValues: ["postImageUrl2": url as AnyObject])
                     }
-                    self.showAlert(alertMessage: messageEditPostSuccess)
                 }
                 return
             }
+            
+            self.showAlert(alertMessage: messageEditPostSuccess)
             
             let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in
                 alert.dismiss(animated: true, completion: nil)
@@ -285,6 +286,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
             alert.addAction(actionCancel)
             
             self.present(alert, animated: true, completion: nil)
+            
         }
     }
 

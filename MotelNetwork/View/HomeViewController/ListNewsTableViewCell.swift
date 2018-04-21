@@ -32,7 +32,6 @@ class ListNewsTableViewCell: UITableViewCell {
     
     func populateData(news: News) {
         
-        numberFormatter.numberStyle = .decimal
         self.lblPrice.text = numberFormatter.string(from: news.price! as NSNumber)
         self.lblTitle.text = news.title
         self.lblArea.text = String("\(news.area ?? "")m2")
