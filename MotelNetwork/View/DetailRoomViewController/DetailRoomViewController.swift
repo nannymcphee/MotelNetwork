@@ -58,8 +58,8 @@ class DetailRoomViewController: UIViewController {
         imageUrlsArray.append(roomImageUrl1!)
         imageUrlsArray.append(roomImageUrl2!)
         
-        numberFormatter.numberStyle = .decimal
-        lblPrice.text = numberFormatter.string(from: currentRoom.price! as NSNumber)
+        let formattedPrice = numberFormatter.string(from: currentRoom.price! as NSNumber)
+        lblPrice.text = "\(formattedPrice ?? "")đ"
         lblRoomName.text = currentRoom.name
         lblArea.text = String("\(currentRoom.area ?? "")m2")
         if !(currentRoom.renterName?.isEmpty)! {

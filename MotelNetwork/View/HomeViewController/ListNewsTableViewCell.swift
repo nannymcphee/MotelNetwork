@@ -32,12 +32,11 @@ class ListNewsTableViewCell: UITableViewCell {
     
     func populateData(news: News) {
         
+        numberFormatter.numberStyle = .decimal
         self.lblPrice.text = numberFormatter.string(from: news.price! as NSNumber)
         self.lblTitle.text = news.title
         self.lblArea.text = String("\(news.area ?? "")m2")
         self.lblLocation.text = news.district
-        
-
         
         if URL(string: news.postImageUrl0!) != nil {
             let resource = ImageResource(downloadURL: URL(string: news.postImageUrl0!)!)

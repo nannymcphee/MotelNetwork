@@ -39,7 +39,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         sclContent.delegate = self
-       
         
         // tbListNew
         tbListNews.delegate = self

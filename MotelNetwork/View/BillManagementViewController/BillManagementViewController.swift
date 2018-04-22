@@ -112,29 +112,40 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
                     self.reloadInputViews()
                 }
                 
-                let roomPriceStr = dictionary["roomPrice"] as? String
-                let waterPriceStr = dictionary["waterPrice"] as? String
-                let electricPriceStr = dictionary["electricPrice"] as? String
-                let internetPriceStr = dictionary["internetPrice"] as? String
-                let totalRoomPriceStr = dictionary["totalRoomPrice"] as? String
-                let totalElectricPriceStr = dictionary["totalElectricPrice"] as? String
-                let totalWaterPriceStr = dictionary["totalWaterPrice"] as? String
-                let surchargeStr = dictionary["surcharge"] as? String
-                let userCountStr = dictionary["userCount"] as? String
-                let newElectricNumberStr = dictionary["newElectricNumber"] as? String
-                let oldElectricNumberStr = dictionary["oldElectricNumberStr"] as? String
-
-                bill.roomPrice = Double(roomPriceStr ?? "0.0")
-                bill.waterPrice = Double(waterPriceStr ?? "0.0")
-                bill.electricPrice = Double(electricPriceStr ?? "0.0")
-                bill.internetPrice = Double(internetPriceStr ?? "0.0")
-                bill.totalRoomPrice = Double(totalRoomPriceStr ?? "0.0")
-                bill.totalElectricPrice = Double(totalElectricPriceStr ?? "0.0")
-                bill.totalWaterPrice = Double(totalWaterPriceStr ?? "0.0")
-                bill.surcharge = Double(surchargeStr ?? "0.0")
-                bill.userCount = Double(userCountStr ?? "0.0")
-                bill.newElectricNumber = Double(newElectricNumberStr ?? "0.0")
-                bill.oldElectricNumber = Double(oldElectricNumberStr ?? "0.0")
+//                let roomPriceStr = dictionary["roomPrice"] as? String
+//                let waterPriceStr = dictionary["waterPrice"] as? String
+//                let electricPriceStr = dictionary["electricPrice"] as? String
+//                let internetPriceStr = dictionary["internetPrice"] as? String
+//                let totalRoomPriceStr = dictionary["totalRoomPrice"] as? String
+//                let totalElectricPriceStr = dictionary["totalElectricPrice"] as? String
+//                let totalWaterPriceStr = dictionary["totalWaterPrice"] as? String
+//                let surchargeStr = dictionary["surcharge"] as? String
+//                let userCountStr = dictionary["userCount"] as? String
+//                let newElectricNumberStr = dictionary["newElectricNumber"] as? String
+//                let oldElectricNumberStr = dictionary["oldElectricNumberStr"] as? String
+//
+//                bill.roomPrice = Double(roomPriceStr ?? "0.0")
+//                bill.waterPrice = Double(waterPriceStr ?? "0.0")
+//                bill.electricPrice = Double(electricPriceStr ?? "0.0")
+//                bill.internetPrice = Double(internetPriceStr ?? "0.0")
+//                bill.totalRoomPrice = Double(totalRoomPriceStr ?? "0.0")
+//                bill.totalElectricPrice = Double(totalElectricPriceStr ?? "0.0")
+//                bill.totalWaterPrice = Double(totalWaterPriceStr ?? "0.0")
+//                bill.surcharge = Double(surchargeStr ?? "0.0")
+//                bill.userCount = Double(userCountStr ?? "0.0")
+//                bill.newElectricNumber = Double(newElectricNumberStr ?? "0.0")
+//                bill.oldElectricNumber = Double(oldElectricNumberStr ?? "0.0")
+                bill.roomPrice = dictionary["roomPrice"] as? Double
+                bill.waterPrice = dictionary["waterPrice"] as? Double
+                bill.electricPrice = dictionary["electricPrice"] as? Double
+                bill.internetPrice = dictionary["internetPrice"] as? Double
+                bill.totalElectricPrice = dictionary["totalElectricPrice"] as? Double
+                bill.totalWaterPrice = dictionary["totalWaterPrice"] as? Double
+                bill.totalRoomPrice = dictionary["totalRoomPrice"] as? Double
+                bill.surcharge = dictionary["surcharge"] as? Double
+                bill.userCount = dictionary["userCount"] as? Double
+                bill.oldElectricNumber = dictionary["oldElectricNumber"] as? Double
+                bill.newElectricNumber = dictionary["newElectricNumber"] as? Double
                 bill.ownerID = dictionary["ownerID"] as? String
                 bill.renterID = dictionary["renterID"] as? String
                 bill.roomID = dictionary["roomID"] as? String

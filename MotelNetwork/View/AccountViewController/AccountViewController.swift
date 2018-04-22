@@ -37,7 +37,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
 
         loadData()
         setUpView()
-
     }
     
     override func viewWillAppear(_ animated: Bool) {

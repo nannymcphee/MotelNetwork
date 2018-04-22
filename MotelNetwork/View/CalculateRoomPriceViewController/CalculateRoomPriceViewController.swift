@@ -136,7 +136,7 @@ class CalculateRoomPriceViewController: UIViewController {
             
             totalPrice = calculateRoomPrice()
 
-            let surchargeReason = tfSurcharge.text!
+            let surchargeReason = tfSurchargeReason.text!
             let ownerID = currentRoom.ownerID
             let renterID = currentRoom.renterID
             let roomID = currentRoom.id

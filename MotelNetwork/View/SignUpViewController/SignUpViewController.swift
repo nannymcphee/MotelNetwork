@@ -238,7 +238,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     let userBirthDay = self.tfBirthDay.text!
                     let userType = self.pvUserType.selectedRow(inComponent: 0)
                     
-                    let values = ["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": ""] as [String : AnyObject]
+                    let values = ["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": "", "uid": uid] as [String : AnyObject]
                     
                     self.storeInformationToDatabase(reference: reference, values: values as [String : AnyObject])
                     

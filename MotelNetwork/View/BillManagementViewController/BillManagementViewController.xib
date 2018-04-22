@@ -12,11 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BillManagementViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
-                <outlet property="btnBack" destination="whB-5n-NGm" id="BL8-M7-vUn"/>
-                <outlet property="ivAvatar" destination="TYm-cU-p24" id="995-2n-Uwt"/>
-                <outlet property="lblBillsCount" destination="suR-0E-zXE" id="sQB-GN-hnU"/>
-                <outlet property="lblUserFullName" destination="BuE-sT-dCo" id="tVd-jg-oFK"/>
-                <outlet property="tbBills" destination="38o-hj-uDy" id="nxl-tG-kiP"/>
+                <outlet property="btnBack" destination="whB-5n-NGm" id="uUN-gM-yR7"/>
+                <outlet property="ivAvatar" destination="TYm-cU-p24" id="PME-Te-YJR"/>
+                <outlet property="lblBillsCount" destination="suR-0E-zXE" id="8xZ-Fg-Zro"/>
+                <outlet property="lblUserFullName" destination="BuE-sT-dCo" id="iq0-DY-uNQ"/>
+                <outlet property="tbBills" destination="38o-hj-uDy" id="YEw-JI-Rcb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -49,7 +49,7 @@
                             </constraints>
                             <state key="normal" title="\" image="icLeft"/>
                             <connections>
-                                <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="Ezu-yF-SeR"/>
+                                <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="q7l-9x-lbZ"/>
                             </connections>
                         </button>
                     </subviews>
@@ -74,22 +74,6 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTX-6i-Auz">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="836"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jp9-VP-xuC">
-                                            <rect key="frame" x="0.0" y="48" width="375" height="788"/>
-                                            <subviews>
-                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="38o-hj-uDy">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="788"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </tableView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstItem="38o-hj-uDy" firstAttribute="leading" secondItem="jp9-VP-xuC" secondAttribute="leading" id="7f0-zy-m6M"/>
-                                                <constraint firstItem="38o-hj-uDy" firstAttribute="top" secondItem="jp9-VP-xuC" secondAttribute="top" id="KBF-tC-kj0"/>
-                                                <constraint firstAttribute="trailing" secondItem="38o-hj-uDy" secondAttribute="trailing" id="WZy-1V-Hjb"/>
-                                                <constraint firstAttribute="bottom" secondItem="38o-hj-uDy" secondAttribute="bottom" id="oJX-hH-OTt"/>
-                                            </constraints>
-                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rq-mk-IA7">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                             <subviews>
@@ -146,6 +130,22 @@
                                                 <constraint firstAttribute="height" constant="48" id="H5f-7g-wJh"/>
                                                 <constraint firstAttribute="bottom" secondItem="V3k-wR-TpK" secondAttribute="bottom" id="P8S-Oh-PFG"/>
                                                 <constraint firstAttribute="trailing" secondItem="V3k-wR-TpK" secondAttribute="trailing" id="lsC-8h-LrO"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jp9-VP-xuC">
+                                            <rect key="frame" x="0.0" y="48" width="375" height="788"/>
+                                            <subviews>
+                                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="38o-hj-uDy">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="788"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </tableView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="38o-hj-uDy" firstAttribute="leading" secondItem="jp9-VP-xuC" secondAttribute="leading" id="7f0-zy-m6M"/>
+                                                <constraint firstItem="38o-hj-uDy" firstAttribute="top" secondItem="jp9-VP-xuC" secondAttribute="top" id="KBF-tC-kj0"/>
+                                                <constraint firstAttribute="trailing" secondItem="38o-hj-uDy" secondAttribute="trailing" id="WZy-1V-Hjb"/>
+                                                <constraint firstAttribute="bottom" secondItem="38o-hj-uDy" secondAttribute="bottom" id="oJX-hH-OTt"/>
                                             </constraints>
                                         </view>
                                     </subviews>

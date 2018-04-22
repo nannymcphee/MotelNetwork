@@ -31,7 +31,10 @@ class ListBillTableViewCell: UITableViewCell {
         let timestampDouble = Double(bill.timestamp!)
         let timestampDate = NSDate(timeIntervalSince1970: timestampDouble)
         let dateFormatter = DateFormatter()
+        
         dateFormatter.dateFormat = "MM"
+        monthStr = dateFormatter.string(from: timestampDate as Date)
+        self.lblTitle.text = "Hoá đơn tháng \(monthStr)"
         
         if let roomID = bill.roomID {
             let ref = Database.database().reference().child("Rooms").child(roomID)
@@ -43,9 +46,5 @@ class ListBillTableViewCell: UITableViewCell {
                 }
             }, withCancel: nil)
         }
-        
-        monthStr = dateFormatter.string(from: timestampDate as Date)
-        self.lblTitle.text = "Hoá đơn tháng \(monthStr)"
     }
-    
 }

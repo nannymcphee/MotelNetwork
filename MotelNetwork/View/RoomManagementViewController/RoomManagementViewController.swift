@@ -48,10 +48,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         self.tbRoomManagement.reloadData()
     }
     
-
-    
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

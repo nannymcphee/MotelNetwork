@@ -41,7 +41,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uec-RF-Jj0">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="64"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0o-U4-uZO">
                             <rect key="frame" x="0.0" y="63" width="375" height="1"/>
@@ -51,13 +51,13 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đăng tin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecf-pM-0aW">
-                            <rect key="frame" x="156.5" y="33.5" width="62" height="19"/>
+                            <rect key="frame" x="156.5" y="23" width="62" height="19.5"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Zd-de-TrY">
-                            <rect key="frame" x="315" y="26" width="41" height="33"/>
+                            <rect key="frame" x="315" y="16" width="41" height="33"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                             <state key="normal" title="Xong"/>
                             <connections>
@@ -65,7 +65,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0s-5R-qXu">
-                            <rect key="frame" x="19" y="30" width="24" height="24"/>
+                            <rect key="frame" x="19" y="20" width="24" height="24"/>
                             <state key="normal" image="icLeft"/>
                             <connections>
                                 <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="HhN-p4-UVh"/>
@@ -90,7 +90,7 @@
                     <viewLayoutGuide key="safeArea" id="ket-8N-Ltp"/>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="cy3-AN-SuS">
-                    <rect key="frame" x="0.0" y="64" width="375" height="986"/>
+                    <rect key="frame" x="0.0" y="84" width="375" height="966"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Mx-Bf-xmy">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="986"/>
@@ -418,7 +418,7 @@
             <constraints>
                 <constraint firstItem="cy3-AN-SuS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2h5-Eo-FJN"/>
                 <constraint firstItem="cy3-AN-SuS" firstAttribute="top" secondItem="Uec-RF-Jj0" secondAttribute="bottom" id="79z-gF-VW6"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="Uec-RF-Jj0" secondAttribute="top" constant="20" id="BU8-C2-C4Y"/>
+                <constraint firstAttribute="top" secondItem="Uec-RF-Jj0" secondAttribute="top" constant="-20" id="BU8-C2-C4Y"/>
                 <constraint firstItem="cy3-AN-SuS" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="dol-eR-T2R"/>
                 <constraint firstItem="7Mx-Bf-xmy" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" priority="759" id="rjT-26-ymo"/>
                 <constraint firstItem="cy3-AN-SuS" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="tq7-SU-OGj"/>

@@ -52,6 +52,7 @@ class DetailNewsViewController: UIViewController {
     
     func setUpView() {
         
+        numberFormatter.numberStyle = .decimal
         let postImageUrl0 = currentNews.postImageUrl0
         let postImageUrl1 = currentNews.postImageUrl1
         let postImageUrl2 = currentNews.postImageUrl2
