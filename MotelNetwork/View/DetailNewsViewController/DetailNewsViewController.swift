@@ -14,6 +14,7 @@ import Kingfisher
 class DetailNewsViewController: UIViewController {
     
     
+    @IBOutlet weak var btnNavigation: UIButton!
     @IBOutlet weak var tvPhoneNumber: UITextView!
     @IBOutlet weak var btnBack2: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!
@@ -108,5 +109,13 @@ class DetailNewsViewController: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func btnNavigationPressed(_ sender: Any) {
+        
+        let vc = GoogleMapViewController()
+        let news = currentNews
+        
+        vc.currentNews = news
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+    }
 }
 

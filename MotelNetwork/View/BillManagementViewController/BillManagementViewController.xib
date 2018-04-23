@@ -47,7 +47,7 @@
                                 <constraint firstAttribute="width" constant="24" id="Cyt-pv-C3p"/>
                                 <constraint firstAttribute="height" constant="24" id="zD3-CR-PYZ"/>
                             </constraints>
-                            <state key="normal" title="\" image="icLeft"/>
+                            <state key="normal" image="icLeft"/>
                             <connections>
                                 <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="q7l-9x-lbZ"/>
                             </connections>

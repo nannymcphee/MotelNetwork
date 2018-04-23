@@ -38,6 +38,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         tbRoomManagement.delegate = self
         tbRoomManagement.dataSource = self
         tbRoomManagement.register(UINib(nibName: "ListRoomsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListRoomsTableViewCell")
+        tbRoomManagement.reloadData()
 
         loadData()
         setUpView()
@@ -46,11 +47,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         tbRoomManagement.reloadData()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
     }
     
     override func didReceiveMemoryWarning() {

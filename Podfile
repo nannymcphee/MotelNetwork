@@ -18,4 +18,8 @@ target 'Motel Network' do
     pod 'Kingfisher', '~> 4.0'
 	pod 'IHKeyboardAvoiding'
     pod 'TwicketSegmentedControl'
+#    pod 'GoogleMaps'
+#    pod 'ObjectMapper'
+	pod 'PXGoogleDirections'
+
 end

@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import GoogleMaps
+import PXGoogleDirections
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,11 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var navigationController: UINavigationController?
     var rootViewControler: UIViewController?
-
+    var directionsAPI: PXGoogleDirections!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        GMSServices.provideAPIKey(API_KEY)
+        directionsAPI = PXGoogleDirections(apiKey: API_KEY)
         FirebaseApp.configure()
         checkAuthStatus()
 

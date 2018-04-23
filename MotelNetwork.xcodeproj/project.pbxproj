@@ -17,6 +17,9 @@
 		CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF78F20767698005BEA3B /* EUIViewController.swift */; };
 		E104666E20708FF400245789 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104666C20708FF400245789 /* TutorialViewController.swift */; };
 		E104666F20708FF400245789 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E104666D20708FF400245789 /* TutorialViewController.xib */; };
+		E117B659208DF2BE00087A0B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E117B657208DF2BE00087A0B /* ResultViewController.swift */; };
+		E117B65A208DF2BE00087A0B /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E117B658208DF2BE00087A0B /* ResultViewController.xib */; };
+		E117B664208E3BC500087A0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E117B663208E3BC500087A0B /* GoogleService-Info.plist */; };
 		E1397D86208AC7CC0050C86D /* ListBillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1397D84208AC7CC0050C86D /* ListBillTableViewCell.swift */; };
 		E1397D87208AC7CC0050C86D /* ListBillTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1397D85208AC7CC0050C86D /* ListBillTableViewCell.xib */; };
 		E1397D8B208AEF960050C86D /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1397D8A208AEF960050C86D /* Bill.swift */; };
@@ -29,7 +32,6 @@
 		E14805022089F92D00C67D43 /* NotificationListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14805002089F92D00C67D43 /* NotificationListViewController.xib */; };
 		E14C41432074D107003571E8 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C41412074D107003571E8 /* DetailNewsViewController.swift */; };
 		E14C41442074D107003571E8 /* DetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14C41422074D107003571E8 /* DetailNewsViewController.xib */; };
-		E14C41462074EBF5003571E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E14C41452074EBF5003571E8 /* GoogleService-Info.plist */; };
 		E1507BA2207D192F00387527 /* DetailRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BA0207D192F00387527 /* DetailRoomViewController.swift */; };
 		E1507BA3207D192F00387527 /* DetailRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BA1207D192F00387527 /* DetailRoomViewController.xib */; };
 		E1507BA7207D195C00387527 /* EditRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BA5207D195C00387527 /* EditRoomViewController.swift */; };
@@ -41,6 +43,8 @@
 		E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BBB207F59F300387527 /* SettingViewController.swift */; };
 		E1507BBE207F59F300387527 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BBC207F59F300387527 /* SettingViewController.xib */; };
 		E1507BC02080972500387527 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BBF2080972500387527 /* News.swift */; };
+		E16BD8B5208DC0FD00DD00B7 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BD8B3208DC0FD00DD00B7 /* GoogleMapViewController.swift */; };
+		E16BD8B6208DC0FD00DD00B7 /* GoogleMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16BD8B4208DC0FD00DD00B7 /* GoogleMapViewController.xib */; };
 		E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B19207B698E00B284A5 /* AccountViewController.swift */; };
 		E16F5B1C207B698E00B284A5 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B1A207B698E00B284A5 /* AccountViewController.xib */; };
 		E16F5B1F207B69AE00B284A5 /* AccountOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B1D207B69AE00B284A5 /* AccountOptionTableViewCell.swift */; };
@@ -93,6 +97,9 @@
 		CE5FF78F20767698005BEA3B /* EUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUIViewController.swift; sourceTree = "<group>"; };
 		E104666C20708FF400245789 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		E104666D20708FF400245789 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
+		E117B657208DF2BE00087A0B /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		E117B658208DF2BE00087A0B /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
+		E117B663208E3BC500087A0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1397D84208AC7CC0050C86D /* ListBillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBillTableViewCell.swift; sourceTree = "<group>"; };
 		E1397D85208AC7CC0050C86D /* ListBillTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListBillTableViewCell.xib; sourceTree = "<group>"; };
 		E1397D8A208AEF960050C86D /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
@@ -105,7 +112,6 @@
 		E14805002089F92D00C67D43 /* NotificationListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationListViewController.xib; sourceTree = "<group>"; };
 		E14C41412074D107003571E8 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		E14C41422074D107003571E8 /* DetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailNewsViewController.xib; sourceTree = "<group>"; };
-		E14C41452074EBF5003571E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E1507BA0207D192F00387527 /* DetailRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRoomViewController.swift; sourceTree = "<group>"; };
 		E1507BA1207D192F00387527 /* DetailRoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRoomViewController.xib; sourceTree = "<group>"; };
 		E1507BA5207D195C00387527 /* EditRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRoomViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +123,8 @@
 		E1507BBB207F59F300387527 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E1507BBC207F59F300387527 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		E1507BBF2080972500387527 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		E16BD8B3208DC0FD00DD00B7 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
+		E16BD8B4208DC0FD00DD00B7 /* GoogleMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoogleMapViewController.xib; sourceTree = "<group>"; };
 		E16F5B19207B698E00B284A5 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		E16F5B1A207B698E00B284A5 /* AccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
 		E16F5B1D207B69AE00B284A5 /* AccountOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -336,6 +344,17 @@
 			path = SignUpViewController;
 			sourceTree = "<group>";
 		};
+		E16BD8B2208DC07200DD00B7 /* GoogleMapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E16BD8B3208DC0FD00DD00B7 /* GoogleMapViewController.swift */,
+				E16BD8B4208DC0FD00DD00B7 /* GoogleMapViewController.xib */,
+				E117B657208DF2BE00087A0B /* ResultViewController.swift */,
+				E117B658208DF2BE00087A0B /* ResultViewController.xib */,
+			);
+			path = GoogleMapViewController;
+			sourceTree = "<group>";
+		};
 		E16F5B18207B696500B284A5 /* AccountViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,7 +428,7 @@
 				E198761520672E2D008434CC /* Main.storyboard */,
 				E198761A20672E2D008434CC /* LaunchScreen.storyboard */,
 				E198761D20672E2D008434CC /* Info.plist */,
-				E14C41452074EBF5003571E8 /* GoogleService-Info.plist */,
+				E117B663208E3BC500087A0B /* GoogleService-Info.plist */,
 				E1BD102220765F7400287982 /* Model */,
 				E1E7D1F72071C7D300874EB2 /* View */,
 				E16F5B2F207BD34F00B284A5 /* Controller */,
@@ -481,6 +500,7 @@
 		E1E7D1F72071C7D300874EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E16BD8B2208DC07200DD00B7 /* GoogleMapViewController */,
 				E1954473208A0E84004F0D17 /* DetailBillViewController */,
 				E14804FA2089F8EA00C67D43 /* NotificationListViewController */,
 				E14804F92089F8E700C67D43 /* DetailNotificationViewController */,
@@ -602,20 +622,22 @@
 				E19CBCA92088818600A310D3 /* BillManagementViewController.xib in Resources */,
 				E1BD102F20766C3500287982 /* CreateRoomViewController.xib in Resources */,
 				E14C41442074D107003571E8 /* DetailNewsViewController.xib in Resources */,
+				E16BD8B6208DC0FD00DD00B7 /* GoogleMapViewController.xib in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
 				145C12072075FF5300AB11F3 /* ListRoomsTableViewCell.xib in Resources */,
 				E16F5B2A207B7D8E00B284A5 /* ChangeEmailViewController.xib in Resources */,
 				E1397D87208AC7CC0050C86D /* ListBillTableViewCell.xib in Resources */,
+				E117B65A208DF2BE00087A0B /* ResultViewController.xib in Resources */,
 				145C11FF2075F37E00AB11F3 /* RoomManagementViewController.xib in Resources */,
 				E198DC202081829000E59BD2 /* HomeViewController.xib in Resources */,
 				E14805022089F92D00C67D43 /* NotificationListViewController.xib in Resources */,
+				E117B664208E3BC500087A0B /* GoogleService-Info.plist in Resources */,
 				E16F5B2E207B84D900B284A5 /* ChangePasswordViewController.xib in Resources */,
 				E1507BBE207F59F300387527 /* SettingViewController.xib in Resources */,
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
 				E198761720672E2D008434CC /* Main.storyboard in Resources */,
 				E16F5B1C207B698E00B284A5 /* AccountViewController.xib in Resources */,
 				CE5FF78C20766ED0005BEA3B /* MainViewController.xib in Resources */,
-				E14C41462074EBF5003571E8 /* GoogleService-Info.plist in Resources */,
 				E1507BAD207D19A200387527 /* NewPostViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -671,18 +693,12 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MotelNetwork/Pods-MotelNetwork-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Motel Network/Pods-Motel Network-resources.sh",
+				"${PODS_ROOT}/PXGoogleDirections/Dependencies/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -722,6 +738,7 @@
 				E1BD102620765FAD00287982 /* Room.swift in Sources */,
 				E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */,
 				E19CBCA82088818600A310D3 /* BillManagementViewController.swift in Sources */,
+				E16BD8B5208DC0FD00DD00B7 /* GoogleMapViewController.swift in Sources */,
 				145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */,
 				E1954476208A0EA3004F0D17 /* DetailBillViewController.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
@@ -748,6 +765,7 @@
 				E16F5B29207B7D8E00B284A5 /* ChangeEmailViewController.swift in Sources */,
 				E14804FD2089F90800C67D43 /* DetailNotificationViewController.swift in Sources */,
 				CE5FF78B20766ED0005BEA3B /* MainViewController.swift in Sources */,
+				E117B659208DF2BE00087A0B /* ResultViewController.swift in Sources */,
 				CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */,
 				E198761220672E2D008434CC /* AppDelegate.swift in Sources */,
 				E198DC2A2082F6BB00E59BD2 /* EditPostViewController.swift in Sources */,

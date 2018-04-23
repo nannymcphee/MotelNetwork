@@ -13,6 +13,7 @@ import Kingfisher
 
 class DetailRoomViewController: UIViewController {
 
+    @IBOutlet weak var btnEditRoom: UIButton!
     @IBOutlet weak var btnNotification: UIButton!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var lblRoomName: UILabel!
@@ -84,6 +85,7 @@ class DetailRoomViewController: UIViewController {
         loadImageToImageView(imageUrl: roomImageUrl2!, imageView: ivRoomImage2)
         
         makeButtonRounded(button: btnCalculate)
+        makeButtonRounded(button: btnEditRoom)
         makeImageViewRounded(imageView: ivAvatar)
     }
     
@@ -135,4 +137,12 @@ class DetailRoomViewController: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     
+    @IBAction func btnEditRoomPressed(_ sender: Any) {
+        
+        let vc = EditRoomViewController()
+        let room = currentRoom
+        vc.currentRoom = room
+        
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+    }
 }

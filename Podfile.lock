@@ -58,6 +58,7 @@ PODS:
   - NVActivityIndicatorView (4.1.1):
     - NVActivityIndicatorView/Presenter (= 4.1.1)
   - NVActivityIndicatorView/Presenter (4.1.1)
+  - PXGoogleDirections (1.5.1)
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
   - SDWebImage/Core (4.3.3)
@@ -74,6 +75,7 @@ DEPENDENCIES:
   - IHKeyboardAvoiding
   - Kingfisher (~> 4.0)
   - NVActivityIndicatorView
+  - PXGoogleDirections
   - SDWebImage (~> 4.0)
   - SwipeBack (~> 1.1)
   - TwicketSegmentedControl
@@ -95,11 +97,12 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
+  PXGoogleDirections: 7de8f72599b9f1fe2ecb48aad4e61dab30489ea5
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SwipeBack: d6759601b40da1f4161033feb30ab475d7d04322
   TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
   UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
 
-PODFILE CHECKSUM: 407531a13b5b02528ca7fff1e1df2b2c33e9881b
+PODFILE CHECKSUM: abcc078e55160fb8f782edff333ae814315034a1
 
 COCOAPODS: 1.4.0
