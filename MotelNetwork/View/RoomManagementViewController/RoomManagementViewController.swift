@@ -38,7 +38,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         tbRoomManagement.delegate = self
         tbRoomManagement.dataSource = self
         tbRoomManagement.register(UINib(nibName: "ListRoomsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListRoomsTableViewCell")
-        tbRoomManagement.reloadData()
 
         loadData()
         setUpView()

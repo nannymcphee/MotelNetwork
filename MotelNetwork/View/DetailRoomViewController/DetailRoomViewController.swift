@@ -33,6 +33,7 @@ class DetailRoomViewController: UIViewController {
     var currentRoom = Room()
     var dbReference: DatabaseReference!
     var imageUrlsArray = [String]()
+    var renterName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,12 +70,10 @@ class DetailRoomViewController: UIViewController {
             
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject] {
-                    if let renterName = dictionary["FullName"] as? String {
-                        if !(renterName.isEmpty) {
-                            self.lblUser.text = renterName
-                        } else {
-                            self.lblUser.text = "Chưa có người thuê"
-                        }
+                    if (snapshot.value != nil) {
+                        self.lblUser.text = dictionary["FullName"] as? String
+                    } else {
+                        self.lblUser.text = "Chưa có người thuê"
                     }
                 }
             }, withCancel: nil)

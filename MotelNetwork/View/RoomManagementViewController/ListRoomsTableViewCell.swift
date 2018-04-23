@@ -40,19 +40,18 @@ class ListRoomsTableViewCell: UITableViewCell {
         if let renterID = room.renterID {
             let ref = Database.database().reference().child("Users").child(renterID)
             
-            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            ref.observe(.value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject] {
-                    if let name = dictionary["FullName"] as? String {
-                        self.renterName = name
+                    
+                    if (snapshot.value != nil) {
+                        self.lblUserFullName.text = dictionary["FullName"] as? String
+                    } else {
+                        self.lblUserFullName.text = "Chưa có người thuê"
                     }
                 }
             }, withCancel: nil)
             
-            if !(self.renterName.isEmpty) {
-                self.lblUserFullName.text = self.renterName
-            } else {
-                self.lblUserFullName.text = "Chưa có người thuê"
-            }
+            
         }
         
         if URL(string: room.roomImageUrl0!) != nil {
