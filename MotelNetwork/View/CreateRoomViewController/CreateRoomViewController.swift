@@ -32,7 +32,6 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
     let pvUser = UIPickerView()
     var selectedAssets = [PHAsset]()
     var imageArray = [UIImage]()
-    let roomID = UUID().uuidString
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -213,22 +212,19 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             let price = self.tfPrice.text!
             let renterName = self.tfUser.text!
             let ownerID = uid
-            var renterID: String = ""
-            let ref = Database.database().reference().child("Rooms").child("\(roomID)")
+            let ref = Database.database().reference().child("Rooms").childByAutoId()
 
             // Get renter's id by renter's name and save to room in database
             let renterRef = Database.database().reference().child("Users")
             let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
             query.observeSingleEvent(of: .childAdded) { (snapshot) in
                 
-                let value = snapshot.value as! NSDictionary
-                let id = value["uid"] as? String ?? ""
+                let renterID = snapshot.key
                 
-                renterID = id
                 self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
             }
             
-            let values = ["roomName": roomName, "area": area, "price": price, "renterName": renterName, "ownerID": ownerID, "renterID": renterID, "roomID": roomID, "roomImageUrl0": "", "roomImageUrl1": "", "roomImageUrl2": ""]
+            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl0": "", "roomImageUrl1": "", "roomImageUrl2": ""]
             
             self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
             // Upload image to Firebase storage and update download urls into database

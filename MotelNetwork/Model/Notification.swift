@@ -15,22 +15,18 @@ class Notification {
     var roomID: String?
     var title: String?
     var content: String?
-    var ownerName: String?
-    var ownerProfileImageUrl: String?
     var timestamp: Int?
     
     init() {
     }
     
-    init(id: String, ownerID: String, renterID: String, roomID: String, title: String, content: String, ownerName: String, ownerProfileImageUrl: String, timestamp: Int) {
+    init(id: String, ownerID: String, renterID: String, roomID: String, title: String, content: String, timestamp: Int) {
         self.id = id
         self.ownerID = ownerID
         self.renterID = renterID
         self.roomID = roomID
         self.title = title
         self.content = content
-        self.ownerName = ownerName
-        self.ownerProfileImageUrl = ownerProfileImageUrl
         self.timestamp = timestamp
     }
     
@@ -41,8 +37,6 @@ class Notification {
         self.roomID = dictionary["roomID"] as? String
         self.title = dictionary["title"] as? String
         self.content = dictionary["content"] as? String
-        self.ownerName = dictionary["ownerName"] as? String
-        self.ownerProfileImageUrl = dictionary["ownerProfileImageUrl"] as? String
         self.timestamp = dictionary["timestamp"] as? Int
     }
 }

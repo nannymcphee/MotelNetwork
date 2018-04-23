@@ -45,7 +45,12 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.tbRoomManagement.reloadData()
+        tbRoomManagement.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -113,8 +118,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let room = Room(dictionary: dictionary)
                 room.id = snapshot.key
-
-                
+ 
                 DispatchQueue.main.async(execute: {
                     self.reloadInputViews()
                 })
@@ -123,7 +127,8 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
                 let priceStr = dictionary["price"] as? String
                 room.price = Double(priceStr ?? "0.0")
                 room.area = dictionary["area"] as? String
-                room.renterName = dictionary["renterName"] as? String
+                room.renterID = dictionary["renterID"] as? String
+                room.ownerID = dictionary["ownerID"] as? String
                 room.roomImageUrl0 = dictionary["roomImageUrl0"] as? String
                 room.roomImageUrl1 = dictionary["roomImageUrl1"] as? String
                 room.roomImageUrl2 = dictionary["roomImageUrl2"] as? String

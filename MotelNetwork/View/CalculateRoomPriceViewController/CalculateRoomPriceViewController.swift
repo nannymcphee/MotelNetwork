@@ -26,9 +26,6 @@ class CalculateRoomPriceViewController: UIViewController {
     @IBOutlet weak var tfUser: UITextField!
     @IBOutlet weak var tfSurchargeReason: UITextField!
     
-    
-    
-    
     var currentRoom = Room()
     var roomPrice: Double = 0.0
     var oldElectricNumber: Double = 0.0
@@ -38,9 +35,9 @@ class CalculateRoomPriceViewController: UIViewController {
     var userCount: Double = 0.0
     var internetPrice: Double = 0.0
     var surcharge: Double = 0.0
-    var totalWaterPrice: Double = 0.0 // = waterPrice * userCount
-    var totalElectricPrice: Double = 0.0 // = electricPrice * (newElectricNumber - oldElectricNumber)
-    var totalPrice: Double = 0.0 // = roomPrice + totalWaterPrice + totalElectricPrice + internetPrice + otherPrice
+    var totalWaterPrice: Double = 0.0
+    var totalElectricPrice: Double = 0.0
+    var totalPrice: Double = 0.0
     let billID = UUID().uuidString
     
     
@@ -64,7 +61,18 @@ class CalculateRoomPriceViewController: UIViewController {
         roomPrice = currentRoom.price!
         lblRoomName.text = currentRoom.name
         tfRoomPrice.text = "\(currentRoom.price ?? 0.0)"
-        tfUser.text = currentRoom.renterName
+        
+        if let renterID = currentRoom.renterID {
+            let ref = Database.database().reference().child("Users").child(renterID)
+            
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    let renterName = dictionary["FullName"] as? String
+                    self.tfUser.text = renterName
+                }
+            }, withCancel: nil)
+        }
+        
         tfUser.isEnabled = false
         tfRoomPrice.isEnabled = false
         self.tapToDismissKeyboard()
@@ -92,11 +100,6 @@ class CalculateRoomPriceViewController: UIViewController {
         return totalPrice
     }
     
-    
-    
-    
-    
-    
     //MARK: Handle button pressed
     
     @IBAction func btnBackPressed(_ sender: Any) {
@@ -115,11 +118,11 @@ class CalculateRoomPriceViewController: UIViewController {
         internetPrice = (tfInternetPrice.text?.toDouble)!
         surcharge = (tfSurcharge.text?.toDouble)!
         
-        showLoading()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-            self.stopLoading()
-            self.showAlertNavigateToDetailBill()
-        }
+//        showLoading()
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+//            self.stopLoading()
+//            self.showAlertNavigateToDetailBill()
+//        }
         
         if electricPrice == 0 || newElectricNumber == 0 || oldElectricNumber == 0 || waterPrice == 0 || internetPrice == 0 {
             
@@ -148,6 +151,7 @@ class CalculateRoomPriceViewController: UIViewController {
 
             self.storeInformationToDatabase(reference: ref, values: values)
             
+            showAlert(alertMessage: messageCreateBillSuccess)
             resetView()
             return
         }

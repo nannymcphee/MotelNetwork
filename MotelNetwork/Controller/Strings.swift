@@ -41,4 +41,7 @@ let messageConfirmDeleteRoom: String = "Bạn có muốn xóa phòng này không
 let messageConfirmDeletePost: String = "Bạn có muốn xóa tin này không?"
 let messageConfirmDeleteBill: String = "Bạn có muốn xóa hóa đơn này không?"
 let messageConfirmEditData: String = "Bạn có muốn sửa thông tin không?"
+let messageCreateNotiSuccess: String = "Lưu thông báo thành công."
+let messageCreateBillSuccess: String = "Lưu hóa đơn thành công."
+let messageEditBillSuccess: String = "Sửa hóa đơn thành công."
 

@@ -416,7 +416,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             // Most View
             segmentedControl.move(to: 1)
         }
-        else {
+        else if sclContent.contentOffset.x >= 2 * screenWidth {
             
             // Near Me
             segmentedControl.move(to: 2)

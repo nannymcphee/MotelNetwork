@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import FirebaseDatabase
 
 class ListRoomsTableViewCell: UITableViewCell {
     
@@ -34,10 +35,21 @@ class ListRoomsTableViewCell: UITableViewCell {
         self.lblRoomName.text = room.name
         self.lblRoomPrice.text = numberFormatter.string(from: room.price! as NSNumber)
         self.lblArea.text = String("\(room.area ?? "")m2")
-        if !(room.renterName?.isEmpty)! {
-            self.lblUserFullName.text = room.renterName
-        } else {
-            self.lblUserFullName.text = "Chưa có người thuê"
+        
+        if let renterID = room.renterID {
+            let ref = Database.database().reference().child("Users").child(renterID)
+            
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    if let renterName = dictionary["FullName"] as? String {
+                        if !(renterName.isEmpty) {
+                            self.lblUserFullName.text = renterName
+                        } else {
+                            self.lblUserFullName.text = "Chưa có người thuê"
+                        }
+                    }
+                }
+            }, withCancel: nil)
         }
         
         if URL(string: room.roomImageUrl0!) != nil {

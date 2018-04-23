@@ -229,6 +229,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         else {
             
+            let ownerID = Auth.auth().currentUser?.uid
             let title = self.tfTitle.text!
             let area = self.tfArea.text!
             let district = self.tfDistrict.text!
@@ -242,7 +243,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
             let postDate = currentDate
             let postID = currentNews.id
             let ref = Database.database().reference().child("Posts").child(postID!)
-            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postDate": postDate]
+            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postDate": postDate, "ownerID": ownerID]
             
             // Create confirm alert
             let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)
@@ -273,10 +274,10 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                         self.editData(reference: ref, newValues: ["postImageUrl2": url as AnyObject])
                     }
                 }
+                self.showAlert(alertMessage: messageEditPostSuccess)
                 return
             }
             
-            self.showAlert(alertMessage: messageEditPostSuccess)
             
             let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in
                 alert.dismiss(animated: true, completion: nil)

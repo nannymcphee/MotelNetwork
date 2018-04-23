@@ -54,7 +54,18 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         fetchUser()
         createUsersListPicker()
         tfArea.text = currentRoom.area
-        tfUser.text = currentRoom.renterName
+        
+        if let renterID = currentRoom.renterID {
+            let ref = Database.database().reference().child("Users").child(renterID)
+            
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    let renterName = dictionary["FullName"] as? String
+                    self.tfUser.text = renterName
+                }
+            }, withCancel: nil)
+        }
+        
         tfPrice.text = "\(currentRoom.price ?? 0.0)"
         tfRoomName.text = currentRoom.name
         self.tapToDismissKeyboard()
@@ -223,9 +234,12 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             let renterName = self.tfUser.text!
             let roomID = currentRoom.id
             let ownerID = Auth.auth().currentUser?.uid
-            var renterID: String = ""
+            var renterID = currentRoom.renterID
             let ref = Database.database().reference().child("Rooms").child(roomID!)
-            let values = ["roomName": roomName, "area": area, "price": price, "renterName": renterName, "ownerID": ownerID, "renterID": renterID, "roomID": roomID]
+            let roomImageUrl0 = currentRoom.roomImageUrl0
+            let roomImageUrl1 = currentRoom.roomImageUrl1
+            let roomImageUrl2 = currentRoom.roomImageUrl2
+            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "renterID": renterID, "roomImageUrl0": roomImageUrl0, "roomImageUrl1": roomImageUrl1, "roomImageUrl2": roomImageUrl2]
     
             // Create confirm alert
             let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)
@@ -241,12 +255,10 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     // Get renter's id by renter's name and save to room in database
                     let renterRef = Database.database().reference().child("Users")
                     let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
-                    query.observeSingleEvent(of: .childAdded) { (snapshot) in
+                    query.observeSingleEvent(of: .value) { (snapshot) in
                         
-                        let value = snapshot.value as! NSDictionary
-                        let id = value["uid"] as? String ?? ""
-                        
-                        renterID = id
+                        let renterID = snapshot.key
+
                         self.editData(reference: ref, newValues: ["renterID": renterID as AnyObject])
                     }
                     
@@ -262,10 +274,8 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
                     query.observeSingleEvent(of: .childAdded) { (snapshot) in
                         
-                        let value = snapshot.value as! NSDictionary
-                        let id = value["uid"] as? String ?? ""
-                        
-                        renterID = id
+                        let renterID = snapshot.key
+   
                         self.editData(reference: ref, newValues: ["renterID": renterID as AnyObject])
                     }
                     
@@ -284,11 +294,10 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     }
                     
                 }
-                
+                self.showAlert(alertMessage: messageEditRoomSuccess)
                 return
             }
             
-            self.showAlert(alertMessage: messageEditRoomSuccess)
             let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5, execute: {
                     alert.dismiss(animated: true, completion: nil)

@@ -42,8 +42,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var currentDate: String = ""
     var dbReference: DatabaseReference!
     let pvDistrict = UIPickerView()
-    let postID = UUID().uuidString
-    
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 

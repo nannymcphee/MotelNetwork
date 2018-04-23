@@ -62,12 +62,23 @@ class DetailRoomViewController: UIViewController {
         lblPrice.text = "\(formattedPrice ?? "")đ"
         lblRoomName.text = currentRoom.name
         lblArea.text = String("\(currentRoom.area ?? "")m2")
-        if !(currentRoom.renterName?.isEmpty)! {
-            self.lblUser.text = currentRoom.renterName
-        } else {
-            self.lblUser.text = "Chưa có người thuê"
-        }
         
+        if let renterID = currentRoom.renterID {
+            let ref = Database.database().reference().child("Users").child(renterID)
+            
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    if let renterName = dictionary["FullName"] as? String {
+                        if !(renterName.isEmpty) {
+                            self.lblUser.text = renterName
+                        } else {
+                            self.lblUser.text = "Chưa có người thuê"
+                        }
+                    }
+                }
+            }, withCancel: nil)
+        }
+
         loadImageToImageView(imageUrl: roomImageUrl0!, imageView: ivRoomImage0)
         loadImageToImageView(imageUrl: roomImageUrl1!, imageView: ivRoomImage1)
         loadImageToImageView(imageUrl: roomImageUrl2!, imageView: ivRoomImage2)
@@ -117,6 +128,9 @@ class DetailRoomViewController: UIViewController {
     @IBAction func btnNotificationPressed(_ sender: Any) {
         
         let vc = CreateNotificationViewController()
+        let room = currentRoom
+        
+        vc.currentRoom = room
         
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }

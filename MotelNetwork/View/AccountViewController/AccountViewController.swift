@@ -34,7 +34,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         tbNews.delegate = self
         tbNews.dataSource = self
         tbNews.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
-
+        tbNews.reloadData()
+        
         loadData()
         setUpView()
     }
@@ -117,7 +118,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 let waterPriceStr = dictionary["waterPrice"] as? String
                 let electricPriceStr = dictionary["electricPrice"] as? String
                 let internetPriceStr = dictionary["internetPrice"] as? String
-                
+        
                 news.price = Double(priceStr ?? "0.0")
                 news.waterPrice = Double(waterPriceStr ?? "0.0")
                 news.electricPrice = Double(electricPriceStr ?? "0.0")
