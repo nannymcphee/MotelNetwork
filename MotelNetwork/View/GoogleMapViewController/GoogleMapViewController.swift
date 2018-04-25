@@ -46,7 +46,6 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    // Below method will provide you current location.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         if currentLocation == nil {
@@ -61,7 +60,6 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    // Below Mehtod will print error if not able to update location.
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }

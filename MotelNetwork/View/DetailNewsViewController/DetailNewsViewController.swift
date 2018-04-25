@@ -10,11 +10,12 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import Kingfisher
+import Floaty
 
 class DetailNewsViewController: UIViewController {
     
     
-    @IBOutlet weak var btnNavigation: UIButton!
+    @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tvPhoneNumber: UITextView!
     @IBOutlet weak var btnBack2: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!
@@ -30,18 +31,17 @@ class DetailNewsViewController: UIViewController {
     @IBOutlet weak var lblElectricPrice: UILabel!
     @IBOutlet weak var lblPostDate: UILabel!
     @IBOutlet weak var lblInternetPrice: UILabel!
-    @IBOutlet weak var lblPhoneNumber: UILabel!
     @IBOutlet weak var tvAddress: UITextView!
     @IBOutlet weak var tvDescription: UITextView!
     
     var dbReference: DatabaseReference!
     var currentNews = News()
-    
+    var floaty = Floaty()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpView()
-
     }
     
     override func didReceiveMemoryWarning() {
@@ -53,6 +53,7 @@ class DetailNewsViewController: UIViewController {
     
     func setUpView() {
         
+        layoutFAB()
         numberFormatter.numberStyle = .decimal
         let postImageUrl0 = currentNews.postImageUrl0
         let postImageUrl1 = currentNews.postImageUrl1
@@ -93,7 +94,7 @@ class DetailNewsViewController: UIViewController {
         tvPhoneNumber.text = currentNews.phoneNumber
         lblPostDate.text = currentNews.postDate
         tvAddress.text = currentNews.address
-        tvNewsTitle.text = currentNews.title
+        lblTitle.text = currentNews.title
         
         loadImageToImageView(imageUrl: postImageUrl0!, imageView: ivNewsImage0)
         loadImageToImageView(imageUrl: postImageUrl1!, imageView: ivNewsImage1)
@@ -109,8 +110,22 @@ class DetailNewsViewController: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func btnNavigationPressed(_ sender: Any) {
+}
+
+extension DetailNewsViewController: FloatyDelegate {
+    func layoutFAB() {
+       
+        floaty.paddingX = self.view.frame.width / 2 - floaty.frame.width * 3
+        floaty.fabDelegate = self
+        floaty.buttonImage = #imageLiteral(resourceName: "icDirection")
+        floaty.buttonColor = UIColor.white
+//        floaty.buttonColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
+        self.view.addSubview(floaty)
         
+    }
+    
+    // MARK: - Floaty Delegate Methods
+    func emptyFloatySelected(_ floaty: Floaty) {
         let vc = GoogleMapViewController()
         let news = currentNews
         
@@ -118,4 +133,5 @@ class DetailNewsViewController: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
 }
+
 

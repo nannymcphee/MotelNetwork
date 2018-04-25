@@ -236,11 +236,11 @@
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="In0-U9-pNO">
                                                             <rect key="frame" x="17" y="180" width="340" height="40"/>
-                                                            <color key="backgroundColor" red="0.20000000000000001" green="0.53725490200000003" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="aHu-es-SKo"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
                                                             <state key="normal" title="Tính tiền phòng">
                                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
@@ -318,8 +318,8 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="OiL-na-zZI"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                                            <state key="normal" title="Sửa phòng">
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="14"/>
+                                                            <state key="normal" title="Sửa thông tin">
                                                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                             <connections>
@@ -330,9 +330,9 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="g4W-da-7DH" firstAttribute="top" secondItem="In0-U9-pNO" secondAttribute="bottom" constant="12" id="1C0-vJ-tm3"/>
+                                                        <constraint firstItem="In0-U9-pNO" firstAttribute="top" secondItem="P2D-LG-Ao5" secondAttribute="bottom" constant="50" id="8ng-qa-82r"/>
                                                         <constraint firstAttribute="trailing" secondItem="Cyd-zi-Ysa" secondAttribute="trailing" id="Fwf-M6-olN"/>
                                                         <constraint firstItem="P2D-LG-Ao5" firstAttribute="top" secondItem="WTL-kx-zQf" secondAttribute="top" constant="50" id="HOn-pW-3JM"/>
-                                                        <constraint firstItem="In0-U9-pNO" firstAttribute="top" secondItem="P2D-LG-Ao5" secondAttribute="bottom" constant="50" id="MdQ-Dp-16r"/>
                                                         <constraint firstItem="g4W-da-7DH" firstAttribute="leading" secondItem="WTL-kx-zQf" secondAttribute="leading" constant="18" id="PfW-6w-HD3"/>
                                                         <constraint firstItem="Cyd-zi-Ysa" firstAttribute="leading" secondItem="WTL-kx-zQf" secondAttribute="leading" id="Q7w-7T-M6H"/>
                                                         <constraint firstItem="Cyd-zi-Ysa" firstAttribute="top" secondItem="WTL-kx-zQf" secondAttribute="top" id="WoJ-h9-dgV"/>

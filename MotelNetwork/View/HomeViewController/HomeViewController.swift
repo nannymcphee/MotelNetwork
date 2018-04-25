@@ -13,6 +13,7 @@ import SwipeBack
 import NVActivityIndicatorView
 import TwicketSegmentedControl
 
+
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedControlDelegate {
     
     
@@ -30,6 +31,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     var listNews = [News]()
     var listMostView = [News]()
     var listNearMe = [News]()
+    var listNewsSortedByDate = [News]()
     var refreshControl0: UIRefreshControl = UIRefreshControl()
     var refreshControl1: UIRefreshControl = UIRefreshControl()
     var refreshControl2: UIRefreshControl = UIRefreshControl()
@@ -209,7 +211,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func loadDataNews() {
 
-        let ref = Database.database().reference().child("Posts").queryLimited(toFirst: 100)
+        let ref = Database.database().reference().child("Posts").queryOrdered(byChild: "postDate")
 
         ref.observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
@@ -242,6 +244,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 news.postDate = dictionary["postDate"] as? String
 
                 self.listNews.append(news)
+                self.listNewsSortedByDate = self.listNews.sorted(by: { (news0, news1) -> Bool in
+                    return news0.postDate?.localizedStandardCompare(news1.postDate!) == ComparisonResult.orderedDescending
+                })
                 self.tbListNews.reloadData()
             }
         }, withCancel: nil)
@@ -333,7 +338,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if tableView == tbListNews {
             
-            return listNews.count
+            return listNewsSortedByDate.count
         }
         else if tableView == tbMostView {
             
@@ -353,7 +358,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if tableView == tbListNews {
 
-            let news = listNews[indexPath.row]
+            let news = listNewsSortedByDate[indexPath.row]
             cell.populateData(news: news)
         }
         else if tableView == tbMostView {
@@ -380,7 +385,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         if tableView == tbListNews {
             
-            let news = listNews[indexPath.row]
+            let news = listNewsSortedByDate[indexPath.row]
             vc.currentNews = news
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         }

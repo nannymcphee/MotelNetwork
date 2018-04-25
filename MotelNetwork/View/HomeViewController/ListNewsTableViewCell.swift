@@ -33,7 +33,6 @@ class ListNewsTableViewCell: UITableViewCell {
     func populateData(news: News) {
         
         numberFormatter.numberStyle = .decimal
-        self.lblTitle.sizeToFit()
         let priceStr = numberFormatter.string(from: news.price! as NSNumber)
         self.lblPrice.text = "\(priceStr ?? "0")đ"
         self.lblTitle.text = news.title

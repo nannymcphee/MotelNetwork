@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import Kingfisher
+import Floaty
 
 class DetailRoomViewController: UIViewController {
 
@@ -34,6 +35,7 @@ class DetailRoomViewController: UIViewController {
     var dbReference: DatabaseReference!
     var imageUrlsArray = [String]()
     var renterName: String = ""
+    var floaty = Floaty()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,10 +120,10 @@ class DetailRoomViewController: UIViewController {
     }
     
     @IBAction func btnCalculatePressed(_ sender: Any) {
-        
+
         let room = currentRoom
         let vc = CalculateRoomPriceViewController()
-        
+
         vc.currentRoom = room
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
@@ -137,11 +139,13 @@ class DetailRoomViewController: UIViewController {
     }
     
     @IBAction func btnEditRoomPressed(_ sender: Any) {
-        
+
         let vc = EditRoomViewController()
         let room = currentRoom
         vc.currentRoom = room
-        
+
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+

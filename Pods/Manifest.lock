@@ -36,6 +36,7 @@ PODS:
     - FirebaseAnalytics (~> 4.1)
     - FirebaseCore (~> 4.0)
     - GTMSessionFetcher/Core (~> 1.1)
+  - Floaty (4.0.0)
   - GoogleToolboxForMac/DebugUtils (2.1.3):
     - GoogleToolboxForMac/Defines (= 2.1.3)
   - GoogleToolboxForMac/Defines (2.1.3)
@@ -47,7 +48,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
   - GTMSessionFetcher/Core (1.1.15)
-  - IHKeyboardAvoiding (4.2)
+  - IQKeyboardManagerSwift (5.0.8)
   - Kingfisher (4.7.0)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
@@ -58,10 +59,8 @@ PODS:
   - NVActivityIndicatorView (4.1.1):
     - NVActivityIndicatorView/Presenter (= 4.1.1)
   - NVActivityIndicatorView/Presenter (4.1.1)
+  - PeekView (1.1.2)
   - PXGoogleDirections (1.5.1)
-  - SDWebImage (4.3.3):
-    - SDWebImage/Core (= 4.3.3)
-  - SDWebImage/Core (4.3.3)
   - SwipeBack (1.1.1)
   - TwicketSegmentedControl (0.1.2)
   - UIImageViewModeScaleAspect (1.5)
@@ -72,11 +71,12 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
-  - IHKeyboardAvoiding
+  - Floaty (~> 4.0.0)
+  - IQKeyboardManagerSwift
   - Kingfisher (~> 4.0)
   - NVActivityIndicatorView
+  - PeekView
   - PXGoogleDirections
-  - SDWebImage (~> 4.0)
   - SwipeBack (~> 1.1)
   - TwicketSegmentedControl
 
@@ -90,19 +90,20 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 5f0bc6134c5c237cf55f9e1249d406770a75eafd
   FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
   FirebaseStorage: 0c223481c8f89ed300cf1239ddd2d9833622c65f
+  Floaty: 4f88811bbf08521807f42355db6a9c0db85d5d78
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
-  IHKeyboardAvoiding: 9fbf816b7c3c84911964802ff110d12caf40ebef
+  IQKeyboardManagerSwift: 2e7dc7f98c111458c1ea2b373f893e8cf95e2b97
   Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
+  PeekView: e57d7e6abfc1411826a750eadd850c06198f91a9
   PXGoogleDirections: 7de8f72599b9f1fe2ecb48aad4e61dab30489ea5
-  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SwipeBack: d6759601b40da1f4161033feb30ab475d7d04322
   TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
   UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
 
-PODFILE CHECKSUM: abcc078e55160fb8f782edff333ae814315034a1
+PODFILE CHECKSUM: 3b4a09aca86b6cb36f1fa1109f21808ea49f78d2
 
 COCOAPODS: 1.4.0
