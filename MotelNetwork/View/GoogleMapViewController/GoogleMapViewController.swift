@@ -12,6 +12,7 @@ import PXGoogleDirections
 
 class GoogleMapViewController: UIViewController, CLLocationManagerDelegate {
     
+    @IBOutlet weak var btnGetCurrentLocation: UIButton!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnGo: UIButton!
     @IBOutlet weak var tfOrigin: UITextField!
@@ -20,12 +21,12 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate {
     var currentNews = News()
     var locationManager: CLLocationManager?
     var currentLocation: CLLocation?
+    var currentLocationCoordinate: CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLocationManager()
-        setUpView()
-        
+        setUpView()        
     }
     
     func setUpView() {
@@ -54,7 +55,18 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate {
             let locationValue:CLLocationCoordinate2D = manager.location!.coordinate
             
 //            print("locations = \(locationValue)")
-            self.tfOrigin.text = "\(locationValue.latitude), \(locationValue.longitude)"
+            currentLocationCoordinate = locationValue
+//            self.tfOrigin.text = "\(locationValue.latitude), \(locationValue.longitude)"
+            
+//            let geocoder = CLGeocoder()
+//            geocoder.reverseGeocodeLocation(currentLocation!) { (placemark, error) in
+//                if error != nil {
+//                    print(error!)
+//                }
+//                else {
+//                    self.tfOrigin.text = placemark![0].name
+//                }
+//            }
             
             locationManager?.stopUpdatingLocation()
         }
@@ -77,26 +89,81 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func btnGoPressed(_ sender: Any) {
         
-        directionsAPI.delegate = self
-        directionsAPI.from = PXLocation.namedLocation(tfOrigin.text!)
-        directionsAPI.to = PXLocation.namedLocation(tfDestination.text!)
-        
-        // directionsAPI.region = "fr" // Feature not demonstrated in this sample app
-        directionsAPI.calculateDirections { (response) -> Void in
-            DispatchQueue.main.async(execute: { () -> Void in
-                switch response {
-                case let .error(_, error):
-                    self.showAlert(alertMessage: "Error: \(error.localizedDescription)")
-                case let .success(request, routes):
+        if (tfOrigin.text?.isEmpty)! || (tfDestination.text?.isEmpty)! {
+            showAlert(alertMessage: messageNilTextFields)
+        }
+        else if tfOrigin.text == "Vị trí của bạn" || tfOrigin.text == "Vị trí của bạn (Mặc định)" {
+            directionsAPI.delegate = self
+            directionsAPI.from = PXLocation.coordinateLocation(currentLocationCoordinate!)
+            directionsAPI.to = PXLocation.namedLocation(tfDestination.text!)
+            directionsAPI.region = "vi-vn"
+            
+            directionsAPI.calculateDirections { (response) -> Void in
+                DispatchQueue.main.async(execute: { () -> Void in
+                    switch response {
+                    case let .error(_, error):
+                        self.showAlert(alertMessage: "Error: \(error.localizedDescription)")
+                    case let .success(request, routes):
                         let rvc = ResultViewController()
                         rvc.request = request
                         rvc.results = routes
+                        rvc.currentNews = self.currentNews
                         self.present(rvc, animated: true, completion: nil)
-                    
-                }
-            })
+                    }
+                })
+            }
         }
+        else if tfOrigin.text != "Vị trí của bạn" || tfOrigin.text == "Vị trí của bạn (Mặc định)" {
+            directionsAPI.delegate = self
+            directionsAPI.from = PXLocation.namedLocation(tfOrigin.text!)
+            directionsAPI.to = PXLocation.namedLocation(tfDestination.text!)
+            directionsAPI.region = "vi-vn"
+            
+            directionsAPI.calculateDirections { (response) -> Void in
+                DispatchQueue.main.async(execute: { () -> Void in
+                    switch response {
+                    case let .error(_, error):
+                        self.showAlert(alertMessage: "Error: \(error.localizedDescription)")
+                    case let .success(request, routes):
+                        let rvc = ResultViewController()
+                        rvc.request = request
+                        rvc.results = routes
+                        rvc.currentNews = self.currentNews
+                        self.present(rvc, animated: true, completion: nil)
+                    }
+                })
+            }
+        }
+        else {
+            directionsAPI.delegate = self
+            directionsAPI.from = PXLocation.namedLocation(tfOrigin.text!)
+            directionsAPI.to = PXLocation.namedLocation(tfDestination.text!)
+            directionsAPI.region = "vi-vn"
+            
+            directionsAPI.calculateDirections { (response) -> Void in
+                DispatchQueue.main.async(execute: { () -> Void in
+                    switch response {
+                    case let .error(_, error):
+                        self.showAlert(alertMessage: "Error: \(error.localizedDescription)")
+                    case let .success(request, routes):
+                        let rvc = ResultViewController()
+                        rvc.request = request
+                        rvc.results = routes
+                        rvc.currentNews = self.currentNews
+                        self.present(rvc, animated: true, completion: nil)
+                    }
+                })
+            }
+        }
+        
     }
+    
+    
+    @IBAction func btnGetCurrentLocationPressed(_ sender: Any) {
+        
+        self.tfOrigin.text = "Vị trí của bạn"
+    }
+    
     
 }
 

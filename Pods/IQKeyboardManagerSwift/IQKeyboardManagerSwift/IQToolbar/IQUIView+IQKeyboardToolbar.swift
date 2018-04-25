@@ -241,6 +241,7 @@ public extension UIView {
 
             //Done button
             var doneButton = toolbar.doneBarButton
+            doneButton.title = "Xong"
             if doneButton.isSystemItem == false {
                 doneButton = IQBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: target, action: action)
                 doneButton.isSystemItem = true

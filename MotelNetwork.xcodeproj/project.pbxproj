@@ -74,6 +74,7 @@
 		E19CBCA92088818600A310D3 /* BillManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19CBCA72088818600A310D3 /* BillManagementViewController.xib */; };
 		E1A621D22070D23100B83291 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A621D02070D23100B83291 /* TestViewController.swift */; };
 		E1A621D32070D23100B83291 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A621D12070D23100B83291 /* TestViewController.xib */; };
+		E1AA95BB2090AA2900FBDB65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1AA95BA2090AA2900FBDB65 /* Assets.xcassets */; };
 		E1BD102620765FAD00287982 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD102520765FAD00287982 /* Room.swift */; };
 		E1BD102820765FB900287982 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD102720765FB900287982 /* User.swift */; };
 		E1BD102E20766C3500287982 /* CreateRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BD102C20766C3500287982 /* CreateRoomViewController.swift */; };
@@ -82,7 +83,6 @@
 		E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE6922067805D005715EC /* LoginViewController.xib */; };
 		E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */; };
 		E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE6962067898C005715EC /* ForgotPasswordViewController.xib */; };
-		E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1E7D2022071E0C600874EB2 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +156,7 @@
 		E19CBCA72088818600A310D3 /* BillManagementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillManagementViewController.xib; sourceTree = "<group>"; };
 		E1A621D02070D23100B83291 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E1A621D12070D23100B83291 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		E1AA95BA2090AA2900FBDB65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1BD102520765FAD00287982 /* Room.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 		E1BD102720765FB900287982 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E1BD102C20766C3500287982 /* CreateRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRoomViewController.swift; sourceTree = "<group>"; };
@@ -164,7 +165,6 @@
 		E1CDE6922067805D005715EC /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		E1CDE6962067898C005715EC /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
-		E1E7D2022071E0C600874EB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA2E9B82728A3236B847A136 /* Pods_Motel_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Motel_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -421,9 +421,9 @@
 		E198761020672E2D008434CC /* MotelNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				E1AA95BA2090AA2900FBDB65 /* Assets.xcassets */,
 				E1507BB9207E751200387527 /* Helpers */,
 				CE5FF78E20767689005BEA3B /* Extension */,
-				E1E7D2022071E0C600874EB2 /* Assets.xcassets */,
 				E198761120672E2D008434CC /* AppDelegate.swift */,
 				E198761520672E2D008434CC /* Main.storyboard */,
 				E198761A20672E2D008434CC /* LaunchScreen.storyboard */,
@@ -608,6 +608,7 @@
 				E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */,
 				E1954477208A0EA3004F0D17 /* DetailBillViewController.xib in Resources */,
 				E198DC222081829000E59BD2 /* ListNewsTableViewCell.xib in Resources */,
+				E1AA95BB2090AA2900FBDB65 /* Assets.xcassets in Resources */,
 				E14804F82089F8DA00C67D43 /* CreateNotificationViewController.xib in Resources */,
 				E1507BA3207D192F00387527 /* DetailRoomViewController.xib in Resources */,
 				E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */,
@@ -616,7 +617,6 @@
 				E1507BA8207D195C00387527 /* EditRoomViewController.xib in Resources */,
 				E180A138208A074F00EBCE52 /* NotificationListTableViewCell.xib in Resources */,
 				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
-				E1E7D2032071E0C600874EB2 /* Assets.xcassets in Resources */,
 				E1507BB2207DDA8B00387527 /* CalculateRoomPriceViewController.xib in Resources */,
 				E14804FE2089F90800C67D43 /* DetailNotificationViewController.xib in Resources */,
 				E19CBCA92088818600A310D3 /* BillManagementViewController.xib in Resources */,
@@ -657,10 +657,11 @@
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/PeekView/PeekView.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeBack/SwipeBack.framework",
 				"${BUILT_PRODUCTS_DIR}/TwicketSegmentedControl/TwicketSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.framework",
@@ -674,10 +675,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PeekView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeBack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwicketSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageViewModeScaleAspect.framework",

@@ -18,11 +18,15 @@ class ResultViewController: UIViewController, GMSMapViewDelegate {
     var results: [PXGoogleDirectionsRoute]!
     var routeIndex: Int = 0
     var locationManager = CLLocationManager()
+    var currentNews = News()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapView.delegate = self
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,8 +44,8 @@ class ResultViewController: UIViewController, GMSMapViewDelegate {
     }
     
     @IBAction func openInGoogleMapsButtonTouched(_ sender: UIButton) {
-        if !request.openInGoogleMaps(center: nil, mapMode: .streetView, view: Set(arrayLiteral: PXGoogleMapsView.satellite, PXGoogleMapsView.traffic, PXGoogleMapsView.transit), zoom: 15, callbackURL: URL(string: "pxsample://"), callbackName: "PXSample") {
-            self.showAlert(alertMessage: "Không thể mở Google Map.")
+        if !request.openInGoogleMaps(center: nil, mapMode: .streetView, view: Set(arrayLiteral: PXGoogleMapsView.satellite, PXGoogleMapsView.traffic, PXGoogleMapsView.transit), zoom: 15, callbackURL: URL(string: "comexamplemotelnetwork"), callbackName: "MotelNetwork") {
+            self.showAlert(alertMessage: "Không thể mở Bản đồ.")
         }
     }
     
@@ -54,7 +58,7 @@ class ResultViewController: UIViewController, GMSMapViewDelegate {
         }
         mapView.animate(with: GMSCameraUpdate.fit(results[routeIndex].bounds!, withPadding: 40.0))
         results[routeIndex].drawOnMap(mapView, approximate: false, strokeColor: UIColor.purple, strokeWidth: 4.0)
-        results[routeIndex].drawOriginMarkerOnMap(mapView, title: "Xuất phát", color: UIColor.green, opacity: 1.0, flat: true)
-        results[routeIndex].drawDestinationMarkerOnMap(mapView, title: "Đích đến", color: UIColor.red, opacity: 1.0, flat: true)
+        results[routeIndex].drawOriginMarkerOnMap(mapView, title: "Bắt đầu", color: UIColor.green, opacity: 1.0, flat: true)
+        results[routeIndex].drawDestinationMarkerOnMap(mapView, title: self.currentNews.address!, color: UIColor.red, opacity: 1.0, flat: true)
     }
 }
