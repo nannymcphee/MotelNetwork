@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
-                <outlet property="btnSearch" destination="UXh-ym-Awc" id="Ff8-ov-4ca"/>
                 <outlet property="sclContent" destination="c2x-fO-gYg" id="gpQ-Gn-0Yf"/>
                 <outlet property="tbListNews" destination="aSv-4C-Gux" id="y8W-du-Cqs"/>
                 <outlet property="tbMostView" destination="gJb-CK-ePL" id="CVm-Sp-iN0"/>
@@ -38,24 +37,11 @@
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lgMotelNetworkBlue2" translatesAutoresizingMaskIntoConstraints="NO" id="8xv-hp-BDe">
                                     <rect key="frame" x="134" y="9" width="108" height="30"/>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXh-ym-Awc">
-                                    <rect key="frame" x="19" y="12" width="24" height="24"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="24" id="iJk-67-84C"/>
-                                        <constraint firstAttribute="width" constant="24" id="ntb-MY-ras"/>
-                                    </constraints>
-                                    <state key="normal" image="icSearchPressed"/>
-                                    <connections>
-                                        <action selector="btnSearchPressed:" destination="-1" eventType="touchUpInside" id="tq8-bX-KjE"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="8xv-hp-BDe" firstAttribute="centerY" secondItem="Ibk-f2-SF1" secondAttribute="centerY" id="JW0-WC-Z2o"/>
-                                <constraint firstItem="UXh-ym-Awc" firstAttribute="leading" secondItem="Ibk-f2-SF1" secondAttribute="leading" constant="19" id="Q9m-wf-15v"/>
                                 <constraint firstAttribute="height" constant="48" id="QeB-xN-Avv"/>
-                                <constraint firstItem="UXh-ym-Awc" firstAttribute="centerY" secondItem="Ibk-f2-SF1" secondAttribute="centerY" id="W7t-Jm-yUT"/>
                                 <constraint firstItem="8xv-hp-BDe" firstAttribute="centerX" secondItem="Ibk-f2-SF1" secondAttribute="centerX" id="fIG-FH-Wdh"/>
                             </constraints>
                         </view>
@@ -187,7 +173,6 @@
         </view>
     </objects>
     <resources>
-        <image name="icSearchPressed" width="24" height="24"/>
         <image name="lgMotelNetworkBlue2" width="108" height="30"/>
     </resources>
 </document>

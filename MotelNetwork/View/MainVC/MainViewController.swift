@@ -19,6 +19,7 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
     var vcRoomManager = RoomManagementViewController()
     var vcAccount = AccountViewController()
     var vcSetting = SettingViewController()
+    var vcSearch = SearchViewController()
     
     var isAppearWhenFirstCreateMerchant = false
     
@@ -34,7 +35,7 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
     }
     
     
-    func setupTabbar(homeScreenVC: UIViewController, myRoomVC: UIViewController, myAccountVC: UIViewController, settingVC: UIViewController) {
+    func setupTabbar(homeScreenVC: UIViewController, searchVC: UIViewController, myRoomVC: UIViewController, myAccountVC: UIViewController, settingVC: UIViewController) {
        
         listViewController.removeAll()
         
@@ -45,23 +46,29 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
         homeScreenVC.tabBarItem = UITabBarItem(title: "Tin tức", image: #imageLiteral(resourceName: "icNewsFeedNormal"), tag: 0)
         homeScreenVC.tabBarItem.selectedImage =  #imageLiteral(resourceName: "icNewsFeedPressed").withRenderingMode(.alwaysOriginal)
         
+        let searchVC = searchVC
+        let viewSearch = searchVC.view
+        searchVC.tabBarItem = UITabBarItem(title: "Tìm kiếm", image: #imageLiteral(resourceName: "icSearchNormal"), tag: 1)
+        searchVC.tabBarItem.selectedImage =  #imageLiteral(resourceName: "icSearchPressed").withRenderingMode(.alwaysOriginal)
+        
         let myRoomVC = myRoomVC
         let viewMyRoom = myRoomVC.view
-        myRoomVC.tabBarItem = UITabBarItem(title: "Phòng trọ của tôi", image: #imageLiteral(resourceName: "icRoomNormal"), tag: 1)
+        myRoomVC.tabBarItem = UITabBarItem(title: "Quản lý", image: #imageLiteral(resourceName: "icRoomNormal"), tag: 2)
         myRoomVC.tabBarItem.selectedImage = #imageLiteral(resourceName: "icRoomPressed").withRenderingMode(.alwaysOriginal)
         
         let myAccountVC = myAccountVC
         let viewMyAccount = myAccountVC.view
-        myAccountVC.tabBarItem = UITabBarItem(title: "Tài khoản", image: #imageLiteral(resourceName: "icUserNormal"), tag: 2)
+        myAccountVC.tabBarItem = UITabBarItem(title: "Tài khoản", image: #imageLiteral(resourceName: "icUserNormal"), tag: 3)
         myAccountVC.tabBarItem.selectedImage = #imageLiteral(resourceName: "icUserPressed").withRenderingMode(.alwaysOriginal)
         
         let settingVC = settingVC
         let viewSetting = settingVC.view
-        settingVC.tabBarItem = UITabBarItem(title: "Cài đặt", image: #imageLiteral(resourceName: "icMenuBlack"), tag: 3)
+        settingVC.tabBarItem = UITabBarItem(title: "Cài đặt", image: #imageLiteral(resourceName: "icMenuBlack"), tag: 4)
         settingVC.tabBarItem.selectedImage = #imageLiteral(resourceName: "icMenuBlue").withRenderingMode(.alwaysOriginal)
         
         
         listViewController.append(homeScreenVC)
+        listViewController.append(searchVC)
         listViewController.append(myRoomVC)
         listViewController.append(myAccountVC)
         listViewController.append(settingVC)
@@ -118,7 +125,7 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
 //            isAppearWhenFirstCreateMerchant = false
 //        }
         
-        setupTabbar(homeScreenVC: vcHomeScreen, myRoomVC: vcRoomManager, myAccountVC: vcAccount, settingVC: vcSetting)
+        setupTabbar(homeScreenVC: vcHomeScreen, searchVC: vcSearch, myRoomVC: vcRoomManager, myAccountVC: vcAccount, settingVC: vcSetting)
         tabbarController.tabBar.reloadInputViews()
         //tabbarController.selectedIndex = 3'
         self.navigationController?.swipeBackEnabled = false

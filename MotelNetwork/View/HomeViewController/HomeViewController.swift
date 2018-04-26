@@ -17,7 +17,6 @@ import TwicketSegmentedControl
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedControlDelegate {
     
     
-    @IBOutlet weak var btnSearch: UIButton!
     @IBOutlet weak var vSegment: UIView!
     @IBOutlet weak var tbMostView: UITableView!
     @IBOutlet weak var tbNearMe: UITableView!
@@ -334,13 +333,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }, withCancel: nil)
     }
     
-    
-    @IBAction func btnSearchPressed(_ sender: Any) {
-        
-        let vc = SearchViewController()
-        
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
-    }
 }
 
 extension HomeViewController {

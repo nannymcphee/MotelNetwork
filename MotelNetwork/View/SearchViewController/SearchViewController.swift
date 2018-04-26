@@ -12,7 +12,6 @@ import FirebaseDatabase
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var btnDone: UIButton!
     @IBOutlet weak var tbSearchResults: UITableView!
     
     var listNews = [News]()
@@ -114,13 +113,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             tbSearchResults.reloadData()
         }
-    }
-    
-    //MARK: Handle button pressed
-    
-    @IBAction func btnDonePressed(_ sender: Any) {
-        
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
     
 }
