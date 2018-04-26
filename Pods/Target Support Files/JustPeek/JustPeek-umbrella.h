@@ -10,7 +10,8 @@
 #endif
 #endif
 
+#import "UIImage+ImageEffects.h"
 
-FOUNDATION_EXPORT double PeekViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char PeekViewVersionString[];
+FOUNDATION_EXPORT double JustPeekVersionNumber;
+FOUNDATION_EXPORT const unsigned char JustPeekVersionString[];
 

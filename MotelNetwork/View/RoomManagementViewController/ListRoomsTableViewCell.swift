@@ -49,9 +49,7 @@ class ListRoomsTableViewCell: UITableViewCell {
                         self.lblUserFullName.text = "Chưa có người thuê"
                     }
                 }
-            }, withCancel: nil)
-            
-            
+            }, withCancel: nil)  
         }
         
         if URL(string: room.roomImageUrl0!) != nil {

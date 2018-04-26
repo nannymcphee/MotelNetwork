@@ -34,7 +34,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         tbNews.delegate = self
         tbNews.dataSource = self
         tbNews.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
-        tbNews.reloadData()
         
         loadData()
         setUpView()
@@ -146,11 +145,24 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }, withCancel: nil)
     }
     
+    //MARK: Handle button pressed
+    
+    @IBAction func btnNewPostPressed(_ sender: Any) {
+    
+        let vc = NewPostViewController()
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}
+
+extension AccountViewController {
     
     //MARK: Logic for UITableView
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listNewsSortedByDate.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbNews.dequeueReusableCell(withIdentifier: "ListNewsTableViewCell") as! ListNewsTableViewCell
         
@@ -185,19 +197,20 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         return config
     }
     
+    // Swipe actions
     func editAction(at indexPath: IndexPath) -> UIContextualAction {
-
+        
         let news = listNewsSortedByDate[indexPath.row]
         let action = UIContextualAction(style: .normal, title: "") { (action, view, nil) in
-
+            
             let vc = EditPostViewController()
             vc.currentNews = news
             (UIApplication.shared.delegate as? AppDelegate)?.navigationController?.pushViewController(vc, animated: true)
         }
-
+        
         action.image = #imageLiteral(resourceName: "icEdit")
         action.backgroundColor = UIColor(red: 34/255, green: 119/255, blue: 233/255, alpha: 1.0)
-
+        
         return action
     }
     
@@ -208,7 +221,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             // Query delete from database
             let news = self.listNewsSortedByDate[indexPath.row]
             let newsID = news.id
-//            let uid = Auth.auth().currentUser?.uid
             let ref = Database.database().reference().child("Posts").child(newsID!)
             
             // Show confirmation alert
@@ -236,15 +248,5 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         return action
     }
-    
-    //MARK: Handle button pressed
-    
-    @IBAction func btnNewPostPressed(_ sender: Any) {
-    
-        let vc = NewPostViewController()
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
-    }
-    
-
-    
 }
+

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B88B075F79763238D51D567FD25403E2"
+               BlueprintIdentifier = "6C2FB81567D4170CEAD8337356BA9BEB"
                BlueprintName = "PXGoogleDirections"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "libPXGoogleDirections.a">

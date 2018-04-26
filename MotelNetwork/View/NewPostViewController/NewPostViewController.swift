@@ -206,6 +206,9 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     @IBAction func btnAddImagePressed(_ sender: Any) {
         
+        imageArray.removeAll()
+        selectedAssets.removeAll()
+        
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 3
         vc.doneButton.title = "Xong"

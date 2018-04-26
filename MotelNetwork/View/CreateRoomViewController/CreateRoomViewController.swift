@@ -166,6 +166,9 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     @IBAction func btnAddImagePressed(_ sender: Any) {
         
+        imageArray.removeAll()
+        selectedAssets.removeAll()
+        
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 3
         vc.doneButton.title = "Xong"

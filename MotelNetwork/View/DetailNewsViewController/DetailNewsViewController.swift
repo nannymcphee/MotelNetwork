@@ -23,7 +23,6 @@ class DetailNewsViewController: UIViewController {
     @IBOutlet weak var ivNewsImage0: UIImageView!
     @IBOutlet weak var ivNewsImage1: UIImageView!
     @IBOutlet weak var ivNewsImage2: UIImageView!
-    @IBOutlet weak var tvNewsTitle: UITextView!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblArea: UILabel!
     @IBOutlet weak var lblDistrict: UILabel!

@@ -194,6 +194,9 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func btnAddImagePressed(_ sender: Any) {
         
+        imageArray.removeAll()
+        selectedAssets.removeAll()
+        
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 3
         vc.doneButton.title = "Xong"
@@ -234,7 +237,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             let renterName = self.tfUser.text!
             let roomID = currentRoom.id
             let ownerID = Auth.auth().currentUser?.uid
-            var renterID = currentRoom.renterID
+            let renterID = currentRoom.renterID
             let ref = Database.database().reference().child("Rooms").child(roomID!)
             let roomImageUrl0 = currentRoom.roomImageUrl0
             let roomImageUrl1 = currentRoom.roomImageUrl1

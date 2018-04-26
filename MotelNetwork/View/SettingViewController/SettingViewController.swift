@@ -34,20 +34,14 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        //        showLoading()
+        super.viewWillAppear(true)
         tbAccountOptionList.reloadData()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        //        stopLoading()
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     //MARK: Set up view
     func setUpView() {
@@ -73,12 +67,22 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         makeButtonRounded(button: btnLogOut)
     }
     
+    //MARK: Handle button pressed
     
+    @IBAction func btnLogOutPressed(_ sender: Any) {
+        
+        showAlertConfirmLogOut()
+    }
+
+}
+
+extension SettingViewController {
     
     //MARK: Logic for UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbAccountOptionList.dequeueReusableCell(withIdentifier: "AccountOptionTableViewCell") as! AccountOptionTableViewCell
         
@@ -87,6 +91,8 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
             cell.lblOption.text = "Đổi email"
         case 1:
             cell.lblOption.text = "Đổi mật khẩu"
+        case 2:
+            cell.lblOption.text = "Cập nhật thông tin"
         default:
             break
         }
@@ -106,19 +112,11 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         case 1:
             let vc = ChangePasswordViewController()
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+        case 2:
+            let vc = UpdateInfoViewController()
+            (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         default:
             break
         }
     }
-    
-    //MARK: Handle button pressed
-    
-    @IBAction func btnLogOutPressed(_ sender: Any) {
-        
-        showAlertConfirmLogOut()
-    }
-    
-    
-    
-
 }

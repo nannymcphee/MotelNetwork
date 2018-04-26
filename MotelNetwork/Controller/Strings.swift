@@ -19,6 +19,7 @@ let messageRequestLogOut: String = "Bạn cần phải đăng nhập lại trư�
 let messageEmailAlreadyUsed: String = "Email này đã được sử dụng. Vui lòng nhập email khác."
 let messageCreateRoomSuccess: String = "Tạo phòng thành công."
 let messageCreateRoomFailed: String = "Tạo phòng thất bại."
+let messageEditInfoSuccess: String = "Sửa thông tin thành công"
 let messageEditRoomSuccess: String = "Sửa thông tin phòng thành công."
 let messageEditRoomFailed: String = "Sửa thông tin phòng thất bại."
 let messageNilTextFields: String = "Vui lòng nhập đầy đủ thông tin."

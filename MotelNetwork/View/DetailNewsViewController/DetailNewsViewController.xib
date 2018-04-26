@@ -10,6 +10,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailNewsViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
@@ -433,6 +438,7 @@
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5V-jk-eAM">
                                                     <rect key="frame" x="24" y="16" width="327" height="50"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="DetailNewsViewController"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="E8e-fb-3R2"/>
                                                     </constraints>
@@ -513,7 +519,7 @@ dòng 2</string>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="sZO-0d-DbO" firstAttribute="top" secondItem="Vny-eW-G18" secondAttribute="bottom" id="8Ji-YI-2it"/>
-                <constraint firstItem="sZO-0d-DbO" firstAttribute="leading" secondItem="Vny-eW-G18" secondAttribute="leading" id="A0m-Hm-xVK"/>
+                <constraint firstItem="sZO-0d-DbO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Pg6-uC-07r"/>
                 <constraint firstItem="Vny-eW-G18" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="XLo-1Z-ju3"/>
                 <constraint firstItem="Vny-eW-G18" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="h0B-jb-9pY"/>
                 <constraint firstAttribute="top" secondItem="Vny-eW-G18" secondAttribute="top" constant="-20" id="kXV-9M-7HZ"/>

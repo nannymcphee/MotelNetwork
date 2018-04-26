@@ -18,7 +18,6 @@ target 'Motel Network' do
     pod 'TwicketSegmentedControl'
 	pod 'PXGoogleDirections'
 	pod 'Floaty', '~> 4.0.0'
-	pod 'PeekView'
     pod 'IQKeyboardManagerSwift'
 
 end

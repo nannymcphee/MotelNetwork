@@ -15,6 +15,10 @@
 		CE5FF78B20766ED0005BEA3B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF78920766ED0005BEA3B /* MainViewController.swift */; };
 		CE5FF78C20766ED0005BEA3B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE5FF78A20766ED0005BEA3B /* MainViewController.xib */; };
 		CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5FF78F20767698005BEA3B /* EUIViewController.swift */; };
+		E10112CA209199CA004ACA0D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10112C8209199CA004ACA0D /* SearchViewController.swift */; };
+		E10112CB209199CA004ACA0D /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10112C9209199CA004ACA0D /* SearchViewController.xib */; };
+		E10112D12091C2DD004ACA0D /* UpdateInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10112CF2091C2DD004ACA0D /* UpdateInfoViewController.swift */; };
+		E10112D22091C2DD004ACA0D /* UpdateInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10112D02091C2DD004ACA0D /* UpdateInfoViewController.xib */; };
 		E104666E20708FF400245789 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104666C20708FF400245789 /* TutorialViewController.swift */; };
 		E104666F20708FF400245789 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E104666D20708FF400245789 /* TutorialViewController.xib */; };
 		E117B659208DF2BE00087A0B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E117B657208DF2BE00087A0B /* ResultViewController.swift */; };
@@ -95,6 +99,10 @@
 		CE5FF78920766ED0005BEA3B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CE5FF78A20766ED0005BEA3B /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		CE5FF78F20767698005BEA3B /* EUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EUIViewController.swift; sourceTree = "<group>"; };
+		E10112C8209199CA004ACA0D /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		E10112C9209199CA004ACA0D /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		E10112CF2091C2DD004ACA0D /* UpdateInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInfoViewController.swift; sourceTree = "<group>"; };
+		E10112D02091C2DD004ACA0D /* UpdateInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateInfoViewController.xib; sourceTree = "<group>"; };
 		E104666C20708FF400245789 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		E104666D20708FF400245789 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
 		E117B657208DF2BE00087A0B /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +222,24 @@
 				CE5FF78F20767698005BEA3B /* EUIViewController.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		E10112C7209199A8004ACA0D /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E10112C8209199CA004ACA0D /* SearchViewController.swift */,
+				E10112C9209199CA004ACA0D /* SearchViewController.xib */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		E10112CC2091C2BA004ACA0D /* UpdateInfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E10112CF2091C2DD004ACA0D /* UpdateInfoViewController.swift */,
+				E10112D02091C2DD004ACA0D /* UpdateInfoViewController.xib */,
+			);
+			path = UpdateInfoViewController;
 			sourceTree = "<group>";
 		};
 		E104667020708FFE00245789 /* TutorialViewController */ = {
@@ -500,6 +526,8 @@
 		E1E7D1F72071C7D300874EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E10112CC2091C2BA004ACA0D /* UpdateInfoViewController */,
+				E10112C7209199A8004ACA0D /* SearchViewController */,
 				E16BD8B2208DC07200DD00B7 /* GoogleMapViewController */,
 				E1954473208A0E84004F0D17 /* DetailBillViewController */,
 				E14804FA2089F8EA00C67D43 /* NotificationListViewController */,
@@ -618,6 +646,7 @@
 				E180A138208A074F00EBCE52 /* NotificationListTableViewCell.xib in Resources */,
 				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
 				E1507BB2207DDA8B00387527 /* CalculateRoomPriceViewController.xib in Resources */,
+				E10112CB209199CA004ACA0D /* SearchViewController.xib in Resources */,
 				E14804FE2089F90800C67D43 /* DetailNotificationViewController.xib in Resources */,
 				E19CBCA92088818600A310D3 /* BillManagementViewController.xib in Resources */,
 				E1BD102F20766C3500287982 /* CreateRoomViewController.xib in Resources */,
@@ -635,6 +664,7 @@
 				E16F5B2E207B84D900B284A5 /* ChangePasswordViewController.xib in Resources */,
 				E1507BBE207F59F300387527 /* SettingViewController.xib in Resources */,
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
+				E10112D22091C2DD004ACA0D /* UpdateInfoViewController.xib in Resources */,
 				E198761720672E2D008434CC /* Main.storyboard in Resources */,
 				E16F5B1C207B698E00B284A5 /* AccountViewController.xib in Resources */,
 				CE5FF78C20766ED0005BEA3B /* MainViewController.xib in Resources */,
@@ -657,11 +687,10 @@
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/JustPeek/JustPeek.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/PeekView/PeekView.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeBack/SwipeBack.framework",
 				"${BUILT_PRODUCTS_DIR}/TwicketSegmentedControl/TwicketSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.framework",
@@ -675,11 +704,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JustPeek.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PeekView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeBack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwicketSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageViewModeScaleAspect.framework",
@@ -763,6 +791,7 @@
 				E1507BB1207DDA8B00387527 /* CalculateRoomPriceViewController.swift in Sources */,
 				E1397D86208AC7CC0050C86D /* ListBillTableViewCell.swift in Sources */,
 				E1507BAC207D19A200387527 /* NewPostViewController.swift in Sources */,
+				E10112CA209199CA004ACA0D /* SearchViewController.swift in Sources */,
 				E16F5B31207BD35A00B284A5 /* Controller.swift in Sources */,
 				E1BD102E20766C3500287982 /* CreateRoomViewController.swift in Sources */,
 				E1507BA7207D195C00387527 /* EditRoomViewController.swift in Sources */,
@@ -770,6 +799,7 @@
 				E14804FD2089F90800C67D43 /* DetailNotificationViewController.swift in Sources */,
 				CE5FF78B20766ED0005BEA3B /* MainViewController.swift in Sources */,
 				E117B659208DF2BE00087A0B /* ResultViewController.swift in Sources */,
+				E10112D12091C2DD004ACA0D /* UpdateInfoViewController.swift in Sources */,
 				CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */,
 				E198761220672E2D008434CC /* AppDelegate.swift in Sources */,
 				E198DC2A2082F6BB00E59BD2 /* EditPostViewController.swift in Sources */,

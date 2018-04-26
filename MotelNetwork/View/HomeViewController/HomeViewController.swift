@@ -17,6 +17,7 @@ import TwicketSegmentedControl
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedControlDelegate {
     
     
+    @IBOutlet weak var btnSearch: UIButton!
     @IBOutlet weak var vSegment: UIView!
     @IBOutlet weak var tbMostView: UITableView!
     @IBOutlet weak var tbNearMe: UITableView!
@@ -79,6 +80,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Set up segment control
         let titles = ["Tin mới", "Xem nhiều", "Gần tôi"]
         let frame = CGRect(x: 20, y: 48, width: self.view.frame.width, height: 40)
+        
         segmentedControl = TwicketSegmentedControl(frame: frame)
         self.view.addSubview(segmentedControl)
         segmentedControl.setSegmentItems(titles)
@@ -331,7 +333,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             }
         }, withCancel: nil)
     }
+    
+    
+    @IBAction func btnSearchPressed(_ sender: Any) {
+        
+        let vc = SearchViewController()
+        
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+    }
+}
 
+extension HomeViewController {
+    
     //MARK: Logic for table view
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -357,7 +370,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListNewsTableViewCell", for: indexPath) as! ListNewsTableViewCell
         
         if tableView == tbListNews {
-
+            
             let news = listNewsSortedByDate[indexPath.row]
             cell.populateData(news: news)
         }
@@ -371,7 +384,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let nearMe = listNearMe[indexPath.row]
             cell.populateData(news: nearMe)
         }
-
+        
         return cell
     }
     
@@ -427,6 +440,5 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             segmentedControl.move(to: 2)
         }
     }
-
 }
 

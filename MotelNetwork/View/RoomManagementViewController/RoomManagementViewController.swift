@@ -140,6 +140,24 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         }, withCancel: nil)
     }
     
+    //MARK: Handle button pressed
+    
+    @IBAction func btnCreateRoomPressed(_ sender: Any) {
+        
+        let vc = CreateRoomViewController()
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func btnBillsPressed(_ sender: Any) {
+        
+        let vc = BillManagementViewController()
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+    }
+
+}
+
+extension RoomManagementViewController {
+    
     //MARK: Logic for UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listRoomsSortedByRoomName.count
@@ -179,6 +197,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         return config
     }
     
+    // Swipe actions
     func editAction(at indexPath: IndexPath) -> UIContextualAction {
         
         let room = listRoomsSortedByRoomName[indexPath.row]
@@ -197,13 +216,13 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
-    
+        
         let action = UIContextualAction(style: .destructive, title: "") { (action, view, nil) in
             
             // Query delete from database
             let room = self.listRoomsSortedByRoomName[indexPath.row]
             let roomID = room.id
-
+            
             let ref = Database.database().reference().child("Rooms").child(roomID!)
             
             // Show confirmation alert
@@ -246,20 +265,4 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         action.backgroundColor = UIColor(red: 75/255, green: 151/255, blue: 253/255, alpha: 1.0)
         return action
     }
-    
-    
-    //MARK: Handle button pressed
-    
-    @IBAction func btnCreateRoomPressed(_ sender: Any) {
-        
-        let vc = CreateRoomViewController()
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @IBAction func btnBillsPressed(_ sender: Any) {
-        
-        let vc = BillManagementViewController()
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
-    }
-
 }

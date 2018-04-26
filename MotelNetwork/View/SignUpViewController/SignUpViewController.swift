@@ -26,8 +26,6 @@ class UserType {
 }
 
 class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    
     
     @IBOutlet weak var btnProfilePicture: UIButton!
     @IBOutlet weak var btnRegister: UIButton!
@@ -167,6 +165,9 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     }
     
     @IBAction func btnProfilePicturePressed(_ sender: Any) {
+        
+        imageArray.removeAll()
+        selectedAssets.removeAll()
         
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 1
