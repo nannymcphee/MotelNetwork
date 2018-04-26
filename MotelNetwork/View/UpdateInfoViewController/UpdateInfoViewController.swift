@@ -53,6 +53,7 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
         }, withCancel: nil)
         
         self.tapToDismissKeyboard()
+        makeImageViewRounded(imageView: ivProfileImage)
     }
     
     //MARK: Database interactions

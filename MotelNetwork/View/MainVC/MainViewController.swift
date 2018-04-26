@@ -28,10 +28,10 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        showLoading()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-            self.stopLoading()
-        }
+//        showLoading()
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+//            self.stopLoading()
+//        }
     }
     
     

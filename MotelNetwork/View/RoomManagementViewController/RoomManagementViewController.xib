@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoomManagementViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
@@ -29,10 +34,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APX-Az-4Oq">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="920"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="900"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axx-fz-lQr">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="920"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GfZ-Ta-dIc">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
@@ -82,6 +87,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstAttribute="height" constant="64" id="AFt-Br-VV9"/>
                                         <constraint firstItem="kZI-XD-dLE" firstAttribute="leading" secondItem="GfZ-Ta-dIc" secondAttribute="leading" id="B7y-qn-AjM"/>
                                         <constraint firstItem="b22-l6-bRq" firstAttribute="centerX" secondItem="GfZ-Ta-dIc" secondAttribute="centerX" id="TGl-a8-4Xg"/>
                                         <constraint firstItem="gus-3O-X24" firstAttribute="leading" secondItem="GfZ-Ta-dIc" secondAttribute="leading" constant="19" id="VDI-rq-bQy"/>
@@ -96,15 +102,8 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yrv-D8-dXf">
-                                    <rect key="frame" x="0.0" y="64" width="375" height="856"/>
+                                    <rect key="frame" x="0.0" y="64" width="375" height="836"/>
                                     <subviews>
-                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j09-YX-mcr">
-                                            <rect key="frame" x="0.0" y="48" width="375" height="808"/>
-                                            <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="808" id="whe-4A-yVZ"/>
-                                            </constraints>
-                                        </tableView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7NU-vi-XhP">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                             <subviews>
@@ -157,54 +156,58 @@
                                                 <constraint firstItem="c2a-ud-j94" firstAttribute="leading" secondItem="R7f-Bm-PQX" secondAttribute="trailing" constant="8" id="NJi-lJ-fkq"/>
                                                 <constraint firstItem="R7f-Bm-PQX" firstAttribute="leading" secondItem="7NU-vi-XhP" secondAttribute="leading" constant="19" id="Ydc-QB-g7E"/>
                                                 <constraint firstAttribute="bottom" secondItem="USF-kK-y5b" secondAttribute="bottom" id="f7X-3z-1fC"/>
+                                                <constraint firstAttribute="height" constant="48" id="fwx-6y-7F0"/>
                                                 <constraint firstItem="R7f-Bm-PQX" firstAttribute="centerY" secondItem="7NU-vi-XhP" secondAttribute="centerY" id="glN-XJ-ta6"/>
                                                 <constraint firstItem="c2a-ud-j94" firstAttribute="centerY" secondItem="R7f-Bm-PQX" secondAttribute="centerY" id="vcd-4x-cb8"/>
                                             </constraints>
                                         </view>
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j09-YX-mcr">
+                                            <rect key="frame" x="0.0" y="48" width="375" height="788"/>
+                                            <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="j09-YX-mcr" secondAttribute="bottom" id="16V-QW-Ss6"/>
+                                        <constraint firstAttribute="trailing" secondItem="j09-YX-mcr" secondAttribute="trailing" id="0TW-LY-w4V"/>
                                         <constraint firstItem="j09-YX-mcr" firstAttribute="top" secondItem="7NU-vi-XhP" secondAttribute="bottom" id="3bm-eZ-HfS"/>
-                                        <constraint firstAttribute="trailing" secondItem="j09-YX-mcr" secondAttribute="trailing" id="AGb-Us-eo5"/>
-                                        <constraint firstAttribute="trailing" secondItem="7NU-vi-XhP" secondAttribute="trailing" id="Cfw-xE-gp8"/>
-                                        <constraint firstItem="7NU-vi-XhP" firstAttribute="leading" secondItem="Yrv-D8-dXf" secondAttribute="leading" id="Hi0-tG-6QI"/>
-                                        <constraint firstItem="j09-YX-mcr" firstAttribute="leading" secondItem="Yrv-D8-dXf" secondAttribute="leading" id="Qps-he-hW5"/>
-                                        <constraint firstItem="7NU-vi-XhP" firstAttribute="top" secondItem="Yrv-D8-dXf" secondAttribute="top" id="l5P-qg-7yi"/>
+                                        <constraint firstItem="j09-YX-mcr" firstAttribute="top" secondItem="7NU-vi-XhP" secondAttribute="bottom" id="CCL-3b-2Ih"/>
+                                        <constraint firstItem="7NU-vi-XhP" firstAttribute="top" secondItem="Yrv-D8-dXf" secondAttribute="top" id="OMx-vD-k9g"/>
+                                        <constraint firstAttribute="trailing" secondItem="7NU-vi-XhP" secondAttribute="trailing" id="U22-eu-Aep"/>
+                                        <constraint firstItem="7NU-vi-XhP" firstAttribute="leading" secondItem="Yrv-D8-dXf" secondAttribute="leading" id="nxf-uz-ksT"/>
+                                        <constraint firstAttribute="bottom" secondItem="j09-YX-mcr" secondAttribute="bottom" id="uZP-tT-2TL"/>
+                                        <constraint firstItem="j09-YX-mcr" firstAttribute="leading" secondItem="Yrv-D8-dXf" secondAttribute="leading" id="vWq-we-tGd"/>
                                     </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="Yrv-D8-dXf" secondAttribute="trailing" id="1sO-lY-zcB"/>
-                                <constraint firstItem="GfZ-Ta-dIc" firstAttribute="leading" secondItem="axx-fz-lQr" secondAttribute="leading" id="9Tf-OD-4Bl"/>
-                                <constraint firstItem="GfZ-Ta-dIc" firstAttribute="top" secondItem="axx-fz-lQr" secondAttribute="top" id="DIY-bH-wgu"/>
-                                <constraint firstItem="Yrv-D8-dXf" firstAttribute="leading" secondItem="axx-fz-lQr" secondAttribute="leading" id="aKt-Qv-Kyb"/>
-                                <constraint firstAttribute="bottom" secondItem="Yrv-D8-dXf" secondAttribute="bottom" id="ctO-vd-vMN"/>
-                                <constraint firstItem="Yrv-D8-dXf" firstAttribute="top" secondItem="axx-fz-lQr" secondAttribute="top" constant="64" id="hyT-JG-KGk"/>
-                                <constraint firstAttribute="trailing" secondItem="GfZ-Ta-dIc" secondAttribute="trailing" id="lh1-kK-ILC"/>
-                                <constraint firstItem="Yrv-D8-dXf" firstAttribute="top" secondItem="GfZ-Ta-dIc" secondAttribute="bottom" id="o8c-To-LlQ"/>
-                                <constraint firstItem="Yrv-D8-dXf" firstAttribute="top" secondItem="GfZ-Ta-dIc" secondAttribute="bottom" id="voE-22-hIw"/>
+                                <constraint firstAttribute="bottom" secondItem="Yrv-D8-dXf" secondAttribute="bottom" id="1Wd-XH-5Rt"/>
+                                <constraint firstItem="Yrv-D8-dXf" firstAttribute="top" secondItem="GfZ-Ta-dIc" secondAttribute="bottom" id="FAu-0W-gsy"/>
+                                <constraint firstItem="GfZ-Ta-dIc" firstAttribute="top" secondItem="axx-fz-lQr" secondAttribute="top" id="FaD-LT-chD"/>
+                                <constraint firstItem="Yrv-D8-dXf" firstAttribute="leading" secondItem="axx-fz-lQr" secondAttribute="leading" id="GIb-05-VVJ"/>
+                                <constraint firstAttribute="trailing" secondItem="Yrv-D8-dXf" secondAttribute="trailing" id="O3W-wr-XKx"/>
+                                <constraint firstItem="Yrv-D8-dXf" firstAttribute="top" secondItem="GfZ-Ta-dIc" secondAttribute="bottom" id="O3y-SN-9SU"/>
+                                <constraint firstItem="GfZ-Ta-dIc" firstAttribute="leading" secondItem="axx-fz-lQr" secondAttribute="leading" id="ThK-1f-iWl"/>
+                                <constraint firstAttribute="trailing" secondItem="GfZ-Ta-dIc" secondAttribute="trailing" id="o95-jF-g1w"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="axx-fz-lQr" firstAttribute="leading" secondItem="APX-Az-4Oq" secondAttribute="leading" id="8oL-N4-c5j"/>
-                        <constraint firstAttribute="bottom" secondItem="axx-fz-lQr" secondAttribute="bottom" id="U1U-rN-amr"/>
-                        <constraint firstItem="j09-YX-mcr" firstAttribute="top" secondItem="APX-Az-4Oq" secondAttribute="top" constant="112" id="a0x-Nz-tsX"/>
-                        <constraint firstItem="axx-fz-lQr" firstAttribute="centerX" secondItem="APX-Az-4Oq" secondAttribute="centerX" id="gee-TT-erU"/>
-                        <constraint firstItem="axx-fz-lQr" firstAttribute="top" secondItem="APX-Az-4Oq" secondAttribute="top" id="gjJ-Rq-g1g"/>
-                        <constraint firstAttribute="trailing" secondItem="axx-fz-lQr" secondAttribute="trailing" id="nyk-4t-NIT"/>
-                        <constraint firstItem="axx-fz-lQr" firstAttribute="height" secondItem="APX-Az-4Oq" secondAttribute="height" id="sPX-kD-9Xu"/>
+                        <constraint firstItem="axx-fz-lQr" firstAttribute="top" secondItem="APX-Az-4Oq" secondAttribute="top" id="2Qr-qa-sYt"/>
+                        <constraint firstAttribute="bottom" secondItem="axx-fz-lQr" secondAttribute="bottom" id="37T-ez-TQC"/>
+                        <constraint firstAttribute="trailing" secondItem="axx-fz-lQr" secondAttribute="trailing" id="fd2-wc-TbW"/>
+                        <constraint firstItem="axx-fz-lQr" firstAttribute="height" secondItem="APX-Az-4Oq" secondAttribute="height" id="j8j-tX-88K"/>
+                        <constraint firstItem="axx-fz-lQr" firstAttribute="width" secondItem="APX-Az-4Oq" secondAttribute="width" id="uAO-SE-Po3"/>
+                        <constraint firstItem="axx-fz-lQr" firstAttribute="leading" secondItem="APX-Az-4Oq" secondAttribute="leading" id="zc8-Vb-Oxc"/>
                     </constraints>
                 </scrollView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="APX-Az-4Oq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9tf-YI-qr2"/>
-                <constraint firstItem="APX-Az-4Oq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Pmp-t0-NG8"/>
-                <constraint firstAttribute="trailing" secondItem="APX-Az-4Oq" secondAttribute="trailing" id="SOd-qW-QYP"/>
+                <constraint firstItem="APX-Az-4Oq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="9tf-YI-qr2"/>
+                <constraint firstItem="APX-Az-4Oq" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Dx8-ma-MUK"/>
                 <constraint firstItem="APX-Az-4Oq" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Ua7-Kb-Oun"/>
+                <constraint firstItem="APX-Az-4Oq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WbG-a1-ZDd"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

@@ -40,6 +40,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        showLoading()
         sclContent.delegate = self
         
         // tbListNew
@@ -187,6 +188,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func setUpViewNews() {
         
+        tbListNews.reloadData()
         tbListNews.scrollTableViewToTop(animated: true)
         
         self.sclContent.setContentOffset(CGPoint(x: Double(0), y: 0), animated: false)
@@ -211,7 +213,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     //MARK: Database interaction
     
     func loadDataNews() {
-
         let ref = Database.database().reference().child("Posts").queryOrdered(byChild: "postDate")
 
         ref.observe(.childAdded, with: { (snapshot) in
@@ -248,6 +249,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.listNewsSortedByDate = self.listNews.sorted(by: { (news0, news1) -> Bool in
                     return news0.postDate?.localizedStandardCompare(news1.postDate!) == ComparisonResult.orderedDescending
                 })
+                
+                self.stopLoading()
                 self.tbListNews.reloadData()
             }
         }, withCancel: nil)
@@ -333,6 +336,29 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }, withCancel: nil)
     }
     
+    //MARK: Scroll view did scroll
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        //        let contentOffsetX = scrollView.contentOffset.x
+        //        var currentPage = contentOffsetX / screenWidth
+        if sclContent.contentOffset.x >= 0 &&  sclContent.contentOffset.x < screenWidth {
+            
+            // News
+            segmentedControl.move(to: 0)
+        }
+        else if sclContent.contentOffset.x >= screenWidth && sclContent.contentOffset.x < 2 * screenWidth  {
+            
+            // Most View
+            segmentedControl.move(to: 1)
+        }
+        else if sclContent.contentOffset.x >= 2 * screenWidth {
+            
+            // Near Me
+            segmentedControl.move(to: 2)
+        }
+    }
+    
 }
 
 extension HomeViewController {
@@ -381,12 +407,11 @@ extension HomeViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 145
+        return 165
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailNewsViewController()
-        
         
         if tableView == tbListNews {
             
@@ -409,28 +434,6 @@ extension HomeViewController {
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    //MARK: Scroll view did scroll
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        //        let contentOffsetX = scrollView.contentOffset.x
-        //        var currentPage = contentOffsetX / screenWidth
-        if sclContent.contentOffset.x >= 0 &&  sclContent.contentOffset.x < screenWidth {
-            
-            // News
-            segmentedControl.move(to: 0)
-        }
-        else if sclContent.contentOffset.x >= screenWidth && sclContent.contentOffset.x < 2 * screenWidth  {
-            
-            // Most View
-            segmentedControl.move(to: 1)
-        }
-        else if sclContent.contentOffset.x >= 2 * screenWidth {
-            
-            // Near Me
-            segmentedControl.move(to: 2)
-        }
-    }
+
 }
 

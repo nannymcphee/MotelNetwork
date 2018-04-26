@@ -95,6 +95,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         createDatePicker()
         userType.append(UserType(userType: 0, userTypeName: "Chủ nhà trọ"))
         userType.append(UserType(userType: 1, userTypeName: "Khách thuê trọ"))
+        makeImageViewRounded(imageView: ivProfilePicture)
         self.tapToDismissKeyboard()
     }
     
@@ -138,7 +139,8 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         var strURL = ""
         let imageName = NSUUID().uuidString
-        let storageRef = Storage.storage().reference().child("ProfileImages").child("\(imageName).png")
+        let uid = Auth.auth().currentUser?.uid
+        let storageRef = Storage.storage().reference().child("ProfileImages").child(uid!).child("\(imageName).png")
         let storeImage = storageRef
         
         if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 0.2) {

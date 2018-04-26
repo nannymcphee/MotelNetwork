@@ -171,6 +171,7 @@ public final class NVActivityIndicatorPresenter {
         guard state == .showed else {
             startAnimatingGroup.notify(queue: DispatchQueue.main) {
                 self.messageLabel.text = message
+                self.messageLabel.font = UIFont(name: "Helvetica Neue", size: 18.0)
             }
 
             return

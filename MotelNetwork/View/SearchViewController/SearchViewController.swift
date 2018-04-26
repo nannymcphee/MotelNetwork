@@ -15,8 +15,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tbSearchResults: UITableView!
     
     var listNews = [News]()
+    var listNewsOrderedByPrice = [News]()
     var listNewsFiltered = [News]()
     var isSearching: Bool = false
+    var refreshControl: UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +31,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchBar.changeTextFont(textFont: UIFont(name: "Helvetica Neue", size: 12.0))
         searchBar.returnKeyType = .done
         
-        fetchPosts()
+        setUpView()
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,9 +46,33 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
+    func setUpView() {
+        
+        // Add refresh control
+        refreshControl.addTarget(self, action: #selector(self.refreshData), for: UIControlEvents.valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tbSearchResults.refreshControl = refreshControl
+        }
+        else {
+            tbSearchResults.addSubview(refreshControl)
+        }
+    }
+    
+    @objc func refreshData() {
+        
+        listNewsOrderedByPrice.removeAll()
+        listNews.removeAll()
+        listNewsFiltered.removeAll()
+        loadData()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.2) {
+            self.refreshControl.endRefreshing()
+        }
+    }
+    
     //MARK: Database interactions
     
-    func fetchPosts() {
+    func loadData() {
         
         let ref = Database.database().reference().child("Posts")
         ref.observe(.childAdded, with: { (snapshot) in
@@ -80,7 +107,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 news.postDate = dictionary["postDate"] as? String
                 
                 self.listNews.append(news)
-                self.tbSearchResults.insertRows(at: [IndexPath(row: self.listNews.count - 1, section: 0)], with: .automatic)
+                self.listNewsOrderedByPrice = self.listNews.sorted(by: { (news0, news1) -> Bool in
+
+                    return Int(news0.price!) < Int(news1.price!)
+                })
                 
                 self.tbSearchResults.reloadData()
             }
@@ -130,7 +160,7 @@ extension SearchViewController {
         }
         else {
             
-            news = self.listNews[indexPath.row]
+            news = self.listNewsOrderedByPrice[indexPath.row]
         }
         
         cell.populateData(news: news)
@@ -144,11 +174,11 @@ extension SearchViewController {
             return listNewsFiltered.count
         }
         
-        return self.listNews.count
+        return self.listNewsOrderedByPrice.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 145
+        return 165
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -163,7 +193,7 @@ extension SearchViewController {
         }
         else {
             
-            news = self.listNews[indexPath.row]
+            news = self.listNewsOrderedByPrice[indexPath.row]
             vc.currentNews = news
         }
         

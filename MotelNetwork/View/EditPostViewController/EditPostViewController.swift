@@ -166,7 +166,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                     thumbnail = result!
                 }
                 
-                let data = UIImageJPEGRepresentation(thumbnail, 0.7)
+                let data = UIImageJPEGRepresentation(thumbnail, 1.0)
                 let newImage = UIImage(data: data!)
                 self.imageArray.append(newImage as! UIImage)
             }

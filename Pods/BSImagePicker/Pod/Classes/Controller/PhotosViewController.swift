@@ -47,7 +47,8 @@ fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
 final class PhotosViewController : UICollectionViewController {    
     @objc var selectionClosure: ((_ asset: PHAsset) -> Void)?
     @objc var deselectionClosure: ((_ asset: PHAsset) -> Void)?
-    @objc var cancelClosure: ((_ assets: [PHAsset]) -> Void)?
+    @objc var
+    cancelClosure: ((_ assets: [PHAsset]) -> Void)?
     @objc var finishClosure: ((_ assets: [PHAsset]) -> Void)?
     
     @objc var doneBarButton: UIBarButtonItem?
@@ -66,7 +67,7 @@ final class PhotosViewController : UICollectionViewController {
     
     let settings: BSImagePickerSettings
     
-    fileprivate let doneBarButtonTitle: String = NSLocalizedString("Done", comment: "Done")
+    fileprivate let doneBarButtonTitle: String = NSLocalizedString("Xong", comment: "Xong")
     
     @objc lazy var albumsViewController: AlbumsViewController = {
         let storyboard = UIStoryboard(name: "Albums", bundle: BSImagePickerViewController.bundle)
@@ -115,6 +116,7 @@ final class PhotosViewController : UICollectionViewController {
         doneBarButton?.action = #selector(PhotosViewController.doneButtonPressed(_:))
         cancelBarButton?.target = self
         cancelBarButton?.action = #selector(PhotosViewController.cancelButtonPressed(_:))
+        cancelBarButton?.title = "Đóng"
         albumTitleView?.addTarget(self, action: #selector(PhotosViewController.albumButtonPressed(_:)), for: .touchUpInside)
         navigationItem.leftBarButtonItem = cancelBarButton
         navigationItem.rightBarButtonItem = doneBarButton

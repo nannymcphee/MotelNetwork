@@ -109,7 +109,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     thumbnail = result!
                 }
                 
-                let data = UIImageJPEGRepresentation(thumbnail, 0.2)
+                let data = UIImageJPEGRepresentation(thumbnail, 1.0)
                 let newImage = UIImage(data: data!)
                 self.imageArray.append(newImage as! UIImage)
             }
@@ -283,14 +283,10 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 self.storeInformationToDatabase(reference: reference, values: ["postImageUrl2": url as AnyObject])
             }
             
-            self.showLoading()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                self.stopLoading()
                 self.showAlert(alertMessage: messageNewPostSuccess)
                 self.selectedAssets.removeAll()
                 self.imageArray.removeAll()
                 self.resetView()
-            }
         }
         
         return
