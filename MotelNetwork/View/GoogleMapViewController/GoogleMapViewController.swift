@@ -2,202 +2,204 @@
 //  GoogleMapViewController.swift
 //  Motel Network
 //
-//  Created by Nguyên Duy on 4/23/18.
+//  Created by Nguyên Duy on 4/27/18.
 //  Copyright © 2018 Nguyên Duy. All rights reserved.
 //
 
+//struct NewsLocation {
+//    let title: String
+//    let lat: CLLocationDegrees
+//    let long: CLLocationDegrees
+//}
+
+
 import UIKit
 import GoogleMaps
-import PXGoogleDirections
+import FirebaseDatabase
 
-class GoogleMapViewController: UIViewController, CLLocationManagerDelegate {
-    
-    @IBOutlet weak var btnGetCurrentLocation: UIButton!
+class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
+
     @IBOutlet weak var btnBack: UIButton!
-    @IBOutlet weak var btnGo: UIButton!
-    @IBOutlet weak var tfOrigin: UITextField!
-    @IBOutlet weak var tfDestination: UITextField!
+    @IBOutlet weak var mapView: GMSMapView!
     
-    var currentNews = News()
-    var locationManager: CLLocationManager?
+    var listNews = [News]()
+    var listCoordinate = [CLLocationCoordinate2D]()
+    var locationManager = CLLocationManager()
+    var listNewsLocation = [NewsLocation]()
+    var markers = [GMSMarker]()
     var currentLocation: CLLocation?
-    var currentLocationCoordinate: CLLocationCoordinate2D?
+    var zoomLevel: Float = 15
+    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        mapView.isMyLocationEnabled = true
+        mapView.settings.myLocationButton = true
+        
+//        showLoading()
+        loadData()
         setUpLocationManager()
-        setUpView()        
-    }
-    
-    func setUpView() {
-        tfDestination.text = currentNews.address!
-        makeButtonRounded(button: btnGo)
-    }
-    
-    func setUpLocationManager() {
-        locationManager = CLLocationManager()
-        locationManager?.delegate = self
-        self.locationManager?.requestAlwaysAuthorization()
-        locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager?.startUpdatingLocation()
-    }
+        
 
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    //MARK: Database interaction
+    
+    func loadData() {
+        let ref = Database.database().reference().child("Posts")
         
-        if currentLocation == nil {
-            currentLocation = locations.last
-            locationManager?.stopMonitoringSignificantLocationChanges()
-            let locationValue:CLLocationCoordinate2D = manager.location!.coordinate
-            
-//            print("locations = \(locationValue)")
-            currentLocationCoordinate = locationValue
-//            self.tfOrigin.text = "\(locationValue.latitude), \(locationValue.longitude)"
-            
-//            let geocoder = CLGeocoder()
-//            geocoder.reverseGeocodeLocation(currentLocation!) { (placemark, error) in
-//                if error != nil {
-//                    print(error!)
-//                }
-//                else {
-//                    self.tfOrigin.text = placemark![0].name
-//                }
-//            }
-            
-            locationManager?.stopUpdatingLocation()
+        ref.observe(.childAdded, with: { (snapshot) in
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let news = News(dictionary: dictionary)
+                let location = NewsLocation(dictionary: dictionary)
+                news.id = snapshot.key
+                
+                DispatchQueue.main.async {
+                    self.reloadInputViews()
+                }
+                
+                let priceStr = dictionary["price"] as? String
+                let waterPriceStr = dictionary["waterPrice"] as? String
+                let electricPriceStr = dictionary["electricPrice"] as? String
+                let internetPriceStr = dictionary["internetPrice"] as? String
+                
+                news.price = Double(priceStr ?? "0.0")
+                news.waterPrice = Double(waterPriceStr ?? "0.0")
+                news.electricPrice = Double(electricPriceStr ?? "0.0")
+                news.internetPrice = Double(internetPriceStr ?? "0.0")
+                news.area = dictionary["area"] as? String
+                news.district = dictionary["district"] as? String
+                news.title = dictionary["title"] as? String
+                news.address = dictionary["address"] as? String
+                news.description = dictionary["description"] as? String
+                news.phoneNumber = dictionary["phoneNumber"] as? String
+                news.ownerID = dictionary["ownerID"] as? String
+                news.postImageUrl0 = dictionary["postImageUrl0"] as? String
+                news.postImageUrl1 = dictionary["postImageUrl1"] as? String
+                news.postImageUrl2 = dictionary["postImageUrl2"] as? String
+                news.postDate = dictionary["postDate"] as? String
+                
+                location.address = dictionary["address"] as? String
+                location.title = dictionary["title"] as? String
+                
+                self.listNews.append(news)
+                self.listNewsLocation.append(location)
+
+//                self.stopLoading()
+            }
+            self.convertAddressToCoordinate()
+
+        }, withCancel: nil)
+        
+    }
+
+    //MARK: Convert address to coordinate
+    
+    func convertAddressToCoordinate() {
+        
+        let geoCoder = CLGeocoder()
+        
+        for i in 0..<listNewsLocation.count {
+            geoCoder.geocodeAddressString(listNewsLocation[i].address!) { (placemark, error) in
+                guard
+                    let placemark = placemark, let location = placemark.first?.location else {
+                        // Handle no location found
+                        print(error?.localizedDescription ?? "No error found.")
+                        return
+                }
+                
+                self.listCoordinate.append(location.coordinate)
+                
+                for i in 0..<self.listCoordinate.count {
+                    let marker = GMSMarker(position: self.listCoordinate[i])
+//                    marker.title = "Bài đăng \(i)"
+                    marker.map = self.mapView
+                    self.markers.append(marker)
+                }
+            }
         }
     }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
-    }
-    
-    
-    fileprivate var directionsAPI: PXGoogleDirections {
-        return (UIApplication.shared.delegate as! AppDelegate).directionsAPI
-    }
+
+//    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+//        for i in 0..<self.locationsArray.count {
+//            let marker = GMSMarker(position: self.locationsArray[i])
+//            if marker == marker {
+//                let vc = DetailNewsViewController()
+//                let news = listNews[i]
+//                vc.currentNews = news
+//                (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+//            }
+//        }
+//        return true
+//    }
     
     
     @IBAction func btnBackPressed(_ sender: Any) {
         
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
-    
-    @IBAction func btnGoPressed(_ sender: Any) {
-        
-        if (tfOrigin.text?.isEmpty)! || (tfDestination.text?.isEmpty)! {
-            showAlert(alertMessage: messageNilTextFields)
-        }
-        else if tfOrigin.text == "Vị trí của bạn" || tfOrigin.text == "Vị trí của bạn (Mặc định)" {
-            directionsAPI.delegate = self
-            directionsAPI.from = PXLocation.coordinateLocation(currentLocationCoordinate!)
-            directionsAPI.to = PXLocation.namedLocation(tfDestination.text!)
-            directionsAPI.region = "vi-vn"
-            
-            directionsAPI.calculateDirections { (response) -> Void in
-                DispatchQueue.main.async(execute: { () -> Void in
-                    switch response {
-                    case let .error(_, error):
-                        self.showAlert(alertMessage: "Error: \(error.localizedDescription)")
-                    case let .success(request, routes):
-                        let rvc = ResultViewController()
-                        rvc.request = request
-                        rvc.results = routes
-                        rvc.currentNews = self.currentNews
-                        self.present(rvc, animated: true, completion: nil)
-                    }
-                })
-            }
-        }
-        else if tfOrigin.text != "Vị trí của bạn" || tfOrigin.text == "Vị trí của bạn (Mặc định)" {
-            directionsAPI.delegate = self
-            directionsAPI.from = PXLocation.namedLocation(tfOrigin.text!)
-            directionsAPI.to = PXLocation.namedLocation(tfDestination.text!)
-            directionsAPI.region = "vi-vn"
-            
-            directionsAPI.calculateDirections { (response) -> Void in
-                DispatchQueue.main.async(execute: { () -> Void in
-                    switch response {
-                    case let .error(_, error):
-                        self.showAlert(alertMessage: "Error: \(error.localizedDescription)")
-                    case let .success(request, routes):
-                        let rvc = ResultViewController()
-                        rvc.request = request
-                        rvc.results = routes
-                        rvc.currentNews = self.currentNews
-                        self.present(rvc, animated: true, completion: nil)
-                    }
-                })
-            }
-        }
-        else {
-            directionsAPI.delegate = self
-            directionsAPI.from = PXLocation.namedLocation(tfOrigin.text!)
-            directionsAPI.to = PXLocation.namedLocation(tfDestination.text!)
-            directionsAPI.region = "vi-vn"
-            
-            directionsAPI.calculateDirections { (response) -> Void in
-                DispatchQueue.main.async(execute: { () -> Void in
-                    switch response {
-                    case let .error(_, error):
-                        self.showAlert(alertMessage: "Error: \(error.localizedDescription)")
-                    case let .success(request, routes):
-                        let rvc = ResultViewController()
-                        rvc.request = request
-                        rvc.results = routes
-                        rvc.currentNews = self.currentNews
-                        self.present(rvc, animated: true, completion: nil)
-                    }
-                })
-            }
-        }
-        
-    }
-    
-    
-    @IBAction func btnGetCurrentLocationPressed(_ sender: Any) {
-        
-        self.tfOrigin.text = "Vị trí của bạn"
-    }
-    
-    
 }
 
-extension GoogleMapViewController: PXGoogleDirectionsDelegate {
-    func googleDirectionsWillSendRequestToAPI(_ googleDirections: PXGoogleDirections, withURL requestURL: URL) -> Bool {
-        NSLog("googleDirectionsWillSendRequestToAPI:withURL:")
-        return true
+extension GoogleMapViewController {
+    
+    func setUpLocationManager() {
+        
+        locationManager.delegate = self
+        self.locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.startUpdatingLocation()
+        locationManager.distanceFilter = 50
     }
     
-    func googleDirectionsDidSendRequestToAPI(_ googleDirections: PXGoogleDirections, withURL requestURL: URL) {
-        NSLog("googleDirectionsDidSendRequestToAPI:withURL:")
-        NSLog("\(requestURL.absoluteString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)")
-    }
-    
-    func googleDirections(_ googleDirections: PXGoogleDirections, didReceiveRawDataFromAPI data: Data) {
-        NSLog("googleDirections:didReceiveRawDataFromAPI:")
-        NSLog(String(data: data, encoding: .utf8)!)
-    }
-    
-    func googleDirectionsRequestDidFail(_ googleDirections: PXGoogleDirections, withError error: NSError) {
-        NSLog("googleDirectionsRequestDidFail:withError:")
-        NSLog("\(error)")
-    }
-    
-    func googleDirections(_ googleDirections: PXGoogleDirections, didReceiveResponseFromAPI apiResponse: [PXGoogleDirectionsRoute]) {
-        NSLog("googleDirections:didReceiveResponseFromAPI:")
-        NSLog("Got \(apiResponse.count) routes")
-        for i in 0 ..< apiResponse.count {
-            NSLog("Route \(i) has \(apiResponse[i].legs.count) legs")
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if currentLocation == nil {
+            currentLocation = locations.last
+            locationManager.stopMonitoringSignificantLocationChanges()
+            
+            let locationValue: CLLocationCoordinate2D = manager.location!.coordinate
+            
+            let camera = GMSCameraPosition.camera(withTarget: locationValue, zoom: zoomLevel)
+            
+            if mapView.isHidden {
+                mapView.isHidden = false
+                mapView.camera = camera
+            }
+            else {
+                mapView.animate(to: camera)
+                
+                let currentLocationMarker = GMSMarker(position: locationValue)
+                
+                currentLocationMarker.title = "Vị trí hiện tại"
+                currentLocationMarker.map = mapView
+            }
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            print("Location access was restricted.")
+        case .denied:
+            print("User denied access to location.")
+            // Display the map using the default location.
+            mapView.isHidden = false
+        case .notDetermined:
+            print("Location status not determined.")
+        case .authorizedAlways: fallthrough
+        case .authorizedWhenInUse:
+            print("Location status is OK.")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+        print(error.localizedDescription)
+    }
 }
-
-
-
-
-

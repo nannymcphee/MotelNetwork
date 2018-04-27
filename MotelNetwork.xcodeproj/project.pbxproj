@@ -24,6 +24,8 @@
 		E117B659208DF2BE00087A0B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E117B657208DF2BE00087A0B /* ResultViewController.swift */; };
 		E117B65A208DF2BE00087A0B /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E117B658208DF2BE00087A0B /* ResultViewController.xib */; };
 		E117B664208E3BC500087A0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E117B663208E3BC500087A0B /* GoogleService-Info.plist */; };
+		E127015A2093372600663611 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12701582093372600663611 /* GoogleMapViewController.swift */; };
+		E127015B2093372600663611 /* GoogleMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12701592093372600663611 /* GoogleMapViewController.xib */; };
 		E1397D86208AC7CC0050C86D /* ListBillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1397D84208AC7CC0050C86D /* ListBillTableViewCell.swift */; };
 		E1397D87208AC7CC0050C86D /* ListBillTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1397D85208AC7CC0050C86D /* ListBillTableViewCell.xib */; };
 		E1397D8B208AEF960050C86D /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1397D8A208AEF960050C86D /* Bill.swift */; };
@@ -47,8 +49,8 @@
 		E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BBB207F59F300387527 /* SettingViewController.swift */; };
 		E1507BBE207F59F300387527 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BBC207F59F300387527 /* SettingViewController.xib */; };
 		E1507BC02080972500387527 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BBF2080972500387527 /* News.swift */; };
-		E16BD8B5208DC0FD00DD00B7 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BD8B3208DC0FD00DD00B7 /* GoogleMapViewController.swift */; };
-		E16BD8B6208DC0FD00DD00B7 /* GoogleMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16BD8B4208DC0FD00DD00B7 /* GoogleMapViewController.xib */; };
+		E16BD8B5208DC0FD00DD00B7 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BD8B3208DC0FD00DD00B7 /* NavigationViewController.swift */; };
+		E16BD8B6208DC0FD00DD00B7 /* NavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16BD8B4208DC0FD00DD00B7 /* NavigationViewController.xib */; };
 		E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B19207B698E00B284A5 /* AccountViewController.swift */; };
 		E16F5B1C207B698E00B284A5 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B1A207B698E00B284A5 /* AccountViewController.xib */; };
 		E16F5B1F207B69AE00B284A5 /* AccountOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B1D207B69AE00B284A5 /* AccountOptionTableViewCell.swift */; };
@@ -76,6 +78,7 @@
 		E198DC2B2082F6BB00E59BD2 /* EditPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E198DC292082F6BB00E59BD2 /* EditPostViewController.xib */; };
 		E19CBCA82088818600A310D3 /* BillManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19CBCA62088818600A310D3 /* BillManagementViewController.swift */; };
 		E19CBCA92088818600A310D3 /* BillManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19CBCA72088818600A310D3 /* BillManagementViewController.xib */; };
+		E1A43F1D20935F8400FA2013 /* NewsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A43F1C20935F8400FA2013 /* NewsLocation.swift */; };
 		E1A621D22070D23100B83291 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A621D02070D23100B83291 /* TestViewController.swift */; };
 		E1A621D32070D23100B83291 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A621D12070D23100B83291 /* TestViewController.xib */; };
 		E1AA95BB2090AA2900FBDB65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1AA95BA2090AA2900FBDB65 /* Assets.xcassets */; };
@@ -108,6 +111,8 @@
 		E117B657208DF2BE00087A0B /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		E117B658208DF2BE00087A0B /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		E117B663208E3BC500087A0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E12701582093372600663611 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
+		E12701592093372600663611 /* GoogleMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoogleMapViewController.xib; sourceTree = "<group>"; };
 		E1397D84208AC7CC0050C86D /* ListBillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBillTableViewCell.swift; sourceTree = "<group>"; };
 		E1397D85208AC7CC0050C86D /* ListBillTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListBillTableViewCell.xib; sourceTree = "<group>"; };
 		E1397D8A208AEF960050C86D /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
@@ -131,8 +136,8 @@
 		E1507BBB207F59F300387527 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E1507BBC207F59F300387527 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		E1507BBF2080972500387527 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
-		E16BD8B3208DC0FD00DD00B7 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
-		E16BD8B4208DC0FD00DD00B7 /* GoogleMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoogleMapViewController.xib; sourceTree = "<group>"; };
+		E16BD8B3208DC0FD00DD00B7 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		E16BD8B4208DC0FD00DD00B7 /* NavigationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationViewController.xib; sourceTree = "<group>"; };
 		E16F5B19207B698E00B284A5 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		E16F5B1A207B698E00B284A5 /* AccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
 		E16F5B1D207B69AE00B284A5 /* AccountOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -162,6 +167,7 @@
 		E198DC292082F6BB00E59BD2 /* EditPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditPostViewController.xib; sourceTree = "<group>"; };
 		E19CBCA62088818600A310D3 /* BillManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillManagementViewController.swift; sourceTree = "<group>"; };
 		E19CBCA72088818600A310D3 /* BillManagementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillManagementViewController.xib; sourceTree = "<group>"; };
+		E1A43F1C20935F8400FA2013 /* NewsLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewsLocation.swift; path = MotelNetwork/Assets.xcassets/NewsLocation.swift; sourceTree = SOURCE_ROOT; };
 		E1A621D02070D23100B83291 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E1A621D12070D23100B83291 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		E1AA95BA2090AA2900FBDB65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -249,6 +255,15 @@
 				E104666D20708FF400245789 /* TutorialViewController.xib */,
 			);
 			path = TutorialViewController;
+			sourceTree = "<group>";
+		};
+		E12701572093370B00663611 /* GoogleMapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E12701582093372600663611 /* GoogleMapViewController.swift */,
+				E12701592093372600663611 /* GoogleMapViewController.xib */,
+			);
+			path = GoogleMapViewController;
 			sourceTree = "<group>";
 		};
 		E14804F42089F8CE00C67D43 /* CreateNotificationViewController */ = {
@@ -370,15 +385,15 @@
 			path = SignUpViewController;
 			sourceTree = "<group>";
 		};
-		E16BD8B2208DC07200DD00B7 /* GoogleMapViewController */ = {
+		E16BD8B2208DC07200DD00B7 /* NavigationViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E16BD8B3208DC0FD00DD00B7 /* GoogleMapViewController.swift */,
-				E16BD8B4208DC0FD00DD00B7 /* GoogleMapViewController.xib */,
+				E16BD8B3208DC0FD00DD00B7 /* NavigationViewController.swift */,
+				E16BD8B4208DC0FD00DD00B7 /* NavigationViewController.xib */,
 				E117B657208DF2BE00087A0B /* ResultViewController.swift */,
 				E117B658208DF2BE00087A0B /* ResultViewController.xib */,
 			);
-			path = GoogleMapViewController;
+			path = NavigationViewController;
 			sourceTree = "<group>";
 		};
 		E16F5B18207B696500B284A5 /* AccountViewController */ = {
@@ -510,6 +525,7 @@
 				E1507BBF2080972500387527 /* News.swift */,
 				E1397D8A208AEF960050C86D /* Bill.swift */,
 				E1397D8C208AF1230050C86D /* Notification.swift */,
+				E1A43F1C20935F8400FA2013 /* NewsLocation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -526,9 +542,10 @@
 		E1E7D1F72071C7D300874EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E12701572093370B00663611 /* GoogleMapViewController */,
 				E10112CC2091C2BA004ACA0D /* UpdateInfoViewController */,
 				E10112C7209199A8004ACA0D /* SearchViewController */,
-				E16BD8B2208DC07200DD00B7 /* GoogleMapViewController */,
+				E16BD8B2208DC07200DD00B7 /* NavigationViewController */,
 				E1954473208A0E84004F0D17 /* DetailBillViewController */,
 				E14804FA2089F8EA00C67D43 /* NotificationListViewController */,
 				E14804F92089F8E700C67D43 /* DetailNotificationViewController */,
@@ -651,7 +668,7 @@
 				E19CBCA92088818600A310D3 /* BillManagementViewController.xib in Resources */,
 				E1BD102F20766C3500287982 /* CreateRoomViewController.xib in Resources */,
 				E14C41442074D107003571E8 /* DetailNewsViewController.xib in Resources */,
-				E16BD8B6208DC0FD00DD00B7 /* GoogleMapViewController.xib in Resources */,
+				E16BD8B6208DC0FD00DD00B7 /* NavigationViewController.xib in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
 				145C12072075FF5300AB11F3 /* ListRoomsTableViewCell.xib in Resources */,
 				E16F5B2A207B7D8E00B284A5 /* ChangeEmailViewController.xib in Resources */,
@@ -664,6 +681,7 @@
 				E16F5B2E207B84D900B284A5 /* ChangePasswordViewController.xib in Resources */,
 				E1507BBE207F59F300387527 /* SettingViewController.xib in Resources */,
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
+				E127015B2093372600663611 /* GoogleMapViewController.xib in Resources */,
 				E10112D22091C2DD004ACA0D /* UpdateInfoViewController.xib in Resources */,
 				E198761720672E2D008434CC /* Main.storyboard in Resources */,
 				E16F5B1C207B698E00B284A5 /* AccountViewController.xib in Resources */,
@@ -770,12 +788,14 @@
 				E1BD102620765FAD00287982 /* Room.swift in Sources */,
 				E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */,
 				E19CBCA82088818600A310D3 /* BillManagementViewController.swift in Sources */,
-				E16BD8B5208DC0FD00DD00B7 /* GoogleMapViewController.swift in Sources */,
+				E16BD8B5208DC0FD00DD00B7 /* NavigationViewController.swift in Sources */,
 				145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */,
 				E1954476208A0EA3004F0D17 /* DetailBillViewController.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
 				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
+				E127015A2093372600663611 /* GoogleMapViewController.swift in Sources */,
 				E1397D8D208AF1230050C86D /* Notification.swift in Sources */,
+				E1A43F1D20935F8400FA2013 /* NewsLocation.swift in Sources */,
 				E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */,
 				E1397D8B208AEF960050C86D /* Bill.swift in Sources */,
 				E1507BC02080972500387527 /* News.swift in Sources */,

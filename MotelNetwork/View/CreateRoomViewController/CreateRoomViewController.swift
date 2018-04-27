@@ -16,6 +16,7 @@ import BSImagePicker
 class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate {
     
     
+    @IBOutlet weak var tfUsersAllowed: UITextField!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnSave: UIButton!
     @IBOutlet weak var tfRoomName: UITextField!
@@ -171,6 +172,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 3
+        vc.cancelButton.title = "Đóng"
         vc.doneButton.title = "Xong"
         self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
         
@@ -202,7 +204,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         
         // Check if user has entered all informations
-        if  (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! || ivRoomImage0.image == nil || ivRoomImage1.image == nil || ivRoomImage2.image == nil {
+        if  (tfArea.text?.isEmpty)! || (tfUsersAllowed.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! || ivRoomImage0.image == nil || ivRoomImage1.image == nil || ivRoomImage2.image == nil {
             
             // Create UIAlertController
             self.showAlert(alertMessage: messageNilTextFields)
@@ -214,6 +216,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             let area = self.tfArea.text!
             let price = self.tfPrice.text!
             let renterName = self.tfUser.text!
+            let usersAllowed = self.tfUsersAllowed.text!
             let ownerID = uid
             let ref = Database.database().reference().child("Rooms").childByAutoId()
 
@@ -227,7 +230,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
             }
             
-            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl0": "", "roomImageUrl1": "", "roomImageUrl2": ""]
+            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl0": "", "roomImageUrl1": "", "roomImageUrl2": "", "usersAllowed": usersAllowed]
             
             self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
             // Upload image to Firebase storage and update download urls into database
@@ -271,11 +274,11 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 let option = PHImageRequestOptions()
                 var thumbnail = UIImage()
                 option.isSynchronous = true
-                manager.requestImage(for: selectedAssets[i], targetSize: CGSize(width: 200, height: 200), contentMode: .aspectFill, options: option) { (result, info) in
+                manager.requestImage(for: selectedAssets[i], targetSize: CGSize(width: 375, height: 200), contentMode: .aspectFit, options: option) { (result, info) in
                     thumbnail = result!
                 }
                 
-                let data = UIImageJPEGRepresentation(thumbnail, 0.7)
+                let data = UIImageJPEGRepresentation(thumbnail, 1.0)
                 let newImage = UIImage(data: data!)
                 self.imageArray.append(newImage as! UIImage)
             }

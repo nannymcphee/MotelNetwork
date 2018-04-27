@@ -18,11 +18,12 @@ class Room {
     var roomImageUrl1: String?
     var roomImageUrl2: String?
     var price: Double?
+    var usersAllowed: String?
     
     init() {
     }
     
-    init(id: String, name: String, area: String, roomImageUrl0: String, roomImageUrl1: String, roomImageUrl2: String, ownerID: String, renterID: String, price: Double) {
+    init(id: String, name: String, area: String, roomImageUrl0: String, roomImageUrl1: String, roomImageUrl2: String, ownerID: String, renterID: String, price: Double, usersAllowed: String) {
         self.id = id
         self.name = name
         self.area = area
@@ -32,6 +33,7 @@ class Room {
         self.roomImageUrl2 = roomImageUrl2
         self.ownerID = ownerID
         self.renterID = renterID
+        self.usersAllowed = usersAllowed
     }
     
     init(dictionary: [String: AnyObject]) {
@@ -44,6 +46,7 @@ class Room {
         self.roomImageUrl0 = dictionary["roomImageUrl0"] as? String
         self.roomImageUrl1 = dictionary["roomImageUrl1"] as? String
         self.roomImageUrl2 = dictionary["roomImageUrl2"] as? String
+        self.usersAllowed = dictionary["usersAllowed"] as? String
     }
     
 }

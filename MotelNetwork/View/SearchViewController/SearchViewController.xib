@@ -38,6 +38,14 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUj-nx-J4i">
+                            <rect key="frame" x="266" y="16" width="90" height="32"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                            <state key="normal" title="Xem bản đồ"/>
+                            <connections>
+                                <action selector="btnViewMapPressed:" destination="-1" eventType="touchUpInside" id="mvR-D1-9wX"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -45,8 +53,10 @@
                         <constraint firstAttribute="bottom" secondItem="hEC-4S-vVM" secondAttribute="bottom" id="24J-ju-nyK"/>
                         <constraint firstItem="VrK-NU-QiN" firstAttribute="centerY" secondItem="8in-Ns-kpZ" secondAttribute="centerY" id="FPm-6Q-yxX"/>
                         <constraint firstItem="VrK-NU-QiN" firstAttribute="centerX" secondItem="8in-Ns-kpZ" secondAttribute="centerX" id="alw-D4-rEc"/>
+                        <constraint firstAttribute="trailing" secondItem="UUj-nx-J4i" secondAttribute="trailing" constant="19" id="bEB-EK-Lei"/>
                         <constraint firstAttribute="height" constant="64" id="cKX-Mp-vwk"/>
                         <constraint firstItem="hEC-4S-vVM" firstAttribute="leading" secondItem="8in-Ns-kpZ" secondAttribute="leading" id="cdA-se-5kT"/>
+                        <constraint firstItem="UUj-nx-J4i" firstAttribute="centerY" secondItem="VrK-NU-QiN" secondAttribute="centerY" id="sGa-mh-fFs"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DOg-zL-9SC">
@@ -55,7 +65,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMe-KD-R64">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                             <subviews>
-                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Tìm theo quận" translatesAutoresizingMaskIntoConstraints="NO" id="dnn-e2-TZP">
+                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Tìm kiếm" translatesAutoresizingMaskIntoConstraints="NO" id="dnn-e2-TZP">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                     <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
                                     <textInputTraits key="textInputTraits"/>

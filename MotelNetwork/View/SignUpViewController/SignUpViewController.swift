@@ -173,6 +173,8 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 1
+        vc.cancelButton.title = "Đóng"
+        vc.doneButton.title = "Xong"
         self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
         }, deselect: { (asset: PHAsset) in
             

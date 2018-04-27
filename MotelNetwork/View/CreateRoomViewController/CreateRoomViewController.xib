@@ -27,6 +27,7 @@
                 <outlet property="tfPrice" destination="cdG-xL-RmB" id="j3h-sl-5NE"/>
                 <outlet property="tfRoomName" destination="5tS-sp-DXN" id="5O7-IG-y0a"/>
                 <outlet property="tfUser" destination="OVJ-bd-2Re" id="KZA-Gr-RSI"/>
+                <outlet property="tfUsersAllowed" destination="aIt-iZ-P2z" id="RHA-t5-NUi"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -144,7 +145,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="gkz-ko-9l7"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Gh3-Q5-jAI">
@@ -153,7 +154,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="dkW-yy-t5K"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="cdG-xL-RmB">
@@ -162,49 +163,69 @@
                                                         <constraint firstAttribute="height" constant="40" id="wCd-ci-1qi"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Để trống nếu chưa có người thuê" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OVJ-bd-2Re">
-                                                    <rect key="frame" x="17" y="283" width="340" height="40"/>
+                                                    <rect key="frame" x="17" y="355" width="340" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="W7V-bq-USB"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Người thuê" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7K-t0-UU3">
-                                                    <rect key="frame" x="17" y="263" width="62" height="14"/>
+                                                    <rect key="frame" x="17" y="335" width="62" height="14"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Số người cho phép" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hiq-3T-wKb">
+                                                    <rect key="frame" x="17" y="263" width="105" height="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aIt-iZ-P2z">
+                                                    <rect key="frame" x="17" y="283" width="340" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="mhu-v5-z8R"/>
+                                                    </constraints>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                </textField>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstItem="H7K-t0-UU3" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="1fH-wA-7ah"/>
+                                                <constraint firstAttribute="trailing" secondItem="aIt-iZ-P2z" secondAttribute="trailing" constant="18" id="3ug-s1-QkR"/>
                                                 <constraint firstAttribute="trailing" secondItem="Gh3-Q5-jAI" secondAttribute="trailing" constant="18" id="59I-P4-XJu"/>
                                                 <constraint firstItem="gAP-Ng-isQ" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="8kv-U6-med"/>
                                                 <constraint firstItem="id3-tx-e9E" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="908-Uz-SlL"/>
                                                 <constraint firstItem="cdG-xL-RmB" firstAttribute="top" secondItem="Xfw-B4-hXZ" secondAttribute="bottom" constant="6" id="9bK-qE-vhm"/>
                                                 <constraint firstItem="Xfw-B4-hXZ" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="ABj-jU-6n2"/>
+                                                <constraint firstItem="OVJ-bd-2Re" firstAttribute="top" secondItem="H7K-t0-UU3" secondAttribute="bottom" constant="6" id="Ewz-sA-UbF"/>
                                                 <constraint firstItem="Gh3-Q5-jAI" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="GI8-DU-D4v"/>
                                                 <constraint firstItem="dx2-C0-uVb" firstAttribute="top" secondItem="waF-pc-Pc7" secondAttribute="top" constant="15" id="Ga5-kZ-ruJ"/>
                                                 <constraint firstItem="dx2-C0-uVb" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="GdS-7s-s1d"/>
                                                 <constraint firstItem="OVJ-bd-2Re" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="HHL-CP-aSl"/>
-                                                <constraint firstItem="H7K-t0-UU3" firstAttribute="top" secondItem="cdG-xL-RmB" secondAttribute="bottom" constant="12" id="Iez-Ov-hGG"/>
                                                 <constraint firstItem="id3-tx-e9E" firstAttribute="top" secondItem="5tS-sp-DXN" secondAttribute="bottom" constant="12" id="Iks-hw-3UF"/>
                                                 <constraint firstItem="Gh3-Q5-jAI" firstAttribute="top" secondItem="id3-tx-e9E" secondAttribute="bottom" constant="6" id="NJZ-wu-mv4"/>
-                                                <constraint firstItem="OVJ-bd-2Re" firstAttribute="top" secondItem="H7K-t0-UU3" secondAttribute="bottom" constant="6" id="PLe-he-r0e"/>
                                                 <constraint firstItem="gAP-Ng-isQ" firstAttribute="top" secondItem="dx2-C0-uVb" secondAttribute="bottom" constant="12" id="PZO-Rf-v7L"/>
                                                 <constraint firstItem="5tS-sp-DXN" firstAttribute="top" secondItem="gAP-Ng-isQ" secondAttribute="bottom" constant="6" id="Sng-oX-U24"/>
-                                                <constraint firstItem="H7K-t0-UU3" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="dYN-GA-o6o"/>
+                                                <constraint firstItem="H7K-t0-UU3" firstAttribute="top" secondItem="aIt-iZ-P2z" secondAttribute="bottom" constant="12" id="Uhs-Fq-dY6"/>
+                                                <constraint firstItem="Hiq-3T-wKb" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="ZoB-VW-PeU"/>
                                                 <constraint firstItem="cdG-xL-RmB" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="dvS-AC-XBi"/>
                                                 <constraint firstAttribute="trailing" secondItem="OVJ-bd-2Re" secondAttribute="trailing" constant="18" id="eOy-sr-o4Q"/>
                                                 <constraint firstAttribute="trailing" secondItem="cdG-xL-RmB" secondAttribute="trailing" constant="18" id="fVE-vf-NSl"/>
                                                 <constraint firstItem="Xfw-B4-hXZ" firstAttribute="top" secondItem="Gh3-Q5-jAI" secondAttribute="bottom" constant="12" id="fd1-yG-GhV"/>
+                                                <constraint firstItem="Hiq-3T-wKb" firstAttribute="top" secondItem="cdG-xL-RmB" secondAttribute="bottom" constant="12" id="fim-CC-jq5"/>
                                                 <constraint firstItem="5tS-sp-DXN" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="hD2-qZ-ETu"/>
+                                                <constraint firstItem="aIt-iZ-P2z" firstAttribute="leading" secondItem="waF-pc-Pc7" secondAttribute="leading" constant="17" id="xzj-tD-thX"/>
                                                 <constraint firstAttribute="trailing" secondItem="5tS-sp-DXN" secondAttribute="trailing" constant="18" id="yZG-re-zOW"/>
+                                                <constraint firstItem="aIt-iZ-P2z" firstAttribute="top" secondItem="Hiq-3T-wKb" secondAttribute="bottom" constant="6" id="zg9-xQ-h4n"/>
                                             </constraints>
                                         </view>
                                     </subviews>

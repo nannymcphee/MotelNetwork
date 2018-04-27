@@ -79,6 +79,7 @@ open class BSImagePickerViewController : UINavigationController {
         
         vc.doneBarButton = self.doneButton
         vc.cancelBarButton = self.cancelButton
+        vc.cancelBarButton?.title = "Đóng"
         vc.albumTitleView = self.albumTitleView
         
         return vc

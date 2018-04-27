@@ -127,6 +127,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
                 room.roomImageUrl0 = dictionary["roomImageUrl0"] as? String
                 room.roomImageUrl1 = dictionary["roomImageUrl1"] as? String
                 room.roomImageUrl2 = dictionary["roomImageUrl2"] as? String
+                room.usersAllowed = dictionary["usersAllowed"] as? String
                 
                 self.listRooms.append(room)
                 self.listRoomsSortedByRoomName = self.listRooms.sorted(by: { (room0, room1) -> Bool in

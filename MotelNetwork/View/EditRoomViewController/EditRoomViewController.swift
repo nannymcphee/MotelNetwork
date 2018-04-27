@@ -15,6 +15,7 @@ import BSImagePicker
 
 class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate {
 
+    @IBOutlet weak var tfUsersAllowed: UITextField!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnAddImage: UIButton!
     @IBOutlet weak var btnSave: UIButton!
@@ -54,6 +55,9 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         fetchUser()
         createUsersListPicker()
         tfArea.text = currentRoom.area
+        tfPrice.text = "\(currentRoom.price ?? 0.0)"
+        tfRoomName.text = currentRoom.name
+        tfUsersAllowed.text = currentRoom.usersAllowed
         
         if let renterID = currentRoom.renterID {
             let ref = Database.database().reference().child("Users").child(renterID)
@@ -66,8 +70,6 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             }, withCancel: nil)
         }
         
-        tfPrice.text = "\(currentRoom.price ?? 0.0)"
-        tfRoomName.text = currentRoom.name
         self.tapToDismissKeyboard()
     }
     
@@ -199,6 +201,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 3
+        vc.cancelButton.title = "Đóng"
         vc.doneButton.title = "Xong"
         self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
             
@@ -225,7 +228,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func btnSavePressed(_ sender: Any) {
         
-        if (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! {
+        if (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! || (tfUsersAllowed.text?.isEmpty)! {
             
             self.showAlert(alertMessage: messageNilTextFields)
         }
@@ -235,14 +238,16 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             let area = self.tfArea.text!
             let price = self.tfPrice.text!
             let renterName = self.tfUser.text!
+            let usersAllowed = self.tfUsersAllowed.text!
             let roomID = currentRoom.id
             let ownerID = Auth.auth().currentUser?.uid
             let renterID = currentRoom.renterID
+            
             let ref = Database.database().reference().child("Rooms").child(roomID!)
             let roomImageUrl0 = currentRoom.roomImageUrl0
             let roomImageUrl1 = currentRoom.roomImageUrl1
             let roomImageUrl2 = currentRoom.roomImageUrl2
-            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "renterID": renterID, "roomImageUrl0": roomImageUrl0, "roomImageUrl1": roomImageUrl1, "roomImageUrl2": roomImageUrl2]
+            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "renterID": renterID, "roomImageUrl0": roomImageUrl0, "roomImageUrl1": roomImageUrl1, "roomImageUrl2": roomImageUrl2, "usersAllowed": usersAllowed]
     
             // Create confirm alert
             let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)

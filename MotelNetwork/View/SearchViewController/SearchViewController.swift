@@ -137,12 +137,22 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             listNewsFiltered = self.listNews.filter({ (news) -> Bool in
                 
                 let district = news.district
+                let area = news.area
+                let title = news.title
                 
-                return (district?.lowercased().contains(searchText.lowercased()))!
+                return (district?.lowercased().contains(searchText.lowercased()))! || (area?.lowercased().contains(searchText.lowercased()))! || (title?.lowercased().contains(searchText.lowercased()))!
             })
             
             tbSearchResults.reloadData()
         }
+    }
+    
+    
+    @IBAction func btnViewMapPressed(_ sender: Any) {
+        
+        let vc = GoogleMapViewController()
+            
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     
 }

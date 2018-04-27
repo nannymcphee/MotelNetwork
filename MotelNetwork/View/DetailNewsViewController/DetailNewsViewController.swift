@@ -125,7 +125,7 @@ extension DetailNewsViewController: FloatyDelegate {
     
     // MARK: - Floaty Delegate Methods
     func emptyFloatySelected(_ floaty: Floaty) {
-        let vc = GoogleMapViewController()
+        let vc = NavigationViewController()
         let news = currentNews
         
         vc.currentNews = news
