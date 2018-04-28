@@ -9,7 +9,6 @@
 import Foundation
 
 class News {
-    
     var id: String?
     var ownerID: String?
     var title: String?
@@ -22,6 +21,8 @@ class News {
     var description: String?
     var phoneNumber: String?
     var postDate: String?
+    var lat: String?
+    var long: String?
     var price: Double?
     var electricPrice: Double?
     var waterPrice: Double?
@@ -30,7 +31,7 @@ class News {
     init() {
     }
     
-    init(id: String, title: String, area: String, address: String, postImageUrl0: String, postImageUrl1: String, postImageUrl2: String, ownerID: String, district: String, description: String, phoneNumber: String, postDate: String, price: Double, electricPrice: Double, waterPrice: Double, internetPrice: Double) {
+    init(id: String, title: String, area: String, address: String, postImageUrl0: String, postImageUrl1: String, postImageUrl2: String, ownerID: String, district: String, description: String, phoneNumber: String, postDate: String, lat: String, long: String, price: Double, electricPrice: Double, waterPrice: Double, internetPrice: Double) {
         
         self.id = id
         self.title = title
@@ -48,6 +49,8 @@ class News {
         self.electricPrice = electricPrice
         self.phoneNumber = phoneNumber
         self.postDate = postDate
+        self.lat = lat
+        self.long = long
     }
     
     init(dictionary: [String: AnyObject]) {
@@ -67,6 +70,8 @@ class News {
         self.address = dictionary["address"] as? String
         self.phoneNumber = dictionary["phoneNumber"] as? String
         self.postDate = dictionary["postDate"] as? String
+        self.lat = dictionary["lat"] as? String
+        self.long = dictionary["long"] as? String
     }
     
 }

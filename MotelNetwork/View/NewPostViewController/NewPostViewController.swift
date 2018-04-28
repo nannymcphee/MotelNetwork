@@ -12,6 +12,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import Photos
 import BSImagePicker
+import GoogleMaps
 
 class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
@@ -42,6 +43,9 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var currentDate: String = ""
     var dbReference: DatabaseReference!
     let pvDistrict = UIPickerView()
+    var currentNewsLatitude: String = ""
+    var currentNewsLongitude: String = ""
+    let reference = Database.database().reference().child("Posts").childByAutoId()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +59,25 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func convertAddressToCoordinate(address: String) {
+        
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.geocodeAddressString(address) { (placemark, error) in
+            if let placemark = placemark {
+                if placemark.count != 0 {
+                    let location = placemark.first?.location
+                    let coordinate: CLLocationCoordinate2D = (location?.coordinate)!
+                    let latStr = String(coordinate.latitude)
+                    let longStr = String(coordinate.longitude)
+
+                    let values = ["lat": latStr, "long": longStr]
+                    self.storeInformationToDatabase(reference: self.reference, values: values as [String : AnyObject])
+                }
+            }
+        }
     }
     
     //MARK: Set up view
@@ -211,7 +234,6 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 3
-        vc.cancelButton.title = "Đóng"
         vc.doneButton.title = "Xong"
         self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
             
@@ -257,7 +279,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let title = self.tfTitle.text!
             let area = self.tfArea.text!
             let district = self.tfDistrict.text!
-            let address = self.tfAddress.text!
+            let address = ("\(self.tfAddress.text!)" + ", \(district)")
             let waterPrice = self.tfWaterPrice.text!
             let phoneNumber = self.tfPhoneNumber.text!
             let electricPrice = self.tfElectricPrice.text!
@@ -265,7 +287,9 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let description = self.tvDescription.text!
             let internetPrice = self.tfInternetPrice.text!
             let postDate = currentDate
-            let reference = Database.database().reference().child("Posts").childByAutoId()
+            
+            convertAddressToCoordinate(address: address)
+            
             let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "postDate": postDate, "ownerID": uid]
             
             self.storeInformationToDatabase(reference: reference, values: values as [String: AnyObject])
@@ -273,15 +297,15 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             // Upload image to Firebase storage and update download urls into database
             
             _ = uploadImageFromImageView(imageView: ivPostImage0) { (url) in
-                self.storeInformationToDatabase(reference: reference, values: ["postImageUrl0": url as AnyObject])
+                self.storeInformationToDatabase(reference: self.reference, values: ["postImageUrl0": url as AnyObject])
             }
             
             _ = uploadImageFromImageView(imageView: ivPostImage1) { (url) in
-                self.storeInformationToDatabase(reference: reference, values: ["postImageUrl1": url as AnyObject])
+                self.storeInformationToDatabase(reference: self.reference, values: ["postImageUrl1": url as AnyObject])
             }
             
             _ = uploadImageFromImageView(imageView: ivPostImage2) { (url) in
-                self.storeInformationToDatabase(reference: reference, values: ["postImageUrl2": url as AnyObject])
+                self.storeInformationToDatabase(reference: self.reference, values: ["postImageUrl2": url as AnyObject])
             }
             
                 self.showAlert(alertMessage: messageNewPostSuccess)

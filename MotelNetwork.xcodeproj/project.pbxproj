@@ -78,7 +78,6 @@
 		E198DC2B2082F6BB00E59BD2 /* EditPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E198DC292082F6BB00E59BD2 /* EditPostViewController.xib */; };
 		E19CBCA82088818600A310D3 /* BillManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19CBCA62088818600A310D3 /* BillManagementViewController.swift */; };
 		E19CBCA92088818600A310D3 /* BillManagementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E19CBCA72088818600A310D3 /* BillManagementViewController.xib */; };
-		E1A43F1D20935F8400FA2013 /* NewsLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A43F1C20935F8400FA2013 /* NewsLocation.swift */; };
 		E1A621D22070D23100B83291 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A621D02070D23100B83291 /* TestViewController.swift */; };
 		E1A621D32070D23100B83291 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1A621D12070D23100B83291 /* TestViewController.xib */; };
 		E1AA95BB2090AA2900FBDB65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1AA95BA2090AA2900FBDB65 /* Assets.xcassets */; };
@@ -167,7 +166,6 @@
 		E198DC292082F6BB00E59BD2 /* EditPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditPostViewController.xib; sourceTree = "<group>"; };
 		E19CBCA62088818600A310D3 /* BillManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillManagementViewController.swift; sourceTree = "<group>"; };
 		E19CBCA72088818600A310D3 /* BillManagementViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BillManagementViewController.xib; sourceTree = "<group>"; };
-		E1A43F1C20935F8400FA2013 /* NewsLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewsLocation.swift; path = MotelNetwork/Assets.xcassets/NewsLocation.swift; sourceTree = SOURCE_ROOT; };
 		E1A621D02070D23100B83291 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		E1A621D12070D23100B83291 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		E1AA95BA2090AA2900FBDB65 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -213,13 +211,13 @@
 			path = RoomManagementViewController;
 			sourceTree = "<group>";
 		};
-		CE5FF78820766EB1005BEA3B /* MainVC */ = {
+		CE5FF78820766EB1005BEA3B /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
 				CE5FF78920766ED0005BEA3B /* MainViewController.swift */,
 				CE5FF78A20766ED0005BEA3B /* MainViewController.xib */,
 			);
-			path = MainVC;
+			path = MainViewController;
 			sourceTree = "<group>";
 		};
 		CE5FF78E20767689005BEA3B /* Extension */ = {
@@ -525,7 +523,6 @@
 				E1507BBF2080972500387527 /* News.swift */,
 				E1397D8A208AEF960050C86D /* Bill.swift */,
 				E1397D8C208AF1230050C86D /* Notification.swift */,
-				E1A43F1C20935F8400FA2013 /* NewsLocation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -562,7 +559,7 @@
 				E16F5B21207B7D5E00B284A5 /* ChangeEmailViewController */,
 				E16F5B18207B696500B284A5 /* AccountViewController */,
 				E1BD102B20766C1100287982 /* CreateRoomViewController */,
-				CE5FF78820766EB1005BEA3B /* MainVC */,
+				CE5FF78820766EB1005BEA3B /* MainViewController */,
 				145C11FB2075F34800AB11F3 /* RoomManagementViewController */,
 				E14C41402074D0EB003571E8 /* DetailNewsViewController */,
 				E1A621CF2070D1FF00B83291 /* TestViewController */,
@@ -795,7 +792,6 @@
 				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
 				E127015A2093372600663611 /* GoogleMapViewController.swift in Sources */,
 				E1397D8D208AF1230050C86D /* Notification.swift in Sources */,
-				E1A43F1D20935F8400FA2013 /* NewsLocation.swift in Sources */,
 				E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */,
 				E1397D8B208AEF960050C86D /* Bill.swift in Sources */,
 				E1507BC02080972500387527 /* News.swift in Sources */,

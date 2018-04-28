@@ -76,6 +76,27 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         tfArea.text = currentNews.area
     }
     
+    func convertAddressToCoordinate(address: String) {
+        
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.geocodeAddressString(address) { (placemark, error) in
+            if let placemark = placemark {
+                if placemark.count != 0 {
+                    let location = placemark.first?.location
+                    let coordinate: CLLocationCoordinate2D = (location?.coordinate)!
+                    let latStr = String(coordinate.latitude)
+                    let longStr = String(coordinate.longitude)
+                    
+                    let values = ["lat": latStr, "long": longStr]
+                    let postID = self.currentNews.id
+                    let reference = Database.database().reference().child("Posts").child(postID!)
+                    self.storeInformationToDatabase(reference: reference, values: values as [String : AnyObject])
+                }
+            }
+        }
+    }
+    
     //MARK: Logic for tfDistrict
     
     func createDistrictListPicker() {
@@ -235,7 +256,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
             let title = self.tfTitle.text!
             let area = self.tfArea.text!
             let district = self.tfDistrict.text!
-            let address = self.tfAddress.text!
+            let address = ("\(self.tfAddress.text!)" + ", \(district)")
             let waterPrice = self.tfWaterPrice.text!
             let phoneNumber = self.tfPhoneNumber.text!
             let electricPrice = self.tfElectricPrice.text!
@@ -260,6 +281,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                 }
                 else {
                     
+                    self.convertAddressToCoordinate(address: address)
                     self.editData(reference: ref, newValues: values as [String: AnyObject])
                     
                     // Upload image to Firebase storage and update download urls into database

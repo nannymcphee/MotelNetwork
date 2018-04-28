@@ -6,13 +6,6 @@
 //  Copyright © 2018 Nguyên Duy. All rights reserved.
 //
 
-//struct NewsLocation {
-//    let title: String
-//    let lat: CLLocationDegrees
-//    let long: CLLocationDegrees
-//}
-
-
 import UIKit
 import GoogleMaps
 import FirebaseDatabase
@@ -25,7 +18,6 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
     var listNews = [News]()
     var listCoordinate = [CLLocationCoordinate2D]()
     var locationManager = CLLocationManager()
-    var listNewsLocation = [NewsLocation]()
     var markers = [GMSMarker]()
     var currentLocation: CLLocation?
     var zoomLevel: Float = 15
@@ -57,7 +49,6 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
         ref.observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let news = News(dictionary: dictionary)
-                let location = NewsLocation(dictionary: dictionary)
                 news.id = snapshot.key
                 
                 DispatchQueue.main.async {
@@ -84,46 +75,16 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
                 news.postDate = dictionary["postDate"] as? String
-                
-                location.address = dictionary["address"] as? String
-                location.title = dictionary["title"] as? String
+                news.lat = dictionary["lat"] as? String
+                news.long = dictionary["long"] as? String
                 
                 self.listNews.append(news)
-                self.listNewsLocation.append(location)
 
 //                self.stopLoading()
             }
-            self.convertAddressToCoordinate()
 
         }, withCancel: nil)
         
-    }
-
-    //MARK: Convert address to coordinate
-    
-    func convertAddressToCoordinate() {
-        
-        let geoCoder = CLGeocoder()
-        
-        for i in 0..<listNewsLocation.count {
-            geoCoder.geocodeAddressString(listNewsLocation[i].address!) { (placemark, error) in
-                guard
-                    let placemark = placemark, let location = placemark.first?.location else {
-                        // Handle no location found
-                        print(error?.localizedDescription ?? "No error found.")
-                        return
-                }
-                
-                self.listCoordinate.append(location.coordinate)
-                
-                for i in 0..<self.listCoordinate.count {
-                    let marker = GMSMarker(position: self.listCoordinate[i])
-//                    marker.title = "Bài đăng \(i)"
-                    marker.map = self.mapView
-                    self.markers.append(marker)
-                }
-            }
-        }
     }
 
 //    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
@@ -174,10 +135,11 @@ extension GoogleMapViewController {
             else {
                 mapView.animate(to: camera)
                 
-                let currentLocationMarker = GMSMarker(position: locationValue)
+//                let currentLocationMarker = GMSMarker(position: locationValue)
+//
+//                currentLocationMarker.title = "Vị trí hiện tại"
+//                currentLocationMarker.map = mapView
                 
-                currentLocationMarker.title = "Vị trí hiện tại"
-                currentLocationMarker.map = mapView
             }
         }
     }
