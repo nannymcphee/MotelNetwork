@@ -247,6 +247,17 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             let roomImageUrl0 = currentRoom.roomImageUrl0
             let roomImageUrl1 = currentRoom.roomImageUrl1
             let roomImageUrl2 = currentRoom.roomImageUrl2
+            
+            // Get renter's id by renter's name and save to room in database
+            let renterRef = Database.database().reference().child("Users")
+            let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
+            query.observeSingleEvent(of: .childAdded) { (snapshot) in
+                
+                let renterID = snapshot.key
+                
+                self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
+            }
+            
             let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "renterID": renterID, "roomImageUrl0": roomImageUrl0, "roomImageUrl1": roomImageUrl1, "roomImageUrl2": roomImageUrl2, "usersAllowed": usersAllowed]
     
             // Create confirm alert

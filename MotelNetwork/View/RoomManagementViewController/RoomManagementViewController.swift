@@ -38,6 +38,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         tbRoomManagement.delegate = self
         tbRoomManagement.dataSource = self
         tbRoomManagement.register(UINib(nibName: "ListRoomsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListRoomsTableViewCell")
+        tbRoomManagement.reloadData()
 
         loadData()
         setUpView()
@@ -130,9 +131,9 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
                 room.usersAllowed = dictionary["usersAllowed"] as? String
                 
                 self.listRooms.append(room)
-                self.listRoomsSortedByRoomName = self.listRooms.sorted(by: { (room0, room1) -> Bool in
-                    return room0.name?.localizedStandardCompare(room1.name!) == ComparisonResult.orderedAscending
-                })
+//                self.listRoomsSortedByRoomName = self.listRooms.sorted(by: { (room0, room1) -> Bool in
+//                    return room0.name?.localizedStandardCompare(room1.name!) == ComparisonResult.orderedAscending
+//                })
 
                 self.roomsCount = self.listRooms.count
                 self.lblRoomCount.text = "\(self.roomsCount)"
@@ -161,13 +162,13 @@ extension RoomManagementViewController {
     
     //MARK: Logic for UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listRoomsSortedByRoomName.count
+        return listRooms.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbRoomManagement.dequeueReusableCell(withIdentifier: "ListRoomsTableViewCell") as! ListRoomsTableViewCell
         
-        let room = listRoomsSortedByRoomName[indexPath.row]
+        let room = listRooms[indexPath.row]
         cell.populateData(room: room)
         
         return cell
@@ -179,7 +180,7 @@ extension RoomManagementViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let room = listRoomsSortedByRoomName[indexPath.row]
+        let room = listRooms[indexPath.row]
         let vc = DetailRoomViewController()
         
         vc.currentRoom = room
@@ -201,7 +202,7 @@ extension RoomManagementViewController {
     // Swipe actions
     func editAction(at indexPath: IndexPath) -> UIContextualAction {
         
-        let room = listRoomsSortedByRoomName[indexPath.row]
+        let room = listRooms[indexPath.row]
         let action = UIContextualAction(style: .normal, title: "") { (action, view, nil) in
             
             let vc = EditRoomViewController()
@@ -221,7 +222,7 @@ extension RoomManagementViewController {
         let action = UIContextualAction(style: .destructive, title: "") { (action, view, nil) in
             
             // Query delete from database
-            let room = self.listRoomsSortedByRoomName[indexPath.row]
+            let room = self.listRooms[indexPath.row]
             let roomID = room.id
             
             let ref = Database.database().reference().child("Rooms").child(roomID!)
@@ -230,7 +231,7 @@ extension RoomManagementViewController {
             let alert = UIAlertController(title: messageConfirmDeleteRoom, message: nil, preferredStyle: .actionSheet)
             let actionDestroy = UIAlertAction(title: "Xóa", style: .destructive) { (action) in
                 self.deleteData(reference: ref)
-                self.listRoomsSortedByRoomName.remove(at: indexPath.row)
+                self.listRooms.remove(at: indexPath.row)
                 self.tbRoomManagement.deleteRows(at: [indexPath], with: .automatic)
                 self.tbRoomManagement.reloadData()
                 self.roomsCount = self.listRooms.count
@@ -254,7 +255,7 @@ extension RoomManagementViewController {
     
     func calculateAction(at indexPath: IndexPath) -> UIContextualAction {
         
-        let room = listRoomsSortedByRoomName[indexPath.row]
+        let room = listRooms[indexPath.row]
         let action = UIContextualAction(style: .normal, title: "") { (action, view, nil) in
             
             let vc = CalculateRoomPriceViewController()

@@ -26,6 +26,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tbSearchResults.delegate = self
         tbSearchResults.dataSource = self
         tbSearchResults.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
+        tbSearchResults.reloadData()
         
         searchBar.delegate = self
         searchBar.changeTextFont(textFont: UIFont(name: "Helvetica Neue", size: 12.0))

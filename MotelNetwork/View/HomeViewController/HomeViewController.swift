@@ -48,17 +48,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tbListNews.delegate = self
         tbListNews.dataSource = self
         tbListNews.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
+        tbListNews.reloadData()
         
         // tbMostView
         tbMostView.delegate = self
         tbMostView.dataSource = self
         tbMostView.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
-        
+        tbMostView.reloadData()
+
         // tbNearMe
         tbNearMe.delegate = self
         tbNearMe.dataSource = self
         tbNearMe.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
-        
+        tbNearMe.reloadData()
+
         setUpView()
     }
     

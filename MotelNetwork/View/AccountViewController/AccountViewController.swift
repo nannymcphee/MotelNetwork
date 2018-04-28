@@ -34,6 +34,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         tbNews.delegate = self
         tbNews.dataSource = self
         tbNews.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
+        tbNews.reloadData()
         
         loadData()
         setUpView()
