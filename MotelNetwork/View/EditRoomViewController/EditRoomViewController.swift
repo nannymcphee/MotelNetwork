@@ -15,6 +15,7 @@ import BSImagePicker
 
 class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate {
 
+    @IBOutlet weak var tfAddress: UITextField!
     @IBOutlet weak var tfUsersAllowed: UITextField!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnAddImage: UIButton!
@@ -58,6 +59,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         tfPrice.text = "\(currentRoom.price ?? 0.0)"
         tfRoomName.text = currentRoom.name
         tfUsersAllowed.text = currentRoom.usersAllowed
+        tfAddress.text = currentRoom.address
         
         if let renterID = currentRoom.renterID {
             let ref = Database.database().reference().child("Users").child(renterID)
@@ -232,9 +234,12 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func btnSavePressed(_ sender: Any) {
         
-        if (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! || (tfUsersAllowed.text?.isEmpty)! {
+        if (tfArea.text?.isEmpty)! || (tfAddress.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! || (tfUsersAllowed.text?.isEmpty)! {
             
             self.showAlert(alertMessage: messageNilTextFields)
+        }
+        else if (tfAddress.text?.count)! > 50 {
+            self.showAlert(alertMessage: messageLimitCharacters)
         }
         else {
         
@@ -243,6 +248,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             let price = self.tfPrice.text!
             let renterName = self.tfUser.text!
             let usersAllowed = self.tfUsersAllowed.text!
+            let address = self.tfAddress.text!
             let roomID = currentRoom.id
             let ownerID = Auth.auth().currentUser?.uid
             let renterID = currentRoom.renterID
@@ -262,7 +268,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
             }
             
-            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "renterID": renterID, "roomImageUrl0": roomImageUrl0, "roomImageUrl1": roomImageUrl1, "roomImageUrl2": roomImageUrl2, "usersAllowed": usersAllowed]
+            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "renterID": renterID, "roomImageUrl0": roomImageUrl0, "roomImageUrl1": roomImageUrl1, "roomImageUrl2": roomImageUrl2, "usersAllowed": usersAllowed, "address": address]
     
             // Create confirm alert
             let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)

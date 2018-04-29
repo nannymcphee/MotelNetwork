@@ -14,6 +14,7 @@ import Floaty
 
 class DetailRoomViewController: UIViewController {
 
+    @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var lblUsersAllowed: UILabel!
     @IBOutlet weak var btnEditRoom: UIButton!
     @IBOutlet weak var btnNotification: UIButton!
@@ -70,6 +71,8 @@ class DetailRoomViewController: UIViewController {
         lblRoomName.text = currentRoom.name
         lblArea.text = String("\(currentRoom.area ?? "")m2")
         lblUsersAllowed.text = "Số người cho phép: \(currentRoom.usersAllowed ?? "")"
+        lblAddress.text = currentRoom.address
+        lblAddress.sizeToFit()
         
         if let renterID = currentRoom.renterID {
             let ref = Database.database().reference().child("Users").child(renterID)

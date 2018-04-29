@@ -16,6 +16,7 @@ import BSImagePicker
 class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate {
     
     
+    @IBOutlet weak var tfAddress: UITextField!
     @IBOutlet weak var tfUsersAllowed: UITextField!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnSave: UIButton!
@@ -204,7 +205,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
         
         // Check if user has entered all informations
-        if  (tfArea.text?.isEmpty)! || (tfUsersAllowed.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! || ivRoomImage0.image == nil || ivRoomImage1.image == nil || ivRoomImage2.image == nil {
+        if  (tfArea.text?.isEmpty)! || (tfAddress.text?.isEmpty)! || (tfUsersAllowed.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! || ivRoomImage0.image == nil || ivRoomImage1.image == nil || ivRoomImage2.image == nil {
             
             // Create UIAlertController
             self.showAlert(alertMessage: messageNilTextFields)
@@ -217,6 +218,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             let price = self.tfPrice.text!
             let renterName = self.tfUser.text!
             let usersAllowed = self.tfUsersAllowed.text!
+            let address = self.tfAddress.text!
             let ownerID = uid
             let ref = Database.database().reference().child("Rooms").childByAutoId()
 
@@ -230,7 +232,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
             }
             
-            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl0": "", "roomImageUrl1": "", "roomImageUrl2": "", "usersAllowed": usersAllowed]
+            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl0": "", "roomImageUrl1": "", "roomImageUrl2": "", "usersAllowed": usersAllowed, "address": address]
             
             self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
             // Upload image to Firebase storage and update download urls into database
