@@ -63,7 +63,6 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         getCurrentDate()
         createDistrictListPicker()
         
-        
         tfTitle.text = currentNews.title
         tvDescription.text = currentNews.description
         tfAddress.text = currentNews.address
@@ -231,6 +230,11 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBAction func btnClearTextViewPressed(_ sender: Any) {
         
         tvDescription.text = ""
+    }
+    
+    @IBAction func btnInfoPressed(_ sender: Any) {
+        
+        showAlert(alertMessage: "Việc nhập đúng định dạng địa chỉ sẽ giúp tin của bạn hiển thị chính xác trên bản đồ và những người dùng khác định vị chính xác hơn.")
     }
     
     @IBAction func btnAddImagePressed(_ sender: Any) {

@@ -246,7 +246,7 @@
                                             </constraints>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" textContentType="street-address"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="street-address"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nwq-0t-5m0">
                                             <rect key="frame" x="17" y="435.5" width="340" height="40"/>
@@ -340,6 +340,17 @@
                                                 <action selector="btnClearTextViewPressed:" destination="-1" eventType="touchUpInside" id="izs-PK-fgB"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2cb-16-Q35">
+                                            <rect key="frame" x="341" y="270.5" width="16" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="Vee-nc-oIO"/>
+                                                <constraint firstAttribute="width" constant="16" id="quT-tQ-0uh"/>
+                                            </constraints>
+                                            <state key="normal" image="icInfo"/>
+                                            <connections>
+                                                <action selector="btnInfoPressed:" destination="-1" eventType="touchUpInside" id="cDA-8O-hKi"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
@@ -379,6 +390,7 @@
                                         <constraint firstItem="Nfi-if-uz3" firstAttribute="leading" secondItem="cCX-Zd-xbj" secondAttribute="leading" constant="17" id="WzZ-ZD-8Su"/>
                                         <constraint firstItem="hhw-tK-r9r" firstAttribute="leading" secondItem="cCX-Zd-xbj" secondAttribute="leading" constant="17" id="Xzy-xG-06N"/>
                                         <constraint firstAttribute="trailing" secondItem="nwq-0t-5m0" secondAttribute="trailing" constant="18" id="YKa-Vl-q0p"/>
+                                        <constraint firstAttribute="trailing" secondItem="2cb-16-Q35" secondAttribute="trailing" constant="18" id="c57-th-967"/>
                                         <constraint firstItem="nwq-0t-5m0" firstAttribute="top" secondItem="65J-7k-gzy" secondAttribute="bottom" constant="6" id="cde-bt-SGx"/>
                                         <constraint firstItem="0zw-Of-7d0" firstAttribute="leading" secondItem="cCX-Zd-xbj" secondAttribute="leading" constant="17" id="e7x-sE-1sf"/>
                                         <constraint firstItem="65J-7k-gzy" firstAttribute="top" secondItem="U7d-jl-g4D" secondAttribute="bottom" constant="12" id="efm-CA-C1B"/>
@@ -395,6 +407,7 @@
                                         <constraint firstItem="0zw-Of-7d0" firstAttribute="top" secondItem="Nfi-if-uz3" secondAttribute="bottom" constant="6" id="uyc-am-RHn"/>
                                         <constraint firstItem="hhw-tK-r9r" firstAttribute="top" secondItem="K6W-r3-Bg9" secondAttribute="bottom" constant="12" id="xbD-bF-kHS"/>
                                         <constraint firstAttribute="trailing" secondItem="0zw-Of-7d0" secondAttribute="trailing" constant="18" id="xgg-71-fYD"/>
+                                        <constraint firstItem="2cb-16-Q35" firstAttribute="centerY" secondItem="kle-5k-yQF" secondAttribute="centerY" id="xn9-TK-ezs"/>
                                         <constraint firstAttribute="trailing" secondItem="K6W-r3-Bg9" secondAttribute="trailing" constant="18" id="xqw-1N-Wpu"/>
                                         <constraint firstAttribute="trailing" secondItem="NME-GY-Buq" secondAttribute="trailing" constant="18" id="zSX-Yc-jYQ"/>
                                     </constraints>
@@ -444,6 +457,7 @@
     <resources>
         <image name="icAddCircle" width="34" height="34"/>
         <image name="icClear" width="16" height="16"/>
+        <image name="icInfo" width="16" height="16"/>
         <image name="icLeft" width="24" height="24"/>
     </resources>
 </document>

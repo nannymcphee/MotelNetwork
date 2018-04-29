@@ -31,6 +31,7 @@ class DetailRoomViewController: UIViewController {
     @IBOutlet weak var vView1: UIView!
     @IBOutlet weak var vView2: UIView!
     @IBOutlet weak var vView3: UIView!
+    @IBOutlet weak var tvPhoneNumber: UITextView!
     
     var currentRoom = Room()
     var dbReference: DatabaseReference!
@@ -73,11 +74,21 @@ class DetailRoomViewController: UIViewController {
             let ref = Database.database().reference().child("Users").child(renterID)
             
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                
                 if let dictionary = snapshot.value as? [String: AnyObject] {
-                    if (snapshot.value != nil) {
-                        self.lblUser.text = dictionary["FullName"] as? String
-                    } else {
-                        self.lblUser.text = "Chưa có người thuê"
+                    
+                    if let userName = dictionary["FullName"] as? String {
+                        
+                        if (userName != "") {
+                            self.lblUser.text = dictionary["FullName"] as? String
+                        } else {
+                            self.lblUser.text = "Chưa có người thuê"
+                        }
+                    }
+                    
+                    if let phoneNumber = dictionary["PhoneNumber"] as? String {
+                        
+                        self.tvPhoneNumber.text = phoneNumber
                     }
                 }
             }, withCancel: nil)

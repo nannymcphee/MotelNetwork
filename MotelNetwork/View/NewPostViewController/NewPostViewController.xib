@@ -56,13 +56,13 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đăng tin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecf-pM-0aW">
-                            <rect key="frame" x="156.5" y="23.5" width="62" height="18"/>
+                            <rect key="frame" x="156.5" y="23" width="62" height="19.5"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Zd-de-TrY">
-                            <rect key="frame" x="315" y="15" width="41" height="33"/>
+                            <rect key="frame" x="315" y="16" width="41" height="33"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                             <state key="normal" title="Xong"/>
                             <connections>
@@ -246,7 +246,7 @@
                                             </constraints>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" textContentType="street-address"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="street-address"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="43e-ci-AbB">
                                             <rect key="frame" x="17" y="435.5" width="340" height="40"/>
@@ -340,6 +340,17 @@
                                                 <action selector="btnClearTextViewPressed:" destination="-1" eventType="touchUpInside" id="vpE-YN-J5s"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gcM-4e-2k2">
+                                            <rect key="frame" x="341" y="270" width="16" height="16"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="16" id="kAU-VS-uQ6"/>
+                                                <constraint firstAttribute="width" constant="16" id="ybZ-B4-ept"/>
+                                            </constraints>
+                                            <state key="normal" image="icInfo"/>
+                                            <connections>
+                                                <action selector="btnInfoPressed:" destination="-1" eventType="touchUpInside" id="Gor-ZC-Hbg"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
@@ -369,6 +380,7 @@
                                         <constraint firstItem="hIs-N6-uwn" firstAttribute="top" secondItem="i28-pY-Bue" secondAttribute="bottom" constant="12" id="Oqe-mn-VRc"/>
                                         <constraint firstItem="i28-pY-Bue" firstAttribute="leading" secondItem="Ntb-zV-KHU" secondAttribute="leading" constant="17" id="PkO-nO-U1S"/>
                                         <constraint firstItem="i28-pY-Bue" firstAttribute="top" secondItem="KbP-jW-TpL" secondAttribute="bottom" constant="6" id="Rad-dh-s5E"/>
+                                        <constraint firstAttribute="trailing" secondItem="gcM-4e-2k2" secondAttribute="trailing" constant="18" id="SQv-kz-psH"/>
                                         <constraint firstItem="71P-Y8-Bue" firstAttribute="leading" secondItem="Ntb-zV-KHU" secondAttribute="leading" constant="17" id="TZ2-SW-q7r"/>
                                         <constraint firstItem="JNA-bD-gSy" firstAttribute="leading" secondItem="Ntb-zV-KHU" secondAttribute="leading" constant="17" id="Vi3-My-aYx"/>
                                         <constraint firstItem="6Fz-j3-QLj" firstAttribute="top" secondItem="4Gm-b0-BdD" secondAttribute="bottom" constant="12" id="VnN-m9-iZI"/>
@@ -381,6 +393,7 @@
                                         <constraint firstItem="XzI-AF-pLm" firstAttribute="leading" secondItem="Ntb-zV-KHU" secondAttribute="leading" constant="17" id="gdZ-54-EJy"/>
                                         <constraint firstItem="c2X-iK-VY2" firstAttribute="centerY" secondItem="i28-pY-Bue" secondAttribute="centerY" id="h1c-gJ-fWM"/>
                                         <constraint firstItem="4Gm-b0-BdD" firstAttribute="leading" secondItem="Ntb-zV-KHU" secondAttribute="leading" constant="17" id="hNj-de-Xtk"/>
+                                        <constraint firstItem="gcM-4e-2k2" firstAttribute="centerY" secondItem="hIs-N6-uwn" secondAttribute="centerY" id="hUw-vI-sW1"/>
                                         <constraint firstAttribute="trailing" secondItem="rN2-vl-9wj" secondAttribute="trailing" constant="18" id="lmj-1u-A9e"/>
                                         <constraint firstItem="6Fz-j3-QLj" firstAttribute="leading" secondItem="Ntb-zV-KHU" secondAttribute="leading" constant="17" id="neK-pq-mrq"/>
                                         <constraint firstItem="2fx-g9-eQq" firstAttribute="leading" secondItem="Ntb-zV-KHU" secondAttribute="leading" constant="17" id="o6K-aL-guq"/>
@@ -443,6 +456,7 @@
     <resources>
         <image name="icAddCircle" width="34" height="34"/>
         <image name="icClear" width="16" height="16"/>
+        <image name="icInfo" width="16" height="16"/>
         <image name="icLeft" width="24" height="24"/>
     </resources>
 </document>

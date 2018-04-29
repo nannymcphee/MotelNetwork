@@ -32,6 +32,7 @@
                 <outlet property="lblRoomName" destination="3eX-bK-bJP" id="vRj-cS-Afh"/>
                 <outlet property="lblUser" destination="x7O-Hr-GO2" id="DNc-eE-qvj"/>
                 <outlet property="lblUsersAllowed" destination="S96-hU-8mB" id="asZ-gI-bbg"/>
+                <outlet property="tvPhoneNumber" destination="liB-uW-htQ" id="bcf-wS-jxo"/>
                 <outlet property="vView1" destination="TtJ-Cv-doF" id="MXH-34-zhe"/>
                 <outlet property="vView2" destination="e4k-dw-9Ma" id="2XH-1S-sz8"/>
                 <outlet property="vView3" destination="ZXN-TE-idJ" id="vOH-KD-KWu"/>
@@ -241,7 +242,7 @@
                                                     <rect key="frame" x="0.0" y="200" width="375" height="400"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="In0-U9-pNO">
-                                                            <rect key="frame" x="17" y="213" width="340" height="40"/>
+                                                            <rect key="frame" x="17" y="243" width="340" height="40"/>
                                                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="aHu-es-SKo"/>
@@ -262,7 +263,7 @@
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4W-da-7DH">
-                                                            <rect key="frame" x="18" y="265" width="340" height="40"/>
+                                                            <rect key="frame" x="18" y="295" width="340" height="40"/>
                                                             <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="OiL-na-zZI"/>
@@ -342,19 +343,41 @@
                                                                 </stackView>
                                                             </subviews>
                                                         </stackView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icPhone" translatesAutoresizingMaskIntoConstraints="NO" id="FHq-dW-iUh">
+                                                            <rect key="frame" x="116" y="177" width="16" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="16" id="4Gz-79-eJP"/>
+                                                                <constraint firstAttribute="width" constant="16" id="fK6-5E-UmJ"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="0979084007" translatesAutoresizingMaskIntoConstraints="NO" id="liB-uW-htQ">
+                                                            <rect key="frame" x="142" y="171" width="120" height="22"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="22" id="BHZ-8K-Qls"/>
+                                                                <constraint firstAttribute="width" constant="120" id="VRg-UD-RUC"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
+                                                        </textView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstItem="g4W-da-7DH" firstAttribute="top" secondItem="In0-U9-pNO" secondAttribute="bottom" constant="12" id="1C0-vJ-tm3"/>
-                                                        <constraint firstItem="In0-U9-pNO" firstAttribute="top" secondItem="oaB-pG-v4f" secondAttribute="bottom" constant="50" id="1cD-vk-GOV"/>
                                                         <constraint firstItem="oaB-pG-v4f" firstAttribute="centerX" secondItem="WTL-kx-zQf" secondAttribute="centerX" id="9ht-cA-8o6"/>
+                                                        <constraint firstItem="FHq-dW-iUh" firstAttribute="centerX" secondItem="fed-mC-Bne" secondAttribute="centerX" id="AMf-w4-kn6"/>
                                                         <constraint firstAttribute="trailing" secondItem="Cyd-zi-Ysa" secondAttribute="trailing" id="Fwf-M6-olN"/>
+                                                        <constraint firstItem="liB-uW-htQ" firstAttribute="top" secondItem="oaB-pG-v4f" secondAttribute="bottom" constant="8" id="HBg-h3-qkj"/>
+                                                        <constraint firstItem="FHq-dW-iUh" firstAttribute="top" secondItem="oaB-pG-v4f" secondAttribute="bottom" constant="14" id="Ohb-He-vmD"/>
                                                         <constraint firstItem="g4W-da-7DH" firstAttribute="leading" secondItem="WTL-kx-zQf" secondAttribute="leading" constant="18" id="PfW-6w-HD3"/>
                                                         <constraint firstItem="Cyd-zi-Ysa" firstAttribute="leading" secondItem="WTL-kx-zQf" secondAttribute="leading" id="Q7w-7T-M6H"/>
+                                                        <constraint firstItem="In0-U9-pNO" firstAttribute="top" secondItem="FHq-dW-iUh" secondAttribute="bottom" constant="50" id="UbC-qZ-3ox"/>
                                                         <constraint firstItem="Cyd-zi-Ysa" firstAttribute="top" secondItem="WTL-kx-zQf" secondAttribute="top" id="WoJ-h9-dgV"/>
                                                         <constraint firstAttribute="trailing" secondItem="In0-U9-pNO" secondAttribute="trailing" constant="18" id="ZUH-Rs-86Y"/>
                                                         <constraint firstItem="In0-U9-pNO" firstAttribute="leading" secondItem="WTL-kx-zQf" secondAttribute="leading" constant="17" id="ewS-f4-Zts"/>
                                                         <constraint firstItem="oaB-pG-v4f" firstAttribute="top" secondItem="Cyd-zi-Ysa" secondAttribute="bottom" constant="50" id="jB7-p2-QgD"/>
+                                                        <constraint firstItem="liB-uW-htQ" firstAttribute="leading" secondItem="FHq-dW-iUh" secondAttribute="trailing" constant="10" id="sR9-NE-1TQ"/>
                                                         <constraint firstAttribute="trailing" secondItem="g4W-da-7DH" secondAttribute="trailing" constant="17" id="txD-Xz-L4o"/>
                                                     </constraints>
                                                 </view>
@@ -426,6 +449,7 @@
         <image name="icArea" width="16" height="16"/>
         <image name="icLeft" width="24" height="24"/>
         <image name="icNotification" width="24" height="24"/>
+        <image name="icPhone" width="16" height="16"/>
         <image name="icPrice" width="16" height="16"/>
         <image name="icUser" width="16" height="16"/>
         <image name="icUsers" width="25" height="25"/>

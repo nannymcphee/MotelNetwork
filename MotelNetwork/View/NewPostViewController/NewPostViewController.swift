@@ -84,11 +84,13 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     func setUpView() {
         
-        checkAuthStatus()
+        fetchUser()
         createDistrictListPicker()
         self.tapToDismissKeyboard()
         makeButtonRounded(button: btnClearTextView)
     }
+    
+    //MARK: Get current date
     
     func getCurrentDate() {
         let formatter = DateFormatter()
@@ -169,6 +171,20 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
     
+    // Fetch user's phone number to tfPhoneNumber
+    
+    func fetchUser() {
+        
+        let uid = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference().child("Users").child(uid!)
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                self.tfPhoneNumber.text = dictionary["PhoneNumber"] as? String
+            }
+        }, withCancel: nil)
+    }
     
     //MARK: Logic for tfDistrict
     
@@ -257,6 +273,12 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             }
         }, completion: nil)
     }
+   
+    @IBAction func btnInfoPressed(_ sender: Any) {
+        
+        showAlert(alertMessage: "Việc nhập đúng định dạng địa chỉ sẽ giúp tin của bạn hiển thị chính xác trên bản đồ và những người dùng khác định vị chính xác hơn.")
+    }
+    
     
     @IBAction func btnSavePressed(_ sender: Any) {
         

@@ -19,12 +19,17 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var btnSave: UIButton!
     @IBOutlet weak var btnAddImage: UIButton!
     @IBOutlet weak var tfUserName: UITextField!
+    
+    @IBOutlet weak var tfCMND: UITextField!
+    @IBOutlet weak var tfPhoneNumber: UITextField!
+    @IBOutlet weak var tfBirthDay: UITextField!
     @IBOutlet weak var ivProfileImage: UIImageView!
     
     let uid = Auth.auth().currentUser?.uid
     var profileImageUrl: String?
     var imageArray = [UIImage]()
     var selectedAssets = [PHAsset]()
+    let dpBirthDay = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,13 +51,16 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
-                let userName = dictionary["FullName"] as? String
                 self.profileImageUrl = dictionary["ProfileImageUrl"] as? String
-                self.tfUserName.text = userName
+                self.tfUserName.text = dictionary["FullName"] as? String
+                self.tfBirthDay.text = dictionary["BirthDay"] as? String
+                self.tfCMND.text = dictionary["CMND"] as? String
+                self.tfPhoneNumber.text = dictionary["PhoneNumber"] as? String
             }
         }, withCancel: nil)
         
         self.tapToDismissKeyboard()
+        createDatePicker()
         makeImageViewRounded(imageView: ivProfileImage)
     }
     
@@ -148,14 +156,17 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func btnSavePressed(_ sender: Any) {
         
-        if (tfUserName.text?.isEmpty)! {
+        if (tfUserName.text?.isEmpty)! || (tfPhoneNumber.text?.isEmpty)! || (tfCMND.text?.isEmpty)! || (tfBirthDay.text?.isEmpty)! {
             
             self.showAlert(alertMessage: messageNilTextFields)
         }
         else {
             
             let userName = self.tfUserName.text!
-            let values = ["FullName": userName, "ProfileImageUrl": self.profileImageUrl]
+            let phoneNumber = self.tfPhoneNumber.text!
+            let cmnd = self.tfCMND.text!
+            let birthDay = self.tfBirthDay.text!
+            let values = ["FullName": userName, "ProfileImageUrl": self.profileImageUrl, "PhoneNumber": phoneNumber, "CMND": cmnd, "BirthDay": birthDay]
             let ref = Database.database().reference().child("Users").child(uid!)
 
             // Create confirm alert
@@ -205,5 +216,37 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
         }
     }
 
+}
 
+extension UpdateInfoViewController {
+    
+    //MARK: Create & handle date picker
+    
+    func createDatePicker() {
+        
+        dpBirthDay.locale = NSLocale.init(localeIdentifier: "vi_VN") as Locale
+        // Add toolbar
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // Add "Done" button
+        let btnDone = UIBarButtonItem(title: "Xong", style: .done, target: nil, action: #selector(btnDonePressed))
+        toolbar.setItems([btnDone], animated: false)
+        
+        tfBirthDay.inputAccessoryView = toolbar
+        tfBirthDay.inputView = dpBirthDay
+        
+        // Format picker view for date
+        dpBirthDay.datePickerMode = .date
+    }
+    
+    // btnDonePressed event for Date Picker
+    @objc func btnDonePressed() {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd MMMM yyyy"
+        dateFormatter.locale = NSLocale.init(localeIdentifier: "vi_VN") as Locale
+        tfBirthDay.text = dateFormatter.string(from: dpBirthDay.date)
+        self.view.endEditing(true)
+    }
 }

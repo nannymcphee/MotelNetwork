@@ -37,7 +37,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var tfCMND: UITextField!
     @IBOutlet weak var tfBirthDay: UITextField!
     @IBOutlet weak var ivProfilePicture: UIImageView!
-    
+    @IBOutlet weak var tfPhoneNumber: UITextField!
     
     var userType = [UserType]()
     var imageArray = [UIImage]()
@@ -200,7 +200,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBAction func btnRegisterPressed(_ sender: UIButton) {
         
         // Check if user has entered all informations
-        if (tfName.text?.isEmpty)! || (tfEmail.text?.isEmpty)! || (tfPassword.text?.isEmpty)! || (tfCMND.text?.isEmpty)! || (tfBirthDay.text?.isEmpty)! || ivProfilePicture.image == nil {
+        if (tfName.text?.isEmpty)! || (tfEmail.text?.isEmpty)! || (tfPassword.text?.isEmpty)! || (tfCMND.text?.isEmpty)! || (tfBirthDay.text?.isEmpty)! || (tfPhoneNumber.text?.isEmpty)! || ivProfilePicture.image == nil {
             
             showAlert(alertMessage: messageNilTextFields)
         }
@@ -241,9 +241,10 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     let userFullName: String = self.tfName.text!
                     let userCMND: String = self.tfCMND.text!
                     let userBirthDay = self.tfBirthDay.text!
+                    let userPhoneNumber = self.tfPhoneNumber.text!
                     let userType = self.pvUserType.selectedRow(inComponent: 0)
                     
-                    let values = ["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": "", "uid": uid] as [String : AnyObject]
+                    let values = ["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": "", "PhoneNumber": userPhoneNumber] as [String : AnyObject]
                     
                     self.storeInformationToDatabase(reference: reference, values: values as [String : AnyObject])
                     
