@@ -16,18 +16,17 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
     @IBOutlet weak var mapView: GMSMapView!
     
     var listNews = [News]()
-    var listCoordinate = [CLLocationCoordinate2D]()
     var locationManager = CLLocationManager()
     var markers = [GMSMarker]()
     var currentLocation: CLLocation?
     var zoomLevel: Float = 15
-    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
+        mapView.delegate = self
         
 //        showLoading()
         loadData()
@@ -86,19 +85,18 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
         }, withCancel: nil)
         
     }
-
-//    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
-//        for i in 0..<self.locationsArray.count {
-//            let marker = GMSMarker(position: self.locationsArray[i])
-//            if marker == marker {
-//                let vc = DetailNewsViewController()
-//                let news = listNews[i]
-//                vc.currentNews = news
-//                (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
-//            }
-//        }
-//        return true
-//    }
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        
+        if let index = markers.index(of: marker) {
+            
+            let vc = DetailNewsViewController()
+            let news = listNews[index]
+            
+            vc.currentNews = news
+            (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     
     @IBAction func btnBackPressed(_ sender: Any) {
@@ -135,11 +133,17 @@ extension GoogleMapViewController {
             else {
                 mapView.animate(to: camera)
                 
-//                let currentLocationMarker = GMSMarker(position: locationValue)
-//
-//                currentLocationMarker.title = "Vị trí hiện tại"
-//                currentLocationMarker.map = mapView
-                
+                for i in 0..<listNews.count {
+                    
+                    let lat = listNews[i].lat?.toDouble
+                    let long = listNews[i].long?.toDouble
+                    let location = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
+                    let marker = GMSMarker(position: location)
+                    
+                    marker.title = listNews[i].title
+                    markers.append(marker)
+                    marker.map = mapView
+                }
             }
         }
     }
