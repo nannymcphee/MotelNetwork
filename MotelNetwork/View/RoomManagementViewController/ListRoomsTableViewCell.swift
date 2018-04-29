@@ -61,6 +61,33 @@ class ListRoomsTableViewCell: UITableViewCell {
             
             ivRoomImage.image = #imageLiteral(resourceName: "defaultImage")
         }
-
+    }
+    
+    func populateDataForRenter(room: Room) {
+        numberFormatter.numberStyle = .decimal
+        self.lblRoomName.text = room.name
+        self.lblRoomPrice.text = numberFormatter.string(from: room.price! as NSNumber)
+        self.lblArea.text = String("\(room.area ?? "")m2")
+        
+        if let ownerID = room.ownerID {
+            let ref = Database.database().reference().child("Users").child(ownerID)
+            
+            ref.observe(.value, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    
+                    self.lblUserFullName.text = dictionary["FullName"] as? String
+                }
+            }, withCancel: nil)
+        }
+        
+        if URL(string: room.roomImageUrl0!) != nil {
+            let resource = ImageResource(downloadURL: URL(string: room.roomImageUrl0!)!)
+            
+            ivRoomImage.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage") , options: nil, progressBlock: nil, completionHandler: nil)
+        }
+        else {
+            
+            ivRoomImage.image = #imageLiteral(resourceName: "defaultImage")
+        }
     }
 }

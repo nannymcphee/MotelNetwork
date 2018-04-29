@@ -56,17 +56,6 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate {
             let locationValue: CLLocationCoordinate2D = manager.location!.coordinate
             
             currentLocationCoordinate = locationValue
-//            self.tfOrigin.text = "\(locationValue.latitude), \(locationValue.longitude)"
-            
-//            let geocoder = CLGeocoder()
-//            geocoder.reverseGeocodeLocation(currentLocation!) { (placemark, error) in
-//                if error != nil {
-//                    print(error!)
-//                }
-//                else {
-//                    self.tfOrigin.text = placemark![0].name
-//                }
-//            }
             
             locationManager?.stopUpdatingLocation()
         }

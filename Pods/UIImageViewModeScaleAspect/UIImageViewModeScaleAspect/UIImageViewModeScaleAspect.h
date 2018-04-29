@@ -18,9 +18,9 @@
 /**
  *  Automatic Animate Fill to Fit
  *
- *  @param frame
- *  @param duration
- *  @param delay
+ *  @param frame ignored "-Wdocumentation"
+ *  @param duration ignored "-Wdocumentation"
+ *  @param delay ignored "-Wdocumentation"
  */
 - (void)animateToScaleAspectFitToFrame:(CGRect)frame
                           WithDuration:(float)duration
@@ -29,9 +29,9 @@
 /**
  *  Automatic Animate Fit to Fill
  *
- *  @param frame
- *  @param duration
- *  @param delay
+ *  @param frame ignored "-Wdocumentation"
+ *  @param duration ignored "-Wdocumentation"
+ *  @param delay ignored "-Wdocumentation"
  */
 - (void)animateToScaleAspectFillToFrame:(CGRect)frame
                            WithDuration:(float)duration
@@ -40,10 +40,10 @@
 /**
  *  Automatic Animate Fill to Fit with completion
  *
- *  @param frame
- *  @param duration
- *  @param delay
- *  @param completion
+ *  @param frame ignored "-Wdocumentation"
+ *  @param duration ignored "-Wdocumentation"
+ *  @param delay ignored "-Wdocumentation"
+ *  @param completion ignored "-Wdocumentation"
  */
 - (void)animateToScaleAspectFitToFrame:(CGRect)frame
                           WithDuration:(float)duration
@@ -53,10 +53,10 @@
 /**
  *  Automatic Animate Fit to Fill with completion
  *
- *  @param frame
- *  @param duration
- *  @param delay
- *  @param completion
+ *  @param frame ignored "-Wdocumentation"
+ *  @param duration ignored "-Wdocumentation"
+ *  @param delay ignored "-Wdocumentation"
+ *  @param completion ignored "-Wdocumentation"
  */
 - (void)animateToScaleAspectFillToFrame:(CGRect)frame
                            WithDuration:(float)duration
@@ -70,14 +70,14 @@
 /**
  *  Init Manual Function Fit
  *
- *  @param newFrame
+ *  @param newFrame ignored "-Wdocumentation"
  */
 - (void)initToScaleAspectFitToFrame:(CGRect)newFrame;
 
 /**
  *  Init Manual Function Fill
  *
- *  @param newFrame
+ *  @param newFrame ignored "-Wdocumentation"
  */
 - (void)initToScaleAspectFillToFrame:(CGRect)newFrame;
 

@@ -38,6 +38,8 @@
 		E14805022089F92D00C67D43 /* NotificationListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14805002089F92D00C67D43 /* NotificationListViewController.xib */; };
 		E14C41432074D107003571E8 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14C41412074D107003571E8 /* DetailNewsViewController.swift */; };
 		E14C41442074D107003571E8 /* DetailNewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14C41422074D107003571E8 /* DetailNewsViewController.xib */; };
+		E14F2C2420960BF30034BE8E /* MyRoomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14F2C2220960BF30034BE8E /* MyRoomsViewController.swift */; };
+		E14F2C2520960BF30034BE8E /* MyRoomsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14F2C2320960BF30034BE8E /* MyRoomsViewController.xib */; };
 		E1507BA2207D192F00387527 /* DetailRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BA0207D192F00387527 /* DetailRoomViewController.swift */; };
 		E1507BA3207D192F00387527 /* DetailRoomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BA1207D192F00387527 /* DetailRoomViewController.xib */; };
 		E1507BA7207D195C00387527 /* EditRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BA5207D195C00387527 /* EditRoomViewController.swift */; };
@@ -124,6 +126,8 @@
 		E14805002089F92D00C67D43 /* NotificationListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationListViewController.xib; sourceTree = "<group>"; };
 		E14C41412074D107003571E8 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNewsViewController.swift; sourceTree = "<group>"; };
 		E14C41422074D107003571E8 /* DetailNewsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailNewsViewController.xib; sourceTree = "<group>"; };
+		E14F2C2220960BF30034BE8E /* MyRoomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoomsViewController.swift; sourceTree = "<group>"; };
+		E14F2C2320960BF30034BE8E /* MyRoomsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyRoomsViewController.xib; sourceTree = "<group>"; };
 		E1507BA0207D192F00387527 /* DetailRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRoomViewController.swift; sourceTree = "<group>"; };
 		E1507BA1207D192F00387527 /* DetailRoomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailRoomViewController.xib; sourceTree = "<group>"; };
 		E1507BA5207D195C00387527 /* EditRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRoomViewController.swift; sourceTree = "<group>"; };
@@ -300,6 +304,15 @@
 				E14C41422074D107003571E8 /* DetailNewsViewController.xib */,
 			);
 			path = DetailNewsViewController;
+			sourceTree = "<group>";
+		};
+		E14F2C2120960BD10034BE8E /* MyRoomsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E14F2C2220960BF30034BE8E /* MyRoomsViewController.swift */,
+				E14F2C2320960BF30034BE8E /* MyRoomsViewController.xib */,
+			);
+			path = MyRoomsViewController;
 			sourceTree = "<group>";
 		};
 		E1507B9F207D18FB00387527 /* DetailRoomViewController */ = {
@@ -539,34 +552,35 @@
 		E1E7D1F72071C7D300874EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E12701572093370B00663611 /* GoogleMapViewController */,
-				E10112CC2091C2BA004ACA0D /* UpdateInfoViewController */,
-				E10112C7209199A8004ACA0D /* SearchViewController */,
-				E16BD8B2208DC07200DD00B7 /* NavigationViewController */,
-				E1954473208A0E84004F0D17 /* DetailBillViewController */,
-				E14804FA2089F8EA00C67D43 /* NotificationListViewController */,
-				E14804F92089F8E700C67D43 /* DetailNotificationViewController */,
-				E14804F42089F8CE00C67D43 /* CreateNotificationViewController */,
-				E19CBCA52088813D00A310D3 /* BillManagementViewController */,
-				E198DC272082F69200E59BD2 /* EditPostViewController */,
+				CE5FF78820766EB1005BEA3B /* MainViewController */,
 				E198DC182081829000E59BD2 /* HomeViewController */,
 				E1507BBA207F59E000387527 /* SettingViewController */,
-				E1507BAE207DDA7300387527 /* CalculateRoomPriceViewController */,
-				E1507BA9207D198C00387527 /* NewPostViewController */,
-				E1507BA4207D194900387527 /* EditRoomViewController */,
+				E12701572093370B00663611 /* GoogleMapViewController */,
+				E10112C7209199A8004ACA0D /* SearchViewController */,
+				E16BD8B2208DC07200DD00B7 /* NavigationViewController */,
+				E14F2C2120960BD10034BE8E /* MyRoomsViewController */,
+				E14804FA2089F8EA00C67D43 /* NotificationListViewController */,
+				E16F5B18207B696500B284A5 /* AccountViewController */,
+				145C11FB2075F34800AB11F3 /* RoomManagementViewController */,
+				E19CBCA52088813D00A310D3 /* BillManagementViewController */,
+				E14804F92089F8E700C67D43 /* DetailNotificationViewController */,
+				E1954473208A0E84004F0D17 /* DetailBillViewController */,
+				E14C41402074D0EB003571E8 /* DetailNewsViewController */,
 				E1507B9F207D18FB00387527 /* DetailRoomViewController */,
+				E10112CC2091C2BA004ACA0D /* UpdateInfoViewController */,
 				E16F5B22207B7D6900B284A5 /* ChangePasswordViewController */,
 				E16F5B21207B7D5E00B284A5 /* ChangeEmailViewController */,
-				E16F5B18207B696500B284A5 /* AccountViewController */,
+				E198DC272082F69200E59BD2 /* EditPostViewController */,
+				E1507BA4207D194900387527 /* EditRoomViewController */,
+				E1507BAE207DDA7300387527 /* CalculateRoomPriceViewController */,
+				E1507BA9207D198C00387527 /* NewPostViewController */,
 				E1BD102B20766C1100287982 /* CreateRoomViewController */,
-				CE5FF78820766EB1005BEA3B /* MainViewController */,
-				145C11FB2075F34800AB11F3 /* RoomManagementViewController */,
-				E14C41402074D0EB003571E8 /* DetailNewsViewController */,
-				E1A621CF2070D1FF00B83291 /* TestViewController */,
+				E14804F42089F8CE00C67D43 /* CreateNotificationViewController */,
 				E153317B2068E19B00238763 /* SignUpViewController */,
 				E153317A2068E19000238763 /* LoginViewController */,
 				E15331792068E18100238763 /* ForgotPasswordViewController */,
 				E104667020708FFE00245789 /* TutorialViewController */,
+				E1A621CF2070D1FF00B83291 /* TestViewController */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -665,6 +679,7 @@
 				E19CBCA92088818600A310D3 /* BillManagementViewController.xib in Resources */,
 				E1BD102F20766C3500287982 /* CreateRoomViewController.xib in Resources */,
 				E14C41442074D107003571E8 /* DetailNewsViewController.xib in Resources */,
+				E14F2C2520960BF30034BE8E /* MyRoomsViewController.xib in Resources */,
 				E16BD8B6208DC0FD00DD00B7 /* NavigationViewController.xib in Resources */,
 				E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */,
 				145C12072075FF5300AB11F3 /* ListRoomsTableViewCell.xib in Resources */,
@@ -780,6 +795,7 @@
 				E14805012089F92D00C67D43 /* NotificationListViewController.swift in Sources */,
 				E1507BA2207D192F00387527 /* DetailRoomViewController.swift in Sources */,
 				E104666E20708FF400245789 /* TutorialViewController.swift in Sources */,
+				E14F2C2420960BF30034BE8E /* MyRoomsViewController.swift in Sources */,
 				E198DC212081829000E59BD2 /* HomeViewController.swift in Sources */,
 				E1A621D22070D23100B83291 /* TestViewController.swift in Sources */,
 				E1BD102620765FAD00287982 /* Room.swift in Sources */,

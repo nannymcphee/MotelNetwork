@@ -43,7 +43,7 @@
 /**
  *  Init self with frame
  *
- *  @param frame
+ *  @param frame ignored "-Wdocumentation"
  *
  *  @return self
  */

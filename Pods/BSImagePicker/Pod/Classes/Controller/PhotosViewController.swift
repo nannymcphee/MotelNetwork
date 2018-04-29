@@ -314,7 +314,7 @@ extension PhotosViewController {
             updateDoneButton()
 
             // Get indexPaths of selected items
-            let selectedIndexPaths = photosDataSource.selections.flatMap({ (asset) -> IndexPath? in
+            let selectedIndexPaths = photosDataSource.selections.compactMap({ (asset) -> IndexPath? in
                 let index = photosDataSource.fetchResult.index(of: asset)
                 guard index != NSNotFound else { return nil }
                 return IndexPath(item: index, section: 1)

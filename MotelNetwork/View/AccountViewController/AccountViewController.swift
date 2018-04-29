@@ -36,12 +36,14 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         tbNews.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
         tbNews.reloadData()
         
-        loadData()
         setUpView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        listNews.removeAll()
+        loadData()
         tbNews.reloadData()
     }
     

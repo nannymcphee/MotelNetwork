@@ -279,10 +279,13 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 
                 let data = UIImageJPEGRepresentation(thumbnail, 0.2)
                 let newImage = UIImage(data: data!)
-                self.imageArray.append(newImage as! UIImage)
+                
+                self.imageArray.append((newImage as UIImage?)!)
             }
             
-            self.ivProfilePicture.image = imageArray[0]
+            DispatchQueue.main.async {
+                self.ivProfilePicture.image = self.imageArray[0]
+            }
         }
     }
 

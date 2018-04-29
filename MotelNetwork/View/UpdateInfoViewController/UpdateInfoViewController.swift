@@ -108,10 +108,14 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
                 
                 let data = UIImageJPEGRepresentation(thumbnail, 0.7)
                 let newImage = UIImage(data: data!)
-                self.imageArray.append(newImage as! UIImage)
+                
+                self.imageArray.append((newImage as UIImage?)!)
             }
             
-            self.ivProfileImage.image = imageArray[0]
+            DispatchQueue.main.async {
+                self.ivProfileImage.image = self.imageArray[0]
+
+            }
         }
     }
     

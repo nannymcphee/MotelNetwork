@@ -12,10 +12,12 @@ import FirebaseDatabase
 import SwipeBack
 import NVActivityIndicatorView
 import TwicketSegmentedControl
+import CoreLocation
 
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedControlDelegate {
-    
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,
+UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedControlDelegate,
+CLLocationManagerDelegate {
     
     @IBOutlet weak var vSegment: UIView!
     @IBOutlet weak var tbMostView: UITableView!
@@ -26,7 +28,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var vMostView: UIView!
     @IBOutlet weak var vNearMe: UIView!
 
-    
+    var locationManager = CLLocationManager()
+    var currentLocation: CLLocation?
+    var currentLocationCoordinate: CLLocationCoordinate2D?
     var screenWidth = UIScreen.main.bounds.width
     var listNews = [News]()
     var listMostView = [News]()
@@ -73,6 +77,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
+        listNews.removeAll()
+        listNewsSortedByDate.removeAll()
+        listMostView.removeAll()
+        listNearMe.removeAll()
+        loadDataNews()
+        loadDataMostView()
+        loadDataNearMe()
         tbListNews.reloadData()
         tbNearMe.reloadData()
         tbMostView.reloadData()
@@ -146,10 +157,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func setUpView() {
         
         setUpSegmentControl()
+//        setUpLocationManager()
         self.tapToDismissKeyboard()
-        loadDataNews()
-        loadDataMostView()
-        loadDataNearMe()
         
         // Add refresh controls
         
@@ -333,8 +342,28 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
                 news.postDate = dictionary["postDate"] as? String
+                news.lat = dictionary["lat"] as? String
+                news.long = dictionary["long"] as? String
                 
                 self.listNearMe.append(news)
+                
+//                for news in self.listNearMe {
+//                    var distanceInMeters: CLLocationDistance = 0
+//                    let lat = news.lat?.toDouble
+//                    let long = news.long?.toDouble
+//                    let postLocation = CLLocation(latitude: lat!, longitude: long!)
+//
+//                    if let currentLocation = self.currentLocation {
+//                        distanceInMeters = currentLocation.distance(from: postLocation)
+//
+//                        if 100 < distanceInMeters {
+////                            self.listNearMe = self.listNearMe.filter({ (news) -> Bool in
+////                                $0 != list
+////                            })
+//                        }
+//                    }
+//                }
+                
                 self.tbNearMe.reloadData()
             }
         }, withCancel: nil)
@@ -439,5 +468,51 @@ extension HomeViewController {
         }
     }
 
+}
+
+extension HomeViewController {
+    
+    func setUpLocationManager() {
+        
+        locationManager.delegate = self
+        self.locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        locationManager.distanceFilter = 50
+    }
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if currentLocation == nil {
+            currentLocation = locations.last
+            locationManager.stopMonitoringSignificantLocationChanges()
+            
+            let locationValue: CLLocationCoordinate2D = manager.location!.coordinate
+            
+            currentLocationCoordinate = locationValue
+            
+            locationManager.stopUpdatingLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        switch status {
+        case .restricted:
+            print("Location access was restricted.")
+        case .denied:
+            print("User denied access to location.")
+            // Display the map using the default location.
+        case .notDetermined:
+            print("Location status not determined.")
+        case .authorizedAlways: fallthrough
+        case .authorizedWhenInUse:
+            print("Location status is OK.")
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        locationManager.stopUpdatingLocation()
+        print(error.localizedDescription)
+    }
 }
 

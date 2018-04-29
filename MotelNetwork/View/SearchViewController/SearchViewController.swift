@@ -33,12 +33,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         searchBar.returnKeyType = .done
         
         setUpView()
-        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        listNews.removeAll()
+        listNewsFiltered.removeAll()
+        listNewsOrderedByPrice.removeAll()
+        loadData()
         tbSearchResults.reloadData()
     }
 
@@ -49,6 +51,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func setUpView() {
         
+        tapToDismissKeyboard()
         // Add refresh control
         refreshControl.addTarget(self, action: #selector(self.refreshData), for: UIControlEvents.valueChanged)
         

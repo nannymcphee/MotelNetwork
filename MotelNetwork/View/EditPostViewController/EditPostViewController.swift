@@ -190,12 +190,16 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                 
                 let data = UIImageJPEGRepresentation(thumbnail, 1.0)
                 let newImage = UIImage(data: data!)
-                self.imageArray.append(newImage as! UIImage)
+                
+                self.imageArray.append((newImage as UIImage?)!)
             }
             
-            self.ivPostImage0.image = imageArray[0]
-            self.ivPostImage1.image = imageArray[1]
-            self.ivPostImage2.image = imageArray[2]
+            DispatchQueue.main.async {
+                self.ivPostImage0.image = self.imageArray[0]
+                self.ivPostImage1.image = self.imageArray[1]
+                self.ivPostImage2.image = self.imageArray[2]
+            }
+
         }
     }
     

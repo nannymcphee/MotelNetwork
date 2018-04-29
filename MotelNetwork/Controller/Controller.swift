@@ -156,6 +156,7 @@ extension UIViewController {
                 if let error = error {
                     
                     print(error)
+                    
                     self.showAlert(alertMessage: messageRequestLogOut)
                 }
                 else {

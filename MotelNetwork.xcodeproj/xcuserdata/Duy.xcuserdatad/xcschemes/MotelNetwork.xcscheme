@@ -26,6 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = "vi"
+      region = "VN"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>

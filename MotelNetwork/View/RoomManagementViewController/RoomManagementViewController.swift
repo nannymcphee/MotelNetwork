@@ -29,7 +29,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     var dbReference: DatabaseReference!
     var listRooms = [Room]()
     var roomsCount: Int = 0
-    var listRoomsSortedByRoomName = [Room]()
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
@@ -40,12 +39,14 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         tbRoomManagement.register(UINib(nibName: "ListRoomsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListRoomsTableViewCell")
         tbRoomManagement.reloadData()
 
-        loadData()
         setUpView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
+        listRooms.removeAll()
+        loadData()
         tbRoomManagement.reloadData()
     }
     
@@ -62,7 +63,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
             self.refreshControl.endRefreshing()
         }
     }
-    
     
     //MARK: Set up view
     func setUpView() {
@@ -106,7 +106,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
-
         let queryMyRoomsOrderByRoomName = ref.child("Rooms").queryOrdered(byChild: "ownerID").queryEqual(toValue: uid)
         
         queryMyRoomsOrderByRoomName.observe(.childAdded, with: { (snapshot) in
@@ -131,10 +130,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
                 room.usersAllowed = dictionary["usersAllowed"] as? String
                 
                 self.listRooms.append(room)
-//                self.listRoomsSortedByRoomName = self.listRooms.sorted(by: { (room0, room1) -> Bool in
-//                    return room0.name?.localizedStandardCompare(room1.name!) == ComparisonResult.orderedAscending
-//                })
-
                 self.roomsCount = self.listRooms.count
                 self.lblRoomCount.text = "\(self.roomsCount)"
                 self.tbRoomManagement.reloadData()
