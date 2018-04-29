@@ -55,6 +55,7 @@ class DetailRoomViewController: UIViewController {
     func setUpView() {
         
         fetchUser()
+        btnNotification.isHidden = true
         
         let roomImageUrl0 = currentRoom.roomImageUrl0
         let roomImageUrl1 = currentRoom.roomImageUrl1

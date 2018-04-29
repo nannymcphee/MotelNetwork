@@ -28,7 +28,6 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
         mapView.settings.myLocationButton = true
         mapView.delegate = self
         
-//        showLoading()
         loadData()
         setUpLocationManager()
         
@@ -79,7 +78,6 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
                 
                 self.listNews.append(news)
 
-//                self.stopLoading()
             }
 
         }, withCancel: nil)
