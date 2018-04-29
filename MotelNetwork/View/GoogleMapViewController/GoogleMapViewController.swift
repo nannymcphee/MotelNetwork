@@ -141,6 +141,8 @@ extension GoogleMapViewController {
                     let marker = GMSMarker(position: location)
                     
                     marker.title = listNews[i].title
+                    marker.snippet = listNews[i].address
+                    marker.icon = UIImage(named: "icMarker")
                     markers.append(marker)
                     marker.map = mapView
                 }
