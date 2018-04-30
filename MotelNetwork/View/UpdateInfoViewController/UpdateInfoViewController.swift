@@ -12,6 +12,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import BSImagePicker
 import Photos
+import Kingfisher
 
 class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -56,12 +57,16 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
                 self.tfBirthDay.text = dictionary["BirthDay"] as? String
                 self.tfCMND.text = dictionary["CMND"] as? String
                 self.tfPhoneNumber.text = dictionary["PhoneNumber"] as? String
+                let resouce = ImageResource(downloadURL: URL(string: self.profileImageUrl!)!)
+                self.ivProfileImage.kf.setImage(with: resouce, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
+                self.btnAddImage.setImage(self.ivProfileImage.image, for: .normal)
             }
         }, withCancel: nil)
         
         self.tapToDismissKeyboard()
         createDatePicker()
-        makeImageViewRounded(imageView: ivProfileImage)
+        makeButtonRounded(button: btnAddImage)
+        self.ivProfileImage.isHidden = true
     }
     
     //MARK: Database interactions
@@ -114,6 +119,7 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
             
             DispatchQueue.main.async {
                 self.ivProfileImage.image = self.imageArray[0]
+                self.btnAddImage.setImage(self.imageArray[0], for: .normal)
 
             }
         }

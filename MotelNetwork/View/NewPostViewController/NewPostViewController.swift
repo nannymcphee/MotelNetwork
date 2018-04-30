@@ -290,9 +290,13 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             return
         }
         
-        if (tfDistrict.text?.isEmpty)! || (tfTitle.text?.isEmpty)! || (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfAddress.text?.isEmpty)! || (tfWaterPrice.text?.isEmpty)! || (tfPhoneNumber.text?.isEmpty)! || (tfElectricPrice.text?.isEmpty)! || (tfInternetPrice.text?.isEmpty)! || (tvDescription.text?.isEmpty)! || ivPostImage0.image == nil || ivPostImage1.image == nil || ivPostImage2.image == nil {
+        if (tfDistrict.text?.isEmpty)! || (tfTitle.text?.isEmpty)! || (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfAddress.text?.isEmpty)! || (tfWaterPrice.text?.isEmpty)! || (tfPhoneNumber.text?.isEmpty)! || (tfElectricPrice.text?.isEmpty)! || (tfInternetPrice.text?.isEmpty)! || (tvDescription.text?.isEmpty)! {
             
             showAlert(alertMessage: messageNilTextFields)
+        }
+        else if ivPostImage0.image == nil || ivPostImage1.image == nil || ivPostImage2.image == nil {
+            
+            self.showAlert(alertMessage: messageNilImages)
         }
         else if (tfTitle.text?.count)! > 50 || (tfAddress.text?.count)! > 50 {
             

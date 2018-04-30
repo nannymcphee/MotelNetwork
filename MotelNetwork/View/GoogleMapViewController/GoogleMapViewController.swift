@@ -120,7 +120,7 @@ extension GoogleMapViewController {
             currentLocation = locations.last
             locationManager.stopMonitoringSignificantLocationChanges()
             
-            let locationValue: CLLocationCoordinate2D = manager.location!.coordinate
+            let locationValue: CLLocationCoordinate2D = locationManager.location!.coordinate
             
             let camera = GMSCameraPosition.camera(withTarget: locationValue, zoom: zoomLevel)
             
@@ -129,6 +129,7 @@ extension GoogleMapViewController {
                 mapView.camera = camera
             }
             else {
+                
                 mapView.animate(to: camera)
                 
                 for i in 0..<listNews.count {

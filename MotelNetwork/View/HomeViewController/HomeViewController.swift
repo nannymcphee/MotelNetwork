@@ -77,13 +77,6 @@ CLLocationManagerDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
 
-        listNews.removeAll()
-        listNewsSortedByDate.removeAll()
-        listMostView.removeAll()
-        listNearMe.removeAll()
-        loadDataNews()
-        loadDataMostView()
-        loadDataNearMe()
         tbListNews.reloadData()
         tbNearMe.reloadData()
         tbMostView.reloadData()
@@ -159,6 +152,9 @@ CLLocationManagerDelegate {
         setUpSegmentControl()
 //        setUpLocationManager()
         self.tapToDismissKeyboard()
+        loadDataNews()
+        loadDataMostView()
+        loadDataNearMe()
         
         // Add refresh controls
         

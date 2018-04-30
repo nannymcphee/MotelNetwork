@@ -31,6 +31,7 @@ class MyRoomsViewController: UIViewController, UITableViewDelegate, UITableViewD
         tbMyRooms.register(UINib(nibName: "ListRoomsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListRoomsTableViewCell")
         tbMyRooms.reloadData()
         
+        loadData()
         setUpView()
     }
 
@@ -41,8 +42,6 @@ class MyRoomsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        listRooms.removeAll()
-        loadData()
         tbMyRooms.reloadData()
     }
     

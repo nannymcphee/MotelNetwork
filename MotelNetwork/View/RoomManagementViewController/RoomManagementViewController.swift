@@ -39,14 +39,12 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         tbRoomManagement.register(UINib(nibName: "ListRoomsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListRoomsTableViewCell")
         tbRoomManagement.reloadData()
 
+        loadData()
         setUpView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
-        listRooms.removeAll()
-        loadData()
         tbRoomManagement.reloadData()
     }
     
@@ -128,7 +126,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
                 room.roomImageUrl1 = dictionary["roomImageUrl1"] as? String
                 room.roomImageUrl2 = dictionary["roomImageUrl2"] as? String
                 room.usersAllowed = dictionary["usersAllowed"] as? String
-                room.address = dictionary["address"] as? String
                 
                 self.listRooms.append(room)
                 self.roomsCount = self.listRooms.count

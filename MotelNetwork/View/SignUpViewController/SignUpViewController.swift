@@ -95,7 +95,8 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         createDatePicker()
         userType.append(UserType(userType: 0, userTypeName: "Chủ nhà trọ"))
         userType.append(UserType(userType: 1, userTypeName: "Khách thuê trọ"))
-        makeImageViewRounded(imageView: ivProfilePicture)
+        makeButtonRounded(button: btnProfilePicture)
+        ivProfilePicture.isHidden = true
         self.tapToDismissKeyboard()
     }
     
@@ -227,6 +228,22 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 }
                 else {
                     
+//                    do {
+//                        try Auth.auth().signOut()
+//                    } catch let error {
+//                        print(error)
+//                    }
+                    
+//                    Auth.auth().currentUser?.sendEmailVerification(completion: { (error) in
+//                        if let error = error {
+//                            print(error)
+//                        }
+//                        else  {
+//                            
+//                            self.showAlert(alertMessage: "Vui lòng kiểm tra email của bạn để kích hoạt tài khoản.")
+//                        }
+//                    })
+                    
                     guard let uid = user?.uid else {
                         
                         return
@@ -285,6 +302,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
             
             DispatchQueue.main.async {
                 self.ivProfilePicture.image = self.imageArray[0]
+                self.btnProfilePicture.setImage(self.imageArray[0], for: .normal)
             }
         }
     }

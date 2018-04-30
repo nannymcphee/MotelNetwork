@@ -42,5 +42,6 @@ let messageConfirmEditData: String = "Bạn có muốn sửa thông tin không?"
 let messageCreateNotiSuccess: String = "Lưu thông báo thành công."
 let messageCreateBillSuccess: String = "Lưu hóa đơn thành công."
 let messageEditBillSuccess: String = "Sửa hóa đơn thành công."
+let messageNilImages: String = "Bạn chưa chọn ảnh."
 
 
