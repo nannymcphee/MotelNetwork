@@ -22,6 +22,7 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager: CLLocationManager?
     var currentLocation: CLLocation?
     var currentLocationCoordinate: CLLocationCoordinate2D?
+    var currentNewsCoordinate: CLLocationCoordinate2D?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +30,24 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate {
         setUpView()        
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: Set up view
+    
     func setUpView() {
+        
+        let lat = currentNews.lat?.toDouble
+        let long = currentNews.long?.toDouble
+        
+        self.currentNewsCoordinate = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
         tfDestination.text = currentNews.address!
         makeButtonRounded(button: btnGo)
     }
+    
+    //MARK: Logic for locationManager
     
     func setUpLocationManager() {
         locationManager = CLLocationManager()
@@ -40,11 +55,6 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate {
         self.locationManager?.requestWhenInUseAuthorization()
         locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager?.startUpdatingLocation()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -65,12 +75,6 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate {
         print(error.localizedDescription)
     }
     
-    
-    fileprivate var directionsAPI: PXGoogleDirections {
-        return (UIApplication.shared.delegate as! AppDelegate).directionsAPI
-    }
-    
-    
     @IBAction func btnBackPressed(_ sender: Any) {
         
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
@@ -81,72 +85,14 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate {
         if (tfOrigin.text?.isEmpty)! || (tfDestination.text?.isEmpty)! {
             showAlert(alertMessage: messageNilTextFields)
         }
-        else if tfOrigin.text == "Vị trí của bạn" || tfOrigin.text == "Vị trí của bạn (Mặc định)" {
-            directionsAPI.delegate = self
-            directionsAPI.from = PXLocation.coordinateLocation(currentLocationCoordinate!)
-            directionsAPI.to = PXLocation.namedLocation(tfDestination.text!)
-            directionsAPI.region = "vi-vn"
-            
-            directionsAPI.calculateDirections { (response) -> Void in
-                DispatchQueue.main.async(execute: { () -> Void in
-                    switch response {
-                    case let .error(_, error):
-                        self.showAlert(alertMessage: "Error: \(error.localizedDescription)")
-                    case let .success(request, routes):
-                        let rvc = ResultViewController()
-                        rvc.request = request
-                        rvc.results = routes
-                        rvc.currentNews = self.currentNews
-                        self.present(rvc, animated: true, completion: nil)
-                    }
-                })
-            }
+        else if tfOrigin.text == "Vị trí của bạn" {
+            navigateFromCoordinateToCoordinate()
         }
-        else if tfOrigin.text != "Vị trí của bạn" || tfOrigin.text == "Vị trí của bạn (Mặc định)" {
-            directionsAPI.delegate = self
-            directionsAPI.from = PXLocation.namedLocation(tfOrigin.text!)
-            directionsAPI.to = PXLocation.namedLocation(tfDestination.text!)
-            directionsAPI.region = "vi-vn"
-            
-            directionsAPI.calculateDirections { (response) -> Void in
-                DispatchQueue.main.async(execute: { () -> Void in
-                    switch response {
-                    case let .error(_, error):
-                        self.showAlert(alertMessage: "Error: \(error.localizedDescription)")
-                    case let .success(request, routes):
-                        let rvc = ResultViewController()
-                        rvc.request = request
-                        rvc.results = routes
-                        rvc.currentNews = self.currentNews
-                        self.present(rvc, animated: true, completion: nil)
-                    }
-                })
-            }
-        }
-        else {
-            directionsAPI.delegate = self
-            directionsAPI.from = PXLocation.namedLocation(tfOrigin.text!)
-            directionsAPI.to = PXLocation.namedLocation(tfDestination.text!)
-            directionsAPI.region = "vi-vn"
-            
-            directionsAPI.calculateDirections { (response) -> Void in
-                DispatchQueue.main.async(execute: { () -> Void in
-                    switch response {
-                    case let .error(_, error):
-                        self.showAlert(alertMessage: "Error: \(error.localizedDescription)")
-                    case let .success(request, routes):
-                        let rvc = ResultViewController()
-                        rvc.request = request
-                        rvc.results = routes
-                        rvc.currentNews = self.currentNews
-                        self.present(rvc, animated: true, completion: nil)
-                    }
-                })
-            }
+        else if tfOrigin.text != "Vị trí của bạn" {
+            navigateFromPlaceToCoordinate()
         }
         
     }
-    
     
     @IBAction func btnGetCurrentLocationPressed(_ sender: Any) {
         
@@ -157,6 +103,57 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate {
 }
 
 extension NavigationViewController: PXGoogleDirectionsDelegate {
+    
+    //MARK: PXLocation
+    
+    func navigateFromCoordinateToCoordinate() {
+        directionsAPI.delegate = self
+        directionsAPI.from = PXLocation.coordinateLocation(currentLocationCoordinate!)
+        directionsAPI.to = PXLocation.coordinateLocation(currentNewsCoordinate!)
+        directionsAPI.region = "vi-vn"
+        
+        directionsAPI.calculateDirections { (response) -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
+                switch response {
+                case let .error(_, error):
+                    self.showAlert(alertMessage: "Error: \(error.localizedDescription)")
+                case let .success(request, routes):
+                    let rvc = ResultViewController()
+                    rvc.request = request
+                    rvc.results = routes
+                    rvc.currentNews = self.currentNews
+                    self.present(rvc, animated: true, completion: nil)
+                }
+            })
+        }
+    }
+    
+    func navigateFromPlaceToCoordinate() {
+        directionsAPI.delegate = self
+        directionsAPI.from = PXLocation.namedLocation(tfOrigin.text!)
+        directionsAPI.to = PXLocation.coordinateLocation(currentNewsCoordinate!)
+        directionsAPI.region = "vi-vn"
+        
+        directionsAPI.calculateDirections { (response) -> Void in
+            DispatchQueue.main.async(execute: { () -> Void in
+                switch response {
+                case let .error(_, error):
+                    self.showAlert(alertMessage: "Error: \(error.localizedDescription)")
+                case let .success(request, routes):
+                    let rvc = ResultViewController()
+                    rvc.request = request
+                    rvc.results = routes
+                    rvc.currentNews = self.currentNews
+                    self.present(rvc, animated: true, completion: nil)
+                }
+            })
+        }
+    }
+    
+    fileprivate var directionsAPI: PXGoogleDirections {
+        return (UIApplication.shared.delegate as! AppDelegate).directionsAPI
+    }
+    
     func googleDirectionsWillSendRequestToAPI(_ googleDirections: PXGoogleDirections, withURL requestURL: URL) -> Bool {
         NSLog("googleDirectionsWillSendRequestToAPI:withURL:")
         return true

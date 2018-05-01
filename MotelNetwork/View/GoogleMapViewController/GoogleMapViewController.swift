@@ -30,8 +30,6 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
         
         loadData()
         setUpLocationManager()
-        
-
     }
     
     override func didReceiveMemoryWarning() {

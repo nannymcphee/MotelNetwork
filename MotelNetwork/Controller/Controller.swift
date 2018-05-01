@@ -204,8 +204,25 @@ extension UIViewController {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         
-        return emailTest.evaluate(with:email)
+        return emailTest.evaluate(with: email)
     }
+    
+    //MARK: Check if address is valid
+    
+//    func isValidAddress(address: String) -> Bool {
+//        let addressRegEx = "(?i)([0-9A-ZẮẰẲẴẶĂẤẦẨẪẬÂÁÀÃẢẠĐẾỀỂỄỆÊÉÈẺẼẸÍÌỈĨỊỐỒỔỖỘÔỚỜỞỠỢƠÓÒÕỎỌỨỪỬỮỰƯÚÙỦŨỤÝỲỶỸỴ']+\\s?\\b){2,}"
+////        let addressTest = NSPredicate(format:"SELF MATCHES %@", addressRegEx)
+//        return addressRegEx.range(of: "(?i)([0-9A-ZẮẰẲẴẶĂẤẦẨẪẬÂÁÀÃẢẠĐẾỀỂỄỆÊÉÈẺẼẸÍÌỈĨỊỐỒỔỖỘÔỚỜỞỠỢƠÓÒÕỎỌỨỪỬỮỰƯÚÙỦŨỤÝỲỶỸỴ']+\\s?\\b){2,}", options: .regularExpression) != nil
+//    }
+    
+    //MARK: Check if phone number is valid 
+    
+//    func isValidPhoneNumber(phoneNumber: String) -> Bool {
+//        let phoneNumberRegEx = "/^(01[2689]|09)[0-9]{8}$/"
+//        let phoneNumberTest = NSPredicate(format: "SELF MATCHES %@", phoneNumberRegEx)
+//
+//        return phoneNumberTest.evaluate(with: phoneNumber)
+//    }
     
     //MARK: Database interactions
     

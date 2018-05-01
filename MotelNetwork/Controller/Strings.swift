@@ -12,7 +12,7 @@ var room = Room()
 var news = News()
 
 let API_KEY =  "AIzaSyCw_k4bba0yo3rvda0-e0qs7aPxK3XCd9s"
-let districtList: [String] = ["Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11", "Quận 12", "Thủ Đức", "Bình Thạnh", "Gò Vấp", "Phú Nhuận", "Tân Phú", "Tân Bình", "Bình Tân", "Huyện Nhà Bè", "Huyện Bình Chánh", "Huyện Hóc Môn", "Huyện Củ Chi" , "Huyện Cần Giờ"]
+let districtList: [String] = ["Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11", "Quận 12", "Thủ Đức", "Quận Bình Thạnh", "Quận Gò Vấp", "Quận Phú Nhuận", "Quận Tân Phú", "Quận Tân Bình", "Quận Bình Tân", "Huyện Nhà Bè", "Huyện Bình Chánh", "Huyện Hóc Môn", "Huyện Củ Chi" , "Huyện Cần Giờ"]
 
 let messageConfirmLogOut: String = "Bạn chắc chắn muốn đăng xuất không?"
 let messageRequestLogOut: String = "Bạn cần phải đăng nhập lại trước khi thay đổi email hoặc mật khẩu."
@@ -44,5 +44,6 @@ let messageCreateBillSuccess: String = "Lưu hóa đơn thành công."
 let messageEditBillSuccess: String = "Sửa hóa đơn thành công."
 let messageNilImages: String = "Bạn chưa chọn ảnh."
 let messageWrongPasswordConfirm: String = "Mật khẩu xác nhận không giống mật khẩu mới. Vui lòng kiểm tra lại."
+let messageInvalidPhoneNumber: String = "Vui lòng nhập đúng số điện thoại." 
 
 

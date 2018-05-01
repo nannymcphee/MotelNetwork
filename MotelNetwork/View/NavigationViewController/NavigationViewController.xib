@@ -76,7 +76,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="anC-j5-NSg">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Vị trí của bạn (Mặc định)" borderStyle="roundedRect" placeholder="Vị trí của bạn" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="It4-oc-5in">
+                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Vị trí của bạn" borderStyle="roundedRect" placeholder="Vị trí của bạn" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="It4-oc-5in">
                                     <rect key="frame" x="17" y="32" width="340" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="KP4-CV-JwY"/>
@@ -85,7 +85,7 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Điểm đến" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zB3-ID-1yY">
+                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Điểm đến" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="zB3-ID-1yY">
                                     <rect key="frame" x="17" y="104" width="340" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="5Ff-Dl-gf8"/>

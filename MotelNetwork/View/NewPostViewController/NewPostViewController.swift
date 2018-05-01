@@ -327,10 +327,14 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 self.storeInformationToDatabase(reference: self.reference, values: ["postImageUrl2": url as AnyObject])
             }
             
+            self.showLoading()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+                self.stopLoading()
                 self.showAlert(alertMessage: messageNewPostSuccess)
                 self.selectedAssets.removeAll()
                 self.imageArray.removeAll()
                 self.resetView()
+            }
         }
         
         return

@@ -251,6 +251,8 @@ CLLocationManagerDelegate {
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
                 news.timestamp = dictionary["timestamp"] as? Int
+                news.lat = dictionary["lat"] as? String
+                news.long = dictionary["long"] as? String
 
                 self.listNews.append(news)
                 self.listNews = self.listNews.sorted(by: { (news0, news1) -> Bool in
@@ -296,6 +298,8 @@ CLLocationManagerDelegate {
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
                 news.timestamp = dictionary["timestamp"] as? Int
+                news.lat = dictionary["lat"] as? String
+                news.long = dictionary["long"] as? String
                 
                 self.listMostView.append(news)
                 self.tbMostView.reloadData()
