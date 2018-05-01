@@ -35,13 +35,11 @@ CLLocationManagerDelegate {
     var listNews = [News]()
     var listMostView = [News]()
     var listNearMe = [News]()
-    var listNewsSortedByDate = [News]()
     var refreshControl0: UIRefreshControl = UIRefreshControl()
     var refreshControl1: UIRefreshControl = UIRefreshControl()
     var refreshControl2: UIRefreshControl = UIRefreshControl()
     var segmentedControl: TwicketSegmentedControl = TwicketSegmentedControl()
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -252,11 +250,11 @@ CLLocationManagerDelegate {
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
-                news.postDate = dictionary["postDate"] as? String
+                news.timestamp = dictionary["timestamp"] as? Int
 
                 self.listNews.append(news)
-                self.listNewsSortedByDate = self.listNews.sorted(by: { (news0, news1) -> Bool in
-                    return news0.postDate?.localizedStandardCompare(news1.postDate!) == ComparisonResult.orderedDescending
+                self.listNews = self.listNews.sorted(by: { (news0, news1) -> Bool in
+                    return news0.timestamp! > (news1.timestamp!)
                 })
                 
                 self.stopLoading()
@@ -297,7 +295,7 @@ CLLocationManagerDelegate {
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
-                news.postDate = dictionary["postDate"] as? String
+                news.timestamp = dictionary["timestamp"] as? Int
                 
                 self.listMostView.append(news)
                 self.tbMostView.reloadData()
@@ -337,7 +335,7 @@ CLLocationManagerDelegate {
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
-                news.postDate = dictionary["postDate"] as? String
+                news.timestamp = dictionary["timestamp"] as? Int
                 news.lat = dictionary["lat"] as? String
                 news.long = dictionary["long"] as? String
                 
@@ -398,7 +396,7 @@ extension HomeViewController {
         
         if tableView == tbListNews {
             
-            return listNewsSortedByDate.count
+            return listNews.count
         }
         else if tableView == tbMostView {
             
@@ -418,7 +416,7 @@ extension HomeViewController {
         
         if tableView == tbListNews {
             
-            let news = listNewsSortedByDate[indexPath.row]
+            let news = listNews[indexPath.row]
             cell.populateData(news: news)
         }
         else if tableView == tbMostView {
@@ -444,7 +442,7 @@ extension HomeViewController {
         
         if tableView == tbListNews {
             
-            let news = listNewsSortedByDate[indexPath.row]
+            let news = listNews[indexPath.row]
             vc.currentNews = news
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         }

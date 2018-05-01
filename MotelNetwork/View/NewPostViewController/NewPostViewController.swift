@@ -89,17 +89,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.tapToDismissKeyboard()
         makeButtonRounded(button: btnClearTextView)
     }
-    
-    //MARK: Get current date
-    
-    func getCurrentDate() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        let str = formatter.string(from: Date())
-        currentDate = str
-    }
-    
-    
+
     //MARK: Reset view
     
     func resetView() {
@@ -304,7 +294,6 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }
         else {
             
-            getCurrentDate()
             // Store post's info to database
             let title = self.tfTitle.text!
             let area = self.tfArea.text!
@@ -316,11 +305,11 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let price = self.tfPrice.text!
             let description = self.tvDescription.text!
             let internetPrice = self.tfInternetPrice.text!
-            let postDate = currentDate
+            let timestamp = Int(NSDate().timeIntervalSince1970)
             
             convertAddressToCoordinate(address: address)
             
-            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "postDate": postDate, "ownerID": uid]
+            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "timestamp": timestamp, "ownerID": uid] as [String : AnyObject]
             
             self.storeInformationToDatabase(reference: reference, values: values as [String: AnyObject])
             

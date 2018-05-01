@@ -23,7 +23,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var dbReference: DatabaseReference!
     var listNews = [News]()
-    var listNewsSortedByDate = [News]()
     var newsCount : Int = 0
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
@@ -133,11 +132,11 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
-                news.postDate = dictionary["postDate"] as? String
+                news.timestamp = dictionary["timestamp"] as? Int
                 
                 self.listNews.append(news)
-                self.listNewsSortedByDate = self.listNews.sorted(by: { (news0, news1) -> Bool in
-                    return news0.postDate?.localizedStandardCompare(news1.postDate!) == ComparisonResult.orderedDescending
+                self.listNews = self.listNews.sorted(by: { (news0, news1) -> Bool in
+                    return news0.timestamp! > (news1.timestamp!)
                 })
                 self.newsCount = self.listNews.count
                 self.lblNewsCount.text = "\(self.newsCount)"
@@ -161,13 +160,13 @@ extension AccountViewController {
     //MARK: Logic for UITableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listNewsSortedByDate.count
+        return listNews.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tbNews.dequeueReusableCell(withIdentifier: "ListNewsTableViewCell") as! ListNewsTableViewCell
         
-        let news = listNewsSortedByDate[indexPath.row]
+        let news = listNews[indexPath.row]
         cell.populateData(news: news)
         
         
@@ -180,7 +179,7 @@ extension AccountViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let news = listNewsSortedByDate[indexPath.row]
+        let news = listNews[indexPath.row]
         let vc = DetailNewsViewController()
         
         vc.currentNews = news
@@ -201,7 +200,7 @@ extension AccountViewController {
     // Swipe actions
     func editAction(at indexPath: IndexPath) -> UIContextualAction {
         
-        let news = listNewsSortedByDate[indexPath.row]
+        let news = listNews[indexPath.row]
         let action = UIContextualAction(style: .normal, title: "") { (action, view, nil) in
             
             let vc = EditPostViewController()
@@ -220,7 +219,7 @@ extension AccountViewController {
         let action = UIContextualAction(style: .destructive, title: "") { (action, view, nil) in
             
             // Query delete from database
-            let news = self.listNewsSortedByDate[indexPath.row]
+            let news = self.listNews[indexPath.row]
             let newsID = news.id
             let ref = Database.database().reference().child("Posts").child(newsID!)
             
@@ -228,7 +227,7 @@ extension AccountViewController {
             let alert = UIAlertController(title: messageConfirmDeletePost, message: nil, preferredStyle: .actionSheet)
             let actionDestroy = UIAlertAction(title: "Xóa", style: .destructive) { (action) in
                 self.deleteData(reference: ref)
-                self.listNewsSortedByDate.remove(at: indexPath.row)
+                self.listNews.remove(at: indexPath.row)
                 self.tbNews.deleteRows(at: [indexPath], with: .automatic)
                 self.tbNews.reloadData()
                 self.newsCount = self.listNews.count

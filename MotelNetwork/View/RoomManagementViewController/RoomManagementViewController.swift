@@ -128,6 +128,9 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
                 room.usersAllowed = dictionary["usersAllowed"] as? String
                 
                 self.listRooms.append(room)
+                self.listRooms = self.listRooms.sorted(by: { (room0, room1) -> Bool in
+                    return room0.name?.localizedStandardCompare(room1.name!) == .orderedAscending
+                })
                 self.roomsCount = self.listRooms.count
                 self.lblRoomCount.text = "\(self.roomsCount)"
                 self.tbRoomManagement.reloadData()

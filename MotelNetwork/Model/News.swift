@@ -20,7 +20,7 @@ class News {
     var district: String?
     var description: String?
     var phoneNumber: String?
-    var postDate: String?
+    var timestamp: Int?
     var lat: String?
     var long: String?
     var price: Double?
@@ -31,7 +31,7 @@ class News {
     init() {
     }
     
-    init(id: String, title: String, area: String, address: String, postImageUrl0: String, postImageUrl1: String, postImageUrl2: String, ownerID: String, district: String, description: String, phoneNumber: String, postDate: String, lat: String, long: String, price: Double, electricPrice: Double, waterPrice: Double, internetPrice: Double) {
+    init(id: String, title: String, area: String, address: String, postImageUrl0: String, postImageUrl1: String, postImageUrl2: String, ownerID: String, district: String, description: String, phoneNumber: String, timestamp: Int, lat: String, long: String, price: Double, electricPrice: Double, waterPrice: Double, internetPrice: Double) {
         
         self.id = id
         self.title = title
@@ -48,7 +48,7 @@ class News {
         self.waterPrice = waterPrice
         self.electricPrice = electricPrice
         self.phoneNumber = phoneNumber
-        self.postDate = postDate
+        self.timestamp = timestamp
         self.lat = lat
         self.long = long
     }
@@ -69,7 +69,7 @@ class News {
         self.district = dictionary["district"] as? String
         self.address = dictionary["address"] as? String
         self.phoneNumber = dictionary["phoneNumber"] as? String
-        self.postDate = dictionary["postDate"] as? String
+        self.timestamp = dictionary["timestamp"] as? Int
         self.lat = dictionary["lat"] as? String
         self.long = dictionary["long"] as? String
     }

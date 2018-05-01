@@ -36,6 +36,7 @@ class DetailNewsViewController: UIViewController {
     var dbReference: DatabaseReference!
     var currentNews = News()
     var floaty = Floaty()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,9 @@ class DetailNewsViewController: UIViewController {
     func setUpView() {
         
         layoutFAB()
+
         numberFormatter.numberStyle = .decimal
+        var dateStr: String = ""
         let postImageUrl0 = currentNews.postImageUrl0
         let postImageUrl1 = currentNews.postImageUrl1
         let postImageUrl2 = currentNews.postImageUrl2
@@ -61,6 +64,12 @@ class DetailNewsViewController: UIViewController {
         let formattedElectricPrice = numberFormatter.string(from: currentNews.electricPrice! as NSNumber)
         let formattedWaterPrice = numberFormatter.string(from: currentNews.waterPrice! as NSNumber)
         let formattedInternetPrice = numberFormatter.string(from: currentNews.internetPrice! as NSNumber)
+        let timestampDouble = Double(currentNews.timestamp!)
+        let timestampDate = NSDate(timeIntervalSince1970: timestampDouble)
+        let dateFormatter = DateFormatter()
+        
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateStr = dateFormatter.string(from: timestampDate as Date)
         
         if let ownerID = currentNews.ownerID {
             
@@ -91,7 +100,7 @@ class DetailNewsViewController: UIViewController {
         lblDistrict.text = currentNews.district
         tvDescription.text = currentNews.description
         tvPhoneNumber.text = currentNews.phoneNumber
-        lblPostDate.text = currentNews.postDate
+        lblPostDate.text = dateStr
         tvAddress.text = currentNews.address
         lblTitle.text = currentNews.title
         

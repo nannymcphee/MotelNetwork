@@ -38,10 +38,12 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     var selectedAssets = [PHAsset]()
     var imageArray = [UIImage]()
     var currentDate: String = ""
-    let pvDistrict = UIPickerView()
     var dbReference: DatabaseReference!
+    var currentNewsLatitude: String = ""
+    var currentNewsLongitude: String = ""
     let uid = Auth.auth().currentUser?.uid
-    
+    let pvDistrict = UIPickerView()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -60,7 +62,6 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     //MARK: Set up view
     func setUpView() {
         
-        getCurrentDate()
         createDistrictListPicker()
         
         tfTitle.text = currentNews.title
@@ -86,11 +87,11 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                     let coordinate: CLLocationCoordinate2D = (location?.coordinate)!
                     let latStr = String(coordinate.latitude)
                     let longStr = String(coordinate.longitude)
-                    
                     let values = ["lat": latStr, "long": longStr]
                     let postID = self.currentNews.id
                     let reference = Database.database().reference().child("Posts").child(postID!)
-                    self.storeInformationToDatabase(reference: reference, values: values as [String : AnyObject])
+                    
+                    self.editData(reference: reference, newValues: values as [String : AnyObject])
                 }
             }
         }
@@ -136,13 +137,6 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         
         pickerView.reloadComponent(0)
         tfDistrict.text = districtList[row]
-    }
-    
-    func getCurrentDate() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
-        let str = formatter.string(from: Date())
-        currentDate = str
     }
     
     //Mark: Logic for BSImageViewPicker
@@ -264,27 +258,36 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
             let title = self.tfTitle.text!
             let area = self.tfArea.text!
             let district = self.tfDistrict.text!
-            let address = ("\(self.tfAddress.text!)" + ", \(district)")
+            var address: String = ""
             let waterPrice = self.tfWaterPrice.text!
             let phoneNumber = self.tfPhoneNumber.text!
             let electricPrice = self.tfElectricPrice.text!
             let price = self.tfRoomPrice.text!
             let description = self.tvDescription.text!
             let internetPrice = self.tfInternetPrice.text!
-            let postDate = currentDate
             let postID = currentNews.id
+            let timestamp = Int(NSDate().timeIntervalSince1970)
             let ref = Database.database().reference().child("Posts").child(postID!)
-            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postDate": postDate, "ownerID": ownerID]
+            
+            if (self.tfDistrict.text?.elementsEqual(currentNews.district!))! {
+                address = self.tfAddress.text!
+            }
+            else {
+                address = ("\(self.tfAddress.text!)" + ", \(district)")
+            }
+
+            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "timestamp": timestamp, "ownerID": ownerID!] as [String: AnyObject]
             
             // Create confirm alert
             let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)
             let actionDestroy = UIAlertAction(title: "Có", style: .destructive) { (action) in
                 
+               
                 
                 if self.ivPostImage0.image == nil || self.ivPostImage1.image == nil || self.ivPostImage2 == nil {
                     
+                    self.convertAddressToCoordinate(address: address)
                     self.editData(reference: ref, newValues: values as [String: AnyObject])
-                    
                     self.showAlert(alertMessage: messageEditPostSuccess)
                 }
                 else {

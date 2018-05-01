@@ -70,6 +70,8 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         self.tfUser.text = ""
         self.tfPrice.text = ""
         self.tfRoomName.text = ""
+        self.tfUsersAllowed.text = ""
+        self.tfAddress.text = ""
     }
     
     //MARK: Database interaction
@@ -261,9 +263,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 self.selectedAssets.removeAll()
                 self.imageArray.removeAll()
                 self.resetView()
-//                (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
             }
-
         }
 
         return

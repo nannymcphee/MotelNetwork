@@ -43,5 +43,6 @@ let messageCreateNotiSuccess: String = "Lưu thông báo thành công."
 let messageCreateBillSuccess: String = "Lưu hóa đơn thành công."
 let messageEditBillSuccess: String = "Sửa hóa đơn thành công."
 let messageNilImages: String = "Bạn chưa chọn ảnh."
+let messageWrongPasswordConfirm: String = "Mật khẩu xác nhận không giống mật khẩu mới. Vui lòng kiểm tra lại."
 
 

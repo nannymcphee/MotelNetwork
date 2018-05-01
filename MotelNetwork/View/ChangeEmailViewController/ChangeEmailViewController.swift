@@ -80,7 +80,7 @@ class ChangeEmailViewController: UIViewController {
         }
         else {
             
-            _ = Auth.auth().addStateDidChangeListener({ (auth, user) in
+            Auth.auth().addStateDidChangeListener({ (auth, user) in
                 
                 if user != nil {
                     self.showAlertConfirmChangeEmail(newEmail: newEmail!)

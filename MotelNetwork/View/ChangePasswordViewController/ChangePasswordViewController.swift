@@ -14,6 +14,7 @@ import Kingfisher
 class ChangePasswordViewController: UIViewController {
     
     
+    @IBOutlet weak var tfPasswordConfirm: UITextField!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblFullName: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
@@ -71,28 +72,35 @@ class ChangePasswordViewController: UIViewController {
     
     @IBAction func btnSavePasswordPressed(_ sender: Any) {
         
-        let newPass = tfNewPassword.text
+        let newPass = tfNewPassword.text!
+        let newPassConfirm = tfPasswordConfirm.text!
         
-        if (tfNewPassword.text?.isEmpty)! {
+        if (tfNewPassword.text?.isEmpty)! || (tfPasswordConfirm.text?.isEmpty)! {
             
             showAlert(alertMessage: messageNilTextFields)
         }
-        else if (newPass?.count)! < 6 {
+        else if newPass.count < 6 {
             
             showAlert(alertMessage: messagePasswordLessThan6Chars)
         }
+        else if newPass.elementsEqual(newPassConfirm) == false  {
+            
+            showAlert(alertMessage: messageWrongPasswordConfirm)
+        }
         else {
-            _ = Auth.auth().addStateDidChangeListener({ (auth, user) in
+            Auth.auth().addStateDidChangeListener({ (auth, user) in
                 
                 if user != nil {
                     
-                    self.showAlertConfirmChangePassword(newPass: newPass!)
+                    self.showAlertConfirmChangePassword(newPass: newPass)
                     self.tfNewPassword.text = ""
+                    self.tfPasswordConfirm.text = ""
                 }
                 else {
                 }
             })
         }
+        
         
         return
     }

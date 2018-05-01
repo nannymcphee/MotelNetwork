@@ -11,8 +11,7 @@ import UIKit
 import NVActivityIndicatorView
 
 extension UIViewController {
-    
-    
+
     func showLoading() {
         NVActivityIndicatorView.DEFAULT_TYPE = .circleStrokeSpin
         let activityData = ActivityData()
@@ -25,4 +24,8 @@ extension UIViewController {
     }
 }
 
-
+extension String {
+    var toDouble: Double {
+        return Double(self) ?? 0
+    }
+}

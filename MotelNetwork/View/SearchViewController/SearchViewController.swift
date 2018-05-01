@@ -108,7 +108,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
-                news.postDate = dictionary["postDate"] as? String
+                news.timestamp = dictionary["timestamp"] as? Int
                 
                 self.listNews.append(news)
                 self.listNewsOrderedByPrice = self.listNews.sorted(by: { (news0, news1) -> Bool in

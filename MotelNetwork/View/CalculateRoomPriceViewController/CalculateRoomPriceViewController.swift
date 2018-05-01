@@ -160,9 +160,3 @@ class CalculateRoomPriceViewController: UIViewController {
 
 }
 
-
-extension String {
-    var toDouble: Double {
-        return Double(self) ?? 0
-    }
-}

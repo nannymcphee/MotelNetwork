@@ -72,7 +72,7 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
-                news.postDate = dictionary["postDate"] as? String
+                news.timestamp = dictionary["timestamp"] as? Int
                 news.lat = dictionary["lat"] as? String
                 news.long = dictionary["long"] as? String
                 

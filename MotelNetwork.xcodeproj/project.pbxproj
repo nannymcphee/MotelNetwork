@@ -26,6 +26,7 @@
 		E117B664208E3BC500087A0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E117B663208E3BC500087A0B /* GoogleService-Info.plist */; };
 		E127015A2093372600663611 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E12701582093372600663611 /* GoogleMapViewController.swift */; };
 		E127015B2093372600663611 /* GoogleMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E12701592093372600663611 /* GoogleMapViewController.xib */; };
+		E131D47E2098AED600019415 /* TimeAgoDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E131D47D2098AED600019415 /* TimeAgoDisplay.swift */; };
 		E1397D86208AC7CC0050C86D /* ListBillTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1397D84208AC7CC0050C86D /* ListBillTableViewCell.swift */; };
 		E1397D87208AC7CC0050C86D /* ListBillTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1397D85208AC7CC0050C86D /* ListBillTableViewCell.xib */; };
 		E1397D8B208AEF960050C86D /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1397D8A208AEF960050C86D /* Bill.swift */; };
@@ -114,6 +115,7 @@
 		E117B663208E3BC500087A0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E12701582093372600663611 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
 		E12701592093372600663611 /* GoogleMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GoogleMapViewController.xib; sourceTree = "<group>"; };
+		E131D47D2098AED600019415 /* TimeAgoDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAgoDisplay.swift; sourceTree = "<group>"; };
 		E1397D84208AC7CC0050C86D /* ListBillTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBillTableViewCell.swift; sourceTree = "<group>"; };
 		E1397D85208AC7CC0050C86D /* ListBillTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListBillTableViewCell.xib; sourceTree = "<group>"; };
 		E1397D8A208AEF960050C86D /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				CE5FF78F20767698005BEA3B /* EUIViewController.swift */,
+				E131D47D2098AED600019415 /* TimeAgoDisplay.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -718,7 +721,6 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/JustPeek/JustPeek.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeBack/SwipeBack.framework",
@@ -735,7 +737,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JustPeek.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeBack.framework",
@@ -804,6 +805,7 @@
 				E16BD8B5208DC0FD00DD00B7 /* NavigationViewController.swift in Sources */,
 				145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */,
 				E1954476208A0EA3004F0D17 /* DetailBillViewController.swift in Sources */,
+				E131D47E2098AED600019415 /* TimeAgoDisplay.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
 				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
 				E127015A2093372600663611 /* GoogleMapViewController.swift in Sources */,
