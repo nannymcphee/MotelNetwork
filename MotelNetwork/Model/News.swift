@@ -27,11 +27,12 @@ class News {
     var electricPrice: Double?
     var waterPrice: Double?
     var internetPrice: Double?
+    var views: Int?
     
     init() {
     }
     
-    init(id: String, title: String, area: String, address: String, postImageUrl0: String, postImageUrl1: String, postImageUrl2: String, ownerID: String, district: String, description: String, phoneNumber: String, timestamp: Int, lat: String, long: String, price: Double, electricPrice: Double, waterPrice: Double, internetPrice: Double) {
+    init(id: String, title: String, area: String, address: String, postImageUrl0: String, postImageUrl1: String, postImageUrl2: String, ownerID: String, district: String, description: String, phoneNumber: String, timestamp: Int, lat: String, long: String, price: Double, electricPrice: Double, waterPrice: Double, internetPrice: Double, views: Int) {
         
         self.id = id
         self.title = title
@@ -51,6 +52,7 @@ class News {
         self.timestamp = timestamp
         self.lat = lat
         self.long = long
+        self.views = views
     }
     
     init(dictionary: [String: AnyObject]) {
@@ -72,6 +74,7 @@ class News {
         self.timestamp = dictionary["timestamp"] as? Int
         self.lat = dictionary["lat"] as? String
         self.long = dictionary["long"] as? String
+        self.views = dictionary["views"] as? Int
     }
     
 }

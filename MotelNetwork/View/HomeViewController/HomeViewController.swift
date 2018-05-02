@@ -253,7 +253,8 @@ CLLocationManagerDelegate {
                 news.timestamp = dictionary["timestamp"] as? Int
                 news.lat = dictionary["lat"] as? String
                 news.long = dictionary["long"] as? String
-
+                news.views = dictionary["views"] as? Int
+                
                 self.listNews.append(news)
                 self.listNews = self.listNews.sorted(by: { (news0, news1) -> Bool in
                     return news0.timestamp! > (news1.timestamp!)
@@ -300,8 +301,12 @@ CLLocationManagerDelegate {
                 news.timestamp = dictionary["timestamp"] as? Int
                 news.lat = dictionary["lat"] as? String
                 news.long = dictionary["long"] as? String
+                news.views = dictionary["views"] as? Int
                 
                 self.listMostView.append(news)
+                self.listMostView = self.listMostView.sorted(by: { (news0, news1) -> Bool in
+                    return news0.views! > news1.views!
+                })
                 self.tbMostView.reloadData()
             }
         }, withCancel: nil)
@@ -342,6 +347,7 @@ CLLocationManagerDelegate {
                 news.timestamp = dictionary["timestamp"] as? Int
                 news.lat = dictionary["lat"] as? String
                 news.long = dictionary["long"] as? String
+                news.views = dictionary["views"] as? Int
                 
                 self.listNearMe.append(news)
                 
@@ -447,6 +453,21 @@ extension HomeViewController {
         if tableView == tbListNews {
             
             let news = listNews[indexPath.row]
+            let postID = news.id
+            let ref = Database.database().reference().child("Posts").child(postID!).child("views")
+            
+            ref.runTransactionBlock { (currentData: MutableData!) -> TransactionResult in
+                var value = currentData.value as? Int
+                
+                if value == nil {
+                    value = 0
+                }
+                
+                currentData.value = value! + 1
+                
+                return TransactionResult.success(withValue: currentData)
+            }
+            
             vc.currentNews = news
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         }
@@ -454,6 +475,21 @@ extension HomeViewController {
         if tableView == tbMostView {
             
             let news = listMostView[indexPath.row]
+            let postID = news.id
+            let ref = Database.database().reference().child("Posts").child(postID!).child("views")
+            
+            ref.runTransactionBlock { (currentData: MutableData!) -> TransactionResult in
+                var value = currentData.value as? Int
+                
+                if value == nil {
+                    value = 0
+                }
+                
+                currentData.value = value! + 1
+                
+                return TransactionResult.success(withValue: currentData)
+            }
+            
             vc.currentNews = news
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         }
@@ -461,6 +497,21 @@ extension HomeViewController {
         if tableView == tbNearMe {
             
             let news = listNearMe[indexPath.row]
+            let postID = news.id
+            let ref = Database.database().reference().child("Posts").child(postID!).child("views")
+            
+            ref.runTransactionBlock { (currentData: MutableData!) -> TransactionResult in
+                var value = currentData.value as? Int
+                
+                if value == nil {
+                    value = 0
+                }
+                
+                currentData.value = value! + 1
+                
+                return TransactionResult.success(withValue: currentData)
+            }
+            
             vc.currentNews = news
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         }

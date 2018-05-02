@@ -163,7 +163,8 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         // Add "Done" button
         let btnDone = UIBarButtonItem(title: "Xong", style: .done, target: nil, action: #selector(btnDonePressed))
-        toolbar.setItems([btnDone], animated: false)
+        let btnDelete = UIBarButtonItem(title: "Xóa", style: .done, target: nil, action: #selector(btnDeletePressed))
+        toolbar.setItems([btnDone, btnDelete], animated: false)
         
         self.tfUser.inputView = self.pvUser
         self.tfUser.inputAccessoryView = toolbar
@@ -171,6 +172,10 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @objc func btnDonePressed() {
         self.view.endEditing(false)
+    }
+    
+    @objc func btnDeletePressed() {
+        self.tfUser.text = ""
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

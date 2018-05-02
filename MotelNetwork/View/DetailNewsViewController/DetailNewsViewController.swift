@@ -15,6 +15,7 @@ import Floaty
 class DetailNewsViewController: UIViewController {
     
     
+//    @IBOutlet weak var lblViewsCount: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tvPhoneNumber: UITextView!
     @IBOutlet weak var btnBack2: UIButton!
@@ -103,6 +104,7 @@ class DetailNewsViewController: UIViewController {
         lblPostDate.text = dateStr
         tvAddress.text = currentNews.address
         lblTitle.text = currentNews.title
+//        lblViewsCount.text = "Đã xem: \(currentNews.views ?? 0)"
         
         loadImageToImageView(imageUrl: postImageUrl0!, imageView: ivNewsImage0)
         loadImageToImageView(imageUrl: postImageUrl1!, imageView: ivNewsImage1)

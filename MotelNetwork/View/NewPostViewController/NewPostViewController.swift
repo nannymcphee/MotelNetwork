@@ -309,7 +309,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
 
             convertAddressToCoordinate(address: address, dbRef: reference)
             
-            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "timestamp": timestamp, "ownerID": uid] as [String : AnyObject]
+            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "timestamp": timestamp, "ownerID": uid, "views": 0] as [String : AnyObject]
             
             
             self.storeInformationToDatabase(reference: reference, values: values as [String: AnyObject])
