@@ -253,6 +253,7 @@ CLLocationManagerDelegate {
                 news.timestamp = dictionary["timestamp"] as? Int
                 news.lat = dictionary["lat"] as? String
                 news.long = dictionary["long"] as? String
+                news.usersAllowed = dictionary["usersAllowed"] as? String
                 news.views = dictionary["views"] as? Int
                 
                 self.listNews.append(news)
@@ -301,6 +302,7 @@ CLLocationManagerDelegate {
                 news.timestamp = dictionary["timestamp"] as? Int
                 news.lat = dictionary["lat"] as? String
                 news.long = dictionary["long"] as? String
+                news.usersAllowed = dictionary["usersAllowed"] as? String
                 news.views = dictionary["views"] as? Int
                 
                 self.listMostView.append(news)
@@ -314,7 +316,7 @@ CLLocationManagerDelegate {
     
     func loadDataNearMe() {
         
-        let ref = Database.database().reference().child("Posts").queryOrdered(byChild: "district")
+        let ref = Database.database().reference().child("Posts").queryOrdered(byChild: "district").queryEqual(toValue: "Quận Thủ Đức")
         
         ref.observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
@@ -347,6 +349,7 @@ CLLocationManagerDelegate {
                 news.timestamp = dictionary["timestamp"] as? Int
                 news.lat = dictionary["lat"] as? String
                 news.long = dictionary["long"] as? String
+                news.usersAllowed = dictionary["usersAllowed"] as? String
                 news.views = dictionary["views"] as? Int
                 
                 self.listNearMe.append(news)
@@ -360,7 +363,7 @@ CLLocationManagerDelegate {
 //                    if let currentLocation = self.currentLocation {
 //                        distanceInMeters = currentLocation.distance(from: postLocation)
 //
-//                        if 100 < distanceInMeters {
+//                        if 4000 < distanceInMeters {
 ////                            self.listNearMe = self.listNearMe.filter({ (news) -> Bool in
 ////                                $0 != list
 ////                            })

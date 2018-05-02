@@ -132,6 +132,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
+                news.usersAllowed = dictionary["usersAllowed"] as? String
                 news.timestamp = dictionary["timestamp"] as? Int
                 
                 self.listNews.append(news)

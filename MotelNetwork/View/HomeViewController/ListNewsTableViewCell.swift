@@ -12,6 +12,7 @@ import Kingfisher
 
 class ListNewsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lblUsersAllowed: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblArea: UILabel!
@@ -38,6 +39,7 @@ class ListNewsTableViewCell: UITableViewCell {
         self.lblTitle.text = news.title
         self.lblArea.text = "\(news.area ?? "")m2"
         self.lblLocation.text = news.district
+        self.lblUsersAllowed.text = "Số người cho phép: \(news.usersAllowed ?? "0")"
         
         if URL(string: news.postImageUrl0!) != nil {
             let resource = ImageResource(downloadURL: URL(string: news.postImageUrl0!)!)

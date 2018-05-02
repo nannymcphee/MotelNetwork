@@ -105,6 +105,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 news.postImageUrl0 = dictionary["postImageUrl0"] as? String
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
+                news.usersAllowed = dictionary["usersAllowed"] as? String
                 news.timestamp = dictionary["timestamp"] as? Int
                 news.views = dictionary["views"] as? Int
                 
@@ -141,14 +142,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let district = news.district
                 let area = news.area
                 let title = news.title
+                let usersAllowed = news.usersAllowed
                 
-                return (district?.lowercased().contains(searchText.lowercased()))! || (area?.lowercased().contains(searchText.lowercased()))! || (title?.lowercased().contains(searchText.lowercased()))!
+                return (district?.lowercased().contains(searchText.lowercased()))! || (area?.lowercased().contains(searchText.lowercased()))! || (title?.lowercased().contains(searchText.lowercased()))! || (usersAllowed?.lowercased().contains(searchText.lowercased()))!
             })
             
             tbSearchResults.reloadData()
         }
     }
-    
     
     @IBAction func btnViewMapPressed(_ sender: Any) {
         

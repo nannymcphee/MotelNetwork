@@ -36,8 +36,8 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var tfPhoneNumber: UITextField!
     @IBOutlet weak var tfInternetPrice: UITextField!
     @IBOutlet weak var tfArea: UITextField!
+    @IBOutlet weak var tfUsersAllowed: UITextField!
     
-
     var selectedAssets = [PHAsset]()
     var imageArray = [UIImage]()
     var currentDate: String = ""
@@ -106,6 +106,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         self.tfWaterPrice.text = ""
         self.tfPhoneNumber.text = ""
         self.tvDescription.text = ""
+        self.tfUsersAllowed.text = ""
     }
     
     //Mark: Convert selected assets to image
@@ -279,7 +280,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             return
         }
         
-        if (tfDistrict.text?.isEmpty)! || (tfTitle.text?.isEmpty)! || (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfAddress.text?.isEmpty)! || (tfWaterPrice.text?.isEmpty)! || (tfPhoneNumber.text?.isEmpty)! || (tfElectricPrice.text?.isEmpty)! || (tfInternetPrice.text?.isEmpty)! || (tvDescription.text?.isEmpty)! {
+        if (tfDistrict.text?.isEmpty)! || (tfTitle.text?.isEmpty)! || (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfAddress.text?.isEmpty)! || (tfWaterPrice.text?.isEmpty)! || (tfPhoneNumber.text?.isEmpty)! || (tfElectricPrice.text?.isEmpty)! || (tfInternetPrice.text?.isEmpty)! || (tvDescription.text?.isEmpty)! || (tfUsersAllowed.text?.isEmpty)! {
             
             showAlert(alertMessage: messageNilTextFields)
         }
@@ -304,12 +305,13 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let price = self.tfPrice.text!
             let description = self.tvDescription.text!
             let internetPrice = self.tfInternetPrice.text!
+            let usersAllowed = self.tfUsersAllowed.text!
             let timestamp = Int(NSDate().timeIntervalSince1970)
             let reference = Database.database().reference().child("Posts").childByAutoId()
 
             convertAddressToCoordinate(address: address, dbRef: reference)
             
-            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "timestamp": timestamp, "ownerID": uid, "views": 0] as [String : AnyObject]
+            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "timestamp": timestamp, "ownerID": uid, "views": 0, "usersAllowed": usersAllowed] as [String : AnyObject]
             
             
             self.storeInformationToDatabase(reference: reference, values: values as [String: AnyObject])

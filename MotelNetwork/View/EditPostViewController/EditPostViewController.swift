@@ -33,6 +33,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var tfInternetPrice: UITextField!
     @IBOutlet weak var tfPhoneNumber: UITextField!
     @IBOutlet weak var tfArea: UITextField!
+    @IBOutlet weak var tfUsersAllowed: UITextField!
 
     var currentNews = News()
     var selectedAssets = [PHAsset]()
@@ -74,6 +75,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         tfInternetPrice.text = "\(currentNews.internetPrice ?? 0.0)"
         tfPhoneNumber.text = currentNews.phoneNumber
         tfArea.text = currentNews.area
+        tfUsersAllowed.text = currentNews.usersAllowed
     }
     
     func convertAddressToCoordinate(address: String) {
@@ -248,7 +250,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBAction func btnSavePressed(_ sender: Any) {
 
         
-        if (self.tfArea.text?.isEmpty)! || (self.tfTitle.text?.isEmpty)! || (self.tfAddress.text?.isEmpty)! || (self.tvDescription.text?.isEmpty)! || (self.tfDistrict.text?.isEmpty)! || (self.tfRoomPrice.text?.isEmpty)! || (self.tfWaterPrice.text?.isEmpty)! || (self.tfElectricPrice.text?.isEmpty)! || (self.tfInternetPrice.text?.isEmpty)! || (self.tfPhoneNumber.text?.isEmpty)! {
+        if (self.tfArea.text?.isEmpty)! || (self.tfTitle.text?.isEmpty)! || (self.tfAddress.text?.isEmpty)! || (self.tvDescription.text?.isEmpty)! || (self.tfDistrict.text?.isEmpty)! || (self.tfRoomPrice.text?.isEmpty)! || (self.tfWaterPrice.text?.isEmpty)! || (self.tfElectricPrice.text?.isEmpty)! || (self.tfInternetPrice.text?.isEmpty)! || (self.tfPhoneNumber.text?.isEmpty)! || (self.tfUsersAllowed.text?.isEmpty)! {
             
             self.showAlert(alertMessage: messageNilTextFields)
         }
@@ -266,6 +268,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
             let description = self.tvDescription.text!
             let internetPrice = self.tfInternetPrice.text!
             let postID = currentNews.id
+            let usersAllowed = self.tfUsersAllowed.text!
             let timestamp = Int(NSDate().timeIntervalSince1970)
             let ref = Database.database().reference().child("Posts").child(postID!)
             
@@ -276,7 +279,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                 address = ("\(self.tfAddress.text!)" + ", \(district)")
             }
 
-            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "timestamp": timestamp, "ownerID": ownerID!] as [String: AnyObject]
+            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "timestamp": timestamp, "ownerID": ownerID!, "usersAllowed": usersAllowed] as [String: AnyObject]
             
             // Create confirm alert
             let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)
