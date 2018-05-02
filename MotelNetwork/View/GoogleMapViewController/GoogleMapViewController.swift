@@ -73,6 +73,7 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
                 news.timestamp = dictionary["timestamp"] as? Int
                 news.lat = dictionary["lat"] as? String
                 news.long = dictionary["long"] as? String
+                news.views = dictionary["views"] as? Int
                 
                 self.listNews.append(news)
 
@@ -88,7 +89,10 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
             
             let vc = DetailNewsViewController()
             let news = listNews[index]
+            let postID = news.id
+            let ref = Database.database().reference().child("Posts").child(postID!).child("views")
             
+            increaseViewForPost(reference: ref)
             vc.currentNews = news
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         }

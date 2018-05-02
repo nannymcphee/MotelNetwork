@@ -455,19 +455,8 @@ extension HomeViewController {
             let news = listNews[indexPath.row]
             let postID = news.id
             let ref = Database.database().reference().child("Posts").child(postID!).child("views")
-            
-            ref.runTransactionBlock { (currentData: MutableData!) -> TransactionResult in
-                var value = currentData.value as? Int
-                
-                if value == nil {
-                    value = 0
-                }
-                
-                currentData.value = value! + 1
-                
-                return TransactionResult.success(withValue: currentData)
-            }
-            
+
+            increaseViewForPost(reference: ref)
             vc.currentNews = news
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         }
@@ -478,18 +467,7 @@ extension HomeViewController {
             let postID = news.id
             let ref = Database.database().reference().child("Posts").child(postID!).child("views")
             
-            ref.runTransactionBlock { (currentData: MutableData!) -> TransactionResult in
-                var value = currentData.value as? Int
-                
-                if value == nil {
-                    value = 0
-                }
-                
-                currentData.value = value! + 1
-                
-                return TransactionResult.success(withValue: currentData)
-            }
-            
+            increaseViewForPost(reference: ref)
             vc.currentNews = news
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         }
@@ -500,18 +478,7 @@ extension HomeViewController {
             let postID = news.id
             let ref = Database.database().reference().child("Posts").child(postID!).child("views")
             
-            ref.runTransactionBlock { (currentData: MutableData!) -> TransactionResult in
-                var value = currentData.value as? Int
-                
-                if value == nil {
-                    value = 0
-                }
-                
-                currentData.value = value! + 1
-                
-                return TransactionResult.success(withValue: currentData)
-            }
-            
+            increaseViewForPost(reference: ref)
             vc.currentNews = news
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         }

@@ -284,6 +284,22 @@ extension UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
     }
+    
+    // Increase view
+    func increaseViewForPost(reference: DatabaseReference) {
+        
+        reference.runTransactionBlock { (currentData: MutableData!) -> TransactionResult in
+            var value = currentData.value as? Int
+            
+            if value == nil {
+                value = 0
+            }
+            
+            currentData.value = value! + 1
+            
+            return TransactionResult.success(withValue: currentData)
+        }
+    }
 
     //MARK: Tap anywhere to dismiss keyboard
     
