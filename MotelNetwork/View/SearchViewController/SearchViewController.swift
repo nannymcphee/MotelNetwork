@@ -15,7 +15,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tbSearchResults: UITableView!
     
     var listNews = [News]()
-    var listNewsOrderedByPrice = [News]()
     var listNewsFiltered = [News]()
     var isSearching: Bool = false
     var refreshControl: UIRefreshControl = UIRefreshControl()
@@ -39,7 +38,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewWillAppear(true)
         listNews.removeAll()
         listNewsFiltered.removeAll()
-        listNewsOrderedByPrice.removeAll()
         loadData()
         tbSearchResults.reloadData()
     }
@@ -65,7 +63,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @objc func refreshData() {
         
-        listNewsOrderedByPrice.removeAll()
         listNews.removeAll()
         listNewsFiltered.removeAll()
         loadData()
@@ -109,9 +106,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 news.postImageUrl1 = dictionary["postImageUrl1"] as? String
                 news.postImageUrl2 = dictionary["postImageUrl2"] as? String
                 news.timestamp = dictionary["timestamp"] as? Int
+                news.views = dictionary["views"] as? Int
                 
                 self.listNews.append(news)
-                self.listNewsOrderedByPrice = self.listNews.sorted(by: { (news0, news1) -> Bool in
+                self.listNews = self.listNews.sorted(by: { (news0, news1) -> Bool in
 
                     return Int(news0.price!) < Int(news1.price!)
                 })
@@ -174,7 +172,7 @@ extension SearchViewController {
         }
         else {
             
-            news = self.listNewsOrderedByPrice[indexPath.row]
+            news = self.listNews[indexPath.row]
         }
         
         cell.populateData(news: news)
@@ -188,7 +186,7 @@ extension SearchViewController {
             return listNewsFiltered.count
         }
         
-        return self.listNewsOrderedByPrice.count
+        return self.listNews.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -203,11 +201,43 @@ extension SearchViewController {
         if isSearching {
             
             news = listNewsFiltered[indexPath.row]
+            
+            let postID = news.id
+            let ref = Database.database().reference().child("Posts").child(postID!).child("views")
+            
+            ref.runTransactionBlock { (currentData: MutableData!) -> TransactionResult in
+                var value = currentData.value as? Int
+                
+                if value == nil {
+                    value = 0
+                }
+                
+                currentData.value = value! + 1
+                
+                return TransactionResult.success(withValue: currentData)
+            }
+            
             vc.currentNews = news
         }
         else {
             
-            news = self.listNewsOrderedByPrice[indexPath.row]
+            news = self.listNews[indexPath.row]
+            
+            let postID = news.id
+            let ref = Database.database().reference().child("Posts").child(postID!).child("views")
+            
+            ref.runTransactionBlock { (currentData: MutableData!) -> TransactionResult in
+                var value = currentData.value as? Int
+                
+                if value == nil {
+                    value = 0
+                }
+                
+                currentData.value = value! + 1
+                
+                return TransactionResult.success(withValue: currentData)
+            }
+            
             vc.currentNews = news
         }
         
