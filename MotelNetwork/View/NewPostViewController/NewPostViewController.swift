@@ -45,7 +45,6 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     let pvDistrict = UIPickerView()
     var currentNewsLatitude: String = ""
     var currentNewsLongitude: String = ""
-    let reference = Database.database().reference().child("Posts").childByAutoId()
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +60,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Dispose of any resources that can be recreated.
     }
     
-    func convertAddressToCoordinate(address: String) {
+    func convertAddressToCoordinate(address: String, dbRef: DatabaseReference) {
         
         let geoCoder = CLGeocoder()
         
@@ -74,7 +73,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     let longStr = String(coordinate.longitude)
 
                     let values = ["lat": latStr, "long": longStr]
-                    self.storeInformationToDatabase(reference: self.reference, values: values as [String : AnyObject])
+                    self.storeInformationToDatabase(reference: dbRef, values: values as [String : AnyObject])
                 }
             }
         }
@@ -306,25 +305,27 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let description = self.tvDescription.text!
             let internetPrice = self.tfInternetPrice.text!
             let timestamp = Int(NSDate().timeIntervalSince1970)
-            
-            convertAddressToCoordinate(address: address)
+            let reference = Database.database().reference().child("Posts").childByAutoId()
+
+            convertAddressToCoordinate(address: address, dbRef: reference)
             
             let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "timestamp": timestamp, "ownerID": uid] as [String : AnyObject]
+            
             
             self.storeInformationToDatabase(reference: reference, values: values as [String: AnyObject])
             
             // Upload image to Firebase storage and update download urls into database
             
             _ = uploadImageFromImageView(imageView: ivPostImage0) { (url) in
-                self.storeInformationToDatabase(reference: self.reference, values: ["postImageUrl0": url as AnyObject])
+                self.storeInformationToDatabase(reference: reference, values: ["postImageUrl0": url as AnyObject])
             }
             
             _ = uploadImageFromImageView(imageView: ivPostImage1) { (url) in
-                self.storeInformationToDatabase(reference: self.reference, values: ["postImageUrl1": url as AnyObject])
+                self.storeInformationToDatabase(reference: reference, values: ["postImageUrl1": url as AnyObject])
             }
             
             _ = uploadImageFromImageView(imageView: ivPostImage2) { (url) in
-                self.storeInformationToDatabase(reference: self.reference, values: ["postImageUrl2": url as AnyObject])
+                self.storeInformationToDatabase(reference: reference, values: ["postImageUrl2": url as AnyObject])
             }
             
             self.showLoading()

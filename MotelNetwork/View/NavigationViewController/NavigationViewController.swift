@@ -12,7 +12,6 @@ import PXGoogleDirections
 
 class NavigationViewController: UIViewController, CLLocationManagerDelegate {
     
-    @IBOutlet weak var btnGetCurrentLocation: UIButton!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnGo: UIButton!
     @IBOutlet weak var tfOrigin: UITextField!
@@ -75,6 +74,8 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate {
         print(error.localizedDescription)
     }
     
+    //MARK: Handle button pressed
+    
     @IBAction func btnBackPressed(_ sender: Any) {
         
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
@@ -93,13 +94,7 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate {
         }
         
     }
-    
-    @IBAction func btnGetCurrentLocationPressed(_ sender: Any) {
-        
-        self.tfOrigin.text = "Vị trí của bạn"
-    }
-    
-    
+
 }
 
 extension NavigationViewController: PXGoogleDirectionsDelegate {

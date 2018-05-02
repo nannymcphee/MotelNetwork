@@ -209,7 +209,6 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         // Check if user has entered all informations
         if  (tfArea.text?.isEmpty)! || (tfAddress.text?.isEmpty)! || (tfUsersAllowed.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! {
             
-            // Create UIAlertController
             self.showAlert(alertMessage: messageNilTextFields)
         }
         else if ivRoomImage0.image == nil || ivRoomImage1.image == nil || ivRoomImage2.image == nil {

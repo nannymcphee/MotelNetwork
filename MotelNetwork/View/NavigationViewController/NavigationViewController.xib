@@ -18,7 +18,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavigationViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
                 <outlet property="btnBack" destination="4Co-Ox-YTt" id="2BK-8f-woa"/>
-                <outlet property="btnGetCurrentLocation" destination="s9K-jT-TZ5" id="ABn-7l-7GV"/>
                 <outlet property="btnGo" destination="1LT-tr-Jaq" id="0Vd-lf-E4p"/>
                 <outlet property="tfDestination" destination="zB3-ID-1yY" id="sar-Xo-cTl"/>
                 <outlet property="tfOrigin" destination="It4-oc-5in" id="2oX-DH-LgI"/>
@@ -106,25 +105,8 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s9K-jT-TZ5">
-                                    <rect key="frame" x="171" y="152" width="32" height="32"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="32" id="akx-am-1kD"/>
-                                        <constraint firstAttribute="height" constant="32" id="gfP-0p-8Z2"/>
-                                    </constraints>
-                                    <state key="normal" image="icGPS"/>
-                                    <connections>
-                                        <action selector="btnGetCurrentLocationPressed:" destination="-1" eventType="touchUpInside" id="EMY-MJ-9b9"/>
-                                    </connections>
-                                </button>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vị trí của bạn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X0O-Dv-rWA">
-                                    <rect key="frame" x="152.5" y="184" width="70.5" height="14"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1LT-tr-Jaq">
-                                    <rect key="frame" x="37" y="206" width="300" height="40"/>
+                                    <rect key="frame" x="37" y="156" width="300" height="40"/>
                                     <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="pMW-4U-diL"/>
@@ -140,24 +122,20 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="X0O-Dv-rWA" firstAttribute="top" secondItem="s9K-jT-TZ5" secondAttribute="bottom" id="02b-NN-ctQ"/>
                                 <constraint firstItem="Ard-ss-joz" firstAttribute="leading" secondItem="anC-j5-NSg" secondAttribute="leading" constant="17" id="Aq5-zm-zNY"/>
                                 <constraint firstAttribute="trailing" secondItem="zB3-ID-1yY" secondAttribute="trailing" constant="18" id="DOR-ua-yR4"/>
                                 <constraint firstAttribute="height" constant="320" id="HRg-Yw-QYK"/>
                                 <constraint firstItem="It4-oc-5in" firstAttribute="leading" secondItem="anC-j5-NSg" secondAttribute="leading" constant="17" id="KM1-ng-QSo"/>
-                                <constraint firstItem="1LT-tr-Jaq" firstAttribute="top" secondItem="X0O-Dv-rWA" secondAttribute="bottom" constant="8" id="REw-i6-HSg"/>
                                 <constraint firstItem="It4-oc-5in" firstAttribute="top" secondItem="8SV-oR-frK" secondAttribute="bottom" constant="6" id="SnU-rR-lSN"/>
                                 <constraint firstAttribute="trailing" secondItem="1LT-tr-Jaq" secondAttribute="trailing" constant="38" id="YtU-Yq-LJc"/>
-                                <constraint firstItem="s9K-jT-TZ5" firstAttribute="top" secondItem="zB3-ID-1yY" secondAttribute="bottom" constant="8" id="ZZw-qC-isr"/>
                                 <constraint firstItem="1LT-tr-Jaq" firstAttribute="leading" secondItem="anC-j5-NSg" secondAttribute="leading" constant="37" id="ado-Nh-pDj"/>
-                                <constraint firstItem="X0O-Dv-rWA" firstAttribute="centerX" secondItem="s9K-jT-TZ5" secondAttribute="centerX" id="c0C-6p-krY"/>
                                 <constraint firstAttribute="trailing" secondItem="It4-oc-5in" secondAttribute="trailing" constant="18" id="d9E-17-IY1"/>
                                 <constraint firstItem="zB3-ID-1yY" firstAttribute="top" secondItem="Ard-ss-joz" secondAttribute="bottom" constant="6" id="fMa-sq-oAv"/>
                                 <constraint firstItem="zB3-ID-1yY" firstAttribute="leading" secondItem="anC-j5-NSg" secondAttribute="leading" constant="17" id="jhw-aT-EgE"/>
                                 <constraint firstItem="8SV-oR-frK" firstAttribute="leading" secondItem="anC-j5-NSg" secondAttribute="leading" constant="17" id="oRJ-iS-XrQ"/>
                                 <constraint firstItem="8SV-oR-frK" firstAttribute="top" secondItem="anC-j5-NSg" secondAttribute="top" constant="12" id="p3l-2Q-Dab"/>
                                 <constraint firstItem="Ard-ss-joz" firstAttribute="top" secondItem="It4-oc-5in" secondAttribute="bottom" constant="12" id="s0u-VP-X8b"/>
-                                <constraint firstItem="s9K-jT-TZ5" firstAttribute="centerX" secondItem="anC-j5-NSg" secondAttribute="centerX" id="t1P-NB-9ZZ"/>
+                                <constraint firstItem="1LT-tr-Jaq" firstAttribute="top" secondItem="zB3-ID-1yY" secondAttribute="bottom" constant="12" id="xPf-HJ-rdK"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -184,7 +162,6 @@
         </view>
     </objects>
     <resources>
-        <image name="icGPS" width="32" height="32"/>
         <image name="icLeft" width="24" height="24"/>
     </resources>
 </document>
