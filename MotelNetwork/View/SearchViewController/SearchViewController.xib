@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
+                <outlet property="btnFilter" destination="iHX-Ao-8se" id="FVD-cV-ps6"/>
                 <outlet property="searchBar" destination="dnn-e2-TZP" id="7KI-UU-rDK"/>
                 <outlet property="tbSearchResults" destination="Osm-BE-Wsd" id="eAq-jb-iu5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -46,12 +47,25 @@
                                 <action selector="btnViewMapPressed:" destination="-1" eventType="touchUpInside" id="mvR-D1-9wX"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHX-Ao-8se">
+                            <rect key="frame" x="19" y="20" width="24" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="24" id="dGz-YK-1pe"/>
+                                <constraint firstAttribute="height" constant="24" id="jyk-nD-8qz"/>
+                            </constraints>
+                            <state key="normal" image="icFilter"/>
+                            <connections>
+                                <action selector="btnFilterPressed:" destination="-1" eventType="touchUpInside" id="eWb-hy-6Rv"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="hEC-4S-vVM" secondAttribute="trailing" id="10c-6J-Qed"/>
                         <constraint firstAttribute="bottom" secondItem="hEC-4S-vVM" secondAttribute="bottom" id="24J-ju-nyK"/>
+                        <constraint firstItem="iHX-Ao-8se" firstAttribute="centerY" secondItem="8in-Ns-kpZ" secondAttribute="centerY" id="CZx-Ys-y81"/>
                         <constraint firstItem="VrK-NU-QiN" firstAttribute="centerY" secondItem="8in-Ns-kpZ" secondAttribute="centerY" id="FPm-6Q-yxX"/>
+                        <constraint firstItem="iHX-Ao-8se" firstAttribute="leading" secondItem="8in-Ns-kpZ" secondAttribute="leading" constant="19" id="Vw5-gV-zov"/>
                         <constraint firstItem="VrK-NU-QiN" firstAttribute="centerX" secondItem="8in-Ns-kpZ" secondAttribute="centerX" id="alw-D4-rEc"/>
                         <constraint firstAttribute="trailing" secondItem="UUj-nx-J4i" secondAttribute="trailing" constant="19" id="bEB-EK-Lei"/>
                         <constraint firstAttribute="height" constant="64" id="cKX-Mp-vwk"/>
@@ -141,4 +155,7 @@
             <point key="canvasLocation" x="24.5" y="52"/>
         </view>
     </objects>
+    <resources>
+        <image name="icFilter" width="24" height="24"/>
+    </resources>
 </document>

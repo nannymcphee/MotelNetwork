@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "503BB6FBA6BAA78ACAF0870CE4BC458A"
-               BlueprintName = "TwicketSegmentedControl"
+               BlueprintIdentifier = "79FB03D114D2B7B398D12E0EA66EE0D7"
+               BlueprintName = "TBDropdownMenu"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "TwicketSegmentedControl.framework">
+               BuildableName = "TBDropdownMenu.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

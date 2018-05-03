@@ -8,16 +8,20 @@
 
 import UIKit
 import FirebaseDatabase
+import TBDropdownMenu
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class SearchViewController: UIViewController, UITableViewDataSource {
 
+    @IBOutlet weak var btnFilter: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tbSearchResults: UITableView!
     
     var listNews = [News]()
     var listNewsFiltered = [News]()
+    var listNewsFiltered2 = [News]()
     var isSearching: Bool = false
     var refreshControl: UIRefreshControl = UIRefreshControl()
+    var selectedIndexPath: IndexPath = IndexPath(row: 0, section: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +51,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: Set up view
+    
     func setUpView() {
         
-        tapToDismissKeyboard()
         // Add refresh control
         refreshControl.addTarget(self, action: #selector(self.refreshData), for: UIControlEvents.valueChanged)
         
@@ -59,12 +64,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         else {
             tbSearchResults.addSubview(refreshControl)
         }
+        
+        tapToDismissKeyboard()
     }
     
     @objc func refreshData() {
         
         listNews.removeAll()
         listNewsFiltered.removeAll()
+        listNewsFiltered2.removeAll()
         loadData()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.2) {
             self.refreshControl.endRefreshing()
@@ -110,9 +118,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 news.views = dictionary["views"] as? Int
                 
                 self.listNews.append(news)
-                self.listNews = self.listNews.sorted(by: { (news0, news1) -> Bool in
-
-                    return Int(news0.price!) < Int(news1.price!)
+                self.listNewsFiltered2 = self.listNews.filter({ (news0) -> Bool in
+                    return Int(news0.area!)! <= 20
                 })
                 
                 self.tbSearchResults.reloadData()
@@ -120,7 +127,34 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }, withCancel: nil)
     }
     
-    //MARK: Logic for SearchBar
+    @IBAction func btnViewMapPressed(_ sender: Any) {
+        
+        let vc = GoogleMapViewController()
+            
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func btnFilterPressed(_ sender: Any) {
+        
+        // Show dropdown menu
+        let area1 = DropdownItem(title: "Dưới 20m2")
+        let area2 = DropdownItem(title: "Từ 20-30m2")
+        let area3 = DropdownItem(title: "Trên 30m2")
+        let price1 = DropdownItem(title: "Dưới 3 triệu")
+        let price2 = DropdownItem(title: "Từ 3-5 triệu")
+        let price3 = DropdownItem(title: "Trên 5 triệu")
+        let sectionArea = DropdownSection(sectionIdentifier: "Diện tích", items: [area1, area2, area3])
+        let sectionPrice = DropdownSection(sectionIdentifier: "Giá", items: [price1, price2, price3])
+        let menuView = DropdownMenu(navigationController: navigationController!, sections: [sectionArea, sectionPrice], selectedIndexPath: selectedIndexPath)
+        
+        menuView.topOffsetY = 83
+        menuView.delegate = self
+        menuView.showMenu()
+    }
+    
+}
+
+extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.view.endEditing(true)
@@ -140,27 +174,106 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             listNewsFiltered = self.listNews.filter({ (news) -> Bool in
                 
                 let district = news.district
-                let area = news.area
                 let title = news.title
                 let usersAllowed = news.usersAllowed
                 
-                return (district?.lowercased().contains(searchText.lowercased()))! || (area?.lowercased().contains(searchText.lowercased()))! || (title?.lowercased().contains(searchText.lowercased()))! || (usersAllowed?.lowercased().contains(searchText.lowercased()))!
+                return (district?.lowercased().contains(searchText.lowercased()))! ||  (title?.lowercased().contains(searchText.lowercased()))! || (usersAllowed?.lowercased().contains(searchText.lowercased()))!
             })
             
             tbSearchResults.reloadData()
         }
     }
-    
-    @IBAction func btnViewMapPressed(_ sender: Any) {
-        
-        let vc = GoogleMapViewController()
-            
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
-    }
-    
 }
 
-extension SearchViewController {
+extension SearchViewController: DropdownMenuDelegate {
+    
+    func sortListNewsByAreaAsc() {
+        self.listNewsFiltered2 = self.listNewsFiltered2.sorted(by: { (news0, news1) -> Bool in
+            return news0.area?.localizedStandardCompare(news1.area!) == .orderedAscending
+        })
+    }
+    
+    func sortListNewsByPriceAsc() {
+        self.listNewsFiltered2 = self.listNewsFiltered2.sorted(by: { (news0, news1) -> Bool in
+            return Int(news0.price!) < Int(news1.price!)
+        })
+    }
+    
+    func dropdownMenu(_ dropdownMenu: DropdownMenu, didSelectRowAt indexPath: IndexPath) {
+        
+        selectedIndexPath = indexPath
+        
+        switch indexPath.section {
+        case 0:
+            if indexPath.row == 0 {
+                
+                self.listNewsFiltered2 = self.listNews.filter({ (news0) -> Bool in
+                    return Int(news0.area!)! <= 20
+                })
+                
+                sortListNewsByAreaAsc()
+                tbSearchResults.reloadData()
+                tbSearchResults.scrollTableViewToTop(animated: true)
+            }
+            else if indexPath.row == 1 {
+                
+                self.listNewsFiltered2 = self.listNews.filter({ (news0) -> Bool in
+                    return Int(news0.area!)! >= 20 && Int(news0.area!)! <= 30
+                })
+                
+                sortListNewsByAreaAsc()
+                tbSearchResults.reloadData()
+                tbSearchResults.scrollTableViewToTop(animated: true)
+            }
+            else {
+                
+                self.listNewsFiltered2 = self.listNews.filter({ (news0) -> Bool in
+                    return Int(news0.area!)! > 30
+                })
+                
+                sortListNewsByAreaAsc()
+                tbSearchResults.reloadData()
+                tbSearchResults.scrollTableViewToTop(animated: true)
+            }
+        case 1:
+            if indexPath.row == 0 {
+                
+                self.listNewsFiltered2 = self.listNews.filter({ (news0) -> Bool in
+                    return Int(news0.price!) <= 3000000
+                })
+                
+                sortListNewsByPriceAsc()
+                tbSearchResults.reloadData()
+                tbSearchResults.scrollTableViewToTop(animated: true)
+                
+            }
+            else if indexPath.row == 1 {
+                
+                self.listNewsFiltered2 = self.listNews.filter({ (news0) -> Bool in
+                    return Int(news0.price!) >= 3000000 && Int(news0.price!) <= 5000000
+                })
+                
+                sortListNewsByPriceAsc()
+                tbSearchResults.reloadData()
+                tbSearchResults.scrollTableViewToTop(animated: true)
+            }
+            else {
+                
+                self.listNewsFiltered2 = self.listNews.filter({ (news0) -> Bool in
+                    return Int(news0.price!) > 5000000
+                })
+                
+                sortListNewsByPriceAsc()
+                tbSearchResults.reloadData()
+                tbSearchResults.scrollTableViewToTop(animated: true)
+            }
+        default:
+            break
+        }
+    }
+}
+
+extension SearchViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -173,7 +286,7 @@ extension SearchViewController {
         }
         else {
             
-            news = self.listNews[indexPath.row]
+            news = self.listNewsFiltered2[indexPath.row]
         }
         
         cell.populateData(news: news)
@@ -187,7 +300,7 @@ extension SearchViewController {
             return listNewsFiltered.count
         }
         
-        return self.listNews.count
+        return self.listNewsFiltered2.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -211,7 +324,7 @@ extension SearchViewController {
         }
         else {
             
-            news = self.listNews[indexPath.row]
+            news = self.listNewsFiltered2[indexPath.row]
             
             let postID = news.id
             let ref = Database.database().reference().child("Posts").child(postID!).child("views")
