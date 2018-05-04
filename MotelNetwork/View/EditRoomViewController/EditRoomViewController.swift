@@ -163,8 +163,9 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         // Add "Done" button
         let btnDone = UIBarButtonItem(title: "Xong", style: .done, target: nil, action: #selector(btnDonePressed))
+        let btnSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let btnDelete = UIBarButtonItem(title: "Xóa", style: .done, target: nil, action: #selector(btnDeletePressed))
-        toolbar.setItems([btnDone, btnDelete], animated: false)
+        toolbar.setItems([btnDone, btnSpace, btnDelete], animated: false)
         
         self.tfUser.inputView = self.pvUser
         self.tfUser.inputAccessoryView = toolbar

@@ -78,7 +78,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         tfUsersAllowed.text = currentNews.usersAllowed
     }
     
-    func convertAddressToCoordinate(address: String) {
+    func convertAddressToCoordinate(address: String, dbRef: DatabaseReference) {
         
         let geoCoder = CLGeocoder()
         
@@ -90,10 +90,8 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                     let latStr = String(coordinate.latitude)
                     let longStr = String(coordinate.longitude)
                     let values = ["lat": latStr, "long": longStr]
-                    let postID = self.currentNews.id
-                    let reference = Database.database().reference().child("Posts").child(postID!)
                     
-                    self.editData(reference: reference, newValues: values as [String : AnyObject])
+                    self.editData(reference: dbRef, newValues: values as [String : AnyObject])
                 }
             }
         }
@@ -290,13 +288,13 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                 
                 if self.ivPostImage0.image == nil || self.ivPostImage1.image == nil || self.ivPostImage2 == nil {
                     
-                    self.convertAddressToCoordinate(address: address)
+                    self.convertAddressToCoordinate(address: address, dbRef: ref)
                     self.editData(reference: ref, newValues: values as [String: AnyObject])
                     self.showAlert(alertMessage: messageEditPostSuccess)
                 }
                 else {
                     
-                    self.convertAddressToCoordinate(address: address)
+                    self.convertAddressToCoordinate(address: address, dbRef: ref)
                     self.editData(reference: ref, newValues: values as [String: AnyObject])
                     
                     // Upload image to Firebase storage and update download urls into database

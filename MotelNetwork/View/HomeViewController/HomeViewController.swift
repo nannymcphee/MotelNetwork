@@ -211,7 +211,7 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
     
     func setUpViewMostView() {
 
-        if !(listNews.isEmpty) {
+        if !(listMostView.isEmpty) {
             tbMostView.scrollTableViewToTop(animated: true)
         }
         
@@ -221,7 +221,7 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
     
     func setUpViewNearMe() {
         
-        if !(listNews.isEmpty) {
+        if !(listNearMe.isEmpty) {
             tbNearMe.scrollTableViewToTop(animated: true)
         }
         
