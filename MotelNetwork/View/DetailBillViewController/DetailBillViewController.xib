@@ -38,7 +38,6 @@
                 <outlet property="lblTotalWaterPrice" destination="K1q-9U-Q8C" id="Lcv-u6-1az"/>
                 <outlet property="lblUserCount" destination="VLY-2c-hl7" id="ogn-RT-Zxt"/>
                 <outlet property="lblWaterPrice" destination="WCz-gY-Apq" id="GI1-bZ-o7S"/>
-                <outlet property="vContent" destination="6L2-wU-oRe" id="087-Fm-xHc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

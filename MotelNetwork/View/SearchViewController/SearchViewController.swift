@@ -42,6 +42,7 @@ class SearchViewController: UIViewController, UITableViewDataSource {
         super.viewWillAppear(true)
         listNews.removeAll()
         listNewsFiltered.removeAll()
+        listNewsFiltered2.removeAll()
         loadData()
         tbSearchResults.reloadData()
     }
@@ -143,9 +144,13 @@ class SearchViewController: UIViewController, UITableViewDataSource {
         let price1 = DropdownItem(title: "Dưới 3 triệu")
         let price2 = DropdownItem(title: "Từ 3-5 triệu")
         let price3 = DropdownItem(title: "Trên 5 triệu")
+        let users1 = DropdownItem(title: "Dưới 3 người")
+        let users2 = DropdownItem(title: "Từ 3-5 người")
+        let users3 = DropdownItem(title: "Trên 5 người")
         let sectionArea = DropdownSection(sectionIdentifier: "Diện tích", items: [area1, area2, area3])
         let sectionPrice = DropdownSection(sectionIdentifier: "Giá", items: [price1, price2, price3])
-        let menuView = DropdownMenu(navigationController: navigationController!, sections: [sectionArea, sectionPrice], selectedIndexPath: selectedIndexPath)
+        let sectionUsers = DropdownSection(sectionIdentifier: "Số người cho phép", items: [users1, users2, users3])
+        let menuView = DropdownMenu(navigationController: navigationController!, sections: [sectionArea, sectionPrice, sectionUsers], selectedIndexPath: selectedIndexPath)
         
         menuView.topOffsetY = 83
         menuView.delegate = self
@@ -175,9 +180,12 @@ extension SearchViewController: UISearchBarDelegate {
                 
                 let district = news.district
                 let title = news.title
-                let usersAllowed = news.usersAllowed
                 
-                return (district?.lowercased().contains(searchText.lowercased()))! ||  (title?.lowercased().contains(searchText.lowercased()))! || (usersAllowed?.lowercased().contains(searchText.lowercased()))!
+                return (district?.lowercased().contains(searchText.lowercased()))! ||  (title?.lowercased().contains(searchText.lowercased()))!
+            })
+            
+            listNewsFiltered = listNewsFiltered.sorted(by: { (news0, news1) -> Bool in
+                return Int(news0.price!) < Int(news1.price!)
             })
             
             tbSearchResults.reloadData()
@@ -199,6 +207,12 @@ extension SearchViewController: DropdownMenuDelegate {
         })
     }
     
+    func sortListNewsByUsersAllowedAsc() {
+        self.listNewsFiltered2 = self.listNewsFiltered2.sorted(by: { (news0, news1) -> Bool in
+            return Int(news0.usersAllowed!)! < Int(news1.usersAllowed!)!
+        })
+    }
+    
     func dropdownMenu(_ dropdownMenu: DropdownMenu, didSelectRowAt indexPath: IndexPath) {
         
         selectedIndexPath = indexPath
@@ -213,7 +227,10 @@ extension SearchViewController: DropdownMenuDelegate {
                 
                 sortListNewsByAreaAsc()
                 tbSearchResults.reloadData()
-                tbSearchResults.scrollTableViewToTop(animated: true)
+                
+                if !(listNewsFiltered2.isEmpty) {
+                    tbSearchResults.scrollTableViewToTop(animated: true)
+                }
             }
             else if indexPath.row == 1 {
                 
@@ -223,7 +240,10 @@ extension SearchViewController: DropdownMenuDelegate {
                 
                 sortListNewsByAreaAsc()
                 tbSearchResults.reloadData()
-                tbSearchResults.scrollTableViewToTop(animated: true)
+                
+                if !(listNewsFiltered2.isEmpty) {
+                    tbSearchResults.scrollTableViewToTop(animated: true)
+                }
             }
             else {
                 
@@ -233,19 +253,24 @@ extension SearchViewController: DropdownMenuDelegate {
                 
                 sortListNewsByAreaAsc()
                 tbSearchResults.reloadData()
-                tbSearchResults.scrollTableViewToTop(animated: true)
+                
+                if !(listNewsFiltered2.isEmpty) {
+                    tbSearchResults.scrollTableViewToTop(animated: true)
+                }
             }
         case 1:
             if indexPath.row == 0 {
                 
                 self.listNewsFiltered2 = self.listNews.filter({ (news0) -> Bool in
-                    return Int(news0.price!) <= 3000000
+                    return Int(news0.price!) < 3000000
                 })
                 
                 sortListNewsByPriceAsc()
                 tbSearchResults.reloadData()
-                tbSearchResults.scrollTableViewToTop(animated: true)
                 
+                if !(listNewsFiltered2.isEmpty) {
+                    tbSearchResults.scrollTableViewToTop(animated: true)
+                }
             }
             else if indexPath.row == 1 {
                 
@@ -255,7 +280,10 @@ extension SearchViewController: DropdownMenuDelegate {
                 
                 sortListNewsByPriceAsc()
                 tbSearchResults.reloadData()
-                tbSearchResults.scrollTableViewToTop(animated: true)
+                
+                if !(listNewsFiltered2.isEmpty) {
+                    tbSearchResults.scrollTableViewToTop(animated: true)
+                }
             }
             else {
                 
@@ -265,7 +293,49 @@ extension SearchViewController: DropdownMenuDelegate {
                 
                 sortListNewsByPriceAsc()
                 tbSearchResults.reloadData()
-                tbSearchResults.scrollTableViewToTop(animated: true)
+                
+                if !(listNewsFiltered2.isEmpty) {
+                    tbSearchResults.scrollTableViewToTop(animated: true)
+                }
+            }
+        case 2:
+            if indexPath.row == 0 {
+                
+                self.listNewsFiltered2 = self.listNews.filter({ (news0) -> Bool in
+                    return Int(news0.usersAllowed!)! < 3
+                })
+                
+                sortListNewsByUsersAllowedAsc()
+                tbSearchResults.reloadData()
+                
+                if !(listNewsFiltered2.isEmpty) {
+                    tbSearchResults.scrollTableViewToTop(animated: true)
+                }            }
+            else if indexPath.row == 1 {
+                
+                self.listNewsFiltered2 = self.listNews.filter({ (news0) -> Bool in
+                    return Int(news0.usersAllowed!)! >= 3 && Int(news0.usersAllowed!)! <= 5
+                })
+                
+                sortListNewsByUsersAllowedAsc()
+                tbSearchResults.reloadData()
+                
+                if !(listNewsFiltered2.isEmpty) {
+                    tbSearchResults.scrollTableViewToTop(animated: true)
+                }
+            }
+            else {
+                
+                self.listNewsFiltered2 = self.listNews.filter({ (news0) -> Bool in
+                    return Int(news0.usersAllowed!)! > 5
+                })
+                
+                sortListNewsByUsersAllowedAsc()
+                tbSearchResults.reloadData()
+                
+                if !(listNewsFiltered2.isEmpty) {
+                    tbSearchResults.scrollTableViewToTop(animated: true)
+                }
             }
         default:
             break

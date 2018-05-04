@@ -7,7 +7,12 @@
 		<key>Motel Network - Touch Debug.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>18</integer>
+			<integer>1</integer>
+		</dict>
+		<key>Motel Network - UIT.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
 		</dict>
 		<key>MotelNetwork.xcscheme</key>
 		<dict>

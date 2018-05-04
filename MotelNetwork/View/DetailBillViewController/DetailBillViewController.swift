@@ -13,7 +13,6 @@ import FirebaseDatabase
 class DetailBillViewController: UIViewController {
 
     @IBOutlet weak var btnBack: UIButton!
-    
     @IBOutlet weak var lblDate: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblRoomName: UILabel!

@@ -17,7 +17,6 @@ import GoogleMaps
 class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var sclContent: UIScrollView!
-    @IBOutlet weak var vContent: UIView!
     @IBOutlet weak var btnClearTextView: UIButton!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnSave: UIButton!

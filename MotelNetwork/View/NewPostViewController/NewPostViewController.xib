@@ -37,7 +37,6 @@
                 <outlet property="tfUsersAllowed" destination="jEa-Az-VbZ" id="qGr-C4-haQ"/>
                 <outlet property="tfWaterPrice" destination="mHh-pA-QNY" id="ji6-4F-7Hn"/>
                 <outlet property="tvDescription" destination="i28-pY-Bue" id="4xK-iV-uMX"/>
-                <outlet property="vContent" destination="Ntb-zV-KHU" id="SFy-q2-n5r"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -57,13 +56,13 @@
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đăng tin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecf-pM-0aW">
-                            <rect key="frame" x="156.5" y="23.5" width="62" height="18"/>
+                            <rect key="frame" x="156.5" y="23" width="62" height="19.5"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Zd-de-TrY">
-                            <rect key="frame" x="315" y="15" width="41" height="33"/>
+                            <rect key="frame" x="315" y="16" width="41" height="33"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                             <state key="normal" title="Xong"/>
                             <connections>

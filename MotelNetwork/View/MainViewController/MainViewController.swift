@@ -42,7 +42,7 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
         
         let homeScreenVC = homeScreenVC
 //        let viewHomeScreen = homeScreenVC.view
-        homeScreenVC.tabBarItem = UITabBarItem(title: "Tin tức", image: #imageLiteral(resourceName: "icNewsFeedNormal"), tag: 0)
+        homeScreenVC.tabBarItem = UITabBarItem(title: "Bảng tin", image: #imageLiteral(resourceName: "icNewsFeedNormal"), tag: 0)
         homeScreenVC.tabBarItem.selectedImage =  #imageLiteral(resourceName: "icNewsFeedPressed").withRenderingMode(.alwaysOriginal)
         
         let searchVC = searchVC
@@ -95,7 +95,7 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
         
         let homeScreenVC = homeScreenVC
         //        let viewHomeScreen = homeScreenVC.view
-        homeScreenVC.tabBarItem = UITabBarItem(title: "Tin tức", image: #imageLiteral(resourceName: "icNewsFeedNormal"), tag: 0)
+        homeScreenVC.tabBarItem = UITabBarItem(title: "Bảng tin", image: #imageLiteral(resourceName: "icNewsFeedNormal"), tag: 0)
         homeScreenVC.tabBarItem.selectedImage =  #imageLiteral(resourceName: "icNewsFeedPressed").withRenderingMode(.alwaysOriginal)
         
         let searchVC = searchVC

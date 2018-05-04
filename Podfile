@@ -20,5 +20,5 @@ target 'Motel Network' do
 	pod 'Floaty', '~> 4.0.0'
     pod 'IQKeyboardManagerSwift'
 	pod 'TBDropdownMenu'
-
+    pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
 end

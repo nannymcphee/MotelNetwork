@@ -13,11 +13,10 @@ import SwipeBack
 import NVActivityIndicatorView
 import TwicketSegmentedControl
 import CoreLocation
+import GeoFire
 
-
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,
-UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedControlDelegate,
-CLLocationManagerDelegate {
+class HomeViewController: UIViewController, UITableViewDataSource,
+UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedControlDelegate {
     
     @IBOutlet weak var vSegment: UIView!
     @IBOutlet weak var tbMostView: UITableView!
@@ -35,10 +34,14 @@ CLLocationManagerDelegate {
     var listNews = [News]()
     var listMostView = [News]()
     var listNearMe = [News]()
+    var listNearMeTemp = [News]()
     var refreshControl0: UIRefreshControl = UIRefreshControl()
     var refreshControl1: UIRefreshControl = UIRefreshControl()
     var refreshControl2: UIRefreshControl = UIRefreshControl()
     var segmentedControl: TwicketSegmentedControl = TwicketSegmentedControl()
+    var geoFireRef: DatabaseReference?
+    var geoFire: GeoFire?
+    let uid = Auth.auth().currentUser?.uid
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +67,9 @@ CLLocationManagerDelegate {
         tbNearMe.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
         tbNearMe.reloadData()
 
+        geoFireRef = Database.database().reference().child("PostLocations").child(uid!)
+        geoFire = GeoFire(firebaseRef: geoFireRef!)
+        
         setUpView()
     }
     
@@ -137,6 +143,7 @@ CLLocationManagerDelegate {
     @objc func refreshDataNearMe() {
         
         listNearMe.removeAll()
+        listNearMeTemp.removeAll()
         loadDataNearMe()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.2) {
             self.refreshControl2.endRefreshing()
@@ -148,11 +155,10 @@ CLLocationManagerDelegate {
     func setUpView() {
         
         setUpSegmentControl()
-//        setUpLocationManager()
+        setUpLocationManager()
         self.tapToDismissKeyboard()
         loadDataNews()
         loadDataMostView()
-        loadDataNearMe()
         
         // Add refresh controls
         
@@ -195,32 +201,62 @@ CLLocationManagerDelegate {
     
     func setUpViewNews() {
         
-        tbListNews.reloadData()
-        tbListNews.scrollTableViewToTop(animated: true)
+        if !(listNews.isEmpty) {
+            tbListNews.scrollTableViewToTop(animated: true)
+        }
         
+        tbListNews.reloadData()
         self.sclContent.setContentOffset(CGPoint(x: Double(0), y: 0), animated: false)
     }
     
     func setUpViewMostView() {
 
-        tbMostView.reloadData()
-        tbMostView.scrollTableViewToTop(animated: true)
+        if !(listNews.isEmpty) {
+            tbMostView.scrollTableViewToTop(animated: true)
+        }
         
+        tbMostView.reloadData()
         self.sclContent.setContentOffset(CGPoint(x: Double(screenWidth), y: 0), animated: false)
     }
     
     func setUpViewNearMe() {
         
-        tbNearMe.reloadData()
-        tbNearMe.scrollTableViewToTop(animated: true)
+        if !(listNews.isEmpty) {
+            tbNearMe.scrollTableViewToTop(animated: true)
+        }
         
+        tbNearMe.reloadData()
         self.sclContent.setContentOffset(CGPoint(x: Double(screenWidth * 2), y: 0), animated: false)
+    }
+    
+    //MARK: GeoFire
+    
+    func saveNearbyPostLocations() {
+        
+        // Remove old PostLocations first
+        Database.database().reference().child("PostLocations").child(uid!).removeValue()
+        
+        // Calculate distance between users & all posts
+        for news in self.listNearMeTemp {
+            let lat = news.lat?.toDouble
+            let long = news.long?.toDouble
+            let location = CLLocation(latitude: lat!, longitude: long!)
+            var distance: CLLocationDistance = 0
+            
+            distance = (self.currentLocation?.distance(from: location))!
+            
+            if distance < 4000 {
+                
+                // Save posts' id & location to database
+                self.geoFire?.setLocation(location, forKey: news.id!)
+            }
+        }
     }
     
     //MARK: Database interaction
     
     func loadDataNews() {
-        let ref = Database.database().reference().child("Posts").queryOrdered(byChild: "postDate")
+        let ref = Database.database().reference().child("Posts")
 
         ref.observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
@@ -269,7 +305,7 @@ CLLocationManagerDelegate {
     
     func loadDataMostView() {
         
-        let ref = Database.database().reference().child("Posts").queryOrdered(byChild: "price")
+        let ref = Database.database().reference().child("Posts")
         
         ref.observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
@@ -316,9 +352,9 @@ CLLocationManagerDelegate {
     
     func loadDataNearMe() {
         
-        let ref = Database.database().reference().child("Posts").queryOrdered(byChild: "district").queryEqual(toValue: "Quận Thủ Đức")
+        let postRef = Database.database().reference().child("Posts")
         
-        ref.observe(.childAdded, with: { (snapshot) in
+        postRef.observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let news = News(dictionary: dictionary)
                 news.id = snapshot.key
@@ -352,29 +388,105 @@ CLLocationManagerDelegate {
                 news.usersAllowed = dictionary["usersAllowed"] as? String
                 news.views = dictionary["views"] as? Int
                 
-                self.listNearMe.append(news)
-                
-//                for news in self.listNearMe {
-//                    var distanceInMeters: CLLocationDistance = 0
-//                    let lat = news.lat?.toDouble
-//                    let long = news.long?.toDouble
-//                    let postLocation = CLLocation(latitude: lat!, longitude: long!)
-//
-//                    if let currentLocation = self.currentLocation {
-//                        distanceInMeters = currentLocation.distance(from: postLocation)
-//
-//                        if 4000 < distanceInMeters {
-////                            self.listNearMe = self.listNearMe.filter({ (news) -> Bool in
-////                                $0 != list
-////                            })
-//                        }
-//                    }
-//                }
-                
-                self.tbNearMe.reloadData()
+                self.listNearMeTemp.append(news)
+                self.saveNearbyPostLocations()
             }
         }, withCancel: nil)
+        
+        let geoFireQuery = self.geoFire?.query(at: currentLocation!, withRadius: 50)
+        geoFireQuery?.observe(.keyEntered, with: { (key, location) in
+//            print("postID: \(key)")
+                postRef.child(key).observe(.value, with: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    let news = News(dictionary: dictionary)
+                    news.id = snapshot.key
+                    
+                    DispatchQueue.main.async {
+                        self.reloadInputViews()
+                    }
+                    
+                    let priceStr = dictionary["price"] as? String
+                    let waterPriceStr = dictionary["waterPrice"] as? String
+                    let electricPriceStr = dictionary["electricPrice"] as? String
+                    let internetPriceStr = dictionary["internetPrice"] as? String
+                    
+                    news.price = Double(priceStr ?? "0.0")
+                    news.waterPrice = Double(waterPriceStr ?? "0.0")
+                    news.electricPrice = Double(electricPriceStr ?? "0.0")
+                    news.internetPrice = Double(internetPriceStr ?? "0.0")
+                    news.area = dictionary["area"] as? String
+                    news.district = dictionary["district"] as? String
+                    news.title = dictionary["title"] as? String
+                    news.address = dictionary["address"] as? String
+                    news.description = dictionary["description"] as? String
+                    news.phoneNumber = dictionary["phoneNumber"] as? String
+                    news.ownerID = dictionary["ownerID"] as? String
+                    news.postImageUrl0 = dictionary["postImageUrl0"] as? String
+                    news.postImageUrl1 = dictionary["postImageUrl1"] as? String
+                    news.postImageUrl2 = dictionary["postImageUrl2"] as? String
+                    news.timestamp = dictionary["timestamp"] as? Int
+                    news.lat = dictionary["lat"] as? String
+                    news.long = dictionary["long"] as? String
+                    news.usersAllowed = dictionary["usersAllowed"] as? String
+                    news.views = dictionary["views"] as? Int
+                    
+                    self.listNearMe.append(news)
+                    self.listNearMe = self.listNearMe.sorted(by: { (news0, news1) -> Bool in
+                        return Int(news0.price!) < Int(news0.price!)
+                    })
+                    self.tbNearMe.reloadData()
+                }
+            }, withCancel: nil)
+        })
     }
+    
+//    func loadDataNearMe() {
+//        let ref = Database.database().reference().child("Posts")
+////            .queryOrdered(byChild: "district").queryEqual(toValue: "Quận Thủ Đức")
+//
+//        ref.observe(.childAdded, with: { (snapshot) in
+//            if let dictionary = snapshot.value as? [String: AnyObject] {
+//                let news = News(dictionary: dictionary)
+//                news.id = snapshot.key
+//
+//                DispatchQueue.main.async {
+//                    self.reloadInputViews()
+//                }
+//
+//                let priceStr = dictionary["price"] as? String
+//                let waterPriceStr = dictionary["waterPrice"] as? String
+//                let electricPriceStr = dictionary["electricPrice"] as? String
+//                let internetPriceStr = dictionary["internetPrice"] as? String
+//
+//                news.price = Double(priceStr ?? "0.0")
+//                news.waterPrice = Double(waterPriceStr ?? "0.0")
+//                news.electricPrice = Double(electricPriceStr ?? "0.0")
+//                news.internetPrice = Double(internetPriceStr ?? "0.0")
+//                news.area = dictionary["area"] as? String
+//                news.district = dictionary["district"] as? String
+//                news.title = dictionary["title"] as? String
+//                news.address = dictionary["address"] as? String
+//                news.description = dictionary["description"] as? String
+//                news.phoneNumber = dictionary["phoneNumber"] as? String
+//                news.ownerID = dictionary["ownerID"] as? String
+//                news.postImageUrl0 = dictionary["postImageUrl0"] as? String
+//                news.postImageUrl1 = dictionary["postImageUrl1"] as? String
+//                news.postImageUrl2 = dictionary["postImageUrl2"] as? String
+//                news.timestamp = dictionary["timestamp"] as? Int
+//                news.lat = dictionary["lat"] as? String
+//                news.long = dictionary["long"] as? String
+//                news.usersAllowed = dictionary["usersAllowed"] as? String
+//                news.views = dictionary["views"] as? Int
+//
+//                self.listNearMe.append(news)
+//                self.listNearMe = self.listNearMe.sorted(by: { (news0, news1) -> Bool in
+//                    return Int(news0.price!) < Int(news1.price!)
+//                })
+//                self.tbNearMe.reloadData()
+//            }
+//        }, withCancel: nil)
+//    }
     
     //MARK: Scroll view did scroll
     
@@ -401,7 +513,7 @@ CLLocationManagerDelegate {
     
 }
 
-extension HomeViewController {
+extension HomeViewController: UITableViewDelegate {
     
     //MARK: Logic for table view
     
@@ -489,10 +601,10 @@ extension HomeViewController {
 
 }
 
-extension HomeViewController {
-    
+extension HomeViewController: CLLocationManagerDelegate {
+
     func setUpLocationManager() {
-        
+
         locationManager.delegate = self
         self.locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -501,26 +613,25 @@ extension HomeViewController {
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
+
         if currentLocation == nil {
             currentLocation = locations.last
             locationManager.stopMonitoringSignificantLocationChanges()
-            
-            let locationValue: CLLocationCoordinate2D = manager.location!.coordinate
-            
-            currentLocationCoordinate = locationValue
-            
+
+            currentLocationCoordinate = manager.location!.coordinate
+
+            loadDataNearMe()
+    
             locationManager.stopUpdatingLocation()
         }
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .restricted:
             print("Location access was restricted.")
         case .denied:
             print("User denied access to location.")
-            // Display the map using the default location.
         case .notDetermined:
             print("Location status not determined.")
         case .authorizedAlways: fallthrough
@@ -528,7 +639,7 @@ extension HomeViewController {
             print("Location status is OK.")
         }
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         locationManager.stopUpdatingLocation()
         print(error.localizedDescription)
