@@ -113,18 +113,20 @@ class DetailBillViewController: UIViewController {
         let formattedElectricNumberCount = numberFormatter.string(from: electricNumberCount as NSNumber)
         let formattedUserCount = numberFormatter.string(from: currentBill.userCount! as NSNumber)
         
-        lblRoomPrice.text = "\(formattedRoomPrice ?? "0")"
-        lblInternetPrice.text = "\(formattedInternetPrice ?? "0")"
-        lblWaterPrice.text = "\(formattedWaterPrice ?? "0")"
-        lblElectricPrice.text = "\(formattedElectricPrice ?? "0")"
+        lblRoomPrice.text = "\(formattedRoomPrice ?? "0")đ"
+        lblRoomPrice2.text = lblRoomPrice.text
+        lblInternetPrice.text = "\(formattedInternetPrice ?? "0")đ"
+        lblInternetPrice2.text = lblInternetPrice.text
+        lblWaterPrice.text = "\(formattedWaterPrice ?? "0")đ"
+        lblElectricPrice.text = "\(formattedElectricPrice ?? "0")đ"
         lblTotalRoomPrice.text = "\(formattedTotalRoomPrice ?? "0")đ"
-        lblTotalWaterPrice.text = "\(formattedTotalWaterPrice ?? "0")"
-        lblTotalElectricPrice.text = "\(formattedTotalElectricPrice ?? "0")"
+        lblTotalWaterPrice.text = "\(formattedTotalWaterPrice ?? "0")đ"
+        lblTotalElectricPrice.text = "\(formattedTotalElectricPrice ?? "0")đ"
         lblOldElectricNumber.text = "CSC: \(formattedOldElectricNumber ?? "0") kWh"
         lblNewElectricNumber.text = "CSM: \(formattedNewElectricNumber ?? "0") kWh"
         lblElectricNumberCount.text = "\(formattedElectricNumberCount ?? "0") kWh"
         lblUserCount.text = "\(formattedUserCount ?? "0") người"
-        lblSurcharge.text = "\(formattedSurcharge ?? "0")"
+        lblSurcharge.text = "\(formattedSurcharge ?? "0")đ"
         if !(currentBill.surchargeReason?.isEmpty)! {
             lblSurchargeReason.text = "Lí do phụ thu: \(currentBill.surchargeReason ?? "")"
         }
