@@ -14,6 +14,7 @@ import Kingfisher
 
 class BillManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var vEmptyData: UIView!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var tbBills: UITableView!
     @IBOutlet weak var ivAvatar: UIImageView!
@@ -58,6 +59,16 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    func showEmptyDataView() {
+        
+        if listBill.count == 0 {
+            tbBills.backgroundView = vEmptyData
+        }
+        else {
+            tbBills.backgroundView = nil
+        }
+    }
+    
     //MARK: Set up view
     func setUpView() {
         
@@ -90,6 +101,7 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         makeImageViewRounded(imageView: ivAvatar)
+        showEmptyDataView()
     }
     
     //MARK: Database interaction

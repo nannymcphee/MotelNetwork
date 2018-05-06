@@ -66,6 +66,7 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
         self.tapToDismissKeyboard()
         createDatePicker()
         makeButtonRounded(button: btnAddImage)
+        self.btnAddImage.imageView?.contentMode = .scaleAspectFit
         self.ivProfileImage.isHidden = true
     }
     

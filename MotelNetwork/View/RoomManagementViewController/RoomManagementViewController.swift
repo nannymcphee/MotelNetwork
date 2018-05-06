@@ -16,6 +16,7 @@ import Kingfisher
 
 class RoomManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {    
     
+    @IBOutlet weak var vEmptyData: UIView!
     @IBOutlet weak var btnCreateRoom: UIButton!
     @IBOutlet weak var btnBills: UIButton!
     @IBOutlet weak var tbRoomManagement: UITableView!
@@ -62,6 +63,16 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
+    func showEmptyDataView() {
+        
+        if listRooms.count == 0 {
+            tbRoomManagement.backgroundView = vEmptyData
+        }
+        else {
+            tbRoomManagement.backgroundView = nil
+        }
+    }
+    
     //MARK: Set up view
     func setUpView() {
         
@@ -96,6 +107,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         makeImageViewRounded(imageView: ivAvatar)
+        showEmptyDataView()
     }
     
     //MARK: Database interaction

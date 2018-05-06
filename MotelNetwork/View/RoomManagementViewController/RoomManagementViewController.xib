@@ -24,6 +24,7 @@
                 <outlet property="lblUserFullName" destination="IcF-mk-JaP" id="fbR-sp-rnB"/>
                 <outlet property="svScrollView" destination="APX-Az-4Oq" id="DsW-8z-YtF"/>
                 <outlet property="tbRoomManagement" destination="j09-YX-mcr" id="qb7-PJ-sga"/>
+                <outlet property="vEmptyData" destination="VZe-XU-Nfr" id="exc-dG-PYM"/>
                 <outlet property="vInfoView" destination="7NU-vi-XhP" id="RMa-K7-Mou"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -161,6 +162,26 @@
                                                 <constraint firstItem="c2a-ud-j94" firstAttribute="centerY" secondItem="R7f-Bm-PQX" secondAttribute="centerY" id="vcd-4x-cb8"/>
                                             </constraints>
                                         </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VZe-XU-Nfr">
+                                            <rect key="frame" x="0.0" y="48" width="375" height="788"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogz-Ce-HR0">
+                                                    <rect key="frame" x="8" y="8" width="359" height="772"/>
+                                                    <string key="text">Bạn chưa có phòng nào.
+Nhấn nút "+" để bắt đầu tạo phòng mới.</string>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Ogz-Ce-HR0" secondAttribute="bottom" constant="8" id="HXr-G6-qp8"/>
+                                                <constraint firstItem="Ogz-Ce-HR0" firstAttribute="top" secondItem="VZe-XU-Nfr" secondAttribute="top" constant="8" id="KPo-ci-r7k"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ogz-Ce-HR0" secondAttribute="trailing" constant="8" id="Lpi-OU-qVc"/>
+                                                <constraint firstItem="Ogz-Ce-HR0" firstAttribute="leading" secondItem="VZe-XU-Nfr" secondAttribute="leading" constant="8" id="YWo-WJ-8Be"/>
+                                            </constraints>
+                                        </view>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="j09-YX-mcr">
                                             <rect key="frame" x="0.0" y="48" width="375" height="788"/>
                                             <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -171,8 +192,12 @@
                                         <constraint firstAttribute="trailing" secondItem="j09-YX-mcr" secondAttribute="trailing" id="0TW-LY-w4V"/>
                                         <constraint firstItem="j09-YX-mcr" firstAttribute="top" secondItem="7NU-vi-XhP" secondAttribute="bottom" id="3bm-eZ-HfS"/>
                                         <constraint firstItem="j09-YX-mcr" firstAttribute="top" secondItem="7NU-vi-XhP" secondAttribute="bottom" id="CCL-3b-2Ih"/>
+                                        <constraint firstAttribute="bottom" secondItem="VZe-XU-Nfr" secondAttribute="bottom" id="FoY-d5-OYk"/>
                                         <constraint firstItem="7NU-vi-XhP" firstAttribute="top" secondItem="Yrv-D8-dXf" secondAttribute="top" id="OMx-vD-k9g"/>
                                         <constraint firstAttribute="trailing" secondItem="7NU-vi-XhP" secondAttribute="trailing" id="U22-eu-Aep"/>
+                                        <constraint firstItem="VZe-XU-Nfr" firstAttribute="leading" secondItem="Yrv-D8-dXf" secondAttribute="leading" id="dxI-YJ-2p3"/>
+                                        <constraint firstItem="VZe-XU-Nfr" firstAttribute="top" secondItem="7NU-vi-XhP" secondAttribute="bottom" id="f3d-g7-Iz0"/>
+                                        <constraint firstAttribute="trailing" secondItem="VZe-XU-Nfr" secondAttribute="trailing" id="leY-An-ccY"/>
                                         <constraint firstItem="7NU-vi-XhP" firstAttribute="leading" secondItem="Yrv-D8-dXf" secondAttribute="leading" id="nxf-uz-ksT"/>
                                         <constraint firstAttribute="bottom" secondItem="j09-YX-mcr" secondAttribute="bottom" id="uZP-tT-2TL"/>
                                         <constraint firstItem="j09-YX-mcr" firstAttribute="leading" secondItem="Yrv-D8-dXf" secondAttribute="leading" id="vWq-we-tGd"/>

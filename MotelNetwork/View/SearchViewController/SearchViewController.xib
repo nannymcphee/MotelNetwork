@@ -9,12 +9,18 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
                 <outlet property="btnFilter" destination="iHX-Ao-8se" id="FVD-cV-ps6"/>
                 <outlet property="searchBar" destination="dnn-e2-TZP" id="7KI-UU-rDK"/>
                 <outlet property="tbSearchResults" destination="Osm-BE-Wsd" id="eAq-jb-iu5"/>
+                <outlet property="vEmptyData" destination="PzQ-bh-bW3" id="juC-dV-Gq4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -107,6 +113,24 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUJ-EE-DnV">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzQ-bh-bW3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Không tìm thấy bài đăng." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gax-t2-pUL">
+                                                    <rect key="frame" x="8" y="8" width="359" height="764"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="gax-t2-pUL" secondAttribute="trailing" constant="8" id="1BH-2z-mg4"/>
+                                                <constraint firstItem="gax-t2-pUL" firstAttribute="top" secondItem="PzQ-bh-bW3" secondAttribute="top" constant="8" id="L5u-yf-aWh"/>
+                                                <constraint firstItem="gax-t2-pUL" firstAttribute="leading" secondItem="PzQ-bh-bW3" secondAttribute="leading" constant="8" id="daP-lJ-TbZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="gax-t2-pUL" secondAttribute="bottom" constant="8" id="vh8-Um-ASV"/>
+                                            </constraints>
+                                        </view>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Osm-BE-Wsd">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
                                             <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -115,9 +139,13 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="Osm-BE-Wsd" firstAttribute="top" secondItem="pUJ-EE-DnV" secondAttribute="top" id="GdI-7G-Sd9"/>
+                                        <constraint firstAttribute="trailing" secondItem="PzQ-bh-bW3" secondAttribute="trailing" id="HmO-Gr-PuA"/>
+                                        <constraint firstItem="PzQ-bh-bW3" firstAttribute="leading" secondItem="pUJ-EE-DnV" secondAttribute="leading" id="JRf-kC-2Zg"/>
                                         <constraint firstAttribute="trailing" secondItem="Osm-BE-Wsd" secondAttribute="trailing" id="KYA-fs-ZW7"/>
+                                        <constraint firstAttribute="bottom" secondItem="PzQ-bh-bW3" secondAttribute="bottom" id="RAo-4c-qzc"/>
                                         <constraint firstAttribute="bottom" secondItem="Osm-BE-Wsd" secondAttribute="bottom" id="aHu-ZB-dsC"/>
                                         <constraint firstItem="Osm-BE-Wsd" firstAttribute="leading" secondItem="pUJ-EE-DnV" secondAttribute="leading" id="kFO-GH-bLW"/>
+                                        <constraint firstItem="PzQ-bh-bW3" firstAttribute="top" secondItem="pUJ-EE-DnV" secondAttribute="top" id="rQN-7a-3zz"/>
                                     </constraints>
                                 </view>
                             </subviews>

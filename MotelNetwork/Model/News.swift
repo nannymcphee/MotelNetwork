@@ -20,7 +20,6 @@ class News {
     var district: String?
     var description: String?
     var phoneNumber: String?
-    var timestamp: Int?
     var lat: String?
     var long: String?
     var usersAllowed: String?
@@ -29,12 +28,13 @@ class News {
     var waterPrice: Double?
     var internetPrice: Double?
     var views: Int?
-
+    var timestamp: Int?
+    var timestampEdit: Int?
     
     init() {
     }
     
-    init(id: String, title: String, area: String, address: String, postImageUrl0: String, postImageUrl1: String, postImageUrl2: String, ownerID: String, district: String, description: String, phoneNumber: String, timestamp: Int, lat: String, long: String, usersAllowed: String, price: Double, electricPrice: Double, waterPrice: Double, internetPrice: Double, views: Int) {
+    init(id: String, title: String, area: String, address: String, postImageUrl0: String, postImageUrl1: String, postImageUrl2: String, ownerID: String, district: String, description: String, phoneNumber: String, timestamp: Int, lat: String, long: String, usersAllowed: String, price: Double, electricPrice: Double, waterPrice: Double, internetPrice: Double, views: Int, timestampEdit: Int) {
         
         self.id = id
         self.title = title
@@ -56,6 +56,7 @@ class News {
         self.long = long
         self.usersAllowed = usersAllowed
         self.views = views
+        self.timestampEdit = timestampEdit
     }
     
     init(dictionary: [String: AnyObject]) {
@@ -79,6 +80,7 @@ class News {
         self.long = dictionary["long"] as? String
         self.usersAllowed = dictionary["usersAllowed"] as? String
         self.views = dictionary["views"] as? Int
+        self.timestampEdit = dictionary["timestampEdit"] as? Int
     }
     
 }

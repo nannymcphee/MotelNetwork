@@ -267,7 +267,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
             let internetPrice = self.tfInternetPrice.text!
             let postID = currentNews.id
             let usersAllowed = self.tfUsersAllowed.text!
-//            let timestamp = Int(NSDate().timeIntervalSince1970)
+            let timestampEdit = Int(NSDate().timeIntervalSince1970)
             let ref = Database.database().reference().child("Posts").child(postID!)
             
             if (self.tfDistrict.text?.elementsEqual(currentNews.district!))! {
@@ -278,7 +278,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
             }
 
             // Removed value "timestamp": timestamp
-            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "ownerID": ownerID!, "usersAllowed": usersAllowed] as [String: AnyObject]
+            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "ownerID": ownerID!, "usersAllowed": usersAllowed, "timestampEdit": timestampEdit] as [String: AnyObject]
             
             // Create confirm alert
             let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)

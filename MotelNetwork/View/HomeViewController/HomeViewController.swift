@@ -18,6 +18,7 @@ import GeoFire
 class HomeViewController: UIViewController, UITableViewDataSource,
 UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedControlDelegate {
     
+    @IBOutlet weak var vEmptyData: UIView!
     @IBOutlet weak var vSegment: UIView!
     @IBOutlet weak var tbMostView: UITableView!
     @IBOutlet weak var tbNearMe: UITableView!
@@ -84,6 +85,16 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
         tbListNews.reloadData()
         tbNearMe.reloadData()
         tbMostView.reloadData()
+    }
+    
+    func showEmptyDataView() {
+        
+        if listNearMe.count == 0 {
+            tbNearMe.backgroundView = vEmptyData
+        }
+        else {
+            tbNearMe.backgroundView = nil
+        }
     }
     
     //MARK: Set up TwicketSegmentedControl
@@ -154,6 +165,7 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
     
     func setUpView() {
         
+        showEmptyDataView()
         setUpSegmentControl()
         setUpLocationManager()
         self.tapToDismissKeyboard()

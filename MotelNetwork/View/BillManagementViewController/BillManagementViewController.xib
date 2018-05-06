@@ -22,6 +22,7 @@
                 <outlet property="lblBillsCount" destination="suR-0E-zXE" id="8xZ-Fg-Zro"/>
                 <outlet property="lblUserFullName" destination="BuE-sT-dCo" id="iq0-DY-uNQ"/>
                 <outlet property="tbBills" destination="38o-hj-uDy" id="YEw-JI-Rcb"/>
+                <outlet property="vEmptyData" destination="XzC-Sz-kaV" id="mOR-6X-Gfj"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -140,6 +141,26 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jp9-VP-xuC">
                                             <rect key="frame" x="0.0" y="48" width="375" height="788"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XzC-Sz-kaV">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="788"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bQ-YQ-j1K">
+                                                            <rect key="frame" x="8" y="8" width="359" height="772"/>
+                                                            <string key="text">Bạn chưa có hóa đơn nào.
+Tính tiền phòng để tạo hóa đơn mới.</string>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="5bQ-YQ-j1K" firstAttribute="leading" secondItem="XzC-Sz-kaV" secondAttribute="leading" constant="8" id="1sN-K2-18p"/>
+                                                        <constraint firstItem="5bQ-YQ-j1K" firstAttribute="top" secondItem="XzC-Sz-kaV" secondAttribute="top" constant="8" id="T4d-QT-Mg4"/>
+                                                        <constraint firstAttribute="trailing" secondItem="5bQ-YQ-j1K" secondAttribute="trailing" constant="8" id="i3N-sc-h8B"/>
+                                                        <constraint firstAttribute="bottom" secondItem="5bQ-YQ-j1K" secondAttribute="bottom" constant="8" id="m8z-Vt-ecm"/>
+                                                    </constraints>
+                                                </view>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="38o-hj-uDy">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="788"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -148,8 +169,12 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="38o-hj-uDy" firstAttribute="leading" secondItem="jp9-VP-xuC" secondAttribute="leading" id="7f0-zy-m6M"/>
+                                                <constraint firstAttribute="bottom" secondItem="XzC-Sz-kaV" secondAttribute="bottom" id="HWk-bb-6oh"/>
                                                 <constraint firstItem="38o-hj-uDy" firstAttribute="top" secondItem="jp9-VP-xuC" secondAttribute="top" id="KBF-tC-kj0"/>
+                                                <constraint firstItem="XzC-Sz-kaV" firstAttribute="top" secondItem="jp9-VP-xuC" secondAttribute="top" id="Qu7-NP-Wn3"/>
+                                                <constraint firstAttribute="trailing" secondItem="XzC-Sz-kaV" secondAttribute="trailing" id="RIR-Cj-XH5"/>
                                                 <constraint firstAttribute="trailing" secondItem="38o-hj-uDy" secondAttribute="trailing" id="WZy-1V-Hjb"/>
+                                                <constraint firstItem="XzC-Sz-kaV" firstAttribute="leading" secondItem="jp9-VP-xuC" secondAttribute="leading" id="iu9-jT-BJF"/>
                                                 <constraint firstAttribute="bottom" secondItem="38o-hj-uDy" secondAttribute="bottom" id="oJX-hH-OTt"/>
                                             </constraints>
                                         </view>

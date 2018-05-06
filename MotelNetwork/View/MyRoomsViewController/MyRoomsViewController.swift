@@ -13,6 +13,7 @@ import Kingfisher
 
 class MyRoomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var vEmptyData: UIView!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblUserFullName: UILabel!
     @IBOutlet weak var lblRoomCount: UILabel!
@@ -54,6 +55,16 @@ class MyRoomsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    func showEmptyDataView() {
+        
+        if listRooms.count == 0 {
+            tbMyRooms.backgroundView = vEmptyData
+        }
+        else {
+            tbMyRooms.backgroundView = nil
+        }
+    }
+    
     //MARK: Set up view
     func setUpView() {
         
@@ -88,6 +99,7 @@ class MyRoomsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         makeImageViewRounded(imageView: ivAvatar)
+        showEmptyDataView()
     }
     
     //MARK: Database interaction

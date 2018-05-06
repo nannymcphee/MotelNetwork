@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
@@ -16,6 +21,7 @@
                 <outlet property="tbListNews" destination="aSv-4C-Gux" id="y8W-du-Cqs"/>
                 <outlet property="tbMostView" destination="gJb-CK-ePL" id="CVm-Sp-iN0"/>
                 <outlet property="tbNearMe" destination="ID6-a2-VQf" id="UN3-JI-hh0"/>
+                <outlet property="vEmptyData" destination="osR-9p-OUt" id="WCT-ug-nFP"/>
                 <outlet property="vMostView" destination="WfM-Bh-gw2" id="1bt-gL-Duv"/>
                 <outlet property="vNearMe" destination="y1P-Hn-rRK" id="uWQ-cN-PMl"/>
                 <outlet property="vNews" destination="fcQ-9x-ZUe" id="ZNm-AC-cFB"/>
@@ -105,6 +111,24 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y1P-Hn-rRK">
                                             <rect key="frame" x="750" y="0.0" width="375" height="712"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osR-9p-OUt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="712"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Không có tin nào gần bạn." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEn-Iq-JOH">
+                                                            <rect key="frame" x="8" y="8" width="359" height="696"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="eEn-Iq-JOH" secondAttribute="trailing" constant="8" id="Q16-UW-cHf"/>
+                                                        <constraint firstAttribute="bottom" secondItem="eEn-Iq-JOH" secondAttribute="bottom" constant="8" id="gvO-4K-sIm"/>
+                                                        <constraint firstItem="eEn-Iq-JOH" firstAttribute="leading" secondItem="osR-9p-OUt" secondAttribute="leading" constant="8" id="k4a-Sx-0Np"/>
+                                                        <constraint firstItem="eEn-Iq-JOH" firstAttribute="top" secondItem="osR-9p-OUt" secondAttribute="top" constant="8" id="sOF-dI-hoM"/>
+                                                    </constraints>
+                                                </view>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ID6-a2-VQf">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="712"/>
                                                     <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -112,10 +136,14 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="osR-9p-OUt" secondAttribute="trailing" id="2XU-tB-34C"/>
+                                                <constraint firstAttribute="bottom" secondItem="osR-9p-OUt" secondAttribute="bottom" id="FNH-6K-dbm"/>
                                                 <constraint firstAttribute="bottom" secondItem="ID6-a2-VQf" secondAttribute="bottom" id="FZ5-xw-B4t"/>
                                                 <constraint firstItem="ID6-a2-VQf" firstAttribute="top" secondItem="y1P-Hn-rRK" secondAttribute="top" id="Siv-lw-cB2"/>
                                                 <constraint firstItem="ID6-a2-VQf" firstAttribute="leading" secondItem="y1P-Hn-rRK" secondAttribute="leading" id="Zo0-me-YVN"/>
+                                                <constraint firstItem="osR-9p-OUt" firstAttribute="leading" secondItem="y1P-Hn-rRK" secondAttribute="leading" id="hMO-Cl-BTT"/>
                                                 <constraint firstAttribute="trailing" secondItem="ID6-a2-VQf" secondAttribute="trailing" id="tVS-iO-Jsx"/>
+                                                <constraint firstItem="osR-9p-OUt" firstAttribute="top" secondItem="y1P-Hn-rRK" secondAttribute="top" id="yp4-SQ-ycg"/>
                                             </constraints>
                                         </view>
                                     </subviews>

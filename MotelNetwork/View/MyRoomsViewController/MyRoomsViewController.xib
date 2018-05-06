@@ -21,6 +21,7 @@
                 <outlet property="lblRoomCount" destination="iwE-Ad-TZW" id="V2W-OI-LGb"/>
                 <outlet property="lblUserFullName" destination="eYr-KU-fUP" id="hJR-B9-JjG"/>
                 <outlet property="tbMyRooms" destination="REa-QC-GEl" id="mdY-Og-hrO"/>
+                <outlet property="vEmptyData" destination="c2o-LH-QLe" id="vyh-8f-CWl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -109,6 +110,26 @@
                                         <constraint firstItem="ZJg-gu-NJh" firstAttribute="centerY" secondItem="gir-ZI-2Ym" secondAttribute="centerY" id="tCl-1a-wFB"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c2o-LH-QLe">
+                                    <rect key="frame" x="0.0" y="112" width="375" height="788"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwC-NP-PZt">
+                                            <rect key="frame" x="8" y="8" width="359" height="772"/>
+                                            <string key="text">Bạn hiện tại chưa thuê phòng trọ nào.
+Vui lòng liên hệ với chủ nhà để được thêm vào nếu có.</string>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="hwC-NP-PZt" secondAttribute="trailing" constant="8" id="4mT-wK-a9g"/>
+                                        <constraint firstItem="hwC-NP-PZt" firstAttribute="top" secondItem="c2o-LH-QLe" secondAttribute="top" constant="8" id="Vs9-Py-EFY"/>
+                                        <constraint firstAttribute="bottom" secondItem="hwC-NP-PZt" secondAttribute="bottom" constant="8" id="gQh-hJ-asv"/>
+                                        <constraint firstItem="hwC-NP-PZt" firstAttribute="leading" secondItem="c2o-LH-QLe" secondAttribute="leading" constant="8" id="q8f-4d-tfz"/>
+                                    </constraints>
+                                </view>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="REa-QC-GEl">
                                     <rect key="frame" x="0.0" y="112" width="375" height="788"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -121,10 +142,14 @@
                                 <constraint firstItem="gir-ZI-2Ym" firstAttribute="top" secondItem="LR7-fd-Qwe" secondAttribute="bottom" id="6Br-sr-KVd"/>
                                 <constraint firstAttribute="trailing" secondItem="REa-QC-GEl" secondAttribute="trailing" id="Gt3-18-VVc"/>
                                 <constraint firstItem="gir-ZI-2Ym" firstAttribute="leading" secondItem="S8q-HI-DMH" secondAttribute="leading" id="HwY-jv-QGk"/>
+                                <constraint firstItem="c2o-LH-QLe" firstAttribute="top" secondItem="gir-ZI-2Ym" secondAttribute="bottom" id="OSE-4z-SEJ"/>
+                                <constraint firstAttribute="bottom" secondItem="c2o-LH-QLe" secondAttribute="bottom" id="Q8V-sx-SZw"/>
                                 <constraint firstItem="LR7-fd-Qwe" firstAttribute="leading" secondItem="S8q-HI-DMH" secondAttribute="leading" id="Y2u-5w-1wt"/>
+                                <constraint firstItem="c2o-LH-QLe" firstAttribute="leading" secondItem="S8q-HI-DMH" secondAttribute="leading" id="dlJ-Pi-wNY"/>
                                 <constraint firstAttribute="bottom" secondItem="REa-QC-GEl" secondAttribute="bottom" id="fc4-5V-wH8"/>
                                 <constraint firstAttribute="trailing" secondItem="LR7-fd-Qwe" secondAttribute="trailing" id="iUe-KW-Ogz"/>
                                 <constraint firstItem="LR7-fd-Qwe" firstAttribute="top" secondItem="S8q-HI-DMH" secondAttribute="top" id="mkC-BS-7R8"/>
+                                <constraint firstAttribute="trailing" secondItem="c2o-LH-QLe" secondAttribute="trailing" id="nJZ-Cg-i84"/>
                                 <constraint firstAttribute="trailing" secondItem="gir-ZI-2Ym" secondAttribute="trailing" id="pj8-cn-nA2"/>
                                 <constraint firstItem="REa-QC-GEl" firstAttribute="top" secondItem="gir-ZI-2Ym" secondAttribute="bottom" id="vaA-0H-YBh"/>
                             </constraints>

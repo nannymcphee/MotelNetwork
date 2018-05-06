@@ -264,7 +264,7 @@
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g4W-da-7DH">
-                                                            <rect key="frame" x="18" y="337" width="340" height="40"/>
+                                                            <rect key="frame" x="18" y="333" width="340" height="40"/>
                                                             <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="40" id="OiL-na-zZI"/>
@@ -382,7 +382,7 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstItem="g4W-da-7DH" firstAttribute="top" secondItem="In0-U9-pNO" secondAttribute="bottom" constant="12" id="1C0-vJ-tm3"/>
+                                                        <constraint firstItem="g4W-da-7DH" firstAttribute="top" secondItem="In0-U9-pNO" secondAttribute="bottom" constant="8" id="1C0-vJ-tm3"/>
                                                         <constraint firstItem="liB-uW-htQ" firstAttribute="leading" secondItem="FHq-dW-iUh" secondAttribute="trailing" constant="5" id="BBM-bX-4IS"/>
                                                         <constraint firstItem="FHq-dW-iUh" firstAttribute="centerX" secondItem="fed-mC-Bne" secondAttribute="centerX" id="EUu-ck-lW6"/>
                                                         <constraint firstAttribute="trailing" secondItem="Cyd-zi-Ysa" secondAttribute="trailing" id="Fwf-M6-olN"/>

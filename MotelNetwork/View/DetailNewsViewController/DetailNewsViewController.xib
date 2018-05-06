@@ -506,7 +506,6 @@ dòng 2</string>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="rWU-Lt-02X" secondAttribute="bottom" id="0ak-nb-p6s"/>
-                        <constraint firstItem="rWU-Lt-02X" firstAttribute="width" secondItem="sZO-0d-DbO" secondAttribute="width" id="0qF-Le-wAv"/>
                         <constraint firstItem="rWU-Lt-02X" firstAttribute="top" secondItem="sZO-0d-DbO" secondAttribute="top" id="E8i-Jm-56I"/>
                         <constraint firstItem="rWU-Lt-02X" firstAttribute="centerX" secondItem="sZO-0d-DbO" secondAttribute="centerX" id="PgT-Ws-lJS"/>
                         <constraint firstItem="rWU-Lt-02X" firstAttribute="height" secondItem="sZO-0d-DbO" secondAttribute="height" priority="250" id="b3c-6P-x7D"/>

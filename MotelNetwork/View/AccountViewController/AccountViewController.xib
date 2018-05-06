@@ -22,6 +22,7 @@
                 <outlet property="lblFullName" destination="xFg-0a-apZ" id="4Fb-2I-9Pe"/>
                 <outlet property="lblNewsCount" destination="0fn-n1-Pdd" id="zfH-EW-FOy"/>
                 <outlet property="tbNews" destination="bqI-oo-kae" id="wEs-V9-mNG"/>
+                <outlet property="vEmptyData" destination="4TY-0x-I6Y" id="6qT-LU-uzG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -146,6 +147,26 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7f-93-ep7">
                                             <rect key="frame" x="0.0" y="48" width="375" height="788"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4TY-0x-I6Y">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="788"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDS-Z3-IXY">
+                                                            <rect key="frame" x="8" y="8" width="359" height="772"/>
+                                                            <string key="text">Bạn chưa có bài đăng nào.
+Nhấn nút "Đăng tin" để bắt đầu đăng bài mới.</string>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="XDS-Z3-IXY" secondAttribute="trailing" constant="8" id="0Nq-Q3-uGu"/>
+                                                        <constraint firstAttribute="bottom" secondItem="XDS-Z3-IXY" secondAttribute="bottom" constant="8" id="6gr-7r-GKj"/>
+                                                        <constraint firstItem="XDS-Z3-IXY" firstAttribute="leading" secondItem="4TY-0x-I6Y" secondAttribute="leading" constant="8" id="HHs-tz-zwx"/>
+                                                        <constraint firstItem="XDS-Z3-IXY" firstAttribute="top" secondItem="4TY-0x-I6Y" secondAttribute="top" constant="8" id="yvb-aX-FPe"/>
+                                                    </constraints>
+                                                </view>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bqI-oo-kae">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="788"/>
                                                     <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -157,7 +178,11 @@
                                                 <constraint firstItem="bqI-oo-kae" firstAttribute="top" secondItem="X7f-93-ep7" secondAttribute="top" id="CAj-7t-HqC"/>
                                                 <constraint firstItem="bqI-oo-kae" firstAttribute="leading" secondItem="X7f-93-ep7" secondAttribute="leading" id="IZC-pR-IaL"/>
                                                 <constraint firstAttribute="bottom" secondItem="bqI-oo-kae" secondAttribute="bottom" id="UQL-DA-4J0"/>
+                                                <constraint firstAttribute="trailing" secondItem="4TY-0x-I6Y" secondAttribute="trailing" id="aHa-1U-7ye"/>
                                                 <constraint firstAttribute="trailing" secondItem="bqI-oo-kae" secondAttribute="trailing" id="aTU-4O-TfZ"/>
+                                                <constraint firstItem="4TY-0x-I6Y" firstAttribute="top" secondItem="X7f-93-ep7" secondAttribute="top" id="fFe-tw-gR5"/>
+                                                <constraint firstAttribute="bottom" secondItem="4TY-0x-I6Y" secondAttribute="bottom" id="fne-D6-Gei"/>
+                                                <constraint firstItem="4TY-0x-I6Y" firstAttribute="leading" secondItem="X7f-93-ep7" secondAttribute="leading" id="i5D-7E-eMV"/>
                                             </constraints>
                                         </view>
                                     </subviews>
