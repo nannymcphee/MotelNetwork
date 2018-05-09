@@ -15,16 +15,6 @@ import BSImagePicker
 import Photos
 import SwipeBack
 
-class UserType {
-    var userType: Int
-    var userTypeName: String
-    
-    init(userType: Int, userTypeName: String) {
-        self.userType = userType
-        self.userTypeName = userTypeName
-    }
-}
-
 class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var btnProfilePicture: UIButton!
@@ -98,6 +88,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         makeButtonRounded(button: btnProfilePicture)
         ivProfilePicture.isHidden = true
         self.tapToDismissKeyboard()
+        btnProfilePicture.imageView?.contentMode = .scaleAspectFit
     }
     
     func resetView() {

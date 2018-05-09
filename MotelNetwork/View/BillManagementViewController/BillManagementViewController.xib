@@ -74,7 +74,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V3g-gE-jNy">
                     <rect key="frame" x="0.0" y="84" width="375" height="836"/>
                     <subviews>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="det-V0-mUP">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="det-V0-mUP">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="836"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTX-6i-Auz">
@@ -182,6 +182,7 @@ Tính tiền phòng để tạo hóa đơn mới.</string>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="jp9-VP-xuC" secondAttribute="bottom" id="0Rk-4y-mzZ"/>
+                                        <constraint firstAttribute="height" constant="836" id="86q-Fs-TcE"/>
                                         <constraint firstAttribute="trailing" secondItem="jp9-VP-xuC" secondAttribute="trailing" id="B5w-HG-dPS"/>
                                         <constraint firstItem="jp9-VP-xuC" firstAttribute="leading" secondItem="aTX-6i-Auz" secondAttribute="leading" id="QbI-nR-J5f"/>
                                         <constraint firstAttribute="trailing" secondItem="1rq-mk-IA7" secondAttribute="trailing" id="rbS-js-awz"/>
@@ -194,10 +195,9 @@ Tính tiền phòng để tạo hóa đơn mới.</string>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="aTX-6i-Auz" secondAttribute="trailing" id="G17-ge-gez"/>
                                 <constraint firstAttribute="bottom" secondItem="aTX-6i-Auz" secondAttribute="bottom" id="S3L-V1-kIp"/>
+                                <constraint firstItem="aTX-6i-Auz" firstAttribute="width" secondItem="det-V0-mUP" secondAttribute="width" id="XXs-CK-69Z"/>
                                 <constraint firstItem="aTX-6i-Auz" firstAttribute="top" secondItem="det-V0-mUP" secondAttribute="top" id="YfA-N7-ihR"/>
                                 <constraint firstItem="aTX-6i-Auz" firstAttribute="leading" secondItem="det-V0-mUP" secondAttribute="leading" id="aYT-t3-k9A"/>
-                                <constraint firstItem="aTX-6i-Auz" firstAttribute="centerX" secondItem="det-V0-mUP" secondAttribute="centerX" id="l8c-Nf-4d8"/>
-                                <constraint firstItem="aTX-6i-Auz" firstAttribute="height" secondItem="det-V0-mUP" secondAttribute="height" id="xgW-YS-3Sm"/>
                             </constraints>
                         </scrollView>
                     </subviews>

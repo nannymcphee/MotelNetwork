@@ -62,7 +62,7 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
         
         let settingVC = settingVC
 //        let viewSetting = settingVC.view
-        settingVC.tabBarItem = UITabBarItem(title: "Cài đặt", image: #imageLiteral(resourceName: "icMenuBlack"), tag: 4)
+        settingVC.tabBarItem = UITabBarItem(title: "Khác", image: #imageLiteral(resourceName: "icMenuBlack"), tag: 4)
         settingVC.tabBarItem.selectedImage = #imageLiteral(resourceName: "icMenuBlue").withRenderingMode(.alwaysOriginal)
         
         listViewController.append(homeScreenVC)
@@ -110,7 +110,7 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
         
         let settingVC = settingVC
         //        let viewSetting = settingVC.view
-        settingVC.tabBarItem = UITabBarItem(title: "Cài đặt", image: #imageLiteral(resourceName: "icMenuBlack"), tag: 4)
+        settingVC.tabBarItem = UITabBarItem(title: "Khác", image: #imageLiteral(resourceName: "icMenuBlack"), tag: 4)
         settingVC.tabBarItem.selectedImage = #imageLiteral(resourceName: "icMenuBlue").withRenderingMode(.alwaysOriginal)
         
         listViewController.append(homeScreenVC)

@@ -642,7 +642,7 @@ public class PXGoogleDirections: NSObject {
 	internal class func buildGoogleMapsURL(params: [String], callbackURL: URL?, callbackName: String?) -> URL? {
 		var p = params
 		if PXGoogleDirections.canOpenInGoogleMaps {
-			var scheme = "comgooglemaps"
+            var scheme = "comgooglemaps"
 			if let cbURL = callbackURL, let cbn = callbackName {
 				scheme = "comgooglemaps-x-callback"
 				p.append("x-success=\(cbURL.absoluteString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)")

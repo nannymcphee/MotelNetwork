@@ -21,12 +21,12 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var lblUserFullName: UILabel!
     @IBOutlet weak var lblBillsCount: UILabel!
     
-    var dbReference: DatabaseReference!
     var listBill = [Bill]()
-    var listBillSortedByDate = [Bill]()
     var billsCount : Int = 0
     var timestampStr: String = ""
+    var userType: Int = 0
     var refreshControl: UIRefreshControl = UIRefreshControl()
+    let uid = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +34,8 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
         tbBills.delegate = self
         tbBills.dataSource = self
         tbBills.register(UINib(nibName: "ListBillTableViewCell", bundle: nil), forCellReuseIdentifier: "ListBillTableViewCell")
+        tbBills.reloadData()
         
-        loadData()
         setUpView()
     }
     
@@ -53,7 +53,14 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
     @objc func refreshData() {
         
         listBill.removeAll()
-        loadData()
+        
+        if self.userType == 0 {
+            loadDataForOwner()
+        }
+        else {
+            loadDataForRenter()
+        }
+        
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.2) {
             self.refreshControl.endRefreshing()
         }
@@ -62,10 +69,10 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
     func showEmptyDataView() {
         
         if listBill.count == 0 {
-            tbBills.backgroundView = vEmptyData
+            vEmptyData.isHidden = false
         }
         else {
-            tbBills.backgroundView = nil
+            vEmptyData.isHidden = true
         }
     }
     
@@ -82,34 +89,47 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
             tbBills.addSubview(refreshControl)
         }
         
-        guard let uid = Auth.auth().currentUser?.uid else {
+        fetchUser()
+        loadData()
+        makeImageViewRounded(imageView: ivAvatar)
+        vEmptyData.isHidden = true
+        showEmptyDataView()
+    }
+    
+    func loadData() {
+
+        if self.userType == 0 {
             
-            return
+            self.loadDataForOwner()
         }
+        else if self.userType == 1 {
+            
+            self.loadDataForRenter()
+        }
+    }
+    
+    //MARK: Database interaction
+    
+    func fetchUser() {
         
-        dbReference = Database.database().reference()
-        dbReference.child("Users").child(uid).observe(.value) { (snapshot) in
+        let reference = Database.database().reference().child("Users").child(uid!)
+        reference.observe(.value) { (snapshot) in
             
             // Get user value
-            let value = snapshot.value as! NSDictionary
-            let userName = value["FullName"] as? String ?? ""
-            let profileImageUrl = value["ProfileImageUrl"] as? String ?? ""
+            let dictionary = snapshot.value as! NSDictionary
+            let userName = dictionary["FullName"] as? String ?? ""
+            let profileImageUrl = dictionary["ProfileImageUrl"] as? String ?? ""
+            
+            self.userType = (dictionary["UserType"] as? Int)!
             
             self.lblUserFullName.text = userName
             let resource = ImageResource(downloadURL: URL(string: profileImageUrl)!)
             self.ivAvatar.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
         }
-        
-        makeImageViewRounded(imageView: ivAvatar)
-        showEmptyDataView()
     }
     
-    //MARK: Database interaction
-    
-    // Load newest posts
-    func loadData() {
+    func loadDataForOwner() {
         
-        let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
         let myRecentBillsQuery = ref.child("Bills").queryOrdered(byChild: "ownerID").queryEqual(toValue: uid).queryLimited(toFirst: 100)
         
@@ -141,6 +161,9 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
                 bill.timestamp = dictionary["timestamp"] as? Int
    
                 self.listBill.append(bill)
+                self.listBill = self.listBill.sorted(by: { (bill0, bill1) -> Bool in
+                    return bill0.timestamp! > bill1.timestamp!
+                })
                 self.billsCount = self.listBill.count
                 self.lblBillsCount.text = "\(self.billsCount)"
                 self.tbBills.reloadData()
@@ -148,6 +171,48 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
         }, withCancel: nil)
     }
     
+    func loadDataForRenter() {
+        
+        let ref = Database.database().reference()
+        let myRecentBillsQuery = ref.child("Bills").queryOrdered(byChild: "renterID").queryEqual(toValue: uid).queryLimited(toFirst: 100)
+        
+        myRecentBillsQuery.observe(.childAdded, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let bill = Bill(dictionary: dictionary)
+                bill.id = snapshot.key
+                
+                DispatchQueue.main.async {
+                    self.reloadInputViews()
+                }
+                
+                bill.roomPrice = dictionary["roomPrice"] as? Double
+                bill.waterPrice = dictionary["waterPrice"] as? Double
+                bill.electricPrice = dictionary["electricPrice"] as? Double
+                bill.internetPrice = dictionary["internetPrice"] as? Double
+                bill.totalElectricPrice = dictionary["totalElectricPrice"] as? Double
+                bill.totalWaterPrice = dictionary["totalWaterPrice"] as? Double
+                bill.totalRoomPrice = dictionary["totalRoomPrice"] as? Double
+                bill.surcharge = dictionary["surcharge"] as? Double
+                bill.userCount = dictionary["userCount"] as? Double
+                bill.oldElectricNumber = dictionary["oldElectricNumber"] as? Double
+                bill.newElectricNumber = dictionary["newElectricNumber"] as? Double
+                bill.ownerID = dictionary["ownerID"] as? String
+                bill.renterID = dictionary["renterID"] as? String
+                bill.roomID = dictionary["roomID"] as? String
+                bill.surchargeReason = dictionary["surchargeReason"] as? String
+                bill.timestamp = dictionary["timestamp"] as? Int
+                
+                self.listBill.append(bill)
+                self.listBill = self.listBill.sorted(by: { (bill0, bill1) -> Bool in
+                    return bill0.timestamp! > bill1.timestamp!
+                })
+                self.billsCount = self.listBill.count
+                self.lblBillsCount.text = "\(self.billsCount)"
+                self.tbBills.reloadData()
+            }
+        }, withCancel: nil)
+    }
     
     //MARK: Logic for UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -178,31 +243,38 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 
-//        let edit = editAction(at: indexPath)
+        let edit = editAction(at: indexPath)
         let delete = deleteAction(at: indexPath)
-        let config = UISwipeActionsConfiguration(actions: [delete])
+        var config = UISwipeActionsConfiguration(actions: [delete, edit])
+        
+        if self.userType == 0 {
+            config = UISwipeActionsConfiguration(actions: [delete, edit])
+        }
+        else if self.userType == 1 {
+            config = UISwipeActionsConfiguration(actions: [])
+        }
 
         config.performsFirstActionWithFullSwipe = false
 
         return config
     }
-//
-//    func editAction(at indexPath: IndexPath) -> UIContextualAction {
-//
-//        let news = listNewsSortedByDate[indexPath.row]
-//        let action = UIContextualAction(style: .normal, title: "") { (action, view, nil) in
-//
-//            let vc = EditPostViewController()
-//            vc.currentNews = news
-//            (UIApplication.shared.delegate as? AppDelegate)?.navigationController?.pushViewController(vc, animated: true)
-//        }
-//
-//        action.image = #imageLiteral(resourceName: "icEdit")
-//        action.backgroundColor = UIColor(red: 34/255, green: 119/255, blue: 233/255, alpha: 1.0)
-//
-//        return action
-//    }
-//
+
+    func editAction(at indexPath: IndexPath) -> UIContextualAction {
+
+        let bill = self.listBill[indexPath.row]
+        let action = UIContextualAction(style: .normal, title: "") { (action, view, nil) in
+
+            let vc = EditBillViewController()
+            vc.currentBill = bill
+            (UIApplication.shared.delegate as? AppDelegate)?.navigationController?.pushViewController(vc, animated: true)
+        }
+
+        action.image = #imageLiteral(resourceName: "icEdit")
+        action.backgroundColor = UIColor(red: 34/255, green: 119/255, blue: 233/255, alpha: 1.0)
+
+        return action
+    }
+
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
 
         let action = UIContextualAction(style: .destructive, title: "") { (action, view, nil) in
@@ -237,8 +309,6 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
 
         return action
     }
-    
-    
     
     //MARK: Handle button pressed
     

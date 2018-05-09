@@ -22,11 +22,9 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tbNews: UITableView!
     @IBOutlet weak var lblNewsCount: UILabel!
     
-    var dbReference: DatabaseReference!
     var listNews = [News]()
     var newsCount : Int = 0
     var refreshControl: UIRefreshControl = UIRefreshControl()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,8 +86,8 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             return
         }
         
-        dbReference = Database.database().reference()
-        dbReference.child("Users").child(uid).observe(.value) { (snapshot) in
+        let reference = Database.database().reference().child("Users").child(uid)
+        reference.observe(.value) { (snapshot) in
             
             // Get user value
             let value = snapshot.value as! NSDictionary

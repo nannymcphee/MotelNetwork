@@ -38,15 +38,11 @@ class CalculateRoomPriceViewController: UIViewController {
     var totalWaterPrice: Double = 0.0
     var totalElectricPrice: Double = 0.0
     var totalPrice: Double = 0.0
-    let billID = UUID().uuidString
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpView()
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,7 +56,7 @@ class CalculateRoomPriceViewController: UIViewController {
         
         roomPrice = currentRoom.price!
         lblRoomName.text = currentRoom.name
-        tfRoomPrice.text = "\(currentRoom.price ?? 0.0)"
+        tfRoomPrice.text = "\(roomPrice)"
         
         if let renterID = currentRoom.renterID {
             let ref = Database.database().reference().child("Users").child(renterID)
@@ -133,6 +129,7 @@ class CalculateRoomPriceViewController: UIViewController {
             showAlert(alertMessage: "Công suất cũ phải nhỏ hơn công suất mới.")
         }
         else if userCount <= 0 {
+            
             showAlert(alertMessage: "Số người phải lớn hơn 0.")
         }
         else {

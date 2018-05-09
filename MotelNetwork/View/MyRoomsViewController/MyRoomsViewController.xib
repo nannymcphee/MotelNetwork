@@ -17,6 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyRoomsViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
+                <outlet property="btnBills" destination="2o7-NG-M58" id="t97-fi-55q"/>
                 <outlet property="ivAvatar" destination="ZJg-gu-NJh" id="0wK-rl-SYc"/>
                 <outlet property="lblRoomCount" destination="iwE-Ad-TZW" id="V2W-OI-LGb"/>
                 <outlet property="lblUserFullName" destination="eYr-KU-fUP" id="hJR-B9-JjG"/>
@@ -52,14 +53,35 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoá đơn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="235-2C-4bz">
+                                            <rect key="frame" x="7.5" y="44" width="47.5" height="14"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                            <color key="textColor" red="0.039215686274509803" green="0.4392156862745098" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2o7-NG-M58">
+                                            <rect key="frame" x="19" y="18" width="24" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="24" id="4q3-cD-qKf"/>
+                                                <constraint firstAttribute="height" constant="24" id="Tg7-ru-RWA"/>
+                                            </constraints>
+                                            <state key="normal" image="icBill"/>
+                                            <connections>
+                                                <action selector="btnBillsPressed:" destination="-1" eventType="touchUpInside" id="0B9-XV-fch"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="2o7-NG-M58" firstAttribute="top" secondItem="LR7-fd-Qwe" secondAttribute="top" constant="18" id="9Or-Xm-QSH"/>
                                         <constraint firstAttribute="height" constant="64" id="DkU-l5-wDk"/>
                                         <constraint firstAttribute="trailing" secondItem="Atm-K2-hfc" secondAttribute="trailing" id="FiG-DC-7Mo"/>
                                         <constraint firstItem="Atm-K2-hfc" firstAttribute="leading" secondItem="LR7-fd-Qwe" secondAttribute="leading" id="IkE-iV-y4J"/>
                                         <constraint firstItem="hNs-fL-NdD" firstAttribute="centerX" secondItem="LR7-fd-Qwe" secondAttribute="centerX" id="JdJ-Vw-dcN"/>
                                         <constraint firstItem="hNs-fL-NdD" firstAttribute="centerY" secondItem="LR7-fd-Qwe" secondAttribute="centerY" id="ObF-59-Y31"/>
+                                        <constraint firstItem="235-2C-4bz" firstAttribute="centerX" secondItem="2o7-NG-M58" secondAttribute="centerX" id="UEV-K2-dwt"/>
+                                        <constraint firstItem="235-2C-4bz" firstAttribute="top" secondItem="2o7-NG-M58" secondAttribute="bottom" constant="2" id="cZS-s5-Vn4"/>
+                                        <constraint firstItem="2o7-NG-M58" firstAttribute="leading" secondItem="LR7-fd-Qwe" secondAttribute="leading" constant="19" id="gEP-sV-mmv"/>
                                         <constraint firstAttribute="bottom" secondItem="Atm-K2-hfc" secondAttribute="bottom" id="jCJ-R1-JRu"/>
                                     </constraints>
                                 </view>
@@ -178,5 +200,6 @@ Vui lòng liên hệ với chủ nhà để được thêm vào nếu co
     </objects>
     <resources>
         <image name="defaultAvatar" width="32" height="32"/>
+        <image name="icBill" width="24" height="24"/>
     </resources>
 </document>

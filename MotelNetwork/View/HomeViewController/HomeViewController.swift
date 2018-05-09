@@ -306,7 +306,7 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
                 
                 self.listNews.append(news)
                 self.listNews = self.listNews.sorted(by: { (news0, news1) -> Bool in
-                    return news0.timestamp! > (news1.timestamp!)
+                    return news0.timestamp! > news1.timestamp!
                 })
                 
                 self.stopLoading()

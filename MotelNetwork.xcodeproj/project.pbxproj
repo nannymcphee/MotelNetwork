@@ -92,6 +92,10 @@
 		E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE6922067805D005715EC /* LoginViewController.xib */; };
 		E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */; };
 		E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE6962067898C005715EC /* ForgotPasswordViewController.xib */; };
+		E1E6D60220A02B1A0014C1C4 /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6D60120A02B1A0014C1C4 /* UserType.swift */; };
+		E1E6D60F20A03B6E0014C1C4 /* SavedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6D60E20A03B6E0014C1C4 /* SavedPost.swift */; };
+		E1E6D61320A319D50014C1C4 /* EditBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6D61120A319D50014C1C4 /* EditBillViewController.swift */; };
+		E1E6D61420A319D50014C1C4 /* EditBillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E6D61220A319D50014C1C4 /* EditBillViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,6 +187,10 @@
 		E1CDE6922067805D005715EC /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		E1CDE6962067898C005715EC /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
+		E1E6D60120A02B1A0014C1C4 /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
+		E1E6D60E20A03B6E0014C1C4 /* SavedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPost.swift; sourceTree = "<group>"; };
+		E1E6D61120A319D50014C1C4 /* EditBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBillViewController.swift; sourceTree = "<group>"; };
+		E1E6D61220A319D50014C1C4 /* EditBillViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditBillViewController.xib; sourceTree = "<group>"; };
 		FA2E9B82728A3236B847A136 /* Pods_Motel_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Motel_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -539,6 +547,8 @@
 				E1507BBF2080972500387527 /* News.swift */,
 				E1397D8A208AEF960050C86D /* Bill.swift */,
 				E1397D8C208AF1230050C86D /* Notification.swift */,
+				E1E6D60120A02B1A0014C1C4 /* UserType.swift */,
+				E1E6D60E20A03B6E0014C1C4 /* SavedPost.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -552,9 +562,19 @@
 			path = CreateRoomViewController;
 			sourceTree = "<group>";
 		};
+		E1E6D61020A319B60014C1C4 /* EditBillViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E1E6D61120A319D50014C1C4 /* EditBillViewController.swift */,
+				E1E6D61220A319D50014C1C4 /* EditBillViewController.xib */,
+			);
+			path = EditBillViewController;
+			sourceTree = "<group>";
+		};
 		E1E7D1F72071C7D300874EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E1E6D61020A319B60014C1C4 /* EditBillViewController */,
 				CE5FF78820766EB1005BEA3B /* MainViewController */,
 				E198DC182081829000E59BD2 /* HomeViewController */,
 				E1507BBA207F59E000387527 /* SettingViewController */,
@@ -674,6 +694,7 @@
 				E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */,
 				E198DC2B2082F6BB00E59BD2 /* EditPostViewController.xib in Resources */,
 				E1507BA8207D195C00387527 /* EditRoomViewController.xib in Resources */,
+				E1E6D61420A319D50014C1C4 /* EditBillViewController.xib in Resources */,
 				E180A138208A074F00EBCE52 /* NotificationListTableViewCell.xib in Resources */,
 				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
 				E1507BB2207DDA8B00387527 /* CalculateRoomPriceViewController.xib in Resources */,
@@ -811,10 +832,12 @@
 				E1954476208A0EA3004F0D17 /* DetailBillViewController.swift in Sources */,
 				E131D47E2098AED600019415 /* TimeAgoDisplay.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
+				E1E6D60220A02B1A0014C1C4 /* UserType.swift in Sources */,
 				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
 				E127015A2093372600663611 /* GoogleMapViewController.swift in Sources */,
 				E1397D8D208AF1230050C86D /* Notification.swift in Sources */,
 				E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */,
+				E1E6D60F20A03B6E0014C1C4 /* SavedPost.swift in Sources */,
 				E1397D8B208AEF960050C86D /* Bill.swift in Sources */,
 				E1507BC02080972500387527 /* News.swift in Sources */,
 				E198DC1E2081829000E59BD2 /* ListNewsTableViewCell.swift in Sources */,
@@ -826,6 +849,7 @@
 				E16F5B1F207B69AE00B284A5 /* AccountOptionTableViewCell.swift in Sources */,
 				E14804F72089F8DA00C67D43 /* CreateNotificationViewController.swift in Sources */,
 				E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */,
+				E1E6D61320A319D50014C1C4 /* EditBillViewController.swift in Sources */,
 				E1507BB1207DDA8B00387527 /* CalculateRoomPriceViewController.swift in Sources */,
 				E1397D86208AC7CC0050C86D /* ListBillTableViewCell.swift in Sources */,
 				E1507BAC207D19A200387527 /* NewPostViewController.swift in Sources */,

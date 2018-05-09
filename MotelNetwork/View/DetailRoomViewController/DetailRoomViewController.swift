@@ -39,11 +39,12 @@ class DetailRoomViewController: UIViewController {
     var imageUrlsArray = [String]()
     var renterName: String = ""
     var floaty = Floaty()
+    var userType: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setUpView()
+        fetchUser()
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,9 +54,8 @@ class DetailRoomViewController: UIViewController {
     
     //MARK: Set up view
     
-    func setUpView() {
+    func setUpViewForOwner() {
         
-        fetchUser()
         btnNotification.isHidden = true
         
         let roomImageUrl0 = currentRoom.roomImageUrl0
@@ -84,7 +84,7 @@ class DetailRoomViewController: UIViewController {
                     if let userName = dictionary["FullName"] as? String {
                         
                         if (userName != "") {
-                            self.lblUser.text = dictionary["FullName"] as? String
+                            self.lblUser.text = userName
                         } else {
                             self.lblUser.text = "Chưa có người thuê"
                         }
@@ -97,13 +97,55 @@ class DetailRoomViewController: UIViewController {
                 }
             }, withCancel: nil)
         }
-
+        
         loadImageToImageView(imageUrl: roomImageUrl0!, imageView: ivRoomImage0)
         loadImageToImageView(imageUrl: roomImageUrl1!, imageView: ivRoomImage1)
         loadImageToImageView(imageUrl: roomImageUrl2!, imageView: ivRoomImage2)
         
         makeButtonRounded(button: btnCalculate)
         makeButtonRounded(button: btnEditRoom)
+        makeImageViewRounded(imageView: ivAvatar)
+    }
+    
+    func setUpViewForRenter() {
+        
+        btnNotification.isHidden = true
+        
+        let roomImageUrl0 = currentRoom.roomImageUrl0
+        let roomImageUrl1 = currentRoom.roomImageUrl1
+        let roomImageUrl2 = currentRoom.roomImageUrl2
+        
+        imageUrlsArray.append(roomImageUrl0!)
+        imageUrlsArray.append(roomImageUrl1!)
+        imageUrlsArray.append(roomImageUrl2!)
+        
+        let formattedPrice = numberFormatter.string(from: currentRoom.price! as NSNumber)
+        lblPrice.text = "\(formattedPrice ?? "")đ"
+        lblRoomName.text = currentRoom.name
+        lblArea.text = String("\(currentRoom.area ?? "")m2")
+        lblUsersAllowed.text = "Số người cho phép: \(currentRoom.usersAllowed ?? "")"
+        lblAddress.text = currentRoom.address
+        lblAddress.sizeToFit()
+        
+        if let ownerID = currentRoom.ownerID {
+            let ref = Database.database().reference().child("Users").child(ownerID)
+            
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    
+                    self.lblUser.text = dictionary["FullName"] as? String
+                    self.tvPhoneNumber.text = dictionary["PhoneNumber"] as? String
+                }
+            }, withCancel: nil)
+        }
+        
+        loadImageToImageView(imageUrl: roomImageUrl0!, imageView: ivRoomImage0)
+        loadImageToImageView(imageUrl: roomImageUrl1!, imageView: ivRoomImage1)
+        loadImageToImageView(imageUrl: roomImageUrl2!, imageView: ivRoomImage2)
+        
+        btnCalculate.isHidden = true
+        btnEditRoom.isHidden = true
         makeImageViewRounded(imageView: ivAvatar)
     }
     
@@ -117,9 +159,18 @@ class DetailRoomViewController: UIViewController {
         dbReference.child("Users").child(uid!).observe(.value) { (snapshot) in
             
             // Get user value
-            let value = snapshot.value as! NSDictionary
-            let userName = value["FullName"] as? String ?? ""
-            let profileImageUrl = value["ProfileImageUrl"] as? String ?? ""
+            let dictionary = snapshot.value as! NSDictionary
+            let userName = dictionary["FullName"] as? String ?? ""
+            let profileImageUrl = dictionary["ProfileImageUrl"] as? String ?? ""
+            
+            self.userType = (dictionary["UserType"] as? Int)!
+            
+            if self.userType == 0 {
+                self.setUpViewForOwner()
+            }
+            else {
+                self.setUpViewForRenter()
+            }
             
             self.lblFullName.text = userName
             let resource = ImageResource(downloadURL: URL(string: profileImageUrl)!)

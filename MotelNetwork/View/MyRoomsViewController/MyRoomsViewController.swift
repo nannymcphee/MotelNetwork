@@ -13,6 +13,7 @@ import Kingfisher
 
 class MyRoomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var btnBills: UIButton!
     @IBOutlet weak var vEmptyData: UIView!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblUserFullName: UILabel!
@@ -58,10 +59,12 @@ class MyRoomsViewController: UIViewController, UITableViewDelegate, UITableViewD
     func showEmptyDataView() {
         
         if listRooms.count == 0 {
-            tbMyRooms.backgroundView = vEmptyData
+            vEmptyData.isHidden = false
+//            tbMyRooms.backgroundView = vEmptyData
         }
         else {
-            tbMyRooms.backgroundView = nil
+//            tbMyRooms.backgroundView = nil
+            vEmptyData.isHidden = true
         }
     }
     
@@ -99,6 +102,7 @@ class MyRoomsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         makeImageViewRounded(imageView: ivAvatar)
+        vEmptyData.isHidden = true
         showEmptyDataView()
     }
     
@@ -140,6 +144,13 @@ class MyRoomsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }, withCancel: nil)
     }
 
+    @IBAction func btnBillsPressed(_ sender: Any) {
+        
+        let vc = BillManagementViewController()
+        
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension MyRoomsViewController {

@@ -258,14 +258,10 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             let roomID = currentRoom.id
             let ownerID = Auth.auth().currentUser?.uid
             let renterID = currentRoom.renterID
-            
-            let ref = Database.database().reference().child("Rooms").child(roomID!)
             let roomImageUrl0 = currentRoom.roomImageUrl0
             let roomImageUrl1 = currentRoom.roomImageUrl1
             let roomImageUrl2 = currentRoom.roomImageUrl2
-            
-
-            
+            let ref = Database.database().reference().child("Rooms").child(roomID!)
             let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "renterID": renterID, "roomImageUrl0": roomImageUrl0, "roomImageUrl1": roomImageUrl1, "roomImageUrl2": roomImageUrl2, "usersAllowed": usersAllowed, "address": address]
     
             // Create confirm alert
