@@ -90,22 +90,10 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         fetchUser()
-        loadData()
+        
         makeImageViewRounded(imageView: ivAvatar)
         vEmptyData.isHidden = true
         showEmptyDataView()
-    }
-    
-    func loadData() {
-
-        if self.userType == 0 {
-            
-            self.loadDataForOwner()
-        }
-        else if self.userType == 1 {
-            
-            self.loadDataForRenter()
-        }
     }
     
     //MARK: Database interaction
@@ -121,6 +109,13 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
             let profileImageUrl = dictionary["ProfileImageUrl"] as? String ?? ""
             
             self.userType = (dictionary["UserType"] as? Int)!
+            
+            if self.userType == 0 {
+                self.loadDataForOwner()
+            }
+            else if self.userType == 1 {
+                self.loadDataForRenter()
+            }
             
             self.lblUserFullName.text = userName
             let resource = ImageResource(downloadURL: URL(string: profileImageUrl)!)

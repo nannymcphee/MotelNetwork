@@ -116,9 +116,9 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
-        let queryMyRoomsOrderByRoomName = ref.child("Rooms").queryOrdered(byChild: "ownerID").queryEqual(toValue: uid)
+        let query = ref.child("Rooms").queryOrdered(byChild: "ownerID").queryEqual(toValue: uid)
         
-        queryMyRoomsOrderByRoomName.observe(.childAdded, with: { (snapshot) in
+        query.observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let room = Room(dictionary: dictionary)
@@ -128,8 +128,9 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
                     self.reloadInputViews()
                 })
                 
-                room.name = dictionary["roomName"] as? String
                 let priceStr = dictionary["price"] as? String
+                
+                room.name = dictionary["roomName"] as? String
                 room.price = Double(priceStr ?? "0.0")
                 room.area = dictionary["area"] as? String
                 room.renterID = dictionary["renterID"] as? String

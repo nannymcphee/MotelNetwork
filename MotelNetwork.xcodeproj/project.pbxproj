@@ -543,11 +543,11 @@
 			isa = PBXGroup;
 			children = (
 				E1BD102720765FB900287982 /* User.swift */,
+				E1E6D60120A02B1A0014C1C4 /* UserType.swift */,
 				E1BD102520765FAD00287982 /* Room.swift */,
 				E1507BBF2080972500387527 /* News.swift */,
 				E1397D8A208AEF960050C86D /* Bill.swift */,
 				E1397D8C208AF1230050C86D /* Notification.swift */,
-				E1E6D60120A02B1A0014C1C4 /* UserType.swift */,
 				E1E6D60E20A03B6E0014C1C4 /* SavedPost.swift */,
 			);
 			path = Model;

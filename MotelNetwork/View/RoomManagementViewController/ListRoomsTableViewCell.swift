@@ -40,7 +40,7 @@ class ListRoomsTableViewCell: UITableViewCell {
         if let renterID = room.renterID {
             let ref = Database.database().reference().child("Users").child(renterID)
             
-            ref.observe(.value, with: { (snapshot) in
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject] {
                     
                     if (snapshot.value != nil) {
@@ -72,7 +72,7 @@ class ListRoomsTableViewCell: UITableViewCell {
         if let ownerID = room.ownerID {
             let ref = Database.database().reference().child("Users").child(ownerID)
             
-            ref.observe(.value, with: { (snapshot) in
+            ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject] {
                     
                     self.lblUserFullName.text = dictionary["FullName"] as? String

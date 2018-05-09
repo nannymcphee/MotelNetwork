@@ -36,23 +36,9 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Gh-Tf-BpY">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DhQ-dV-xPM">
-                                    <rect key="frame" x="17" y="597" width="379" height="40"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="xYu-Fd-gst"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                    <state key="normal" title="Đăng ký"/>
-                                    <connections>
-                                        <action selector="btnRegisterNavigationPressed:" destination="-1" eventType="touchUpInside" id="LuK-Ml-Jcf"/>
-                                    </connections>
-                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdE-KD-5zI">
-                                    <rect key="frame" x="17" y="656" width="379" height="40"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="61J-B4-6fD"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                    <rect key="frame" x="159.33333333333334" y="675" width="97.000000000000028" height="29"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                     <state key="normal" title="Quên mật khẩu"/>
                                     <connections>
                                         <action selector="btnForgotPasswordPressed:" destination="-1" eventType="touchUpInside" id="uqv-QA-xkv"/>
@@ -109,17 +95,23 @@
                                         </button>
                                     </subviews>
                                 </stackView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DhQ-dV-xPM">
+                                    <rect key="frame" x="181.33333333333334" y="638" width="52" height="29"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                    <state key="normal" title="Đăng ký"/>
+                                    <connections>
+                                        <action selector="btnRegisterNavigationPressed:" destination="-1" eventType="touchUpInside" id="LuK-Ml-Jcf"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstItem="bdE-KD-5zI" firstAttribute="leading" secondItem="4Gh-Tf-BpY" secondAttribute="leading" constant="17" id="9be-6N-xZo"/>
-                                <constraint firstItem="DhQ-dV-xPM" firstAttribute="leading" secondItem="4Gh-Tf-BpY" secondAttribute="leading" constant="17" id="BLe-Qs-WGx"/>
                                 <constraint firstItem="5hz-Gs-D1Q" firstAttribute="centerX" secondItem="4Gh-Tf-BpY" secondAttribute="centerX" id="Cla-1l-n6j"/>
-                                <constraint firstAttribute="trailing" secondItem="bdE-KD-5zI" secondAttribute="trailing" constant="18" id="aLQ-3c-UuS"/>
-                                <constraint firstItem="bdE-KD-5zI" firstAttribute="top" secondItem="DhQ-dV-xPM" secondAttribute="bottom" constant="19" id="azv-lx-AGL"/>
-                                <constraint firstAttribute="bottom" secondItem="bdE-KD-5zI" secondAttribute="bottom" constant="40" id="hyP-ns-ul3"/>
+                                <constraint firstItem="DhQ-dV-xPM" firstAttribute="centerX" secondItem="4Gh-Tf-BpY" secondAttribute="centerX" id="Ehr-ZS-pmL"/>
+                                <constraint firstAttribute="bottom" secondItem="bdE-KD-5zI" secondAttribute="bottom" constant="32" id="GUb-V3-K2N"/>
+                                <constraint firstItem="bdE-KD-5zI" firstAttribute="top" secondItem="DhQ-dV-xPM" secondAttribute="bottom" constant="8" id="ONU-Jc-gMe"/>
+                                <constraint firstItem="bdE-KD-5zI" firstAttribute="centerX" secondItem="4Gh-Tf-BpY" secondAttribute="centerX" id="buT-np-C1R"/>
                                 <constraint firstItem="5hz-Gs-D1Q" firstAttribute="centerY" secondItem="4Gh-Tf-BpY" secondAttribute="centerY" id="pB9-RW-Yf3"/>
-                                <constraint firstAttribute="trailing" secondItem="DhQ-dV-xPM" secondAttribute="trailing" constant="18" id="qo3-Fx-uS6"/>
                             </constraints>
                         </view>
                     </subviews>

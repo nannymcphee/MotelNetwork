@@ -45,6 +45,7 @@ class DetailRoomViewController: UIViewController {
         super.viewDidLoad()
 
         fetchUser()
+        setUpView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +54,18 @@ class DetailRoomViewController: UIViewController {
     }
     
     //MARK: Set up view
+    
+    func setUpView() {
+        
+        let formattedPrice = numberFormatter.string(from: currentRoom.price! as NSNumber)
+        lblPrice.text = "\(formattedPrice ?? "")đ"
+        lblRoomName.text = currentRoom.name
+        lblArea.text = String("\(currentRoom.area ?? "")m2")
+        lblUsersAllowed.text = "Số người cho phép: \(currentRoom.usersAllowed ?? "")"
+        lblAddress.text = currentRoom.address
+        lblAddress.sizeToFit()
+        makeImageViewRounded(imageView: ivAvatar)
+    }
     
     func setUpViewForOwner() {
         
@@ -65,14 +78,6 @@ class DetailRoomViewController: UIViewController {
         imageUrlsArray.append(roomImageUrl0!)
         imageUrlsArray.append(roomImageUrl1!)
         imageUrlsArray.append(roomImageUrl2!)
-        
-        let formattedPrice = numberFormatter.string(from: currentRoom.price! as NSNumber)
-        lblPrice.text = "\(formattedPrice ?? "")đ"
-        lblRoomName.text = currentRoom.name
-        lblArea.text = String("\(currentRoom.area ?? "")m2")
-        lblUsersAllowed.text = "Số người cho phép: \(currentRoom.usersAllowed ?? "")"
-        lblAddress.text = currentRoom.address
-        lblAddress.sizeToFit()
         
         if let renterID = currentRoom.renterID {
             let ref = Database.database().reference().child("Users").child(renterID)
@@ -104,7 +109,6 @@ class DetailRoomViewController: UIViewController {
         
         makeButtonRounded(button: btnCalculate)
         makeButtonRounded(button: btnEditRoom)
-        makeImageViewRounded(imageView: ivAvatar)
     }
     
     func setUpViewForRenter() {
@@ -118,14 +122,6 @@ class DetailRoomViewController: UIViewController {
         imageUrlsArray.append(roomImageUrl0!)
         imageUrlsArray.append(roomImageUrl1!)
         imageUrlsArray.append(roomImageUrl2!)
-        
-        let formattedPrice = numberFormatter.string(from: currentRoom.price! as NSNumber)
-        lblPrice.text = "\(formattedPrice ?? "")đ"
-        lblRoomName.text = currentRoom.name
-        lblArea.text = String("\(currentRoom.area ?? "")m2")
-        lblUsersAllowed.text = "Số người cho phép: \(currentRoom.usersAllowed ?? "")"
-        lblAddress.text = currentRoom.address
-        lblAddress.sizeToFit()
         
         if let ownerID = currentRoom.ownerID {
             let ref = Database.database().reference().child("Users").child(ownerID)
@@ -146,7 +142,6 @@ class DetailRoomViewController: UIViewController {
         
         btnCalculate.isHidden = true
         btnEditRoom.isHidden = true
-        makeImageViewRounded(imageView: ivAvatar)
     }
     
     //MARK: Database interaction
@@ -163,6 +158,7 @@ class DetailRoomViewController: UIViewController {
             let userName = dictionary["FullName"] as? String ?? ""
             let profileImageUrl = dictionary["ProfileImageUrl"] as? String ?? ""
             
+            self.lblFullName.text = userName
             self.userType = (dictionary["UserType"] as? Int)!
             
             if self.userType == 0 {
@@ -170,15 +166,12 @@ class DetailRoomViewController: UIViewController {
             }
             else {
                 self.setUpViewForRenter()
-            }
+            } 
             
-            self.lblFullName.text = userName
             let resource = ImageResource(downloadURL: URL(string: profileImageUrl)!)
             self.ivAvatar.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
         }
     }
-    
-    
 
     //MARK: Handle button pressed
     
