@@ -12,7 +12,8 @@ import FirebaseDatabase
 import FirebaseStorage
 import Photos
 import BSImagePicker
-
+import Alamofire
+import SwiftyJSON
 
 class EditPostViewController: UIViewController, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -44,7 +45,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     var currentNewsLongitude: String = ""
     let uid = Auth.auth().currentUser?.uid
     let pvDistrict = UIPickerView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,21 +79,23 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         tfUsersAllowed.text = currentNews.usersAllowed
     }
     
-    func convertAddressToCoordinate(address: String, dbRef: DatabaseReference) {
+    //MARK: Geocode address using Google Geocoding API
+    
+    func geocodeAddress(address: String, dbRef: DatabaseReference) {
         
-        let geoCoder = CLGeocoder()
-        
-        geoCoder.geocodeAddressString(address) { (placemark, error) in
-            if let placemark = placemark {
-                if placemark.count != 0 {
-                    let location = placemark.first?.location
-                    let coordinate: CLLocationCoordinate2D = (location?.coordinate)!
-                    let latStr = String(coordinate.latitude)
-                    let longStr = String(coordinate.longitude)
-                    let values = ["lat": latStr, "long": longStr]
-                    
-                    self.editData(reference: dbRef, newValues: values as [String : AnyObject])
-                }
+        let postParameters:[String: Any] = [ "address": address,"key":API_KEY]
+        let url : String = "https://maps.googleapis.com/maps/api/geocode/json"
+
+        Alamofire.request(url, method: .get, parameters: postParameters, encoding: URLEncoding.default, headers: nil).responseJSON {  response in
+
+            if let receivedResults = response.result.value
+            {
+                let resultParams = JSON(receivedResults)
+                let lat = resultParams["results"][0]["geometry"]["location"]["lat"].stringValue
+                let long = resultParams["results"][0]["geometry"]["location"]["lng"].stringValue
+                let values = ["lat": lat, "long": long]
+                
+                self.editData(reference: dbRef, newValues: values as [String : AnyObject])
             }
         }
     }
@@ -288,13 +291,13 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                 
                 if self.ivPostImage0.image == nil || self.ivPostImage1.image == nil || self.ivPostImage2 == nil {
                     
-                    self.convertAddressToCoordinate(address: address, dbRef: ref)
+                    self.geocodeAddress(address: address, dbRef: ref)
                     self.editData(reference: ref, newValues: values as [String: AnyObject])
                     self.showAlert(alertMessage: messageEditPostSuccess)
                 }
                 else {
                     
-                    self.convertAddressToCoordinate(address: address, dbRef: ref)
+                    self.geocodeAddress(address: address, dbRef: ref)
                     self.editData(reference: ref, newValues: values as [String: AnyObject])
                     
                     // Upload image to Firebase storage and update download urls into database

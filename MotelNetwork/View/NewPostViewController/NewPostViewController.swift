@@ -13,6 +13,8 @@ import FirebaseStorage
 import Photos
 import BSImagePicker
 import GoogleMaps
+import Alamofire
+import SwiftyJSON
 
 class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate, UITextFieldDelegate {
     
@@ -58,21 +60,23 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         // Dispose of any resources that can be recreated.
     }
     
-    func convertAddressToCoordinate(address: String, dbRef: DatabaseReference) {
+    //MARK: Geocode address using Google Geocoding API
+    
+    func geocodeAddress(address: String, dbRef: DatabaseReference) {
         
-        let geoCoder = CLGeocoder()
+        let postParameters:[String: Any] = [ "address": address,"key":API_KEY]
+        let url : String = "https://maps.googleapis.com/maps/api/geocode/json"
         
-        geoCoder.geocodeAddressString(address) { (placemark, error) in
-            if let placemark = placemark {
-                if placemark.count != 0 {
-                    let location = placemark.first?.location
-                    let coordinate: CLLocationCoordinate2D = (location?.coordinate)!
-                    let latStr = String(coordinate.latitude)
-                    let longStr = String(coordinate.longitude)
-
-                    let values = ["lat": latStr, "long": longStr]
-                    self.storeInformationToDatabase(reference: dbRef, values: values as [String : AnyObject])
-                }
+        Alamofire.request(url, method: .get, parameters: postParameters, encoding: URLEncoding.default, headers: nil).responseJSON {  response in
+            
+            if let receivedResults = response.result.value
+            {
+                let resultParams = JSON(receivedResults)
+                let lat = resultParams["results"][0]["geometry"]["location"]["lat"].stringValue
+                let long = resultParams["results"][0]["geometry"]["location"]["lng"].stringValue
+                let values = ["lat": lat, "long": long]
+                
+                self.storeInformationToDatabase(reference: dbRef, values: values as [String : AnyObject])
             }
         }
     }
@@ -271,7 +275,6 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         showAlert(alertMessage: "Việc nhập đúng định dạng địa chỉ sẽ giúp tin của bạn hiển thị chính xác trên bản đồ và những người dùng khác định vị chính xác hơn.")
     }
     
-    
     @IBAction func btnSavePressed(_ sender: Any) {
         
         guard let uid = Auth.auth().currentUser?.uid else {
@@ -308,7 +311,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let timestampEdit = 0
             let reference = Database.database().reference().child("Posts").childByAutoId()
 
-            convertAddressToCoordinate(address: address, dbRef: reference)
+            geocodeAddress(address: address, dbRef: reference)
             
             let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "timestamp": timestamp, "ownerID": uid, "views": 0, "usersAllowed": usersAllowed, "timestampEdit": timestampEdit] as [String : AnyObject]
             

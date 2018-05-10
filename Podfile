@@ -21,4 +21,6 @@ target 'Motel Network' do
     pod 'IQKeyboardManagerSwift'
 	pod 'TBDropdownMenu'
     pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
 end

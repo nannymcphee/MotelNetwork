@@ -38,6 +38,7 @@ class DetailBillViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpView()
     }
 
