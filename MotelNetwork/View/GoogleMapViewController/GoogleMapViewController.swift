@@ -76,11 +76,9 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
                 news.views = dictionary["views"] as? Int
                 
                 self.listNews.append(news)
-
             }
 
         }, withCancel: nil)
-        
     }
     
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {

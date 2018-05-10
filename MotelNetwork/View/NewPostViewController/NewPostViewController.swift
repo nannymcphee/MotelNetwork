@@ -310,13 +310,10 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             let timestamp = Int(NSDate().timeIntervalSince1970)
             let timestampEdit = 0
             let reference = Database.database().reference().child("Posts").childByAutoId()
-
-            geocodeAddress(address: address, dbRef: reference)
-            
-            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "timestamp": timestamp, "ownerID": uid, "views": 0, "usersAllowed": usersAllowed, "timestampEdit": timestampEdit] as [String : AnyObject]
-            
+            let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "timestamp": timestamp, "ownerID": uid, "views": 0, "usersAllowed": usersAllowed, "timestampEdit": timestampEdit, "lat": "", "long": ""] as [String : AnyObject]
             
             self.storeInformationToDatabase(reference: reference, values: values as [String: AnyObject])
+            self.geocodeAddress(address: address, dbRef: reference)
             
             // Upload image to Firebase storage and update download urls into database
             

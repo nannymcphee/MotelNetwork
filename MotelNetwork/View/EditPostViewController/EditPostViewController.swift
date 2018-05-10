@@ -287,8 +287,6 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
             let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)
             let actionDestroy = UIAlertAction(title: "Có", style: .destructive) { (action) in
                 
-               
-                
                 if self.ivPostImage0.image == nil || self.ivPostImage1.image == nil || self.ivPostImage2 == nil {
                     
                     self.geocodeAddress(address: address, dbRef: ref)
