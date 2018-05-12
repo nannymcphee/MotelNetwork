@@ -14,7 +14,6 @@ import Kingfisher
 
 class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    
     @IBOutlet weak var vEmptyData: UIView!
     @IBOutlet weak var btnNewPost: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!

@@ -22,6 +22,9 @@ class ListRoomsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        ivRoomImage.layer.cornerRadius = 5
+        ivRoomImage.clipsToBounds = true
         // Initialization code
     }
 

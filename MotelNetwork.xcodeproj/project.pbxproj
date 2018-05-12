@@ -362,13 +362,6 @@
 			path = CalculateRoomPriceViewController;
 			sourceTree = "<group>";
 		};
-		E1507BB9207E751200387527 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		E1507BBA207F59E000387527 /* SettingViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,13 +478,12 @@
 			isa = PBXGroup;
 			children = (
 				E1AA95BA2090AA2900FBDB65 /* Assets.xcassets */,
-				E1507BB9207E751200387527 /* Helpers */,
-				CE5FF78E20767689005BEA3B /* Extension */,
 				E198761120672E2D008434CC /* AppDelegate.swift */,
 				E198761520672E2D008434CC /* Main.storyboard */,
 				E198761A20672E2D008434CC /* LaunchScreen.storyboard */,
 				E198761D20672E2D008434CC /* Info.plist */,
 				E117B663208E3BC500087A0B /* GoogleService-Info.plist */,
+				CE5FF78E20767689005BEA3B /* Extension */,
 				E1BD102220765F7400287982 /* Model */,
 				E1E7D1F72071C7D300874EB2 /* View */,
 				E16F5B2F207BD34F00B284A5 /* Controller */,
@@ -744,6 +736,7 @@
 				"${BUILT_PRODUCTS_DIR}/GeoFire/GeoFire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -764,6 +757,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GeoFire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",

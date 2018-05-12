@@ -11,9 +11,11 @@ import FirebaseAuth
 import FirebaseDatabase
 import Kingfisher
 import Floaty
+import ImageSlideshow
 
 class DetailRoomViewController: UIViewController {
 
+    @IBOutlet weak var vSlideShow: ImageSlideshow!
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var lblUsersAllowed: UILabel!
     @IBOutlet weak var btnEditRoom: UIButton!
@@ -22,21 +24,14 @@ class DetailRoomViewController: UIViewController {
     @IBOutlet weak var lblRoomName: UILabel!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblFullName: UILabel!
-    @IBOutlet weak var ivRoomImage0: UIImageView!
-    @IBOutlet weak var ivRoomImage1: UIImageView!
-    @IBOutlet weak var ivRoomImage2: UIImageView!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblArea: UILabel!
     @IBOutlet weak var lblUser: UILabel!
     @IBOutlet weak var btnCalculate: UIButton!
-    @IBOutlet weak var vView1: UIView!
-    @IBOutlet weak var vView2: UIView!
-    @IBOutlet weak var vView3: UIView!
     @IBOutlet weak var tvPhoneNumber: UITextView!
     
     var currentRoom = Room()
     var dbReference: DatabaseReference!
-    var imageUrlsArray = [String]()
     var renterName: String = ""
     var floaty = Floaty()
     var userType: Int = 0
@@ -65,19 +60,37 @@ class DetailRoomViewController: UIViewController {
         lblAddress.text = currentRoom.address
         lblAddress.sizeToFit()
         makeImageViewRounded(imageView: ivAvatar)
+        setUpSlideShow()
+    }
+    
+    func setUpSlideShow() {
+
+        let roomImageUrl0 = currentRoom.roomImageUrl0
+        let roomImageUrl1 = currentRoom.roomImageUrl1
+        let roomImageUrl2 = currentRoom.roomImageUrl2
+        let kingfisherSource = [KingfisherSource(urlString: roomImageUrl0!)!, KingfisherSource(urlString: roomImageUrl1!)!, KingfisherSource(urlString: roomImageUrl2!)!]
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
+        
+        vSlideShow.backgroundColor = UIColor.white
+        vSlideShow.slideshowInterval = 3.0
+        vSlideShow.pageControlPosition = PageControlPosition.underScrollView
+        vSlideShow.pageControl.currentPageIndicatorTintColor = UIColor.black
+        vSlideShow.pageControl.pageIndicatorTintColor = UIColor.lightGray
+        vSlideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
+        vSlideShow.activityIndicator = DefaultActivityIndicator()
+        vSlideShow.setImageInputs(kingfisherSource)
+        vSlideShow.addGestureRecognizer(recognizer)
+    }
+    
+    @objc func didTapImage() {
+        let fullScreenController = vSlideShow.presentFullScreenController(from: self)
+        // set the activity indicator for full screen controller (skipping the line will show no activity indicator)
+        fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
     }
     
     func setUpViewForOwner() {
         
         btnNotification.isHidden = true
-        
-        let roomImageUrl0 = currentRoom.roomImageUrl0
-        let roomImageUrl1 = currentRoom.roomImageUrl1
-        let roomImageUrl2 = currentRoom.roomImageUrl2
-        
-        imageUrlsArray.append(roomImageUrl0!)
-        imageUrlsArray.append(roomImageUrl1!)
-        imageUrlsArray.append(roomImageUrl2!)
         
         if let renterID = currentRoom.renterID {
             let ref = Database.database().reference().child("Users").child(renterID)
@@ -103,10 +116,6 @@ class DetailRoomViewController: UIViewController {
             }, withCancel: nil)
         }
         
-        loadImageToImageView(imageUrl: roomImageUrl0!, imageView: ivRoomImage0)
-        loadImageToImageView(imageUrl: roomImageUrl1!, imageView: ivRoomImage1)
-        loadImageToImageView(imageUrl: roomImageUrl2!, imageView: ivRoomImage2)
-        
         makeButtonRounded(button: btnCalculate)
         makeButtonRounded(button: btnEditRoom)
     }
@@ -114,14 +123,6 @@ class DetailRoomViewController: UIViewController {
     func setUpViewForRenter() {
         
         btnNotification.isHidden = true
-        
-        let roomImageUrl0 = currentRoom.roomImageUrl0
-        let roomImageUrl1 = currentRoom.roomImageUrl1
-        let roomImageUrl2 = currentRoom.roomImageUrl2
-        
-        imageUrlsArray.append(roomImageUrl0!)
-        imageUrlsArray.append(roomImageUrl1!)
-        imageUrlsArray.append(roomImageUrl2!)
         
         if let ownerID = currentRoom.ownerID {
             let ref = Database.database().reference().child("Users").child(ownerID)
@@ -135,10 +136,6 @@ class DetailRoomViewController: UIViewController {
                 }
             }, withCancel: nil)
         }
-        
-        loadImageToImageView(imageUrl: roomImageUrl0!, imageView: ivRoomImage0)
-        loadImageToImageView(imageUrl: roomImageUrl1!, imageView: ivRoomImage1)
-        loadImageToImageView(imageUrl: roomImageUrl2!, imageView: ivRoomImage2)
         
         btnCalculate.isHidden = true
         btnEditRoom.isHidden = true

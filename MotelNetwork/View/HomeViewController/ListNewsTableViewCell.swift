@@ -22,6 +22,8 @@ class ListNewsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        ivPostImage.layer.cornerRadius = 5
+        ivPostImage.clipsToBounds = true
         // Initialization code
     }
 

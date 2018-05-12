@@ -60,10 +60,8 @@ class MyRoomsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if listRooms.count == 0 {
             vEmptyData.isHidden = false
-//            tbMyRooms.backgroundView = vEmptyData
         }
         else {
-//            tbMyRooms.backgroundView = nil
             vEmptyData.isHidden = true
         }
     }

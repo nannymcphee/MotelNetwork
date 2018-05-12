@@ -144,7 +144,7 @@ Vui lòng liên hệ với chủ nhà để được thêm vào nếu co
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="hwC-NP-PZt" secondAttribute="trailing" constant="8" id="4mT-wK-a9g"/>
                                         <constraint firstItem="hwC-NP-PZt" firstAttribute="top" secondItem="c2o-LH-QLe" secondAttribute="top" constant="8" id="Vs9-Py-EFY"/>

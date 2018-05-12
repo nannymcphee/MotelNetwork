@@ -11,19 +11,18 @@ import Firebase
 import FirebaseDatabase
 import Kingfisher
 import Floaty
+import ImageSlideshow
 
 class DetailNewsViewController: UIViewController {
     
     
 //    @IBOutlet weak var lblViewsCount: UILabel!
+    @IBOutlet weak var vSlideShow: ImageSlideshow!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tvPhoneNumber: UITextView!
     @IBOutlet weak var btnBack2: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblUserName: UILabel!
-    @IBOutlet weak var ivNewsImage0: UIImageView!
-    @IBOutlet weak var ivNewsImage1: UIImageView!
-    @IBOutlet weak var ivNewsImage2: UIImageView!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblArea: UILabel!
     @IBOutlet weak var lblDistrict: UILabel!
@@ -34,7 +33,6 @@ class DetailNewsViewController: UIViewController {
     @IBOutlet weak var tvAddress: UITextView!
     @IBOutlet weak var tvDescription: UITextView!
     
-    var dbReference: DatabaseReference!
     var currentNews = News()
     var floaty = Floaty()
     
@@ -55,12 +53,10 @@ class DetailNewsViewController: UIViewController {
     func setUpView() {
         
         layoutFAB()
+        setUpSlideShow()
 
         numberFormatter.numberStyle = .decimal
         var dateStr: String = ""
-        let postImageUrl0 = currentNews.postImageUrl0
-        let postImageUrl1 = currentNews.postImageUrl1
-        let postImageUrl2 = currentNews.postImageUrl2
         let formattedPrice = numberFormatter.string(from: currentNews.price! as NSNumber)
         let formattedElectricPrice = numberFormatter.string(from: currentNews.electricPrice! as NSNumber)
         let formattedWaterPrice = numberFormatter.string(from: currentNews.waterPrice! as NSNumber)
@@ -106,11 +102,31 @@ class DetailNewsViewController: UIViewController {
         lblTitle.text = currentNews.title
 //        lblViewsCount.text = "Đã xem: \(currentNews.views ?? 0)"
         
-        loadImageToImageView(imageUrl: postImageUrl0!, imageView: ivNewsImage0)
-        loadImageToImageView(imageUrl: postImageUrl1!, imageView: ivNewsImage1)
-        loadImageToImageView(imageUrl: postImageUrl2!, imageView: ivNewsImage2)
-        
         makeImageViewRounded(imageView: ivAvatar)
+    }
+    
+    func setUpSlideShow() {
+        let postImageUrl0 = currentNews.postImageUrl0
+        let postImageUrl1 = currentNews.postImageUrl1
+        let postImageUrl2 = currentNews.postImageUrl2
+        let kingfisherSource = [KingfisherSource(urlString: postImageUrl0!)!, KingfisherSource(urlString: postImageUrl1!)!, KingfisherSource(urlString: postImageUrl2!)!]
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
+
+        vSlideShow.backgroundColor = UIColor.white
+        vSlideShow.slideshowInterval = 3.0
+        vSlideShow.pageControlPosition = PageControlPosition.underScrollView
+        vSlideShow.pageControl.currentPageIndicatorTintColor = UIColor.black
+        vSlideShow.pageControl.pageIndicatorTintColor = UIColor.lightGray
+        vSlideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
+        vSlideShow.activityIndicator = DefaultActivityIndicator()
+        vSlideShow.setImageInputs(kingfisherSource)
+        vSlideShow.addGestureRecognizer(recognizer)
+    }
+    
+    @objc func didTapImage() {
+        let fullScreenController = vSlideShow.presentFullScreenController(from: self)
+        // set the activity indicator for full screen controller (skipping the line will show no activity indicator)
+        fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
     }
     
 

@@ -18,7 +18,9 @@ import GeoFire
 class HomeViewController: UIViewController, UITableViewDataSource,
 UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedControlDelegate {
     
-    @IBOutlet weak var vEmptyData: UIView!
+    @IBOutlet weak var vEmptyDataNews: UIView!
+    @IBOutlet weak var vEmptyDataMostView: UIView!
+    @IBOutlet weak var vEmptyDataNearMe: UIView!
     @IBOutlet weak var vSegment: UIView!
     @IBOutlet weak var tbMostView: UITableView!
     @IBOutlet weak var tbNearMe: UITableView!
@@ -47,7 +49,6 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        showLoading()
         sclContent.delegate = self
         
         // tbListNew
@@ -90,10 +91,24 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
     func showEmptyDataView() {
         
         if listNearMe.count == 0 {
-            tbNearMe.backgroundView = vEmptyData
+            tbNearMe.backgroundView = vEmptyDataNearMe
         }
         else {
             tbNearMe.backgroundView = nil
+        }
+        
+        if listMostView.count == 0 {
+            tbMostView.backgroundView = vEmptyDataMostView
+        }
+        else {
+            tbMostView.backgroundView = nil
+        }
+        
+        if listNews.count == 0 {
+            tbListNews.backgroundView = vEmptyDataNews
+        }
+        else {
+            tbListNews.backgroundView = nil
         }
     }
     
@@ -309,7 +324,6 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
                     return news0.timestamp! > news1.timestamp!
                 })
                 
-                self.stopLoading()
                 self.tbListNews.reloadData()
             }
         }, withCancel: nil)

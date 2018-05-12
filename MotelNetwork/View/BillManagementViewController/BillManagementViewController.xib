@@ -153,7 +153,7 @@ Tính tiền phòng để tạo hóa đơn mới.</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="5bQ-YQ-j1K" firstAttribute="leading" secondItem="XzC-Sz-kaV" secondAttribute="leading" constant="8" id="1sN-K2-18p"/>
                                                         <constraint firstItem="5bQ-YQ-j1K" firstAttribute="top" secondItem="XzC-Sz-kaV" secondAttribute="top" constant="8" id="T4d-QT-Mg4"/>

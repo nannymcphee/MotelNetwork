@@ -386,7 +386,7 @@ public final class NVActivityIndicatorView: UIView {
 
     // swiftlint:disable identifier_name
     /// Default font of message displayed in UI blocker. Default value is bold system font, size 20.
-    public static var DEFAULT_BLOCKER_MESSAGE_FONT = UIFont.boldSystemFont(ofSize: 20)
+    public static var DEFAULT_BLOCKER_MESSAGE_FONT = UIFont.boldSystemFont(ofSize: 16)
 
     // swiftlint:disable identifier_name
     /// Default background color of UI blocker. Default value is UIColor(red: 0, green: 0, blue: 0, alpha: 0.5)

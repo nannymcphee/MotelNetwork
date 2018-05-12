@@ -13,7 +13,6 @@ import FirebaseStorage
 import SwipeBack
 import Kingfisher
 
-
 class RoomManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {    
     
     @IBOutlet weak var vEmptyData: UIView!
@@ -24,21 +23,17 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var lblUserFullName: UILabel!
     @IBOutlet weak var lblRoomCount: UILabel!
     
-    @IBOutlet weak var vInfoView: UIView!
-    @IBOutlet weak var svScrollView: UIScrollView!
-    
-    var dbReference: DatabaseReference!
     var listRooms = [Room]()
     var roomsCount: Int = 0
     var refreshControl: UIRefreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         tbRoomManagement.delegate = self
         tbRoomManagement.dataSource = self
         tbRoomManagement.register(UINib(nibName: "ListRoomsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListRoomsTableViewCell")
-//        tbRoomManagement.reloadData()
+        tbRoomManagement.reloadData()
 
         loadData()
         setUpView()
@@ -64,12 +59,14 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func showEmptyDataView() {
-        
+        vEmptyData.isHidden = true
         if listRooms.count == 0 {
             tbRoomManagement.backgroundView = vEmptyData
+//            vEmptyData.isHidden = false
         }
         else {
             tbRoomManagement.backgroundView = nil
+//            vEmptyData.isHidden = true
         }
     }
     
@@ -93,8 +90,8 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
             return
         }
         
-        dbReference = Database.database().reference()
-        dbReference.child("Users").child(uid).observe(.value) { (snapshot) in
+        let reference = Database.database().reference().child("Users").child(uid)
+        reference.observe(.value) { (snapshot) in
 
             // Get user value
             let value = snapshot.value as! NSDictionary
@@ -184,7 +181,7 @@ extension RoomManagementViewController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 145
+        return 165
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

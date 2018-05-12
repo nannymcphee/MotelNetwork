@@ -151,7 +151,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         let storageRef = Storage.storage().reference().child("PostImages").child(uid!).child("\(imageName).jpg")
         let storeImage = storageRef
         
-        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 0.7) {
+        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 0.75) {
             
             storeImage.putData(uploadImageData, metadata: nil, completion: { (metaData, error) in
                 storeImage.downloadURL(completion: { (url, error) in

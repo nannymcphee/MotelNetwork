@@ -61,8 +61,6 @@ class SearchViewController: UIViewController, UITableViewDataSource {
         else {
             tbSearchResults.backgroundView = nil
         }
-        
-
     }
     
     //MARK: Set up view

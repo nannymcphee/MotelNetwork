@@ -90,7 +90,6 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         fetchUser()
-        
         makeImageViewRounded(imageView: ivAvatar)
         vEmptyData.isHidden = true
         showEmptyDataView()

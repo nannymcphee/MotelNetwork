@@ -91,7 +91,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     thumbnail = result!
                 }
                 
-                let data = UIImageJPEGRepresentation(thumbnail, 0.7)
+                let data = UIImageJPEGRepresentation(thumbnail, 0.75)
                 let newImage = UIImage(data: data!)
                 
                 self.imageArray.append((newImage as UIImage?)!)
@@ -137,7 +137,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let storageRef = Storage.storage().reference().child("RoomImages").child(uid!).child("\(imageName).jpg")
         let storeImage = storageRef
         
-        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 0.2) {
+        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 0.75) {
             
             storeImage.putData(uploadImageData, metadata: nil, completion: { (metaData, error) in
                 storeImage.downloadURL(completion: { (url, error) in

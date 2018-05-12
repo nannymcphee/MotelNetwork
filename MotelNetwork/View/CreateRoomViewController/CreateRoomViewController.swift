@@ -104,7 +104,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let imageName = NSUUID().uuidString
         let storageRef = Storage.storage().reference().child("RoomImages").child(uid!).child("\(imageName).jpg")
         
-        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 0.2) {
+        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 0.75) {
             
             storageRef.putData(uploadImageData, metadata: nil, completion: { (metaData, error) in
                 storageRef.downloadURL(completion: { (url, error) in
