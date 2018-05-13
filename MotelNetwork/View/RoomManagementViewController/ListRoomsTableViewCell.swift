@@ -17,9 +17,7 @@ class ListRoomsTableViewCell: UITableViewCell {
     @IBOutlet weak var lblUserFullName: UILabel!
     @IBOutlet weak var lblArea: UILabel!
     @IBOutlet weak var ivRoomImage: UIImageView!
-    
-    var renterName: String = ""
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -41,18 +39,19 @@ class ListRoomsTableViewCell: UITableViewCell {
         self.lblArea.text = String("\(room.area ?? "")m2")
         
         if let renterID = room.renterID {
-            let ref = Database.database().reference().child("Users").child(renterID)
-            
-            ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                if let dictionary = snapshot.value as? [String: AnyObject] {
-                    
-                    if (snapshot.value != nil) {
+            if !(renterID.isEmpty) {
+                let ref = Database.database().reference().child("Users").child(renterID)
+                
+                ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let dictionary = snapshot.value as? [String: AnyObject] {
+                        
                         self.lblUserFullName.text = dictionary["FullName"] as? String
-                    } else {
-                        self.lblUserFullName.text = "Chưa có người thuê"
                     }
-                }
-            }, withCancel: nil)  
+                }, withCancel: nil)
+            }
+            else {
+                self.lblUserFullName.text = "Chưa có người thuê"
+            }
         }
         
         if URL(string: room.roomImageUrl0!) != nil {

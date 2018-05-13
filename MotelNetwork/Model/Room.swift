@@ -17,9 +17,10 @@ class Room {
     var roomImageUrl0: String?
     var roomImageUrl1: String?
     var roomImageUrl2: String?
-    var price: Double?
     var usersAllowed: String?
     var address: String?
+    var price: Double?
+
     
     init() {
     }

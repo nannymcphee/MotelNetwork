@@ -176,7 +176,7 @@
                                                             </connections>
                                                         </button>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0xh-2p-IlC">
-                                                            <rect key="frame" x="116" y="12" width="143" height="112"/>
+                                                            <rect key="frame" x="115" y="12" width="145" height="112"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="bw6-tN-H51">
                                                                     <rect key="frame" x="0.0" y="0.0" width="16" height="112"/>
@@ -212,7 +212,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="G50-5e-Dmq">
-                                                                    <rect key="frame" x="26" y="0.0" width="117" height="112"/>
+                                                                    <rect key="frame" x="26" y="0.0" width="119" height="112"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Giá phòng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cBI-3q-U9V">
                                                                             <rect key="frame" x="0.0" y="0.0" width="60.5" height="17.5"/>
@@ -226,8 +226,8 @@
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Người thuê" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7O-Hr-GO2">
-                                                                            <rect key="frame" x="0.0" y="65" width="67" height="15.5"/>
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chưa có người thuê" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7O-Hr-GO2">
+                                                                            <rect key="frame" x="0.0" y="65" width="119" height="15.5"/>
                                                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -243,21 +243,21 @@
                                                             </subviews>
                                                         </stackView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icLocation" translatesAutoresizingMaskIntoConstraints="NO" id="OGK-HQ-FMH">
-                                                            <rect key="frame" x="116" y="170" width="16" height="16"/>
+                                                            <rect key="frame" x="115" y="170" width="16" height="16"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="16" id="9h2-Wf-teH"/>
                                                                 <constraint firstAttribute="height" constant="16" id="rTn-ao-bgf"/>
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icPhone" translatesAutoresizingMaskIntoConstraints="NO" id="FHq-dW-iUh">
-                                                            <rect key="frame" x="116" y="138" width="16" height="16"/>
+                                                            <rect key="frame" x="115" y="138" width="16" height="16"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="16" id="3gB-B6-AnB"/>
                                                                 <constraint firstAttribute="width" constant="16" id="xt7-ZA-Zm9"/>
                                                             </constraints>
                                                         </imageView>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="0979084007" translatesAutoresizingMaskIntoConstraints="NO" id="liB-uW-htQ">
-                                                            <rect key="frame" x="137" y="132" width="100" height="22"/>
+                                                            <rect key="frame" x="136" y="132" width="100" height="22"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="Fnj-cE-yh7"/>
@@ -268,7 +268,7 @@
                                                             <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                                                         </textView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Địa chỉ" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajS-jK-V8a">
-                                                            <rect key="frame" x="140" y="160" width="200" height="36"/>
+                                                            <rect key="frame" x="139" y="160" width="200" height="36"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="36" id="2Wy-T4-a1p"/>
                                                                 <constraint firstAttribute="width" constant="200" id="cRJ-XA-EpN"/>

@@ -28,4 +28,9 @@ extension String {
     var toDouble: Double {
         return Double(self) ?? 0
     }
+    
+    var isNumber: Bool {
+        return !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+    }
 }
+

@@ -17,6 +17,7 @@ class DetailNewsViewController: UIViewController {
     
     
 //    @IBOutlet weak var lblViewsCount: UILabel!
+    @IBOutlet weak var lblTimeAgo: UILabel!
     @IBOutlet weak var vSlideShow: ImageSlideshow!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var tvPhoneNumber: UITextView!
@@ -89,6 +90,8 @@ class DetailNewsViewController: UIViewController {
             }, withCancel: nil)
         }
 
+//        lblTimeAgo.text = Date.timeAgoDisplay(timestampDate as Date)()
+        lblTimeAgo.text = timeAgoSince(timestampDate as Date)
         lblPrice.text = "\(formattedPrice ?? "")đ"
         lblElectricPrice.text = "\(formattedElectricPrice ?? "")đ"
         lblWaterPrice.text = "\(formattedWaterPrice ?? "")đ"

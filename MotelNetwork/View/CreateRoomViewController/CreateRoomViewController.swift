@@ -111,7 +111,6 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     if let urlText = url?.absoluteString {
                         
                         strURL = urlText
-                        print("///////////tttttttt//////// \(strURL)   ////////")
                         
                         completion(strURL)
                     }
@@ -212,10 +211,21 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             return
         }
         
+        let roomName = self.tfRoomName.text!
+        let area = self.tfArea.text!
+        let price = self.tfPrice.text!
+        let renterName = self.tfUser.text!
+        let usersAllowed = self.tfUsersAllowed.text!
+        let address = self.tfAddress.text!
+        
         // Check if user has entered all informations
-        if  (tfArea.text?.isEmpty)! || (tfAddress.text?.isEmpty)! || (tfUsersAllowed.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! {
+        if  area.isEmpty || address.isEmpty || usersAllowed.isEmpty || price.isEmpty || roomName.isEmpty {
             
             self.showAlert(alertMessage: messageNilTextFields)
+        }
+        else if !(price.isNumber) {
+            
+            self.showAlert(alertMessage: "Vui lòng nhập đúng định dạng giá phòng (Số).")
         }
         else if ivRoomImage0.image == nil || ivRoomImage1.image == nil || ivRoomImage2.image == nil {
             
@@ -224,23 +234,24 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         else {
         
             // Store room's info to database
-            let roomName = self.tfRoomName.text!
-            let area = self.tfArea.text!
-            let price = self.tfPrice.text!
-            let renterName = self.tfUser.text!
-            let usersAllowed = self.tfUsersAllowed.text!
-            let address = self.tfAddress.text!
             let ownerID = uid
             let ref = Database.database().reference().child("Rooms").childByAutoId()
 
-            // Get renter's id by renter's name and save to room in database
-            let renterRef = Database.database().reference().child("Users")
-            let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
-            query.observeSingleEvent(of: .childAdded) { (snapshot) in
+            if renterName.isEmpty {
                 
-                let renterID = snapshot.key
+                self.storeInformationToDatabase(reference: ref, values: ["renterID": "" as AnyObject])
+            }
+            else {
                 
-                self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
+                // Get renter's id by renter's name and save to room in database
+                let renterRef = Database.database().reference().child("Users")
+                let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
+                query.observeSingleEvent(of: .childAdded) { (snapshot) in
+                    
+                    let renterID = snapshot.key
+                    
+                    self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
+                }
             }
             
             let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl0": "", "roomImageUrl1": "", "roomImageUrl2": "", "usersAllowed": usersAllowed, "address": address]

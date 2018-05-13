@@ -218,7 +218,6 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                     if let urlText = url?.absoluteString {
                         
                         strURL = urlText
-                        print("///////////tttttttt//////// \(strURL)   ////////")
                         
                         completion(strURL)
                     }
@@ -250,30 +249,30 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
 
     @IBAction func btnSavePressed(_ sender: Any) {
 
+        let ownerID = Auth.auth().currentUser?.uid
+        let title = self.tfTitle.text!
+        let area = self.tfArea.text!
+        let district = self.tfDistrict.text!
+        var address: String = ""
+        let waterPrice = self.tfWaterPrice.text!
+        let phoneNumber = self.tfPhoneNumber.text!
+        let electricPrice = self.tfElectricPrice.text!
+        let price = self.tfRoomPrice.text!
+        let description = self.tvDescription.text!
+        let internetPrice = self.tfInternetPrice.text!
+        let postID = currentNews.id
+        let usersAllowed = self.tfUsersAllowed.text!
+        let timestampEdit = Int(NSDate().timeIntervalSince1970)
         
-        if (self.tfArea.text?.isEmpty)! || (self.tfTitle.text?.isEmpty)! || (self.tfAddress.text?.isEmpty)! || (self.tvDescription.text?.isEmpty)! || (self.tfDistrict.text?.isEmpty)! || (self.tfRoomPrice.text?.isEmpty)! || (self.tfWaterPrice.text?.isEmpty)! || (self.tfElectricPrice.text?.isEmpty)! || (self.tfInternetPrice.text?.isEmpty)! || (self.tfPhoneNumber.text?.isEmpty)! || (self.tfUsersAllowed.text?.isEmpty)! {
+        if area.isEmpty || title.isEmpty || address.isEmpty || description.isEmpty || district.isEmpty || price.isEmpty || waterPrice.isEmpty || electricPrice.isEmpty || internetPrice.isEmpty || phoneNumber.isEmpty || usersAllowed.isEmpty {
             
             self.showAlert(alertMessage: messageNilTextFields)
         }
         else {
             
-            let ownerID = Auth.auth().currentUser?.uid
-            let title = self.tfTitle.text!
-            let area = self.tfArea.text!
-            let district = self.tfDistrict.text!
-            var address: String = ""
-            let waterPrice = self.tfWaterPrice.text!
-            let phoneNumber = self.tfPhoneNumber.text!
-            let electricPrice = self.tfElectricPrice.text!
-            let price = self.tfRoomPrice.text!
-            let description = self.tvDescription.text!
-            let internetPrice = self.tfInternetPrice.text!
-            let postID = currentNews.id
-            let usersAllowed = self.tfUsersAllowed.text!
-            let timestampEdit = Int(NSDate().timeIntervalSince1970)
             let ref = Database.database().reference().child("Posts").child(postID!)
             
-            if (self.tfDistrict.text?.elementsEqual(currentNews.district!))! {
+            if (district.elementsEqual(currentNews.district!)) {
                 address = self.tfAddress.text!
             }
             else {

@@ -25,6 +25,7 @@
                 <outlet property="lblInternetPrice" destination="7e9-qw-4Cf" id="luX-db-LGJ"/>
                 <outlet property="lblPostDate" destination="751-O1-q4M" id="Xig-Kr-t43"/>
                 <outlet property="lblPrice" destination="6gR-eq-XEB" id="z99-Kn-4fR"/>
+                <outlet property="lblTimeAgo" destination="MXX-7T-QYj" id="KPx-dG-27Q"/>
                 <outlet property="lblTitle" destination="N5V-jk-eAM" id="tpJ-ez-lJX"/>
                 <outlet property="lblUserName" destination="WmU-Zj-rCx" id="g15-A5-bVb"/>
                 <outlet property="lblWaterPrice" destination="jZd-qk-MxJ" id="D7q-VZ-TUl"/>
@@ -109,22 +110,33 @@
                                                 <constraint firstAttribute="height" constant="1" id="B4Q-He-wV4"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Họ tên" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmU-Zj-rCx">
-                                            <rect key="frame" x="56" y="16" width="41.5" height="16.5"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="JCt-7K-4lu">
+                                            <rect key="frame" x="56" y="7" width="62" height="34.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Họ tên" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WmU-Zj-rCx">
+                                                    <rect key="frame" x="0.0" y="0.0" width="41.5" height="16.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 giờ trước" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXX-7T-QYj">
+                                                    <rect key="frame" x="0.0" y="20.5" width="62" height="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="bJY-2d-tqU" firstAttribute="centerY" secondItem="wIV-uu-XLf" secondAttribute="centerY" id="AmF-5P-OyG"/>
                                         <constraint firstAttribute="bottom" secondItem="Zb1-l2-VCx" secondAttribute="bottom" id="Bk4-e0-bSw"/>
                                         <constraint firstItem="Zb1-l2-VCx" firstAttribute="leading" secondItem="wIV-uu-XLf" secondAttribute="leading" id="CdO-dE-CeN"/>
+                                        <constraint firstItem="JCt-7K-4lu" firstAttribute="leading" secondItem="bJY-2d-tqU" secondAttribute="trailing" constant="8" id="CzU-fY-Vl8"/>
+                                        <constraint firstItem="JCt-7K-4lu" firstAttribute="centerY" secondItem="bJY-2d-tqU" secondAttribute="centerY" id="JdX-qJ-lAG"/>
                                         <constraint firstItem="bJY-2d-tqU" firstAttribute="leading" secondItem="wIV-uu-XLf" secondAttribute="leading" constant="16" id="JsQ-al-fu5"/>
-                                        <constraint firstItem="WmU-Zj-rCx" firstAttribute="leading" secondItem="bJY-2d-tqU" secondAttribute="trailing" constant="8" id="P5s-Oj-UgL"/>
                                         <constraint firstAttribute="height" constant="48" id="agf-08-2HU"/>
-                                        <constraint firstItem="WmU-Zj-rCx" firstAttribute="centerY" secondItem="bJY-2d-tqU" secondAttribute="centerY" id="fUR-1H-hCN"/>
                                         <constraint firstAttribute="trailing" secondItem="Zb1-l2-VCx" secondAttribute="trailing" id="gKV-hx-l6J"/>
                                     </constraints>
                                 </view>

@@ -68,7 +68,8 @@ class DetailRoomViewController: UIViewController {
         let roomImageUrl0 = currentRoom.roomImageUrl0
         let roomImageUrl1 = currentRoom.roomImageUrl1
         let roomImageUrl2 = currentRoom.roomImageUrl2
-        let kingfisherSource = [KingfisherSource(urlString: roomImageUrl0!)!, KingfisherSource(urlString: roomImageUrl1!)!, KingfisherSource(urlString: roomImageUrl2!)!]
+        let kingfisherSource = [KingfisherSource(urlString: roomImageUrl0!), KingfisherSource(urlString: roomImageUrl1!), KingfisherSource(urlString: roomImageUrl2!)]
+        let placeholderSource = [ImageSource(image: #imageLiteral(resourceName: "defaultImage")), ImageSource(image: #imageLiteral(resourceName: "defaultImage")), ImageSource(image: #imageLiteral(resourceName: "defaultImage"))]
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
         
         vSlideShow.backgroundColor = UIColor.white
@@ -78,8 +79,14 @@ class DetailRoomViewController: UIViewController {
         vSlideShow.pageControl.pageIndicatorTintColor = UIColor.lightGray
         vSlideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
         vSlideShow.activityIndicator = DefaultActivityIndicator()
-        vSlideShow.setImageInputs(kingfisherSource)
         vSlideShow.addGestureRecognizer(recognizer)
+        
+        if (roomImageUrl0?.isEmpty)! || (roomImageUrl1?.isEmpty)! || (roomImageUrl2?.isEmpty)! {
+            vSlideShow.setImageInputs(placeholderSource)
+        }
+        else {
+            vSlideShow.setImageInputs(kingfisherSource as! [InputSource])
+        }
     }
     
     @objc func didTapImage() {
@@ -93,27 +100,30 @@ class DetailRoomViewController: UIViewController {
         btnNotification.isHidden = true
         
         if let renterID = currentRoom.renterID {
-            let ref = Database.database().reference().child("Users").child(renterID)
-            
-            ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            if renterID.isEmpty {
                 
-                if let dictionary = snapshot.value as? [String: AnyObject] {
+                self.lblUser.text = "Chưa có người thuê"
+            }
+            else {
+                
+                let ref = Database.database().reference().child("Users").child(renterID)
+                
+                ref.observeSingleEvent(of: .value, with: { (snapshot) in
                     
-                    if let userName = dictionary["FullName"] as? String {
+                    if let dictionary = snapshot.value as? [String: AnyObject] {
                         
-                        if (userName != "") {
+                        if let userName = dictionary["FullName"] as? String {
+                            
                             self.lblUser.text = userName
-                        } else {
-                            self.lblUser.text = "Chưa có người thuê"
+                        }
+                        
+                        if let phoneNumber = dictionary["PhoneNumber"] as? String {
+                            
+                            self.tvPhoneNumber.text = phoneNumber
                         }
                     }
-                    
-                    if let phoneNumber = dictionary["PhoneNumber"] as? String {
-                        
-                        self.tvPhoneNumber.text = phoneNumber
-                    }
-                }
-            }, withCancel: nil)
+                }, withCancel: nil)
+            }
         }
         
         makeButtonRounded(button: btnCalculate)
@@ -180,10 +190,20 @@ class DetailRoomViewController: UIViewController {
     @IBAction func btnCalculatePressed(_ sender: Any) {
 
         let room = currentRoom
-        let vc = CalculateRoomPriceViewController()
-
-        vc.currentRoom = room
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+        let renterID = room.renterID!
+        
+        if renterID.isEmpty {
+            
+            showAlert(alertMessage: "Không thể tính tiền phòng chưa có người thuê.")
+        }
+        else {
+            let vc = CalculateRoomPriceViewController()
+            
+            vc.currentRoom = room
+            
+            (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     @IBAction func btnNotificationPressed(_ sender: Any) {

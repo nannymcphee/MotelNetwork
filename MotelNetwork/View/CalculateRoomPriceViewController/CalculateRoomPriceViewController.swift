@@ -59,6 +59,7 @@ class CalculateRoomPriceViewController: UIViewController {
         tfRoomPrice.text = "\(roomPrice)"
         
         if let renterID = currentRoom.renterID {
+            
             let ref = Database.database().reference().child("Users").child(renterID)
             
             ref.observeSingleEvent(of: .value, with: { (snapshot) in

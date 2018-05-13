@@ -25,5 +25,6 @@ target 'Motel Network' do
     	pod 'SwiftyJSON'
 	pod 'ImageSlideshow', '~> 1.5'
 	pod "ImageSlideshow/Kingfisher"
+	pod 'ListPlaceholder'
 
 end

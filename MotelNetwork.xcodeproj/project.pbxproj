@@ -72,7 +72,6 @@
 		E1954477208A0EA3004F0D17 /* DetailBillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1954475208A0EA3004F0D17 /* DetailBillViewController.xib */; };
 		E198761220672E2D008434CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198761120672E2D008434CC /* AppDelegate.swift */; };
 		E198761720672E2D008434CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761520672E2D008434CC /* Main.storyboard */; };
-		E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761A20672E2D008434CC /* LaunchScreen.storyboard */; };
 		E198DC1E2081829000E59BD2 /* ListNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198DC192081829000E59BD2 /* ListNewsTableViewCell.swift */; };
 		E198DC202081829000E59BD2 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E198DC1B2081829000E59BD2 /* HomeViewController.xib */; };
 		E198DC212081829000E59BD2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198DC1C2081829000E59BD2 /* HomeViewController.swift */; };
@@ -166,7 +165,6 @@
 		E198760E20672E2D008434CC /* Motel Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Motel Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E198761120672E2D008434CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E198761620672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E198761B20672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E198761D20672E2D008434CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E198DC192081829000E59BD2 /* ListNewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNewsTableViewCell.swift; sourceTree = "<group>"; };
 		E198DC1B2081829000E59BD2 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -480,7 +478,6 @@
 				E1AA95BA2090AA2900FBDB65 /* Assets.xcassets */,
 				E198761120672E2D008434CC /* AppDelegate.swift */,
 				E198761520672E2D008434CC /* Main.storyboard */,
-				E198761A20672E2D008434CC /* LaunchScreen.storyboard */,
 				E198761D20672E2D008434CC /* Info.plist */,
 				E117B663208E3BC500087A0B /* GoogleService-Info.plist */,
 				CE5FF78E20767689005BEA3B /* Extension */,
@@ -683,7 +680,6 @@
 				E14804F82089F8DA00C67D43 /* CreateNotificationViewController.xib in Resources */,
 				E1507BA3207D192F00387527 /* DetailRoomViewController.xib in Resources */,
 				E1CDE6942067805D005715EC /* LoginViewController.xib in Resources */,
-				E198761C20672E2D008434CC /* LaunchScreen.storyboard in Resources */,
 				E198DC2B2082F6BB00E59BD2 /* EditPostViewController.xib in Resources */,
 				E1507BA8207D195C00387527 /* EditRoomViewController.xib in Resources */,
 				E1E6D61420A319D50014C1C4 /* EditBillViewController.xib in Resources */,
@@ -738,6 +734,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/ListPlaceholder/ListPlaceholder.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeBack/SwipeBack.framework",
@@ -759,6 +756,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ListPlaceholder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeBack.framework",
@@ -876,14 +874,6 @@
 				E198761620672E2D008434CC /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E198761A20672E2D008434CC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E198761B20672E2D008434CC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

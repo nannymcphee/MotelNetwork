@@ -158,7 +158,6 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                     if let urlText = url?.absoluteString {
                         
                         strURL = urlText
-                        print("///////////tttttttt//////// \(strURL)   ////////")
                         
                         completion(strURL)
                     }
@@ -281,7 +280,21 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             return
         }
         
-        if (tfDistrict.text?.isEmpty)! || (tfTitle.text?.isEmpty)! || (tfArea.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfAddress.text?.isEmpty)! || (tfWaterPrice.text?.isEmpty)! || (tfPhoneNumber.text?.isEmpty)! || (tfElectricPrice.text?.isEmpty)! || (tfInternetPrice.text?.isEmpty)! || (tvDescription.text?.isEmpty)! || (tfUsersAllowed.text?.isEmpty)! {
+        let title = self.tfTitle.text!
+        let area = self.tfArea.text!
+        let district = self.tfDistrict.text!
+        let address = ("\(self.tfAddress.text!)" + ", \(district)")
+        let waterPrice = self.tfWaterPrice.text!
+        let phoneNumber = self.tfPhoneNumber.text!
+        let electricPrice = self.tfElectricPrice.text!
+        let price = self.tfPrice.text!
+        let description = self.tvDescription.text!
+        let internetPrice = self.tfInternetPrice.text!
+        let usersAllowed = self.tfUsersAllowed.text!
+        let timestamp = Int(NSDate().timeIntervalSince1970)
+        let timestampEdit = 0
+        
+        if district.isEmpty || title.isEmpty || area.isEmpty || price.isEmpty || address.isEmpty || waterPrice.isEmpty || phoneNumber.isEmpty || electricPrice.isEmpty || internetPrice.isEmpty || description.isEmpty || usersAllowed.isEmpty {
             
             showAlert(alertMessage: messageNilTextFields)
         }
@@ -289,26 +302,17 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             
             self.showAlert(alertMessage: messageNilImages)
         }
-        else if (tfTitle.text?.count)! > 50 || (tfAddress.text?.count)! > 50 {
+        else if title.count > 50 || address.count > 50 {
             
-            showAlert(alertMessage: messageLimitCharacters)
+            self.showAlert(alertMessage: messageLimitCharacters)
+        }
+        else if !(price.isNumber) || !(internetPrice.isNumber) || !(waterPrice.isNumber) || !(electricPrice.isNumber) {
+            
+            self.showAlert(alertMessage: "Vui lòng nhập đúng định dạng giá (Số).")
         }
         else {
             
             // Store post's info to database
-            let title = self.tfTitle.text!
-            let area = self.tfArea.text!
-            let district = self.tfDistrict.text!
-            let address = ("\(self.tfAddress.text!)" + ", \(district)")
-            let waterPrice = self.tfWaterPrice.text!
-            let phoneNumber = self.tfPhoneNumber.text!
-            let electricPrice = self.tfElectricPrice.text!
-            let price = self.tfPrice.text!
-            let description = self.tvDescription.text!
-            let internetPrice = self.tfInternetPrice.text!
-            let usersAllowed = self.tfUsersAllowed.text!
-            let timestamp = Int(NSDate().timeIntervalSince1970)
-            let timestampEdit = 0
             let reference = Database.database().reference().child("Posts").childByAutoId()
             let values = ["title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "postImageUrl0": "", "postImageUrl1": "", "postImageUrl2": "", "timestamp": timestamp, "ownerID": uid, "views": 0, "usersAllowed": usersAllowed, "timestampEdit": timestampEdit, "lat": "", "long": ""] as [String : AnyObject]
             

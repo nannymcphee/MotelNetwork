@@ -60,6 +60,7 @@ PODS:
   - IQKeyboardManagerSwift (6.0.2)
   - Kingfisher (4.7.0)
   - leveldb-library (1.20)
+  - ListPlaceholder (1.2)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -88,6 +89,7 @@ DEPENDENCIES:
   - ImageSlideshow/Kingfisher
   - IQKeyboardManagerSwift
   - Kingfisher (~> 4.0)
+  - ListPlaceholder
   - NVActivityIndicatorView
   - PXGoogleDirections
   - SwiftyJSON
@@ -123,6 +125,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: 59d4b0e140bc546c3c76ae5bb35b3dafd10b8172
   Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  ListPlaceholder: 48227c2f1ff0cd2f75c8e2bb26b5a45a29cf1d4c
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NVActivityIndicatorView: 75c9634073e03b31d7e2748cd2417feab1206195
   PXGoogleDirections: 7de8f72599b9f1fe2ecb48aad4e61dab30489ea5
@@ -132,6 +135,6 @@ SPEC CHECKSUMS:
   TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
   UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
 
-PODFILE CHECKSUM: 4bc38d202306b1377e6a5c5474c2c852d9b45ebd
+PODFILE CHECKSUM: ca75fea31ac9192f54c0da9138f68fbcdf85a63e
 
 COCOAPODS: 1.4.0

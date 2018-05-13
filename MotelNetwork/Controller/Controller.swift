@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 import NVActivityIndicatorView
 import Kingfisher
 
@@ -264,6 +265,15 @@ extension UIViewController {
     func deleteData(reference: DatabaseReference) {
         
         reference.removeValue { (error, ref) in
+            if let error = error {
+                print(error)
+            }
+        }
+    }
+    
+    // Delete data from storage
+    func deleteFromStorage(storageRef: StorageReference) {
+        storageRef.delete { (error) in
             if let error = error {
                 print(error)
             }

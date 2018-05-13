@@ -191,25 +191,36 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func btnRegisterPressed(_ sender: UIButton) {
         
+        let userEmail: String = self.tfEmail.text!
+        let userPassword: String = self.tfPassword.text!
+        let userFullName: String = self.tfName.text!
+        let userCMND: String = self.tfCMND.text!
+        let userBirthDay = self.tfBirthDay.text!
+        let userPhoneNumber = self.tfPhoneNumber.text!
+        let userType = self.pvUserType.selectedRow(inComponent: 0)
+        
         // Check if user has entered all informations
-        if (tfName.text?.isEmpty)! || (tfEmail.text?.isEmpty)! || (tfPassword.text?.isEmpty)! || (tfCMND.text?.isEmpty)! || (tfBirthDay.text?.isEmpty)! || (tfPhoneNumber.text?.isEmpty)! || ivProfilePicture.image == nil {
+        if userFullName.isEmpty || userEmail.isEmpty || userPassword.isEmpty || userCMND.isEmpty || userBirthDay.isEmpty || userPhoneNumber.isEmpty {
             
             showAlert(alertMessage: messageNilTextFields)
         }
-        else if (tfPassword.text?.count)! < 6 {
+        else if ivProfilePicture.image == nil {
+            
+            showAlert(alertMessage: messageNilImages)
+        }
+        else if userPassword.count < 6 {
             
             showAlert(alertMessage: messagePasswordLessThan6Chars)
         }
-        else if !isValidEmail(email: tfEmail.text!) {
+        else if !isValidEmail(email: userEmail) {
             
             showAlert(alertMessage: messageInvalidEmail)
         }
         else {
             
             // Sign up user with Email & Password
-            let email = tfEmail.text, pass = tfPassword.text
             
-            Auth.auth().createUser(withEmail: email!, password: pass!) { (user, error) in
+            Auth.auth().createUser(withEmail: userEmail, password: userPassword) { (user, error) in
                 
                 if let error = error {
                     
@@ -243,14 +254,6 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     let reference = Database.database().reference().child("Users").child(uid)
                     
                     // Store user's info to database
-                    
-                    let userEmail: String = self.tfEmail.text!
-                    let userPassword: String = self.tfPassword.text!
-                    let userFullName: String = self.tfName.text!
-                    let userCMND: String = self.tfCMND.text!
-                    let userBirthDay = self.tfBirthDay.text!
-                    let userPhoneNumber = self.tfPhoneNumber.text!
-                    let userType = self.pvUserType.selectedRow(inComponent: 0)
                     
                     let values = ["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": "", "PhoneNumber": userPhoneNumber] as [String : AnyObject]
                     

@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 import SwipeBack
 import Kingfisher
 
@@ -179,8 +180,7 @@ extension AccountViewController {
         
         let news = listNews[indexPath.row]
         cell.populateData(news: news)
-        
-        
+ 
         return cell
     }
     
@@ -232,14 +232,25 @@ extension AccountViewController {
             // Query delete from database
             let news = self.listNews[indexPath.row]
             let newsID = news.id
+            let postImageUrl0 = news.postImageUrl0!
+            let postImageUrl1 = news.postImageUrl1!
+            let postImageUrl2 = news.postImageUrl2!
             let ref = Database.database().reference().child("Posts").child(newsID!)
+            let storageRef0 = Storage.storage().reference(forURL: postImageUrl0)
+            let storageRef1 = Storage.storage().reference(forURL: postImageUrl1)
+            let storageRef2 = Storage.storage().reference(forURL: postImageUrl2)
             
             // Show confirmation alert
             let alert = UIAlertController(title: messageConfirmDeletePost, message: nil, preferredStyle: .actionSheet)
             let actionDestroy = UIAlertAction(title: "Xóa", style: .destructive) { (action) in
+                self.tbNews.beginUpdates()
                 self.deleteData(reference: ref)
+                self.deleteFromStorage(storageRef: storageRef0)
+                self.deleteFromStorage(storageRef: storageRef1)
+                self.deleteFromStorage(storageRef: storageRef2)
                 self.listNews.remove(at: indexPath.row)
                 self.tbNews.deleteRows(at: [indexPath], with: .automatic)
+                self.tbNews.endUpdates()
                 self.tbNews.reloadData()
                 self.newsCount = self.listNews.count
                 self.lblNewsCount.text = "\(self.newsCount)"

@@ -62,14 +62,20 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         tfAddress.text = currentRoom.address
         
         if let renterID = currentRoom.renterID {
-            let ref = Database.database().reference().child("Users").child(renterID)
-            
-            ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                if let dictionary = snapshot.value as? [String: AnyObject] {
-                    let renterName = dictionary["FullName"] as? String
-                    self.tfUser.text = renterName
-                }
-            }, withCancel: nil)
+            if renterID.isEmpty {
+                
+                self.tfUser.text = ""
+            }
+            else {
+                
+                let ref = Database.database().reference().child("Users").child(renterID)
+                
+                ref.observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let dictionary = snapshot.value as? [String: AnyObject] {
+                        self.tfUser.text = dictionary["FullName"] as? String
+                    }
+                }, withCancel: nil)
+            }
         }
         
         self.tapToDismissKeyboard()
@@ -144,7 +150,6 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     if let urlText = url?.absoluteString {
                         
                         strURL = urlText
-                        print("///////////tttttttt//////// \(strURL)   ////////")
                         
                         completion(strURL)
                     }
@@ -240,27 +245,29 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     @IBAction func btnSavePressed(_ sender: Any) {
         
-        if (tfArea.text?.isEmpty)! || (tfAddress.text?.isEmpty)! || (tfPrice.text?.isEmpty)! || (tfRoomName.text?.isEmpty)! || (tfUsersAllowed.text?.isEmpty)! {
+        let roomName = self.tfRoomName.text!
+        let area = self.tfArea.text!
+        let price = self.tfPrice.text!
+        let renterName = self.tfUser.text!
+        let usersAllowed = self.tfUsersAllowed.text!
+        let address = self.tfAddress.text!
+        let roomID = currentRoom.id
+        let ownerID = Auth.auth().currentUser?.uid
+        let renterID = currentRoom.renterID
+        let roomImageUrl0 = currentRoom.roomImageUrl0
+        let roomImageUrl1 = currentRoom.roomImageUrl1
+        let roomImageUrl2 = currentRoom.roomImageUrl2
+        
+        if area.isEmpty || address.isEmpty || price.isEmpty || roomName.isEmpty || usersAllowed.isEmpty {
             
             self.showAlert(alertMessage: messageNilTextFields)
         }
-        else if (tfAddress.text?.count)! > 50 {
+        else if address.count > 50 {
+            
             self.showAlert(alertMessage: messageLimitCharacters)
         }
         else {
         
-            let roomName = self.tfRoomName.text!
-            let area = self.tfArea.text!
-            let price = self.tfPrice.text!
-            let renterName = self.tfUser.text!
-            let usersAllowed = self.tfUsersAllowed.text!
-            let address = self.tfAddress.text!
-            let roomID = currentRoom.id
-            let ownerID = Auth.auth().currentUser?.uid
-            let renterID = currentRoom.renterID
-            let roomImageUrl0 = currentRoom.roomImageUrl0
-            let roomImageUrl1 = currentRoom.roomImageUrl1
-            let roomImageUrl2 = currentRoom.roomImageUrl2
             let ref = Database.database().reference().child("Rooms").child(roomID!)
             let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "renterID": renterID, "roomImageUrl0": roomImageUrl0, "roomImageUrl1": roomImageUrl1, "roomImageUrl2": roomImageUrl2, "usersAllowed": usersAllowed, "address": address]
     
@@ -268,21 +275,26 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)
             let actionDestroy = UIAlertAction(title: "Có", style: .destructive) { (action) in
                 
-                if (self.tfRoomName.text?.isEmpty)! || (self.tfArea.text?.isEmpty)! || (self.tfPrice.text?.isEmpty)! {
-                    
-                    self.showAlert(alertMessage: messageNilTextFields)
-                }
-                else if self.ivRoomImage0.image == nil || self.ivRoomImage1.image == nil || self.ivRoomImage2 == nil {
+
+                 if self.ivRoomImage0.image == nil || self.ivRoomImage1.image == nil || self.ivRoomImage2 == nil {
                     
                     self.editData(reference: ref, newValues: values as [String: AnyObject])
-                    // Get renter's id by renter's name and save to room in database
-                    let renterRef = Database.database().reference().child("Users")
-                    let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
-                    query.observeSingleEvent(of: .value) { (snapshot) in
+                    
+                    if renterName.isEmpty {
                         
-                        let renterID = snapshot.key
-
-                        self.editData(reference: ref, newValues: ["renterID": renterID as AnyObject])
+                        self.editData(reference: ref, newValues: ["renterID": "" as AnyObject])
+                    }
+                    else {
+                        
+                        // Get renter's id by renter's name and save to room in database
+                        let renterRef = Database.database().reference().child("Users")
+                        let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
+                        query.observeSingleEvent(of: .value) { (snapshot) in
+                            
+                            let renterID = snapshot.key
+                            
+                            self.editData(reference: ref, newValues: ["renterID": renterID as AnyObject])
+                        }
                     }
                     
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
@@ -292,14 +304,22 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 else {
 
                     self.editData(reference: ref, newValues: values as [String: AnyObject])
-                    // Get renter's id by renter's name and save to room in database
-                    let renterRef = Database.database().reference().child("Users")
-                    let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
-                    query.observeSingleEvent(of: .childAdded) { (snapshot) in
+                    
+                    if renterName.isEmpty {
                         
-                        let renterID = snapshot.key
-   
-                        self.editData(reference: ref, newValues: ["renterID": renterID as AnyObject])
+                        self.editData(reference: ref, newValues: ["renterID": "" as AnyObject])
+                    }
+                    else {
+                        
+                        // Get renter's id by renter's name and save to room in database
+                        let renterRef = Database.database().reference().child("Users")
+                        let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
+                        query.observeSingleEvent(of: .value) { (snapshot) in
+                            
+                            let renterID = snapshot.key
+                            
+                            self.editData(reference: ref, newValues: ["renterID": renterID as AnyObject])
+                        }
                     }
                     
                     // Upload image to Firebase storage and update download urls into database

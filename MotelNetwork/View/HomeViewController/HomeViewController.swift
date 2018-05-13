@@ -14,6 +14,7 @@ import NVActivityIndicatorView
 import TwicketSegmentedControl
 import CoreLocation
 import GeoFire
+import ListPlaceholder
 
 class HomeViewController: UIViewController, UITableViewDataSource,
 UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedControlDelegate {
@@ -48,6 +49,7 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         sclContent.delegate = self
         
@@ -285,48 +287,48 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
     func loadDataNews() {
         let ref = Database.database().reference().child("Posts")
 
-        ref.observe(.childAdded, with: { (snapshot) in
-            if let dictionary = snapshot.value as? [String: AnyObject] {
-                let news = News(dictionary: dictionary)
-                news.id = snapshot.key
-
-                DispatchQueue.main.async {
-                    self.reloadInputViews()
+        DispatchQueue.global(qos: .background).async {
+            ref.observe(.childAdded, with: { (snapshot) in
+                if let dictionary = snapshot.value as? [String: AnyObject] {
+                    let news = News(dictionary: dictionary)
+                    news.id = snapshot.key
+                    
+                    let priceStr = dictionary["price"] as? String
+                    let waterPriceStr = dictionary["waterPrice"] as? String
+                    let electricPriceStr = dictionary["electricPrice"] as? String
+                    let internetPriceStr = dictionary["internetPrice"] as? String
+                    
+                    news.price = Double(priceStr ?? "0.0")
+                    news.waterPrice = Double(waterPriceStr ?? "0.0")
+                    news.electricPrice = Double(electricPriceStr ?? "0.0")
+                    news.internetPrice = Double(internetPriceStr ?? "0.0")
+                    news.area = dictionary["area"] as? String
+                    news.district = dictionary["district"] as? String
+                    news.title = dictionary["title"] as? String
+                    news.address = dictionary["address"] as? String
+                    news.description = dictionary["description"] as? String
+                    news.phoneNumber = dictionary["phoneNumber"] as? String
+                    news.ownerID = dictionary["ownerID"] as? String
+                    news.postImageUrl0 = dictionary["postImageUrl0"] as? String
+                    news.postImageUrl1 = dictionary["postImageUrl1"] as? String
+                    news.postImageUrl2 = dictionary["postImageUrl2"] as? String
+                    news.timestamp = dictionary["timestamp"] as? Int
+                    news.lat = dictionary["lat"] as? String
+                    news.long = dictionary["long"] as? String
+                    news.usersAllowed = dictionary["usersAllowed"] as? String
+                    news.views = dictionary["views"] as? Int
+                    
+                    self.listNews.append(news)
+                    self.listNews = self.listNews.sorted(by: { (news0, news1) -> Bool in
+                        return news0.timestamp! > news1.timestamp!
+                    })
+                    
+                    DispatchQueue.main.async {
+                        self.tbListNews.reloadData()
+                    }
                 }
-
-                let priceStr = dictionary["price"] as? String
-                let waterPriceStr = dictionary["waterPrice"] as? String
-                let electricPriceStr = dictionary["electricPrice"] as? String
-                let internetPriceStr = dictionary["internetPrice"] as? String
-
-                news.price = Double(priceStr ?? "0.0")
-                news.waterPrice = Double(waterPriceStr ?? "0.0")
-                news.electricPrice = Double(electricPriceStr ?? "0.0")
-                news.internetPrice = Double(internetPriceStr ?? "0.0")
-                news.area = dictionary["area"] as? String
-                news.district = dictionary["district"] as? String
-                news.title = dictionary["title"] as? String
-                news.address = dictionary["address"] as? String
-                news.description = dictionary["description"] as? String
-                news.phoneNumber = dictionary["phoneNumber"] as? String
-                news.ownerID = dictionary["ownerID"] as? String
-                news.postImageUrl0 = dictionary["postImageUrl0"] as? String
-                news.postImageUrl1 = dictionary["postImageUrl1"] as? String
-                news.postImageUrl2 = dictionary["postImageUrl2"] as? String
-                news.timestamp = dictionary["timestamp"] as? Int
-                news.lat = dictionary["lat"] as? String
-                news.long = dictionary["long"] as? String
-                news.usersAllowed = dictionary["usersAllowed"] as? String
-                news.views = dictionary["views"] as? Int
-                
-                self.listNews.append(news)
-                self.listNews = self.listNews.sorted(by: { (news0, news1) -> Bool in
-                    return news0.timestamp! > news1.timestamp!
-                })
-                
-                self.tbListNews.reloadData()
-            }
-        }, withCancel: nil)
+            }, withCancel: nil)
+        }
     }
     
     func loadDataMostView() {

@@ -64,20 +64,20 @@ class LoginViewController: UIViewController {
     
     @IBAction func btnLoginPressed(_: UIButton) {
         
-        let email = tfEmail.text
-        let pass = tfPassword.text
+        let email = tfEmail.text!
+        let pass = tfPassword.text!
 
-        if (tfEmail.text?.isEmpty)! || (tfPassword.text?.isEmpty)! {
+        if email.isEmpty || pass.isEmpty {
 
             showAlert(alertMessage: messageNilTextFields)
         }
-        else if !isValidEmail(email: tfEmail.text!) {
+        else if !isValidEmail(email: email) {
 
             showAlert(alertMessage: messageInvalidEmail)
         }
         else {
 
-            doLogin(email: email!, pass: pass!)
+            doLogin(email: email, pass: pass)
 //            checkIsEmailVerified()
             return
         }
