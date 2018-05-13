@@ -264,7 +264,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         let usersAllowed = self.tfUsersAllowed.text!
         let timestampEdit = Int(NSDate().timeIntervalSince1970)
         
-        if area.isEmpty || title.isEmpty || address.isEmpty || description.isEmpty || district.isEmpty || price.isEmpty || waterPrice.isEmpty || electricPrice.isEmpty || internetPrice.isEmpty || phoneNumber.isEmpty || usersAllowed.isEmpty {
+        if area.isEmpty || title.isEmpty || (self.tfAddress.text?.isEmpty)! || description.isEmpty || district.isEmpty || price.isEmpty || waterPrice.isEmpty || electricPrice.isEmpty || internetPrice.isEmpty || phoneNumber.isEmpty || usersAllowed.isEmpty {
             
             self.showAlert(alertMessage: messageNilTextFields)
         }
