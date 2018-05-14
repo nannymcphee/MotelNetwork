@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "46870A5688D4735D4C690202DCB77710"
-               BlueprintName = "ListPlaceholder"
+               BlueprintIdentifier = "E75E5BAC0FE6E4C6A5E5F95EA6807F8A"
+               BlueprintName = "MXParallaxHeader"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "ListPlaceholder.framework">
+               BuildableName = "MXParallaxHeader.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

@@ -51,7 +51,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1N-bm-1rX">
-                                <rect key="frame" x="0.0" y="164" width="360" height="1"/>
+                                <rect key="frame" x="8" y="164" width="344" height="1"/>
                                 <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="zYH-eL-K1d"/>
@@ -128,14 +128,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zLw-tW-IGn" firstAttribute="leading" secondItem="ywI-CK-zlo" secondAttribute="leading" constant="8" id="4VM-lM-Ra7"/>
+                            <constraint firstAttribute="trailing" secondItem="N1N-bm-1rX" secondAttribute="trailing" constant="8" id="522-Ak-CBI"/>
                             <constraint firstItem="cJE-kd-KIE" firstAttribute="leading" secondItem="zLw-tW-IGn" secondAttribute="trailing" constant="8" id="EKs-UJ-fMx"/>
+                            <constraint firstItem="N1N-bm-1rX" firstAttribute="leading" secondItem="ywI-CK-zlo" secondAttribute="leading" constant="8" id="EcD-EE-fuW"/>
                             <constraint firstAttribute="trailing" secondItem="HGZ-Fq-Zoe" secondAttribute="trailing" constant="10" id="KSL-lC-0S4"/>
                             <constraint firstAttribute="bottom" secondItem="N1N-bm-1rX" secondAttribute="bottom" id="NS9-Uu-F5l"/>
                             <constraint firstItem="HGZ-Fq-Zoe" firstAttribute="leading" secondItem="zLw-tW-IGn" secondAttribute="trailing" constant="10" id="NSF-Gp-UGO"/>
-                            <constraint firstAttribute="trailing" secondItem="N1N-bm-1rX" secondAttribute="trailing" id="SVV-0q-oIC"/>
                             <constraint firstItem="cJE-kd-KIE" firstAttribute="top" secondItem="HGZ-Fq-Zoe" secondAttribute="bottom" constant="8" id="ZQ8-GA-bRF"/>
                             <constraint firstItem="zLw-tW-IGn" firstAttribute="centerY" secondItem="ywI-CK-zlo" secondAttribute="centerY" id="aCQ-yK-58Z"/>
-                            <constraint firstItem="N1N-bm-1rX" firstAttribute="leading" secondItem="ywI-CK-zlo" secondAttribute="leading" id="fTB-01-o0O"/>
                             <constraint firstItem="HGZ-Fq-Zoe" firstAttribute="top" secondItem="ywI-CK-zlo" secondAttribute="top" constant="8" id="s4C-70-4OL"/>
                         </constraints>
                     </view>

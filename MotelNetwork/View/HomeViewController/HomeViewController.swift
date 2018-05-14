@@ -14,7 +14,6 @@ import NVActivityIndicatorView
 import TwicketSegmentedControl
 import CoreLocation
 import GeoFire
-import ListPlaceholder
 
 class HomeViewController: UIViewController, UITableViewDataSource,
 UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedControlDelegate {

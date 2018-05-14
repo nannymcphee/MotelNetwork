@@ -12,14 +12,16 @@ import FirebaseDatabase
 import Kingfisher
 import Floaty
 import ImageSlideshow
+import MXParallaxHeader
 
 class DetailRoomViewController: UIViewController {
 
+    @IBOutlet var vHeader: UIView!
+    @IBOutlet weak var svContent: UIScrollView!
     @IBOutlet weak var vSlideShow: ImageSlideshow!
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var lblUsersAllowed: UILabel!
-    @IBOutlet weak var btnEditRoom: UIButton!
-    @IBOutlet weak var btnNotification: UIButton!
+    @IBOutlet weak var btnMore: UIButton!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var lblRoomName: UILabel!
     @IBOutlet weak var ivAvatar: UIImageView!
@@ -27,7 +29,6 @@ class DetailRoomViewController: UIViewController {
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblArea: UILabel!
     @IBOutlet weak var lblUser: UILabel!
-    @IBOutlet weak var btnCalculate: UIButton!
     @IBOutlet weak var tvPhoneNumber: UITextView!
     
     var currentRoom = Room()
@@ -53,14 +54,20 @@ class DetailRoomViewController: UIViewController {
     func setUpView() {
         
         let formattedPrice = numberFormatter.string(from: currentRoom.price! as NSNumber)
+        
         lblPrice.text = "\(formattedPrice ?? "")đ"
         lblRoomName.text = currentRoom.name
         lblArea.text = String("\(currentRoom.area ?? "")m2")
         lblUsersAllowed.text = "Số người cho phép: \(currentRoom.usersAllowed ?? "")"
         lblAddress.text = currentRoom.address
         lblAddress.sizeToFit()
+        svContent.parallaxHeader.view = vHeader
+        svContent.parallaxHeader.height = 64
+        svContent.parallaxHeader.minimumHeight = 42
+        svContent.parallaxHeader.mode = .center
         makeImageViewRounded(imageView: ivAvatar)
         setUpSlideShow()
+        
     }
     
     func setUpSlideShow() {
@@ -97,8 +104,6 @@ class DetailRoomViewController: UIViewController {
     
     func setUpViewForOwner() {
         
-        btnNotification.isHidden = true
-        
         if let renterID = currentRoom.renterID {
             if renterID.isEmpty {
                 
@@ -125,14 +130,9 @@ class DetailRoomViewController: UIViewController {
                 }, withCancel: nil)
             }
         }
-        
-        makeButtonRounded(button: btnCalculate)
-        makeButtonRounded(button: btnEditRoom)
     }
     
     func setUpViewForRenter() {
-        
-        btnNotification.isHidden = true
         
         if let ownerID = currentRoom.ownerID {
             let ref = Database.database().reference().child("Users").child(ownerID)
@@ -147,8 +147,7 @@ class DetailRoomViewController: UIViewController {
             }, withCancel: nil)
         }
         
-        btnCalculate.isHidden = true
-        btnEditRoom.isHidden = true
+        btnMore.isHidden = true
     }
     
     //MARK: Database interaction
@@ -187,42 +186,46 @@ class DetailRoomViewController: UIViewController {
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func btnCalculatePressed(_ sender: Any) {
-
-        let room = currentRoom
-        let renterID = room.renterID!
+    @IBAction func btnMorePressed(_ sender: Any) {
         
-        if renterID.isEmpty {
+        // Show confirmation alert
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let actionCalculate = UIAlertAction(title: "Tính tiền phòng", style: .default) { (action) in
             
-            showAlert(alertMessage: "Không thể tính tiền phòng chưa có người thuê.")
+            let room = self.currentRoom
+            let renterID = room.renterID!
+            
+            if renterID.isEmpty {
+                
+                self.showAlert(alertMessage: "Không thể tính tiền phòng chưa có người thuê.")
+            }
+            else {
+                let vc = CalculateRoomPriceViewController()
+                
+                vc.currentRoom = room
+                
+                (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+            }
         }
-        else {
-            let vc = CalculateRoomPriceViewController()
+        
+        let actionEdit = UIAlertAction(title: "Sửa thông tin", style: .default) { (action) in
             
+            let vc = EditRoomViewController()
+            let room = self.currentRoom
             vc.currentRoom = room
             
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         }
         
-    }
-    
-    @IBAction func btnNotificationPressed(_ sender: Any) {
+        let actionCancel = UIAlertAction(title: "Hủy", style: .cancel) { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }
         
-        let vc = CreateNotificationViewController()
-        let room = currentRoom
+        alert.addAction(actionCalculate)
+        alert.addAction(actionEdit)
+        alert.addAction(actionCancel)
         
-        vc.currentRoom = room
-        
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    @IBAction func btnEditRoomPressed(_ sender: Any) {
-
-        let vc = EditRoomViewController()
-        let room = currentRoom
-        vc.currentRoom = room
-
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

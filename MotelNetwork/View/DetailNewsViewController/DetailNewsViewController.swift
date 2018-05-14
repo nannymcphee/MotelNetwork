@@ -12,11 +12,14 @@ import FirebaseDatabase
 import Kingfisher
 import Floaty
 import ImageSlideshow
+import MXParallaxHeader
 
 class DetailNewsViewController: UIViewController {
     
     
 //    @IBOutlet weak var lblViewsCount: UILabel!
+    @IBOutlet weak var svContent: UIScrollView!
+    @IBOutlet weak var vHeader: UIView!
     @IBOutlet weak var lblTimeAgo: UILabel!
     @IBOutlet weak var vSlideShow: ImageSlideshow!
     @IBOutlet weak var lblTitle: UILabel!
@@ -41,6 +44,7 @@ class DetailNewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         setUpView()
     }
     
@@ -106,6 +110,10 @@ class DetailNewsViewController: UIViewController {
 //        lblViewsCount.text = "Đã xem: \(currentNews.views ?? 0)"
         
         makeImageViewRounded(imageView: ivAvatar)
+        svContent.parallaxHeader.view = vHeader
+        svContent.parallaxHeader.height = 64
+        svContent.parallaxHeader.minimumHeight = 0
+        svContent.parallaxHeader.mode = .fill
     }
     
     func setUpSlideShow() {

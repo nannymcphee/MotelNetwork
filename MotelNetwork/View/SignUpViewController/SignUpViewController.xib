@@ -46,10 +46,10 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2w3-4U-8K1">
-                            <rect key="frame" x="19" y="30.666666666666671" width="24" height="24"/>
+                            <rect key="frame" x="19" y="34.666666666666664" width="16" height="16"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="24" id="5Hz-IN-y39"/>
-                                <constraint firstAttribute="width" constant="24" id="m48-6F-Xsm"/>
+                                <constraint firstAttribute="height" constant="16" id="5Hz-IN-y39"/>
+                                <constraint firstAttribute="width" constant="16" id="m48-6F-Xsm"/>
                             </constraints>
                             <state key="normal" title="Button" image="icBackSquare"/>
                             <connections>

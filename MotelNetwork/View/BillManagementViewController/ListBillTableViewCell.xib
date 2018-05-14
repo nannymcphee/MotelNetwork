@@ -39,7 +39,7 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Yw-OS-wNX">
-                        <rect key="frame" x="0.0" y="68.5" width="360" height="1"/>
+                        <rect key="frame" x="16" y="68.5" width="344" height="1"/>
                         <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="0k0-Wn-3EM"/>
@@ -56,11 +56,11 @@
                     <constraint firstAttribute="bottom" secondItem="0Yw-OS-wNX" secondAttribute="bottom" id="6bk-J2-m0f"/>
                     <constraint firstItem="D9R-Vb-hQB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="AiQ-Gm-LiQ"/>
                     <constraint firstAttribute="trailing" secondItem="D9R-Vb-hQB" secondAttribute="trailing" constant="8" id="IFI-St-ZtB"/>
+                    <constraint firstAttribute="trailing" secondItem="0Yw-OS-wNX" secondAttribute="trailing" id="LTu-vQ-xTw"/>
                     <constraint firstItem="CHj-Va-87m" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="P4D-YV-U5E"/>
-                    <constraint firstItem="0Yw-OS-wNX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="TgL-Fp-NaY"/>
                     <constraint firstItem="WRx-BA-nqC" firstAttribute="top" secondItem="CHj-Va-87m" secondAttribute="bottom" constant="4" id="Vzn-uX-Nl2"/>
                     <constraint firstItem="WRx-BA-nqC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="aE1-jd-fnk"/>
-                    <constraint firstAttribute="trailing" secondItem="0Yw-OS-wNX" secondAttribute="trailing" id="asP-lk-cfV"/>
+                    <constraint firstItem="0Yw-OS-wNX" firstAttribute="leading" secondItem="CHj-Va-87m" secondAttribute="leading" id="aiU-UJ-FUT"/>
                     <constraint firstItem="CHj-Va-87m" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="ntR-bc-ZzF"/>
                 </constraints>
             </tableViewCellContentView>

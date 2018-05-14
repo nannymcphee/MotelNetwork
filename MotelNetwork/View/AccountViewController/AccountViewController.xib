@@ -99,7 +99,6 @@
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruo-kr-NHH">
                                                     <rect key="frame" x="0.0" y="47" width="375" height="1"/>
-                                                    <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="R0v-MN-nIk"/>
                                                     </constraints>

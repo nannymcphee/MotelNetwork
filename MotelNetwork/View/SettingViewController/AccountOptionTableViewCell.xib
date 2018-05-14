@@ -26,7 +26,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4c-T0-LJv">
-                        <rect key="frame" x="0.0" y="38.5" width="375" height="1"/>
+                        <rect key="frame" x="16" y="38.5" width="359" height="1"/>
                         <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="9LF-eL-3uZ"/>
@@ -51,9 +51,9 @@
                     <constraint firstAttribute="trailing" secondItem="y4c-T0-LJv" secondAttribute="trailing" id="8eZ-MM-sQB"/>
                     <constraint firstAttribute="trailingMargin" secondItem="qBb-wq-env" secondAttribute="trailing" constant="8" id="Gce-yO-Mgf"/>
                     <constraint firstItem="hRL-Wg-8wx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="JtR-Bl-sM1"/>
-                    <constraint firstItem="y4c-T0-LJv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="R7z-GO-NeW"/>
                     <constraint firstItem="qBb-wq-env" firstAttribute="centerY" secondItem="hRL-Wg-8wx" secondAttribute="centerY" id="cse-sl-TdL"/>
                     <constraint firstItem="hRL-Wg-8wx" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hen-dj-zqT"/>
+                    <constraint firstItem="y4c-T0-LJv" firstAttribute="leading" secondItem="hRL-Wg-8wx" secondAttribute="leading" id="otG-av-npg"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

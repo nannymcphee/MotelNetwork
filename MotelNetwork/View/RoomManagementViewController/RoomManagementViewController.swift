@@ -15,6 +15,7 @@ import Kingfisher
 
 class RoomManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {    
     
+    @IBOutlet var vHeader: UIView!
     @IBOutlet weak var vEmptyData: UIView!
     @IBOutlet weak var btnCreateRoom: UIButton!
     @IBOutlet weak var btnBills: UIButton!
