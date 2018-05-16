@@ -191,7 +191,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }, finish: { (asset: [PHAsset]) in
             
             if asset.count < 3 {
-                self.showAlert(alertMessage: "Vui lòng chọn 3 hình.")
+                self.showAlert(title: "Thông báo", alertMessage: "Vui lòng chọn 3 hình.")
             }
             else {
                 for i in 0..<asset.count {
@@ -221,15 +221,15 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         // Check if user has entered all informations
         if  area.isEmpty || address.isEmpty || usersAllowed.isEmpty || price.isEmpty || roomName.isEmpty {
             
-            self.showAlert(alertMessage: messageNilTextFields)
+            self.showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
         }
         else if !(price.isNumber) {
             
-            self.showAlert(alertMessage: "Vui lòng nhập đúng định dạng giá phòng (Số).")
+            self.showAlert(title: "Thông báo", alertMessage: "Vui lòng nhập đúng định dạng giá phòng (Số).")
         }
         else if ivRoomImage0.image == nil || ivRoomImage1.image == nil || ivRoomImage2.image == nil {
             
-            self.showAlert(alertMessage: messageNilImages)
+            self.showAlert(title: "Thông báo", alertMessage: messageNilImages)
         }
         else {
         
@@ -275,7 +275,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             self.showLoading()
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
                 self.stopLoading()
-                self.showAlert(alertMessage: messageCreateRoomSuccess)
+                self.noticeSuccess(messageCreateRoomSuccess, autoClear: true, autoClearTime: 1)
                 self.selectedAssets.removeAll()
                 self.imageArray.removeAll()
                 self.resetView()

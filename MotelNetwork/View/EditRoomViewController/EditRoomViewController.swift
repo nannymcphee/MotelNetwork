@@ -229,7 +229,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }, finish: { (asset: [PHAsset]) in
             
             if asset.count < 3 {
-                self.showAlert(alertMessage: "Vui lòng chọn 3 hình.")
+                self.showAlert(title: "Thông báo", alertMessage: "Vui lòng chọn 3 hình.")
             }
             else {
                 for i in 0..<asset.count {
@@ -260,11 +260,11 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         if area.isEmpty || address.isEmpty || price.isEmpty || roomName.isEmpty || usersAllowed.isEmpty {
             
-            self.showAlert(alertMessage: messageNilTextFields)
+            self.showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
         }
         else if address.count > 50 {
             
-            self.showAlert(alertMessage: messageLimitCharacters)
+            self.showAlert(title: "Thông báo", alertMessage: messageLimitCharacters)
         }
         else {
         
@@ -297,9 +297,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                         }
                     }
                     
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
-                        self.showAlert(alertMessage: messageEditRoomSuccess)
-                    })
+                    self.noticeSuccess(messageEditInfoSuccess, autoClear: true, autoClearTime: 1)
                 }
                 else {
 
@@ -348,7 +346,8 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
                 }
                 
-                self.showAlert(alertMessage: messageEditRoomSuccess)
+                self.noticeSuccess(messageEditInfoSuccess, autoClear: true, autoClearTime: 1)
+
                 return
             }
             

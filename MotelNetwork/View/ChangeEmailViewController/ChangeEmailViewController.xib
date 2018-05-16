@@ -126,13 +126,13 @@
                                             <rect key="frame" x="0.0" y="48" width="375" height="607"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Địa chỉ email mới" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULu-k2-erQ">
-                                                    <rect key="frame" x="17" y="16" width="109.5" height="16.5"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <rect key="frame" x="17" y="16" width="93.5" height="14"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="onC-Tu-hgf">
-                                                    <rect key="frame" x="17" y="38.5" width="340" height="40"/>
+                                                    <rect key="frame" x="17" y="36" width="340" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Xn9-FF-uXr"/>
                                                     </constraints>

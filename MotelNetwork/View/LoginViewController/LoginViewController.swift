@@ -69,11 +69,11 @@ class LoginViewController: UIViewController {
 
         if email.isEmpty || pass.isEmpty {
 
-            showAlert(alertMessage: messageNilTextFields)
+            showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
         }
         else if !isValidEmail(email: email) {
 
-            showAlert(alertMessage: messageInvalidEmail)
+            showAlert(title: "Thông báo", alertMessage: messageInvalidEmail)
         }
         else {
 
@@ -87,14 +87,16 @@ class LoginViewController: UIViewController {
     @IBAction func btnRegisterNavigationPressed(_ sender: Any) {
         
         let vc = SignUpViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+//        self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true)
     }
 
     
     @IBAction func btnForgotPasswordPressed(_ sender: UIButton) {
         
         let vc = ForgotPasswordViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+//        self.navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true)
     }
     
     

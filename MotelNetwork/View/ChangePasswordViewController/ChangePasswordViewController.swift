@@ -77,15 +77,15 @@ class ChangePasswordViewController: UIViewController {
         
         if (tfNewPassword.text?.isEmpty)! || (tfPasswordConfirm.text?.isEmpty)! {
             
-            showAlert(alertMessage: messageNilTextFields)
+            showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
         }
         else if newPass.count < 6 {
             
-            showAlert(alertMessage: messagePasswordLessThan6Chars)
+            showAlert(title: "Thông báo", alertMessage: messagePasswordLessThan6Chars)
         }
         else if newPass.elementsEqual(newPassConfirm) == false  {
             
-            showAlert(alertMessage: messageWrongPasswordConfirm)
+            showAlert(title: "Thông báo", alertMessage: messageWrongPasswordConfirm)
         }
         else {
             Auth.auth().addStateDidChangeListener({ (auth, user) in

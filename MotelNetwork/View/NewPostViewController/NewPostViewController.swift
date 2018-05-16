@@ -255,7 +255,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         }, finish: { (asset: [PHAsset]) in
             
             if asset.count < 3 {
-                self.showAlert(alertMessage: "Vui lòng chọn 3 hình.")
+                self.showAlert(title: "Thông báo", alertMessage: "Vui lòng chọn 3 hình.")
             }
             else {
                 for i in 0..<asset.count {
@@ -271,7 +271,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
    
     @IBAction func btnInfoPressed(_ sender: Any) {
         
-        showAlert(alertMessage: "Việc nhập đúng định dạng địa chỉ sẽ giúp tin của bạn hiển thị chính xác trên bản đồ và những người dùng khác định vị chính xác hơn.")
+        showAlert(title: "Lưu ý", alertMessage: "Việc nhập đúng định dạng địa chỉ sẽ giúp tin của bạn hiển thị chính xác trên bản đồ và những người dùng khác định vị chính xác hơn.")
     }
     
     @IBAction func btnSavePressed(_ sender: Any) {
@@ -296,19 +296,19 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         if district.isEmpty || title.isEmpty || area.isEmpty || price.isEmpty || address.isEmpty || waterPrice.isEmpty || phoneNumber.isEmpty || electricPrice.isEmpty || internetPrice.isEmpty || description.isEmpty || usersAllowed.isEmpty {
             
-            showAlert(alertMessage: messageNilTextFields)
+            showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
         }
         else if ivPostImage0.image == nil || ivPostImage1.image == nil || ivPostImage2.image == nil {
             
-            self.showAlert(alertMessage: messageNilImages)
+            self.showAlert(title: "Thông báo", alertMessage: messageNilImages)
         }
         else if title.count > 50 || address.count > 50 {
             
-            self.showAlert(alertMessage: messageLimitCharacters)
+            self.showAlert(title: "Thông báo", alertMessage: messageLimitCharacters)
         }
         else if !(price.isNumber) || !(internetPrice.isNumber) || !(waterPrice.isNumber) || !(electricPrice.isNumber) {
             
-            self.showAlert(alertMessage: "Vui lòng nhập đúng định dạng giá (Số).")
+            self.showAlert(title: "Thông báo", alertMessage: "Vui lòng nhập đúng định dạng giá (Số).")
         }
         else {
             
@@ -336,7 +336,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
             self.showLoading()
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
                 self.stopLoading()
-                self.showAlert(alertMessage: messageNewPostSuccess)
+                self.noticeSuccess(messageNewPostSuccess, autoClear: true, autoClearTime: 1)
                 self.selectedAssets.removeAll()
                 self.imageArray.removeAll()
                 self.resetView()

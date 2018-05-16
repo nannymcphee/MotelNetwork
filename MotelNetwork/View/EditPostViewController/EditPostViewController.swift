@@ -158,7 +158,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         }, finish: { (asset: [PHAsset]) in
             
             if asset.count < 3 {
-                self.showAlert(alertMessage: "Vui lòng chọn 3 hình.")
+                self.showAlert(title: "Thông báo", alertMessage: "Vui lòng chọn 3 hình.")
             }
             else {
                 for i in 0..<asset.count {
@@ -234,7 +234,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @IBAction func btnInfoPressed(_ sender: Any) {
         
-        showAlert(alertMessage: "Việc nhập đúng định dạng địa chỉ sẽ giúp tin của bạn hiển thị chính xác trên bản đồ và những người dùng khác định vị chính xác hơn.")
+        showAlert(title: "Lưu ý", alertMessage: "Việc nhập đúng định dạng địa chỉ sẽ giúp tin của bạn hiển thị chính xác trên bản đồ và những người dùng khác định vị chính xác hơn.")
     }
     
     @IBAction func btnAddImagePressed(_ sender: Any) {
@@ -266,7 +266,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         
         if area.isEmpty || title.isEmpty || (self.tfAddress.text?.isEmpty)! || description.isEmpty || district.isEmpty || price.isEmpty || waterPrice.isEmpty || electricPrice.isEmpty || internetPrice.isEmpty || phoneNumber.isEmpty || usersAllowed.isEmpty {
             
-            self.showAlert(alertMessage: messageNilTextFields)
+            self.showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
         }
         else {
             
@@ -290,7 +290,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                     
                     self.geocodeAddress(address: address, dbRef: ref)
                     self.editData(reference: ref, newValues: values as [String: AnyObject])
-                    self.showAlert(alertMessage: messageEditPostSuccess)
+                    self.noticeSuccess(messageEditPostSuccess, autoClear: true, autoClearTime: 1)
                 }
                 else {
                     
@@ -311,7 +311,9 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                         self.editData(reference: ref, newValues: ["postImageUrl2": url as AnyObject])
                     }
                 }
-                self.showAlert(alertMessage: messageEditPostSuccess)
+                
+                self.noticeSuccess(messageEditPostSuccess, autoClear: true, autoClearTime: 1)
+   
                 return
             }
             

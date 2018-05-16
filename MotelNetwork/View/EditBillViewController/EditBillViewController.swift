@@ -136,21 +136,21 @@ class EditBillViewController: UIViewController {
             
             if self.electricPrice == 0 || self.newElectricNumber == 0 || self.oldElectricNumber == 0 || self.waterPrice == 0 || self.internetPrice == 0 {
                 
-                self.showAlert(alertMessage: messageNilTextFields)
+                self.showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
             }
             else if self.oldElectricNumber > self.newElectricNumber {
                 
-                self.showAlert(alertMessage: "Công suất cũ phải nhỏ hơn công suất mới.")
+                self.showAlert(title: "Thông báo", alertMessage: "Công suất cũ phải nhỏ hơn công suất mới.")
             }
             else if self.userCount <= 0 {
                 
-                self.showAlert(alertMessage: "Số người phải lớn hơn 0.")
+                self.showAlert(title: "Thông báo", alertMessage: "Số người phải lớn hơn 0.")
             }
             else {
                 
                 self.editData(reference: ref, newValues: values)
             }
-            self.showAlert(alertMessage: messageEditBillSuccess)
+            self.noticeSuccess(messageEditInfoSuccess, autoClear: true, autoClearTime: 1)
             return
         }
         

@@ -21,6 +21,7 @@
 		E10112D22091C2DD004ACA0D /* UpdateInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E10112D02091C2DD004ACA0D /* UpdateInfoViewController.xib */; };
 		E104666E20708FF400245789 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104666C20708FF400245789 /* TutorialViewController.swift */; };
 		E104666F20708FF400245789 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E104666D20708FF400245789 /* TutorialViewController.xib */; };
+		E10CB6D720AC4BBA00DFED8A /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6D620AC4BBA00DFED8A /* SwiftNotice.swift */; };
 		E117B659208DF2BE00087A0B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E117B657208DF2BE00087A0B /* ResultViewController.swift */; };
 		E117B65A208DF2BE00087A0B /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E117B658208DF2BE00087A0B /* ResultViewController.xib */; };
 		E117B664208E3BC500087A0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E117B663208E3BC500087A0B /* GoogleService-Info.plist */; };
@@ -113,6 +114,7 @@
 		E10112D02091C2DD004ACA0D /* UpdateInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateInfoViewController.xib; sourceTree = "<group>"; };
 		E104666C20708FF400245789 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		E104666D20708FF400245789 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
+		E10CB6D620AC4BBA00DFED8A /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 		E117B657208DF2BE00087A0B /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		E117B658208DF2BE00087A0B /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		E117B663208E3BC500087A0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 		E16F5B2F207BD34F00B284A5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E10CB6D620AC4BBA00DFED8A /* SwiftNotice.swift */,
 				E16F5B30207BD35A00B284A5 /* Controller.swift */,
 				E16F5B32207BDD0700B284A5 /* Strings.swift */,
 			);
@@ -819,6 +822,7 @@
 				E104666E20708FF400245789 /* TutorialViewController.swift in Sources */,
 				E14F2C2420960BF30034BE8E /* MyRoomsViewController.swift in Sources */,
 				E198DC212081829000E59BD2 /* HomeViewController.swift in Sources */,
+				E10CB6D720AC4BBA00DFED8A /* SwiftNotice.swift in Sources */,
 				E1A621D22070D23100B83291 /* TestViewController.swift in Sources */,
 				E1BD102620765FAD00287982 /* Room.swift in Sources */,
 				E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */,

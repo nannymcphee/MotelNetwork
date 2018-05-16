@@ -151,7 +151,7 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
         }, finish: { (asset: [PHAsset]) in
             
             if asset.count < 1 {
-                self.showAlert(alertMessage: "Vui lòng chọn 1 hình.")
+                self.showAlert(title: "Thông báo", alertMessage: "Vui lòng chọn 1 hình.")
             }
             else {
                 for i in 0..<asset.count {
@@ -169,7 +169,7 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
         
         if (tfUserName.text?.isEmpty)! || (tfPhoneNumber.text?.isEmpty)! || (tfCMND.text?.isEmpty)! || (tfBirthDay.text?.isEmpty)! {
             
-            self.showAlert(alertMessage: messageNilTextFields)
+            self.showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
         }
         else {
             
@@ -186,13 +186,13 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
                 
                 if (self.tfUserName.text?.isEmpty)! {
                     
-                    self.showAlert(alertMessage: messageNilTextFields)
+                    self.showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
                 }
                 else if self.ivProfileImage.image == nil {
                     
                     self.editData(reference: ref, newValues: values as [String: AnyObject])
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
-                        self.showAlert(alertMessage: messageEditRoomSuccess)
+                        self.noticeSuccess(messageEditInfoSuccess, autoClear: true, autoClearTime: 1)
                     })
                 }
                 else {
@@ -206,7 +206,7 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
                     }
                 }
                 
-                self.showAlert(alertMessage: messageEditInfoSuccess)
+                self.noticeSuccess(messageEditInfoSuccess, autoClear: true, autoClearTime: 1)
                 
                 return
             }

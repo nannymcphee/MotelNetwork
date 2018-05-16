@@ -123,15 +123,15 @@ class CalculateRoomPriceViewController: UIViewController {
         
         if electricPrice == 0 || newElectricNumber == 0 || oldElectricNumber == 0 || waterPrice == 0 || internetPrice == 0 {
             
-            showAlert(alertMessage: messageNilTextFields)
+            showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
         }
         else if oldElectricNumber > newElectricNumber {
             
-            showAlert(alertMessage: "Công suất cũ phải nhỏ hơn công suất mới.")
+            showAlert(title: "Thông báo", alertMessage: "Công suất cũ phải nhỏ hơn công suất mới.")
         }
         else if userCount <= 0 {
             
-            showAlert(alertMessage: "Số người phải lớn hơn 0.")
+            showAlert(title: "Thông báo", alertMessage: "Số người phải lớn hơn 0.")
         }
         else {
             
@@ -148,8 +148,7 @@ class CalculateRoomPriceViewController: UIViewController {
             let values = ["roomID": roomID ?? "", "ownerID": ownerID ?? "", "renterID": renterID ?? "", "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "oldElectricNumber": oldElectricNumber, "newElectricNumber": newElectricNumber, "userCount": userCount, "surcharge": surcharge, "timestamp": timestamp, "surchargeReason": surchargeReason, "totalRoomPrice": totalPrice, "totalWaterPrice": totalWaterPrice, "totalElectricPrice": totalElectricPrice, "roomPrice": roomPrice ?? ""] as [String: AnyObject]
 
             self.storeInformationToDatabase(reference: ref, values: values)
-            
-            showAlert(alertMessage: messageCreateBillSuccess)
+            self.noticeSuccess(messageCreateBillSuccess, autoClear: true, autoClearTime: 1)
             resetView()
             return
         }

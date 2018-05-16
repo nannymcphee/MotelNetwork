@@ -45,7 +45,7 @@ class ResultViewController: UIViewController, GMSMapViewDelegate {
     
     @IBAction func openInGoogleMapsButtonTouched(_ sender: UIButton) {
         if !request.openInGoogleMaps(center: nil, mapMode: .streetView, view: Set(arrayLiteral: PXGoogleMapsView.satellite, PXGoogleMapsView.traffic, PXGoogleMapsView.transit), zoom: 15, callbackURL: URL(string: "comexamplemotelnetwork"), callbackName: "MotelNetwork") {
-            self.showAlert(alertMessage: "Không thể mở Bản đồ.")
+            self.showAlert(title: "Thông báo", alertMessage: "Không thể mở Bản đồ.")
         }
     }
     

@@ -155,7 +155,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func btnExitPressed(_ sender: Any) {
         
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func btnProfilePicturePressed(_ sender: Any) {
@@ -175,7 +175,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         }, finish: { (asset: [PHAsset]) in
             
             if asset.count < 1 {
-                self.showAlert(alertMessage: "Vui lòng chọn 1 hình.")
+                self.showAlert(title: "Thông báo", alertMessage: "Vui lòng chọn 1 hình.")
             }
             else {
                 for i in 0..<asset.count {
@@ -198,23 +198,24 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         let userBirthDay = self.tfBirthDay.text!
         let userPhoneNumber = self.tfPhoneNumber.text!
         let userType = self.pvUserType.selectedRow(inComponent: 0)
+        let timestamp = Int(NSDate().timeIntervalSince1970)
         
         // Check if user has entered all informations
         if userFullName.isEmpty || userEmail.isEmpty || userPassword.isEmpty || userCMND.isEmpty || userBirthDay.isEmpty || userPhoneNumber.isEmpty {
             
-            showAlert(alertMessage: messageNilTextFields)
+            showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
         }
         else if ivProfilePicture.image == nil {
             
-            showAlert(alertMessage: messageNilImages)
+            showAlert(title: "Thông báo", alertMessage: messageNilImages)
         }
         else if userPassword.count < 6 {
             
-            showAlert(alertMessage: messagePasswordLessThan6Chars)
+            showAlert(title: "Thông báo", alertMessage: messagePasswordLessThan6Chars)
         }
         else if !isValidEmail(email: userEmail) {
             
-            showAlert(alertMessage: messageInvalidEmail)
+            showAlert(title: "Thông báo", alertMessage: messageInvalidEmail)
         }
         else {
             
@@ -225,7 +226,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 if let error = error {
                     
                     print(error)
-                    self.showAlert(alertMessage: messageEmailAlreadyUsed)
+                    self.showAlert(title: "Thông báo", alertMessage: messageEmailAlreadyUsed)
                     return
                 }
                 else {
@@ -255,7 +256,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     
                     // Store user's info to database
                     
-                    let values = ["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": "", "PhoneNumber": userPhoneNumber] as [String : AnyObject]
+                    let values = ["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": "", "PhoneNumber": userPhoneNumber, "TimeStamp": timestamp] as [String : AnyObject]
                     
                     self.storeInformationToDatabase(reference: reference, values: values as [String : AnyObject])
                     
@@ -265,8 +266,12 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                         self.storeInformationToDatabase(reference: reference, values: ["ProfileImageUrl": url as AnyObject])
                     }
 
-                    self.showAlert(alertMessage: messageSignUpSuccess)
-                    self.resetView()
+                    self.showLoading()
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
+                        self.stopLoading()
+                        self.noticeSuccess(messageSignUpSuccess, autoClear: true, autoClearTime: 1)
+                        self.resetView()
+                    })
                 }
             }
             return

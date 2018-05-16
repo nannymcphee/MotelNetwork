@@ -84,10 +84,15 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func btnGoPressed(_ sender: Any) {
         
         if (tfOrigin.text?.isEmpty)! || (tfDestination.text?.isEmpty)! {
-            showAlert(alertMessage: messageNilTextFields)
+            showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
         }
         else if tfOrigin.text == "Vị trí của bạn" {
-            navigateFromCoordinateToCoordinate()
+            if self.currentLocation != nil {
+                navigateFromCoordinateToCoordinate()
+            }
+            else {
+                showAlert(title: "Thông báo", alertMessage: messageGPSAccessDenied)
+            }
         }
         else if tfOrigin.text != "Vị trí của bạn" {
             navigateFromPlaceToCoordinate()
@@ -111,7 +116,7 @@ extension NavigationViewController: PXGoogleDirectionsDelegate {
             DispatchQueue.main.async(execute: { () -> Void in
                 switch response {
                 case let .error(_, error):
-                    self.showAlert(alertMessage: "Error: \(error.localizedDescription)")
+                    self.showAlert(title: "Lỗi", alertMessage: "Error: \(error.localizedDescription)")
                 case let .success(request, routes):
                     let rvc = ResultViewController()
                     rvc.request = request
@@ -133,7 +138,7 @@ extension NavigationViewController: PXGoogleDirectionsDelegate {
             DispatchQueue.main.async(execute: { () -> Void in
                 switch response {
                 case let .error(_, error):
-                    self.showAlert(alertMessage: "Error: \(error.localizedDescription)")
+                    self.showAlert(title: "Lỗi", alertMessage: "Error: \(error.localizedDescription)")
                 case let .success(request, routes):
                     let rvc = ResultViewController()
                     rvc.request = request

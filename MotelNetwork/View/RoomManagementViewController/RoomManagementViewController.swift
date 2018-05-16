@@ -111,38 +111,37 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         let ref = Database.database().reference()
         let query = ref.child("Rooms").queryOrdered(byChild: "ownerID").queryEqual(toValue: uid)
         
-        DispatchQueue.global(qos: .background).async {
-            query.observe(.childAdded, with: { (snapshot) in
+        query.observe(.childAdded, with: { (snapshot) in
+            
+            if let dictionary = snapshot.value as? [String: AnyObject] {
+                let room = Room(dictionary: dictionary)
+                room.id = snapshot.key
                 
-                if let dictionary = snapshot.value as? [String: AnyObject] {
-                    let room = Room(dictionary: dictionary)
-                    room.id = snapshot.key
-
-                    let priceStr = dictionary["price"] as? String
-                    
-                    room.name = dictionary["roomName"] as? String
-                    room.price = Double(priceStr ?? "0.0")
-                    room.area = dictionary["area"] as? String
-                    room.renterID = dictionary["renterID"] as? String
-                    room.ownerID = dictionary["ownerID"] as? String
-                    room.roomImageUrl0 = dictionary["roomImageUrl0"] as? String
-                    room.roomImageUrl1 = dictionary["roomImageUrl1"] as? String
-                    room.roomImageUrl2 = dictionary["roomImageUrl2"] as? String
-                    room.usersAllowed = dictionary["usersAllowed"] as? String
-                    
-                    self.listRooms.append(room)
-                    self.listRooms = self.listRooms.sorted(by: { (room0, room1) -> Bool in
-                        return room0.name?.localizedStandardCompare(room1.name!) == .orderedAscending
-                    })
-                    self.roomsCount = self.listRooms.count
-                    
-                    DispatchQueue.main.async(execute: {
-                        self.lblRoomCount.text = "\(self.roomsCount)"
-                        self.tbRoomManagement.reloadData()
-                    })
-                }
-            }, withCancel: nil)
-        }
+                let priceStr = dictionary["price"] as? String
+                
+                room.name = dictionary["roomName"] as? String
+                room.price = Double(priceStr ?? "0.0")
+                room.area = dictionary["area"] as? String
+                room.renterID = dictionary["renterID"] as? String
+                room.ownerID = dictionary["ownerID"] as? String
+                room.roomImageUrl0 = dictionary["roomImageUrl0"] as? String
+                room.roomImageUrl1 = dictionary["roomImageUrl1"] as? String
+                room.roomImageUrl2 = dictionary["roomImageUrl2"] as? String
+                room.usersAllowed = dictionary["usersAllowed"] as? String
+                
+                self.listRooms.append(room)
+                self.listRooms = self.listRooms.sorted(by: { (room0, room1) -> Bool in
+                    return room0.name?.localizedStandardCompare(room1.name!) == .orderedAscending
+                })
+                self.roomsCount = self.listRooms.count
+                
+                DispatchQueue.main.async(execute: {
+                    self.lblRoomCount.text = "\(self.roomsCount)"
+                    self.tbRoomManagement.reloadData()
+                })
+            }
+        }, withCancel: nil)
+        
     }
     
     //MARK: Handle button pressed
@@ -230,11 +229,17 @@ extension RoomManagementViewController {
             let roomImageUrl0 = room.roomImageUrl0!
             let roomImageUrl1 = room.roomImageUrl1!
             let roomImageUrl2 = room.roomImageUrl2!
-            
             let ref = Database.database().reference().child("Rooms").child(roomID!)
-            let storageRef0 = Storage.storage().reference(forURL: roomImageUrl0)
-            let storageRef1 = Storage.storage().reference(forURL: roomImageUrl1)
-            let storageRef2 = Storage.storage().reference(forURL: roomImageUrl2)
+            var storageRef0 = StorageReference()
+            var storageRef1 = StorageReference()
+            var storageRef2 = StorageReference()
+            
+            if !roomImageUrl0.isEmpty || !roomImageUrl1.isEmpty || !roomImageUrl2.isEmpty {
+                
+                 storageRef0 = Storage.storage().reference(forURL: roomImageUrl0)
+                 storageRef1 = Storage.storage().reference(forURL: roomImageUrl1)
+                 storageRef2 = Storage.storage().reference(forURL: roomImageUrl2)
+            }
             
             // Show confirmation alert
             let alert = UIAlertController(title: messageConfirmDeleteRoom, message: nil, preferredStyle: .actionSheet)
@@ -274,7 +279,7 @@ extension RoomManagementViewController {
         let action = UIContextualAction(style: .normal, title: "") { (action, view, nil) in
             
             if renterID.isEmpty {
-                self.showAlert(alertMessage: "Không thể tính tiền phòng chưa có người thuê.")
+                self.showAlert(title: "Thông báo", alertMessage: "Không thể tính tiền phòng chưa có người thuê.")
             }
             else {
                 let vc = CalculateRoomPriceViewController()

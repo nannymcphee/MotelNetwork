@@ -29,14 +29,16 @@ class ForgotPasswordViewController: UIViewController {
 
     
     @IBAction func btnExitPressed(_ sender: Any) {
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
+//        (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func btnRecoverPasswordPressed(_ sender: Any) {
         
         if (tfRecoveryEmail.text?.isEmpty)! {
             
-            self.showAlert(alertMessage: "Vui lòng nhập email.")
+            self.showAlert(title: "Thông báo", alertMessage: "Vui lòng nhập email.")
         }
         else {
             
@@ -45,11 +47,11 @@ class ForgotPasswordViewController: UIViewController {
             Auth.auth().sendPasswordReset(withEmail: email!) { (error) in
                 if error != nil {
                     
-                    self.showAlert(alertMessage: "\(error ?? "" as! Error)")
+                    self.showAlert(title: "Thông báo", alertMessage: "\(error ?? "" as! Error)")
                 }
                 else {
                     
-                    self.showAlert(alertMessage: "Vui lòng kiểm tra email của bạn.")
+                    self.showAlert(title: "Thông báo", alertMessage: "Vui lòng kiểm tra email của bạn.")
                 }
             }
         }

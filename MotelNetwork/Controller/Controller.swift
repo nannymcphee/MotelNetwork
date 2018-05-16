@@ -23,10 +23,10 @@ extension UIViewController {
     // MARK: Handle login
     
     func doLogin(email: String, pass: String) {
+        showLoading()
         Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
-            if let u = user {
-                
-                print(u)
+            if user != nil {
+                self.stopLoading()
                 let vc = MainViewController()
                 (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
             }
@@ -35,7 +35,7 @@ extension UIViewController {
                 if let firebaseError = error {
                     
                     print(firebaseError)
-                    self.showAlert(alertMessage: messageLoginFailed)
+                    self.showAlert(title: "Thông báo", alertMessage: messageLoginFailed)
                     return
                 }
             }
@@ -70,8 +70,8 @@ extension UIViewController {
     
     //MARK: Show alerts
     
-    func showAlert(alertMessage: String) {
-        let alert = UIAlertController(title: "Thông báo", message: alertMessage, preferredStyle: .alert)
+    func showAlert(title: String, alertMessage: String) {
+        let alert = UIAlertController(title: title, message: alertMessage, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default) { (action) in
             alert.dismiss(animated: true, completion: nil)
         }
@@ -158,7 +158,7 @@ extension UIViewController {
                     
                     print(error)
                     
-                    self.showAlert(alertMessage: messageRequestLogOut)
+                    self.showAlert(title: "Thông báo", alertMessage: messageRequestLogOut)
                 }
                 else {
                     
@@ -166,9 +166,7 @@ extension UIViewController {
                     let values = ["Password": newPass]
                     let ref = Database.database().reference().child("Users").child(uid!)
                     self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
-                    DispatchQueue.main.async {
-                        self.showAlert(alertMessage: messageChangePasswordSuccess)
-                    }
+                    self.noticeSuccess(messageChangePasswordSuccess, autoClear: true, autoClearTime: 1)
                 }
             })
         }
@@ -183,7 +181,7 @@ extension UIViewController {
                 if let error = error {
                     
                     print(error)
-                    self.showAlert(alertMessage: messageRequestLogOut)
+                    self.showAlert(title: "Thông báo", alertMessage: messageRequestLogOut)
                 }
                 else {
                     
@@ -191,9 +189,7 @@ extension UIViewController {
                     let values = ["Email": newEmail]
                     let ref = Database.database().reference().child("Users").child(uid!)
                     self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
-                    DispatchQueue.main.async {
-                        self.showAlert(alertMessage: messageChangeEmailSuccess)
-                    }
+                    self.noticeSuccess(messageChangeEmailSuccess, autoClear: true, autoClearTime: 1)
                 }
             }
         }

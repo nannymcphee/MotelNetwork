@@ -12,7 +12,6 @@ import FirebaseDatabase
 import Kingfisher
 import Floaty
 import ImageSlideshow
-import MXParallaxHeader
 
 class DetailRoomViewController: UIViewController {
 
@@ -61,10 +60,6 @@ class DetailRoomViewController: UIViewController {
         lblUsersAllowed.text = "Số người cho phép: \(currentRoom.usersAllowed ?? "")"
         lblAddress.text = currentRoom.address
         lblAddress.sizeToFit()
-        svContent.parallaxHeader.view = vHeader
-        svContent.parallaxHeader.height = 64
-        svContent.parallaxHeader.minimumHeight = 42
-        svContent.parallaxHeader.mode = .center
         makeImageViewRounded(imageView: ivAvatar)
         setUpSlideShow()
         
@@ -197,7 +192,7 @@ class DetailRoomViewController: UIViewController {
             
             if renterID.isEmpty {
                 
-                self.showAlert(alertMessage: "Không thể tính tiền phòng chưa có người thuê.")
+                self.showAlert(title: "Thông báo", alertMessage: "Không thể tính tiền phòng chưa có người thuê.")
             }
             else {
                 let vc = CalculateRoomPriceViewController()
@@ -228,5 +223,4 @@ class DetailRoomViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 }
-
 

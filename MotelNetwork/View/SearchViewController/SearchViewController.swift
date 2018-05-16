@@ -143,7 +143,8 @@ class SearchViewController: UIViewController, UITableViewDataSource {
         
         let vc = GoogleMapViewController()
             
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+//        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true)
     }
     
     @IBAction func btnFilterPressed(_ sender: Any) {

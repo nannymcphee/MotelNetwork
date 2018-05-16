@@ -12,6 +12,7 @@ import Kingfisher
 
 class ListNewsTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var vContent: UIView!
     @IBOutlet weak var lblUsersAllowed: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblPrice: UILabel!

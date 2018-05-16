@@ -18,7 +18,6 @@ let messageRequestLogOut: String = "Bạn cần phải đăng nhập lại trư�
 let messageEmailAlreadyUsed: String = "Email này đã được sử dụng. Vui lòng nhập email khác."
 let messageCreateRoomSuccess: String = "Tạo phòng thành công."
 let messageEditInfoSuccess: String = "Sửa thông tin thành công"
-let messageEditRoomSuccess: String = "Sửa thông tin phòng thành công."
 let messageNilTextFields: String = "Vui lòng nhập đầy đủ thông tin."
 let messageSignUpSuccess: String = "Đăng ký thành công."
 let messageSignUpFailed: String = "Đăng ký thất bại."
@@ -43,6 +42,7 @@ let messageCreateBillSuccess: String = "Lưu hóa đơn thành công."
 let messageEditBillSuccess: String = "Sửa hóa đơn thành công."
 let messageNilImages: String = "Bạn chưa chọn ảnh."
 let messageWrongPasswordConfirm: String = "Mật khẩu xác nhận không giống mật khẩu mới. Vui lòng kiểm tra lại."
-let messageInvalidPhoneNumber: String = "Vui lòng nhập đúng số điện thoại." 
+let messageInvalidPhoneNumber: String = "Vui lòng nhập đúng số điện thoại."
+let messageGPSAccessDenied: String = "Motel Network không có quyền truy cập vào vị trí hiện tại của bạn. Bạn có thể thay đổi trong Cài đặt."
 
 

@@ -63,7 +63,7 @@
                                             <rect key="frame" x="0.0" y="360" width="375" height="700"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="bqM-eL-b12">
-                                                    <rect key="frame" x="94" y="90" width="192" height="80"/>
+                                                    <rect key="frame" x="94" y="86" width="192" height="80"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="XPt-uA-1kM">
                                                             <rect key="frame" x="0.0" y="0.0" width="102" height="80"/>
@@ -198,19 +198,19 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ngày đăng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7WF-Aw-2oo">
-                                                    <rect key="frame" x="24" y="232.5" width="68.5" height="16.5"/>
+                                                    <rect key="frame" x="24" y="228.5" width="68.5" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0039215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mô tả" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4A-c8-wnC">
-                                                    <rect key="frame" x="24" y="331.5" width="42.5" height="19.5"/>
+                                                    <rect key="frame" x="24" y="327.5" width="42.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIm-uC-PcL">
-                                                    <rect key="frame" x="24" y="367" width="331" height="200"/>
+                                                    <rect key="frame" x="24" y="363" width="331" height="200"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="200" id="rad-2T-gZM"/>
@@ -221,19 +221,19 @@
                                                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liên hệ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1Q-Dl-bpx">
-                                                    <rect key="frame" x="24" y="200" width="46" height="16.5"/>
+                                                    <rect key="frame" x="24" y="196" width="46" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04/04/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="751-O1-q4M">
-                                                    <rect key="frame" x="117.5" y="232.5" width="72" height="16.5"/>
+                                                    <rect key="frame" x="117.5" y="228.5" width="72" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" scrollEnabled="NO" keyboardDismissMode="onDrag" editable="NO" text="Địa chỉ" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fhZ-YC-42r">
-                                                    <rect key="frame" x="112" y="257" width="200" height="55"/>
+                                                    <rect key="frame" x="112" y="253" width="200" height="55"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="55" id="8x4-JN-S2O"/>
@@ -243,13 +243,13 @@
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="address-line1"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Địa chỉ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQc-a8-17s">
-                                                    <rect key="frame" x="24" y="265" width="44" height="16.5"/>
+                                                    <rect key="frame" x="24" y="261" width="44" height="16.5"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="0979084007" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MEX-7m-kVS">
-                                                    <rect key="frame" x="112" y="192" width="120" height="22"/>
+                                                    <rect key="frame" x="112" y="188" width="120" height="22"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="120" id="H36-gK-z1g"/>
@@ -260,7 +260,7 @@
                                                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
                                                 </textView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5V-jk-eAM">
-                                                    <rect key="frame" x="24" y="16" width="327" height="50"/>
+                                                    <rect key="frame" x="24" y="12" width="327" height="50"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="DetailNewsViewController"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="E8e-fb-3R2"/>
@@ -294,7 +294,7 @@ dòng 2</string>
                                                 <constraint firstAttribute="trailing" secondItem="N5V-jk-eAM" secondAttribute="trailing" constant="24" id="cqn-GT-bIf"/>
                                                 <constraint firstItem="bqM-eL-b12" firstAttribute="centerX" secondItem="Oiy-hZ-FUE" secondAttribute="centerX" constant="2.5" id="d79-GR-dwg"/>
                                                 <constraint firstItem="pQc-a8-17s" firstAttribute="top" secondItem="7WF-Aw-2oo" secondAttribute="bottom" constant="16" id="kjl-L6-ifY"/>
-                                                <constraint firstItem="N5V-jk-eAM" firstAttribute="top" secondItem="Oiy-hZ-FUE" secondAttribute="top" constant="16" id="uRa-Ya-2rV"/>
+                                                <constraint firstItem="N5V-jk-eAM" firstAttribute="top" secondItem="Oiy-hZ-FUE" secondAttribute="top" constant="12" id="uRa-Ya-2rV"/>
                                                 <constraint firstItem="eIm-uC-PcL" firstAttribute="leading" secondItem="Oiy-hZ-FUE" secondAttribute="leading" constant="24" id="xPc-et-6Fa"/>
                                             </constraints>
                                         </view>
@@ -398,7 +398,7 @@ dòng 2</string>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="EDS-KK-Qtc"/>
-            <point key="canvasLocation" x="561" y="-250"/>
+            <point key="canvasLocation" x="141" y="-586"/>
         </view>
     </objects>
     <resources>

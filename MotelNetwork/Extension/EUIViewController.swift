@@ -16,7 +16,7 @@ extension UIViewController {
         NVActivityIndicatorView.DEFAULT_TYPE = .circleStrokeSpin
         let activityData = ActivityData()
         NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
-        NVActivityIndicatorPresenter.sharedInstance.setMessage("Đang tải...")
+//        NVActivityIndicatorPresenter.sharedInstance.setMessage("Đang tải...")
     }
     
     func stopLoading() {

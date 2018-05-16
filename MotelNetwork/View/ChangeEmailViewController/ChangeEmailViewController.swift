@@ -72,11 +72,11 @@ class ChangeEmailViewController: UIViewController {
         
         if (tfNewEmail.text?.isEmpty)! {
             
-            showAlert(alertMessage: messageNilTextFields)
+            showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
         }
         else if !isValidEmail(email: newEmail!) {
             
-            showAlert(alertMessage: messageInvalidEmail)
+            showAlert(title: "Thông báo", alertMessage: messageInvalidEmail)
         }
         else {
             

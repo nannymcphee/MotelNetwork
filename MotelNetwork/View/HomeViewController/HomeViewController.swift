@@ -169,12 +169,19 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
     
     @objc func refreshDataNearMe() {
         
-        listNearMe.removeAll()
-        listNearMeTemp.removeAll()
-        loadDataNearMe()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.2) {
+        if self.currentLocation != nil {
+            listNearMe.removeAll()
+            listNearMeTemp.removeAll()
+            loadDataNearMe()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.2) {
+                self.refreshControl2.endRefreshing()
+            }
+        }
+        else {
+            self.showAlert(title: "Thông báo", alertMessage: messageGPSAccessDenied)
             self.refreshControl2.endRefreshing()
         }
+        
     }
     
     // MARK: Set up views
@@ -633,7 +640,7 @@ extension HomeViewController: CLLocationManagerDelegate {
     func setUpLocationManager() {
 
         locationManager.delegate = self
-        self.locationManager.requestWhenInUseAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         locationManager.distanceFilter = 50

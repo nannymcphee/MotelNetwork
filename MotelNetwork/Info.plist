@@ -26,17 +26,17 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Motel Network cần vị trí hiện tại của bạn</string>
+	<string>Motel Network cần vị trí hiện tại của bạn cho các chức năng chỉ đường, xem tin tức gần nhất,...</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Motel Network cần vị trí hiện tại của bạn</string>
+	<string>Motel Network cần vị trí hiện tại của bạn cho các chức năng chỉ đường, xem tin tức gần nhất,...</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Motel Network cần vị trí hiện tại của bạn</string>
+	<string>Motel Network cần vị trí hiện tại của bạn cho các chức năng chỉ đường, xem tin tức gần nhất,...</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Motel Network cần truy cập vào thư viện ảnh của bạn</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string></string>
 	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
+	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

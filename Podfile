@@ -24,7 +24,6 @@ target 'Motel Network' do
     	pod 'Alamofire'
     	pod 'SwiftyJSON'
 	pod 'ImageSlideshow', '~> 1.5'
-	pod "ImageSlideshow/Kingfisher"
-	pod 'MXParallaxHeader'
-
+	pod 'ImageSlideshow/Kingfisher'
+    pod "MXParallaxHeader"
 end

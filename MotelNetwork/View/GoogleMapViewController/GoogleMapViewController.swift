@@ -99,7 +99,8 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
     
     @IBAction func btnBackPressed(_ sender: Any) {
         
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
+//        (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -157,6 +158,7 @@ extension GoogleMapViewController {
             print("User denied access to location.")
             // Display the map using the default location.
             mapView.isHidden = false
+            self.showAlert(title: "Thông báo", alertMessage: messageGPSAccessDenied)
         case .notDetermined:
             print("Location status not determined.")
         case .authorizedAlways: fallthrough

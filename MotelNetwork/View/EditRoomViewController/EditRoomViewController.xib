@@ -51,8 +51,8 @@
                                 <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="5jg-gW-T9S"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sửa phòng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idg-0J-rSD">
-                            <rect key="frame" x="147" y="22.5" width="82" height="19"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sửa thông tin phòng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idg-0J-rSD">
+                            <rect key="frame" x="112" y="22.5" width="152" height="19"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

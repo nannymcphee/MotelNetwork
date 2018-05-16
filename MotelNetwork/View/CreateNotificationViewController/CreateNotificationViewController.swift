@@ -46,7 +46,7 @@ class CreateNotificationViewController: UIViewController {
         
         if (tfTitle.text?.isEmpty)! || (tvContent.text?.isEmpty)! {
             
-            self.showAlert(alertMessage: messageNilTextFields)
+            self.showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
         }
         else {
             
@@ -61,7 +61,7 @@ class CreateNotificationViewController: UIViewController {
             
             self.storeInformationToDatabase(reference: ref, values: values)
         }
-        self.showAlert(alertMessage: messageCreateNotiSuccess)
+        self.showAlert(title: "Thông báo", alertMessage: messageCreateNotiSuccess)
     }
     
  

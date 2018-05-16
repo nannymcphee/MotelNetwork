@@ -136,11 +136,6 @@ class DetailBillViewController: UIViewController {
         else {
             lblSurchargeReason.text = "Lí do phụ thu: Không có."
         }
-        
-        svContent.parallaxHeader.view = vHeader
-        svContent.parallaxHeader.height = 64
-        svContent.parallaxHeader.minimumHeight = 32
-        svContent.parallaxHeader.mode = .center
     }
     
     //MARK: Handle button pressed

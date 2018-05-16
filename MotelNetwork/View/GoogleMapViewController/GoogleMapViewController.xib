@@ -37,7 +37,7 @@
                                 <constraint firstAttribute="width" constant="16" id="GaT-6g-NNg"/>
                                 <constraint firstAttribute="height" constant="16" id="k7L-zO-SQs"/>
                             </constraints>
-                            <state key="normal" image="icLeft"/>
+                            <state key="normal" image="icBackSquare"/>
                             <connections>
                                 <action selector="btnBackPressed:" destination="-1" eventType="touchUpInside" id="EDG-aI-FPC"/>
                             </connections>
@@ -72,6 +72,6 @@
         </view>
     </objects>
     <resources>
-        <image name="icLeft" width="24" height="24"/>
+        <image name="icBackSquare" width="24" height="24"/>
     </resources>
 </document>
