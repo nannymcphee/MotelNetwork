@@ -89,7 +89,7 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
             let news = listNews[index]
             let postID = news.id
             let ref = Database.database().reference().child("Posts").child(postID!).child("views")
-            
+
             increaseViewForPost(reference: ref)
             vc.currentNews = news
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
@@ -99,8 +99,7 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
     
     @IBAction func btnBackPressed(_ sender: Any) {
         
-//        (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
 }
 

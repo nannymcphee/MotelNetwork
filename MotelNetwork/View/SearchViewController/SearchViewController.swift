@@ -143,8 +143,7 @@ class SearchViewController: UIViewController, UITableViewDataSource {
         
         let vc = GoogleMapViewController()
             
-//        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
-        self.present(vc, animated: true)
+        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func btnFilterPressed(_ sender: Any) {
@@ -416,5 +415,16 @@ extension SearchViewController: UITableViewDelegate {
         }
         
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension UISearchBar {
+    
+    func changeTextFont(textFont: UIFont?) {
+        for view: UIView in (self.subviews[0]).subviews {
+            if let textField = view as? UITextField {
+                textField.font = textFont
+            }
+        }
     }
 }

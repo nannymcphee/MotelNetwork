@@ -223,14 +223,10 @@ extension UIViewController {
     
     //MARK: Database interactions
     
-    // Update user's information to database
-    func storeUserInformationToDatabase(_ uid: String, values: [String: AnyObject]) {
-        
-        // Add user's information to database
-        let databaseRef = Database.database().reference()
-        let usersRef = databaseRef.child("Users").child(uid)
-        
-        usersRef.updateChildValues(values) { (error, ref) in
+    // Store to database
+    func storeInformationToDatabase(reference: DatabaseReference, values: [String: AnyObject]) {
+    
+        reference.updateChildValues(values) { (error, ref) in
             
             if error != nil {
                 
@@ -242,14 +238,14 @@ extension UIViewController {
         }
     }
     
-    // Store to database
-    func storeInformationToDatabase(reference: DatabaseReference, values: [String: AnyObject]) {
-    
-        reference.updateChildValues(values) { (error, ref) in
+    // Edit data
+    func editData(reference: DatabaseReference, newValues: [String: AnyObject]) {
+        
+        reference.updateChildValues(newValues) { (error, ref) in
             
-            if error != nil {
+            if let error = error {
                 
-                print(error!)
+                print(error)
                 return
             }
             
@@ -273,21 +269,6 @@ extension UIViewController {
             if let error = error {
                 print(error)
             }
-        }
-    }
-    
-    // Edit data
-    func editData(reference: DatabaseReference, newValues: [String: AnyObject]) {
-        
-        reference.updateChildValues(newValues) { (error, ref) in
-            
-            if let error = error {
-                
-                print(error)
-                return
-            }
-            
-            self.dismiss(animated: true, completion: nil)
         }
     }
     
@@ -365,17 +346,6 @@ extension UIViewController {
     }
 
     
-}
-
-extension UISearchBar {
-    
-    func changeTextFont(textFont: UIFont?) {
-        for view: UIView in (self.subviews[0]).subviews {
-            if let textField = view as? UITextField {
-                textField.font = textFont
-            }
-        }
-    }
 }
 
 extension UITableView {

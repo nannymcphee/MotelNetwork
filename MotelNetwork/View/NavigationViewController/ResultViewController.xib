@@ -38,9 +38,9 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2D-aN-GJu">
-                                    <rect key="frame" x="229" y="16.5" width="127" height="32"/>
+                                    <rect key="frame" x="184" y="16.5" width="172" height="32"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                                    <state key="normal" title="Mở trong Bản đồ"/>
+                                    <state key="normal" title="Mở trong Google Maps"/>
                                     <connections>
                                         <action selector="openInGoogleMapsButtonTouched:" destination="-1" eventType="touchUpInside" id="WrM-Hh-fSO"/>
                                     </connections>

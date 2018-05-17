@@ -17,7 +17,7 @@ import MXParallaxHeader
 class DetailNewsViewController: UIViewController {
     
     
-//    @IBOutlet weak var lblViewsCount: UILabel!
+    //    @IBOutlet weak var lblViewsCount: UILabel!
     @IBOutlet weak var svContent: UIScrollView!
     @IBOutlet weak var vHeader: UIView!
     @IBOutlet weak var lblTimeAgo: UILabel!
@@ -170,5 +170,7 @@ extension DetailNewsViewController: FloatyDelegate {
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+
 
 
