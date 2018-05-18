@@ -140,8 +140,6 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
         
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 1
-        vc.cancelButton.title = "Đóng"
-        vc.doneButton.title = "Xong"
         self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
             
         }, deselect: { (asset: PHAsset) in
@@ -191,9 +189,7 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
                 else if self.ivProfileImage.image == nil {
                     
                     self.editData(reference: ref, newValues: values as [String: AnyObject])
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now(), execute: {
-                        self.noticeSuccess(messageEditInfoSuccess, autoClear: true, autoClearTime: 1)
-                    })
+                    NativePopup.show(image: Preset.Feedback.done, title: messageEditInfoSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
                 }
                 else {
                     
@@ -206,7 +202,7 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
                     }
                 }
                 
-                self.noticeSuccess(messageEditInfoSuccess, autoClear: true, autoClearTime: 1)
+                NativePopup.show(image: Preset.Feedback.done, title: messageEditInfoSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
                 
                 return
             }

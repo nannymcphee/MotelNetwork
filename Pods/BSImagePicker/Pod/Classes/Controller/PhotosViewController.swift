@@ -68,7 +68,7 @@ final class PhotosViewController : UICollectionViewController {
     let settings: BSImagePickerSettings
     
     fileprivate let doneBarButtonTitle: String = NSLocalizedString("Xong", comment: "Xong")
-    
+
     @objc lazy var albumsViewController: AlbumsViewController = {
         let storyboard = UIStoryboard(name: "Albums", bundle: BSImagePickerViewController.bundle)
         let vc = storyboard.instantiateInitialViewController() as! AlbumsViewController
@@ -109,7 +109,7 @@ final class PhotosViewController : UICollectionViewController {
         collectionView?.allowsMultipleSelection = true
         
         // Set an empty title to get < back button
-        title = " "
+        title = ""
         
         // Set button actions and add them to navigation item
         doneBarButton?.target = self

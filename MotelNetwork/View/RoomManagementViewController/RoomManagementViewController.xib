@@ -57,7 +57,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gus-3O-X24">
-                                            <rect key="frame" x="19" y="18" width="24" height="24"/>
+                                            <rect key="frame" x="19" y="20" width="24" height="24"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="24" id="280-ii-EwW"/>
                                                 <constraint firstAttribute="height" constant="24" id="gyp-oH-gdf"/>
@@ -67,12 +67,6 @@
                                                 <action selector="btnBillsPressed:" destination="-1" eventType="touchUpInside" id="0Ki-M4-Cy0"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoá đơn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUa-rU-qOm">
-                                            <rect key="frame" x="7.5" y="42" width="47.5" height="14"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdD-ze-dRp">
                                             <rect key="frame" x="332" y="20" width="24" height="24"/>
                                             <constraints>
@@ -91,15 +85,13 @@
                                         <constraint firstAttribute="trailing" secondItem="YD4-0D-65h" secondAttribute="trailing" id="3BN-nY-V6W"/>
                                         <constraint firstAttribute="bottom" secondItem="YD4-0D-65h" secondAttribute="bottom" id="4xT-K2-qLg"/>
                                         <constraint firstAttribute="height" constant="64" id="6AH-ox-KGE"/>
-                                        <constraint firstItem="gus-3O-X24" firstAttribute="top" secondItem="pS2-uX-JdS" secondAttribute="top" constant="18" id="AM9-l2-Y07"/>
                                         <constraint firstItem="YD4-0D-65h" firstAttribute="leading" secondItem="pS2-uX-JdS" secondAttribute="leading" id="L85-4e-vQe"/>
+                                        <constraint firstItem="gus-3O-X24" firstAttribute="centerY" secondItem="pS2-uX-JdS" secondAttribute="centerY" id="MYx-PG-bZC"/>
                                         <constraint firstItem="gus-3O-X24" firstAttribute="leading" secondItem="pS2-uX-JdS" secondAttribute="leading" constant="19" id="N23-pP-7nE"/>
-                                        <constraint firstItem="FUa-rU-qOm" firstAttribute="centerX" secondItem="gus-3O-X24" secondAttribute="centerX" id="Pn5-jO-Euj"/>
                                         <constraint firstAttribute="trailing" secondItem="pdD-ze-dRp" secondAttribute="trailing" constant="19" id="T8n-vD-549"/>
                                         <constraint firstItem="b22-l6-bRq" firstAttribute="centerY" secondItem="pS2-uX-JdS" secondAttribute="centerY" id="Wt9-pl-1yv"/>
                                         <constraint firstItem="pdD-ze-dRp" firstAttribute="centerY" secondItem="pS2-uX-JdS" secondAttribute="centerY" id="ncN-IT-emU"/>
                                         <constraint firstItem="b22-l6-bRq" firstAttribute="centerX" secondItem="pS2-uX-JdS" secondAttribute="centerX" id="pe2-0e-btm"/>
-                                        <constraint firstItem="FUa-rU-qOm" firstAttribute="top" secondItem="gus-3O-X24" secondAttribute="bottom" id="uFK-AT-gvv"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IGC-Mf-KHN">

@@ -36,12 +36,14 @@ open class BSImagePickerViewController : UINavigationController {
     /**
      Done button.
      */
-    @objc open var doneButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+//    @objc open var doneButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+    @objc open var doneButton: UIBarButtonItem = UIBarButtonItem(title: "Xong", style: .done, target: nil, action: nil)
     
     /**
      Cancel button
      */
-    @objc open var cancelButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
+//    @objc open var cancelButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: nil)
+    @objc open var cancelButton: UIBarButtonItem = UIBarButtonItem(title: "Đóng", style: .done, target: nil, action: nil)
     
     /**
      Default selections
@@ -79,7 +81,6 @@ open class BSImagePickerViewController : UINavigationController {
         
         vc.doneBarButton = self.doneButton
         vc.cancelBarButton = self.cancelButton
-        vc.cancelBarButton?.title = "Đóng"
         vc.albumTitleView = self.albumTitleView
         
         return vc

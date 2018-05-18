@@ -148,7 +148,7 @@ class CalculateRoomPriceViewController: UIViewController {
             let values = ["roomID": roomID ?? "", "ownerID": ownerID ?? "", "renterID": renterID ?? "", "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "oldElectricNumber": oldElectricNumber, "newElectricNumber": newElectricNumber, "userCount": userCount, "surcharge": surcharge, "timestamp": timestamp, "surchargeReason": surchargeReason, "totalRoomPrice": totalPrice, "totalWaterPrice": totalWaterPrice, "totalElectricPrice": totalElectricPrice, "roomPrice": roomPrice ?? ""] as [String: AnyObject]
 
             self.storeInformationToDatabase(reference: ref, values: values)
-            self.noticeSuccess(messageCreateBillSuccess, autoClear: true, autoClearTime: 1)
+            NativePopup.show(image: Preset.Feedback.done, title: messageCreateBillSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
             resetView()
             return
         }

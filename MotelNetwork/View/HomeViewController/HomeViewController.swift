@@ -49,26 +49,22 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         sclContent.delegate = self
         
         // tbListNew
         tbListNews.delegate = self
         tbListNews.dataSource = self
         tbListNews.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
-        tbListNews.reloadData()
         
         // tbMostView
         tbMostView.delegate = self
         tbMostView.dataSource = self
         tbMostView.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
-        tbMostView.reloadData()
 
         // tbNearMe
         tbNearMe.delegate = self
         tbNearMe.dataSource = self
         tbNearMe.register(UINib(nibName: "ListNewsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListNewsTableViewCell")
-        tbNearMe.reloadData()
 
         geoFireRef = Database.database().reference().child("PostLocations").child(uid!)
         geoFire = GeoFire(firebaseRef: geoFireRef!)
@@ -191,7 +187,6 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
         showEmptyDataView()
         setUpSegmentControl()
         setUpLocationManager()
-        self.tapToDismissKeyboard()
         loadDataNews()
         loadDataMostView()
         
@@ -474,53 +469,6 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
             }, withCancel: nil)
         })
     }
-    
-//    func loadDataNearMe() {
-//        let ref = Database.database().reference().child("Posts")
-////            .queryOrdered(byChild: "district").queryEqual(toValue: "Quận Thủ Đức")
-//
-//        ref.observe(.childAdded, with: { (snapshot) in
-//            if let dictionary = snapshot.value as? [String: AnyObject] {
-//                let news = News(dictionary: dictionary)
-//                news.id = snapshot.key
-//
-//                DispatchQueue.main.async {
-//                    self.reloadInputViews()
-//                }
-//
-//                let priceStr = dictionary["price"] as? String
-//                let waterPriceStr = dictionary["waterPrice"] as? String
-//                let electricPriceStr = dictionary["electricPrice"] as? String
-//                let internetPriceStr = dictionary["internetPrice"] as? String
-//
-//                news.price = Double(priceStr ?? "0.0")
-//                news.waterPrice = Double(waterPriceStr ?? "0.0")
-//                news.electricPrice = Double(electricPriceStr ?? "0.0")
-//                news.internetPrice = Double(internetPriceStr ?? "0.0")
-//                news.area = dictionary["area"] as? String
-//                news.district = dictionary["district"] as? String
-//                news.title = dictionary["title"] as? String
-//                news.address = dictionary["address"] as? String
-//                news.description = dictionary["description"] as? String
-//                news.phoneNumber = dictionary["phoneNumber"] as? String
-//                news.ownerID = dictionary["ownerID"] as? String
-//                news.postImageUrl0 = dictionary["postImageUrl0"] as? String
-//                news.postImageUrl1 = dictionary["postImageUrl1"] as? String
-//                news.postImageUrl2 = dictionary["postImageUrl2"] as? String
-//                news.timestamp = dictionary["timestamp"] as? Int
-//                news.lat = dictionary["lat"] as? String
-//                news.long = dictionary["long"] as? String
-//                news.usersAllowed = dictionary["usersAllowed"] as? String
-//                news.views = dictionary["views"] as? Int
-//
-//                self.listNearMe.append(news)
-//                self.listNearMe = self.listNearMe.sorted(by: { (news0, news1) -> Bool in
-//                    return Int(news0.price!) < Int(news1.price!)
-//                })
-//                self.tbNearMe.reloadData()
-//            }
-//        }, withCancel: nil)
-//    }
     
     //MARK: Scroll view did scroll
     

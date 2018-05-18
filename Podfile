@@ -12,7 +12,7 @@ target 'Motel Network' do
 	pod 'Firebase/Database'
 	pod 'Firebase/Storage'
     	pod 'NVActivityIndicatorView'
-    	pod 'BSImagePicker', '~> 2.4'
+    	pod 'BSImagePicker'
 	pod 'SwipeBack' , '~> 1.1'
    	pod 'Kingfisher', '~> 4.0'
    	pod 'TwicketSegmentedControl'
@@ -25,5 +25,5 @@ target 'Motel Network' do
     	pod 'SwiftyJSON'
 	pod 'ImageSlideshow', '~> 1.5'
 	pod 'ImageSlideshow/Kingfisher'
-    pod "MXParallaxHeader"
+    	pod "MXParallaxHeader"
 end

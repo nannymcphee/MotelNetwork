@@ -15,7 +15,6 @@ import BSImagePicker
 
 class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UIImagePickerControllerDelegate {
     
-    
     @IBOutlet weak var tfAddress: UITextField!
     @IBOutlet weak var tfUsersAllowed: UITextField!
     @IBOutlet weak var btnBack: UIButton!
@@ -28,7 +27,6 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var ivRoomImage2: UIImageView!
     @IBOutlet weak var tfUser: UITextField!
     @IBOutlet weak var btnAddImage: UIButton!
-    
     
     var userList = [User]()
     let pvUser = UIPickerView()
@@ -180,8 +178,6 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 3
-        vc.cancelButton.title = "Đóng"
-        vc.doneButton.title = "Xong"
         self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
         
         }, deselect: { (asset: PHAsset) in
@@ -239,7 +235,8 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
             if renterName.isEmpty {
                 
-                self.storeInformationToDatabase(reference: ref, values: ["renterID": "" as AnyObject])
+                let values = ["renterName": "", "renterID": ""] as [String: AnyObject]
+                self.storeInformationToDatabase(reference: ref, values: values)
             }
             else {
                 
@@ -254,7 +251,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 }
             }
             
-            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl0": "", "roomImageUrl1": "", "roomImageUrl2": "", "usersAllowed": usersAllowed, "address": address]
+            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl0": "", "roomImageUrl1": "", "roomImageUrl2": "", "usersAllowed": usersAllowed, "address": address, "renterName": renterName]
             
             self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
             // Upload image to Firebase storage and update download urls into database
@@ -270,16 +267,11 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             _ = uploadImageFromImageView(imageView: ivRoomImage2) { (url) in
                 self.storeInformationToDatabase(reference: ref, values: ["roomImageUrl2": url as AnyObject])
             }
-            
 
-            self.showLoading()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                self.stopLoading()
-                self.noticeSuccess(messageCreateRoomSuccess, autoClear: true, autoClearTime: 1)
-                self.selectedAssets.removeAll()
-                self.imageArray.removeAll()
-                self.resetView()
-            }
+            NativePopup.show(image: Preset.Feedback.done, title: messageCreateRoomSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
+            self.selectedAssets.removeAll()
+            self.imageArray.removeAll()
+            self.resetView()
         }
 
         return

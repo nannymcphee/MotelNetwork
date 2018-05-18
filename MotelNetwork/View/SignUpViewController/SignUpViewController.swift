@@ -165,8 +165,6 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 1
-        vc.cancelButton.title = "Đóng"
-        vc.doneButton.title = "Xong"
         self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
         }, deselect: { (asset: PHAsset) in
             
@@ -266,12 +264,8 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                         self.storeInformationToDatabase(reference: reference, values: ["ProfileImageUrl": url as AnyObject])
                     }
 
-                    self.showLoading()
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2, execute: {
-                        self.stopLoading()
-                        self.noticeSuccess(messageSignUpSuccess, autoClear: true, autoClearTime: 1)
-                        self.resetView()
-                    })
+                    NativePopup.show(image: Preset.Feedback.done, title: messageSignUpSuccess, message: nil, duration: 2, initialEffectType: .fadeIn)
+                    self.resetView()
                 }
             }
             return

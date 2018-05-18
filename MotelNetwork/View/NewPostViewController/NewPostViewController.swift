@@ -245,7 +245,6 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 3
-        vc.doneButton.title = "Xong"
         self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
             
         }, deselect: { (asset: PHAsset) in
@@ -333,14 +332,10 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 self.storeInformationToDatabase(reference: reference, values: ["postImageUrl2": url as AnyObject])
             }
             
-            self.showLoading()
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
-                self.stopLoading()
-                self.noticeSuccess(messageNewPostSuccess, autoClear: true, autoClearTime: 1)
-                self.selectedAssets.removeAll()
-                self.imageArray.removeAll()
-                self.resetView()
-            }
+            NativePopup.show(image: Preset.Feedback.done, title: messageNewPostSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
+            self.selectedAssets.removeAll()
+            self.imageArray.removeAll()
+            self.resetView()
         }
         
         return

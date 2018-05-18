@@ -15,7 +15,7 @@ import BSImagePicker
 import Alamofire
 import SwiftyJSON
 
-class EditPostViewController: UIViewController, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class EditPostViewController: UIViewController, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnSave: UIButton!
@@ -27,7 +27,11 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var tfTitle: UITextField!
     @IBOutlet weak var tvDescription: UITextView!
     @IBOutlet weak var tfAddress: UITextField!
-    @IBOutlet weak var tfDistrict: UITextField!
+    @IBOutlet weak var tfDistrict: UITextField! {
+        didSet {
+            tfDistrict.delegate = self
+        }
+    }
     @IBOutlet weak var tfRoomPrice: UITextField!
     @IBOutlet weak var tfElectricPrice: UITextField!
     @IBOutlet weak var tfWaterPrice: UITextField!
@@ -148,8 +152,6 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 3
-        vc.cancelButton.title = "Đóng"
-        vc.doneButton.title = "Xong"
         self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
         }, deselect: { (asset: PHAsset) in
             
@@ -276,7 +278,11 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                 address = self.tfAddress.text!
             }
             else {
-                address = ("\(self.tfAddress.text!)" + ", \(district)")
+                var addressTemp = self.tfAddress.text!
+                if let range = addressTemp.range(of: ",") {
+                    addressTemp.removeSubrange(range.lowerBound..<addressTemp.endIndex)
+                    address = ("\(addressTemp)" + ", \(district)")
+                }
             }
 
             // Removed value "timestamp": timestamp
@@ -290,7 +296,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                     
                     self.geocodeAddress(address: address, dbRef: ref)
                     self.editData(reference: ref, newValues: values as [String: AnyObject])
-                    self.noticeSuccess(messageEditPostSuccess, autoClear: true, autoClearTime: 1)
+                    NativePopup.show(image: Preset.Feedback.done, title: messageEditPostSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
                 }
                 else {
                     
@@ -312,7 +318,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                     }
                 }
                 
-                self.noticeSuccess(messageEditPostSuccess, autoClear: true, autoClearTime: 1)
+                NativePopup.show(image: Preset.Feedback.done, title: messageEditPostSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
    
                 return
             }

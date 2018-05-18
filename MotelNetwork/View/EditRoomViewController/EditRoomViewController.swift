@@ -218,8 +218,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         let vc = BSImagePickerViewController()
         vc.maxNumberOfSelections = 3
-        vc.cancelButton.title = "Đóng"
-        vc.doneButton.title = "Xong"
+        
         self.bs_presentImagePickerController(vc, animated: true, select: { (asset: PHAsset) in
             
         }, deselect: { (asset: PHAsset) in
@@ -269,12 +268,11 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         else {
         
             let ref = Database.database().reference().child("Rooms").child(roomID!)
-            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "renterID": renterID, "roomImageUrl0": roomImageUrl0, "roomImageUrl1": roomImageUrl1, "roomImageUrl2": roomImageUrl2, "usersAllowed": usersAllowed, "address": address]
+            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "renterID": renterID, "roomImageUrl0": roomImageUrl0, "roomImageUrl1": roomImageUrl1, "roomImageUrl2": roomImageUrl2, "usersAllowed": usersAllowed, "address": address, "renterName": renterName]
     
             // Create confirm alert
             let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)
             let actionDestroy = UIAlertAction(title: "Có", style: .destructive) { (action) in
-                
 
                  if self.ivRoomImage0.image == nil || self.ivRoomImage1.image == nil || self.ivRoomImage2 == nil {
                     
@@ -282,7 +280,8 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     
                     if renterName.isEmpty {
                         
-                        self.editData(reference: ref, newValues: ["renterID": "" as AnyObject])
+                        let values = ["renterName": "", "renterID": ""] as [String: AnyObject]
+                        self.editData(reference: ref, newValues: values)
                     }
                     else {
                         
@@ -297,7 +296,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                         }
                     }
                     
-                    self.noticeSuccess(messageEditInfoSuccess, autoClear: true, autoClearTime: 1)
+                    NativePopup.show(image: Preset.Feedback.done, title: messageEditInfoSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
                 }
                 else {
 
@@ -305,7 +304,8 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     
                     if renterName.isEmpty {
                         
-                        self.editData(reference: ref, newValues: ["renterID": "" as AnyObject])
+                        let values = ["renterName": "", "renterID": ""] as [String: AnyObject]
+                        self.editData(reference: ref, newValues: values)
                     }
                     else {
                         
@@ -334,6 +334,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                         self.editData(reference: ref, newValues: ["roomImageUrl2": url as AnyObject])
                     }
                     
+                    NativePopup.show(image: Preset.Feedback.done, title: messageEditInfoSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
                 }
                 
                 // Get renter's id by renter's name and save to room in database
@@ -346,8 +347,6 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
                 }
                 
-                self.noticeSuccess(messageEditInfoSuccess, autoClear: true, autoClearTime: 1)
-
                 return
             }
             

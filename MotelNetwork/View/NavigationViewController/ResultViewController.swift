@@ -26,8 +26,6 @@ class ResultViewController: UIViewController, GMSMapViewDelegate, CLLocationMana
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpLocationManager()
-        
         let lat = currentNews.lat?.toDouble
         let long = currentNews.long?.toDouble
         
@@ -59,13 +57,13 @@ class ResultViewController: UIViewController, GMSMapViewDelegate, CLLocationMana
         
         if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
 
-            let urlString = "http://maps.google.com/?saddr=\(currentLocationCoordinate.latitude),\(currentLocationCoordinate.longitude)&daddr=\(currentNewsCoordinate.latitude),\(currentNewsCoordinate.longitude)&directionsmode=driving"
+            let urlString = "http://maps.google.com/?saddr=&daddr=\(currentNewsCoordinate.latitude),\(currentNewsCoordinate.longitude)&directionsmode=driving"
 
             UIApplication.shared.open(URL(string: urlString)!, options: [:], completionHandler: nil)
         }
         else {
-    
-            let urlString = "http://maps.apple.com/maps?saddr=\(currentLocationCoordinate.latitude),\(currentLocationCoordinate.longitude)&daddr=\(currentNewsCoordinate.latitude),\(currentNewsCoordinate.longitude)&dirflg=d"
+
+            let urlString = "http://maps.apple.com/maps?saddr=&daddr=\(currentNewsCoordinate.latitude),\(currentNewsCoordinate.longitude)&dirflg=d"
             
             UIApplication.shared.open(URL(string: urlString)!, options: [:], completionHandler: nil)
         }
@@ -82,33 +80,5 @@ class ResultViewController: UIViewController, GMSMapViewDelegate, CLLocationMana
         results[routeIndex].drawOnMap(mapView, approximate: false, strokeColor: UIColor.purple, strokeWidth: 4.0)
         results[routeIndex].drawOriginMarkerOnMap(mapView, title: "Bắt đầu", color: UIColor.green, opacity: 1.0, flat: true)
         results[routeIndex].drawDestinationMarkerOnMap(mapView, title: self.currentNews.address!, color: UIColor.red, opacity: 1.0, flat: true)
-    }
-    
-    //MARK: Logic for locationManager
-    
-    func setUpLocationManager() {
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        self.locationManager.requestWhenInUseAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startUpdatingLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        if currentLocation == nil {
-            currentLocation = locations.last
-            locationManager.stopMonitoringSignificantLocationChanges()
-            
-            let locationValue: CLLocationCoordinate2D = manager.location!.coordinate
-            
-            currentLocationCoordinate = locationValue
-            
-            locationManager.stopUpdatingLocation()
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error.localizedDescription)
     }
 }

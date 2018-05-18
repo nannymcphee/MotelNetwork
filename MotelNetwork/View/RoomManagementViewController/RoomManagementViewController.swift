@@ -35,7 +35,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         tbRoomManagement.delegate = self
         tbRoomManagement.dataSource = self
         tbRoomManagement.register(UINib(nibName: "ListRoomsTableViewCell", bundle: nil), forCellReuseIdentifier: "ListRoomsTableViewCell")
-        tbRoomManagement.reloadData()
+//        tbRoomManagement.reloadData()
 
         loadData()
         setUpView()
@@ -128,6 +128,7 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
                 room.roomImageUrl1 = dictionary["roomImageUrl1"] as? String
                 room.roomImageUrl2 = dictionary["roomImageUrl2"] as? String
                 room.usersAllowed = dictionary["usersAllowed"] as? String
+                room.renterName = dictionary["renterName"] as? String
                 
                 self.listRooms.append(room)
                 self.listRooms = self.listRooms.sorted(by: { (room0, room1) -> Bool in
@@ -141,7 +142,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
                 })
             }
         }, withCancel: nil)
-        
     }
     
     //MARK: Handle button pressed
@@ -168,9 +168,10 @@ extension RoomManagementViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tbRoomManagement.dequeueReusableCell(withIdentifier: "ListRoomsTableViewCell") as! ListRoomsTableViewCell
         
+        let cell = tbRoomManagement.dequeueReusableCell(withIdentifier: "ListRoomsTableViewCell") as! ListRoomsTableViewCell
         let room = listRooms[indexPath.row]
+        
         cell.populateData(room: room)
         
         return cell

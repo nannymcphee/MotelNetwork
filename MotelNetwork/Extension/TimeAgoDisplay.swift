@@ -92,7 +92,7 @@ extension UIViewController {
         }
         
         if let minute = components.minute, minute >= 2 {
-            return "\(minute) minutes"
+            return "\(minute) phút"
         }
         
         if let minute = components.minute, minute >= 1 {

@@ -19,9 +19,9 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate {
     
     var currentNews = News()
     var locationManager: CLLocationManager?
-    var currentLocation: CLLocation?
-    var currentLocationCoordinate: CLLocationCoordinate2D?
-    var currentNewsCoordinate: CLLocationCoordinate2D?
+    var currentLocation: CLLocation!
+    var currentLocationCoordinate: CLLocationCoordinate2D!
+    var currentNewsCoordinate: CLLocationCoordinate2D!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,26 +97,26 @@ class NavigationViewController: UIViewController, CLLocationManagerDelegate {
         else if tfOrigin.text != "Vị trí của bạn" {
             navigateFromPlaceToCoordinate()
         }
-        
     }
 
 }
 
 extension NavigationViewController: PXGoogleDirectionsDelegate {
-    
+
     //MARK: PXLocation
-    
+
     func navigateFromCoordinateToCoordinate() {
         directionsAPI.delegate = self
         directionsAPI.from = PXLocation.coordinateLocation(currentLocationCoordinate!)
         directionsAPI.to = PXLocation.coordinateLocation(currentNewsCoordinate!)
         directionsAPI.region = "vi-vn"
-        
+
         directionsAPI.calculateDirections { (response) -> Void in
             DispatchQueue.main.async(execute: { () -> Void in
                 switch response {
                 case let .error(_, error):
-                    self.showAlert(title: "Lỗi", alertMessage: "Error: \(error.localizedDescription)")
+                    print(error.localizedDescription)
+                    self.showAlert(title: "Lỗi", alertMessage: "Không thể tìm thấy chỉ đường (Sai địa chỉ).")
                 case let .success(request, routes):
                     let rvc = ResultViewController()
                     rvc.request = request
@@ -127,13 +127,13 @@ extension NavigationViewController: PXGoogleDirectionsDelegate {
             })
         }
     }
-    
+
     func navigateFromPlaceToCoordinate() {
         directionsAPI.delegate = self
         directionsAPI.from = PXLocation.namedLocation(tfOrigin.text!)
         directionsAPI.to = PXLocation.coordinateLocation(currentNewsCoordinate!)
         directionsAPI.region = "vi-vn"
-        
+
         directionsAPI.calculateDirections { (response) -> Void in
             DispatchQueue.main.async(execute: { () -> Void in
                 switch response {
@@ -149,31 +149,31 @@ extension NavigationViewController: PXGoogleDirectionsDelegate {
             })
         }
     }
-    
+
     fileprivate var directionsAPI: PXGoogleDirections {
         return (UIApplication.shared.delegate as! AppDelegate).directionsAPI
     }
-    
+
     func googleDirectionsWillSendRequestToAPI(_ googleDirections: PXGoogleDirections, withURL requestURL: URL) -> Bool {
         NSLog("googleDirectionsWillSendRequestToAPI:withURL:")
         return true
     }
-    
+
     func googleDirectionsDidSendRequestToAPI(_ googleDirections: PXGoogleDirections, withURL requestURL: URL) {
         NSLog("googleDirectionsDidSendRequestToAPI:withURL:")
         NSLog("\(requestURL.absoluteString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)")
     }
-    
+
     func googleDirections(_ googleDirections: PXGoogleDirections, didReceiveRawDataFromAPI data: Data) {
         NSLog("googleDirections:didReceiveRawDataFromAPI:")
         NSLog(String(data: data, encoding: .utf8)!)
     }
-    
+
     func googleDirectionsRequestDidFail(_ googleDirections: PXGoogleDirections, withError error: NSError) {
         NSLog("googleDirectionsRequestDidFail:withError:")
         NSLog("\(error)")
     }
-    
+
     func googleDirections(_ googleDirections: PXGoogleDirections, didReceiveResponseFromAPI apiResponse: [PXGoogleDirectionsRoute]) {
         NSLog("googleDirections:didReceiveResponseFromAPI:")
         NSLog("Got \(apiResponse.count) routes")

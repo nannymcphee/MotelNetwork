@@ -149,8 +149,9 @@ class EditBillViewController: UIViewController {
             else {
                 
                 self.editData(reference: ref, newValues: values)
+                NativePopup.show(image: Preset.Feedback.done, title: messageEditBillSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
             }
-            self.noticeSuccess(messageEditInfoSuccess, autoClear: true, autoClearTime: 1)
+
             return
         }
         

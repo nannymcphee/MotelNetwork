@@ -166,7 +166,7 @@ extension UIViewController {
                     let values = ["Password": newPass]
                     let ref = Database.database().reference().child("Users").child(uid!)
                     self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
-                    self.noticeSuccess(messageChangePasswordSuccess, autoClear: true, autoClearTime: 1)
+                    NativePopup.show(image: Preset.Feedback.done, title: messageChangePasswordSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
                 }
             })
         }
@@ -189,7 +189,7 @@ extension UIViewController {
                     let values = ["Email": newEmail]
                     let ref = Database.database().reference().child("Users").child(uid!)
                     self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
-                    self.noticeSuccess(messageChangeEmailSuccess, autoClear: true, autoClearTime: 1)
+                    NativePopup.show(image: Preset.Feedback.done, title: messageChangeEmailSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
                 }
             }
         }

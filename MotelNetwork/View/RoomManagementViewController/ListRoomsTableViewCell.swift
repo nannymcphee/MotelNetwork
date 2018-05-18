@@ -17,7 +17,7 @@ class ListRoomsTableViewCell: UITableViewCell {
     @IBOutlet weak var lblUserFullName: UILabel!
     @IBOutlet weak var lblArea: UILabel!
     @IBOutlet weak var ivRoomImage: UIImageView!
-        
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -33,34 +33,46 @@ class ListRoomsTableViewCell: UITableViewCell {
     }
     
     func populateData(room: Room) {
+        
         numberFormatter.numberStyle = .decimal
         self.lblRoomName.text = room.name
         self.lblRoomPrice.text = numberFormatter.string(from: room.price! as NSNumber)
         self.lblArea.text = String("\(room.area ?? "")m2")
         
-        if let renterID = room.renterID {
-            if !(renterID.isEmpty) {
-                let ref = Database.database().reference().child("Users").child(renterID)
+//        if let renterID = room.renterID {
+//            if !(renterID.isEmpty) {
+//                let ref = Database.database().reference().child("Users").child(renterID)
+//
+//                ref.observeSingleEvent(of: .value, with: { (snapshot) in
+//                    if let dictionary = snapshot.value as? [String: AnyObject] {
+//
+//                        self.lblUserFullName.text = dictionary["FullName"] as? String
+//                    }
+//                }, withCancel: nil)
+//            }
+//            else {
+//                self.lblUserFullName.text = "Chưa có người thuê"
+//            }
+//        }
+        
+        if let renterName = room.renterName {
+            if renterName.isEmpty {
                 
-                ref.observeSingleEvent(of: .value, with: { (snapshot) in
-                    if let dictionary = snapshot.value as? [String: AnyObject] {
-                        
-                        self.lblUserFullName.text = dictionary["FullName"] as? String
-                    }
-                }, withCancel: nil)
+                self.lblUserFullName.text = "Chưa có người thuê"
             }
             else {
-                self.lblUserFullName.text = "Chưa có người thuê"
+                
+                self.lblUserFullName.text = renterName
             }
         }
         
         if URL(string: room.roomImageUrl0!) != nil {
             let resource = ImageResource(downloadURL: URL(string: room.roomImageUrl0!)!)
-            
+
             ivRoomImage.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage") , options: nil, progressBlock: nil, completionHandler: nil)
         }
         else {
-            
+
             ivRoomImage.image = #imageLiteral(resourceName: "defaultImage")
         }
     }
@@ -73,10 +85,10 @@ class ListRoomsTableViewCell: UITableViewCell {
         
         if let ownerID = room.ownerID {
             let ref = Database.database().reference().child("Users").child(ownerID)
-            
+
             ref.observeSingleEvent(of: .value, with: { (snapshot) in
                 if let dictionary = snapshot.value as? [String: AnyObject] {
-                    
+
                     self.lblUserFullName.text = dictionary["FullName"] as? String
                 }
             }, withCancel: nil)
