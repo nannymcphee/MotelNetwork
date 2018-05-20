@@ -44,7 +44,7 @@
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" image="imageView:zLw-tW-IGn:image" translatesAutoresizingMaskIntoConstraints="NO" id="zLw-tW-IGn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" image="imageView:zLw-tW-IGn:image" translatesAutoresizingMaskIntoConstraints="NO" id="zLw-tW-IGn">
                                 <rect key="frame" x="8" y="17.5" width="130" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="62G-D2-SZe"/>

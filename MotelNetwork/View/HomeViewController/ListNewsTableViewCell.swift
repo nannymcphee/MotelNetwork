@@ -36,6 +36,8 @@ class ListNewsTableViewCell: UITableViewCell {
     
     func populateData(news: News) {
         
+        let placeholderImage = UIImage(named: "defaultImage")
+        
         numberFormatter.numberStyle = .decimal
         let priceStr = numberFormatter.string(from: news.price! as NSNumber)
         self.lblPrice.text = "\(priceStr ?? "0")đ"
@@ -44,14 +46,14 @@ class ListNewsTableViewCell: UITableViewCell {
         self.lblLocation.text = news.district
         self.lblUsersAllowed.text = "Số người cho phép: \(news.usersAllowed ?? "0")"
         
-        if URL(string: news.postImageUrl0!) != nil {
+        if news.postImageUrl0 != nil {
             let resource = ImageResource(downloadURL: URL(string: news.postImageUrl0!)!)
             
-            ivPostImage.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage") , options: nil, progressBlock: nil, completionHandler: nil)
+            ivPostImage.kf.setImage(with: resource, placeholder: placeholderImage , options: nil, progressBlock: nil, completionHandler: nil)
         }
         else {
             
-            ivPostImage.image = #imageLiteral(resourceName: "defaultImage")
+            ivPostImage.image = placeholderImage
         }
         
     }

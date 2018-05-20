@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import UIKit
+
+let myBlue: UIColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
 
 let API_KEY =  "AIzaSyCw_k4bba0yo3rvda0-e0qs7aPxK3XCd9s"
 let districtList: [String] = ["Quận 1", "Quận 2", "Quận 3", "Quận 4", "Quận 5", "Quận 6", "Quận 7", "Quận 8", "Quận 9", "Quận 10", "Quận 11", "Quận 12", "Quận Thủ Đức", "Quận Bình Thạnh", "Quận Gò Vấp", "Quận Phú Nhuận", "Quận Tân Phú", "Quận Tân Bình", "Quận Bình Tân", "Huyện Nhà Bè", "Huyện Bình Chánh", "Huyện Hóc Môn", "Huyện Củ Chi" , "Huyện Cần Giờ"]

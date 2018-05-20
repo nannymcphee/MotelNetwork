@@ -66,14 +66,16 @@ class ListRoomsTableViewCell: UITableViewCell {
             }
         }
         
-        if URL(string: room.roomImageUrl0!) != nil {
+        let placeholderImage = UIImage(named: "defaultImage")
+        
+        if room.roomImageUrl0 != nil {
             let resource = ImageResource(downloadURL: URL(string: room.roomImageUrl0!)!)
 
-            ivRoomImage.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage") , options: nil, progressBlock: nil, completionHandler: nil)
+            ivRoomImage.kf.setImage(with: resource, placeholder: placeholderImage , options: nil, progressBlock: nil, completionHandler: nil)
         }
         else {
 
-            ivRoomImage.image = #imageLiteral(resourceName: "defaultImage")
+            ivRoomImage.image = placeholderImage
         }
     }
     

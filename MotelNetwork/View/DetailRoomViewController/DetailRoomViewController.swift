@@ -62,7 +62,6 @@ class DetailRoomViewController: UIViewController {
         lblAddress.sizeToFit()
         makeImageViewRounded(imageView: ivAvatar)
         setUpSlideShow()
-        
     }
     
     func setUpSlideShow() {
@@ -70,31 +69,47 @@ class DetailRoomViewController: UIViewController {
         let roomImageUrl0 = currentRoom.roomImageUrl0
         let roomImageUrl1 = currentRoom.roomImageUrl1
         let roomImageUrl2 = currentRoom.roomImageUrl2
-        let kingfisherSource = [KingfisherSource(urlString: roomImageUrl0!), KingfisherSource(urlString: roomImageUrl1!), KingfisherSource(urlString: roomImageUrl2!)]
-        let placeholderSource = [ImageSource(image: #imageLiteral(resourceName: "defaultImage")), ImageSource(image: #imageLiteral(resourceName: "defaultImage")), ImageSource(image: #imageLiteral(resourceName: "defaultImage"))]
+        let placeholderImage = UIImage(named: "defaultImage")
+        let placeholderSource = [ImageSource(image: placeholderImage!), ImageSource(image: placeholderImage!), ImageSource(image: placeholderImage!)]
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
         
+        if  roomImageUrl1 == nil || roomImageUrl2 == nil {
+            let source = [KingfisherSource(urlString: roomImageUrl0!),
+                          ImageSource(image: placeholderImage!),
+                          ImageSource(image: placeholderImage!)]
+            
+            vSlideShow.setImageInputs(source as! [InputSource])
+        }
+        else if roomImageUrl0 == nil && roomImageUrl1 == nil && roomImageUrl2 == nil {
+            vSlideShow.setImageInputs(placeholderSource)
+        }
+        else {
+            
+            let kingfisherSource = [KingfisherSource(urlString: roomImageUrl0!),
+                                    KingfisherSource(urlString: roomImageUrl1!),
+                                    KingfisherSource(urlString: roomImageUrl2!)]
+            
+            vSlideShow.setImageInputs(kingfisherSource as! [InputSource])
+        }
+        
         vSlideShow.backgroundColor = UIColor.white
-        vSlideShow.slideshowInterval = 3.0
-        vSlideShow.pageControlPosition = PageControlPosition.underScrollView
-        vSlideShow.pageControl.currentPageIndicatorTintColor = UIColor.black
-        vSlideShow.pageControl.pageIndicatorTintColor = UIColor.lightGray
+        vSlideShow.slideshowInterval = 0
+        vSlideShow.pageControlPosition = PageControlPosition.insideScrollView
+        vSlideShow.pageControl.currentPageIndicatorTintColor = myBlue
+        vSlideShow.pageControl.pageIndicatorTintColor = UIColor.white
+        vSlideShow.circular = false
         vSlideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
         vSlideShow.activityIndicator = DefaultActivityIndicator()
         vSlideShow.addGestureRecognizer(recognizer)
         
-        if (roomImageUrl0?.isEmpty)! || (roomImageUrl1?.isEmpty)! || (roomImageUrl2?.isEmpty)! {
-            vSlideShow.setImageInputs(placeholderSource)
-        }
-        else {
-            vSlideShow.setImageInputs(kingfisherSource as! [InputSource])
-        }
+
     }
     
     @objc func didTapImage() {
         let fullScreenController = vSlideShow.presentFullScreenController(from: self)
-        // set the activity indicator for full screen controller (skipping the line will show no activity indicator)
+        
         fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
+        fullScreenController.slideshow.circular = false
     }
     
     func setUpViewForOwner() {

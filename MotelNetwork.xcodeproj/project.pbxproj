@@ -22,20 +22,6 @@
 		E104666E20708FF400245789 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104666C20708FF400245789 /* TutorialViewController.swift */; };
 		E104666F20708FF400245789 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E104666D20708FF400245789 /* TutorialViewController.xib */; };
 		E10CB6D720AC4BBA00DFED8A /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6D620AC4BBA00DFED8A /* SwiftNotice.swift */; };
-		E10CB6F420ADDF1700DFED8A /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6E320ADDF1600DFED8A /* Preset.swift */; };
-		E10CB6F520ADDF1700DFED8A /* AnimatableCrossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6E520ADDF1600DFED8A /* AnimatableCrossView.swift */; };
-		E10CB6F620ADDF1700DFED8A /* HasAnimatablePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6E620ADDF1600DFED8A /* HasAnimatablePath.swift */; };
-		E10CB6F720ADDF1700DFED8A /* AnimatableDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6E720ADDF1600DFED8A /* AnimatableDoneView.swift */; };
-		E10CB6F820ADDF1700DFED8A /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6E820ADDF1600DFED8A /* Animatable.swift */; };
-		E10CB6F920ADDF1700DFED8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E10CB6E920ADDF1600DFED8A /* Assets.xcassets */; };
-		E10CB6FA20ADDF1700DFED8A /* InitialEffectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6EA20ADDF1600DFED8A /* InitialEffectType.swift */; };
-		E10CB6FB20ADDF1700DFED8A /* NativePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6EB20ADDF1600DFED8A /* NativePopup.swift */; };
-		E10CB6FC20ADDF1700DFED8A /* UIView.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6ED20ADDF1600DFED8A /* UIView.extension.swift */; };
-		E10CB6FD20ADDF1700DFED8A /* UIImage.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6EE20ADDF1600DFED8A /* UIImage.extension.swift */; };
-		E10CB6FE20ADDF1700DFED8A /* Bundle.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6EF20ADDF1600DFED8A /* Bundle.extension.swift */; };
-		E10CB6FF20ADDF1700DFED8A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6F020ADDF1600DFED8A /* Extension.swift */; };
-		E10CB70020ADDF1700DFED8A /* UIImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6F120ADDF1600DFED8A /* UIImageConvertible.swift */; };
-		E10CB70120ADDF1700DFED8A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E10CB6F320ADDF1700DFED8A /* Info.plist */; };
 		E117B659208DF2BE00087A0B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E117B657208DF2BE00087A0B /* ResultViewController.swift */; };
 		E117B65A208DF2BE00087A0B /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E117B658208DF2BE00087A0B /* ResultViewController.xib */; };
 		E117B664208E3BC500087A0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E117B663208E3BC500087A0B /* GoogleService-Info.plist */; };
@@ -46,6 +32,20 @@
 		E1397D87208AC7CC0050C86D /* ListBillTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1397D85208AC7CC0050C86D /* ListBillTableViewCell.xib */; };
 		E1397D8B208AEF960050C86D /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1397D8A208AEF960050C86D /* Bill.swift */; };
 		E1397D8D208AF1230050C86D /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1397D8C208AF1230050C86D /* Notification.swift */; };
+		E142E33F20B16DC2009B0507 /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E32E20B16DC2009B0507 /* Preset.swift */; };
+		E142E34020B16DC2009B0507 /* AnimatableCrossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E33020B16DC2009B0507 /* AnimatableCrossView.swift */; };
+		E142E34120B16DC2009B0507 /* HasAnimatablePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E33120B16DC2009B0507 /* HasAnimatablePath.swift */; };
+		E142E34220B16DC2009B0507 /* AnimatableDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E33220B16DC2009B0507 /* AnimatableDoneView.swift */; };
+		E142E34320B16DC2009B0507 /* Animatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E33320B16DC2009B0507 /* Animatable.swift */; };
+		E142E34420B16DC2009B0507 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E142E33420B16DC2009B0507 /* Assets.xcassets */; };
+		E142E34520B16DC2009B0507 /* InitialEffectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E33520B16DC2009B0507 /* InitialEffectType.swift */; };
+		E142E34620B16DC2009B0507 /* NativePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E33620B16DC2009B0507 /* NativePopup.swift */; };
+		E142E34720B16DC2009B0507 /* UIView.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E33820B16DC2009B0507 /* UIView.extension.swift */; };
+		E142E34820B16DC2009B0507 /* UIImage.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E33920B16DC2009B0507 /* UIImage.extension.swift */; };
+		E142E34920B16DC2009B0507 /* Bundle.extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E33A20B16DC2009B0507 /* Bundle.extension.swift */; };
+		E142E34A20B16DC2009B0507 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E33B20B16DC2009B0507 /* Extension.swift */; };
+		E142E34B20B16DC2009B0507 /* UIImageConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E142E33C20B16DC2009B0507 /* UIImageConvertible.swift */; };
+		E142E34C20B16DC2009B0507 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E142E33E20B16DC2009B0507 /* Info.plist */; };
 		E14804F72089F8DA00C67D43 /* CreateNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14804F52089F8DA00C67D43 /* CreateNotificationViewController.swift */; };
 		E14804F82089F8DA00C67D43 /* CreateNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E14804F62089F8DA00C67D43 /* CreateNotificationViewController.xib */; };
 		E14804FD2089F90800C67D43 /* DetailNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E14804FB2089F90800C67D43 /* DetailNotificationViewController.swift */; };
@@ -129,21 +129,6 @@
 		E104666C20708FF400245789 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		E104666D20708FF400245789 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
 		E10CB6D620AC4BBA00DFED8A /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
-		E10CB6E320ADDF1600DFED8A /* Preset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
-		E10CB6E520ADDF1600DFED8A /* AnimatableCrossView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableCrossView.swift; sourceTree = "<group>"; };
-		E10CB6E620ADDF1600DFED8A /* HasAnimatablePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasAnimatablePath.swift; sourceTree = "<group>"; };
-		E10CB6E720ADDF1600DFED8A /* AnimatableDoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableDoneView.swift; sourceTree = "<group>"; };
-		E10CB6E820ADDF1600DFED8A /* Animatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
-		E10CB6E920ADDF1600DFED8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E10CB6EA20ADDF1600DFED8A /* InitialEffectType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialEffectType.swift; sourceTree = "<group>"; };
-		E10CB6EB20ADDF1600DFED8A /* NativePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativePopup.swift; sourceTree = "<group>"; };
-		E10CB6ED20ADDF1600DFED8A /* UIView.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.extension.swift; sourceTree = "<group>"; };
-		E10CB6EE20ADDF1600DFED8A /* UIImage.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.extension.swift; sourceTree = "<group>"; };
-		E10CB6EF20ADDF1600DFED8A /* Bundle.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.extension.swift; sourceTree = "<group>"; };
-		E10CB6F020ADDF1600DFED8A /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		E10CB6F120ADDF1600DFED8A /* UIImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageConvertible.swift; sourceTree = "<group>"; };
-		E10CB6F220ADDF1600DFED8A /* NativePopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativePopup.h; sourceTree = "<group>"; };
-		E10CB6F320ADDF1700DFED8A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E117B657208DF2BE00087A0B /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		E117B658208DF2BE00087A0B /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		E117B663208E3BC500087A0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -154,6 +139,21 @@
 		E1397D85208AC7CC0050C86D /* ListBillTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListBillTableViewCell.xib; sourceTree = "<group>"; };
 		E1397D8A208AEF960050C86D /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		E1397D8C208AF1230050C86D /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		E142E32E20B16DC2009B0507 /* Preset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
+		E142E33020B16DC2009B0507 /* AnimatableCrossView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableCrossView.swift; sourceTree = "<group>"; };
+		E142E33120B16DC2009B0507 /* HasAnimatablePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasAnimatablePath.swift; sourceTree = "<group>"; };
+		E142E33220B16DC2009B0507 /* AnimatableDoneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatableDoneView.swift; sourceTree = "<group>"; };
+		E142E33320B16DC2009B0507 /* Animatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animatable.swift; sourceTree = "<group>"; };
+		E142E33420B16DC2009B0507 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E142E33520B16DC2009B0507 /* InitialEffectType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialEffectType.swift; sourceTree = "<group>"; };
+		E142E33620B16DC2009B0507 /* NativePopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NativePopup.swift; sourceTree = "<group>"; };
+		E142E33820B16DC2009B0507 /* UIView.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.extension.swift; sourceTree = "<group>"; };
+		E142E33920B16DC2009B0507 /* UIImage.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.extension.swift; sourceTree = "<group>"; };
+		E142E33A20B16DC2009B0507 /* Bundle.extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bundle.extension.swift; sourceTree = "<group>"; };
+		E142E33B20B16DC2009B0507 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		E142E33C20B16DC2009B0507 /* UIImageConvertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageConvertible.swift; sourceTree = "<group>"; };
+		E142E33D20B16DC2009B0507 /* NativePopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativePopup.h; sourceTree = "<group>"; };
+		E142E33E20B16DC2009B0507 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E14804F52089F8DA00C67D43 /* CreateNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNotificationViewController.swift; sourceTree = "<group>"; };
 		E14804F62089F8DA00C67D43 /* CreateNotificationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateNotificationViewController.xib; sourceTree = "<group>"; };
 		E14804FB2089F90800C67D43 /* DetailNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailNotificationViewController.swift; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 		CE5FF78E20767689005BEA3B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				E10CB6E220ADDF1600DFED8A /* NativePopup */,
+				E142E32D20B16DC2009B0507 /* NativePopup */,
 				CE5FF78F20767698005BEA3B /* EUIViewController.swift */,
 				E131D47D2098AED600019415 /* TimeAgoDisplay.swift */,
 			);
@@ -300,45 +300,6 @@
 			path = TutorialViewController;
 			sourceTree = "<group>";
 		};
-		E10CB6E220ADDF1600DFED8A /* NativePopup */ = {
-			isa = PBXGroup;
-			children = (
-				E10CB6E320ADDF1600DFED8A /* Preset.swift */,
-				E10CB6E420ADDF1600DFED8A /* Animatable */,
-				E10CB6E920ADDF1600DFED8A /* Assets.xcassets */,
-				E10CB6EA20ADDF1600DFED8A /* InitialEffectType.swift */,
-				E10CB6EB20ADDF1600DFED8A /* NativePopup.swift */,
-				E10CB6EC20ADDF1600DFED8A /* Extensions */,
-				E10CB6F120ADDF1600DFED8A /* UIImageConvertible.swift */,
-				E10CB6F220ADDF1600DFED8A /* NativePopup.h */,
-				E10CB6F320ADDF1700DFED8A /* Info.plist */,
-			);
-			name = NativePopup;
-			path = "../../../Downloads/NativePopup-master/NativePopup";
-			sourceTree = "<group>";
-		};
-		E10CB6E420ADDF1600DFED8A /* Animatable */ = {
-			isa = PBXGroup;
-			children = (
-				E10CB6E520ADDF1600DFED8A /* AnimatableCrossView.swift */,
-				E10CB6E620ADDF1600DFED8A /* HasAnimatablePath.swift */,
-				E10CB6E720ADDF1600DFED8A /* AnimatableDoneView.swift */,
-				E10CB6E820ADDF1600DFED8A /* Animatable.swift */,
-			);
-			path = Animatable;
-			sourceTree = "<group>";
-		};
-		E10CB6EC20ADDF1600DFED8A /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				E10CB6ED20ADDF1600DFED8A /* UIView.extension.swift */,
-				E10CB6EE20ADDF1600DFED8A /* UIImage.extension.swift */,
-				E10CB6EF20ADDF1600DFED8A /* Bundle.extension.swift */,
-				E10CB6F020ADDF1600DFED8A /* Extension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
 		E12701572093370B00663611 /* GoogleMapViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -346,6 +307,44 @@
 				E12701592093372600663611 /* GoogleMapViewController.xib */,
 			);
 			path = GoogleMapViewController;
+			sourceTree = "<group>";
+		};
+		E142E32D20B16DC2009B0507 /* NativePopup */ = {
+			isa = PBXGroup;
+			children = (
+				E142E32E20B16DC2009B0507 /* Preset.swift */,
+				E142E32F20B16DC2009B0507 /* Animatable */,
+				E142E33420B16DC2009B0507 /* Assets.xcassets */,
+				E142E33520B16DC2009B0507 /* InitialEffectType.swift */,
+				E142E33620B16DC2009B0507 /* NativePopup.swift */,
+				E142E33720B16DC2009B0507 /* Extensions */,
+				E142E33C20B16DC2009B0507 /* UIImageConvertible.swift */,
+				E142E33D20B16DC2009B0507 /* NativePopup.h */,
+				E142E33E20B16DC2009B0507 /* Info.plist */,
+			);
+			path = NativePopup;
+			sourceTree = "<group>";
+		};
+		E142E32F20B16DC2009B0507 /* Animatable */ = {
+			isa = PBXGroup;
+			children = (
+				E142E33020B16DC2009B0507 /* AnimatableCrossView.swift */,
+				E142E33120B16DC2009B0507 /* HasAnimatablePath.swift */,
+				E142E33220B16DC2009B0507 /* AnimatableDoneView.swift */,
+				E142E33320B16DC2009B0507 /* Animatable.swift */,
+			);
+			path = Animatable;
+			sourceTree = "<group>";
+		};
+		E142E33720B16DC2009B0507 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E142E33820B16DC2009B0507 /* UIView.extension.swift */,
+				E142E33920B16DC2009B0507 /* UIImage.extension.swift */,
+				E142E33A20B16DC2009B0507 /* Bundle.extension.swift */,
+				E142E33B20B16DC2009B0507 /* Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		E14804F42089F8CE00C67D43 /* CreateNotificationViewController */ = {
@@ -757,9 +756,9 @@
 				E1E6D61420A319D50014C1C4 /* EditBillViewController.xib in Resources */,
 				E180A138208A074F00EBCE52 /* NotificationListTableViewCell.xib in Resources */,
 				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
-				E10CB70120ADDF1700DFED8A /* Info.plist in Resources */,
+				E142E34C20B16DC2009B0507 /* Info.plist in Resources */,
 				E1507BB2207DDA8B00387527 /* CalculateRoomPriceViewController.xib in Resources */,
-				E10CB6F920ADDF1700DFED8A /* Assets.xcassets in Resources */,
+				E142E34420B16DC2009B0507 /* Assets.xcassets in Resources */,
 				E10112CB209199CA004ACA0D /* SearchViewController.xib in Resources */,
 				E14804FE2089F90800C67D43 /* DetailNotificationViewController.xib in Resources */,
 				E19CBCA92088818600A310D3 /* BillManagementViewController.xib in Resources */,
@@ -891,7 +890,7 @@
 				E14805012089F92D00C67D43 /* NotificationListViewController.swift in Sources */,
 				E1507BA2207D192F00387527 /* DetailRoomViewController.swift in Sources */,
 				E104666E20708FF400245789 /* TutorialViewController.swift in Sources */,
-				E10CB6FC20ADDF1700DFED8A /* UIView.extension.swift in Sources */,
+				E142E34720B16DC2009B0507 /* UIView.extension.swift in Sources */,
 				E14F2C2420960BF30034BE8E /* MyRoomsViewController.swift in Sources */,
 				E198DC212081829000E59BD2 /* HomeViewController.swift in Sources */,
 				E10CB6D720AC4BBA00DFED8A /* SwiftNotice.swift in Sources */,
@@ -901,18 +900,18 @@
 				E19CBCA82088818600A310D3 /* BillManagementViewController.swift in Sources */,
 				E16BD8B5208DC0FD00DD00B7 /* NavigationViewController.swift in Sources */,
 				145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */,
-				E10CB6F420ADDF1700DFED8A /* Preset.swift in Sources */,
+				E142E33F20B16DC2009B0507 /* Preset.swift in Sources */,
 				E1954476208A0EA3004F0D17 /* DetailBillViewController.swift in Sources */,
-				E10CB6FF20ADDF1700DFED8A /* Extension.swift in Sources */,
+				E142E34A20B16DC2009B0507 /* Extension.swift in Sources */,
 				E131D47E2098AED600019415 /* TimeAgoDisplay.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
 				E1E6D60220A02B1A0014C1C4 /* UserType.swift in Sources */,
 				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
 				E127015A2093372600663611 /* GoogleMapViewController.swift in Sources */,
 				E1397D8D208AF1230050C86D /* Notification.swift in Sources */,
-				E10CB70020ADDF1700DFED8A /* UIImageConvertible.swift in Sources */,
+				E142E34B20B16DC2009B0507 /* UIImageConvertible.swift in Sources */,
 				E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */,
-				E10CB6F620ADDF1700DFED8A /* HasAnimatablePath.swift in Sources */,
+				E142E34120B16DC2009B0507 /* HasAnimatablePath.swift in Sources */,
 				E1E6D60F20A03B6E0014C1C4 /* SavedPost.swift in Sources */,
 				E1397D8B208AEF960050C86D /* Bill.swift in Sources */,
 				E1507BC02080972500387527 /* News.swift in Sources */,
@@ -922,16 +921,16 @@
 				145C11FE2075F37E00AB11F3 /* RoomManagementViewController.swift in Sources */,
 				E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */,
 				E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */,
-				E10CB6FB20ADDF1700DFED8A /* NativePopup.swift in Sources */,
+				E142E34620B16DC2009B0507 /* NativePopup.swift in Sources */,
 				E16F5B1F207B69AE00B284A5 /* AccountOptionTableViewCell.swift in Sources */,
 				E14804F72089F8DA00C67D43 /* CreateNotificationViewController.swift in Sources */,
-				E10CB6FE20ADDF1700DFED8A /* Bundle.extension.swift in Sources */,
+				E142E34920B16DC2009B0507 /* Bundle.extension.swift in Sources */,
 				E1CDE6932067805D005715EC /* LoginViewController.swift in Sources */,
 				E1E6D61320A319D50014C1C4 /* EditBillViewController.swift in Sources */,
 				E1507BB1207DDA8B00387527 /* CalculateRoomPriceViewController.swift in Sources */,
-				E10CB6FA20ADDF1700DFED8A /* InitialEffectType.swift in Sources */,
-				E10CB6F520ADDF1700DFED8A /* AnimatableCrossView.swift in Sources */,
-				E10CB6FD20ADDF1700DFED8A /* UIImage.extension.swift in Sources */,
+				E142E34520B16DC2009B0507 /* InitialEffectType.swift in Sources */,
+				E142E34020B16DC2009B0507 /* AnimatableCrossView.swift in Sources */,
+				E142E34820B16DC2009B0507 /* UIImage.extension.swift in Sources */,
 				E1397D86208AC7CC0050C86D /* ListBillTableViewCell.swift in Sources */,
 				E1507BAC207D19A200387527 /* NewPostViewController.swift in Sources */,
 				E10112CA209199CA004ACA0D /* SearchViewController.swift in Sources */,
@@ -944,9 +943,9 @@
 				E117B659208DF2BE00087A0B /* ResultViewController.swift in Sources */,
 				E10112D12091C2DD004ACA0D /* UpdateInfoViewController.swift in Sources */,
 				CE5FF79020767698005BEA3B /* EUIViewController.swift in Sources */,
-				E10CB6F820ADDF1700DFED8A /* Animatable.swift in Sources */,
+				E142E34320B16DC2009B0507 /* Animatable.swift in Sources */,
 				E198761220672E2D008434CC /* AppDelegate.swift in Sources */,
-				E10CB6F720ADDF1700DFED8A /* AnimatableDoneView.swift in Sources */,
+				E142E34220B16DC2009B0507 /* AnimatableDoneView.swift in Sources */,
 				E198DC2A2082F6BB00E59BD2 /* EditPostViewController.swift in Sources */,
 				E16F5B2D207B84D900B284A5 /* ChangePasswordViewController.swift in Sources */,
 			);

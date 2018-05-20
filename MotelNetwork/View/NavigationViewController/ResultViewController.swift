@@ -77,7 +77,7 @@ class ResultViewController: UIViewController, GMSMapViewDelegate, CLLocationMana
             }
         }
         mapView.animate(with: GMSCameraUpdate.fit(results[routeIndex].bounds!, withPadding: 40.0))
-        results[routeIndex].drawOnMap(mapView, approximate: false, strokeColor: UIColor.purple, strokeWidth: 4.0)
+        results[routeIndex].drawOnMap(mapView, approximate: false, strokeColor: myBlue, strokeWidth: 6.0)
         results[routeIndex].drawOriginMarkerOnMap(mapView, title: "Bắt đầu", color: UIColor.green, opacity: 1.0, flat: true)
         results[routeIndex].drawDestinationMarkerOnMap(mapView, title: self.currentNews.address!, color: UIColor.red, opacity: 1.0, flat: true)
     }

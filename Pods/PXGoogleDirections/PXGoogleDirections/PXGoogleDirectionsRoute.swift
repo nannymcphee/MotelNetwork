@@ -144,7 +144,7 @@ public class PXGoogleDirectionsRoute: NSObject {
 	fileprivate func drawMarkerWithCoordinates(_ coordinates: CLLocationCoordinate2D, onMap map: GMSMapView, title: String = "", color: UIColor = UIColor.red, opacity: Float = 1.0, flat: Bool = false) -> GMSMarker {
 		let marker = GMSMarker(position: coordinates)
 		marker.title = title
-		marker.icon = GMSMarker.markerImage(with: color)
+        marker.icon = GMSMarker.markerImage(with: color)
 		marker.opacity = opacity
 		marker.isFlat = flat
 		marker.map = map

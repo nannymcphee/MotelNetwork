@@ -28,10 +28,11 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
     @IBOutlet weak var tfUser: UITextField!
     @IBOutlet weak var btnAddImage: UIButton!
     
-    var userList = [User]()
     let pvUser = UIPickerView()
+    var userList = [User]()
     var selectedAssets = [PHAsset]()
     var imageArray = [UIImage]()
+    var urlArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +103,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         let imageName = NSUUID().uuidString
         let storageRef = Storage.storage().reference().child("RoomImages").child(uid!).child("\(imageName).jpg")
         
-        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 0.75) {
+        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 1.0) {
             
             storageRef.putData(uploadImageData, metadata: nil, completion: { (metaData, error) in
                 storageRef.downloadURL(completion: { (url, error) in
@@ -117,6 +118,27 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }
     }
     
+    func uploadImage(image: UIImage, completion: @escaping ((String) -> (Void))) {
+        
+        var strURL = ""
+        let uid = Auth.auth().currentUser?.uid
+        let imageName = NSUUID().uuidString
+        let storageRef = Storage.storage().reference().child("RoomImages").child(uid!).child("\(imageName).jpg")
+        
+        if let uploadImageData = UIImageJPEGRepresentation(image, 0.8) {
+            
+            storageRef.putData(uploadImageData, metadata: nil, completion: { (metaData, error) in
+                storageRef.downloadURL(completion: { (url, error) in
+                    if let urlText = url?.absoluteString {
+                        
+                        strURL = urlText
+                        
+                        completion(strURL)
+                    }
+                })
+            })
+        }
+    }
     
     //MARK: Logic for tfUser as UIPickerView
     
@@ -235,8 +257,17 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
 
             if renterName.isEmpty {
                 
-                let values = ["renterName": "", "renterID": ""] as [String: AnyObject]
-                self.storeInformationToDatabase(reference: ref, values: values)
+                for image in imageArray {
+                    self.uploadImage(image: image) { (url) -> (Void) in
+                        
+                        self.urlArray.append(url)
+                        
+                        for url in self.urlArray {
+                            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl\(self.urlArray.index(of: url) ?? 0)": url, "usersAllowed": usersAllowed, "address": address, "renterName": "", "renterID": ""] as [String: AnyObject]
+                            self.storeInformationToDatabase(reference: ref, values: values)
+                        }
+                    }
+                }
             }
             else {
                 
@@ -249,29 +280,29 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                     
                     self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
                 }
-            }
-            
-            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl0": "", "roomImageUrl1": "", "roomImageUrl2": "", "usersAllowed": usersAllowed, "address": address, "renterName": renterName]
-            
-            self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
-            // Upload image to Firebase storage and update download urls into database
-            
-            _ = uploadImageFromImageView(imageView: ivRoomImage0) { (url) in
-                self.storeInformationToDatabase(reference: ref, values: ["roomImageUrl0": url as AnyObject])
-            }
-            
-            _ = uploadImageFromImageView(imageView: ivRoomImage1) { (url) in
-                self.storeInformationToDatabase(reference: ref, values: ["roomImageUrl1": url as AnyObject])
-            }
-            
-            _ = uploadImageFromImageView(imageView: ivRoomImage2) { (url) in
-                self.storeInformationToDatabase(reference: ref, values: ["roomImageUrl2": url as AnyObject])
+                
+                for image in self.imageArray {
+                    self.uploadImage(image: image) { (url) -> (Void) in
+                        
+                        self.urlArray.append(url)
+                        
+                        for url in self.urlArray {
+                            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl\(self.urlArray.index(of: url) ?? 0)": url, "usersAllowed": usersAllowed, "address": address, "renterName": renterName] as [String: AnyObject]
+                            self.storeInformationToDatabase(reference: ref, values: values)
+                        }
+                    }
+                }
             }
 
-            NativePopup.show(image: Preset.Feedback.done, title: messageCreateRoomSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
+            self.showLoading()
             self.selectedAssets.removeAll()
             self.imageArray.removeAll()
             self.resetView()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.stopLoading()
+                NativePopup.show(image: Preset.Feedback.done, title: messageCreateRoomSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
+
+            }
         }
 
         return
@@ -288,7 +319,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 let option = PHImageRequestOptions()
                 var thumbnail = UIImage()
                 option.isSynchronous = true
-                manager.requestImage(for: selectedAssets[i], targetSize: CGSize(width: 375, height: 200), contentMode: .aspectFit, options: option) { (result, info) in
+                manager.requestImage(for: selectedAssets[i], targetSize: CGSize(width: 375, height: 360), contentMode: .aspectFit, options: option) { (result, info) in
                     thumbnail = result!
                 }
                 

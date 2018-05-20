@@ -1,3 +1,4 @@
+
 //
 //  AppDelegate.swift
 //  MotelNetwork
@@ -26,11 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         IQKeyboardManager.shared.enable = true
-        GMSServices.provideAPIKey(API_KEY)
+//        GMSServices.provideAPIKey(API_KEY)
         directionsAPI = PXGoogleDirections(apiKey: API_KEY)
         FirebaseApp.configure()
         checkAuthStatus()
-
+        
         return true
     }
 
@@ -77,6 +78,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.makeKeyAndVisible()
         }
     }
-
 }
 

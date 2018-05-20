@@ -15,7 +15,7 @@ import BSImagePicker
 import Alamofire
 import SwiftyJSON
 
-class EditPostViewController: UIViewController, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class EditPostViewController: UIViewController, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var btnSave: UIButton!
@@ -27,11 +27,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var tfTitle: UITextField!
     @IBOutlet weak var tvDescription: UITextView!
     @IBOutlet weak var tfAddress: UITextField!
-    @IBOutlet weak var tfDistrict: UITextField! {
-        didSet {
-            tfDistrict.delegate = self
-        }
-    }
+    @IBOutlet weak var tfDistrict: UITextField!
     @IBOutlet weak var tfRoomPrice: UITextField!
     @IBOutlet weak var tfElectricPrice: UITextField!
     @IBOutlet weak var tfWaterPrice: UITextField!
@@ -43,7 +39,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
     var currentNews = News()
     var selectedAssets = [PHAsset]()
     var imageArray = [UIImage]()
-    var currentDate: String = ""
+    var urlArray = [String]()
     var dbReference: DatabaseReference!
     var currentNewsLatitude: String = ""
     var currentNewsLongitude: String = ""
@@ -183,7 +179,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                 let option = PHImageRequestOptions()
                 var thumbnail = UIImage()
                 option.isSynchronous = true
-                manager.requestImage(for: selectedAssets[i], targetSize: CGSize(width: 200, height: 200), contentMode: .aspectFill, options: option) { (result, info) in
+                manager.requestImage(for: selectedAssets[i], targetSize: CGSize(width: 375, height: 360), contentMode: .aspectFill, options: option) { (result, info) in
                     thumbnail = result!
                 }
                 
@@ -213,7 +209,7 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         let storageRef = Storage.storage().reference().child("PostImages").child(uid!).child("\(imageName).jpg")
         let storeImage = storageRef
         
-        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 0.75) {
+        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 1.0) {
             
             storeImage.putData(uploadImageData, metadata: nil, completion: { (metaData, error) in
                 storeImage.downloadURL(completion: { (url, error) in
@@ -226,6 +222,42 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                 })
             })
         }
+    }
+    
+    func uploadImage(image: UIImage, completion: @escaping ((String) -> (Void))) {
+        
+        var strURL = ""
+        let uid = Auth.auth().currentUser?.uid
+        let imageName = NSUUID().uuidString
+        let storageRef = Storage.storage().reference().child("RoomImages").child(uid!).child("\(imageName).jpg")
+        
+        if let uploadImageData = UIImageJPEGRepresentation(image, 0.8) {
+            
+            storageRef.putData(uploadImageData, metadata: nil, completion: { (metaData, error) in
+                storageRef.downloadURL(completion: { (url, error) in
+                    if let urlText = url?.absoluteString {
+                        
+                        strURL = urlText
+                        
+                        completion(strURL)
+                    }
+                })
+            })
+        }
+    }
+    
+    // Remove old image from storage (in case user change room's image)
+    func removeOldImageFromStorage() {
+        let postImageUrl0 = currentNews.postImageUrl0!
+        let postImageUrl1 = currentNews.postImageUrl1!
+        let postImageUrl2 = currentNews.postImageUrl2!
+        let storageRef0 = Storage.storage().reference(forURL: postImageUrl0)
+        let storageRef1 = Storage.storage().reference(forURL: postImageUrl1)
+        let storageRef2 = Storage.storage().reference(forURL: postImageUrl2)
+        
+        deleteFromStorage(storageRef: storageRef0)
+        deleteFromStorage(storageRef: storageRef1)
+        deleteFromStorage(storageRef: storageRef2)
     }
     
     //MARK: Handle button pressed
@@ -301,20 +333,19 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
                 else {
                     
                     self.geocodeAddress(address: address, dbRef: ref)
+                    self.removeOldImageFromStorage()
                     self.editData(reference: ref, newValues: values as [String: AnyObject])
                     
-                    // Upload image to Firebase storage and update download urls into database
-                    
-                    _ = self.uploadImageFromImageView(imageView: self.ivPostImage0) { (url) in
-                        self.editData(reference: ref, newValues: ["postImageUrl0": url as AnyObject])
-                    }
-                    
-                    _ = self.uploadImageFromImageView(imageView: self.ivPostImage1) { (url) in
-                        self.editData(reference: ref, newValues: ["postImageUrl1": url as AnyObject])
-                    }
-                    
-                    _ = self.uploadImageFromImageView(imageView: self.ivPostImage2) { (url) in
-                        self.editData(reference: ref, newValues: ["postImageUrl2": url as AnyObject])
+                    for image in self.imageArray {
+                        self.uploadImage(image: image) { (url) -> (Void) in
+                            
+                            self.urlArray.append(url)
+                            
+                            for url in self.urlArray {
+                                let values = ["postImageUrl\(self.urlArray.index(of: url) ?? 0)": url] as [String : AnyObject]
+                                self.editData(reference: ref, newValues: values)
+                            }
+                        }
                     }
                 }
                 

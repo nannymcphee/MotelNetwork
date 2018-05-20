@@ -105,29 +105,24 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     //MARK: Database interaction
     
-    // Load newest posts
     func loadData() {
         
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
-        let myRecentPostQuery = ref.child("Posts").queryOrdered(byChild: "ownerID").queryEqual(toValue: uid).queryLimited(toFirst: 100)
+        let query = ref.child("Posts").queryOrdered(byChild: "ownerID").queryEqual(toValue: uid)
         
-        myRecentPostQuery.observe(.childAdded, with: { (snapshot) in
+        query.keepSynced(true)
+        query.observe(.childAdded, with: { (snapshot) in
             
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let news = News(dictionary: dictionary)
                 news.id = snapshot.key
-  
-                
-                DispatchQueue.main.async {
-                    self.reloadInputViews()
-                }
                 
                 let priceStr = dictionary["price"] as? String
                 let waterPriceStr = dictionary["waterPrice"] as? String
                 let electricPriceStr = dictionary["electricPrice"] as? String
                 let internetPriceStr = dictionary["internetPrice"] as? String
-        
+                
                 news.price = Double(priceStr ?? "0.0")
                 news.waterPrice = Double(waterPriceStr ?? "0.0")
                 news.electricPrice = Double(electricPriceStr ?? "0.0")
@@ -139,20 +134,23 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
                 news.description = dictionary["description"] as? String
                 news.phoneNumber = dictionary["phoneNumber"] as? String
                 news.ownerID = dictionary["ownerID"] as? String
-                news.postImageUrl0 = dictionary["postImageUrl0"] as? String
-                news.postImageUrl1 = dictionary["postImageUrl1"] as? String
-                news.postImageUrl2 = dictionary["postImageUrl2"] as? String
                 news.usersAllowed = dictionary["usersAllowed"] as? String
                 news.timestamp = dictionary["timestamp"] as? Int
                 news.timestampEdit = dictionary["timestampEdit"] as? Int
+                news.postImageUrl0 = dictionary["postImageUrl0"] as? String
+                news.postImageUrl1 = dictionary["postImageUrl1"] as? String
+                news.postImageUrl2 = dictionary["postImageUrl2"] as? String
                 
-                self.listNews.append(news)
-                self.listNews = self.listNews.sorted(by: { (news0, news1) -> Bool in
-                    return news0.timestamp! > (news1.timestamp!)
-                })
-                self.newsCount = self.listNews.count
-                self.lblNewsCount.text = "\(self.newsCount)"
-                self.tbNews.reloadData()
+                DispatchQueue.main.async {
+                    self.listNews.append(news)
+                    self.listNews = self.listNews.sorted(by: { (news0, news1) -> Bool in
+                        return news0.timestamp! > (news1.timestamp!)
+                    })
+                    self.newsCount = self.listNews.count
+                    self.lblNewsCount.text = "\(self.newsCount)"
+                    self.tbNews.reloadData()
+                }
+
             }
         }, withCancel: nil)
     }
@@ -232,28 +230,38 @@ extension AccountViewController {
             // Query delete from database
             let news = self.listNews[indexPath.row]
             let newsID = news.id
-            let postImageUrl0 = news.postImageUrl0!
-            let postImageUrl1 = news.postImageUrl1!
-            let postImageUrl2 = news.postImageUrl2!
+
             let ref = Database.database().reference().child("Posts").child(newsID!)
-            let storageRef0 = Storage.storage().reference(forURL: postImageUrl0)
-            let storageRef1 = Storage.storage().reference(forURL: postImageUrl1)
-            let storageRef2 = Storage.storage().reference(forURL: postImageUrl2)
             
             // Show confirmation alert
             let alert = UIAlertController(title: messageConfirmDeletePost, message: nil, preferredStyle: .actionSheet)
             let actionDestroy = UIAlertAction(title: "Xóa", style: .destructive) { (action) in
-                self.tbNews.beginUpdates()
-                self.deleteData(reference: ref)
-                self.deleteFromStorage(storageRef: storageRef0)
-                self.deleteFromStorage(storageRef: storageRef1)
-                self.deleteFromStorage(storageRef: storageRef2)
-                self.listNews.remove(at: indexPath.row)
-                self.tbNews.deleteRows(at: [indexPath], with: .automatic)
-                self.tbNews.endUpdates()
-                self.tbNews.reloadData()
-                self.newsCount = self.listNews.count
-                self.lblNewsCount.text = "\(self.newsCount)"
+                
+                if news.postImageUrl0 == nil || news.postImageUrl1 == nil || news.postImageUrl2 == nil {
+                    
+                    self.showAlert(title: "Thông báo", alertMessage: "Vui lòng tải lại trang trước khi xóa tin này")
+                }
+                else {
+                    
+                    let postImageUrl0 = news.postImageUrl0!
+                    let postImageUrl1 = news.postImageUrl1!
+                    let postImageUrl2 = news.postImageUrl2!
+                    let storageRef0 = Storage.storage().reference(forURL: postImageUrl0)
+                    let storageRef1 = Storage.storage().reference(forURL: postImageUrl1)
+                    let storageRef2 = Storage.storage().reference(forURL: postImageUrl2)
+                    
+                    self.tbNews.beginUpdates()
+                    self.deleteData(reference: ref)
+                    self.deleteFromStorage(storageRef: storageRef0)
+                    self.deleteFromStorage(storageRef: storageRef1)
+                    self.deleteFromStorage(storageRef: storageRef2)
+                    self.listNews.remove(at: indexPath.row)
+                    self.tbNews.deleteRows(at: [indexPath], with: .automatic)
+                    self.tbNews.endUpdates()
+                    self.tbNews.reloadData()
+                    self.newsCount = self.listNews.count
+                    self.lblNewsCount.text = "\(self.newsCount)"
+                }
             }
             
             let actionCancel = UIAlertAction(title: "Không", style: .cancel) { (action) in

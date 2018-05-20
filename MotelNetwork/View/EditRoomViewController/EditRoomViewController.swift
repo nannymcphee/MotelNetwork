@@ -28,11 +28,12 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var tfPrice: UITextField!
     @IBOutlet weak var tfUser: UITextField!
     
+    let pvUser = UIPickerView()
     var currentRoom = Room()
     var userList = [User]()
-    let pvUser = UIPickerView()
-    var selectedAssets = [PHAsset]()
+    var urlArray = [String]()
     var imageArray = [UIImage]()
+    var selectedAssets = [PHAsset]()
  
     let uid = Auth.auth().currentUser?.uid
     
@@ -93,7 +94,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 let option = PHImageRequestOptions()
                 var thumbnail = UIImage()
                 option.isSynchronous = true
-                manager.requestImage(for: selectedAssets[i], targetSize: CGSize(width: 200, height: 200), contentMode: .aspectFill, options: option) { (result, info) in
+                manager.requestImage(for: selectedAssets[i], targetSize: CGSize(width: 375, height: 360), contentMode: .aspectFill, options: option) { (result, info) in
                     thumbnail = result!
                 }
                 
@@ -134,6 +135,20 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }, withCancel: nil)
     }
     
+    // Remove old image from storage (in case user change room's image)
+    func removeOldImageFromStorage() {
+        let roomImageUrl0 = currentRoom.roomImageUrl0!
+        let roomImageUrl1 = currentRoom.roomImageUrl1!
+        let roomImageUrl2 = currentRoom.roomImageUrl2!
+        let storageRef0 = Storage.storage().reference(forURL: roomImageUrl0)
+        let storageRef1 = Storage.storage().reference(forURL: roomImageUrl1)
+        let storageRef2 = Storage.storage().reference(forURL: roomImageUrl2)
+        
+        deleteFromStorage(storageRef: storageRef0)
+        deleteFromStorage(storageRef: storageRef1)
+        deleteFromStorage(storageRef: storageRef2)
+    }
+    
     // Upload image from UIImageView to storage and return download url
     func uploadImageFromImageView(imageView : UIImageView, completion: @escaping ((String) -> (Void))) {
         
@@ -143,10 +158,32 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let storageRef = Storage.storage().reference().child("RoomImages").child(uid!).child("\(imageName).jpg")
         let storeImage = storageRef
         
-        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 0.75) {
+        if let uploadImageData = UIImageJPEGRepresentation(imageView.image!, 1.0) {
             
             storeImage.putData(uploadImageData, metadata: nil, completion: { (metaData, error) in
                 storeImage.downloadURL(completion: { (url, error) in
+                    if let urlText = url?.absoluteString {
+                        
+                        strURL = urlText
+                        
+                        completion(strURL)
+                    }
+                })
+            })
+        }
+    }
+    
+    func uploadImage(image: UIImage, completion: @escaping ((String) -> (Void))) {
+        
+        var strURL = ""
+        let uid = Auth.auth().currentUser?.uid
+        let imageName = NSUUID().uuidString
+        let storageRef = Storage.storage().reference().child("RoomImages").child(uid!).child("\(imageName).jpg")
+        
+        if let uploadImageData = UIImageJPEGRepresentation(image, 0.8) {
+            
+            storageRef.putData(uploadImageData, metadata: nil, completion: { (metaData, error) in
+                storageRef.downloadURL(completion: { (url, error) in
                     if let urlText = url?.absoluteString {
                         
                         strURL = urlText
@@ -203,6 +240,8 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         pickerView.reloadComponent(0)
         tfUser.text = userList[row].name
     }
+    
+
 
     //MARK: Handle button pressed
    
@@ -253,9 +292,9 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let roomID = currentRoom.id
         let ownerID = Auth.auth().currentUser?.uid
         let renterID = currentRoom.renterID
-        let roomImageUrl0 = currentRoom.roomImageUrl0
-        let roomImageUrl1 = currentRoom.roomImageUrl1
-        let roomImageUrl2 = currentRoom.roomImageUrl2
+        let roomImageUrl0 = currentRoom.roomImageUrl0!
+        let roomImageUrl1 = currentRoom.roomImageUrl1!
+        let roomImageUrl2 = currentRoom.roomImageUrl2!
         
         if area.isEmpty || address.isEmpty || price.isEmpty || roomName.isEmpty || usersAllowed.isEmpty {
             
@@ -299,39 +338,46 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     NativePopup.show(image: Preset.Feedback.done, title: messageEditInfoSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
                 }
                 else {
-
-                    self.editData(reference: ref, newValues: values as [String: AnyObject])
+                    
+                    self.removeOldImageFromStorage()
                     
                     if renterName.isEmpty {
                         
-                        let values = ["renterName": "", "renterID": ""] as [String: AnyObject]
-                        self.editData(reference: ref, newValues: values)
+                        for image in self.imageArray {
+                            self.uploadImage(image: image) { (url) -> (Void) in
+                                
+                                self.urlArray.append(url)
+                                
+                                for url in self.urlArray {
+                                    let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl\(self.urlArray.index(of: url) ?? 0)": url, "usersAllowed": usersAllowed, "address": address, "renterName": "", "renterID": ""] as [String: AnyObject]
+                                    self.storeInformationToDatabase(reference: ref, values: values)
+                                }
+                            }
+                        }
                     }
                     else {
                         
                         // Get renter's id by renter's name and save to room in database
                         let renterRef = Database.database().reference().child("Users")
                         let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
-                        query.observeSingleEvent(of: .value) { (snapshot) in
+                        query.observeSingleEvent(of: .childAdded) { (snapshot) in
                             
                             let renterID = snapshot.key
                             
-                            self.editData(reference: ref, newValues: ["renterID": renterID as AnyObject])
+                            self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
                         }
-                    }
-                    
-                    // Upload image to Firebase storage and update download urls into database
-                    
-                    _ = self.uploadImageFromImageView(imageView: self.ivRoomImage0) { (url) in
-                        self.editData(reference: ref, newValues: ["roomImageUrl0": url as AnyObject])
-                    }
-                    
-                    _ = self.uploadImageFromImageView(imageView: self.ivRoomImage1) { (url) in
-                        self.editData(reference: ref, newValues: ["roomImageUrl1": url as AnyObject])
-                    }
-                    
-                    _ = self.uploadImageFromImageView(imageView: self.ivRoomImage2) { (url) in
-                        self.editData(reference: ref, newValues: ["roomImageUrl2": url as AnyObject])
+                        
+                        for image in self.imageArray {
+                            self.uploadImage(image: image) { (url) -> (Void) in
+                                
+                                self.urlArray.append(url)
+                                
+                                for url in self.urlArray {
+                                    let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl\(self.urlArray.index(of: url) ?? 0)": url, "usersAllowed": usersAllowed, "address": address, "renterName": renterName] as [String: AnyObject]
+                                    self.storeInformationToDatabase(reference: ref, values: values)
+                                }
+                            }
+                        }
                     }
                     
                     NativePopup.show(image: Preset.Feedback.done, title: messageEditInfoSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)

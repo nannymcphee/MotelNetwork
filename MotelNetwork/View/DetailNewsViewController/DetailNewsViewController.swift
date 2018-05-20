@@ -16,7 +16,6 @@ import MXParallaxHeader
 
 class DetailNewsViewController: UIViewController {
     
-    
     //    @IBOutlet weak var lblViewsCount: UILabel!
     @IBOutlet weak var svContent: UIScrollView!
     @IBOutlet weak var vHeader: UIView!
@@ -59,7 +58,7 @@ class DetailNewsViewController: UIViewController {
         
         layoutFAB()
         setUpSlideShow()
-
+        
         numberFormatter.numberStyle = .decimal
         var dateStr: String = ""
         let formattedPrice = numberFormatter.string(from: currentNews.price! as NSNumber)
@@ -120,24 +119,46 @@ class DetailNewsViewController: UIViewController {
         let postImageUrl0 = currentNews.postImageUrl0
         let postImageUrl1 = currentNews.postImageUrl1
         let postImageUrl2 = currentNews.postImageUrl2
-        let kingfisherSource = [KingfisherSource(urlString: postImageUrl0!)!, KingfisherSource(urlString: postImageUrl1!)!, KingfisherSource(urlString: postImageUrl2!)!]
+        let placeholderImage = UIImage(named: "defaultImage")
+        let placeholderSource = [ImageSource(image: placeholderImage!), ImageSource(image: placeholderImage!), ImageSource(image: placeholderImage!)]
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(didTapImage))
 
+        if postImageUrl1 == nil || postImageUrl2 == nil {
+            
+            let source = [KingfisherSource(urlString: postImageUrl0!),
+                          ImageSource(image: placeholderImage!),
+                          ImageSource(image: placeholderImage!)]
+            
+            vSlideShow.setImageInputs(source as! [InputSource])
+        }
+        else if postImageUrl0 == nil && postImageUrl1 == nil && postImageUrl2 == nil {
+            vSlideShow.setImageInputs(placeholderSource)
+        }
+        else {
+            
+            let kingfisherSource = [KingfisherSource(urlString: postImageUrl0!),
+                                    KingfisherSource(urlString: postImageUrl1!),
+                                    KingfisherSource(urlString: postImageUrl2!)]
+            
+            vSlideShow.setImageInputs(kingfisherSource as! [InputSource])
+        }
+        
         vSlideShow.backgroundColor = UIColor.white
-        vSlideShow.slideshowInterval = 3.0
-        vSlideShow.pageControlPosition = PageControlPosition.underScrollView
-        vSlideShow.pageControl.currentPageIndicatorTintColor = UIColor.black
-        vSlideShow.pageControl.pageIndicatorTintColor = UIColor.lightGray
+        vSlideShow.slideshowInterval = 0
+        vSlideShow.pageControlPosition = PageControlPosition.insideScrollView
+        vSlideShow.pageControl.currentPageIndicatorTintColor = myBlue
+        vSlideShow.pageControl.pageIndicatorTintColor = UIColor.white
+        vSlideShow.circular = false
         vSlideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
         vSlideShow.activityIndicator = DefaultActivityIndicator()
-        vSlideShow.setImageInputs(kingfisherSource)
         vSlideShow.addGestureRecognizer(recognizer)
     }
     
     @objc func didTapImage() {
         let fullScreenController = vSlideShow.presentFullScreenController(from: self)
-        // set the activity indicator for full screen controller (skipping the line will show no activity indicator)
+        
         fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
+        fullScreenController.slideshow.circular = false
     }
     
 
