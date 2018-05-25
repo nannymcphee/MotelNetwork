@@ -34,6 +34,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var urlArray = [String]()
     var imageArray = [UIImage]()
     var selectedAssets = [PHAsset]()
+    var renterID: String = ""
  
     let uid = Auth.auth().currentUser?.uid
     
@@ -133,6 +134,20 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 self.userList.append(user)
             }
         }, withCancel: nil)
+    }
+    
+    // Get renterID by renterName
+    
+    func getRenterID(renterName: String) {
+        
+        let renterRef = Database.database().reference().child("Users")
+        let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
+        query.observeSingleEvent(of: .childAdded) { (snapshot) in
+            
+            let id = snapshot.key
+            
+            self.renterID = id
+        }
     }
     
     // Remove old image from storage (in case user change room's image)
@@ -324,15 +339,8 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     }
                     else {
                         
-                        // Get renter's id by renter's name and save to room in database
-                        let renterRef = Database.database().reference().child("Users")
-                        let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
-                        query.observeSingleEvent(of: .value) { (snapshot) in
-                            
-                            let renterID = snapshot.key
-                            
-                            self.editData(reference: ref, newValues: ["renterID": renterID as AnyObject])
-                        }
+                        self.getRenterID(renterName: renterName)
+                        self.editData(reference: ref, newValues: ["renterID": self.renterID as AnyObject])
                     }
                     
                     NativePopup.show(image: Preset.Feedback.done, title: messageEditInfoSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
@@ -357,15 +365,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     }
                     else {
                         
-                        // Get renter's id by renter's name and save to room in database
-                        let renterRef = Database.database().reference().child("Users")
-                        let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
-                        query.observeSingleEvent(of: .childAdded) { (snapshot) in
-                            
-                            let renterID = snapshot.key
-                            
-                            self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
-                        }
+                        self.getRenterID(renterName: renterName)
                         
                         for image in self.imageArray {
                             self.uploadImage(image: image) { (url) -> (Void) in
@@ -373,7 +373,7 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                                 self.urlArray.append(url)
                                 
                                 for url in self.urlArray {
-                                    let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl\(self.urlArray.index(of: url) ?? 0)": url, "usersAllowed": usersAllowed, "address": address, "renterName": renterName] as [String: AnyObject]
+                                    let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl\(self.urlArray.index(of: url) ?? 0)": url, "usersAllowed": usersAllowed, "address": address, "renterName": renterName, "renterID": self.renterID] as [String: AnyObject]
                                     self.storeInformationToDatabase(reference: ref, values: values)
                                 }
                             }
@@ -384,14 +384,8 @@ class EditRoomViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 }
                 
                 // Get renter's id by renter's name and save to room in database
-                let renterRef = Database.database().reference().child("Users")
-                let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
-                query.observeSingleEvent(of: .childAdded) { (snapshot) in
-                    
-                    let renterID = snapshot.key
-                    
-                    self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
-                }
+                self.getRenterID(renterName: renterName)
+                self.editData(reference: ref, newValues: ["renterID": self.renterID as AnyObject])
                 
                 return
             }

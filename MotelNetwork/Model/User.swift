@@ -12,7 +12,6 @@ class User {
     var id: String?
     var name: String?
     var email: String?
-    var pass: String?
     var birthDay: String?
     var profileImageUrl: String?
     var cmnd: String?
@@ -22,12 +21,11 @@ class User {
     init() {
     }
     
-    init(id: String, name: String, email: String, pass: String, birthDay: String, profileImageUrl: String, cmnd: String, phoneNumber: String ,userType: Int) {
+    init(id: String, name: String, email: String, birthDay: String, profileImageUrl: String, cmnd: String, phoneNumber: String ,userType: Int) {
         
         self.id = id
         self.name = name
         self.email = email
-        self.pass = pass
         self.birthDay = birthDay
         self.profileImageUrl = profileImageUrl
         self.cmnd = cmnd
@@ -39,7 +37,6 @@ class User {
         self.id = dictionary["id"] as? String
         self.name = dictionary["name"] as? String
         self.email = dictionary["email"] as? String
-        self.pass = dictionary["pass"] as? String
         self.birthDay = dictionary["birthDay"] as? String
         self.profileImageUrl = dictionary["profileImageUrl"] as? String
         self.cmnd = dictionary["cmnd"] as? String

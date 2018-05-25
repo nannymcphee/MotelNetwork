@@ -58,7 +58,7 @@ class ResultViewController: UIViewController, GMSMapViewDelegate, CLLocationMana
         if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
 
             let urlString = "http://maps.google.com/?saddr=&daddr=\(currentNewsCoordinate.latitude),\(currentNewsCoordinate.longitude)&directionsmode=driving"
-
+           
             UIApplication.shared.open(URL(string: urlString)!, options: [:], completionHandler: nil)
         }
         else {
@@ -76,6 +76,7 @@ class ResultViewController: UIViewController, GMSMapViewDelegate, CLLocationMana
                 results[i].drawOnMap(mapView, approximate: false, strokeColor: UIColor.lightGray, strokeWidth: 3.0)
             }
         }
+        
         mapView.animate(with: GMSCameraUpdate.fit(results[routeIndex].bounds!, withPadding: 40.0))
         results[routeIndex].drawOnMap(mapView, approximate: false, strokeColor: myBlue, strokeWidth: 6.0)
         results[routeIndex].drawOriginMarkerOnMap(mapView, title: "Bắt đầu", color: UIColor.green, opacity: 1.0, flat: true)

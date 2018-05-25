@@ -33,6 +33,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
     var selectedAssets = [PHAsset]()
     var imageArray = [UIImage]()
     var urlArray = [String]()
+    var renterID: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,6 +94,20 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                 user.name = dictionary["FullName"] as? String
             }
         }, withCancel: nil)
+    }
+    
+    // Get renterID by renterName
+    
+    func getRenterID(renterName: String) {
+        
+        let renterRef = Database.database().reference().child("Users")
+        let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
+        query.observeSingleEvent(of: .childAdded) { (snapshot) in
+            
+            let id = snapshot.key
+            
+            self.renterID = id
+        }
     }
     
     // Upload image from UIImageView to storage and return download url
@@ -264,6 +279,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                         
                         for url in self.urlArray {
                             let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl\(self.urlArray.index(of: url) ?? 0)": url, "usersAllowed": usersAllowed, "address": address, "renterName": "", "renterID": ""] as [String: AnyObject]
+                            
                             self.storeInformationToDatabase(reference: ref, values: values)
                         }
                     }
@@ -271,23 +287,16 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             }
             else {
                 
-                // Get renter's id by renter's name and save to room in database
-                let renterRef = Database.database().reference().child("Users")
-                let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
-                query.observeSingleEvent(of: .childAdded) { (snapshot) in
-                    
-                    let renterID = snapshot.key
-                    
-                    self.storeInformationToDatabase(reference: ref, values: ["renterID": renterID as AnyObject])
-                }
-                
+                self.getRenterID(renterName: renterName)
+
                 for image in self.imageArray {
                     self.uploadImage(image: image) { (url) -> (Void) in
                         
                         self.urlArray.append(url)
                         
                         for url in self.urlArray {
-                            let values = ["roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "roomImageUrl\(self.urlArray.index(of: url) ?? 0)": url, "usersAllowed": usersAllowed, "address": address, "renterName": renterName] as [String: AnyObject]
+                            let values = ["roomImageUrl\(self.urlArray.index(of: url) ?? 0)": url, "roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "usersAllowed": usersAllowed, "address": address, "renterName": renterName, "renterID": self.renterID] as [String: AnyObject]
+                            
                             self.storeInformationToDatabase(reference: ref, values: values)
                         }
                     }

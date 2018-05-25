@@ -33,7 +33,7 @@ extension UIViewController {
             else {
                 
                 if let firebaseError = error {
-                    
+                    self.stopLoading()
                     print(firebaseError)
                     self.showAlert(title: "Thông báo", alertMessage: messageLoginFailed)
                     return
@@ -162,10 +162,6 @@ extension UIViewController {
                 }
                 else {
                     
-                    let uid = Auth.auth().currentUser?.uid
-                    let values = ["Password": newPass]
-                    let ref = Database.database().reference().child("Users").child(uid!)
-                    self.storeInformationToDatabase(reference: ref, values: values as [String: AnyObject])
                     NativePopup.show(image: Preset.Feedback.done, title: messageChangePasswordSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
                 }
             })
@@ -339,13 +335,33 @@ extension UIViewController {
         if URL(string: imageUrl) != nil {
             let resource = ImageResource(downloadURL: URL(string: imageUrl)!)
             
-            imageView.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultImage") , options: nil, progressBlock: nil, completionHandler: nil)
+            imageView.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultAvatar") , options: nil, progressBlock: nil, completionHandler: nil)
         }
         else{
-            imageView.image = #imageLiteral(resourceName: "defaultImage")
+            imageView.image = #imageLiteral(resourceName: "defaultAvatar")
         }
     }
-
+    
+    // Scale image
+    
+    func scaleImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    //MARK: Do calculation
+    
+    func calculateBill(bill: Bill) -> Double {
+        
+        bill.totalWaterPrice = bill.waterPrice! * bill.userCount!
+        bill.totalElectricPrice = bill.electricPrice! * (bill.newElectricNumber! - bill.oldElectricNumber!)
+        bill.totalRoomPrice = bill.internetPrice! + bill.totalWaterPrice! + bill.totalElectricPrice! + bill.roomPrice! + bill.surcharge!
+        
+        return bill.totalRoomPrice!
+    }
     
 }
 

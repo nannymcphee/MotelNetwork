@@ -86,7 +86,6 @@
 		E1954476208A0EA3004F0D17 /* DetailBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1954474208A0EA3004F0D17 /* DetailBillViewController.swift */; };
 		E1954477208A0EA3004F0D17 /* DetailBillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1954475208A0EA3004F0D17 /* DetailBillViewController.xib */; };
 		E198761220672E2D008434CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198761120672E2D008434CC /* AppDelegate.swift */; };
-		E198761720672E2D008434CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E198761520672E2D008434CC /* Main.storyboard */; };
 		E198DC1E2081829000E59BD2 /* ListNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198DC192081829000E59BD2 /* ListNewsTableViewCell.swift */; };
 		E198DC202081829000E59BD2 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E198DC1B2081829000E59BD2 /* HomeViewController.xib */; };
 		E198DC212081829000E59BD2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E198DC1C2081829000E59BD2 /* HomeViewController.swift */; };
@@ -110,6 +109,7 @@
 		E1E6D60F20A03B6E0014C1C4 /* SavedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6D60E20A03B6E0014C1C4 /* SavedPost.swift */; };
 		E1E6D61320A319D50014C1C4 /* EditBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6D61120A319D50014C1C4 /* EditBillViewController.swift */; };
 		E1E6D61420A319D50014C1C4 /* EditBillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E6D61220A319D50014C1C4 /* EditBillViewController.xib */; };
+		E1EE3B4620B53B2C00530564 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1EE3B4520B53B2C00530564 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -195,7 +195,6 @@
 		E1954475208A0EA3004F0D17 /* DetailBillViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailBillViewController.xib; sourceTree = "<group>"; };
 		E198760E20672E2D008434CC /* Motel Network.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Motel Network.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E198761120672E2D008434CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E198761620672E2D008434CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E198761D20672E2D008434CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E198DC192081829000E59BD2 /* ListNewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNewsTableViewCell.swift; sourceTree = "<group>"; };
 		E198DC1B2081829000E59BD2 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -220,6 +219,7 @@
 		E1E6D60E20A03B6E0014C1C4 /* SavedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPost.swift; sourceTree = "<group>"; };
 		E1E6D61120A319D50014C1C4 /* EditBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBillViewController.swift; sourceTree = "<group>"; };
 		E1E6D61220A319D50014C1C4 /* EditBillViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditBillViewController.xib; sourceTree = "<group>"; };
+		E1EE3B4520B53B2C00530564 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FA2E9B82728A3236B847A136 /* Pods_Motel_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Motel_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -547,8 +547,8 @@
 			isa = PBXGroup;
 			children = (
 				E1AA95BA2090AA2900FBDB65 /* Assets.xcassets */,
+				E1EE3B4520B53B2C00530564 /* Main.storyboard */,
 				E198761120672E2D008434CC /* AppDelegate.swift */,
-				E198761520672E2D008434CC /* Main.storyboard */,
 				E198761D20672E2D008434CC /* Info.plist */,
 				E117B663208E3BC500087A0B /* GoogleService-Info.plist */,
 				CE5FF78E20767689005BEA3B /* Extension */,
@@ -745,6 +745,7 @@
 			files = (
 				E16F5B20207B69AE00B284A5 /* AccountOptionTableViewCell.xib in Resources */,
 				E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */,
+				E1EE3B4620B53B2C00530564 /* Main.storyboard in Resources */,
 				E1954477208A0EA3004F0D17 /* DetailBillViewController.xib in Resources */,
 				E198DC222081829000E59BD2 /* ListNewsTableViewCell.xib in Resources */,
 				E1AA95BB2090AA2900FBDB65 /* Assets.xcassets in Resources */,
@@ -780,7 +781,6 @@
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
 				E127015B2093372600663611 /* GoogleMapViewController.xib in Resources */,
 				E10112D22091C2DD004ACA0D /* UpdateInfoViewController.xib in Resources */,
-				E198761720672E2D008434CC /* Main.storyboard in Resources */,
 				E16F5B1C207B698E00B284A5 /* AccountViewController.xib in Resources */,
 				CE5FF78C20766ED0005BEA3B /* MainViewController.xib in Resources */,
 				E1507BAD207D19A200387527 /* NewPostViewController.xib in Resources */,
@@ -952,17 +952,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		E198761520672E2D008434CC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E198761620672E2D008434CC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E198761E20672E2D008434CC /* Debug */ = {

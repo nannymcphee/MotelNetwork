@@ -98,9 +98,5 @@ class LoginViewController: UIViewController {
 //        self.navigationController?.pushViewController(vc, animated: true)
         self.present(vc, animated: true)
     }
-    
-    
-    
-    
-
 }
+

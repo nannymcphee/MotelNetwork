@@ -254,7 +254,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     
                     // Store user's info to database
                     
-                    let values = ["FullName": userFullName, "Email": userEmail, "Password": userPassword, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": "", "PhoneNumber": userPhoneNumber, "TimeStamp": timestamp] as [String : AnyObject]
+                    let values = ["FullName": userFullName, "Email": userEmail, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": "", "PhoneNumber": userPhoneNumber, "TimeStamp": timestamp] as [String : AnyObject]
                     
                     self.storeInformationToDatabase(reference: reference, values: values as [String : AnyObject])
                     

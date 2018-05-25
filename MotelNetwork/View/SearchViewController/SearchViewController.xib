@@ -39,12 +39,6 @@
                                 <constraint firstAttribute="height" constant="1" id="amM-w4-ouy"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tìm bài đăng" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VrK-NU-QiN">
-                            <rect key="frame" x="139.5" y="22" width="96.5" height="20"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUj-nx-J4i">
                             <rect key="frame" x="332" y="20" width="24" height="24"/>
                             <constraints>
@@ -67,57 +61,45 @@
                                 <action selector="btnFilterPressed:" destination="-1" eventType="touchUpInside" id="eWb-hy-6Rv"/>
                             </connections>
                         </button>
+                        <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Tìm kiếm" translatesAutoresizingMaskIntoConstraints="NO" id="dnn-e2-TZP">
+                            <rect key="frame" x="53" y="4" width="269" height="56"/>
+                            <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                        </searchBar>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="hEC-4S-vVM" secondAttribute="trailing" id="10c-6J-Qed"/>
+                        <constraint firstItem="UUj-nx-J4i" firstAttribute="leading" secondItem="dnn-e2-TZP" secondAttribute="trailing" constant="10" id="18Y-to-NK9"/>
                         <constraint firstAttribute="bottom" secondItem="hEC-4S-vVM" secondAttribute="bottom" id="24J-ju-nyK"/>
+                        <constraint firstItem="dnn-e2-TZP" firstAttribute="leading" secondItem="iHX-Ao-8se" secondAttribute="trailing" constant="10" id="BIB-KT-Usn"/>
                         <constraint firstItem="iHX-Ao-8se" firstAttribute="centerY" secondItem="8in-Ns-kpZ" secondAttribute="centerY" id="CZx-Ys-y81"/>
-                        <constraint firstItem="VrK-NU-QiN" firstAttribute="centerY" secondItem="8in-Ns-kpZ" secondAttribute="centerY" id="FPm-6Q-yxX"/>
+                        <constraint firstItem="dnn-e2-TZP" firstAttribute="centerY" secondItem="8in-Ns-kpZ" secondAttribute="centerY" id="J4s-NB-10f"/>
                         <constraint firstItem="iHX-Ao-8se" firstAttribute="leading" secondItem="8in-Ns-kpZ" secondAttribute="leading" constant="19" id="Vw5-gV-zov"/>
-                        <constraint firstItem="VrK-NU-QiN" firstAttribute="centerX" secondItem="8in-Ns-kpZ" secondAttribute="centerX" id="alw-D4-rEc"/>
                         <constraint firstAttribute="trailing" secondItem="UUj-nx-J4i" secondAttribute="trailing" constant="19" id="bEB-EK-Lei"/>
                         <constraint firstAttribute="height" constant="64" id="cKX-Mp-vwk"/>
                         <constraint firstItem="hEC-4S-vVM" firstAttribute="leading" secondItem="8in-Ns-kpZ" secondAttribute="leading" id="cdA-se-5kT"/>
-                        <constraint firstItem="UUj-nx-J4i" firstAttribute="centerY" secondItem="VrK-NU-QiN" secondAttribute="centerY" id="sGa-mh-fFs"/>
+                        <constraint firstItem="UUj-nx-J4i" firstAttribute="centerY" secondItem="8in-Ns-kpZ" secondAttribute="centerY" id="tRh-VB-kSt"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DOg-zL-9SC">
                     <rect key="frame" x="0.0" y="84" width="375" height="836"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMe-KD-R64">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                            <subviews>
-                                <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Tìm kiếm" translatesAutoresizingMaskIntoConstraints="NO" id="dnn-e2-TZP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
-                                    <offsetWrapper key="searchFieldBackgroundPositionAdjustment" horizontal="0.0" vertical="0.0"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <scopeButtonTitles>
-                                        <string>Title</string>
-                                        <string>Title</string>
-                                    </scopeButtonTitles>
-                                </searchBar>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="dnn-e2-TZP" secondAttribute="bottom" id="Izi-hT-yZD"/>
-                                <constraint firstAttribute="trailing" secondItem="dnn-e2-TZP" secondAttribute="trailing" id="Rjp-B4-IyT"/>
-                                <constraint firstAttribute="height" constant="56" id="X2L-uh-EHC"/>
-                                <constraint firstItem="dnn-e2-TZP" firstAttribute="top" secondItem="eMe-KD-R64" secondAttribute="top" id="XxW-yz-RcI"/>
-                                <constraint firstItem="dnn-e2-TZP" firstAttribute="leading" secondItem="eMe-KD-R64" secondAttribute="leading" id="o0y-ig-zOQ"/>
-                            </constraints>
-                        </view>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6eB-Vc-RZT">
-                            <rect key="frame" x="0.0" y="56" width="375" height="780"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="836"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pUJ-EE-DnV">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="836"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzQ-bh-bW3">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="836"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Không tìm thấy bài đăng." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gax-t2-pUL">
-                                                    <rect key="frame" x="8" y="8" width="359" height="764"/>
+                                                    <rect key="frame" x="8" y="8" width="359" height="820"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -132,7 +114,7 @@
                                             </constraints>
                                         </view>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Osm-BE-Wsd">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="836"/>
                                             <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableView>
                                     </subviews>
@@ -161,13 +143,10 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="eMe-KD-R64" secondAttribute="trailing" id="4tD-zl-XV4"/>
-                        <constraint firstItem="eMe-KD-R64" firstAttribute="top" secondItem="DOg-zL-9SC" secondAttribute="top" id="AUq-ei-2on"/>
-                        <constraint firstItem="eMe-KD-R64" firstAttribute="leading" secondItem="DOg-zL-9SC" secondAttribute="leading" id="HKZ-cR-8oI"/>
                         <constraint firstItem="6eB-Vc-RZT" firstAttribute="leading" secondItem="DOg-zL-9SC" secondAttribute="leading" id="RC0-HP-c8K"/>
+                        <constraint firstItem="6eB-Vc-RZT" firstAttribute="top" secondItem="DOg-zL-9SC" secondAttribute="top" id="UHK-9j-aA2"/>
                         <constraint firstAttribute="bottom" secondItem="6eB-Vc-RZT" secondAttribute="bottom" id="faS-hv-IWg"/>
                         <constraint firstAttribute="trailing" secondItem="6eB-Vc-RZT" secondAttribute="trailing" id="kN4-oE-Q8i"/>
-                        <constraint firstItem="6eB-Vc-RZT" firstAttribute="top" secondItem="eMe-KD-R64" secondAttribute="bottom" id="mNJ-MZ-txj"/>
                     </constraints>
                 </view>
             </subviews>

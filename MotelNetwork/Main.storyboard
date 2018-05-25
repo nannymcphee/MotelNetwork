@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VOa-uK-ebG">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="lDe-zF-Px8">
+            <objects>
+                <viewController id="VOa-uK-ebG" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8MT-39-RyF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashLogo" translatesAutoresizingMaskIntoConstraints="NO" id="40U-jn-lXM">
+                                <rect key="frame" x="62" y="298.5" width="250" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="90" id="6t5-BF-jv3"/>
+                                    <constraint firstAttribute="width" constant="250" id="xrO-Rf-mxd"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.46666666666666667" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="40U-jn-lXM" firstAttribute="centerY" secondItem="O1i-NV-1bA" secondAttribute="centerY" id="8wq-ss-pa6"/>
+                            <constraint firstItem="40U-jn-lXM" firstAttribute="centerX" secondItem="O1i-NV-1bA" secondAttribute="centerX" id="jDK-dy-vfC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O1i-NV-1bA"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o2P-Z5-k4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160.80000000000001" y="-133.5832083958021"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="splashLogo" width="250" height="90"/>
+    </resources>
+</document>

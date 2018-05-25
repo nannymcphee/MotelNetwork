@@ -297,8 +297,9 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
         let postID = currentNews.id
         let usersAllowed = self.tfUsersAllowed.text!
         let timestampEdit = Int(NSDate().timeIntervalSince1970)
+        var addressTemp = self.tfAddress.text!
         
-        if area.isEmpty || title.isEmpty || (self.tfAddress.text?.isEmpty)! || description.isEmpty || district.isEmpty || price.isEmpty || waterPrice.isEmpty || electricPrice.isEmpty || internetPrice.isEmpty || phoneNumber.isEmpty || usersAllowed.isEmpty {
+        if area.isEmpty || title.isEmpty || addressTemp.isEmpty || description.isEmpty || district.isEmpty || price.isEmpty || waterPrice.isEmpty || electricPrice.isEmpty || internetPrice.isEmpty || phoneNumber.isEmpty || usersAllowed.isEmpty {
             
             self.showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
         }
@@ -307,14 +308,20 @@ class EditPostViewController: UIViewController, UIImagePickerControllerDelegate,
             let ref = Database.database().reference().child("Posts").child(postID!)
             
             if (district.elementsEqual(currentNews.district!)) {
-                address = self.tfAddress.text!
+                address = addressTemp
             }
             else {
-                var addressTemp = self.tfAddress.text!
                 if let range = addressTemp.range(of: ",") {
                     addressTemp.removeSubrange(range.lowerBound..<addressTemp.endIndex)
                     address = ("\(addressTemp)" + ", \(district)")
                 }
+            }
+            
+            if (addressTemp.elementsEqual(currentNews.address!)) {
+                address = addressTemp
+            }
+            else {
+                address = ("\(addressTemp)" + ", \(district)")
             }
 
             // Removed value "timestamp": timestamp

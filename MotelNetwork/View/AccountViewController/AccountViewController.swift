@@ -95,8 +95,7 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
             let profileImageUrl = value["ProfileImageUrl"] as? String ?? ""
             
             self.lblFullName.text = userName
-            let resource = ImageResource(downloadURL: URL(string: profileImageUrl)!)
-            self.ivAvatar.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
+            self.loadImageToImageView(imageUrl: profileImageUrl, imageView: self.ivAvatar)
         }
         
         makeImageViewRounded(imageView: ivAvatar)

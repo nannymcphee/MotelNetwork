@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="MotelNetwork" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
                 <outlet property="vContent" destination="94P-zP-iSZ" id="6dp-MG-rkn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,7 +23,42 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="94P-zP-iSZ">
                     <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Yd-xP-jFg">
+                            <rect key="frame" x="0.0" y="597" width="375" height="50"/>
+                            <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="LKk-ui-PJ8"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A32-n7-xgq">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lgMotelNetworkBlue2" translatesAutoresizingMaskIntoConstraints="NO" id="0IL-dH-ySw">
+                                    <rect key="frame" x="133" y="8" width="108" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="Apa-wf-mAO"/>
+                                        <constraint firstAttribute="width" constant="108" id="SYO-0h-sat"/>
+                                    </constraints>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="0IL-dH-ySw" firstAttribute="centerX" secondItem="A32-n7-xgq" secondAttribute="centerX" id="5Vx-mB-Nbd"/>
+                                <constraint firstItem="0IL-dH-ySw" firstAttribute="top" secondItem="A32-n7-xgq" secondAttribute="top" constant="8" id="cmJ-DT-k1E"/>
+                                <constraint firstAttribute="height" constant="48" id="dHM-ED-8OR"/>
+                            </constraints>
+                        </view>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="A32-n7-xgq" firstAttribute="leading" secondItem="94P-zP-iSZ" secondAttribute="leading" id="1Wn-YH-oRE"/>
+                        <constraint firstAttribute="trailing" secondItem="5Yd-xP-jFg" secondAttribute="trailing" id="IEj-3N-AXO"/>
+                        <constraint firstAttribute="bottom" secondItem="5Yd-xP-jFg" secondAttribute="bottom" id="LQ6-y0-840"/>
+                        <constraint firstAttribute="trailing" secondItem="A32-n7-xgq" secondAttribute="trailing" id="bx2-lV-MPn"/>
+                        <constraint firstItem="A32-n7-xgq" firstAttribute="top" secondItem="94P-zP-iSZ" secondAttribute="top" id="gTo-Zq-5Eh"/>
+                        <constraint firstItem="5Yd-xP-jFg" firstAttribute="leading" secondItem="94P-zP-iSZ" secondAttribute="leading" id="gdT-HW-4uW"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -36,4 +71,7 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
     </objects>
+    <resources>
+        <image name="lgMotelNetworkBlue2" width="108" height="30"/>
+    </resources>
 </document>

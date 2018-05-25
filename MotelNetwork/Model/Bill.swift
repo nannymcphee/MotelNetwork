@@ -65,3 +65,4 @@ class Bill {
         self.timestamp = dictionary["timestamp"] as? Int
     }
 }
+

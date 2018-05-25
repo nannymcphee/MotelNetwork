@@ -94,10 +94,9 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
             let value = snapshot.value as! NSDictionary
             let userName = value["FullName"] as? String ?? ""
             let profileImageUrl = value["ProfileImageUrl"] as? String ?? ""
-            let resource = ImageResource(downloadURL: URL(string: profileImageUrl)!)
             
             self.lblUserFullName.text = userName
-            self.ivAvatar.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
+            self.loadImageToImageView(imageUrl: profileImageUrl, imageView: self.ivAvatar)
         }
         
         makeImageViewRounded(imageView: ivAvatar)

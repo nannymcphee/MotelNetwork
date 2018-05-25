@@ -51,8 +51,7 @@ class ChangeEmailViewController: UIViewController {
             
             self.lblFullName.text = userName
             self.lblEmail.text = email
-            let resource = ImageResource(downloadURL: URL(string: profileImageUrl)!)
-            self.ivAvatar.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
+            self.loadImageToImageView(imageUrl: profileImageUrl, imageView: self.ivAvatar)
         }
         
         makeImageViewRounded(imageView: ivAvatar)        

@@ -46,6 +46,9 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     var dbReference: DatabaseReference!
     var currentNewsLatitude: String = ""
     var currentNewsLongitude: String = ""
+    var postImageUrl0: String = ""
+    var postImageUrl1: String = ""
+    var postImageUrl2: String = ""
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +66,7 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     //MARK: Geocode address using Google Geocoding API
     
-    func geocodeAddress(address: String, dbRef: DatabaseReference) {
+    func geocodeAddress(address: String) {
         
         let postParameters:[String: Any] = [ "address": address,"key":API_KEY]
         let url : String = "https://maps.googleapis.com/maps/api/geocode/json"
@@ -75,9 +78,9 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
                 let resultParams = JSON(receivedResults)
                 let lat = resultParams["results"][0]["geometry"]["location"]["lat"].stringValue
                 let long = resultParams["results"][0]["geometry"]["location"]["lng"].stringValue
-                let values = ["lat": lat, "long": long]
                 
-                self.storeInformationToDatabase(reference: dbRef, values: values as [String : AnyObject])
+                self.currentNewsLatitude = lat
+                self.currentNewsLongitude = long
             }
         }
     }
@@ -335,37 +338,32 @@ class NewPostViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         else {
             
             let ref = Database.database().reference().child("Posts").childByAutoId()
-            let postParameters:[String: Any] = [ "address": address,"key":API_KEY]
-            let url : String = "https://maps.googleapis.com/maps/api/geocode/json"
             
-            Alamofire.request(url, method: .get, parameters: postParameters, encoding: URLEncoding.default, headers: nil).responseJSON {  response in
+            self.geocodeAddress(address: address)
+            
+            for image in self.imageArray {
                 
-                if let receivedResults = response.result.value {
-                    let resultParams = JSON(receivedResults)
-                    let lat = resultParams["results"][0]["geometry"]["location"]["lat"].stringValue
-                    let long = resultParams["results"][0]["geometry"]["location"]["lng"].stringValue
-
-                    for image in self.imageArray {
-                        self.uploadImage(image: image) { (url) -> (Void) in
-                            
-                            self.urlArray.append(url)
-                            
-                            for url in self.urlArray {
-                                let values = ["postImageUrl\(self.urlArray.index(of: url) ?? 0)": url, "title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "timestamp": timestamp, "ownerID": uid, "views": 0, "usersAllowed": usersAllowed, "timestampEdit": timestampEdit, "lat": lat, "long": long] as [String : AnyObject]
-                                self.storeInformationToDatabase(reference: ref, values: values)
-                            }
-                        }
+                self.uploadImage(image: image) { (url) -> (Void) in
+                    
+                    self.urlArray.append(url)
+                    
+                    for url in self.urlArray {
+                        
+                        let values = ["postImageUrl\(self.urlArray.index(of: url) ?? 0)": url, "title": title, "description": description, "address": address, "district": district, "price": price, "electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "area": area, "phoneNumber": phoneNumber, "timestamp": timestamp, "ownerID": uid, "views": 0, "usersAllowed": usersAllowed, "timestampEdit": timestampEdit, "lat": self.currentNewsLatitude, "long": self.currentNewsLongitude] as [String : AnyObject]
+                        
+                        self.storeInformationToDatabase(reference: ref, values: values)
                     }
                 }
-                self.showLoading()
+            }
+            
+            self.showLoading()
+            self.resetView()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.stopLoading()
                 self.selectedAssets.removeAll()
                 self.imageArray.removeAll()
                 self.urlArray.removeAll()
-                self.resetView()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    self.stopLoading()
-                    NativePopup.show(image: Preset.Feedback.done, title: messageNewPostSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
-            }
+                NativePopup.show(image: Preset.Feedback.done, title: messageNewPostSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
             }
         }
         

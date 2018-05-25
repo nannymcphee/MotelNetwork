@@ -81,9 +81,7 @@ class DetailNewsViewController: UIViewController {
                     
                     if let userProfileImageUrl = dictionary["ProfileImageUrl"] as? String {
                         
-                        let profileImgResource = ImageResource(downloadURL: URL(string: userProfileImageUrl)!)
-                        
-                        self.ivAvatar.kf.setImage(with: profileImgResource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
+                        self.loadImageToImageView(imageUrl: userProfileImageUrl, imageView: self.ivAvatar)
                     }
                     
                     if let userName = dictionary["FullName"] as? String {
@@ -175,11 +173,10 @@ extension DetailNewsViewController: FloatyDelegate {
        
         floaty.paddingX = self.view.frame.width / 2 - floaty.frame.width * 3
         floaty.fabDelegate = self
-        floaty.buttonImage = #imageLiteral(resourceName: "icDirection")
+        floaty.buttonImage = #imageLiteral(resourceName: "icDirection-1")
         floaty.buttonColor = UIColor.white
 //        floaty.buttonColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
         self.view.addSubview(floaty)
-        
     }
     
     // MARK: - Floaty Delegate Methods

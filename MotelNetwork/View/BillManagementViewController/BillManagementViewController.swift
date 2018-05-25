@@ -117,15 +117,14 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
             }
             
             self.lblUserFullName.text = userName
-            let resource = ImageResource(downloadURL: URL(string: profileImageUrl)!)
-            self.ivAvatar.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
+            self.loadImageToImageView(imageUrl: profileImageUrl, imageView: self.ivAvatar)
         }
     }
     
     func loadDataForOwner() {
         
         let ref = Database.database().reference()
-        let myRecentBillsQuery = ref.child("Bills").queryOrdered(byChild: "ownerID").queryEqual(toValue: uid).queryLimited(toFirst: 100)
+        let myRecentBillsQuery = ref.child("Bills").queryOrdered(byChild: "ownerID").queryEqual(toValue: uid)
         
         myRecentBillsQuery.observe(.childAdded, with: { (snapshot) in
             
@@ -168,7 +167,7 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
     func loadDataForRenter() {
         
         let ref = Database.database().reference()
-        let myRecentBillsQuery = ref.child("Bills").queryOrdered(byChild: "renterID").queryEqual(toValue: uid).queryLimited(toFirst: 100)
+        let myRecentBillsQuery = ref.child("Bills").queryOrdered(byChild: "renterID").queryEqual(toValue: uid)
         
         myRecentBillsQuery.observe(.childAdded, with: { (snapshot) in
             

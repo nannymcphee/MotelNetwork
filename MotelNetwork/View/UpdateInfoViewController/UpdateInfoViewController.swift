@@ -20,17 +20,16 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var btnSave: UIButton!
     @IBOutlet weak var btnAddImage: UIButton!
     @IBOutlet weak var tfUserName: UITextField!
-    
     @IBOutlet weak var tfCMND: UITextField!
     @IBOutlet weak var tfPhoneNumber: UITextField!
     @IBOutlet weak var tfBirthDay: UITextField!
     @IBOutlet weak var ivProfileImage: UIImageView!
     
     let uid = Auth.auth().currentUser?.uid
+    let dpBirthDay = UIDatePicker()
     var profileImageUrl: String?
     var imageArray = [UIImage]()
     var selectedAssets = [PHAsset]()
-    let dpBirthDay = UIDatePicker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,8 +56,7 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
                 self.tfBirthDay.text = dictionary["BirthDay"] as? String
                 self.tfCMND.text = dictionary["CMND"] as? String
                 self.tfPhoneNumber.text = dictionary["PhoneNumber"] as? String
-                let resouce = ImageResource(downloadURL: URL(string: self.profileImageUrl!)!)
-                self.ivProfileImage.kf.setImage(with: resouce, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
+                self.loadImageToImageView(imageUrl: self.profileImageUrl!, imageView: self.ivProfileImage)
                 self.btnAddImage.setImage(self.ivProfileImage.image, for: .normal)
             }
         }, withCancel: nil)
@@ -95,6 +93,15 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
                 })
             })
         }
+    }
+    
+    // Remove old image from storage (in case user change room's image)
+    func removeOldImageFromStorage() {
+        let avatarUrl = self.profileImageUrl
+
+        let storageRef = Storage.storage().reference(forURL: avatarUrl!)
+        
+        deleteFromStorage(storageRef: storageRef)
     }
     
     //Mark: Convert selected assets to image
@@ -193,12 +200,15 @@ class UpdateInfoViewController: UIViewController, UIImagePickerControllerDelegat
                 }
                 else {
                     
-                    self.editData(reference: ref, newValues: values as [String: AnyObject])
+                    self.removeOldImageFromStorage()
                     
                     // Upload image to Firebase storage and update download urls into database
                     
-                    _ = self.uploadImageFromImageView(imageView: self.ivProfileImage) { (url) in
-                        self.editData(reference: ref, newValues: ["ProfileImageUrl": url as AnyObject])
+                    self.uploadImageFromImageView(imageView: self.ivProfileImage) { (url) in
+                        
+                        let values = ["FullName": userName, "ProfileImageUrl": url, "PhoneNumber": phoneNumber, "CMND": cmnd, "BirthDay": birthDay] as [String: AnyObject]
+                        
+                        self.editData(reference: ref, newValues: values)
                     }
                 }
                 

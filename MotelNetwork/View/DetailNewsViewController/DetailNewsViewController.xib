@@ -340,7 +340,7 @@ dòng 2</string>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="141" y="29"/>
+            <point key="canvasLocation" x="140.5" y="29"/>
         </view>
         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vny-eW-G18">
             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>

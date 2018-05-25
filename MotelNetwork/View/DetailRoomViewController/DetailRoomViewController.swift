@@ -101,8 +101,6 @@ class DetailRoomViewController: UIViewController {
         vSlideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
         vSlideShow.activityIndicator = DefaultActivityIndicator()
         vSlideShow.addGestureRecognizer(recognizer)
-        
-
     }
     
     @objc func didTapImage() {
@@ -184,8 +182,8 @@ class DetailRoomViewController: UIViewController {
                 self.setUpViewForRenter()
             } 
             
-            let resource = ImageResource(downloadURL: URL(string: profileImageUrl)!)
-            self.ivAvatar.kf.setImage(with: resource, placeholder: #imageLiteral(resourceName: "defaultAvatar"), options: nil, progressBlock: nil, completionHandler: nil)
+
+            self.loadImageToImageView(imageUrl: profileImageUrl, imageView: self.ivAvatar)
         }
     }
 

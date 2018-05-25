@@ -290,6 +290,8 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
     
     func loadDataNews() {
         let ref = Database.database().reference().child("Posts")
+        
+        ref.keepSynced(true)
 
         DispatchQueue.global(qos: .background).async {
             ref.observe(.childAdded, with: { (snapshot) in
@@ -339,6 +341,8 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
         
         let ref = Database.database().reference().child("Posts")
         
+        ref.keepSynced(true)
+        
         ref.observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let news = News(dictionary: dictionary)
@@ -385,6 +389,8 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
     func loadDataNearMe() {
         
         let postRef = Database.database().reference().child("Posts")
+        
+        postRef.keepSynced(true)
         
         postRef.observe(.childAdded, with: { (snapshot) in
             if let dictionary = snapshot.value as? [String: AnyObject] {

@@ -102,14 +102,6 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
     
-    func scaleImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        let newImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-    
 }
 
 extension GoogleMapViewController {
@@ -151,7 +143,7 @@ extension GoogleMapViewController {
                     marker.title = news.title
                     marker.snippet = news.address
                     marker.infoWindowAnchor = CGPoint(x: 0.5, y: 0.25)
-                    marker.icon = self.scaleImage(image: UIImage(named: "icMarker")!, scaledToSize: CGSize(width: 32.0, height: 32.0))
+                    marker.icon = scaleImage(image: UIImage(named: "icMarker")!, scaledToSize: CGSize(width: 32.0, height: 32.0))
                     
                     markers.append(marker)
                     marker.map = mapView

@@ -28,16 +28,6 @@ class EditBillViewController: UIViewController {
     
     var currentBill = Bill()
     var roomPrice: Double = 0.0
-    var oldElectricNumber: Double = 0.0
-    var newElectricNumber: Double = 0.0
-    var electricPrice: Double = 0.0
-    var waterPrice: Double = 0.0
-    var userCount: Double = 0.0
-    var internetPrice: Double = 0.0
-    var surcharge: Double = 0.0
-    var totalWaterPrice: Double = 0.0
-    var totalElectricPrice: Double = 0.0
-    var totalPrice: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,17 +80,6 @@ class EditBillViewController: UIViewController {
         self.tapToDismissKeyboard()
     }
     
-    //MARK: Do calculation
-    
-    func calculateRoomPrice() -> Double {
-        
-        totalWaterPrice = waterPrice * userCount
-        totalElectricPrice = electricPrice * (newElectricNumber - oldElectricNumber)
-        totalPrice = roomPrice + totalWaterPrice + totalElectricPrice + internetPrice + surcharge
-        
-        return totalPrice
-    }
-    
     //MARK: Handle button pressed
 
     @IBAction func btnBackPressed(_ sender: Any) {
@@ -110,20 +89,24 @@ class EditBillViewController: UIViewController {
     
     @IBAction func btnSavePressed(_ sender: Any) {
         
-        electricPrice = (tfElectricPrice.text?.toDouble)!
-        newElectricNumber = (tfNewElectricNumber.text?.toDouble)!
-        oldElectricNumber = (tfOldElectricNumber.text?.toDouble)!
-        waterPrice = (tfWaterPrice.text?.toDouble)!
-        userCount = (tfUserCount.text?.toDouble)!
-        internetPrice = (tfInternetPrice.text?.toDouble)!
-        surcharge = (tfSurcharge.text?.toDouble)!
-        totalPrice = calculateRoomPrice()
+        let bill = Bill()
+        
+        bill.roomPrice = self.roomPrice
+        bill.electricPrice = (tfElectricPrice.text?.toDouble)!
+        bill.newElectricNumber = (tfNewElectricNumber.text?.toDouble)!
+        bill.oldElectricNumber = (tfOldElectricNumber.text?.toDouble)!
+        bill.waterPrice = (tfWaterPrice.text?.toDouble)!
+        bill.userCount = (tfUserCount.text?.toDouble)!
+        bill.internetPrice = (tfInternetPrice.text?.toDouble)!
+        bill.surcharge = (tfSurcharge.text?.toDouble)!
         
         let billID = currentBill.id
+        let oldElectricNumber = bill.oldElectricNumber!
+        let newElectricNumber = bill.newElectricNumber!
+        let userCount = Int(bill.userCount!)
         let timestampEdit = Int(NSDate().timeIntervalSince1970)
         let surchargeReason = tfSurchargeReason.text!
-        let ref = Database.database().reference().child("Bills").child(billID!)
-        let values = ["electricPrice": electricPrice, "waterPrice": waterPrice, "internetPrice": internetPrice, "oldElectricNumber": oldElectricNumber, "newElectricNumber": newElectricNumber, "userCount": userCount, "surcharge": surcharge, "timestampEdit": timestampEdit, "surchargeReason": surchargeReason, "totalRoomPrice": totalPrice, "totalWaterPrice": totalWaterPrice, "totalElectricPrice": totalElectricPrice, "roomPrice": roomPrice] as [String: AnyObject]
+        
         
         //Create confirm alert
         let alert = UIAlertController(title: "Thông báo", message: messageConfirmEditData, preferredStyle: .alert)
@@ -134,21 +117,26 @@ class EditBillViewController: UIViewController {
         }
         let actionDestroy = UIAlertAction(title: "Có", style: .destructive) { (action) in
             
-            if self.electricPrice == 0 || self.newElectricNumber == 0 || self.oldElectricNumber == 0 || self.waterPrice == 0 || self.internetPrice == 0 {
+            if bill.electricPrice == 0 || bill.newElectricNumber == 0 || bill.oldElectricNumber == 0 || bill.waterPrice == 0 || bill.internetPrice == 0 {
                 
                 self.showAlert(title: "Thông báo", alertMessage: messageNilTextFields)
             }
-            else if self.oldElectricNumber > self.newElectricNumber {
+            else if oldElectricNumber > newElectricNumber {
                 
                 self.showAlert(title: "Thông báo", alertMessage: "Công suất cũ phải nhỏ hơn công suất mới.")
             }
-            else if self.userCount <= 0 {
+            else if userCount <= 0 {
                 
                 self.showAlert(title: "Thông báo", alertMessage: "Số người phải lớn hơn 0.")
             }
             else {
                 
+                let totalPrice = self.calculateBill(bill: bill)
+                let ref = Database.database().reference().child("Bills").child(billID!)
+                let values = ["electricPrice": bill.electricPrice as AnyObject, "waterPrice": bill.waterPrice as AnyObject, "internetPrice": bill.internetPrice as AnyObject, "oldElectricNumber": bill.oldElectricNumber as AnyObject, "newElectricNumber": bill.newElectricNumber as AnyObject, "userCount": bill.userCount as AnyObject, "surcharge": bill.surcharge as AnyObject, "timestampEdit": timestampEdit as AnyObject, "surchargeReason": surchargeReason as AnyObject, "totalRoomPrice": totalPrice, "totalWaterPrice": bill.totalWaterPrice!, "totalElectricPrice": bill.totalElectricPrice!, "roomPrice": bill.roomPrice!] as [String: AnyObject]
+                
                 self.editData(reference: ref, newValues: values)
+                
                 NativePopup.show(image: Preset.Feedback.done, title: messageEditBillSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
             }
 
