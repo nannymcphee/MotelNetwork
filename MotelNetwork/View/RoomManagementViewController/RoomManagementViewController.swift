@@ -16,7 +16,6 @@ import Kingfisher
 class RoomManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {    
     
     @IBOutlet var vHeader: UIView!
-    @IBOutlet weak var vEmptyData: UIView!
     @IBOutlet weak var btnCreateRoom: UIButton!
     @IBOutlet weak var btnBills: UIButton!
     @IBOutlet weak var tbRoomManagement: UITableView!
@@ -60,18 +59,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    func showEmptyDataView() {
-        vEmptyData.isHidden = true
-        if listRooms.count == 0 {
-            tbRoomManagement.backgroundView = vEmptyData
-//            vEmptyData.isHidden = false
-        }
-        else {
-            tbRoomManagement.backgroundView = nil
-//            vEmptyData.isHidden = true
-        }
-    }
-    
     //MARK: Set up view
     func setUpView() {
         
@@ -100,7 +87,6 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         makeImageViewRounded(imageView: ivAvatar)
-        showEmptyDataView()
     }
     
     //MARK: Database interaction
@@ -160,6 +146,22 @@ class RoomManagementViewController: UIViewController, UITableViewDelegate, UITab
 }
 
 extension RoomManagementViewController {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        if listRooms.isEmpty {
+            
+            tbRoomManagement.showEmptyDataView(message: messageEmptyRoom, image: #imageLiteral(resourceName: "icEmptyRoom"))
+        }
+        else {
+            
+            tbRoomManagement.backgroundView = nil
+            
+            return 1
+        }
+        
+        return 1
+    }
     
     //MARK: Logic for UITableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

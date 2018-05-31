@@ -12,7 +12,6 @@ import TBDropdownMenu
 
 class SearchViewController: UIViewController, UITableViewDataSource {
 
-    @IBOutlet weak var vEmptyData: UIView!
     @IBOutlet weak var btnFilter: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tbSearchResults: UITableView!
@@ -51,16 +50,6 @@ class SearchViewController: UIViewController, UITableViewDataSource {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func showEmptyDataView() {
-        
-        if listNewsFiltered.count == 0 || listNewsFiltered2.count == 0 {
-            tbSearchResults.backgroundView = vEmptyData
-        }
-        else {
-            tbSearchResults.backgroundView = nil
-        }
     }
     
     //MARK: Set up view

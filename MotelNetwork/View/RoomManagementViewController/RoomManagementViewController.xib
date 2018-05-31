@@ -24,7 +24,6 @@
                 <outlet property="lblRoomCount" destination="DRL-ux-WvZ" id="Ipg-WC-pbp"/>
                 <outlet property="lblUserFullName" destination="IcF-mk-JaP" id="fbR-sp-rnB"/>
                 <outlet property="tbRoomManagement" destination="yqH-sb-gUW" id="fLN-BB-7in"/>
-                <outlet property="vEmptyData" destination="F01-Tv-qvL" id="T73-8Z-yb3"/>
                 <outlet property="vHeader" destination="7NU-vi-XhP" id="UZl-zv-Ghw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -157,24 +156,6 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Cw-nQ-6jm">
                                             <rect key="frame" x="0.0" y="48" width="375" height="788"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F01-Tv-qvL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="788"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bạn chưa có phòng nào. Nhấn nút &quot;+&quot; để bắt đầu tạo phòng mới." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSW-qj-RRA">
-                                                            <rect key="frame" x="8" y="8" width="359" height="772"/>
-                                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstItem="XSW-qj-RRA" firstAttribute="leading" secondItem="F01-Tv-qvL" secondAttribute="leading" constant="8" id="RPj-R1-YUd"/>
-                                                        <constraint firstAttribute="trailing" secondItem="XSW-qj-RRA" secondAttribute="trailing" constant="8" id="Zga-Xe-9c5"/>
-                                                        <constraint firstItem="XSW-qj-RRA" firstAttribute="top" secondItem="F01-Tv-qvL" secondAttribute="top" constant="8" id="ewj-Nf-2LO"/>
-                                                        <constraint firstAttribute="bottom" secondItem="XSW-qj-RRA" secondAttribute="bottom" constant="8" id="zWb-Eb-TOa"/>
-                                                    </constraints>
-                                                </view>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yqH-sb-gUW">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="788"/>
                                                     <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -182,14 +163,10 @@
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="F01-Tv-qvL" firstAttribute="leading" secondItem="3Cw-nQ-6jm" secondAttribute="leading" id="47c-dF-Nui"/>
                                                 <constraint firstAttribute="bottom" secondItem="yqH-sb-gUW" secondAttribute="bottom" id="PlQ-Jc-2Uz"/>
                                                 <constraint firstAttribute="trailing" secondItem="yqH-sb-gUW" secondAttribute="trailing" id="V7l-DY-gD3"/>
                                                 <constraint firstItem="yqH-sb-gUW" firstAttribute="leading" secondItem="3Cw-nQ-6jm" secondAttribute="leading" id="W9Y-dA-W5O"/>
-                                                <constraint firstItem="F01-Tv-qvL" firstAttribute="top" secondItem="3Cw-nQ-6jm" secondAttribute="top" id="cbj-ah-QVN"/>
                                                 <constraint firstItem="yqH-sb-gUW" firstAttribute="top" secondItem="3Cw-nQ-6jm" secondAttribute="top" id="kgB-QE-Tnv"/>
-                                                <constraint firstAttribute="bottom" secondItem="F01-Tv-qvL" secondAttribute="bottom" id="ogH-NG-ucH"/>
-                                                <constraint firstAttribute="trailing" secondItem="F01-Tv-qvL" secondAttribute="trailing" id="q7U-ON-6g8"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -236,7 +213,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-32.5" y="5"/>
+            <point key="canvasLocation" x="-32" y="1"/>
         </view>
     </objects>
     <resources>

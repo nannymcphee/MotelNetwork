@@ -20,13 +20,16 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
     var markers = [GMSMarker]()
     var currentLocation: CLLocation?
     var zoomLevel: Float = 15
-
+    var customMapStyle: GMSMapStyle!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapView.isMyLocationEnabled = true
         mapView.settings.myLocationButton = true
         mapView.delegate = self
+        customMapStyle = try! GMSMapStyle.init(contentsOfFileURL: Bundle.main.url(forResource: "mapStyle", withExtension: "json")!)
+        mapView.mapStyle = customMapStyle
         
         loadData()
         setUpLocationManager()
@@ -80,7 +83,7 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
 
         }, withCancel: nil)
     }
-    
+        
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
         if let index = markers.index(of: marker) {
@@ -95,7 +98,6 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
     
     @IBAction func btnBackPressed(_ sender: Any) {
         
@@ -137,7 +139,7 @@ extension GoogleMapViewController {
                     
                     let lat = news.lat?.toDouble
                     let long = news.long?.toDouble
-                    let location = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
+                    let location = CLLocationCoordinate2D(latitude: lat!, longitude: long!)                   
                     let marker = GMSMarker(position: location)
                     
                     marker.title = news.title
@@ -163,8 +165,11 @@ extension GoogleMapViewController {
             self.showAlert(title: "Thông báo", alertMessage: messageGPSAccessDenied)
         case .notDetermined:
             print("Location status not determined.")
-        case .authorizedAlways: fallthrough
+        case .authorizedAlways:
+            locationManager.startUpdatingLocation()
+            fallthrough
         case .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
             print("Location status is OK.")
         }
     }

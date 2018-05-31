@@ -181,11 +181,12 @@ extension DetailNewsViewController: FloatyDelegate {
     
     // MARK: - Floaty Delegate Methods
     func emptyFloatySelected(_ floaty: Floaty) {
-        let vc = NavigationViewController()
+        let vc = ResultViewController()
         let news = currentNews
         
         vc.currentNews = news
-        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+//        (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+        self.present(vc, animated: true)
     }
 }
 

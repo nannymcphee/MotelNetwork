@@ -22,6 +22,7 @@
 		E104666E20708FF400245789 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E104666C20708FF400245789 /* TutorialViewController.swift */; };
 		E104666F20708FF400245789 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E104666D20708FF400245789 /* TutorialViewController.xib */; };
 		E10CB6D720AC4BBA00DFED8A /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10CB6D620AC4BBA00DFED8A /* SwiftNotice.swift */; };
+		E1117EEB20B83A3400325B67 /* TableViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1117EEA20B83A3400325B67 /* TableViewHelper.swift */; };
 		E117B659208DF2BE00087A0B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E117B657208DF2BE00087A0B /* ResultViewController.swift */; };
 		E117B65A208DF2BE00087A0B /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E117B658208DF2BE00087A0B /* ResultViewController.xib */; };
 		E117B664208E3BC500087A0B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E117B663208E3BC500087A0B /* GoogleService-Info.plist */; };
@@ -67,6 +68,7 @@
 		E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BBB207F59F300387527 /* SettingViewController.swift */; };
 		E1507BBE207F59F300387527 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1507BBC207F59F300387527 /* SettingViewController.xib */; };
 		E1507BC02080972500387527 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1507BBF2080972500387527 /* News.swift */; };
+		E169693620BED0D100455552 /* mapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = E169693520BED0D100455552 /* mapStyle.json */; };
 		E16BD8B5208DC0FD00DD00B7 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BD8B3208DC0FD00DD00B7 /* NavigationViewController.swift */; };
 		E16BD8B6208DC0FD00DD00B7 /* NavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16BD8B4208DC0FD00DD00B7 /* NavigationViewController.xib */; };
 		E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B19207B698E00B284A5 /* AccountViewController.swift */; };
@@ -129,6 +131,7 @@
 		E104666C20708FF400245789 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		E104666D20708FF400245789 /* TutorialViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialViewController.xib; sourceTree = "<group>"; };
 		E10CB6D620AC4BBA00DFED8A /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
+		E1117EEA20B83A3400325B67 /* TableViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHelper.swift; sourceTree = "<group>"; };
 		E117B657208DF2BE00087A0B /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		E117B658208DF2BE00087A0B /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		E117B663208E3BC500087A0B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -175,6 +178,7 @@
 		E1507BBB207F59F300387527 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		E1507BBC207F59F300387527 /* SettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		E1507BBF2080972500387527 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		E169693520BED0D100455552 /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		E16BD8B3208DC0FD00DD00B7 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		E16BD8B4208DC0FD00DD00B7 /* NavigationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationViewController.xib; sourceTree = "<group>"; };
 		E16F5B19207B698E00B284A5 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -512,6 +516,7 @@
 				E10CB6D620AC4BBA00DFED8A /* SwiftNotice.swift */,
 				E16F5B30207BD35A00B284A5 /* Controller.swift */,
 				E16F5B32207BDD0700B284A5 /* Strings.swift */,
+				E1117EEA20B83A3400325B67 /* TableViewHelper.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -546,6 +551,7 @@
 		E198761020672E2D008434CC /* MotelNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				E169693520BED0D100455552 /* mapStyle.json */,
 				E1AA95BA2090AA2900FBDB65 /* Assets.xcassets */,
 				E1EE3B4520B53B2C00530564 /* Main.storyboard */,
 				E198761120672E2D008434CC /* AppDelegate.swift */,
@@ -755,6 +761,7 @@
 				E198DC2B2082F6BB00E59BD2 /* EditPostViewController.xib in Resources */,
 				E1507BA8207D195C00387527 /* EditRoomViewController.xib in Resources */,
 				E1E6D61420A319D50014C1C4 /* EditBillViewController.xib in Resources */,
+				E169693620BED0D100455552 /* mapStyle.json in Resources */,
 				E180A138208A074F00EBCE52 /* NotificationListTableViewCell.xib in Resources */,
 				E104666F20708FF400245789 /* TutorialViewController.xib in Resources */,
 				E142E34C20B16DC2009B0507 /* Info.plist in Resources */,
@@ -906,6 +913,7 @@
 				E131D47E2098AED600019415 /* TimeAgoDisplay.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
 				E1E6D60220A02B1A0014C1C4 /* UserType.swift in Sources */,
+				E1117EEB20B83A3400325B67 /* TableViewHelper.swift in Sources */,
 				E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */,
 				E127015A2093372600663611 /* GoogleMapViewController.swift in Sources */,
 				E1397D8D208AF1230050C86D /* Notification.swift in Sources */,

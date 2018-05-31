@@ -18,9 +18,6 @@ import GeoFire
 class HomeViewController: UIViewController, UITableViewDataSource,
 UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedControlDelegate {
     
-    @IBOutlet weak var vEmptyDataNews: UIView!
-    @IBOutlet weak var vEmptyDataMostView: UIView!
-    @IBOutlet weak var vEmptyDataNearMe: UIView!
     @IBOutlet weak var vSegment: UIView!
     @IBOutlet weak var tbMostView: UITableView!
     @IBOutlet weak var tbNearMe: UITableView!
@@ -86,30 +83,6 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
         tbListNews.reloadData()
         tbNearMe.reloadData()
         tbMostView.reloadData()
-    }
-    
-    func showEmptyDataView() {
-        
-        if listNearMe.count == 0 {
-            tbNearMe.backgroundView = vEmptyDataNearMe
-        }
-        else {
-            tbNearMe.backgroundView = nil
-        }
-        
-        if listMostView.count == 0 {
-            tbMostView.backgroundView = vEmptyDataMostView
-        }
-        else {
-            tbMostView.backgroundView = nil
-        }
-        
-        if listNews.count == 0 {
-            tbListNews.backgroundView = vEmptyDataNews
-        }
-        else {
-            tbListNews.backgroundView = nil
-        }
     }
     
     //MARK: Set up TwicketSegmentedControl
@@ -187,7 +160,6 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
     
     func setUpView() {
         
-        showEmptyDataView()
         setUpSegmentControl()
         setUpLocationManager()
         loadDataNews()
@@ -508,6 +480,44 @@ extension HomeViewController: UITableViewDelegate {
     
     //MARK: Logic for table view
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        if listNews.isEmpty || listMostView.isEmpty || listNearMe.isEmpty || listNearMeTemp.isEmpty {
+            
+            if listNews.isEmpty {
+                
+                tbListNews.showEmptyDataView(message: messageEmptyPost, image: #imageLiteral(resourceName: "icEmptyPost"))
+            }
+            else if listMostView.isEmpty {
+                
+                tbMostView.showEmptyDataView(message: messageEmptyPost, image: #imageLiteral(resourceName: "icEmptyPost"))
+            }
+            else if listNearMeTemp.isEmpty || listNearMe.isEmpty {
+                
+                tbNearMe.showEmptyDataView(message: messageEmptyPostNearMe, image: #imageLiteral(resourceName: "icEmptyPost"))
+            }
+        }
+        else {
+            
+            if !listNews.isEmpty {
+                
+                tbListNews.backgroundView = nil
+            }
+            else if !listMostView.isEmpty {
+                
+                tbMostView.backgroundView = nil
+            }
+            else if !listNearMeTemp.isEmpty || !listNearMe.isEmpty {
+                
+                tbNearMe.backgroundView = nil
+            }
+            
+            return 1
+        }
+        
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if tableView == tbListNews {
@@ -611,6 +621,8 @@ extension HomeViewController: CLLocationManagerDelegate {
 
             currentLocationCoordinate = manager.location!.coordinate
 
+            self.listNearMe.removeAll()
+            self.listNearMeTemp.removeAll()
             loadDataNearMe()
     
             locationManager.stopUpdatingLocation()
@@ -625,8 +637,11 @@ extension HomeViewController: CLLocationManagerDelegate {
             print("User denied access to location.")
         case .notDetermined:
             print("Location status not determined.")
-        case .authorizedAlways: fallthrough
+        case .authorizedAlways:
+            locationManager.startUpdatingLocation()
+            fallthrough
         case .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
             print("Location status is OK.")
         }
     }

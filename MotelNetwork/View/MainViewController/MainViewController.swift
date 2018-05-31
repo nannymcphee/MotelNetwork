@@ -30,7 +30,6 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
     }
     
     
@@ -190,6 +189,10 @@ class MainViewController: UIViewController, UITabBarControllerDelegate {
         UIView.setAnimationDuration(0.5)
         tabbarcontroller.view.frame = screenRect
         UIView.commitAnimations()
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
     }
     
     override func didReceiveMemoryWarning() {

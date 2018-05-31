@@ -14,7 +14,6 @@ import Kingfisher
 
 class BillManagementViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var vEmptyData: UIView!
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var tbBills: UITableView!
     @IBOutlet weak var ivAvatar: UIImageView!
@@ -66,16 +65,6 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
     
-    func showEmptyDataView() {
-        
-        if listBill.count == 0 {
-            vEmptyData.isHidden = false
-        }
-        else {
-            vEmptyData.isHidden = true
-        }
-    }
-    
     //MARK: Set up view
     func setUpView() {
         
@@ -91,10 +80,8 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
         
         fetchUser()
         makeImageViewRounded(imageView: ivAvatar)
-        vEmptyData.isHidden = true
-        showEmptyDataView()
     }
-    
+       
     //MARK: Database interaction
     
     func fetchUser() {
@@ -208,6 +195,24 @@ class BillManagementViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     //MARK: Logic for UITableView
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        if listBill.isEmpty{
+            
+            tbBills.showEmptyDataView(message: messageEmptyBill, image: #imageLiteral(resourceName: "icEmptyBill"))
+        }
+        else {
+            
+            tbBills.backgroundView = nil
+            
+            return 1
+        }
+        
+        return 1
+    }
+
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listBill.count
     }

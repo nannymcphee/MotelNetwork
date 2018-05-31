@@ -15,7 +15,6 @@ import Kingfisher
 
 class AccountViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var vEmptyData: UIView!
     @IBOutlet weak var btnNewPost: UIButton!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblFullName: UILabel!
@@ -58,16 +57,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func showEmptyDataView() {
-        
-        if listNews.count == 0 {
-            tbNews.backgroundView = vEmptyData
-        }
-        else {
-            tbNews.backgroundView = nil
-        }
-    }
-    
     //MARK: Set up view
     func setUpView() {
         
@@ -99,7 +88,6 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         makeImageViewRounded(imageView: ivAvatar)
-        showEmptyDataView()
     }
     
     //MARK: Database interaction
@@ -167,6 +155,22 @@ class AccountViewController: UIViewController, UITableViewDelegate, UITableViewD
 extension AccountViewController {
     
     //MARK: Logic for UITableView
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        if listNews.isEmpty {
+            
+            tbNews.showEmptyDataView(message: messageEmptyPost, image: #imageLiteral(resourceName: "icEmptyPost"))
+        }
+        else {
+            
+            tbNews.backgroundView = nil
+            
+            return 1
+        }
+        
+        return 1
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listNews.count

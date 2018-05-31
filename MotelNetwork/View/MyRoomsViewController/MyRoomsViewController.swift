@@ -14,7 +14,6 @@ import Kingfisher
 class MyRoomsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var btnBills: UIButton!
-    @IBOutlet weak var vEmptyData: UIView!
     @IBOutlet weak var ivAvatar: UIImageView!
     @IBOutlet weak var lblUserFullName: UILabel!
     @IBOutlet weak var lblRoomCount: UILabel!
@@ -56,16 +55,6 @@ class MyRoomsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func showEmptyDataView() {
-        
-        if listRooms.count == 0 {
-            vEmptyData.isHidden = false
-        }
-        else {
-            vEmptyData.isHidden = true
-        }
-    }
-    
     //MARK: Set up view
     func setUpView() {
         
@@ -99,8 +88,6 @@ class MyRoomsViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
         
         makeImageViewRounded(imageView: ivAvatar)
-        vEmptyData.isHidden = true
-        showEmptyDataView()
     }
     
     //MARK: Database interaction
@@ -153,6 +140,23 @@ class MyRoomsViewController: UIViewController, UITableViewDelegate, UITableViewD
 extension MyRoomsViewController {
     
     //MARK: Logic for UITableView
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        if listRooms.isEmpty {
+            
+            tbMyRooms.showEmptyDataView(message: messageEmptyRoom, image: #imageLiteral(resourceName: "icEmptyRoom"))
+        }
+        else {
+            
+            tbMyRooms.backgroundView = nil
+            
+            return 1
+        }
+        
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listRooms.count
     }
