@@ -22,7 +22,6 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var dbReference: DatabaseReference!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -16,7 +16,6 @@ import MXParallaxHeader
 
 class DetailNewsViewController: UIViewController {
     
-    //    @IBOutlet weak var lblViewsCount: UILabel!
     @IBOutlet weak var svContent: UIScrollView!
     @IBOutlet weak var vHeader: UIView!
     @IBOutlet weak var lblTimeAgo: UILabel!
@@ -38,12 +37,11 @@ class DetailNewsViewController: UIViewController {
     
     var currentNews = News()
     var floaty = Floaty()
-    
+    var userType: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         setUpView()
     }
     
@@ -51,7 +49,7 @@ class DetailNewsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     //MARK: Set up view
     
     func setUpView() {
@@ -104,7 +102,6 @@ class DetailNewsViewController: UIViewController {
         lblPostDate.text = dateStr
         tvAddress.text = currentNews.address
         lblTitle.text = currentNews.title
-//        lblViewsCount.text = "Đã xem: \(currentNews.views ?? 0)"
         
         makeImageViewRounded(imageView: ivAvatar)
         svContent.parallaxHeader.view = vHeader
@@ -165,7 +162,6 @@ class DetailNewsViewController: UIViewController {
     @IBAction func btnBack2Pressed(_ sender: Any) {
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)
     }
-    
 }
 
 extension DetailNewsViewController: FloatyDelegate {

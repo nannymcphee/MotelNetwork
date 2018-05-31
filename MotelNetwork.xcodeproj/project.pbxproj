@@ -71,6 +71,8 @@
 		E169693620BED0D100455552 /* mapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = E169693520BED0D100455552 /* mapStyle.json */; };
 		E16BD8B5208DC0FD00DD00B7 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16BD8B3208DC0FD00DD00B7 /* NavigationViewController.swift */; };
 		E16BD8B6208DC0FD00DD00B7 /* NavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16BD8B4208DC0FD00DD00B7 /* NavigationViewController.xib */; };
+		E16D065620BFE363004E9CCA /* MarkerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16D065520BFE363004E9CCA /* MarkerInfoView.swift */; };
+		E16D065820BFE387004E9CCA /* MarkerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16D065720BFE387004E9CCA /* MarkerInfoView.xib */; };
 		E16F5B1B207B698E00B284A5 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B19207B698E00B284A5 /* AccountViewController.swift */; };
 		E16F5B1C207B698E00B284A5 /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B1A207B698E00B284A5 /* AccountViewController.xib */; };
 		E16F5B1F207B69AE00B284A5 /* AccountOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B1D207B69AE00B284A5 /* AccountOptionTableViewCell.swift */; };
@@ -181,6 +183,8 @@
 		E169693520BED0D100455552 /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
 		E16BD8B3208DC0FD00DD00B7 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		E16BD8B4208DC0FD00DD00B7 /* NavigationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationViewController.xib; sourceTree = "<group>"; };
+		E16D065520BFE363004E9CCA /* MarkerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerInfoView.swift; sourceTree = "<group>"; };
+		E16D065720BFE387004E9CCA /* MarkerInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MarkerInfoView.xib; sourceTree = "<group>"; };
 		E16F5B19207B698E00B284A5 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		E16F5B1A207B698E00B284A5 /* AccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
 		E16F5B1D207B69AE00B284A5 /* AccountOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOptionTableViewCell.swift; sourceTree = "<group>"; };
@@ -309,6 +313,8 @@
 			children = (
 				E12701582093372600663611 /* GoogleMapViewController.swift */,
 				E12701592093372600663611 /* GoogleMapViewController.xib */,
+				E16D065520BFE363004E9CCA /* MarkerInfoView.swift */,
+				E16D065720BFE387004E9CCA /* MarkerInfoView.xib */,
 			);
 			path = GoogleMapViewController;
 			sourceTree = "<group>";
@@ -784,6 +790,7 @@
 				E14805022089F92D00C67D43 /* NotificationListViewController.xib in Resources */,
 				E117B664208E3BC500087A0B /* GoogleService-Info.plist in Resources */,
 				E16F5B2E207B84D900B284A5 /* ChangePasswordViewController.xib in Resources */,
+				E16D065820BFE387004E9CCA /* MarkerInfoView.xib in Resources */,
 				E1507BBE207F59F300387527 /* SettingViewController.xib in Resources */,
 				E1A621D32070D23100B83291 /* TestViewController.xib in Resources */,
 				E127015B2093372600663611 /* GoogleMapViewController.xib in Resources */,
@@ -901,6 +908,7 @@
 				E14F2C2420960BF30034BE8E /* MyRoomsViewController.swift in Sources */,
 				E198DC212081829000E59BD2 /* HomeViewController.swift in Sources */,
 				E10CB6D720AC4BBA00DFED8A /* SwiftNotice.swift in Sources */,
+				E16D065620BFE363004E9CCA /* MarkerInfoView.swift in Sources */,
 				E1A621D22070D23100B83291 /* TestViewController.swift in Sources */,
 				E1BD102620765FAD00287982 /* Room.swift in Sources */,
 				E1507BBD207F59F300387527 /* SettingViewController.swift in Sources */,

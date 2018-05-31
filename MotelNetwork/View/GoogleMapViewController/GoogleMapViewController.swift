@@ -83,7 +83,29 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
 
         }, withCancel: nil)
     }
+    
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
+        let marker = marker
         
+        if let index = markers.index(of: marker) {
+            let news = listNews[index]
+            let infoView = MarkerInfoView.instanceFromNib() as? MarkerInfoView
+
+            numberFormatter.numberStyle = .decimal
+            let priceStr = numberFormatter.string(from: news.price! as NSNumber)
+            infoView?.lblTitle.text = news.title
+            infoView?.lblArea.text = "\(news.area!)m2"
+            infoView?.lblPrice.text = "\(priceStr!)đ"
+            infoView?.lblAddress.text = news.address
+            infoView?.layer.cornerRadius = 5
+
+            return infoView
+        }
+        else {
+            return nil
+        }
+    }
+    
     func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
         
         if let index = markers.index(of: marker) {
@@ -142,9 +164,9 @@ extension GoogleMapViewController {
                     let location = CLLocationCoordinate2D(latitude: lat!, longitude: long!)                   
                     let marker = GMSMarker(position: location)
                     
-                    marker.title = news.title
-                    marker.snippet = news.address
-                    marker.infoWindowAnchor = CGPoint(x: 0.5, y: 0.25)
+//                    marker.title = news.title
+//                    marker.snippet = news.address
+//                    marker.infoWindowAnchor = CGPoint(x: 0.5, y: 0.25)
                     marker.icon = scaleImage(image: UIImage(named: "icMarker")!, scaledToSize: CGSize(width: 32.0, height: 32.0))
                     
                     markers.append(marker)
