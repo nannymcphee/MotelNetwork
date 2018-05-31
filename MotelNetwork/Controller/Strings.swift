@@ -52,5 +52,6 @@ let messageEmptyPost: String = "Bạn chưa có bài đăng nào.\nNhấn nút '
 let messageEmptySearch: String = "Không tìm thấy bài đăng theo yêu cầu của bạn."
 let messageEmptyPostForHome: String = "Không có bài đăng nào."
 let messageEmptyPostNearMe: String = "Không có bài đăng gần bạn."
+let messageSavePostSuccess: String = "Lưu tin thành công."
 
 

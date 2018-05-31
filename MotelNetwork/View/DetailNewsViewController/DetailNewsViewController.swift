@@ -16,6 +16,7 @@ import MXParallaxHeader
 
 class DetailNewsViewController: UIViewController {
     
+    @IBOutlet weak var btnSavePost: UIButton!
     @IBOutlet weak var svContent: UIScrollView!
     @IBOutlet weak var vHeader: UIView!
     @IBOutlet weak var lblTimeAgo: UILabel!
@@ -38,6 +39,7 @@ class DetailNewsViewController: UIViewController {
     var currentNews = News()
     var floaty = Floaty()
     var userType: Int?
+    let savedPostID = NSUUID().uuidString
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +56,7 @@ class DetailNewsViewController: UIViewController {
     
     func setUpView() {
         
+        self.btnSavePost.isHidden = true
         layoutFAB()
         setUpSlideShow()
         
@@ -158,6 +161,15 @@ class DetailNewsViewController: UIViewController {
     
 
     //MARK: Handling button pressed
+    @IBAction func btnSavePostPressed(_ sender: Any) {
+        
+        let postID = currentNews.id
+        let uid = Auth.auth().currentUser?.uid
+        let ref = Database.database().reference().child("SavedPosts").child(uid!)
+        
+        self.storeInformationToDatabase(reference: ref, values: ["\(savedPostID)": postID as AnyObject])
+        NativePopup.show(image: Preset.Feedback.done, title: messageSavePostSuccess, message: nil, duration: 1.5, initialEffectType: .fadeIn)
+    }
     
     @IBAction func btnBack2Pressed(_ sender: Any) {
         (UIApplication.shared.delegate as! AppDelegate).navigationController?.popViewController(animated: true)

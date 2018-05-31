@@ -91,6 +91,8 @@ extension SettingViewController {
             cell.lblOption.text = "Đổi mật khẩu"
         case 2:
             cell.lblOption.text = "Cập nhật thông tin"
+//        case 3:
+//            cell.lblOption.text = "Các tin đã lưu"
         default:
             break
         }
@@ -113,6 +115,9 @@ extension SettingViewController {
         case 2:
             let vc = UpdateInfoViewController()
             (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
+//        case 3:
+//            let vc = SavedNewsViewController()
+//            (UIApplication.shared.delegate as! AppDelegate).navigationController?.pushViewController(vc, animated: true)
         default:
             break
         }

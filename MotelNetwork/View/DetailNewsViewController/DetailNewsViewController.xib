@@ -18,6 +18,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailNewsViewController" customModule="Motel_Network" customModuleProvider="target">
             <connections>
                 <outlet property="btnBack2" destination="vWf-HN-PKo" id="8MW-co-jR2"/>
+                <outlet property="btnSavePost" destination="v6p-UR-Llr" id="HcP-nB-uXP"/>
                 <outlet property="ivAvatar" destination="bJY-2d-tqU" id="WJY-Og-wK0"/>
                 <outlet property="lblArea" destination="umB-Y1-sYN" id="bVV-ph-ffY"/>
                 <outlet property="lblDistrict" destination="Yqx-qW-KMZ" id="nZR-nW-8gf"/>
@@ -380,6 +381,14 @@ dòng 2</string>
                         </label>
                     </subviews>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6p-UR-Llr">
+                    <rect key="frame" x="326" y="16" width="30" height="32"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                    <state key="normal" title="Lưu"/>
+                    <connections>
+                        <action selector="btnSavePostPressed:" destination="-1" eventType="touchUpInside" id="ap4-fg-dWV"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -389,7 +398,9 @@ dòng 2</string>
                 <constraint firstItem="vWf-HN-PKo" firstAttribute="leading" secondItem="EDS-KK-Qtc" secondAttribute="leading" constant="19" id="KZ6-Ux-cKO"/>
                 <constraint firstAttribute="height" constant="64" id="V3q-yg-IhN"/>
                 <constraint firstItem="JCt-7K-4lu" firstAttribute="leading" secondItem="bJY-2d-tqU" secondAttribute="trailing" constant="8" id="ZkQ-1W-etU"/>
+                <constraint firstItem="v6p-UR-Llr" firstAttribute="centerY" secondItem="EDS-KK-Qtc" secondAttribute="centerY" id="d5W-v2-mUg"/>
                 <constraint firstItem="bJY-2d-tqU" firstAttribute="centerY" secondItem="EDS-KK-Qtc" secondAttribute="centerY" id="ghL-WB-C1D"/>
+                <constraint firstItem="EDS-KK-Qtc" firstAttribute="trailing" secondItem="v6p-UR-Llr" secondAttribute="trailing" constant="19" id="gie-Ut-uip"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="EDS-KK-Qtc"/>
