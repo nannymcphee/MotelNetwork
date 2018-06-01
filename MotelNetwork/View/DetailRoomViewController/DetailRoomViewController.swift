@@ -116,6 +116,7 @@ class DetailRoomViewController: UIViewController {
             if renterID.isEmpty {
                 
                 self.lblUser.text = "Chưa có người thuê"
+                self.tvPhoneNumber.text = "Chưa có người thuê"
             }
             else {
                 
