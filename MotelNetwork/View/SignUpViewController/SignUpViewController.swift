@@ -263,9 +263,14 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     _ = self.uploadImageFromImageView(imageView: self.ivProfilePicture) { (url) in
                         self.storeInformationToDatabase(reference: reference, values: ["ProfileImageUrl": url as AnyObject])
                     }
+                    
+                    self.showLoading()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+                        self.stopLoading()
+                        NativePopup.show(image: Preset.Feedback.done, title: messageSignUpSuccess, message: nil, duration: 2, initialEffectType: .fadeIn)
+                        self.resetView()
 
-                    NativePopup.show(image: Preset.Feedback.done, title: messageSignUpSuccess, message: nil, duration: 2, initialEffectType: .fadeIn)
-                    self.resetView()
+                    })
                 }
             }
             return

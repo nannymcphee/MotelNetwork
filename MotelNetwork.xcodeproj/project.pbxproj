@@ -87,6 +87,8 @@
 		E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B32207BDD0700B284A5 /* Strings.swift */; };
 		E180A137208A074F00EBCE52 /* NotificationListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180A135208A074F00EBCE52 /* NotificationListTableViewCell.swift */; };
 		E180A138208A074F00EBCE52 /* NotificationListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E180A136208A074F00EBCE52 /* NotificationListTableViewCell.xib */; };
+		E18D5AA820C3B7A60021BA48 /* FeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18D5AA620C3B7A60021BA48 /* FeedBackViewController.swift */; };
+		E18D5AA920C3B7A60021BA48 /* FeedBackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18D5AA720C3B7A60021BA48 /* FeedBackViewController.xib */; };
 		E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18F072B20674C2200281432 /* SignUpViewController.swift */; };
 		E18F072E20674C2200281432 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18F072C20674C2200281432 /* SignUpViewController.xib */; };
 		E1954476208A0EA3004F0D17 /* DetailBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1954474208A0EA3004F0D17 /* DetailBillViewController.swift */; };
@@ -201,6 +203,8 @@
 		E16F5B32207BDD0700B284A5 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		E180A135208A074F00EBCE52 /* NotificationListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListTableViewCell.swift; sourceTree = "<group>"; };
 		E180A136208A074F00EBCE52 /* NotificationListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationListTableViewCell.xib; sourceTree = "<group>"; };
+		E18D5AA620C3B7A60021BA48 /* FeedBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewController.swift; sourceTree = "<group>"; };
+		E18D5AA720C3B7A60021BA48 /* FeedBackViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedBackViewController.xib; sourceTree = "<group>"; };
 		E18F072B20674C2200281432 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E18F072C20674C2200281432 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		E1954474208A0EA3004F0D17 /* DetailBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailBillViewController.swift; sourceTree = "<group>"; };
@@ -540,6 +544,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		E18D5AA520C3B78F0021BA48 /* FeedBackViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E18D5AA620C3B7A60021BA48 /* FeedBackViewController.swift */,
+				E18D5AA720C3B7A60021BA48 /* FeedBackViewController.xib */,
+			);
+			path = FeedBackViewController;
+			sourceTree = "<group>";
+		};
 		E1954473208A0E84004F0D17 /* DetailBillViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +672,7 @@
 		E1E7D1F72071C7D300874EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E18D5AA520C3B78F0021BA48 /* FeedBackViewController */,
 				E16D065920C006C2004E9CCA /* SavedNewsViewController */,
 				E1E6D61020A319B60014C1C4 /* EditBillViewController */,
 				CE5FF78820766EB1005BEA3B /* MainViewController */,
@@ -801,6 +815,7 @@
 				E117B65A208DF2BE00087A0B /* ResultViewController.xib in Resources */,
 				145C11FF2075F37E00AB11F3 /* RoomManagementViewController.xib in Resources */,
 				E198DC202081829000E59BD2 /* HomeViewController.xib in Resources */,
+				E18D5AA920C3B7A60021BA48 /* FeedBackViewController.xib in Resources */,
 				E14805022089F92D00C67D43 /* NotificationListViewController.xib in Resources */,
 				E117B664208E3BC500087A0B /* GoogleService-Info.plist in Resources */,
 				E16F5B2E207B84D900B284A5 /* ChangePasswordViewController.xib in Resources */,
@@ -933,6 +948,7 @@
 				145C12062075FF5300AB11F3 /* ListRoomsTableViewCell.swift in Sources */,
 				E142E33F20B16DC2009B0507 /* Preset.swift in Sources */,
 				E1954476208A0EA3004F0D17 /* DetailBillViewController.swift in Sources */,
+				E18D5AA820C3B7A60021BA48 /* FeedBackViewController.swift in Sources */,
 				E142E34A20B16DC2009B0507 /* Extension.swift in Sources */,
 				E131D47E2098AED600019415 /* TimeAgoDisplay.swift in Sources */,
 				E1BD102820765FB900287982 /* User.swift in Sources */,
@@ -1103,6 +1119,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZCX458UUY2;
 				INFOPLIST_FILE = MotelNetwork/Info.plist;
@@ -1121,6 +1138,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZCX458UUY2;
 				INFOPLIST_FILE = MotelNetwork/Info.plist;

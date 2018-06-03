@@ -53,5 +53,6 @@ let messageEmptySearch: String = "Không tìm thấy bài đăng theo yêu cầu
 let messageEmptyPostForHome: String = "Không có bài đăng nào."
 let messageEmptyPostNearMe: String = "Không có bài đăng gần bạn."
 let messageSavePostSuccess: String = "Lưu tin thành công."
+let messageSendFeedbackSuccess: String = "Gửi phản hồi thành công."
 
 

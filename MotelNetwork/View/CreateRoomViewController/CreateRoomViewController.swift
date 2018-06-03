@@ -96,20 +96,6 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
         }, withCancel: nil)
     }
     
-    // Get renterID by renterName
-    
-    func getRenterID(renterName: String) {
-        
-        let renterRef = Database.database().reference().child("Users")
-        let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
-        query.observeSingleEvent(of: .childAdded) { (snapshot) in
-            
-            let id = snapshot.key
-            
-            self.renterID = id
-        }
-    }
-    
     // Upload image from UIImageView to storage and return download url
     func uploadImageFromImageView(imageView : UIImageView, completion: @escaping ((String) -> (Void))) {
         
@@ -287,7 +273,14 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
             }
             else {
                 
-                self.getRenterID(renterName: renterName)
+                let renterRef = Database.database().reference().child("Users")
+                let query = renterRef.queryOrdered(byChild: "FullName").queryEqual(toValue: renterName)
+                query.observeSingleEvent(of: .childAdded) { (snapshot) in
+                    
+                    let id = snapshot.key
+                    
+                    self.storeInformationToDatabase(reference: ref, values: ["renterID": id as AnyObject])
+                }
 
                 for image in self.imageArray {
                     self.uploadImage(image: image) { (url) -> (Void) in
@@ -295,7 +288,7 @@ class CreateRoomViewController: UIViewController, UIPickerViewDelegate, UIPicker
                         self.urlArray.append(url)
                         
                         for url in self.urlArray {
-                            let values = ["roomImageUrl\(self.urlArray.index(of: url) ?? 0)": url, "roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "usersAllowed": usersAllowed, "address": address, "renterName": renterName, "renterID": self.renterID] as [String: AnyObject]
+                            let values = ["roomImageUrl\(self.urlArray.index(of: url) ?? 0)": url, "roomName": roomName, "area": area, "price": price, "ownerID": ownerID, "usersAllowed": usersAllowed, "address": address, "renterName": renterName] as [String: AnyObject]
                             
                             self.storeInformationToDatabase(reference: ref, values: values)
                         }
