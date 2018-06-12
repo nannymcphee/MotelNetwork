@@ -24,6 +24,7 @@ class FeedBackViewController: UIViewController {
 
         tvFeedBack.layer.cornerRadius = 5
         makeButtonRounded(button: btnSubmit)
+        self.tapToDismissKeyboard()
     }
 
     override func didReceiveMemoryWarning() {
