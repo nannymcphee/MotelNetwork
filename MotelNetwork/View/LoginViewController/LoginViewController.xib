@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -36,6 +36,10 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Gh-Tf-BpY">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="e97-li-rz3">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdE-KD-5zI">
                                     <rect key="frame" x="159.33333333333334" y="675" width="97.000000000000028" height="29"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -45,10 +49,10 @@
                                     </connections>
                                 </button>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="5hz-Gs-D1Q">
-                                    <rect key="frame" x="37" y="277.66666666666669" width="340" height="181"/>
+                                    <rect key="frame" x="37" y="277" width="340" height="182"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4bG-Jj-EcH">
-                                            <rect key="frame" x="0.0" y="0.0" width="340" height="133"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="340" height="134"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lgMotelNetworkBlue" translatesAutoresizingMaskIntoConstraints="NO" id="J3c-RO-SYQ">
                                                     <rect key="frame" x="0.0" y="0.0" width="340" height="53"/>
@@ -58,7 +62,7 @@
                                                         <constraint firstAttribute="width" constant="340" id="gwk-b7-Wbg"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gmA-xV-E3X">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gmA-xV-E3X">
                                                     <rect key="frame" x="0.0" y="53" width="340" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="jEF-BY-hky"/>
@@ -67,8 +71,15 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 </textField>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mật khẩu" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="611-rB-A19">
-                                                    <rect key="frame" x="0.0" y="93" width="340" height="40"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cG3-KF-j6W">
+                                                    <rect key="frame" x="0.0" y="93" width="340" height="1"/>
+                                                    <color key="backgroundColor" red="0.95294117649999999" green="0.95686274510000002" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="gfH-1J-vI9"/>
+                                                    </constraints>
+                                                </view>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mật khẩu" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="611-rB-A19">
+                                                    <rect key="frame" x="0.0" y="94" width="340" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="JVy-nl-cJg"/>
                                                     </constraints>
@@ -77,9 +88,14 @@
                                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="cG3-KF-j6W" secondAttribute="trailing" id="FeZ-zR-rdz"/>
+                                                <constraint firstItem="611-rB-A19" firstAttribute="top" secondItem="cG3-KF-j6W" secondAttribute="bottom" id="bRc-YO-jdq"/>
+                                                <constraint firstItem="cG3-KF-j6W" firstAttribute="leading" secondItem="4bG-Jj-EcH" secondAttribute="leading" id="xDr-uH-p7h"/>
+                                            </constraints>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nj2-0J-ksw">
-                                            <rect key="frame" x="0.0" y="141" width="340" height="40"/>
+                                            <rect key="frame" x="0.0" y="142" width="340" height="40"/>
                                             <color key="backgroundColor" red="0.29411764709999999" green="0.59215686270000001" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="340" id="ETg-BC-pm3"/>
@@ -136,6 +152,7 @@
         </view>
     </objects>
     <resources>
-        <image name="lgMotelNetworkBlue" width="500" height="118"/>
+        <image name="bg" width="995" height="716"/>
+        <image name="lgMotelNetworkBlue" width="108" height="30"/>
     </resources>
 </document>

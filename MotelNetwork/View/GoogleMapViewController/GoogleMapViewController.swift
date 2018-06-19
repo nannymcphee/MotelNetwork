@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import FirebaseDatabase
+import ObjectMapper
 
 class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
 
@@ -31,7 +32,7 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
         customMapStyle = try! GMSMapStyle.init(contentsOfFileURL: Bundle.main.url(forResource: "mapStyle", withExtension: "json")!)
         mapView.mapStyle = customMapStyle
         
-        loadData()
+        loadData2()
         setUpLocationManager()
     }
     
@@ -59,10 +60,14 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
                 let electricPriceStr = dictionary["electricPrice"] as? String
                 let internetPriceStr = dictionary["internetPrice"] as? String
                 
-                news.price = Double(priceStr ?? "0.0")
-                news.waterPrice = Double(waterPriceStr ?? "0.0")
-                news.electricPrice = Double(electricPriceStr ?? "0.0")
-                news.internetPrice = Double(internetPriceStr ?? "0.0")
+//                news.price = Double(priceStr ?? "0.0")
+//                news.waterPrice = Double(waterPriceStr ?? "0.0")
+//                news.electricPrice = Double(electricPriceStr ?? "0.0")
+//                news.internetPrice = Double(internetPriceStr ?? "0.0")
+                news.price = priceStr
+                news.waterPrice = waterPriceStr
+                news.electricPrice = electricPriceStr
+                news.internetPrice = internetPriceStr
                 news.area = dictionary["area"] as? String
                 news.district = dictionary["district"] as? String
                 news.title = dictionary["title"] as? String
@@ -84,6 +89,21 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
         }, withCancel: nil)
     }
     
+    func loadData2() {
+        let ref = Database.database().reference().child("Posts")
+        
+        ref.observe(.childAdded, with: { (snapshot) in
+            
+            if let json = snapshot.value as? [String: AnyObject] {
+                var news = News()
+                
+                news = Mapper<News>().map(JSON: json) ?? News()
+                
+                self.listNews.append(news)
+            }
+        }, withCancel: nil)
+    }
+    
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         let marker = marker
         
@@ -92,7 +112,7 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate, GMSM
             let infoView = MarkerInfoView.instanceFromNib() as? MarkerInfoView
 
             numberFormatter.numberStyle = .decimal
-            let priceStr = numberFormatter.string(from: news.price! as NSNumber)
+            let priceStr = numberFormatter.string(from: Double(news.price!)! as NSNumber)
             infoView?.lblTitle.text = news.title
             infoView?.lblArea.text = "\(news.area!)m2"
             infoView?.lblPrice.text = "\(priceStr!)đ"

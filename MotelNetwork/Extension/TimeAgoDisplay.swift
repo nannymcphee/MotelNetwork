@@ -23,7 +23,8 @@ extension Date {
         let week = 7 * day
         
         if secondsAgo < minute {
-            return "\(secondsAgo) giây trước"
+//            return "\(secondsAgo) giây trước"
+            return "Vừa xong"
         }
         else if secondsAgo < hour {
             return "\(secondsAgo / minute) giờ trước"
@@ -100,10 +101,10 @@ extension UIViewController {
         }
         
         if let second = components.second, second >= 3 {
-            return "\(second) giây"
+            return "Vừa xong"
         }
         
-        return "Vừa đăng"
+        return "Vừa xong"
     }
     
     // Usage:

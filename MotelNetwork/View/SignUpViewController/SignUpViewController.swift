@@ -141,9 +141,6 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 storeImage.downloadURL(completion: { (url, error) in
                     if let urlText = url?.absoluteString {
                         
-                        strURL = urlText
-                        print("///////////tttttttt//////// \(strURL)   ////////")
-                        
                         completion(strURL)
                     }
                 })
@@ -228,22 +225,6 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     return
                 }
                 else {
-                    
-//                    do {
-//                        try Auth.auth().signOut()
-//                    } catch let error {
-//                        print(error)
-//                    }
-                    
-//                    Auth.auth().currentUser?.sendEmailVerification(completion: { (error) in
-//                        if let error = error {
-//                            print(error)
-//                        }
-//                        else  {
-//                            
-//                            self.showAlert(alertMessage: "Vui lòng kiểm tra email của bạn để kích hoạt tài khoản.")
-//                        }
-//                    })
                     
                     guard let uid = user?.uid else {
                         

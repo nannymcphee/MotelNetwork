@@ -34,7 +34,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A32-n7-xgq">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lgMotelNetworkBlue2" translatesAutoresizingMaskIntoConstraints="NO" id="0IL-dH-ySw">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lgMotelNetworkBlue" translatesAutoresizingMaskIntoConstraints="NO" id="0IL-dH-ySw">
                                     <rect key="frame" x="133" y="8" width="108" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="30" id="Apa-wf-mAO"/>
@@ -72,6 +72,6 @@
         </view>
     </objects>
     <resources>
-        <image name="lgMotelNetworkBlue2" width="108" height="30"/>
+        <image name="lgMotelNetworkBlue" width="108" height="30"/>
     </resources>
 </document>

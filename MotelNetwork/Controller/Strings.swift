@@ -11,6 +11,8 @@ import UIKit
 
 let myBlue: UIColor = UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1.0)
 let myGray: UIColor = UIColor(red: 247/255, green: 247/255, blue: 247/255, alpha: 1.0)
+let paleGray = UIColor(red: 223/255, green: 232/255, blue: 236/255, alpha: 1.0)
+
 let imageEmptyPost = UIImage(named: "")
 let imageEmptySearch = UIImage(named: "")
 let imageEmptyRoom = UIImage(named: "")
@@ -53,6 +55,8 @@ let messageEmptySearch: String = "Không tìm thấy bài đăng theo yêu cầu
 let messageEmptyPostForHome: String = "Không có bài đăng nào."
 let messageEmptyPostNearMe: String = "Không có bài đăng gần bạn."
 let messageSavePostSuccess: String = "Lưu tin thành công."
+let messageConfirmDeleteSavedPost: String = "Bạn có muốn bỏ lưu tin này không?"
+let messageDeleteSavedPostSuccess: String = "Bỏ lưu thành công."
 let messageSendFeedbackSuccess: String = "Gửi phản hồi thành công."
 
 

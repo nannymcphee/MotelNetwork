@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Bill {
+class Bill: Mappable {
+    
     var id: String?
     var ownerID: String?
     var renterID: String?
@@ -63,6 +65,30 @@ class Bill {
         self.totalWaterPrice = dictionary["totalWaterPrice"] as? Double
         self.totalElectricPrice = dictionary["totalElectricPrice"] as? Double
         self.timestamp = dictionary["timestamp"] as? Int
+    }
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        renterID <- map["renterID"]
+        ownerID <- map["ownerID"]
+        roomID <- map["roomID"]
+        surchargeReason <- map["surchargeReason"]
+        electricPrice <- map["electricPrice"]
+        waterPrice <- map["waterPrice"]
+        userCount <- map["userCount"]
+        oldElectricNumber <- map["oldElectricNumber"]
+        newElectricNumber <- map["newElectricNumber"]
+        surcharge <- map["surcharge"]
+        roomPrice <- map["roomPrice"]
+        totalRoomPrice <- map["totalRoomPrice"]
+        totalWaterPrice <- map["totalWaterPrice"]
+        totalElectricPrice <- map["totalElectricPrice"]
+        internetPrice <- map["internetPrice"]
+        timestamp <- map["timestamp"]
     }
 }
 

@@ -85,6 +85,9 @@
 		E16F5B2E207B84D900B284A5 /* ChangePasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E16F5B2C207B84D900B284A5 /* ChangePasswordViewController.xib */; };
 		E16F5B31207BD35A00B284A5 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B30207BD35A00B284A5 /* Controller.swift */; };
 		E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16F5B32207BDD0700B284A5 /* Strings.swift */; };
+		E18040D320D267ED007C61D0 /* TestLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18040D120D267ED007C61D0 /* TestLoginViewController.swift */; };
+		E18040D420D267ED007C61D0 /* TestLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E18040D220D267ED007C61D0 /* TestLoginViewController.xib */; };
+		E18040D820D26C75007C61D0 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18040D720D26C75007C61D0 /* LoginCoordinator.swift */; };
 		E180A137208A074F00EBCE52 /* NotificationListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E180A135208A074F00EBCE52 /* NotificationListTableViewCell.swift */; };
 		E180A138208A074F00EBCE52 /* NotificationListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E180A136208A074F00EBCE52 /* NotificationListTableViewCell.xib */; };
 		E18D5AA820C3B7A60021BA48 /* FeedBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18D5AA620C3B7A60021BA48 /* FeedBackViewController.swift */; };
@@ -114,7 +117,6 @@
 		E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */; };
 		E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1CDE6962067898C005715EC /* ForgotPasswordViewController.xib */; };
 		E1E6D60220A02B1A0014C1C4 /* UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6D60120A02B1A0014C1C4 /* UserType.swift */; };
-		E1E6D60F20A03B6E0014C1C4 /* SavedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6D60E20A03B6E0014C1C4 /* SavedPost.swift */; };
 		E1E6D61320A319D50014C1C4 /* EditBillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6D61120A319D50014C1C4 /* EditBillViewController.swift */; };
 		E1E6D61420A319D50014C1C4 /* EditBillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E6D61220A319D50014C1C4 /* EditBillViewController.xib */; };
 		E1EE3B4620B53B2C00530564 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1EE3B4520B53B2C00530564 /* Main.storyboard */; };
@@ -201,6 +203,9 @@
 		E16F5B2C207B84D900B284A5 /* ChangePasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangePasswordViewController.xib; sourceTree = "<group>"; };
 		E16F5B30207BD35A00B284A5 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
 		E16F5B32207BDD0700B284A5 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		E18040D120D267ED007C61D0 /* TestLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestLoginViewController.swift; sourceTree = "<group>"; };
+		E18040D220D267ED007C61D0 /* TestLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestLoginViewController.xib; sourceTree = "<group>"; };
+		E18040D720D26C75007C61D0 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		E180A135208A074F00EBCE52 /* NotificationListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListTableViewCell.swift; sourceTree = "<group>"; };
 		E180A136208A074F00EBCE52 /* NotificationListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationListTableViewCell.xib; sourceTree = "<group>"; };
 		E18D5AA620C3B7A60021BA48 /* FeedBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedBackViewController.swift; sourceTree = "<group>"; };
@@ -232,7 +237,6 @@
 		E1CDE6952067898C005715EC /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		E1CDE6962067898C005715EC /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		E1E6D60120A02B1A0014C1C4 /* UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserType.swift; sourceTree = "<group>"; };
-		E1E6D60E20A03B6E0014C1C4 /* SavedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedPost.swift; sourceTree = "<group>"; };
 		E1E6D61120A319D50014C1C4 /* EditBillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBillViewController.swift; sourceTree = "<group>"; };
 		E1E6D61220A319D50014C1C4 /* EditBillViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditBillViewController.xib; sourceTree = "<group>"; };
 		E1EE3B4520B53B2C00530564 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -266,6 +270,9 @@
 				145C11FD2075F37E00AB11F3 /* RoomManagementViewController.xib */,
 				145C12042075FF5300AB11F3 /* ListRoomsTableViewCell.swift */,
 				145C12052075FF5300AB11F3 /* ListRoomsTableViewCell.xib */,
+				E1BD102B20766C1100287982 /* CreateRoomViewController */,
+				E1507BA4207D194900387527 /* EditRoomViewController */,
+				E1507BAE207DDA7300387527 /* CalculateRoomPriceViewController */,
 			);
 			path = RoomManagementViewController;
 			sourceTree = "<group>";
@@ -314,6 +321,31 @@
 				E104666D20708FF400245789 /* TutorialViewController.xib */,
 			);
 			path = TutorialViewController;
+			sourceTree = "<group>";
+		};
+		E12528E620D205560044857B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E1507BBA207F59E000387527 /* SettingViewController */,
+				E19CBCA52088813D00A310D3 /* BillManagementViewController */,
+				E10112C7209199A8004ACA0D /* SearchViewController */,
+				E14F2C2120960BD10034BE8E /* MyRoomsViewController */,
+				145C11FB2075F34800AB11F3 /* RoomManagementViewController */,
+				E16F5B18207B696500B284A5 /* AccountViewController */,
+				E198DC182081829000E59BD2 /* HomeViewController */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E12528E820D205C30044857B /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				E1507B9F207D18FB00387527 /* DetailRoomViewController */,
+				E14C41402074D0EB003571E8 /* DetailNewsViewController */,
+				E1954473208A0E84004F0D17 /* DetailBillViewController */,
+				E14804F92089F8E700C67D43 /* DetailNotificationViewController */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		E12701572093370B00663611 /* GoogleMapViewController */ = {
@@ -455,6 +487,11 @@
 				E1507BBC207F59F300387527 /* SettingViewController.xib */,
 				E16F5B1D207B69AE00B284A5 /* AccountOptionTableViewCell.swift */,
 				E16F5B1E207B69AE00B284A5 /* AccountOptionTableViewCell.xib */,
+				E16D065920C006C2004E9CCA /* SavedNewsViewController */,
+				E18D5AA520C3B78F0021BA48 /* FeedBackViewController */,
+				E16F5B21207B7D5E00B284A5 /* ChangeEmailViewController */,
+				E16F5B22207B7D6900B284A5 /* ChangePasswordViewController */,
+				E10112CC2091C2BA004ACA0D /* UpdateInfoViewController */,
 			);
 			path = SettingViewController;
 			sourceTree = "<group>";
@@ -511,6 +548,8 @@
 			children = (
 				E16F5B19207B698E00B284A5 /* AccountViewController.swift */,
 				E16F5B1A207B698E00B284A5 /* AccountViewController.xib */,
+				E1507BA9207D198C00387527 /* NewPostViewController */,
+				E198DC272082F69200E59BD2 /* EditPostViewController */,
 			);
 			path = AccountViewController;
 			sourceTree = "<group>";
@@ -624,6 +663,7 @@
 				E19CBCA72088818600A310D3 /* BillManagementViewController.xib */,
 				E1397D84208AC7CC0050C86D /* ListBillTableViewCell.swift */,
 				E1397D85208AC7CC0050C86D /* ListBillTableViewCell.xib */,
+				E1E6D61020A319B60014C1C4 /* EditBillViewController */,
 			);
 			path = BillManagementViewController;
 			sourceTree = "<group>";
@@ -633,6 +673,9 @@
 			children = (
 				E1A621D02070D23100B83291 /* TestViewController.swift */,
 				E1A621D12070D23100B83291 /* TestViewController.xib */,
+				E18040D120D267ED007C61D0 /* TestLoginViewController.swift */,
+				E18040D220D267ED007C61D0 /* TestLoginViewController.xib */,
+				E18040D720D26C75007C61D0 /* LoginCoordinator.swift */,
 			);
 			path = TestViewController;
 			sourceTree = "<group>";
@@ -646,7 +689,6 @@
 				E1507BBF2080972500387527 /* News.swift */,
 				E1397D8A208AEF960050C86D /* Bill.swift */,
 				E1397D8C208AF1230050C86D /* Notification.swift */,
-				E1E6D60E20A03B6E0014C1C4 /* SavedPost.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -672,32 +714,12 @@
 		E1E7D1F72071C7D300874EB2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E18D5AA520C3B78F0021BA48 /* FeedBackViewController */,
-				E16D065920C006C2004E9CCA /* SavedNewsViewController */,
-				E1E6D61020A319B60014C1C4 /* EditBillViewController */,
+				E12528E820D205C30044857B /* Details */,
+				E12528E620D205560044857B /* Home */,
 				CE5FF78820766EB1005BEA3B /* MainViewController */,
-				E198DC182081829000E59BD2 /* HomeViewController */,
-				E1507BBA207F59E000387527 /* SettingViewController */,
 				E12701572093370B00663611 /* GoogleMapViewController */,
-				E10112C7209199A8004ACA0D /* SearchViewController */,
 				E16BD8B2208DC07200DD00B7 /* NavigationViewController */,
-				E14F2C2120960BD10034BE8E /* MyRoomsViewController */,
 				E14804FA2089F8EA00C67D43 /* NotificationListViewController */,
-				E16F5B18207B696500B284A5 /* AccountViewController */,
-				145C11FB2075F34800AB11F3 /* RoomManagementViewController */,
-				E19CBCA52088813D00A310D3 /* BillManagementViewController */,
-				E14804F92089F8E700C67D43 /* DetailNotificationViewController */,
-				E1954473208A0E84004F0D17 /* DetailBillViewController */,
-				E14C41402074D0EB003571E8 /* DetailNewsViewController */,
-				E1507B9F207D18FB00387527 /* DetailRoomViewController */,
-				E10112CC2091C2BA004ACA0D /* UpdateInfoViewController */,
-				E16F5B22207B7D6900B284A5 /* ChangePasswordViewController */,
-				E16F5B21207B7D5E00B284A5 /* ChangeEmailViewController */,
-				E198DC272082F69200E59BD2 /* EditPostViewController */,
-				E1507BA4207D194900387527 /* EditRoomViewController */,
-				E1507BAE207DDA7300387527 /* CalculateRoomPriceViewController */,
-				E1507BA9207D198C00387527 /* NewPostViewController */,
-				E1BD102B20766C1100287982 /* CreateRoomViewController */,
 				E14804F42089F8CE00C67D43 /* CreateNotificationViewController */,
 				E153317B2068E19B00238763 /* SignUpViewController */,
 				E153317A2068E19000238763 /* LoginViewController */,
@@ -785,6 +807,7 @@
 			files = (
 				E16F5B20207B69AE00B284A5 /* AccountOptionTableViewCell.xib in Resources */,
 				E1CDE6982067898C005715EC /* ForgotPasswordViewController.xib in Resources */,
+				E18040D420D267ED007C61D0 /* TestLoginViewController.xib in Resources */,
 				E1EE3B4620B53B2C00530564 /* Main.storyboard in Resources */,
 				E1954477208A0EA3004F0D17 /* DetailBillViewController.xib in Resources */,
 				E198DC222081829000E59BD2 /* ListNewsTableViewCell.xib in Resources */,
@@ -844,20 +867,27 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BSGridCollectionViewLayout/BSGridCollectionViewLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GeoFire/GeoFire.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ILLoginKit/ILLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeBack/SwipeBack.framework",
 				"${BUILT_PRODUCTS_DIR}/TBDropdownMenu/TBDropdownMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/TwicketSegmentedControl/TwicketSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.framework",
+				"${BUILT_PRODUCTS_DIR}/Validator/Validator.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -866,20 +896,27 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSGridCollectionViewLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GeoFire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ILLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeBack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TBDropdownMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwicketSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageViewModeScaleAspect.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Validator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -960,7 +997,6 @@
 				E142E34B20B16DC2009B0507 /* UIImageConvertible.swift in Sources */,
 				E16F5B33207BDD0700B284A5 /* Strings.swift in Sources */,
 				E142E34120B16DC2009B0507 /* HasAnimatablePath.swift in Sources */,
-				E1E6D60F20A03B6E0014C1C4 /* SavedPost.swift in Sources */,
 				E1397D8B208AEF960050C86D /* Bill.swift in Sources */,
 				E1507BC02080972500387527 /* News.swift in Sources */,
 				E198DC1E2081829000E59BD2 /* ListNewsTableViewCell.swift in Sources */,
@@ -969,6 +1005,7 @@
 				145C11FE2075F37E00AB11F3 /* RoomManagementViewController.swift in Sources */,
 				E1CDE6972067898C005715EC /* ForgotPasswordViewController.swift in Sources */,
 				E18F072D20674C2200281432 /* SignUpViewController.swift in Sources */,
+				E18040D320D267ED007C61D0 /* TestLoginViewController.swift in Sources */,
 				E142E34620B16DC2009B0507 /* NativePopup.swift in Sources */,
 				E16F5B1F207B69AE00B284A5 /* AccountOptionTableViewCell.swift in Sources */,
 				E14804F72089F8DA00C67D43 /* CreateNotificationViewController.swift in Sources */,
@@ -979,6 +1016,7 @@
 				E142E34520B16DC2009B0507 /* InitialEffectType.swift in Sources */,
 				E142E34020B16DC2009B0507 /* AnimatableCrossView.swift in Sources */,
 				E142E34820B16DC2009B0507 /* UIImage.extension.swift in Sources */,
+				E18040D820D26C75007C61D0 /* LoginCoordinator.swift in Sources */,
 				E1397D86208AC7CC0050C86D /* ListBillTableViewCell.swift in Sources */,
 				E1507BAC207D19A200387527 /* NewPostViewController.swift in Sources */,
 				E10112CA209199CA004ACA0D /* SearchViewController.swift in Sources */,

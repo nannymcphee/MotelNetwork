@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class News {
+class News: Mappable {
+    
     var id: String?
     var ownerID: String?
     var title: String?
@@ -23,10 +25,10 @@ class News {
     var lat: String?
     var long: String?
     var usersAllowed: String?
-    var price: Double?
-    var electricPrice: Double?
-    var waterPrice: Double?
-    var internetPrice: Double?
+    var price: String?
+    var electricPrice: String?
+    var waterPrice: String?
+    var internetPrice: String?
     var views: Int?
     var timestamp: Int?
     var timestampEdit: Int?
@@ -34,7 +36,7 @@ class News {
     init() {
     }
     
-    init(id: String, title: String, area: String, address: String, postImageUrl0: String, postImageUrl1: String, postImageUrl2: String, ownerID: String, district: String, description: String, phoneNumber: String, timestamp: Int, lat: String, long: String, usersAllowed: String, price: Double, electricPrice: Double, waterPrice: Double, internetPrice: Double, views: Int, timestampEdit: Int) {
+    init(id: String, title: String, area: String, address: String, postImageUrl0: String, postImageUrl1: String, postImageUrl2: String, ownerID: String, district: String, description: String, phoneNumber: String, timestamp: Int, lat: String, long: String, usersAllowed: String, price: String, electricPrice: String, waterPrice: String, internetPrice: String, views: Int, timestampEdit: Int) {
         
         self.id = id
         self.title = title
@@ -63,10 +65,10 @@ class News {
         self.id = dictionary["id"] as? String
         self.title = dictionary["title"] as? String
         self.area = dictionary["area"] as? String
-        self.price = dictionary["price"] as? Double
-        self.electricPrice = dictionary["electricPrice"] as? Double
-        self.waterPrice = dictionary["waterPrice"] as? Double
-        self.internetPrice = dictionary["internetPrice"] as? Double
+        self.price = dictionary["price"] as? String
+        self.electricPrice = dictionary["electricPrice"] as? String
+        self.waterPrice = dictionary["waterPrice"] as? String
+        self.internetPrice = dictionary["internetPrice"] as? String
         self.ownerID = dictionary["ownerID"] as? String
         self.postImageUrl0 = dictionary["postImageUrl0"] as? String
         self.postImageUrl1 = dictionary["postImageUrl1"] as? String
@@ -83,4 +85,31 @@ class News {
         self.timestampEdit = dictionary["timestampEdit"] as? Int
     }
     
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        title <- map["title"]
+        area <- map["area"]
+        price <- map["price"]
+        electricPrice <- map["electricPrice"]
+        internetPrice <- map["internetPrice"]
+        waterPrice <- map["waterPrice"]
+        ownerID <- map["ownerID"]
+        postImageUrl0 <- map["postImageUrl0"]
+        postImageUrl1 <- map["postImageUrl1"]
+        postImageUrl2 <- map["postImageUrl2"]
+        description <- map["description"]
+        district <- map["district"]
+        address <- map["address"]
+        phoneNumber <- map["phoneNumber"]
+        timestamp <- map["timestamp"]
+        lat <- map["lat"]
+        long <- map["long"]
+        usersAllowed <- map["usersAllowed"]
+        views <- map["views"]
+        timestampEdit <- map["timestampEdit"]
+    }
 }

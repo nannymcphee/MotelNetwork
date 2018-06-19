@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class User {
+class User: Mappable {
+    
     var id: String?
     var name: String?
     var email: String?
@@ -42,5 +44,20 @@ class User {
         self.cmnd = dictionary["cmnd"] as? String
         self.phoneNumber = dictionary["phoneNumber"] as? String
         self.userType = dictionary["userType"] as? Int
+    }
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        name <- map["FullName"]
+        email <- map["Email"]
+        profileImageUrl <- map["ProfileImageUrl"]
+        birthDay <- map["BirthDay"]
+        cmnd <- map["CMND"]
+        phoneNumber <- map["PhoneNumber"]
+        userType <- map["UserType"]
     }
 }

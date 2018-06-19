@@ -32,6 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        GMSServices.provideAPIKey(API_KEY)
         directionsAPI = PXGoogleDirections(apiKey: API_KEY)
         FirebaseApp.configure()
+        Database.database().isPersistenceEnabled = true
         checkAuthStatus()
         
         return true

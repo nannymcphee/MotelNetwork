@@ -1,9 +1,20 @@
 PODS:
   - Alamofire (4.7.2)
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts-Swift (1.3.0)
+  - Bolts/AppLinks (1.9.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.9.0)
   - BSGridCollectionViewLayout (1.2.0)
   - BSImagePicker (2.7.1):
     - BSGridCollectionViewLayout (~> 1.2.0)
     - UIImageViewModeScaleAspect (= 1.5)
+  - FBSDKCoreKit (4.33.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.31.0):
+    - FBSDKCoreKit
   - Firebase/Auth (4.13.0):
     - Firebase/Core
     - FirebaseAuth (= 4.6.1)
@@ -51,6 +62,9 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.4)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.4)
   - GTMSessionFetcher/Core (1.1.15)
+  - ILLoginKit (1.0.1):
+    - FBSDKLoginKit (= 4.31.0)
+    - Validator (= 3.0.2)
   - ImageSlideshow (1.5.3):
     - ImageSlideshow/Core (= 1.5.3)
   - ImageSlideshow/Core (1.5.3)
@@ -69,15 +83,18 @@ PODS:
   - NVActivityIndicatorView (4.2.0):
     - NVActivityIndicatorView/Presenter (= 4.2.0)
   - NVActivityIndicatorView/Presenter (4.2.0)
+  - ObjectMapper (3.2.0)
   - PXGoogleDirections (1.5.1)
   - SwiftyJSON (4.1.0)
   - SwipeBack (1.1.1)
   - TBDropdownMenu (3.0.1)
   - TwicketSegmentedControl (0.1.2)
   - UIImageViewModeScaleAspect (1.5)
+  - Validator (3.0.2)
 
 DEPENDENCIES:
   - Alamofire
+  - Bolts-Swift (from `https://github.com/BoltsFramework/Bolts-Swift`, commit `e9baa72d04521c3b25ef4fa6fef12b340953ee02`)
   - BSImagePicker
   - Firebase/Auth
   - Firebase/Core
@@ -85,12 +102,14 @@ DEPENDENCIES:
   - Firebase/Storage
   - Floaty (~> 4.0.0)
   - GeoFire (from `https://github.com/firebase/geofire-objc.git`)
+  - ILLoginKit
   - ImageSlideshow (~> 1.5)
   - ImageSlideshow/Kingfisher
   - IQKeyboardManagerSwift
   - Kingfisher (~> 4.0)
   - MXParallaxHeader
   - NVActivityIndicatorView
+  - ObjectMapper
   - PXGoogleDirections
   - SwiftyJSON
   - SwipeBack (~> 1.1)
@@ -98,18 +117,28 @@ DEPENDENCIES:
   - TwicketSegmentedControl
 
 EXTERNAL SOURCES:
+  Bolts-Swift:
+    :commit: e9baa72d04521c3b25ef4fa6fef12b340953ee02
+    :git: https://github.com/BoltsFramework/Bolts-Swift
   GeoFire:
     :git: https://github.com/firebase/geofire-objc.git
 
 CHECKOUT OPTIONS:
+  Bolts-Swift:
+    :commit: e9baa72d04521c3b25ef4fa6fef12b340953ee02
+    :git: https://github.com/BoltsFramework/Bolts-Swift
   GeoFire:
     :commit: dc408bcd4268cc5ec8831cda0000c23863767d42
     :git: https://github.com/firebase/geofire-objc.git
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Bolts-Swift: fa98d1b59fc1acea9b21a21306dcdca1c85e3737
   BSGridCollectionViewLayout: 8f12c8e1e08c47057f5a39a6828f4395f043d78f
   BSImagePicker: eb12948a6e71b9855c2c37723dfd989b9b4288bd
+  FBSDKCoreKit: 572b047a7e029bc44542bcf8a59414e7ff2b543e
+  FBSDKLoginKit: 95a252ddffd6919c0f132a02292f0824616d8709
   Firebase: 5ec5e863d269d82d66b4bf56856726f8fb8f0fb3
   FirebaseAnalytics: 7ef69e76a5142f643aeb47c780e1cdce4e23632e
   FirebaseAuth: bf22cacf22c60ab454bf2636f556d8892b10b53f
@@ -121,6 +150,7 @@ SPEC CHECKSUMS:
   GeoFire: 3e70a24019dc16816190f533c9cac0d1321c4a71
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
+  ILLoginKit: 6f717fa907114986b6914d1502bf8bd40b3720e5
   ImageSlideshow: 24a1184909f589379ba2527ebcc77996881bb1f2
   IQKeyboardManagerSwift: 59d4b0e140bc546c3c76ae5bb35b3dafd10b8172
   Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
@@ -128,13 +158,15 @@ SPEC CHECKSUMS:
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   NVActivityIndicatorView: 75c9634073e03b31d7e2748cd2417feab1206195
+  ObjectMapper: 5cccd2de6f253eda859df8116a5a554d9769e859
   PXGoogleDirections: 7de8f72599b9f1fe2ecb48aad4e61dab30489ea5
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   SwipeBack: d6759601b40da1f4161033feb30ab475d7d04322
   TBDropdownMenu: 249cd68a53289c32c600a292c568428d4f5cd613
   TwicketSegmentedControl: 6d7a4cf243657e0ac3f00d06d873a25334c04042
   UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
+  Validator: bf211c1d71b3f910d230c09c70e62429d0fef63a
 
-PODFILE CHECKSUM: 7c3647452f91af9cc72b21396ef18cf097783306
+PODFILE CHECKSUM: ba4f7af6dd03b98ddc23716e0ba341d8821ae20f
 
 COCOAPODS: 1.4.0

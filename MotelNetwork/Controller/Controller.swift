@@ -48,12 +48,13 @@ extension UIViewController {
         
         do {
             try Auth.auth().signOut()
+            
+            let vc = LoginViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         } catch let error {
             print(error)
         }
-        
-        let vc = LoginViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     //MARK: Make button and ImageView rounded
@@ -387,6 +388,30 @@ extension UITableView {
             let indexPath = IndexPath(row: 0, section: 0)
             self.scrollToRow(at: indexPath, at: UITableViewScrollPosition.bottom, animated: animated)
         }
+    }
+}
+
+extension UITableViewCell {
+    func makeButtonRounded(button: UIButton) {
+        button.layer.cornerRadius = button.frame.height / 2.0
+        button.clipsToBounds = true
+    }
+    
+    func makeImageViewRounded(imageView: UIImageView) {
+        imageView.layer.cornerRadius = imageView.frame.width / 2.0
+        imageView.clipsToBounds = true
+    }
+    
+    func makeViewRounded(view: UIView) {
+        view.layer.cornerRadius = view.frame.width / 2.0
+        view.clipsToBounds = true
+    }
+    
+    func customContentViewBorder(view: UIView, borderWidth: CGFloat, cornerRadius: CGFloat, borderColor: CGColor) {
+        view.layer.borderColor = borderColor
+        view.layer.borderWidth = borderWidth
+        view.layer.cornerRadius = cornerRadius
+        view.clipsToBounds = true
     }
 }
 

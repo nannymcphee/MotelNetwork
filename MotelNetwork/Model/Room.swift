@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class Room {
+class Room: Mappable {
+    
     var id: String?
     var ownerID: String?
     var renterID: String?
@@ -42,7 +44,7 @@ class Room {
     }
     
     init(dictionary: [String: AnyObject]) {
-        self.id = dictionary["roomID"] as? String
+        self.id = dictionary["id"] as? String
         self.renterID = dictionary["renterID"] as? String
         self.ownerID = dictionary["ownerID"] as? String
         self.name = dictionary["name"] as? String
@@ -56,4 +58,22 @@ class Room {
         self.address = dictionary["address"] as? String
     }
     
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        id <- map["id"]
+        address <- map["address"]
+        area <- map["area"]
+        ownerID <- map["ownerID"]
+        price <- map["price"]
+        renterID <- map["renterID"]
+        renterName <- map["renterName"]
+        roomImageUrl0 <- map["roomImageUrl0"]
+        roomImageUrl1 <- map["roomImageUrl1"]
+        roomImageUrl2 <- map["roomImageUrl2"]
+        name <- map["roomName"]
+        usersAllowed <- map["usersAllowed"]
+    }
 }
