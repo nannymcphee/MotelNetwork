@@ -73,7 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         else {
 
-            rootViewControler = HomeViewController()
+            rootViewControler = MainViewController()
             (UIApplication.shared.delegate as! AppDelegate).navigationController = UINavigationController(rootViewController: rootViewControler!)
             window = UIWindow(frame: UIScreen.main.bounds)
             window?.rootViewController = navigationController

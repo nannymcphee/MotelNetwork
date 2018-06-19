@@ -247,7 +247,7 @@ UIGestureRecognizerDelegate, NVActivityIndicatorViewable, TwicketSegmentedContro
         for news in self.listNearMeTemp {
             let lat = news.lat?.toDouble
             let long = news.long?.toDouble
-            let location = CLLocation(latitude: lat!, longitude: long!)
+            let location = CLLocation(latitude: lat ?? 0, longitude: long ?? 0)
             var distance: CLLocationDistance = 0
             
             distance = (self.currentLocation?.distance(from: location))!
