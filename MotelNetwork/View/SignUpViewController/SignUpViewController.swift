@@ -141,6 +141,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                 storeImage.downloadURL(completion: { (url, error) in
                     if let urlText = url?.absoluteString {
                         
+                        strURL = urlText
                         completion(strURL)
                     }
                 })
@@ -193,7 +194,7 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         let userBirthDay = self.tfBirthDay.text!
         let userPhoneNumber = self.tfPhoneNumber.text!
         let userType = self.pvUserType.selectedRow(inComponent: 0)
-        let timestamp = Int(NSDate().timeIntervalSince1970)
+//        let timestamp = Int(NSDate().timeIntervalSince1970)
         
         // Check if user has entered all informations
         if userFullName.isEmpty || userEmail.isEmpty || userPassword.isEmpty || userCMND.isEmpty || userBirthDay.isEmpty || userPhoneNumber.isEmpty {
@@ -233,24 +234,28 @@ class SignUpViewController: UIViewController, UIPickerViewDelegate, UIPickerView
                     
                     let reference = Database.database().reference().child("Users").child(uid)
                     
-                    // Store user's info to database
-                    
-                    let values = ["FullName": userFullName, "Email": userEmail, "CMND": userCMND, "BirthDay": userBirthDay, "UserType": userType, "ProfileImageUrl": "", "PhoneNumber": userPhoneNumber, "TimeStamp": timestamp] as [String : AnyObject]
-                    
-                    self.storeInformationToDatabase(reference: reference, values: values as [String : AnyObject])
-                    
                     // Upload image to Firebase storage and update download url into database
                     
                     _ = self.uploadImageFromImageView(imageView: self.ivProfilePicture) { (url) in
-                        self.storeInformationToDatabase(reference: reference, values: ["ProfileImageUrl": url as AnyObject])
+                        let user = User()
+                        
+                        user.email = userEmail
+                        user.name = userFullName
+                        user.cmnd = userCMND
+                        user.birthDay = userBirthDay
+                        user.phoneNumber = userPhoneNumber
+                        user.userType = userType
+                        user.profileImageUrl = url
+                        
+                        let values = user.toJSON() as [String: AnyObject]
+                        
+                        self.storeInformationToDatabase(reference: reference, values: values)
                     }
                     
                     self.showLoading()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                         self.stopLoading()
-                        NativePopup.show(image: Preset.Feedback.done, title: messageSignUpSuccess, message: nil, duration: 2, initialEffectType: .fadeIn)
                         self.resetView()
-
                     })
                 }
             }

@@ -11,6 +11,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import SwipeBack
 import Kingfisher
+import ObjectMapper
 
 class SettingViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -21,6 +22,7 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tbAccountOptionList: UITableView!
     
     var dbReference: DatabaseReference!
+    var currentUser = User()
     let optionImages : [UIImage] = [#imageLiteral(resourceName: "icEmail"), #imageLiteral(resourceName: "icPassword"), #imageLiteral(resourceName: "icInfo-1"), #imageLiteral(resourceName: "icBookMarkColor"), #imageLiteral(resourceName: "icFeedBack")]
     
     override func viewDidLoad() {
@@ -52,14 +54,21 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
         dbReference.child("Users").child(uid!).observe(.value) { (snapshot) in
             
             // Get user value
-            let value = snapshot.value as! NSDictionary
-            let userName = value["FullName"] as? String ?? ""
-            let profileImageUrl = value["ProfileImageUrl"] as? String ?? ""
-            let email = value["Email"] as? String ?? ""
+            if let json = snapshot.value as? [String: AnyObject] {
+                var user = User()
+                
+                user = Mapper<User>().map(JSON: json) ?? User()
+                
+                self.currentUser = user
+            }
+//            let value = snapshot.value as? NSDictionary
+//            let userName = value["FullName"] as? String ?? ""
+//            let profileImageUrl = value["ProfileImageUrl"] as? String ?? ""
+//            let email = value["Email"] as? String ?? ""
             
-            self.lblFullName.text = userName
-            self.lblEmail.text = email
-            self.loadImageToImageView(imageUrl: profileImageUrl, imageView: self.ivAvatar)
+            self.lblFullName.text = self.currentUser.name
+            self.lblEmail.text = self.currentUser.email
+            self.loadImageToImageView(imageUrl: self.currentUser.profileImageUrl ?? "", imageView: self.ivAvatar)
         }
         
         makeImageViewRounded(imageView: ivAvatar)
