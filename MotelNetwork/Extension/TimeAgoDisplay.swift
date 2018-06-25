@@ -23,7 +23,6 @@ extension Date {
         let week = 7 * day
         
         if secondsAgo < minute {
-//            return "\(secondsAgo) giây trước"
             return "Vừa xong"
         }
         else if secondsAgo < hour {

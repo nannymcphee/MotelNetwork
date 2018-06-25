@@ -28,5 +28,6 @@ target 'Motel Network' do
     	pod 'MXParallaxHeader'
         pod 'ObjectMapper'
         pod 'Bolts-Swift', :git => 'https://github.com/BoltsFramework/Bolts-Swift', :commit => 'e9baa72d04521c3b25ef4fa6fef12b340953ee02'
-        pod 'ILLoginKit'
+        pod 'AMScrollingNavbar'
+
 end
